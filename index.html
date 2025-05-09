@@ -1,0 +1,180 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>הספרייה היהודו-נוצרית האפוקריפית</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Cardo', Georgia, serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #f0e6d3;
+            padding: 1rem;
+            text-align: right;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #4a235a;
+            margin-bottom: 0.75rem;
+            text-align: right;
+        }
+        h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center;
+            border-bottom: 2px solid #4a235a;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            border-bottom: 1px dashed #ccc;
+            padding-bottom: 0.5rem;
+        }
+        ul {
+            list-style: disc inside;
+            padding-left: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        li {
+            margin-bottom: 1rem; /* Increased spacing */
+        }
+        a {
+            color: #0d47a1;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        nav {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        nav a {
+            margin: 0 1rem;
+        }
+        .tags {
+            color: #5a3e36;
+            font-size: 0.875rem;
+        }
+    </style>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K5QFN78FT3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-K5QFN78FT3');
+    </script>
+</head>
+<body class="p-4">
+    <div class="container mx-auto bg-white p-6 rounded-lg shadow-md">
+        <nav>
+            <a href="#">דף הבית</a> |
+            <a href="#">אודות</a> |
+            <a href="#">צור קשר</a>
+        </nav>
+        <h1 class="text-4xl font-bold text-center mb-8">הספרייה היהודו-נוצרית האפוקריפית</h1>
+        <section id="introduction" class="section-content">
+            <h2 class="text-2xl font-semibold">ברוכים הבאים לספרייה</h2>
+            <p class="mb-4">
+                ספרייה זו מרכזת כתבים עתיקים בעלי שורשים שמיים, עם דגש על שחזורים מוצעים, תרגומים וביאורים. מטרתנו היא להאיר את הרקע התרבותי, ההיסטורי והתאולוגי של כתבים אלו, ולספק פלטפורמה ללימוד ודיון.
+            </p>
+            <p>
+                אנו מזמינים אתכם לחקור את הטקסטים השונים הזמינים בספרייה:
+            </p>
+        </section>
+        <section id="texts-list" class="section-content">
+            <h2 class="text-2xl font-semibold">כתבים בספרייה</h2>
+            <ul>
+                <li>
+                    <a href="./codex-bezae-luke/index.html">
+                        שחזור מקור עברי-ארמי וביאור - הבשורה על פי לוקס (מהדורת בזא)
+                    </a>
+                    <p class="text-sm text-gray-600 mt-1">
+                        שחזור מוצע וביאור לפסוקים נבחרים מתוך הבשורה על פי לוקס, על בסיס המאפיינים הייחודיים של קודקס בזא.
+                    </p>
+                    <p class="tags">תגיות: נצרות מוקדמת, כתב יד, לוקס</p>
+                </li>
+                <li>
+                    <a href="./aramaic-apocrypha-text1/index.html">
+                        [שם הטקסט הארמי האפוקריפי]
+                    </a>
+                    <p class="text-sm text-gray-600 mt-1">
+                        תרגום וביאור לטקסט אפוקריפי ארמי עתיק.
+                    </p>
+                    <p class="tags">תגיות: ארמית, אפוקריפה</p>
+                </li>
+                <li>
+                    <a href="./future-text/index.html">
+                        [שם טקסט עתידי]
+                    </a>
+                    <p class="text-sm text-gray-600 mt-1">
+                        תיאור קצר של טקסט או פרויקט עתידי.
+                    </p>
+                    <p class="tags">תגיות: עתידי</p>
+                </li>
+            </ul>
+        </section>
+        <section id="about-library" class="section-content">
+            <h2 class="text-2xl font-semibold">אודות הספרייה</h2>
+            <p>
+                [כאן תוכל להוסיף מידע כללי על הפרויקט, המטרות, הצוות (אם יש), וכו']
+            </p>
+        </section>
+    </div>
+</body>
+</html>
