@@ -1,43 +1,4 @@
-<script type="text/javascript">
-        var gk_isXlsx = false;
-        var gk_xlsxFileLookup = {};
-        var gk_fileData = {};
-        function filledCell(cell) {
-          return cell !== '' && cell != null;
-        }
-        function loadFileData(filename) {
-        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
-            try {
-                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
-                var firstSheetName = workbook.SheetNames[0];
-                var worksheet = workbook.Sheets[firstSheetName];
-
-                // Convert sheet to JSON to filter blank rows
-                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
-                // Filter out blank rows (rows where all cells are empty, null, or undefined)
-                var filteredData = jsonData.filter(row => row.some(filledCell));
-
-                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
-                var headerRowIndex = filteredData.findIndex((row, index) =>
-                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
-                );
-                // Fallback
-                if (headerRowIndex === -1 || headerRowIndex > 25) {
-                  headerRowIndex = 0;
-                }
-
-                // Convert filtered JSON back to CSV
-                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
-                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
-                return csv;
-            } catch (e) {
-                console.error(e);
-                return "";
-            }
-        }
-        return gk_fileData[filename] || "";
-        }
-        </script><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -90,15 +51,19 @@
             margin-bottom: 1rem;
         }
         li {
-            margin-bottom: 1rem; /* Increased spacing */
+            margin-bottom: 1rem;
         }
         a {
             color: #0d47a1;
             text-decoration: none;
             font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
         }
         a:hover {
-            text-decoration: underline;
+            background-color: #f0e8e0;
+            text-decoration: none;
         }
         nav {
             text-align: center;
@@ -106,10 +71,38 @@
         }
         nav a {
             margin: 0 1rem;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: #f0e8e0;
         }
         .tags {
             color: #5a3e36;
             font-size: 0.875rem;
+        }
+        .intro-image {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .intro-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .back-to-top {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .back-to-top a {
+            color: #4a235a;
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+        .back-to-top a:hover {
+            text-decoration: underline;
         }
     </style>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-K5QFN78FT3"></script>
@@ -121,12 +114,17 @@
     </script>
 </head>
 <body class="p-4">
-    <div class="container mx-auto bg-white p-6 rounded-lg shadow-md">
+    <div class="container mx-auto bg-white p-6 rounded-lg shadow-md" id="top">
         <nav>
             <a href="#">דף הבית</a> |
             <a href="#">אודות</a> |
             <a href="#">צור קשר</a>
+            <!-- הערה: אנא עדכן את קישורי הניווט עם URL-ים אמיתיים -->
         </nav>
+        <div class="intro-image">
+            <img src="https://via.placeholder.com/800x200?text=כתב+יד+עתיק" alt="כתב יד עתיק">
+            <!-- הערה: אנא החלף בתמונה של כתב יד סורי או איור מתאים -->
+        </div>
         <h1 class="text-4xl font-bold text-center mb-8">הספרייה היהודו-נוצרית האפוקריפית</h1>
         <section id="introduction" class="section-content">
             <h2 class="text-2xl font-semibold">ברוכים הבאים לספרייה</h2>
@@ -150,17 +148,17 @@
                     <p class="tags">תגיות: נצרות מוקדמת, כתב יד, לוקס</p>
                 </li>
                 <li>
-                    <a href="./aramaic-apocrypha-text1/index.html">
-                        [שם הטקסט הארמי האפוקריפי]
+                    <a href="./cave_of_treasures_homepage.html">
+                        מערת האוצרות
                     </a>
                     <p class="text-sm text-gray-600 mt-1">
-                        תרגום וביאור לטקסט אפוקריפי ארמי עתיק.
+                        תרגום לעברית בסגנון עתיק וביאורים לטקסט נוצרי-סורי מהמאה ה-4, המיוחס לאפרים הסורי, המתאר את סיפור הבריאה ואירועי התנ"ך.
                     </p>
-                    <p class="tags">תגיות: ארמית, אפוקריפה</p>
+                    <p class="tags">תגיות: ארמית, נצרות סורית, בריאה</p>
                 </li>
                 <li>
                     <a href="./future-text/index.html">
-                        [שם טקסט עתידי]
+                        טקסט עתידי
                     </a>
                     <p class="text-sm text-gray-600 mt-1">
                         תיאור קצר של טקסט או פרויקט עתידי.
@@ -172,9 +170,13 @@
         <section id="about-library" class="section-content">
             <h2 class="text-2xl font-semibold">אודות הספרייה</h2>
             <p>
-                [כאן תוכל להוסיף מידע כללי על הפרויקט, המטרות, הצוות (אם יש), וכו']
+                הספרייה היהודו-נוצרית האפוקריפית היא פרויקט מחקרי וחינוכי שנועד לשמר ולהנגיש כתבים עתיקים בעלי חשיבות תרבותית ותאולוגית. אנו שואפים להציג תרגומים מדויקים, שחזורים מוצעים, וביאורים מפורטים שמאירים את ההקשר ההיסטורי והדתי של הטקסטים. הפרויקט פתוח לחוקרים, סטודנטים, וחובבי היסטוריה ותאולוגיה.
             </p>
+            <!-- הערה: אנא החלף בתיאור ספציפי של הפרויקט, כולל מטרות, צוות, או חזון, אם זמין -->
         </section>
+        <div class="back-to-top">
+            <a href="#top">חזרה לראש העמוד</a>
+        </div>
     </div>
 </body>
 </html>
