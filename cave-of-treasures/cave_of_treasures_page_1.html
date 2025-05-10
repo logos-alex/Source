@@ -1,43 +1,44 @@
 <script type="text/javascript">
-        var gk_isXlsx = false;
-        var gk_xlsxFileLookup = {};
-        var gk_fileData = {};
-        function filledCell(cell) {
-          return cell !== '' && cell != null;
-        }
-        function loadFileData(filename) {
-        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
-            try {
-                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
-                var firstSheetName = workbook.SheetNames[0];
-                var worksheet = workbook.Sheets[firstSheetName];
+    var gk_isXlsx = false;
+    var gk_xlsxFileLookup = {};
+    var gk_fileData = {};
+    function filledCell(cell) {
+      return cell !== '' && cell != null;
+    }
+    function loadFileData(filename) {
+    if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+        try {
+            var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+            var firstSheetName = workbook.SheetNames[0];
+            var worksheet = workbook.Sheets[firstSheetName];
 
-                // Convert sheet to JSON to filter blank rows
-                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
-                // Filter out blank rows (rows where all cells are empty, null, or undefined)
-                var filteredData = jsonData.filter(row => row.some(filledCell));
+            // Convert sheet to JSON to filter blank rows
+            var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+            // Filter out blank rows (rows where all cells are empty, null, or undefined)
+            var filteredData = jsonData.filter(row => row.some(filledCell));
 
-                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
-                var headerRowIndex = filteredData.findIndex((row, index) =>
-                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
-                );
-                // Fallback
-                if (headerRowIndex === -1 || headerRowIndex > 25) {
-                  headerRowIndex = 0;
-                }
-
-                // Convert filtered JSON back to CSV
-                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
-                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
-                return csv;
-            } catch (e) {
-                console.error(e);
-                return "";
+            // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+            var headerRowIndex = filteredData.findIndex((row, index) =>
+              row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+            );
+            // Fallback
+            if (headerRowIndex === -1 || headerRowIndex > 25) {
+              headerRowIndex = 0;
             }
+
+            // Convert filtered JSON back to CSV
+            var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+            csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+            return csv;
+        } catch (e) {
+            console.error(e);
+            return "";
         }
-        return gk_fileData[filename] || "";
-        }
-        </script><!DOCTYPE html>
+    }
+    return gk_fileData[filename] || "";
+    }
+</script>
+<!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -174,7 +175,7 @@
                 סֵפֶר סֵדֶר הַדּוֹרוֹת הַנִּקְרָא מְעָרַת הָאוֹצָרוֹת.<sup>1</sup><br>
                 בְּכֹחַ אֲדוֹנֵנוּ יֵשׁוּעַ הַמָּשִׁיחַ<sup>2</sup> נַתְחִיל לִכְתּוֹב אֶת הַסֵּפֶר אֲשֶׁר עַל סֵדֶר הַדּוֹרוֹת, הַיְנוּ<sup>3</sup> מְעָרַת הָאוֹצָרוֹת.<br>
                 [אֲשֶׁר נַעֲשָׂה עַל יְדֵי הַקָּדוֹשׁ מָרִי אַפְרֵים.<sup>4</sup>] אֲדוֹנֵנוּ עָזְרֵנִי בְּרַחֲמֶיךָ אָמֵין.<sup>5</sup><br>
-                בְּרֵאשִׁית בַּיּוֹם הָרִאשׁוֹן<sup>6</sup> אֲשֶׁר הוּא יוֹם רִאשׁוֹן לַשַּׁבָּת<sup>7</sup> וְהוּא רֹאשׁ וּבְכוֹר כָּל הַיָּמִים, בָּרָא אֱלֹהִים אֶת הַשָּׁמַיִם וְאֶת הָאָרֶץ וְ[אֶת הַמַּיִם וְהָאֲוִיר וְהָאֵשׁ וְאֶת הַכֹּחוֹת הַבִּלְתִּי נִרְאִים, הֵם הַמַּלְאָכִים וְשָׂרֵי מַלְאָכִים וְכִסְאוֹת וּשְׂרוֹת וְרָאשִׁים וְשַׁלִּיטִים וּכְרוּבִים וּשְׂרָפִים, כָּל הַגְּדוּדִים וְהַמַּחֲנוֹת שֶׁל הָרוּחָנִיִּים].<sup>8</sup> וְאֶת הָאוֹר וְאֶת הַחֹשֶׁךְ וְאֶת הַיּוֹם וְאֶת הַלַּיְלָה וְאֶת הָרוּחוֹת וְאֶת הַמַּשַּׁבִים. אֵלֶּה כֻּלָּם בְּיוֹם רִאשׁוֹן (בּוֹ) בַּיּוֹם הָרִאשׁוֹן נִבְרְאוּ.<sup>9</sup><br>
+                בְּרֵאשִׁית בַּיּוֹם הָרִאשׁוֹן<sup>6</sup> אֲשֶׁר הוּא יוֹם רִאשׁוֹן לַשַּׁבָּת<sup>7</sup> וְהוּא רֹאשׁ וּבְכוֹר כָּל הַיָּמִים, בָּרָא אֱלֹהִים אֶת הַשָּׁמַיִם וְאֶת הָאָרֶץ וְ[אֶת הַמַּיִם וְהָאֲוִיר וְהָאֵשׁ וְאֶת הַכֹּחוֹת הַבִּלְתִּי נִרְאִים, הֵם הַמַּלְאָכִים וְשָׂרֵי מַלְאָכִים וְכִסְאוֹת וּשְׂרוֹת וְרָאשִׁים וְשַׁלִּיטִים וּכְרוּבִים וּשְׂרָפִים, כָּל הַגְּדוּדִים וְהַמַּחֲנוֹת שֶׁל הָרוּחָנִיִּים].<sup>8</sup> וְאֶת הָאוֹר וְאֶת הַחֹשֶׁךְ וְאֶת הַיּוֹם וְאֶת הַלַּיְלָה וְאֶת הָרוּחוֹת וְאֶת הַמַּשַׁבִים. אֵלֶּה כֻּלָּם בְּיוֹם רִאשׁוֹן (בּוֹ) בַּיּוֹם הָרִאשׁוֹן נִבְרְאוּ.<sup>9</sup><br>
                 רִחֲפָה רוּחַ הַקֹּדֶשׁ, אֶחָד מִן הַקְּנוֹמוֹת הַקְּדוֹשִׁים שֶׁל הַשְּׁלִישׁוּת<sup>10</sup> הַמְּשֻׁבַּחַת וְהַקְּדוֹשָׁה [עַל הַמַּיִם].<sup>11</sup> וּבְיַד רִחוּפָהּ אֲשֶׁר עַל פְּנֵי הַמַּיִם נִתְבָּרְכוּ לִהְיוֹת מוֹלִידִים.<sup>12</sup> וְרָתְחוּ וְנִתְעוֹרְרוּ כָּל טְבָעֵי הַמַּיִם וְנֶאֱחַד הַשְּׂאוֹר שֶׁל הַבְּרִיאָה,<sup>13</sup> כְּמוֹ צִפּוֹר אֲשֶׁר מְחַמֶּמֶת אֶת בָּנוֹתֶיהָ בְּרִחוּף הַהֲגַנָּה שֶׁל הַכְּנָפַיִם. וּבְיַד חֹם הָאֵשׁ שֶׁמִּמֶּנָּה נוֹצָרִים הָאֶפְרוֹחִים בְּתוֹךְ הַבֵּיצִים. כֵּן גַּם רוּחַ הַפַּרַקְלִיט<sup>14</sup> כַּאֲשֶׁר רִחֵף עַל הַמַּיִם נֶאֱחַד בָּהֶם הַשְּׂאוֹר שֶׁל הַבְּרִיאָה בְּפֹעַל רוּחַ הַקֹּדֶשׁ.<sup>15</sup>
             </p>
         </div>
@@ -233,8 +234,8 @@
     </div>
 
     <div class="navigation">
-        <a href="cave_of_treasures_homepage.html">תוכן עניינים</a>
-        <a href="cave_of_treasures_page_2.html">לעמוד הבא &gt;&gt;</a>
+        <a href="index.html">תוכן עניינים</a>
+        <a href="cave_of_treasures_page_2.html">לעמוד הבא >></a>
     </div>
 
     <div id="disqus_thread"></div>
