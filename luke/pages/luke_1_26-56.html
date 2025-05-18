@@ -1,0 +1,135 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>קודקס בזאי: לוקס א:26–56</title>
+    <style>body{font-family:'SBL Hebrew','Times New Roman',serif;max-width:900px;margin:0 auto;padding:20px;line-height:1.8;direction:rtl;text-align:right;background:url('https://www.transparenttextures.com/patterns/old-wall.png') #f5e8d0;color:#333}h1,h2,h3{color:#4a2c0b;font-weight:700}.nav-bar{background:rgba(139,90,43,.9);padding:10px;border-radius:5px;margin-bottom:20px;text-align:center;position:relative}.nav-bar a{color:#fff;text-decoration:none;margin:0 15px;font-size:18px}.nav-bar a:hover,.nav-bar a:focus{color:#d4a373}.nav-bar a.active{font-weight:700;border-bottom:2px solid #f5e8d0}.nav-bar a.disabled{pointer-events:none;opacity:.5}.nav-bar a[title]:hover::after{content:attr(title);position:absolute;background:#333;color:#fff;padding:5px;border-radius:3px;font-size:14px;bottom:-30px;right:50%;transform:translateX(50%);z-index:1}.dropdown{position:relative;display:inline-block}.dropdown-content{display:none;position:absolute;background:rgba(139,90,43,.9);min-width:160px;border-radius:5px;z-index:1}.dropdown-content a{display:block;padding:10px;color:#fff}.dropdown-content a:hover{background:#a67c52}.dropdown:hover .dropdown-content{display:block}.text-section{margin-bottom:30px;padding:15px;background:rgba(255,245,230,.9);border:1px solid #d4a373;border-radius:5px}.original-text,.reconstructed-text,.english-translation{border-right:4px solid #8b5a2b;padding-right:10px;margin-bottom:15px}.english-translation{direction:ltr;text-align:left}.commentary{background:rgba(240,230,210,.9);padding:20px;border-radius:5px;border:1px solid #a67c52}.footnote{cursor:pointer;color:#8b5a2b;text-decoration:underline}.footnote-content{display:none;margin-top:10px;padding:10px;background:#e8d9b0;border:1px solid #a67c52;border-radius:5px}.footnote-content.active{display:block}.deviation{font-weight:700;color:#b22222}.hebrew-deviation{text-decoration:underline #8b5a2b}@media (max-width:600px){body{padding:10px;font-size:16px}.nav-bar a{display:block;margin:10px 0}.dropdown-content{position:static}.text-section,.commentary{padding:10px}}</style>
+</head>
+<body>
+  <nav class="nav-bar" role="navigation" aria-label="ניווט ראשי">
+        <a href="/index.html">בית</a>
+        <div class="dropdown">
+            <a href="#" class="dropbtn">פרקים</a>
+            <div class="dropdown-content">
+                <a href="/pages/luke_1_1-25.html">לוקס א:1–25</a>
+                <a href="/pages/luke_1_26-56.html">לוקס א:26–56</a>
+                <a href="/pages/luke_1_57-80.html">לוקס א:57–80</a>
+                <a href="#">לוקס ב (בקרוב)</a>
+            </div>
+        </div>
+    </nav>
+
+    <h1>קודקס בזאי: לוקס א:26–56</h1>
+
+    <section class="text-section" role="region" aria-label="טקסט מקורי">
+        <h2>טקסט מקורי (קודקס בזאי)</h2>
+        <p class="original-text">
+            <strong>יוונית</strong>:<br>
+            [26] Ἐν δὲ τῷ μηνὶ τῷ ἕκτῳ ἀπεστάλη ὁ ἄγγελος Γαβριὴλ * ἀπὸ τοῦ Θεοῦ εἰς πόλιν τῆς Γαλιλαίας ᾗ ὄνομα Ναζαρὲτ [27] πρὸς παρθένον μεμνηστευμένην ἀνδρί, ᾧ ὄνομα Ἰωσὴφ, ἐξ οἴκου Δαυείδ, καὶ τὸ ὄνομα τῆς παρθένου Μαριάμ. [28] καὶ εἰσελθὼν πρὸς αὐτὴν εἶπεν Χαῖρε κεχαριτωμένη, ὁ Κύριος μετὰ σοῦ. [29] ἡ δὲ ἐπὶ τῷ λόγῳ διεταράχθη καὶ διελογίζετο ποταπὸς εἴη ὁ ἀσπασμὸς οὗτος. [30] καὶ εἶπεν ὁ ἄγγελος αὐτῇ Μὴ φοβοῦ, Μαριάμ, εὗρες γὰρ χάριν παρὰ τῷ Θεῷ. [31] καὶ ἰδοὺ συλλήμψῃ ἐν γαστρὶ καὶ τέξῃ υἱὸν καὶ καλέσεις τὸ ὄνομα αὐτοῦ Ἰησοῦν. [32] οὗτος ἔσται μέγας καὶ υἱὸς ὑψίστου κληθήσεται, καὶ δώσει αὐτῷ Κύριος ὁ Θεὸς τὸν θρόνον Δαυεὶδ τοῦ πατρὸς αὐτοῦ, [33] καὶ βασιλεύσει ἐπὶ τὸν οἶκον Ἰακὼβ εἰς τοὺς αἰῶνας, καὶ τῆς βασιλείας αὐτοῦ οὐκ ἔσται τέλος. [34] εἶπεν δὲ Μαριὰμ πρὸς τὸν ἄγγελον Πῶς ἔσται τοῦτο, ἐπεὶ ἄνδρα οὐ γινώσκω; [35] καὶ ἀποκριθεὶς ὁ ἄγγελος εἶπεν αὐτῇ Πνεῦμα ἅγιον ἐπελεύσεται ἐπὶ σὲ καὶ δύναμις ὑψίστου * σκιάσει σοι· διὸ καὶ τὸ γεννώμενον ἅγιον κληθήσεται υἱὸς Θεοῦ. [36] καὶ ἰδοὺ Ἐλεισάβετ ἡ συγγενίς σου καὶ αὐτὴ συνειληφυῖα υἱὸν ἐν γήρᾳ αὐτῆς, καὶ οὗτος μὴν ἕκτος ἐστὶν αὐτῇ τῇ καλουμένῃ στείρᾳ· [37] ὅτι οὐκ ἀδυνατήσει παρὰ τῷ Θεῷ πᾶν ῥῆμα. [38] εἶπεν δὲ Μαριὰμ Ἰδοὺ ἡ δούλη Κυρίου· γένοιτό μοι κατὰ τὸ ῥῆμά σου. καὶ ἀπῆλθεν ἀπ’ αὐτῆς ὁ ἄγγελος. [39] Ἀναστᾶσα δὲ Μαριὰμ ἐν ταῖς ἡμέραις ταύταις ἐπορεύθη εἰς τὴν ὀρεινὴν μετὰ σπουδῆς εἰς πόλιν Ἰούδα, [40] καὶ εἰσῆλθεν εἰς τὸν οἶκον Ζαχαρίου καὶ ἠσπάσατο τὴν Ἐλεισάβετ. [41] καὶ ἐγένετο ὡς ἤκουσεν τὸν ἀσπασμὸν τῆς Μαρίας ἡ Ἐλεισάβετ, ἐσκίρτησεν τὸ βρέφος ἐν τῇ κοιλίᾳ αὐτῆς, καὶ ἐπλήσθη πνεύματος ἁγίου ἡ Ἐλεισάβετ, [42] καὶ ἀνεφώνησεν κραυγῇ μεγάλῃ καὶ εἶπεν Εὐλογημένη σὺ ἐν γυναιξίν, καὶ εὐλογημένος ὁ καρπὸς τῆς κοιλίας σου. [43] καὶ πόθεν μοι τοῦτο ἵνα ἔλθῃ ἡ μήτηρ τοῦ κυρίου μου πρὸς ἐμέ; [44] ἰδοὺ γὰρ ὡς ἐγένετο ἡ φωνὴ τοῦ ἀσπασμοῦ σου εἰς τὰ ὦτά μου, ἐσκίρτησεν ἐν ἀγαλλιάσει τὸ βρέφος ἐν τῇ κοιλίᾳ μου. [45] καὶ μακαρία ἡ πιστεύσασα ὅτι ἔσται τελείωσις τοῖς λελαλημένοις αὐτῇ παρὰ Κυρίου. [46] Καὶ εἶπεν Μαριὰμ Μεγαλύνει ἡ ψυχή μου τὸν Κύριον, [47] καὶ ἠγαλλίασεν τὸ πνεῦμά μου ἐπὶ τῷ Θεῷ τῷ σωτῆρί μου, [48] ὅτι ἐπέβλεψεν ἐπὶ τὴν ταπείνωσιν τῆς δούλης αὐτοῦ. ἰδοὺ γὰρ ἀπὸ τοῦ νῦν μακαριοῦσίν με πᾶσαι αἱ γενεαί, [49] ὅτι ἐποίησέν μοι μεγάλα ὁ δυνατός, καὶ ἅγιον τὸ ὄνομα αὐτοῦ, [50] καὶ τὸ ἔλεος αὐτοῦ εἰς γενεὰς καὶ γενεὰς τοῖς φοβουμένοις αὐτόν. [51] Ἐποίησεν κράτος ἐν βραχίονι αὐτοῦ, διεσκόρπισεν ὑπερηφάνους διανοίᾳ καρδίας αὐτῶν· [52] καθεῖλεν δυνάστας ἀπὸ θρόνων καὶ ὕψωσεν ταπεινούς, [53] πεινῶντας ἐνέπλησεν ἀγαθῶν καὶ πλουτοῦντας ἐξαπέστειλεν κενούς. [54] ἀντελάβετο Ἰσραὴλ παιδὸς αὐτοῦ, μνησθῆναι ἐλέους, [55] καθὼς ἐλάλησεν πρὸς τοὺς πατέρας ἡμῶν, τῷ Ἀβραὰμ καὶ τῷ σπέρματι αὐτοῦ εἰς τὸν αἰῶνα. [56] Ἔμεινεν δὲ Μαριὰμ σὺν αὐτῇ ὡς μῆνας τρεῖς, καὶ ὑπέστρεψεν εἰς τὸν οἶκον αὐτῆς.
+        </p>
+    </section>
+
+    <section class="text-section" role="region" aria-label="טקסט משוחזר">
+        <h2>טקסט משוחזר (עברית-ארמית)</h2>
+        <p class="reconstructed-text">
+            [26] וּבַחֹדֶשׁ הַשִּׁשִּׁי <span class="hebrew-deviation">נִשְׁלַח הַמַּלְאָךְ גַּבְרִיאֵל מֵאֵת הָאֱלֹהִים</span> אֶל עִיר בַּגָּלִיל וּשְׁמָהּ נָצְרַת, [27] אֶל בְּתוּלָה מְאֹרָשָׂה לְאִישׁ וּשְׁמוֹ יוֹסֵף, מִבֵּית דָּוִד, וּשֵׁם הַבְּתוּלָה מִרְיָם. [28] וַיָּבֹא אֵלֶיהָ וַיֹּאמֶר שְׁלוֹם לָךְ, חֲנוּנָה, ה' עִמָּךְ. [29] וְהִיא נִבְהֲלָה עַל דְּבָרוֹ וְחָשְׁבָה בְּלִבָּהּ מָהוּ הַבְּרָכָה הַזֹּאת. [30] וַיֹּאמֶר הַמַּלְאָךְ אֵלֶיהָ אַל תִּירְאִי, מִרְיָם, כִּי מָצָאת חֵן לִפְנֵי הָאֱלֹהִים. [31] וְהִנֵּה תַּהֲרִי וְתֵלְדִי בֵּן, וְקָרָאת אֶת שְׁמוֹ יֵשׁוּעַ. [32] זֶה יִהְיֶה גָּדוֹל וּבֶן עֶלְיוֹן יִקָּרֵא, וְיִתֵּן לוֹ ה' אֱלֹהִים אֶת כִּסֵּא דָּוִד אָבִיו, [33] וְיִמְלֹךְ עַל בֵּית יַעֲקֹב לְעוֹלָמִים, וּלְמַלְכוּתוֹ לֹא יִהְיֶה קֵץ. [34] וַתֹּאמֶר מִרְיָם אֶל הַמַּלְאָךְ אֵיךְ יִהְיֶה זֹאת, וַאֲנִי לֹא יָדַעְתִּי אִישׁ? [35] וַיַּעַן הַמַּלְאָךְ וַיֹּאמֶר לָהּ רוּחַ קֹדֶשׁ תָּבוֹא עָלַיִךְ וְכֹחַ עֶלְיוֹן <span class="hebrew-deviation">יָצֵל עָלַיִךְ</span>· לָכֵן הַיִּלּוֹד יִקָּרֵא קָדוֹשׁ, בֶּן אֱלֹהִים. [36] וְהִנֵּה אֱלִישֶׁבַע קְרוֹבָתֵךְ, גַּם הִיא הָרָתָה בֵּן בִּזְקֻנָתָהּ, וְזֶה חֹדֶשׁ שִׁשִּׁי לָהּ, לָזֹאת שֶׁקָּרְאוּ לָהּ עֲקָרָה· [37] כִּי לֹא יִפָּלֵא מֵהָאֱלֹהִים כָּל דָּבָר. [38] וַתֹּאמֶר מִרְיָם הִנֵּנִי שִׁפְחַת ה', יְהִי לִי כִּדְבָרֶךָ. וַיֵּלֶךְ הַמַּלְאָךְ מֵעִמָּהּ. [39] וַתָּקָם מִרְיָם בַּיָּמִים הָאֵלֶּה וַתֵּלֶךְ בִּמְהִירוּת אֶל הָהָר אֶל עִיר יְהוּדָה, [40] וַתָּבֹא אֶל בֵּית זְכַרְיָה וַתִּשְׁאַל לִשְׁלוֹם אֱלִישֶׁבַע. [41] וַיְהִי כְּשָׁמְעָהּ אֱלִישֶׁבַע אֶת בִּרְכַּת מִרְיָם, וַיְּרַקֵּד הָעוּבָּר בְּמֵעֶיהָ, וַתִּמָּלֵא אֱלִישֶׁבַע רוּחַ קֹדֶשׁ, [42] וַתִּקְרָא בְּקוֹל גָּדוֹל וַתֹּאמֶר בְּרוּכָה אַתְּ בַּנָּשִׁים, וּבָרוּךְ פְּרִי בִטְנֵךְ. [43] וּמֵאַיִן לִי זֹאת כִּי תָבוֹא אֵם אֲדוֹנִי אֵלַי? [44] כִּי הִנֵּה כְּשֶׁבָּא קוֹל בִּרְכָתֵךְ בְּאָזְנַי, רָקַד הָעוּבָּר בְּשִׂמְחָה בְּמֵעַי. [45] וְאַשְׁרֵי הַמַּאֲמִינָה כִּי תִּשְׁלַם הַבְּטָחָה שֶׁנֶּאֶמְרָה לָהּ מֵאֵת ה'. [46] וַתֹּאמֶר מִרְיָם תְּגַדֵּל נַפְשִׁי אֶת ה', [47] וְתָגֵל רוּחִי בֵּאלֹהִים מוֹשִׁיעִי, [48] כִּי הִבִּיט אֶל שִׁפְלוּת שִׁפְחָתוֹ. הִנֵּה מֵעַתָּה יְאַשְּׁרוּנִי כָּל הַדּוֹרוֹת, [49] כִּי עָשָׂה לִי גְּדֹלוֹת הָעֹזֵר, וְקָדוֹשׁ שְׁמוֹ, [50] וְחַסְדּוֹ לְדוֹר וָדוֹר לְיִרְאָיו. [51] עָשָׂה תְּשׁוּעָה בִּזְרוֹעוֹ, פִּזֵּר גֵּאִים בְּמַחְשְׁבוֹת לִבָּם· [52] הוֹרִיד שַׂרִים מִכִּסְאוֹת וַיָּרֶם שְׁפָלִים, [53] רְעֵבִים מִלֵּא טוֹב וַעֲשִׁירִים שִׁלַּח רֵיקָם. [54] תָּמַךְ בְּיִשְׂרָאֵל עַבְדּוֹ, לִזְכֹּר חֶסֶד, [55] כַּאֲשֶׁר דִּבֶּר אֶל אֲבוֹתֵינוּ, לְאַבְרָהָם וּלְזַרְעוֹ לְעוֹלָם. [56] וַתֵּשֶׁב מִרְיָם עִמָּהּ כְּשׁלֹשָׁה חֳדָשִׁים, וַתָּשָׁב אֶל בֵּיתָהּ.
+        </p>
+    </section>
+
+    <section class="text-section" role="region" aria-label="תרגום לאנגלית">
+        <h2>תרגום לאנגלית</h2>
+        <p class="english-translation" dir="ltr">
+            [26] In the sixth month the angel Gabriel was <span class="deviation">sent from God</span> to a city of Galilee named Nazareth, [27] to a virgin betrothed to a man whose name was Joseph, of the house of David. And the virgin’s name was Mary. [28] And he came to her and said, “Greetings, favored one, the Lord is with you.” [29] But she was greatly troubled at the saying, and tried to discern what sort of greeting this might be. [30] And the angel said to her, “Do not be afraid, Mary, for you have found favor with God. [31] And behold, you will conceive in your womb and bear a son, and you shall call his name Jesus. [32] He will be great and will be called the Son of the Most High. And the Lord God will give to him the throne of his father David, [33] and he will reign over the house of Jacob forever, and of his kingdom there will be no end.” [34] And Mary said to the angel, “How will this be, since I am a virgin?” [35] And the angel answered her, “The Holy Spirit will come upon you, and the power of the Most High will <span class="deviation">overshadow you</span>; therefore the child to be born will be called holy—the Son of God. [36] And behold, your relative Elizabeth in her old age has also conceived a son, and this is the sixth month with her who was called barren. [37] For nothing will be impossible with God.” [38] And Mary said, “Behold, I am the servant of the Lord; let it be to me according to your word.” And the angel departed from her. [39] In those days Mary arose and went with haste into the hill country, to a town in Judah, [40] and she entered the house of Zechariah and greeted Elizabeth. [41] And when Elizabeth heard the greeting of Mary, the baby leaped in her womb. And Elizabeth was filled with the Holy Spirit, [42] and she exclaimed with a loud cry, “Blessed are you among women, and blessed is the fruit of your womb! [43] And why is this granted to me that the mother of my Lord should come to me? [44] For behold, when the sound of your greeting came to my ears, the baby in my womb leaped for joy. [45] And blessed is she who believed that there would be a fulfillment of what was spoken to her from the Lord.” [46] And Mary said, “My soul magnifies the Lord, [47] and my spirit rejoices in God my Savior, [48] for he has looked on the humble estate of his servant. For behold, from now on all generations will call me blessed; [49] for he who is mighty has done great things for me, and holy is his name. [50] And his mercy is for those who fear him from generation to generation. [51] He has shown strength with his arm; he has scattered the proud in the thoughts of their hearts; [52] he has brought down the mighty from their thrones and exalted those of humble estate; [53] he has filled the hungry with good things, and the rich he has sent away empty. [54] He has helped his servant Israel, in remembrance of his mercy, [55] as he spoke to our fathers, to Abraham and to his offspring forever.” [56] And Mary remained with her about three months and returned to her home.
+        </p>
+    </section>
+
+    <section class="commentary" role="region" aria-label="ביאור">
+        <h2>ביאור/פירוש</h2>
+        <p>
+            <strong>הערה על הסטיות הטקסטואליות</strong>: הטקסט העברי-ארמי מסמן סטיות של קודקס בזאי מטקסטים אחרים (כגון סינאיטיקוס או הביזנטיים) בקו תחתון חום (למשל, <span class="hebrew-deviation">נִשְׁלַח...מֵאֵת הָאֱלֹהִים</span>), בעוד התרגום האנגלי משתמש בטקסט <span class="deviation">מודגש אדום</span>. סטיות אלו, המייחדות את נוסח בזאי, מפורטות בפירוש להלן, תוך השוואה למקורות יהודיים, נוצריים ומחקריים.
+        </p>
+        <p>
+            קטע זה ממשיך את הנרטיב של לוקס 1 בקודקס בזאי, ומתמקד בבשורת המלאך למרים, ביקורה אצל אלישבע, ושירת המגניפיקט. ככתב יד מהמאה החמישית מסוג הטקסט המערבי, בזאי משמר לעיתים נוסחים שמיים הקרובים למסורות יהודיות-נוצריות מוקדמות (<span class="footnote" onclick="toggleFootnote('fn0')">אפיפניוס, Panarion 30.13</span>). הפירוש משלב מקורות תנ"כיים, תלמודיים, מיסטיים, נוצריים ומחקריים, עם פרשנות המדגישה את המשמעות הרוחנית וההיסטורית של הטקסט.
+        </p>
+        <div id="fn0" class="footnote-content">
+            ראו אפיפניוס, Panarion 30.13, שם הוא דן במסורות יהודיות-נוצריות המשפיעות על טקסטים מוקדמים.
+        </div>
+        <ol>
+            <li>
+                <strong>בשורת המלאך למרים (פסוקים 26–38)</strong>: הכרזת גבריאל למרים ממשיכה את דפוס ההתגלויות של לוקס 1, עם הקבלה לחזיונות תנ"כיים (בראשית יח:10–14, שופטים יג:3–5). המונח "חֲנוּנָה" (π. 28, κεχαριτωμένη) משקף חסד אלוהי, כפי שמתואר בתהילים ל:6 על חסדי ה'. <strong>סטיית בזאי</strong>: התוספת "<span class="hebrew-deviation">נִשְׁלַח...מֵאֵת הָאֱלֹהִים</span>" (π. 26, ἀπὸ τοῦ Θεοῦ) מדגישה את המקור האלוהי של השליחות, בניגוד לטקסטים אחרים שמשמיטים זאת, ומזכירה את שליחות המלאכים במדרש (שמות רבה ג:א). הביטוי "<span class="hebrew-deviation">יָצֵל עָלַיִךְ</span>" (π. 35, σκιάσει) בבזאי משתמש בלשון שמית דרמטית, לעומת "ἐπισκιάσει" בטקסטים אחרים, ומקביל לתיאורי ענן הקדושה בתנ"ך (שמות מ:35). הזוהר (<span class="footnote" onclick="toggleFootnote('fn1')">זוהר שמות ב:ב</span>) רואה בנשים צדקניות כלי להתגלות אלוהית, מה שמחזק את תפקידה של מרים. פילון (<span class="footnote" onclick="toggleFootnote('fn2')">De Virtutibus 1.203</span>) מתאר צניעות כסגולה נשית, התואמת את תגובת מרים (π. 38). J. Fitzmyer מציין שהסגנון השמי של הקטע משקף מסורות יהודיות מוקדמות.
+                <div id="fn1" class="footnote-content">
+                    ראו זוהר שמות ב:ב, שם נשים צדקניות מתוארות ככלי לגאולה.
+                </div>
+                <div id="fn2" class="footnote-content">
+                    ראו פילון, De Virtutibus 1.203, שם הצניעות מודגשת כסגולה נשית.
+                </div>
+            </li>
+            <li>
+                <strong>ביקור אצל אלישבע (פסוקים 39–45)</strong>: המפגש בין מרים ואלישבע מדגיש את הקשר בין שני סיפורי ההריון, עם דגש על פעילות רוח הקודש (π. 41). תגובת העובר של אלישבע (π. 44) מקבילה לתיאורי שמחה נבואית בתנ"ך (ירמיהו א:5). המונח "אֵם אֲדוֹנִי" (π. 43) משקף הכרה נבואית, כפי שמופיע בקומראן על דמויות משיחיות (4Q521). התלמוד (<span class="footnote" onclick="toggleFootnote('fn3')">סוטה יא:ב</span>) מתאר נשים צדקניות כמבורכות בתפילה, מה שתואם את ברכת אלישבע. אמברוז (<span class="footnote" onclick="toggleFootnote('fn4')">De Virginibus 2.2</span>) מפרש את הביקור כמעשה של ענווה ואמונה. אין סטיות משמעותיות של בזאי בקטע זה, אך הנוסח מדגיש את הדרמה הרגשית, כפי שמציין R.E. Brown.
+                <div id="fn3" class="footnote-content">
+                    ראו סוטה יא:ב, שם מתוארות נשים צדקניות כמבורכות בתפילה.
+                </div>
+                <div id="fn4" class="footnote-content">
+                    ראו אמברוז, De Virginibus 2.2, שם הביקור מתואר כמעשה ענווה.
+                </div>
+            </li>
+            <li>
+                <strong>המגניפיקט (פסוקים 46–56)</strong>: שירת מרים, המגניפיקט, היא הימנון יהודי המשקף את שירת חנה (שמואל א ב:1–10) ואת תהילים (למשל, קג:17 על חסד ה'). המבנה השמי של השירה, כפי שמציין R.E. Brown, מושרש במסורות מקדשיות. אין סטיות משמעותיות של בזאי בקטע זה, אך הנוסח משמר לשון דרמטית התואמת את המדרש על שירת גאולה (שיר השירים רבה א:2). הזוהר (<span class="footnote" onclick="toggleFootnote('fn5')">זוהר ויקרא ט:א</span>) מתאר שירת נשים כמעוררת חסד אלוהי, מה שמוסיף ממד מיסטי. אוגוסטינוס (<span class="footnote" onclick="toggleFootnote('fn6')">Sermo 293</span>) רואה במגניפיקט הכרזה על צדק אלוהי. <strong>פרשנות מקורית</strong>: המגניפיקט ממקם את מרים כנביאה במסורת נשים תנ"כיות, המכריזה על גאולה חברתית ורוחנית התואמת את ציפיות התקופה, כפי שמשתקף בקומראן (1QM 11:7).
+                <div id="fn5" class="footnote-content">
+                    ראו זוהר ויקרא ט:א, שם שירה נשית מתוארת כמעוררת חסד.
+                </div>
+                <div id="fn6" class="footnote-content">
+                    ראו אוגוסטינוס, Sermo 293, שם המגניפיקט מתואר כהכרזה על צדק.
+                </div>
+            </li>
+        </ol>
+    </section>
+
+    <script>
+        function toggleFootnote(id) {
+            const footnote = document.getElementById(id);
+            footnote.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
