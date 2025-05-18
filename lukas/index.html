@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>שחזור מקור עברי-ארמי וביאור - מהדורת בזא</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* Custom styles for a traditional, readable design */
+        body {
+            font-family: 'Cardo', Georgia, serif; /* Using Cardo with fallbacks */
+            line-height: 1.8; /* Increased line spacing for readability */
+            color: #333; /* Standard text color */
+            background-color: #f0e6d3; /* Light cream/beige background */
+            padding: 1rem; /* Add some padding around the body */
+            text-align: right; /* Ensure text is aligned to the right */
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto; /* Center the container */
+            background-color: #fff; /* White background for the content area */
+            padding: 1.5rem; /* More padding inside the container */
+            border-radius: 0.5rem; /* Rounded corners */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+        }
+        h1, h2, h3 {
+            color: #4a235a; /* Deep purple/burgundy for headings */
+            margin-bottom: 0.75rem; /* Space below headings */
+            text-align: right; /* Ensure headings are aligned right */
+        }
+        h1 {
+            font-size: 2.25rem; /* Larger main title */
+            font-weight: bold;
+            text-align: center; /* Center the main title */
+            border-bottom: 2px solid #4a235a; /* Matching border color */
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        h2 {
+            font-size: 1.75rem; /* Chapter/Major Section titles */
+            font-weight: 600;
+            margin-top: 2rem; /* More space above major sections */
+            border-bottom: 1px dashed #ccc; /* Subtle dashed separator */
+            padding-bottom: 0.5rem;
+        }
+        h3 {
+            font-size: 1.25rem; /* Subsection titles */
+            font-weight: 600;
+            margin-top: 1.5rem; /* Space above subsections */
+            color: #0d47a1; /* Deep blue */
+        }
+        p, ul {
+            margin-bottom: 1rem; /* Space below paragraphs and lists */
+            text-indent: 1.5em; /* Indent paragraphs for a book-like feel */
+        }
+        /* Remove text indent for the first paragraph after a heading */
+        h2 + p, h3 + p, .section-content > p:first-of-type {
+             text-indent: 0;
+        }
+         /* Also remove indent for paragraphs inside special sections if needed */
+        .drasha-section p, .glossary-section p {
+             text-indent: 0;
+        }
+
+        ul {
+            list-style: disc inside;
+            padding-left: 1.25rem; /* Indent lists */
+            text-indent: 0; /* Remove indent for list items */
+        }
+        li {
+            margin-bottom: 0.5rem; /* Space between list items */
+            text-indent: 0; /* Ensure list items are not indented */
+        }
+         /* Remove text indent for list items inside special sections */
+         .drasha-section li, .glossary-section li {
+             text-indent: 0;
+         }
+
+        .section-content {
+            margin-bottom: 2rem; /* Space after each content section */
+        }
+        .drasha-section {
+            background-color: #e8f5e9; /* Light green background for Drasha */
+            padding: 1.5rem;
+            border-left: 5px solid #388e3c; /* Dark green border on the left */
+            margin-top: 2rem; /* Space above Drasha */
+            border-radius: 0.25rem; /* Slightly rounded corners for Drasha */
+        }
+        .drasha-section h2 {
+            color: #388e3c; /* Match heading color */
+            border-bottom: none; /* Remove border below Drasha heading */
+            margin-top: 0; /* Remove top margin for Drasha heading */
+            margin-bottom: 1rem; /* Space below Drasha heading */
+        }
+        .glossary-section {
+             background-color: #fff9c4; /* Light yellow background for Glossary */
+             padding: 1.5rem;
+             border-left: 5px solid #fbc02d; /* Golden yellow border on the left */
+             margin-top: 2rem;
+             border-radius: 0.25rem;
+        }
+         .glossary-section h2 {
+            color: #856404; /* Dark yellow color for Glossary heading */
+            border-bottom: none;
+            margin-top: 0;
+            margin-bottom: 1rem;
+         }
+         .glossary-section dl {
+             margin-bottom: 0;
+         }
+         .glossary-section dt {
+             font-weight: bold;
+             margin-top: 0.5rem;
+         }
+         .glossary-section dd {
+             margin-left: 1.5rem;
+             margin-bottom: 0.5rem;
+         }
+        /* Styling for the single Disqus comment section */
+        #disqus_thread {
+            margin-top: 3rem; /* Space above the comments section */
+            padding-top: 1.5rem;
+            border-top: 1px solid #ccc; /* Separator line */
+        }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K5QFN78FT3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-K5QFN78FT3');
+    </script>
+</head>
+<body class="p-4">
+    <div class="container mx-auto bg-white p-6 rounded-lg shadow-md">
+
+        <h1 class="text-3xl font-bold text-center mb-6">שחזור מקור עברי-ארמי וביאור - מהדורת בזא</h1>
+
+        <section id="introduction" class="section-content">
+            <h2 class="text-2xl font-semibold">מבוא</h2>
+            <p class="mb-4">
+                מסמך זה עוסק בשחזור מוצע לנוסח עברי/ארמי (היבראו-ארמי) של קטעים מן הבשורה על פי לוקס, פרק א', ב', ג' ופרק ד', הנדון על פי מקור עתיק הנראה כשואב מנוסח עברי/ארמי קדום. לכל דף מוצג שחזור בעברית (עם השפעות ארמיות) ולאחריו ביאור המשווה את הנוסח המשוחזר לנוסח המקובל ומעיר הערות תאולוגיות. בסוף כל פרק תובא "דרשה" המעמיקה את הפירוש ומקשרת לרעיונות ומקורות מהקשת היהודו-נוצרית הרחבה, כולל התייחסויות אפשריות למסורות גנוסטיות וקבליות.
+            </p>
+            <h3 class="text-xl font-semibold">אודות קודקס בזא (Codex Bezae)</h3>
+            <p class="mb-4">
+                קודקס בזא (Codex Bezae Cantabrigiensis), המסומן באות D או 05, הוא כתב יד עתיק של הברית החדשה מהמאה הרביעית או החמישית לספירה. הוא כתוב ביוונית ובלטינית על עמודים מקבילים, והוא אחד מכתבי היד החשובים ביותר המייצגים את מה שמכונה "נוסח מערבי" של הברית החדשה. נוסח זה מאופיין בהבדלים ניכרים מנוסח הרוב (הנוסח הביזנטי) ומנוסחים קדומים אחרים (כמו הנוסח האלכסנדרוני). רבים מההבדלים הללו נראים כתוספות, השמטות, או שינויים שמקורם עשוי להיות במסורות שבעל פה, בנסיונות להבהיר את הטקסט, או בהשפעות של נוסחים קדומים יותר, ייתכן אף עבריים או ארמיים. העבודה המוצגת כאן מתבססת על ההנחה שחלק מהמאפיינים הייחודיים של קודקס בזא בלוקס עשויים לשמר עקבות של מקור עברי-ארמי קדום יותר לבשורה.
+            </p>
+             <h3 class="text-xl font-semibold">הקשר היסטורי ותרבותי</h3>
+            <p>
+                אירועי הבשורות מתרחשים ביהודה ובגליל במהלך המאה הראשונה לספירה, תקופה של תסיסה פוליטית, חברתית ודתית תחת שלטון רומי. זו הייתה תקופה שבה זרמים שונים ביהדות (פרושים, צדוקים, איסיים, קנאים, ועוד) התקיימו זה לצד זה, והציפיות המשיחיות היו גבוהות. הבנת ההקשר היהודי של ישוע ותלמידיו חיונית להבנת הטקסטים. בתי הכנסת שימשו לא רק כמקומות תפילה אלא גם כמרכזים קהילתיים ללימוד ודיון. המקדש בירושלים היה עדיין מרכז הפולחן הלאומי. המדבר שימש לעיתים קרובות כמקום מפלט, התבודדות רוחנית, ופעילות נבואית.
+            </p>
+        </section>
+
+        <section class="section-content">
+            <h2 class="text-2xl font-semibold">תוכן עניינים</h2>
+            <ul>
+                <li><a href="chapter1.html">פרק א'</a>
+                    <ul>
+                        <li><a href="luke1_1-12.html">דף א (פסוקים א-יב)</a></li>
+                        <li><a href="luke1_13-23.html">דף ב (פסוקים יג-כג)</a></li>
+                        <li><a href="luke1_24-33.html">דף ג (פסוקים כד-לג)</a></li>
+                        <li><a href="luke1_34-43.html">דף ד (פסוקים לד-מג)</a></li>
+                        <li><a href="luke1_44-56.html">דף ה (פסוקים מד-נו)</a></li>
+                        <li><a href="luke1_57-66.html">דף ו (פסוקים נז-סו)</a></li>
+                        <li><a href="luke1_67-80.html">דף ז (פסוקים סז-פח)</a></li>
+                    </ul>
+                </li>
+                <li><a href="chapter2.html">פרק ב'</a>
+                     <ul>
+                        <li><a href="luke2_1-12.html">דף ח (פסוקים א-יב)</a></li>
+                        <li><a href="luke2_13-21.html">דף ט (פסוקים יג-כא)</a></li>
+                        <li><a href="luke2_22-40.html">דף י (פסוקים כב-מ)</a></li>
+                        <li><a href="luke2_41-52.html">דף יא (פסוקים מא-נב)</a></li>
+                    </ul>
+                </li>
+                <li><a href="chapter3.html">פרק ג'</a>
+                    <ul>
+                        <li><a href="luke3_1-20.html">דף יב (פסוקים א-כ)</a></li>
+                        <li><a href="luke3_21-38.html">דף יג (פסוקים כא-לח)</a></li>
+                    </ul>
+                </li>
+                 <li><a href="chapter4.html">פרק ד'</a>
+                    <ul>
+                        <li><a href="luke4_1-13.html">דף יד (פסוקים א-יח)</a></li>
+                        <li><a href="luke4_14-30.html">דף טו (פסוקים יט-ל)</a></li>
+                        <li><a href="luke4_31-44.html">דף טז (פסוקים לא-צז)</a></li>
+                    </ul>
+                </li>
+                <li><a href="glossary.html">מילון מונחים</a></li>
+            </ul>
+        </section>
+
+        <div id="disqus_thread"></div>
+        <script>
+            /**
+            * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+            * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+            */
+            /*
+            var disqus_config = function () {
+            this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            };
+            */
+            (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://hebrew-aramaic-sources.disqus.com/embed.js'; // Make sure this URL is correct based on your Disqus site name
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+</body>
+</html>

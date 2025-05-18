@@ -1,0 +1,211 @@
+﻿<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>שחזור מקור עברי-ארמי וביאור - לוקס א' יג-כג</title> <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* Custom styles for a traditional, readable design */
+        body {
+            font-family: 'Cardo', Georgia, serif; /* Using Cardo with fallbacks */
+            line-height: 1.8; /* Increased line spacing for readability */
+            color: #333; /* Standard text color */
+            background-color: #f0e6d3; /* Light cream/beige background */
+            padding: 1rem; /* Add some padding around the body */
+            text-align: right; /* Ensure text is aligned to the right */
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto; /* Center the container */
+            background-color: #fff; /* White background for the content area */
+            padding: 1.5rem; /* More padding inside the container */
+            border-radius: 0.5rem; /* Rounded corners */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+        }
+        h1, h2, h3 {
+            color: #4a235a; /* Deep purple/burgundy for headings */
+            margin-bottom: 0.75rem; /* Space below headings */
+            text-align: right; /* Ensure headings are aligned right */
+        }
+        h1 {
+            font-size: 2.25rem; /* Larger main title */
+            font-weight: bold;
+            text-align: center; /* Center the main title */
+            border-bottom: 2px solid #4a235a; /* Matching border color */
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        h2 {
+            font-size: 1.75rem; /* Chapter/Major Section titles */
+            font-weight: 600;
+            margin-top: 2rem; /* More space above major sections */
+            border-bottom: 1px dashed #ccc; /* Subtle dashed separator */
+            padding-bottom: 0.5rem;
+        }
+        h3 {
+            font-size: 1.25rem; /* Subsection titles */
+            font-weight: 600;
+            margin-top: 1.5rem; /* Space above subsections */
+            color: #0d47a1; /* Deep blue */
+        }
+        p, ul {
+            margin-bottom: 1rem; /* Space below paragraphs and lists */
+            text-indent: 1.5em; /* Indent paragraphs for a book-like feel */
+        }
+        /* Remove text indent for the first paragraph after a heading */
+        h2 + p, h3 + p, .section-content > p:first-of-type {
+             text-indent: 0;
+        }
+         /* Also remove indent for paragraphs inside special sections if needed */
+        .drasha-section p, .glossary-section p {
+             text-indent: 0;
+        }
+
+        ul {
+            list-style: disc inside;
+            padding-left: 1.25rem; /* Indent lists */
+            text-indent: 0; /* Remove indent for list items */
+        }
+        li {
+            margin-bottom: 0.5rem; /* Space between list items */
+            text-indent: 0; /* Ensure list items are not indented */
+        }
+         /* Remove text indent for list items inside special sections */
+         .drasha-section li, .glossary-section li {
+             text-indent: 0;
+         }
+
+        .section-content {
+            margin-bottom: 2rem; /* Space after each content section */
+        }
+        .drasha-section {
+            background-color: #e8f5e9; /* Light green background for Drasha */
+            padding: 1.5rem;
+            border-left: 5px solid #388e3c; /* Dark green border on the left */
+            margin-top: 2rem; /* Space above Drasha */
+            border-radius: 0.25rem; /* Slightly rounded corners for Drasha */
+        }
+        .drasha-section h2 {
+            color: #388e3c; /* Match heading color */
+            border-bottom: none; /* Remove border below Drasha heading */
+            margin-top: 0; /* Remove top margin for Drasha heading */
+            margin-bottom: 1rem; /* Space below Drasha heading */
+        }
+        .glossary-section {
+             background-color: #fff9c4; /* Light yellow background for Glossary */
+             padding: 1.5rem;
+             border-left: 5px solid #fbc02d; /* Golden yellow border on the left */
+             margin-top: 2rem;
+             border-radius: 0.25rem;
+        }
+         .glossary-section h2 {
+            color: #856404; /* Dark yellow color for Glossary heading */
+            border-bottom: none;
+            margin-top: 0;
+            margin-bottom: 1rem;
+         }
+         .glossary-section dl {
+             margin-bottom: 0;
+         }
+         .glossary-section dt {
+             font-weight: bold;
+             margin-top: 0.5rem;
+         }
+         .glossary-section dd {
+             margin-left: 1.5rem;
+             margin-bottom: 0.5rem;
+         }
+        /* Styling for the single Disqus comment section */
+        #disqus_thread {
+            margin-top: 3rem; /* Space above the comments section */
+            padding-top: 1.5rem;
+            border-top: 1px solid #ccc; /* Separator line */
+        }
+
+        /* Style for navigation links/buttons */
+        .navigation-links {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #ccc;
+            padding-top: 1rem;
+        }
+        .navigation-links a {
+            color: #0d47a1; /* Deep blue for links */
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .navigation-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K5QFN78FT3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-K5QFN78FT3');
+    </script>
+</head>
+<body class="p-4">
+    <div class="container mx-auto bg-white p-6 rounded-lg shadow-md">
+
+        <h1 class="text-3xl font-bold text-center mb-6">שחזור מקור עברי-ארמי וביאור - מהדורת בזא</h1>
+
+        <section id="luke1_13-23" class="section-content">
+            <h3 class="text-xl font-semibold">דף ב (פסוקים יג-כג)</h3>
+            <p>
+                יג. ויאמר אליו המלאך: אל תפחד זכריה, כי נשמעה תפילתך, ואלישבע אשתך תלד בן, ותקרא את שמו יוחנן.<br>
+                יד. ויהיה לך לשמחה ולגיל, ורבים על הולדתו ישמחו.<br>
+                טו. כי גדול יהיה לפני יהוה, ויין ושכר לא ישתה, ומרוח הקודש ימלא עוד מבטן אמו.<br>
+                טז. ורבים מבני ישראל<br>
+                יז. ישיב אל יהוה אלהיהם. והוא ילך לפניו ברוח וכוח אליהו, להשיב לבבות אבות על בנים, וסוררים בדעת צדיקים, להכין ליהוה עם מוכן.<br>
+                יח. ויאמר זכריה אל המלאך: במה אדע זאת? כי זקן אני ואשתי באה בימים.<br>
+                יט. ויען המלאך ויאמר לו: אני גבריאל העומד לפני האלהים, ונשלחתי לדבר אליך ולבשר לך את זאת.<br>
+                כ. והנה תהיה שותק ולא תוכל לדבר עד היום שיהיה זה, תחת אשר לא האמנת לדברי, אשר יתמלאו בעתם.<br>
+                כא. והיה העם מחכה לזכריה, ותמהו על שהתמהמה בהיכל.<br>
+                כב. ויצא ולא יכול לדבר אליהם, וידעו<br>
+                כג. כי מראה ראה בהיכל, והוא היה מרמז להם, ונשאר אילם.
+            </p>
+
+            <h3>ביאור והערות:</h3>
+            <ul>
+                <li>**פסוקים יג-יז:** בשורת המלאך על הולדת יוחנן ושמו. הנוסח בבזא בפסוק יג מוסיף "ותקרא את שמו יוחנן" לאחר "תלד בן", בעוד בנוסח המקובל תוספת זו אינה מצויה במקום זה. הוספה זו מדגישה את הציווי האלוהי לגבי השם. תיאור יוחנן ש"גדול יהיה לפני יהוה" ויימלא "מרוח הקודש עוד מבטן אמו" מצביע על ייעודו המיוחד. תפקידו של יוחנן, "להשיב רבים מבני ישראל אל יהוה אלהיהם" ו"ללכת לפניו ברוח וכוח אליהו", משקף את התפיסה היהודית של תפקיד אליהו כמבשר הגאולה והמשיח, כפי שנאמר במלאכי ג', כג-כד. הביטוי "להכין ליהוה עם מוכן" מסכם את מטרת שליחותו.</li>
+                <li>**פסוקים יח-כג:** תגובת זכריה המטילה ספק, המבוססת על מצבם הפיזי של זכריה ואלישבע ("כי זקן אני ואשתי באה בימים"). המלאך משיב לו בזיהוי עצמי ("אני גבריאל העומד לפני האלהים") ומטיל עליו עונש זמני של אילמות ("תהיה שותק ולא תוכל לדבר עד היום שיהיה זה") בשל חוסר אמונתו. תיאור העם המחכה לזכריה מחוץ להיכל ותמיהתם על התמהמהותו, והבנתם לבסוף שראה מראה על פי רמזיו, מסיים את החטיבה ומדגיש את השפעת האירוע על הסובבים.</li>
+            </ul>
+        </section>
+
+        <div class="navigation-links">
+            <a href="luke1_1-12.html">הדף הקודם (פסוקים א-יב)</a>
+            <a href="index.html">חזרה לתוכן העניינים</a>
+            <a href="luke1_24-33.html">הדף הבא (פסוקים כד-לג)</a>
+        </div>
+
+        <div id="disqus_thread"></div>
+        <script>
+            /**
+            * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+            * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+            */
+            var disqus_config = function () {
+            this.page.url = 'https://mellifluous-frangipane-4476ed.netlify.app/luke1_13-23.html';  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = 'luke1_13-23'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            };
+            (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://hebrew-aramaic-sources.disqus.com/embed.js'; // Make sure this URL is correct based on your Disqus site name
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+</body>
+</html>

@@ -1,0 +1,243 @@
+﻿<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>שחזור מקור עברי-ארמי וביאור - לוקס א' סז-פח</title> <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* Custom styles for a traditional, readable design */
+        body {
+            font-family: 'Cardo', Georgia, serif; /* Using Cardo with fallbacks */
+            line-height: 1.8; /* Increased line spacing for readability */
+            color: #333; /* Standard text color */
+            background-color: #f0e6d3; /* Light cream/beige background */
+            padding: 1rem; /* Add some padding around the body */
+            text-align: right; /* Ensure text is aligned to the right */
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto; /* Center the container */
+            background-color: #fff; /* White background for the content area */
+            padding: 1.5rem; /* More padding inside the container */
+            border-radius: 0.5rem; /* Rounded corners */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+        }
+        h1, h2, h3 {
+            color: #4a235a; /* Deep purple/burgundy for headings */
+            margin-bottom: 0.75rem; /* Space below headings */
+            text-align: right; /* Ensure headings are aligned right */
+        }
+        h1 {
+            font-size: 2.25rem; /* Larger main title */
+            font-weight: bold;
+            text-align: center; /* Center the main title */
+            border-bottom: 2px solid #4a235a; /* Matching border color */
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        h2 {
+            font-size: 1.75rem; /* Chapter/Major Section titles */
+            font-weight: 600;
+            margin-top: 2rem; /* More space above major sections */
+            border-bottom: 1px dashed #ccc; /* Subtle dashed separator */
+            padding-bottom: 0.5rem;
+        }
+        h3 {
+            font-size: 1.25rem; /* Subsection titles */
+            font-weight: 600;
+            margin-top: 1.5rem; /* Space above subsections */
+            color: #0d47a1; /* Deep blue */
+        }
+        p, ul {
+            margin-bottom: 1rem; /* Space below paragraphs and lists */
+            text-indent: 1.5em; /* Indent paragraphs for a book-like feel */
+        }
+        /* Remove text indent for the first paragraph after a heading */
+        h2 + p, h3 + p, .section-content > p:first-of-type {
+             text-indent: 0;
+        }
+         /* Also remove indent for paragraphs inside special sections if needed */
+        .drasha-section p, .glossary-section p {
+             text-indent: 0;
+        }
+
+        ul {
+            list-style: disc inside;
+            padding-left: 1.25rem; /* Indent lists */
+            text-indent: 0; /* Remove indent for list items */
+        }
+        li {
+            margin-bottom: 0.5rem; /* Space between list items */
+            text-indent: 0; /* Ensure list items are not indented */
+        }
+         /* Remove text indent for list items inside special sections */
+         .drasha-section li, .glossary-section li {
+             text-indent: 0;
+         }
+
+        .section-content {
+            margin-bottom: 2rem; /* Space after each content section */
+        }
+        .drasha-section {
+            background-color: #e8f5e9; /* Light green background for Drasha */
+            padding: 1.5rem;
+            border-left: 5px solid #388e3c; /* Dark green border on the left */
+            margin-top: 2rem; /* Space above Drasha */
+            border-radius: 0.25rem; /* Slightly rounded corners for Drasha */
+        }
+        .drasha-section h2 {
+            color: #388e3c; /* Match heading color */
+            border-bottom: none; /* Remove border below Drasha heading */
+            margin-top: 0; /* Remove top margin for Drasha heading */
+            margin-bottom: 1rem; /* Space below Drasha heading */
+        }
+        .glossary-section {
+             background-color: #fff9c4; /* Light yellow background for Glossary */
+             padding: 1.5rem;
+             border-left: 5px solid #fbc02d; /* Golden yellow border on the left */
+             margin-top: 2rem;
+             border-radius: 0.25rem;
+        }
+         .glossary-section h2 {
+            color: #856404; /* Dark yellow color for Glossary heading */
+            border-bottom: none;
+            margin-top: 0;
+            margin-bottom: 1rem;
+         }
+         .glossary-section dl {
+             margin-bottom: 0;
+         }
+         .glossary-section dt {
+             font-weight: bold;
+             margin-top: 0.5rem;
+         }
+         .glossary-section dd {
+             margin-left: 1.5rem;
+             margin-bottom: 0.5rem;
+         }
+        /* Styling for the single Disqus comment section */
+        #disqus_thread {
+            margin-top: 3rem; /* Space above the comments section */
+            padding-top: 1.5rem;
+            border-top: 1px solid #ccc; /* Separator line */
+        }
+
+        /* Style for navigation links/buttons */
+        .navigation-links {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #ccc;
+            padding-top: 1rem;
+        }
+        .navigation-links a {
+            color: #0d47a1; /* Deep blue for links */
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .navigation-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K5QFN78FT3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-K5QFN78FT3');
+    </script>
+</head>
+<body class="p-4">
+    <div class="container mx-auto bg-white p-6 rounded-lg shadow-md">
+
+        <h1 class="text-3xl font-bold text-center mb-6">שחזור מקור עברי-ארמי וביאור - מהדורת בזא</h1>
+
+        <section id="luke1_67-80" class="section-content">
+            <h3 class="text-xl font-semibold">דף ז (פסוקים סז-פח)</h3>
+            <p>
+                סז. ומיד נפתחו פיו ולשונו, וידבר מברך את האלהים. ונבהלו כולם.<br>
+                סח. ויהי פחד גדול על כל השכנים סביבו, ובכל הר יהודה דובר בכל הדברים האלה,<br>
+                סט. ושמו כולם ששמעו בלבבותיהם, לאמר: מה יהיה הילד הזה?<br>
+                ע. כי גם יד יהוה היתה עמו. וזכריה אביו<br>
+                עא. נמלא מרוח הקודש ויאמר:<br>
+                עב. ברוך יהוה אלהי ישראל, כי פקד<br>
+                עג. ועשה פדות לעמו, והקים קרן ישועה לנו<br>
+                עד. בבית דוד עבדו, כאשר דיבר בפי נביאיו הקדושים<br>
+                עה. אשר מעולם, ישועה<br>
+                עו. מיד אויבינו ומכל שונאינו, לעשות<br>
+                עז. חסד עם אבותינו, לזכור בריתו הקדושה,<br>
+                עח. שבועה שנשבע לאברהם אבינו, לתת לנו<br>
+                עט. ללא פחד מיד אויבינו, ניצולים, לעבוד אותו<br>
+                פ. בקדושה ובצדק לפניו כל ימינו. ואתה גם ילד,<br>
+                פא. נביא עליון תיקרא, כי תלך לפני פני יהוה להכין דרכיו,<br>
+                פב. לתת דעת ישועה לעמו במחילת חטאותיהם,<br>
+                פג. בגלל רחמי<br>
+                פד. חסד אלהינו, בהם פקד אותנו<br>
+                פה. זריחה ממרום, להאיר אור<br>
+                פו. ליושבים בחושך ובצל מוות, להדריך<br>
+                פז. את רגלינו לדרך שלום.<br>
+                פח. והילד גדל והתחזק ברוח, והיה במדבריות<br>
+                פט. עד יום הצהרתו<br>
+                צ. לישראל.
+            </p>
+
+            <h3>ביאור והערות:</h3>
+            <ul>
+                <li>**פסוקים סז-עא:** מיד לאחר שכתב את השם יוחנן, "נפתחו פיו ולשונו, וידבר מברך את האלהים". אירוע זה גרם לפחד ותדהמה בקרב השכנים והתפשט בכל האזור, וגרם לאנשים לתהות על ייעודו של הילד ("מה יהיה הילד הזה? כי גם יד יהוה היתה עמו"). זכריה עצמו "נמלא מרוח הקודש" והחל בשירתו.</li>
+                <li>**פסוקים עב-פז:** שירת זכריה, המכונה "הבנדיקטוס". גם שירה זו היא מזמור הלל והודיה בעל אופי יהודי מובהק, המברך את יהוה אלהי ישראל על ש"פקד ועשה פדות לעמו". הוא רואה בהקמת "קרן ישועה לנו בבית דוד עבדו" את הגשמת ההבטחות שדיבר "בפי נביאיו הקדושים אשר מעולם". הישועה היא "מיד אויבינו ומכל שונאינו", ונועדה לאפשר לעם ישראל "לעבוד אותו בקדושה ובצדק לפניו כל ימינו". זכריה פונה לבנו יוחנן ומכריז עליו כעל "נביא עליון" שילך "לפני פני יהוה להכין דרכיו", ויעניק לעם "דעת ישועה במחילת חטאותיהם". הישועה נובעת "בגלל רחמי חסד אלהינו", ומתוארת כ"זריחה ממרום" שתאיר "ליושבים בחושך ובצל מוות" ותדריך אותם "לדרך שלום".</li>
+                <li>**פסוקים פח-צ:** סיום פרק א', המתאר את גדילתו והתחזקותו של יוחנן "ברוח" והיותו "במדבריות עד יום הצהרתו לישראל".</li>
+            </ul>
+            <div class="drasha-section">
+                <h2 class="text-2xl font-semibold">דרשה ומקורות לפרק א'</h2>
+                <p>
+                    פרק א' בלוקס, כפי שהוא משתקף בנוסח בזא, פותח שער לעולם רעיוני עשיר שבו מסורות יהודיות עתיקות פוגשות בשורות חדשות. הסיפורים על הולדת יוחנן המטביל וישוע אינם רק נרטיבים היסטוריים, אלא הצהרות תאולוגיות עמוקות המעוגנות בציפיות המשיחיות של עם ישראל, וניתנות להארה נוספת מתוך מגוון מקורות יהודו-נוצריים.
+
+                    ההקבלה בין הולדת יוחנן לבין הולדת ישוע בפרק זה מהדהדת מוטיבים מוכרים בספרות המדרשית על לידות פלאיות. אנו מוצאים במדרשים התייחסויות רבות לנשים עקרות במקרא, כמו שרה, רבקה, רחל, אם שמשון, וחנה, שלידת בניהן נתפסה כהתערבות אלוהית ישירה וכסימן לגדולה עתידית. כך, למשל, על לידת יצחק נאמר במדרש בראשית רבה (פרשה מג, ב) שהייתה "שלא כדרך כל הארץ". לידת יוחנן לאלישבע הזקנה והעקרה, ולידת ישוע ממרים הבתולה, מעצימות את הנס וממקמות אותן בשורה אחת עם דמויות מפתח בתולדות עם ישראל, שדרך לידתן נגלה כוחו הפועל של האלהים.
+
+                    השימוש בשם יהוה בשחזור, במיוחד בהקשר של התגלויות מלאכיות ותפילות, מחזק את האופי היהודי של הטקסט. במסורת היהודית, שם יהוה נחשב לקדוש ביותר, והגייתו הייתה מוגבלת. במדרש ובתורת הסוד, לשם יהוה מיוחסות משמעויות קוסמיות עמוקות. בכתבי קבלה, שם זה מקושר לעיתים קרובות לספירת תפארת, המייצגת את מידת הרחמים וההתגלות האלוהית בעולם. הופעת שם יהוה בהקשר של לידות משיחיות אלו יכולה להתפרש כהדגשה שהלידות הללו קשורות באופן ישיר להתגלות ההיבט הרחום והגואל של האלוהות.
+
+                    שירת מרים ("המגניפיקט") ושירת זכריה ("הבנדיקטוס") הן יצירות ליטורגיות בעלות שורשים עמוקים במזמורי תהילים ובספרות הנבואה. שירת מרים, במיוחד, מהווה הד ברור לשירת חנה (שמואל א', פרק ב'), ומדגישה את רעיון "הפיכת סדרי עולם" - השפלת גאים והרמת שפלים. רעיון זה מצוי גם במזמורים כמו תהילים קיג', ז-ח ("מקים מעפר דל מאשפות ירים אביון") ובספרות חז"ל המתארת את הגאולה כזמן שבו יתהפכו היוצרות החברתיות והרוחניות. שירת זכריה, המברכת את יהוה על ש"פקד ועשה פדות לעמו", מתמקדת בהגשמת ההבטחות האלוהיות לישראל דרך הקמת "קרן ישועה בבית דוד". ביטוי זה, "קרן ישועה", הוא ביטוי משיחי המופיע במזמורי תהילים (תהילים יח', ג') ומרמז על כוח והצלה. תיאור תפקידו של יוחנן כמבשר, "להכין דרכי יהוה", שואב מנבואת ישעיהו (מ', ג') ומלאכי (ג', א'), ומקשר את פעילותו להכנה לבוא המשיח.
+
+                    ההתגלויות המלאכיות לזכריה ולמרים, והיראה שהן מעוררות, משקפות את התפיסה המקראית והיהודית של מלאכים כשליחי האלהים. גבריאל, המופיע כאן, מוזכר גם בספר דניאל כמי שמביא בשורות על הגאולה העתידית. בספרות חנוך ובספרות המרכבה, למלאכים תפקיד מרכזי כתווכים בין העולם האלוהי לעולם הארצי.
+
+                    רעיון "רוח הקודש" הפועלת בלידות ובמפגשים אלו הוא מרכזי. ביהדות, רוח הקודש היא כוח אלוהי המשרה נבואה, חוכמה, וכוח לפעולה. בזרמים מסוימים ביהדות של הבית השני ובספרות הגנוסטית, רוח הקודש יכולה להתפרש כהיבט של האלוהות או כאצילה רוחנית עליונה. רעיון זה של כוח אלוהי הפועל באופן ישיר על בני אדם הוא בעל חשיבות תאולוגית רבה.
+
+                    לסיכום, פרק א' בלוקס מציע מבט מרתק על האופן שבו סיפורי הלידה של יוחנן וישוע מעוגנים עמוק בתוך העולם הרעיוני והדתי של היהדות, תוך שהם פורצים גבולות ומכריזים על עידן חדש של גאולה. ההתבוננות בפרק זה דרך עדשות מדרשיות, קבליות, וגנוסטיות, מאפשרת לראות את הרבדים השונים של המשמעות ואת האופן שבו הטקסט יכול להדהד רעיונות רוחניים ותאולוגיים ממגוון מסורות.
+                </p>
+            </div>
+        </section>
+
+        <div class="navigation-links">
+            <a href="luke1_57-66.html">הדף הקודם (פסוקים נז-סו)</a>
+            <a href="index.html">חזרה לתוכן העניינים</a>
+            <a href="luke2_1-12.html">לפרק הבא (פרק ב')</a>
+        </div>
+
+        <div id="disqus_thread"></div>
+        <script>
+            /**
+            * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+            * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+            */
+            var disqus_config = function () {
+            this.page.url = 'https://sourcesa.netlify.app/luke1_67-80.html';  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = 'luke1_67-80'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            };
+            (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://hebrew-aramaic-sources.disqus.com/embed.js'; // Make sure this URL is correct based on your Disqus site name
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+</body>
+</html>
