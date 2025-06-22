@@ -1,0 +1,156 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="בית מדרש וירטואלי לכתבים יהודו-נוצריים חיצוניים, הכולל תרגומים, ביאורים וכלי מחקר למסורות יהודיות ונוצריות קדומות.">
+  <meta name="keywords" content="כתבים חיצוניים, יהדות, נצרות, חזון דניאל, אפוקריפה, תרגום, ביאור">
+  <title>בית מדרש וירטואלי לכתבים יהודו-נוצריים חיצוניים</title>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Hebrew:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Serif Hebrew', 'Estrangelo Edessa', serif;
+    }
+    .aramaic {
+      font-family: 'Estrangelo Edessa', 'Noto Serif Hebrew', serif;
+      font-size: 1.1rem;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      transition: transform 0.3s ease;
+    }
+    a:focus, button:focus {
+      outline: 2px solid #2563eb;
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <!-- Navigation Bar -->
+  <nav aria-label="ניווט ראשי" class="bg-blue-800 text-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="/" class="text-2xl font-bold">בית מדרש וירטואלי</a>
+      <ul class="flex space-x-6">
+        <li><a href="/" class="hover:underline">דף הבית</a></li>
+        <li><a href="/texts" class="hover:underline">כתבים</a></li>
+        <li><a href="/about" class="hover:underline">אודות</a></li>
+        <li><a href="/contact" class="hover:underline">צור קשר</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="bg-blue-900 text-white py-20">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">ברוכים הבאים לבית המדרש הווירטואלי</h1>
+      <p class="text-lg md:text-xl mb-6">מאגר דיגיטלי לכתבים יהודו-נוצריים חיצוניים, עם תרגומים, ביאורים וכלים לחקר המסורות המשותפות.</p>
+      <a href="#search" class="bg-yellow-500 text-gray-800 px-6 py-3 rounded-full font-semibold hover:bg-yellow-400">חפש כתבים</a>
+    </div>
+  </section>
+
+  <!-- Vision Section -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-8">חזון הפרויקט</h2>
+      <p class="text-lg leading-relaxed text-center max-w-3xl mx-auto">
+        בית המדרש הווירטואלי שואף לשמר ולהנגיש את האוצרות הספרותיים של הכתבים היהודו-נוצריים החיצוניים, תוך החזרתם לשפה העברית. כתבים אלו, לעיתים מאוחרים, עשויים לשמר מסורות יהודיות קדומות, ואף הדים לגניזות נבואיות או ספרות חיצונית עתיקה. אנו מאמינים כי מוטיבים שנראים כהשפעות נוצריות עשויים להיות גלגולים של מסורות יהודיות מוקדמות, ובכך מגלמים ערך רב בחשיפת שורשים שאבדו. כדברי חז"ל: "מי הוא חכם? הלומד מכל אדם" (אבות ד, א), אנו מבקשים ללמוד מכל מקור כדי להאיר את מורשתנו המשותפת.
+      </p>
+    </div>
+  </section>
+
+  <!-- Preview Section -->
+  <section class="bg-gray-200 py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-8">תצוגה מקדימה של כתבים</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="card bg-white rounded-lg shadow-lg p-6">
+          <h3 class="text-xl font-semibold mb-2">חזון דניאל הסורי-ארמי</h3>
+          <p class="aramaic mb-4">לדניאיל נבܼיא בארעא דפרס ודעילם܀ במܲלכותה דדריוש מריא דאמלך בפרס...</p>
+          <p class="text-gray-600 mb-4">קטע מתוך חזון אפוקליפטי המתאר את נבואות דניאל בגלות בבל ופרס, עם תיאורים מפורטים של כיבוש ירושלים וגניזת כלי המקדש.</p>
+          <a href="/texts/daniel-syriac" class="text-blue-600 hover:underline">קרא עוד</a>
+        </div>
+        <div class="card bg-white rounded-lg shadow-lg p-6">
+          <h3 class="text-xl font-semibold mb-2">כתב נוסף (בקרוב)</h3>
+          <p class="text-gray-600 mb-4">תצוגה מקדימה של כתבים נוספים תתווסף בקרוב למאגר.</p>
+          <a href="#" class="text-blue-600 hover:underline" aria-disabled="true">קרא עוד (בקרוב)</a>
+        </div>
+        <div class="card bg-white rounded-lg shadow-lg p-6">
+          <h3 class="text-xl font-semibold mb-2">כתב נוסף (בקרוב)</h3>
+          <p class="text-gray-600 mb-4">תצוגה מקדימה של כתבים נוספים תתווסף בקרוב למאגר.</p>
+          <a href="#" class="text-blue-600 hover:underline" aria-disabled="true">קרא עוד (בקרוב)</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Search Section -->
+  <section id="search" class="py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-8">חפש במאגר הכתבים</h2>
+      <div class="max-w-md mx-auto">
+        <input type="text" placeholder="הזן מילות מפתח לחיפוש..." aria-label="חיפוש כתבים במאגר" class="w-full px-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-right"></input>
+        <button class="mt-4 bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600">חפש</button>
+      </div>
+      <p class="text-gray-500 mt-4">חיפוש מתקדם עם סינון לפי שפה, תקופה או נושא יתווסף בעתיד.</p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="bg-gray-200 py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-8">אלודות הפרוייקט</h2>
+      <p class="text-lg leading-relaxed text-center max-w-3xl mx-auto">
+        פרויקט זה נוסד כדי לשמר ולהפיץ את המורשת הספרותית של הכתבים החיצוניים היהודו-נוצריים, תוך הדגשת אותנטיותם כמשקפים מסורות קדומות. כתבים אלו, לעיתים בעלי השפעות נוצריות לכאורה, עשויים לשמר הדים למסורות יהודיות שאבדו, ואף לגלגולים של ספרות נבואית או חיצונית עברית עתיקה. בהחזרתם לעברית, אנו מבקשים לחשוף את ערכם כגשרים למסורות משותפות, כדברי חז"ל: "מי הוא חכם? הלומד מכל אדם" (אבות ד, א). למידע נוסף, בקרו ב-<a href="https://www.newadvent.org/cathen/01601a.htm" class="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">New Advent</a> או במאגרי הספרייה הדיגיתלית של <a href="https://www.deadseascrolls.org.il/" class="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">מגילות ים המלח</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-blue-800 text-white py-6">
+    <div class="container mx-auto px-4 text-center">
+      <p>© 2025 בית מדרש וירטואלי לכתבים יהודו-נוצריים חיצוניים. כל הזכויות שמורות.</p>
+    </div>
+  </footer>
+</body>
+</html>
