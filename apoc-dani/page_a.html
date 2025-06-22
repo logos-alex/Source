@@ -1,0 +1,178 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>חזון דניאל הסורי - עמוד א'</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @font-face {
+            font-family: 'FrankRuehl';
+            src: url('https://cdn.jsdelivr.net/npm/@fontsource/frank-ruehl-clm@4.5.0/frank-ruehl-clm.css') format('woff2');
+        }
+        @font-face {
+            font-family: 'David';
+            src: url('https://cdn.jsdelivr.net/npm/@fontsource/david-libre@4.5.0/david-libre.css') format('woff2');
+        }
+        .text-torani {
+            font-family: 'FrankRuehl', serif;
+            direction: rtl;
+        }
+        .commentary {
+            font-family: 'David', serif;
+            direction: rtl;
+        }
+        .verse {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: baseline;
+        }
+        .verse-label {
+            font-weight: bold;
+            margin-left: 0.5rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <!-- תפריט עליון -->
+    <nav class="bg-blue-800 text-white p-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-bold">בית מדרש וירטואלי לכתבים חיצוניים</h1>
+            <ul class="flex space-x-4 space-x-reverse">
+                <li><a href="/index.html" class="hover:underline">דף הבית</a></li>
+                <li><a href="/texts" class="hover:underline">כתבים</a></li>
+                <li><a href="/texts/syriac_daniel/index.html" class="hover:underline">חזון דניאל הסורי</a></li>
+                <li><a href="/search" class="hover:underline">חיפוש</a></li>
+                <li><a href="/about" class="hover:underline">אודות</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- תוכן ראשי -->
+    <main class="container mx-auto p-6">
+        <h2 class="text-3xl font-bold text-blue-800 mb-4 text-center text-torani">חזון דניאל הסורי - עמוד א'</h2>
+        <p class="text-lg mb-6 text-center text-torani">כיבוש ירושלים על ידי נבוכדנצר: תרגום וביאור</p>
+
+        <!-- קטע טקסט ותרגום -->
+        <section class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h3 class="text-2xl font-semibold text-blue-600 mb-4 text-torani">טקסט ותרגום</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- מקור ארמי (בתעתיק עברי) -->
+                <div class="text-torani">
+                    <h4 class="text-xl font-bold mb-2">מקור ארמי</h4>
+                    <div class="verse"><span class="verse-label">א.</span> לדניאיל נביא בארעא דפרס ודעילם. במלכותה דדריוש מריא דאמלך בפרס, ובמלכותה דאלפחתן מלכא דבביל, חזית חזונין הלין.</div>
+                    <div class="verse"><span class="verse-label">ב.</span> אנא דניאיל נביא ואתגלי לי נביותא הלין, מן בתר חזונא הלין דחזית. ונביותא הי דאתגלי לי מן רוחא דקודשא.</div>
+                    <div class="verse"><span class="verse-label">ג.</span> בשנוי דנבוכדנצר מלכא דבביל, דסלק הוא לארעא דיהוד ולקורית קודשא אורישלים, אכמא דאתפקד מן אלהא, למאלצה גיר ולמעקותה.</div>
+                    <div class="verse"><span class="verse-label">ד.</span> סלק הוא דין נבוכדנצר מלכא לארעא דיהודא, וזקר/וזור/ עליה, ויהבה אלהא באידוי, ובזה וחרבה, וכבשה ושבה.</div>
+                    <div class="verse"><span class="verse-label">ה.</span> ונסב גזא דאית הוא בהיכלא דאלהא, וכלהון מאני תשמשתא דבית מקדשא, דהבא וסאמא וכסא ואסקפא, ומזרקא שפירתא ומשלותא וכוזא, ופתורא הו דמדבחא.</div>
+                    <div class="verse"><span class="verse-label">ו.</span> ומנרתא דשבעא שבטין ואסטונא גויא דדהבא דמשכן זבנא, ואפודא רבא הו דלבש הוא רבכומרא, דאית הוא בה כאפא תרתעסרא על כתפתה, וכתיבין הוו עליהון שמהא דבני יעקוב.</div>
+                    <div class="verse"><span class="verse-label">ז.</span> ולבושא וכאפי חילא ודספילא ודברולחא, דאית הוי בית מקדשא, דמן שני דויד מלכא ושלימון ברה בתרה.</div>
+                    <div class="verse"><span class="verse-label">ח.</span> וכלה גזא דמלכא שלימון ודמלכא כלהון דהוו בתרה באורישלם, אף תרונוס רבא דדהבא דיתב הוא עלוהי מלכא שלימון.</div>
+                    <div class="verse"><span class="verse-label">ט.</span> ודבר מלכא נבוכדנצר, שביתה ובזתה דאורישלם, ונשא וטליא, ובעירא.</div>
+                </div>
+                <!-- תרגום עברי -->
+                <div class="text-torani">
+                    <h4 class="text-xl font-bold mb-2">תרגום עברי</h4>
+                    <div class="verse"><span class="verse-label">א.</span> לדניאל הנביא בארץ פרס ועילם. במלכות דריווש האדון אשר מלך בפרס, ובמלכות אלפחתן מלך בבל, חזיתי החזיונות האלה.</div>
+                    <div class="verse"><span class="verse-label">ב.</span> אני דניאל הנביא ונגלו לי הנבואות האלה, מאחר החזיונות האלה אשר חזיתי. והנבואה היא אשר נגלתה לי מרוח הקודש.</div>
+                    <div class="verse"><span class="verse-label">ג.</span> בשנות נבוכדנצר מלך בבל, אשר עלה הוא לארץ יהודה ולקריית קודשא ירושלים, כאשר צווה מאת אלוהים, להציק לה ולענותה.</div>
+                    <div class="verse"><span class="verse-label">ד.</span> עלה הוא, כן נבוכדנצר המלך, לארץ יהודה, ויָזַר/וַיָּצַר עליה, ויתנה אלוהים בידיו. ויבזוז אותה ויחריבה, ויכבשה וישבֶהָ.</div>
+                    <div class="verse"><span class="verse-label">ה.</span> ויקח את האוצר אשר היה בהיכל אלוהים, ואת כל כלי תשמיש בית המקדש: זהב וכסף, וכוסות ואסקופות, ומזרקות נאות וצלחות וכדים, והשולחן הוא של המזבח.</div>
+                    <div class="verse"><span class="verse-label">ו.</span> ומנורת שבעת הקנים ועמודי הפנים של זהב ממשכן מועד, והאפוד הגדול הוא אשר לבש רב-הכהנים, אשר היו בו אבנים שתים-עשרה על כתפיו, וכתובים היו עליהם שמות בני יעקב.</div>
+                    <div class="verse"><span class="verse-label">ז.</span> והמלבושים ואבני החוזק והספיר והיהלום, אשר היו בבית המקדש מימי דוד המלך ושלמה בנו אחריו.</div>
+                    <div class="verse"><span class="verse-label">ח.</span> וכל אוצר המלך שלמה וכל המלכים אשר היו אחריו בירושלים, אף הכס הגדול של זהב אשר ישב עליו המלך שלמה.</div>
+                    <div class="verse"><span class="verse-label">ט.</span> וישב ויבזוז המלך נבוכדנצר את ירושלים, ואת הנשים והנערים, והבהמה.</div>
+                </div>
+            </div>
+
+            <!-- ביאור -->
+            <div class="commentary mt-6">
+                <h4 class="text-xl font-bold mb-2">ביאור</h4>
+                <p>
+                    <strong>פתיחה כללית:</strong> הפתיחה מציגה את דניאל הנביא כמקבל החזון בארץ פרס ועילם, ומגדירה את המסגרת הכרונולוגית של החיבור – בתקופת דריווש מלך פרס ואלפחתן מלך בבל. כותב החזון מדגיש את המקור האלוהי של הנבואות ("מן רוחא דקודשא" – מרוח הקודש), ומקשר בין החזון לבין אירועים היסטוריים מוכרים. דמותו של "אלפחתן" אינה מזוהה היסטורית, וייתכן כי היא שיבוש של בלטשצר (דניאל ה, א) או המצאה ספרותית שנועדה לחזק את הרקע הנבואי.
+                </p>
+                <p>
+                    <strong>פסוקים א–ב: הקשר נבואי.</strong> התיאור של דניאל כמי שמקבל חזיונות מרוח הקודש מהדהד את המסורת המקראית על נבואה בהשראה אלוהית (תהלים נא, יג; ישעיהו סג, י). בתלמוד בבלי (סנהדרין יא, א) נאמר כי הנבואה המשיכה להתקיים בגלות, כפי שרואים אצל דניאל ויחזקאל, מה שמעניק אמינות למסגרת החזון כאן. השימוש במונח "רוחא דקודשא" מקביל גם לספרות אפוקריפית, כגון ספר חנוך א' (יד, ח–ט), שבה ההתגלות האלוהית היא מרכזית.
+                </p>
+                <p>
+                    <strong>פסוקים ג–ד: כיבוש ירושלים.</strong> תיאור עליית נבוכדנצר לירושלים והחורבן תואם את המתואר במלכים ב (כד, י–כה, ז), ירמיהו (נב, א–ל) ודברי הימים ב (לו, יז–כא). המונח "וזקܲר/וזור/" (ויָזַר/וַיָּצַר) משקף את לשון המקרא "וַיָּצַר" (מלכים ב כד, יא), ומתאר מצור צבאי. ההדגשה כי החורבן נעשה בציווי אלוהי ("אכמא דאתפקד מן אלהא") מחזקת את התפיסה המקראית של הגלות כעונש אלוהי (ירמיהו ז, יב–טו), כפי שמופיע גם בספרות קומראן (פשר חבקוק, 1QpHab).
+                </p>
+                <p>
+                    <strong>פסוקים ה–ח: כלי המקדש וכס שלמה.</strong> רשימת כלי המקדש – זהב, כסף, כוסות, אסקופות, מזרקות, מנורת שבעת הקנים, והאפוד – משקפת הכרות עם תיאורי המקדש בשמות (כח, ג–יד; לט, ב–כא) ומלכים א (ז, טו–נא). תיאור האפוד עם "אבנים שתים-עשרה" ו"שמות בני יעקב" מקביל לחושן הכהן הגדול (שמות כח, טו–כא). בספר מקבים ב' (א, כא–כג) מוזכר כי כלי המקדש נבזזו על ידי אנטיוכוס, אך מסורות מאוחרות, כגון במדרש תנחומא (פרשת תרומה, סימן י), מציינות כי חלקם נלקחו לבבל על ידי נבוכדנצר, מה שתומך בתיאור כאן. כס שלמה ("תרונוס רבא דדהבא") מופיע במלכים א (י, יח–כ) ובמסורות מדרשיות (פרקי דרבי אליעזר, פרק יא) כסמל למלכות אלוהית.
+                </p>
+                <p>
+                    <strong>פסוק ט: השבייה.</strong> תיאור השבייה של נשים, נערים ובהמות תואם את מלכים ב (כה, ז) וירמיהו (נב, ל), ומדגיש את חומרת החורבן. בספרות אפוקריפית, כגון ספר טוביה (ד, ד–ו), הגלות נתפסת כעונש אך גם כשלב לקראת גאולה, כפי שמרמזת נבואת ירמיהו (כט, י–יד) על שבעים שנות גלות שיסתיימו בשיבת ציון.
+                </p>
+            </div>
+        </section>
+
+        <!-- ניווט לעמודים -->
+        <div class="text-center mb-6 text-torani">
+            <a href="/texts/syriac_daniel/index.html" class="text-blue-600 hover:underline">חזור למבוא</a>
+            <span class="mx-2">|</span>
+            <a href="/texts/syriac_daniel/page_b.html" class="text-blue-600 hover:underline">עבור לעמוד הבא (ב') »</a>
+        </div>
+
+        <!-- תגובות Disqus -->
+        <section class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h2 class="text-2xl font-semibold text-blue-600 mb-4 text-torani">דיון</h2>
+            <div id="disqus_thread"></div>
+            <script>
+                (function() {
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://hebrew-aramaic-sources.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                })();
+            </script>
+            <noscript>אנא הפעל JavaScript כדי לצפות בתגובות המופעלות על ידי <a href="https://disqus.com/?ref_noscript">Disqus</a>.</noscript>
+        </section>
+    </main>
+
+    <!-- פוטר -->
+    <footer class="bg-blue-800 text-white p-4 mt-6">
+        <div class="container mx-auto text-center text-torani">
+            <p>© 2025 בית מדרש וירטואלי לכתבים חיצוניים. כל הזכויות שמורות.</p>
+        </div>
+    </footer>
+</body>
+</html>

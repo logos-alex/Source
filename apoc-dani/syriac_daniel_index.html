@@ -1,0 +1,167 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>בית מדרש וירטואלי - חזון דניאל הסורי</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @font-face {
+            font-family: 'SertoJerusalem';
+            src: url('https://cdn.jsdelivr.net/npm/@unicode/fonts@1.0.0/SertoJerusalem-Regular.ttf') format('truetype');
+        }
+        .syriac {
+            font-family: 'SertoJerusalem', sans-serif;
+            direction: rtl;
+        }
+        .hebrew {
+            font-family: 'Arial', sans-serif;
+            direction: rtl;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 font-hebrew">
+    <!-- תפריט עליון -->
+    <nav class="bg-blue-800 text-white p-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-bold">בית מדרש וירטואלי לכתבים חיצוניים</h1>
+            <ul class="flex space-x-4 space-x-reverse">
+                <li><a href="/index.html" class="hover:underline">דף הבית</a></li>
+                <li><a href="/texts" class="hover:underline">כתבים</a></li>
+                <li><a href="/search" class="hover:underline">חיפוש</a></li>
+                <li><a href="/about" class="hover:underline">אודות</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- תוכן ראשי -->
+    <main class="container mx-auto p-6">
+        <h1 class="text-3xl font-bold text-blue-800 mb-4 text-center">חזון דניאל הסורי</h1>
+        <section class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h2 class="text-2xl font-semibold text-blue-600 mb-4">מבוא</h2>
+            <p class="text-lg mb-4">
+                "חזון דניאל הסורי", חיבור קדום שנכתב בארמית סורית, הוא אוצר רוחני המשמר ניצוצות מחכמתם של קדמונים. חיבור זה, המיוחס במסורת לדניאל הנביא, נושא עמו רוח נבואית עמוקה, המחברת בין דברי התורה והנביאים לבין מסורות גנוזות שהיו יקרות לקהילות יהודיות ויהודו-נוצריות בעת העתיקה. למרות שנכתב, ככל הנראה, במאות הראשונות לספירה, ניכר כי הוא שואב ממקורות עבריים קדומים, ואולי אף משקף דברי נבואה שיוחסו לדניאל עוד בימי גלות בבל.
+            </p>
+            <p class="text-lg mb-4">
+                בספר דניאל המקראי (דניאל א, א–יב, יג) אנו פוגשים את דניאל כחוזה חזיונות ומפרש חלומות, המשמר אמונה באלוהי ישראל תחת שלטון זר. "חזון דניאל הסורי" ממשיך מסורת זו, תוך שהוא מרחיב את סיפורי כיבוש ירושלים (מלכים ב כד, י–כה, ז), תיאורי כלי המקדש (שמות כח, ו–יד; מלכים א ז, טו–נא), וחזיונות הגאולה. בדומה לספר חנוך א' (יד, ח–ט), המיוחס לחנוך הקדמון, גם כאן ניכרת שאיפה לשמר מסורות נבואיות שייתכן כי הועברו בעל פה או בכתב בקרב קהילות שראו עצמן כיורשות התורה. המונח "רוחא דקודשא" (רוח הקודש), המופיע בטקסט, מהדהד את לשון המקרא (תהלים נא, יג; ישעיהו סג, י) ומצביע על רצף רוחני עמוק.
+            </p>
+            <p class="text-lg mb-4">
+                חשיבותו המיוחדת של הכתב טמונה ביכולתו לשמר מסורות קדומות שאולי אבדו מהמסורת היהודית המקובלת. מוטיבים שנראים על פניו כתוספות מאוחרות, כגון תיאור "משיחא דגלא" (משיח השקר), עשויים להיות גלגולים של מסורות יהודיות קדומות יותר. דוגמה בולטת לכך היא הקבלה לדמות ארמילוס, אויב המשיח בספר זרובבל, המופיע במסורות יהודיות מהמאה ה-7 לספירה אך משקף רעיונות משיחיים קדומים יותר, כפי שנרמז במגילות קומראן (פשר חבקוק, 1QpHab). בדומה לכך, תיאורי משיח השקר בברית החדשה (תסלוניקים ב ג, ז–יב; איגרת יוחנן הראשונה ב, יח) עשויים להסתמך על אותן מסורות יהודיות ששמרו על ציפייה לגאולה ולמאבק קוסמי בין טוב לרע. כך, "חזון דניאל הסורי" משמש כגשר יקר ערך, המאפשר לנו לשמוע הדים של חכמה עברית קדומה שאחרת אבדה מאיתנו.
+            </p>
+            <p class="text-lg mb-4">
+                כיצד ניתן להניח שהכתב משמר מסורות קדומות? ראשית, השפה הארמית הסורית, קרובת משפחה של הארמית המקראית (דניאל ב, ד–ז, כח), משמשת כלי לשימור טקסטים עבריים קדומים, כפי שנראה במגילות קומראן (מגילת המלחמה, 1QM). שנית, תיאורי כלי המקדש וכס שלמה (מלכים א י, יח–כ) מקבילים למסורות מדרשיות, כגון בפרקי דרבי אליעזר (פרק יא), שם כס שלמה נתפס כסמל מלכות שמימית. מחקרים, כגון זה של ג'ון קולינס (*Daniel: A Commentary on the Book of Daniel*, 1993), מציעים שחיבורים אפוקריפיים לעיתים שימרו מסורות עממיות שלא נכללו בקאנון המקראי, וכך עשוי הכתב הזה להחזיר אלינו ניצוצות מדברי הנביא.
+            </p>
+            <p class="text-lg mb-6">
+                בית המדרש הווירטואלי מזמין אתכם לעיין בטקסט זה, המוגש בתרגום עברי נאמן למקור, בליווי ביאורים המבארים את הקשרו הרוחני וההיסטורי. כדברי חז"ל במסכת אבות (ד, א): "מי הוא חכם? הלומד מכל אדם". יהי רצון שנזכה להשיב את חכמת הקדמונים ולהאיר את דברי הנביאים לדורות.
+            </p>
+        </section>
+
+        <!-- רשימת עמודים -->
+        <section class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h2 class="text-2xl font-semibold text-blue-600 mb-4">מאגר עמודי הכתב</h2>
+            <table class="w-full border-collapse border border-gray-200">
+                <thead>
+                    <tr class="bg-blue-100">
+                        <th class="border border-gray-200 p-2">עמוד</th>
+                        <th class="border border-gray-200 p-2">תוכן עיקרי</th>
+                        <th class="border border-gray-200 p-2">קישור</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="border border-gray-200 p-2 text-center">א'</td>
+                        <td class="border border-gray-200 p-2">כיבוש ירושלים על ידי נבוכדנצר</td>
+                        <td class="border border-gray-200 p-2 text-center"><a href="/texts/syriac_daniel/page_a.html" class="text-blue-600 hover:underline">עבור לעמוד</a></td>
+                    </tr>
+                    <tr>
+                        <td class="border border-gray-200 p-2 text-center">ב'</td>
+                        <td class="border border-gray-200 p-2">דניאל בחצר בבל</td>
+                        <td class="border border-gray-200 p-2 text-center"><a href="/texts/syriac_daniel/page_b.html" class="text-blue-600 hover:underline">עבור לעמוד</a></td>
+                    </tr>
+                    <tr>
+                        <td class="border border-gray-200 p-2 text-center">ג'</td>
+                        <td class="border border-gray-200 p-2">חלום נבוכדנצר ופירושו</td>
+                        <td class="border border-gray-200 p-2 text-center"><a href="/texts/syriac_daniel/page_c.html" class="text-blue-600 hover:underline">עבור לעמוד</a></td>
+                    </tr>
+                    <tr>
+                        <td class="border border-gray-200 p-2 text-center">ד'</td>
+                        <td class="border border-gray-200 p-2">כורש והחזרת כלי המקדש</td>
+                        <td class="border border-gray-200 p-2 text-center"><a href="/texts/syriac_daniel/page_d.html" class="text-blue-600 hover:underline">עבור לעמוד</a></td>
+                    </tr>
+                    <tr>
+                        <td class="border border-gray-200 p-2 text-center">ה'–י"ב</td>
+                        <td class="border border-gray-200 p-2">חזיונות דניאל על ארבע המלכויות</td>
+                        <td class="border border-gray-200 p-2 text-center"><a href="/texts/syriac_daniel/page_e-l.html" class="text-blue-600 hover:underline">עבור לעמוד</a></td>
+                    </tr>
+                    <tr>
+                        <td class="border border-gray-200 p-2 text-center">י"ג–ט"ו</td>
+                        <td class="border border-gray-200 p-2">הופעת האנטיכריסט וגאולה סופית</td>
+                        <td class="border border-gray-200 p-2 text-center"><a href="/texts/syriac_daniel/page_m-o.html" class="text-blue-600 hover:underline">עבור לעמוד</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- תגובות Disqus -->
+        <section class="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h2 class="text-2xl font-semibold text-blue-600 mb-4">דיון</h2>
+            <div id="disqus_thread"></div>
+            <script>
+                (function() {
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://hebrew-aramaic-sources.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                })();
+            </script>
+            <noscript>אנא הפעל JavaScript כדי לצפות בתגובות המופעלות על ידי <a href="https://disqus.com/?ref_noscript">Disqus</a>.</noscript>
+        </section>
+    </main>
+
+    <!-- פוטר -->
+    <footer class="bg-blue-800 text-white p-4 mt-6">
+        <div class="container mx-auto text-center">
+            <p>© 2025 בית מדרש וירטואלי לכתבים חיצוניים. כל הזכויות שמורות.</p>
+        </div>
+    </footer>
+</body>
+</html>
