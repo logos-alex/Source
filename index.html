@@ -105,7 +105,7 @@
                 <a href="/all-writings.html" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 shadow-lg">
                     לכל הכתבים במאגר
                 </a>
-                <a href="/daniel-vision.html" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 shadow-lg">
+                <a href="/apoc-dani/syriac_daniel_index.html" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 shadow-lg">
                     חזון דניאל הסורי
                 </a>
             </div>
@@ -126,82 +126,5 @@
             </div>
         </div>
     </footer>
-
-    <script>
-        document.getElementById('askScholarBtn').addEventListener('click', async () => {
-            const question = document.getElementById('scholarQuestion').value;
-            const responseContainer = document.getElementById('scholarResponseContainer');
-            const loadingIndicator = document.getElementById('loadingIndicator');
-            const scholarAnswer = document.getElementById('scholarAnswer');
-
-            if (!question.trim()) {
-                scholarAnswer.innerHTML = '<span class="text-red-500">אנא הזן/י שאלה לפני הלחיצה.</span>';
-                responseContainer.classList.remove('hidden');
-                loadingIndicator.classList.add('hidden');
-                return;
-            }
-
-            // הצגת מחוון טעינה ואיפוס תשובה קודמת
-            responseContainer.classList.remove('hidden');
-            loadingIndicator.classList.remove('hidden');
-            scholarAnswer.textContent = ''; // ניקוי תשובות קודמות
-            scholarAnswer.classList.add('hidden'); // הסתרת התשובה עד שהיא מוכנה
-            document.getElementById('askScholarBtn').disabled = true; // נטרול כפתור בזמן טעינה
-
-            try {
-                // בניית היסטוריית הצ'אט עם השאלה של המשתמש
-                let chatHistory = [];
-                chatHistory.push({
-                    role: "user",
-                    parts: [{
-                        text: `
-                        אתה חוקר בתחום הכתבים היהודו-נוצריים החיצוניים.
-                        ענה על השאלה הבאה בצורה תמציתית, עניינית ואקדמית.
-                        השתדל להתבסס על הידע שנמסר לך על חזון דניאל הסורי אם השאלה רלוונטית, ובכללי על הבנתך בתחום.
-                        אם אינך יודע תשובה קונקרטית, ציין זאת באופן מקצועי.
-                        השאלה: ${question}
-                        `
-                    }]
-                });
-
-                const payload = {
-                    contents: chatHistory,
-                    generationConfig: {
-                        responseMimeType: "text/plain",
-                    }
-                };
-
-                const apiKey = ""; // Canvas will automatically provide the API key
-                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
-
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(payload)
-                });
-
-                const result = await response.json();
-                console.log(result); // לצרכי דיבוג
-
-                if (result.candidates && result.candidates.length > 0 &&
-                    result.candidates[0].content && result.candidates[0].content.parts &&
-                    result.candidates[0].content.parts.length > 0) {
-                    const text = result.candidates[0].content.parts[0].text;
-                    scholarAnswer.textContent = text;
-                } else {
-                    scholarAnswer.textContent = 'אנו מתנצלים, לא הצלחנו לקבל תשובה כרגע. אנא נסה/י שוב מאוחר יותר.';
-                }
-            } catch (error) {
-                console.error('שגיאה בקריאה ל-Gemini API:', error);
-                scholarAnswer.textContent = 'אירעה שגיאה. אנא בדוק/בדקי את חיבור האינטרנט ונסה/י שוב.';
-            } finally {
-                loadingIndicator.classList.add('hidden'); // הסתרת מחוון הטעינה
-                scholarAnswer.classList.remove('hidden'); // הצגת התשובה
-                document.getElementById('askScholarBtn').disabled = false; // הפעלת הכפתור מחדש
-            }
-        });
-    </script>
 </body>
 </html>
