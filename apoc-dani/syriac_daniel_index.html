@@ -3,126 +3,280 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>בית מדרש וירטואלי - חזון דניאל הסורי</title>
+    <title>מבוא: חזון דניאל הסורי | Heb-Sources</title>
+    <!-- טעינת Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- הגדרת פונט Inter גלובלי והתאמות בסיסיות ל-Tailwind -->
     <style>
-        @font-face {
-            font-family: 'SertoJerusalem';
-            src: url('https://cdn.jsdelivr.net/npm/@unicode/fonts@1.0.0/SertoJerusalem-Regular.ttf') format('truetype');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* רקע בהיר מאוד */
+            color: #334155; /* צבע טקסט בסיסי כהה */
+            line-height: 1.6;
         }
-        .syriac {
-            font-family: 'SertoJerusalem', sans-serif;
-            direction: rtl;
+        /* שימוש בקלאסים של Tailwind לעיגול פינות בכל המרכיבים */
+        .rounded-lg { border-radius: 0.5rem; } /* רדיוס בסיסי */
+        .rounded-xl { border-radius: 0.75rem; } /* רדיוס גדול יותר */
+        .rounded-full { border-radius: 9999px; } /* עיגול מלא */
+        /* הצללה קלה לאלמנטים בולטים */
+        .shadow-md { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
+        .shadow-lg { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
+        /* התאמות לטקסט ולכותרות */
+        h1, h2, h3, h4, h5, h6 {
+            color: #1a202c; /* צבע כהה יותר לכותרות */
+            font-weight: 600;
         }
-        .hebrew {
-            font-family: 'Arial', sans-serif;
-            direction: rtl;
+        a {
+            color: #2563eb; /* כחול לקישורים */
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-800 font-hebrew">
-    <!-- תפריט עליון -->
-    <nav class="bg-blue-800 text-white p-4 shadow-md">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-xl font-bold">בית מדרש וירטואלי לכתבים חיצוניים</h1>
-            <ul class="flex space-x-4 space-x-reverse">
-                <li><a href="/index.html" class="hover:underline">דף הבית</a></li>
-                <li><a href="/texts" class="hover:underline">כתבים</a></li>
-                <li><a href="/search" class="hover:underline">חיפוש</a></li>
-                <li><a href="/about" class="hover:underline">אודות</a></li>
-            </ul>
+<body class="rtl">
+    <!-- Header - כותרת עליונה -->
+    <header class="bg-blue-800 text-white py-4 px-4 sm:px-6 lg:px-8 shadow-lg">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <a href="/index.html" class="text-xl sm:text-2xl font-bold hover:text-blue-200 transition duration-300">
+                בית מדרש וירטואלי לכתבים חיצוניים
+            </a>
+            <nav>
+                <ul class="flex space-x-4 space-x-reverse text-lg">
+                    <li><a href="/all-writings.html" class="hover:text-blue-200 transition duration-300">כתבים</a></li>
+                    <li><a href="/about.html" class="hover:text-blue-200 transition duration-300">אודות</a></li>
+                    <li><a href="/contact.html" class="hover:text-blue-200 transition duration-300">יצירת קשר</a></li>
+                </ul>
+            </nav>
         </div>
-    </nav>
+    </header>
 
-    <!-- תוכן ראשי -->
-    <main class="container mx-auto p-6">
-        <h1 class="text-3xl font-bold text-blue-800 mb-4 text-center">חזון דניאל הסורי</h1>
-        <section class="bg-white p-6 rounded-lg shadow-md mb-6">
-            <h2 class="text-2xl font-semibold text-blue-600 mb-4">מבוא</h2>
-            <p class="text-lg mb-4">
-                "חזון דניאל הסורי", חיבור קדום שנכתב בארמית סורית, הוא אוצר רוחני המשמר ניצוצות מחכמתם של קדמונים. חיבור זה, המיוחס במסורת לדניאל הנביא, נושא עמו רוח נבואית עמוקה, המחברת בין דברי התורה והנביאים לבין מסורות גנוזות שהיו יקרות לקהילות יהודיות ויהודו-נוצריות בעת העתיקה. למרות שנכתב, ככל הנראה, במאות הראשונות לספירה, ניכר כי הוא שואב ממקורות עבריים קדומים, ואולי אף משקף דברי נבואה שיוחסו לדניאל עוד בימי גלות בבל.
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Breadcrumbs / ניווט פירורי לחם -->
+        <nav class="text-sm text-gray-500 mb-6">
+            <ol class="list-none p-0 inline-flex">
+                <li class="flex items-center">
+                    <a href="/index.html" class="text-blue-600 hover:underline">דף הבית</a>
+                    <span class="mx-2">/</span>
+                </li>
+                <li class="flex items-center">
+                    <a href="/daniel-vision.html" class="text-blue-600 hover:underline">חזון דניאל הסורי</a>
+                    <span class="mx-2">/</span>
+                </li>
+                <li class="flex items-center">
+                    <span class="text-gray-700">מבוא</span>
+                </li>
+            </ol>
+        </nav>
+
+        <!-- כותרת העמוד - חזון דניאל הסורי -->
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-center text-gray-900 mb-10">
+            חזון דניאל הסורי
+        </h1>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- תוכן המבוא - קולונה מרכזית -->
+            <div class="md:col-span-2 bg-white p-8 rounded-xl shadow-lg">
+                <h2 class="text-3xl font-bold mb-6 text-blue-800">מבוא</h2>
+                <div class="text-lg leading-relaxed space-y-4">
+                    <p>
+                        "חזון דניאל הסורי", חיבור קדום ורב-רבדים שנכתב בארמית סורית, ניצב בפנינו כהד לעולמות רוחניים נשכחים. המיוחס במסורת לדניאל הנביא, כתב זה אינו רק הרחבה לסיפורי המקרא, אלא יצירה מקורית המשלבת עומק נבואי עם מסורות גנוזות ועלומות, שהיו יקרות לקהילות יהודיות ויהודו-נוצריות בעת העתיקה.
+                    </p>
+                    <p>
+                        על פי המחקר המודרני, החיבור מתוארך לרוב למאה ה-7 לספירה, תקופה סוערת במיוחד במזרח התיכון. תקופה זו, שכללה מלחמות אימפריאליות אדירות (בין ביזנטיון לסאסאנים) ועליית כוחו הדרמטי של האסלאם, עיצבה במידה רבה את תכניו ומסריו האפוקליפטיים. החזון משמש כמענה רוחני למשברים אלו, מנסה לתת פשר למאורעות ההווה בראי תוכנית אלוהית כוללת, ומציע נחמה ותקווה לעתיד לבוא. יחד עם זאת, ניכר כי הוא שואב הדים ממקורות עבריים קדומים, ייתכן אף כאלו שיוחסו לדניאל עוד מימי גלות בבל ואף לפניהם, וזאת דרך הפריזמה של הנצרות הסורית.
+                    </p>
+                    <p>
+                        "חזון דניאל הסורי" ממשיך ומרחיב את מסורת ספר דניאל המקראי – החל מתיאורי כיבוש ירושלים וגורל כלי המקדש, דרך חזיונותיו של דניאל בחצרות המלכים, ועד לתיאורים מפורטים של אחרית הימים. אך בניגוד לספר המקראי, הוא מפתח נרטיבים ייחודיים ומרתקים, המעניקים מימד נוסף של קדושה ונסתר: כגון סיפור הטמנת כלי המקדש וכס שלמה במקומות סודיים עד לבוא הגאולה המשיחית, או ריפויו הניסי של דריווש המלך בירושלים. מוטיבים אלו, יחד עם אזכור "רוחא דקודשא" (רוח הקודש), מחברים את החיבור לרצף רוחני עמוק ולתפיסה של השגחה אלוהית מתמדת בהיסטוריה.
+                    </p>
+                    <p>
+                        חשיבותו המיוחדת של הכתב טמונה ביכולתו לשמר מסורות קדומות שאולי אבדו מן המסורת היהודית המקובלת, תוך שילובן בפרספקטיבה התיאולוגית הייחודית של הנצרות הסורית. דוגמה בולטת לכך היא התיאור המפורט של "משיחא דגלא" (משיח השקר) בדמותו המטילה אימה, עם מקורו השטני ותכונותיו הפיזיות הגרוטסקיות, ואשר טענותיו מחקות באופן מעוות את חיי המשיח האמיתי. דמות זו, המהדהדת את דמות ארמילוס בספר זרובבל היהודי, וכן תיאורי האנטיכריסט בברית החדשה (תסלוניקים ב', איגרת יוחנן), מלמדת על רעיונות משיחיים ודואליסטיים עתיקים שרווחו בקהילות יהודיות ויהודו-נוצריות, כפי שנרמז גם במגילות קומראן.
+                    </p>
+                    <p>
+                        השפה הארמית הסורית, ששימשה ככלי לשימור טקסטים עבריים קדומים, מחזקת את הטענה שהחיבור משמר ניצוצות מדברי הנביאים. תיאורי כלי המקדש וכס שלמה, למשל, מקבילים למסורות מדרשיות כמו בפרקי דרבי אליעזר, המעניקות להם משמעות מעבר לפיזי. "חזון דניאל הסורי" משמש אפוא כגשר יקר ערך, המאפשר לנו לשמוע הדים של חכמה עברית קדומה שאחרת אבדה מאיתנו, ולהבין את התפתחות המחשבה האסכטולוגית והמשיחית לאורך דורות.
+                    </p>
+                    <p>
+                        בית המדרש הווירטואלי מזמין אתכם לעיין בטקסט זה, המוגש בתרגום עברי נאמן למקור, בליווי ביאורים המבארים את הקשרו הרוחני וההיסטורי. אנו מאמינים כי "חזון דניאל הסורי" הוא מפתח להבנת המורשת המשותפת של היהדות והנצרות המוקדמת, ומאפשר ללמוד מכל עת ועמוקה. כדברי חז"ל במסכת אבות (ד, א): "מי הוא חכם? הלומד מכל אדם". יהי רצון שנזכה להשיב את חכמת הקדמונים ולהאיר את דברי הנביאים לדורות, ולהפיק תובנות רוחניות מן המאבק הנצחי בין אור לחושך, הנגלה לעינינו בכתב זה.
+                    </p>
+                </div>
+            </div>
+
+            <!-- מאגר עמוד הכתב - קולונה צדדית -->
+            <div class="md:col-span-1 bg-white p-6 rounded-xl shadow-lg h-fit">
+                <h2 class="text-2xl font-bold mb-5 text-blue-800 text-center">מאגר עמודי הכתב</h2>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white rounded-lg border border-gray-200">
+                        <thead>
+                            <tr class="bg-gray-100 text-gray-700 text-sm leading-normal">
+                                <th class="py-3 px-6 text-right border-b">תאור עיקרי</th>
+                                <th class="py-3 px-6 text-center border-b">קישור</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-600 text-sm font-light">
+                            <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                <td class="py-3 px-6 text-right whitespace-nowrap">א. כיבוש ירושלים על ידי נבוכדנצר</td>
+                                <td class="py-3 px-6 text-center"><a href="/daniel/page-a.html" class="text-blue-600 hover:underline">עבור לעמוד</a></td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                <td class="py-3 px-6 text-right whitespace-nowrap">ב. דניאל בבבל</td>
+                                <td class="py-3 px-6 text-center"><a href="/daniel/page-b.html" class="text-blue-600 hover:underline">עבור לעמוד</a></td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                <td class="py-3 px-6 text-right whitespace-nowrap">ג. בלשאצר וכיבוש פרס</td>
+                                <td class="py-3 px-6 text-center"><a href="/daniel/page-g.html" class="text-blue-600 hover:underline">עבור לעמוד</a></td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                <td class="py-3 px-6 text-right whitespace-nowrap">ד. כורש והחזרת כלי המקדש</td>
+                                <td class="py-3 px-6 text-center"><a href="/daniel/page-d.html" class="text-blue-600 hover:underline">עבור לעמוד</a></td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                <td class="py-3 px-6 text-right whitespace-nowrap">ה. חזיונות דניאל על ארבע המלכויות</td>
+                                <td class="py-3 px-6 text-center"><a href="/daniel/page-h.html" class="text-blue-600 hover:underline">עבור לעמוד</a></td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-3 px-6 text-right whitespace-nowrap">ו-ז. הופעת האנטיכריסט והגאולה הסופית</td>
+                                <td class="py-3 px-6 text-center"><a href="/daniel/page-wz.html" class="text-blue-600 hover:underline">עבור לעמוד</a></td>
+                            </tr>
+                            <!-- ניתן להוסיף שורות נוספות לפי הצורך -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- ✨ שאל את החוקר - פיצ'ר המופעל על ידי Gemini API -->
+        <section class="bg-blue-50 p-8 rounded-xl shadow-md mt-12">
+            <h2 class="text-3xl font-bold mb-4 text-blue-800 text-center">✨ שאל את החוקר</h2>
+            <p class="text-lg text-gray-700 mb-6 text-center">
+                יש לך שאלה על הכתב, ההקשר ההיסטורי או מושגים הקשורים לפרויקט? הקלד/י את שאלתך וקבל/י תשובה מהירה!
             </p>
-            <p class="text-lg mb-4">
-                בספר דניאל המקראי (דניאל א, א–יב, יג) אנו פוגשים את דניאל כחוזה חזיונות ומפרש חלומות, המשמר אמונה באלוהי ישראל תחת שלטון זר. "חזון דניאל הסורי" ממשיך מסורת זו, תוך שהוא מרחיב את סיפורי כיבוש ירושלים (מלכים ב כד, י–כה, ז), תיאורי כלי המקדש (שמות כח, ו–יד; מלכים א ז, טו–נא), וחזיונות הגאולה. בדומה לספר חנוך א' (יד, ח–ט), המיוחס לחנוך הקדמון, גם כאן ניכרת שאיפה לשמר מסורות נבואיות שייתכן כי הועברו בעל פה או בכתב בקרב קהילות שראו עצמן כיורשות התורה. המונח "רוחא דקודשא" (רוח הקודש), המופיע בטקסט, מהדהד את לשון המקרא (תהלים נא, יג; ישעיהו סג, י) ומצביע על רצף רוחני עמוק.
-            </p>
-            <p class="text-lg mb-4">
-                חשיבותו המיוחדת של הכתב טמונה ביכולתו לשמר מסורות קדומות שאולי אבדו מהמסורת היהודית המקובלת. מוטיבים שנראים על פניו כתוספות מאוחרות, כגון תיאור "משיחא דגלא" (משיח השקר), עשויים להיות גלגולים של מסורות יהודיות קדומות יותר. דוגמה בולטת לכך היא הקבלה לדמות ארמילוס, אויב המשיח בספר זרובבל, המופיע במסורות יהודיות מהמאה ה-7 לספירה אך משקף רעיונות משיחיים קדומים יותר, כפי שנרמז במגילות קומראן (פשר חבקוק, 1QpHab). בדומה לכך, תיאורי משיח השקר בברית החדשה (תסלוניקים ב ג, ז–יב; איגרת יוחנן הראשונה ב, יח) עשויים להסתמך על אותן מסורות יהודיות ששמרו על ציפייה לגאולה ולמאבק קוסמי בין טוב לרע. כך, "חזון דניאל הסורי" משמש כגשר יקר ערך, המאפשר לנו לשמוע הדים של חכמה עברית קדומה שאחרת אבדה מאיתנו.
-            </p>
-            <p class="text-lg mb-4">
-                כיצד ניתן להניח שהכתב משמר מסורות קדומות? ראשית, השפה הארמית הסורית, קרובת משפחה של הארמית המקראית (דניאל ב, ד–ז, כח), משמשת כלי לשימור טקסטים עבריים קדומים, כפי שנראה במגילות קומראן (מגילת המלחמה, 1QM). שנית, תיאורי כלי המקדש וכס שלמה (מלכים א י, יח–כ) מקבילים למסורות מדרשיות, כגון בפרקי דרבי אליעזר (פרק יא), שם כס שלמה נתפס כסמל מלכות שמימית. מחקרים, כגון זה של ג'ון קולינס (*Daniel: A Commentary on the Book of Daniel*, 1993), מציעים שחיבורים אפוקריפיים לעיתים שימרו מסורות עממיות שלא נכללו בקאנון המקראי, וכך עשוי הכתב הזה להחזיר אלינו ניצוצות מדברי הנביא.
-            </p>
-            <p class="text-lg mb-6">
-                בית המדרש הווירטואלי מזמין אתכם לעיין בטקסט זה, המוגש בתרגום עברי נאמן למקור, בליווי ביאורים המבארים את הקשרו הרוחני וההיסטורי. כדברי חז"ל במסכת אבות (ד, א): "מי הוא חכם? הלומד מכל אדם". יהי רצון שנזכה להשיב את חכמת הקדמונים ולהאיר את דברי הנביאים לדורות.
-            </p>
+            <div class="flex flex-col gap-4">
+                <textarea id="scholarQuestion" class="w-full p-4 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 text-gray-700 text-base" rows="4" placeholder="לדוגמה: מהו הקשר בין 'חזון דניאל הסורי' לספר דניאל המקראי?"></textarea>
+                <button id="askScholarBtn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9.247a4.25 4.25 0 100 5.506 4.25 4.25 0 000-5.506zM15 12a3 3 0 11-6 0 3 3 0 016 0zM19 12a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    שאל את החוקר ✨
+                </button>
+            </div>
+            <div id="scholarResponseContainer" class="mt-8 bg-white p-6 rounded-xl shadow-md hidden">
+                <p class="text-gray-600 text-sm italic mb-2" id="loadingIndicator">טוען תשובה...</p>
+                <p id="scholarAnswer" class="text-gray-800 text-lg leading-relaxed"></p>
+            </div>
         </section>
 
-        <!-- רשימת עמודים -->
-        <section class="bg-white p-6 rounded-lg shadow-md mb-6">
-            <h2 class="text-2xl font-semibold text-blue-600 mb-4">מאגר עמודי הכתב</h2>
-            <table class="w-full border-collapse border border-gray-200">
-                <thead>
-                    <tr class="bg-blue-100">
-                        <th class="border border-gray-200 p-2">עמוד</th>
-                        <th class="border border-gray-200 p-2">תוכן עיקרי</th>
-                        <th class="border border-gray-200 p-2">קישור</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="border border-gray-200 p-2 text-center">א'</td>
-                        <td class="border border-gray-200 p-2">כיבוש ירושלים על ידי נבוכדנצר</td>
-                        <td class="border border-gray-200 p-2 text-center"><a href="/apoc-dani/page_a.html" class="text-blue-600 hover:underline">עבור לעמוד</a></td>
-                    </tr>
-                    <tr>
-                        <td class="border border-gray-200 p-2 text-center">ב'</td>
-                        <td class="border border-gray-200 p-2">דניאל בחצר בבל</td>
-                        <td class="border border-gray-200 p-2 text-center"><a href="/apoc-dani/page_b.html" class="text-blue-600 hover:underline">עבור לעמוד</a></td>
-                    </tr>
-                    <tr>
-                        <td class="border border-gray-200 p-2 text-center">ג'</td>
-                        <td class="border border-gray-200 p-2">חלום נבוכדנצר ופירושו</td>
-                        <td class="border border-gray-200 p-2 text-center"><a href="/apoc-dani/page_c.html" class="text-blue-600 hover:underline">עבור לעמוד</a></td>
-                    </tr>
-                    <tr>
-                        <td class="border border-gray-200 p-2 text-center">ד'</td>
-                        <td class="border border-gray-200 p-2">כורש והחזרת כלי המקדש</td>
-                        <td class="border border-gray-200 p-2 text-center"><a href="/apoc-dani/page_d.html" class="text-blue-600 hover:underline">עבור לעמוד</a></td>
-                    </tr>
-                    <tr>
-                        <td class="border border-gray-200 p-2 text-center">ה'–י"ב</td>
-                        <td class="border border-gray-200 p-2">חזיונות דניאל על ארבע המלכויות</td>
-                        <td class="border border-gray-200 p-2 text-center"><a href="/apoc-dani/page_e-l.html" class="text-blue-600 hover:underline">עבור לעמוד</a></td>
-                    </tr>
-                    <tr>
-                        <td class="border border-gray-200 p-2 text-center">י"ג–ט"ו</td>
-                        <td class="border border-gray-200 p-2">הופעת האנטיכריסט וגאולה סופית</td>
-                        <td class="border border-gray-200 p-2 text-center"><a href="/apoc-dani/page_m-o.html" class="text-blue-600 hover:underline">עבור לעמוד</a></td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
-        <!-- תגובות Disqus -->
-        <section class="bg-white p-6 rounded-lg shadow-md mb-6">
-            <h2 class="text-2xl font-semibold text-blue-600 mb-4">דיון</h2>
+        <!-- Disqus Discussion Section -->
+        <section class="bg-blue-50 p-8 rounded-xl shadow-md mt-12">
+            <h2 class="text-3xl font-bold mb-6 text-blue-800 text-center">💡 דיון</h2>
             <div id="disqus_thread"></div>
             <script>
-                (function() {
-                    var d = document, s = d.createElement('script');
-                    s.src = 'https://hebrew-aramaic-sources.disqus.com/embed.js';
-                    s.setAttribute('data-timestamp', +new Date());
-                    (d.head || d.body).appendChild(s);
+                /**
+                * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+                */
+                /*
+                var disqus_config = function () {
+                this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                };
+                */
+                (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document, s = d.createElement('script');
+                s.src = 'https://hebrew-aramaic-sources.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
                 })();
             </script>
-            <noscript>אנא הפעל JavaScript כדי לצפות בתגובות המופעלות על ידי <a href="https://disqus.com/?ref_noscript">Disqus</a>.</noscript>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
         </section>
     </main>
 
-    <!-- פוטר -->
-    <footer class="bg-blue-800 text-white p-4 mt-6">
-        <div class="container mx-auto text-center">
-            <p>© 2025 בית מדרש וירטואלי לכתבים חיצוניים. כל הזכויות שמורות.</p>
+    <!-- Footer - כותרת תחתונה -->
+    <footer class="bg-gray-800 text-white py-8 px-4 sm:px-6 lg:px-8 mt-12 rounded-t-xl">
+        <div class="max-w-4xl mx-auto text-center text-sm">
+            <p class="mb-4">&copy; 2025 Heb-Sources. כל הזכויות שמורות.</p>
+            <div class="flex justify-center space-x-6 space-x-reverse">
+                <a href="/about.html" class="hover:underline">אודותינו</a>
+                <a href="/contact.html" class="hover:underline">יצירת קשר</a>
+                <a href="/privacy-policy.html" class="hover:underline">מדיניות פרטיות</a>
+            </div>
         </div>
     </footer>
+
+    <script>
+        document.getElementById('askScholarBtn').addEventListener('click', async () => {
+            const question = document.getElementById('scholarQuestion').value;
+            const responseContainer = document.getElementById('scholarResponseContainer');
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            const scholarAnswer = document.getElementById('scholarAnswer');
+
+            if (!question.trim()) {
+                scholarAnswer.innerHTML = '<span class="text-red-500">אנא הזן/י שאלה לפני הלחיצה.</span>';
+                responseContainer.classList.remove('hidden');
+                loadingIndicator.classList.add('hidden');
+                return;
+            }
+
+            // הצגת מחוון טעינה ואיפוס תשובה קודמת
+            responseContainer.classList.remove('hidden');
+            loadingIndicator.classList.remove('hidden');
+            scholarAnswer.textContent = ''; // ניקוי תשובות קודמות
+            scholarAnswer.classList.add('hidden'); // הסתרת התשובה עד שהיא מוכנה
+            document.getElementById('askScholarBtn').disabled = true; // נטרול כפתור בזמן טעינה
+
+            try {
+                // בניית היסטוריית הצ'אט עם השאלה של המשתמש
+                let chatHistory = [];
+                chatHistory.push({
+                    role: "user",
+                    parts: [{
+                        text: `
+                        אתה חוקר בתחום הכתבים היהודו-נוצריים החיצוניים.
+                        ענה על השאלה הבאה בצורה תמציתית, עניינית ואקדמית.
+                        השתדל להתבסס על הידע שנמסר לך על חזון דניאל הסורי אם השאלה רלוונטית, ובכללי על הבנתך בתחום.
+                        אם אינך יודע תשובה קונקרטית, ציין זאת באופן מקצועי.
+                        השאלה: ${question}
+                        `
+                    }]
+                });
+
+                const payload = {
+                    contents: chatHistory,
+                    generationConfig: {
+                        responseMimeType: "text/plain",
+                    }
+                };
+
+                const apiKey = ""; // Canvas will automatically provide the API key
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                console.log(result); // לצרכי דיבוג
+
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    const text = result.candidates[0].content.parts[0].text;
+                    scholarAnswer.textContent = text;
+                } else {
+                    scholarAnswer.textContent = 'אנו מתנצלים, לא הצלחנו לקבל תשובה כרגע. אנא נסה/י שוב מאוחר יותר.';
+                }
+            } catch (error) {
+                console.error('שגיאה בקריאה ל-Gemini API:', error);
+                scholarAnswer.textContent = 'אירעה שגיאה. אנא בדוק/בדקי את חיבור האינטרנט ונסה/י שוב.';
+            } finally {
+                loadingIndicator.classList.add('hidden'); // הסתרת מחוון הטעינה
+                scholarAnswer.classList.remove('hidden'); // הצגת התשובה
+                document.getElementById('askScholarBtn').disabled = false; // הפעלת הכפתור מחדש
+            }
+        });
+    </script>
 </body>
 </html>
