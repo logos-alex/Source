@@ -1,156 +1,207 @@
-<script type="text/javascript">
-        var gk_isXlsx = false;
-        var gk_xlsxFileLookup = {};
-        var gk_fileData = {};
-        function filledCell(cell) {
-          return cell !== '' && cell != null;
-        }
-        function loadFileData(filename) {
-        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
-            try {
-                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
-                var firstSheetName = workbook.SheetNames[0];
-                var worksheet = workbook.Sheets[firstSheetName];
-
-                // Convert sheet to JSON to filter blank rows
-                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
-                // Filter out blank rows (rows where all cells are empty, null, or undefined)
-                var filteredData = jsonData.filter(row => row.some(filledCell));
-
-                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
-                var headerRowIndex = filteredData.findIndex((row, index) =>
-                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
-                );
-                // Fallback
-                if (headerRowIndex === -1 || headerRowIndex > 25) {
-                  headerRowIndex = 0;
-                }
-
-                // Convert filtered JSON back to CSV
-                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
-                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
-                return csv;
-            } catch (e) {
-                console.error(e);
-                return "";
-            }
-        }
-        return gk_fileData[filename] || "";
-        }
-        </script><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="בית מדרש וירטואלי לכתבים יהודו-נוצריים חיצוניים, הכולל תרגומים, ביאורים וכלי מחקר למסורות יהודיות ונוצריות קדומות.">
-  <meta name="keywords" content="כתבים חיצוניים, יהדות, נצרות, חזון דניאל, אפוקריפה, תרגום, ביאור">
-  <title>בית מדרש וירטואלי לכתבים יהודו-נוצריים חיצוניים</title>
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Hebrew:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Noto Serif Hebrew', 'Estrangelo Edessa', serif;
-    }
-    .aramaic {
-      font-family: 'Estrangelo Edessa', 'Noto Serif Hebrew', serif;
-      font-size: 1.1rem;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-      transition: transform 0.3s ease;
-    }
-    a:focus, button:focus {
-      outline: 2px solid #2563eb;
-      outline-offset: 2px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>בית מדרש לכתבים יהודו-נוצרים חיצוניים | Heb-Sources</title>
+    <!-- טעינת Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- הגדרת פונט Inter גלובלי והתאמות בסיסיות ל-Tailwind -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* רקע בהיר מאוד */
+            color: #334155; /* צבע טקסט בסיסי כהה */
+            line-height: 1.6;
+        }
+        /* שימוש בקלאסים של Tailwind לעיגול פינות בכל המרכיבים */
+        .rounded-lg { border-radius: 0.5rem; } /* רדיוס בסיסי */
+        .rounded-xl { border-radius: 0.75rem; } /* רדיוס גדול יותר */
+        .rounded-full { border-radius: 9999px; } /* עיגול מלא */
+        /* הצללה קלה לאלמנטים בולטים */
+        .shadow-md { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
+        .shadow-lg { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
+        /* התאמות לטקסט ולכותרות */
+        h1, h2, h3, h4, h5, h6 {
+            color: #1a202c; /* צבע כהה יותר לכותרות */
+            font-weight: 600;
+        }
+        a {
+            color: #2563eb; /* כחול לקישורים */
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
-  <!-- Navigation Bar -->
-  <nav aria-label="ניווט ראשי" class="bg-blue-800 text-white shadow-md sticky top-0 z-50">
-    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-      <a href="/" class="text-2xl font-bold">בית מדרש וירטואלי</a>
-      <ul class="flex space-x-6">
-        <li><a href="/" class="hover:underline">דף הבית</a></li>
-        <li><a href="/texts" class="hover:underline">כתבים</a></li>
-        <li><a href="/about" class="hover:underline">אודות</a></li>
-        <li><a href="/contact" class="hover:underline">צור קשר</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section class="bg-blue-900 text-white py-20">
-    <div class="container mx-auto px-4 text-center">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4">ברוכים הבאים לבית המדרש הווירטואלי</h1>
-      <p class="text-lg md:text-xl mb-6">מאגר דיגיטלי לכתבים יהודו-נוצריים חיצוניים, עם תרגומים, ביאורים וכלים לחקר המסורות המשותפות.</p>
-      <a href="#search" class="bg-yellow-500 text-gray-800 px-6 py-3 rounded-full font-semibold hover:bg-yellow-400">חפש כתבים</a>
-    </div>
-  </section>
-
-  <!-- Vision Section -->
-  <section class="py-16">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-8">חזון הפרויקט</h2>
-      <p class="text-lg leading-relaxed text-center max-w-3xl mx-auto">
-        בית המדרש הווירטואלי שואף לשמר ולהנגיש את האוצרות הספרותיים של הכתבים היהודו-נוצריים החיצוניים, תוך החזרתם לשפה העברית. כתבים אלו, לעיתים מאוחרים, עשויים לשמר מסורות יהודיות קדומות, ואף הדים לגניזות נבואיות או ספרות חיצונית עתיקה. אנו מאמינים כי מוטיבים שנראים כהשפעות נוצריות עשויים להיות גלגולים של מסורות יהודיות מוקדמות, ובכך מגלמים ערך רב בחשיפת שורשים שאבדו. כדברי חז"ל: "מי הוא חכם? הלומד מכל אדם" (אבות ד, א), אנו מבקשים ללמוד מכל מקור כדי להאיר את מורשתנו המשותפת.
-      </p>
-    </div>
-  </section>
-
-  <!-- Preview Section -->
-  <section class="bg-gray-200 py-16">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-8">תצוגה מקדימה של כתבים</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="card bg-white rounded-lg shadow-lg p-6">
-          <h3 class="text-xl font-semibold mb-2">חזון דניאל הסורי-ארמי</h3>
-          <p class="aramaic mb-4">לדניאיל נבܼיא בארעא דפרס ודעילם܀ במܲלכותה דדריוש מריא דאמלך בפרס...</p>
-          <p class="text-gray-600 mb-4">קטע מתוך חזון אפוקליפטי המתאר את נבואות דניאל בגלות בבל ופרס, עם תיאורים מפורטים של כיבוש ירושלים וגניזת כלי המקדש.</p>
-          <a href="/apoc-dani/syriac_daniel_index.html" class="text-blue-600 hover:underline">קרא עוד</a>
+<body class="rtl">
+    <!-- Hero Section - קטע פתיחה בולט עם שם הפרויקט והסלוגן -->
+    <header class="bg-gradient-to-r from-blue-700 to-blue-900 text-white py-16 px-4 sm:px-6 lg:px-8 shadow-lg rounded-b-xl mb-12">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight">
+                הברית החדשה הארמית: <br class="hidden sm:inline">בית מדרש לכתבים יהודו-נוצרים חיצוניים
+            </h1>
+            <p class="text-xl sm:text-2xl opacity-90 italic">
+                היכל וירטואלי לחקר מקורותיה וספרותה של הנצרות המוקדמת בראי המסורת היהודית והארמית.
+            </p>
         </div>
-        <div class="card bg-white rounded-lg shadow-lg p-6">
-          <h3 class="text-xl font-semibold mb-2">כתב נוסף (בקרוב)</h3>
-          <p class="text-gray-600 mb-4">תצוגה מקדימה של כתבים נוספים תתווסף בקרוב למאגר.</p>
-          <a href="#" class="text-blue-600 hover:underline" aria-disabled="true">קרא עוד (בקרוב)</a>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- מבוא קצר -->
+        <section class="bg-white p-8 rounded-xl shadow-md mb-12 text-center">
+            <p class="text-lg sm:text-xl leading-relaxed">
+                ברוכים הבאים ל-<strong class="text-blue-600">Heb-Sources</strong> – מיזם ייחודי המבקש להאיר פרקים פחות מוכרים בהתפתחות הנצרות, מתוך נקודת מבט יהודית ומתוך עיון מעמיק במקורותיה הארמיים. מאגר זה נועד לשמש ככלי מחקרי ולימודי עבור חוקרים, סטודנטים וכל מי שמתעניין בשורשים היהודיים של הנצרות, בטקסטים החיצוניים שהשפיעו עליה, ובתפקיד השפה הארמית כגשר תרבותי-תיאולוגי.
+            </p>
+        </section>
+
+        <!-- אודות הפרויקט / מטרות וייחוד -->
+        <section class="grid md:grid-cols-2 gap-8 mb-12">
+            <!-- קטע על מטרת המיזם -->
+            <div class="bg-white p-8 rounded-xl shadow-md">
+                <h2 class="text-3xl font-bold mb-4 text-blue-800">מטרת המיזם</h2>
+                <p class="text-base sm:text-lg">
+                    אנו שואפים לאסוף, לתעד, לתרגם ולבאר כתבים יהודו-נוצריים חיצוניים – טקסטים עתיקים שלא נכללו בקאנון של הברית החדשה, אך מהווים עדויות מרתקות למורכבותה של הנצרות המוקדמת. כתבים אלו, שנכתבו ברובם בארמית (סורית), משקפים דיאלוג תרבותי ותיאולוגי עשיר בין היהדות לבין הזרמים הנוצריים הראשונים.
+                </p>
+            </div>
+
+            <!-- קטע על ייחודו של המאגר -->
+            <div class="bg-white p-8 rounded-xl shadow-md">
+                <h2 class="text-3xl font-bold mb-4 text-blue-800">ייחודו של המאגר</h2>
+                <ul class="list-disc pr-6 space-y-3 text-base sm:text-lg">
+                    <li><strong class="font-semibold text-gray-700">התמקדות בארמית:</strong> אנו מעניקים דגש מיוחד לטקסטים הארמיים (סוריים), ומציעים תרגום מילולי לעברית, יחד עם ביאור מפורט ומעמיק.</li>
+                    <li><strong class="font-semibold text-gray-700">פרספקטיבה יהודית:</strong> הפירושים והביאורים מנתחים את הכתבים מתוך ראייה המודעת למקורות ולמסורות היהודיות שהזינו את הנצרות הקדומה.</li>
+                    <li><strong class="font-semibold text-gray-700">נגישות ובהירות:</strong> אנו פועלים להנגיש חומר אקדמי מורכב לקהל רחב, תוך שמירה על רמה מדעית גבוהה ובהירות מקסימלית.</li>
+                    <li><strong class="font-semibold text-gray-700">פלטפורמה דינמית:</strong> המאגר יתעדכן ויתרחב באופן שוטף, ויכלול כתבים, מחקרים, מאמרים וכלים נוספים.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ✨ שאל את החוקר - פיצ'ר המופעל על ידי Gemini API -->
+        <section class="bg-blue-50 p-8 rounded-xl shadow-md mb-12">
+            <h2 class="text-3xl font-bold mb-4 text-blue-800 text-center">✨ שאל את החוקר</h2>
+            <p class="text-lg text-gray-700 mb-6 text-center">
+                יש לך שאלה על הכתבים, ההקשר ההיסטורי או מושגים הקשורים לפרויקט? הקלד/י את שאלתך וקבל/י תשובה מהירה!
+            </p>
+            <div class="flex flex-col gap-4">
+                <textarea id="scholarQuestion" class="w-full p-4 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 text-gray-700 text-base" rows="4" placeholder="לדוגמה: מהו הקשר בין 'חזון דניאל הסורי' לספר דניאל המקראי?"></textarea>
+                <button id="askScholarBtn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9.247a4.25 4.25 0 100 5.506 4.25 4.25 0 000-5.506zM15 12a3 3 0 11-6 0 3 3 0 016 0zM19 12a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    שאל את החוקר ✨
+                </button>
+            </div>
+            <div id="scholarResponseContainer" class="mt-8 bg-white p-6 rounded-xl shadow-md hidden">
+                <p class="text-gray-600 text-sm italic mb-2" id="loadingIndicator">טוען תשובה...</p>
+                <p id="scholarAnswer" class="text-gray-800 text-lg leading-relaxed"></p>
+            </div>
+        </section>
+
+        <!-- היכנסו למאגר / קישורים לתוכן -->
+        <section class="bg-blue-50 p-8 rounded-xl shadow-md text-center">
+            <h2 class="text-3xl font-bold mb-6 text-blue-800">החלו במסע המחקר שלכם:</h2>
+            <div class="flex flex-col sm:flex-row justify-center gap-6">
+                <a href="/all-writings.html" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 shadow-lg">
+                    לכל הכתבים במאגר
+                </a>
+                <a href="/daniel-vision.html" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 shadow-lg">
+                    חזון דניאל הסורי
+                </a>
+            </div>
+            <p class="mt-8 text-lg text-gray-600 italic">
+                כתבים נוספים יעלו בקרוב...
+            </p>
+        </section>
+    </main>
+
+    <!-- Footer - כותרת תחתונה -->
+    <footer class="bg-gray-800 text-white py-8 px-4 sm:px-6 lg:px-8 mt-12 rounded-t-xl">
+        <div class="max-w-4xl mx-auto text-center text-sm">
+            <p class="mb-4">&copy; 2025 Heb-Sources. כל הזכויות שמורות.</p>
+            <div class="flex justify-center space-x-6 space-x-reverse">
+                <a href="/about.html" class="hover:underline">אודותינו</a>
+                <a href="/contact.html" class="hover:underline">יצירת קשר</a>
+                <a href="/privacy-policy.html" class="hover:underline">מדיניות פרטיות</a>
+            </div>
         </div>
-        <div class="card bg-white rounded-lg shadow-lg p-6">
-          <h3 class="text-xl font-semibold mb-2">כתב נוסף (בקרוב)</h3>
-          <p class="text-gray-600 mb-4">תצוגה מקדימה של כתבים נוספים תתווסף בקרוב למאגר.</p>
-          <a href="/apoc-dani/syriac_daniel_index.html" class="text-blue-600 hover:underline">קרא עוד</a>
-        </div>
-      </div>
-    </div>
-  </section>
+    </footer>
 
-  <!-- Search Section -->
-  <section id="search" class="py-16">
-    <div class="container mx-auto px-4 text-center">
-      <h2 class="text-3xl font-bold mb-8">חפש במאגר הכתבים</h2>
-      <div class="max-w-md mx-auto">
-        <input type="text" placeholder="הזן מילות מפתח לחיפוש..." aria-label="חיפוש כתבים במאגר" class="w-full px-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-right"></input>
-        <button class="mt-4 bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600">חפש</button>
-      </div>
-      <p class="text-gray-500 mt-4">חיפוש מתקדם עם סינון לפי שפה, תקופה או נושא יתווסף בעתיד.</p>
-    </div>
-  </section>
+    <script>
+        document.getElementById('askScholarBtn').addEventListener('click', async () => {
+            const question = document.getElementById('scholarQuestion').value;
+            const responseContainer = document.getElementById('scholarResponseContainer');
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            const scholarAnswer = document.getElementById('scholarAnswer');
 
-  <!-- About Section -->
-  <section class="bg-gray-200 py-16">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-8">אלודות הפרוייקט</h2>
-      <p class="text-lg leading-relaxed text-center max-w-3xl mx-auto">
-        פרויקט זה נוסד כדי לשמר ולהפיץ את המורשת הספרותית של הכתבים החיצוניים היהודו-נוצריים, תוך הדגשת אותנטיותם כמשקפים מסורות קדומות. כתבים אלו, לעיתים בעלי השפעות נוצריות לכאורה, עשויים לשמר הדים למסורות יהודיות שאבדו, ואף לגלגולים של ספרות נבואית או חיצונית עברית עתיקה. בהחזרתם לעברית, אנו מבקשים לחשוף את ערכם כגשרים למסורות משותפות, כדברי חז"ל: "מי הוא חכם? הלומד מכל אדם" (אבות ד, א). למידע נוסף, בקרו ב-<a href="https://www.newadvent.org/cathen/01601a.htm" class="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">New Advent</a> או במאגרי הספרייה הדיגיתלית של <a href="https://www.deadseascrolls.org.il/" class="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">מגילות ים המלח</a>.
-      </p>
-    </div>
-  </section>
+            if (!question.trim()) {
+                scholarAnswer.innerHTML = '<span class="text-red-500">אנא הזן/י שאלה לפני הלחיצה.</span>';
+                responseContainer.classList.remove('hidden');
+                loadingIndicator.classList.add('hidden');
+                return;
+            }
 
-  <!-- Footer -->
-  <footer class="bg-blue-800 text-white py-6">
-    <div class="container mx-auto px-4 text-center">
-      <p>© 2025 בית מדרש וירטואלי לכתבים יהודו-נוצריים חיצוניים. כל הזכויות שמורות.</p>
-    </div>
-  </footer>
+            // הצגת מחוון טעינה ואיפוס תשובה קודמת
+            responseContainer.classList.remove('hidden');
+            loadingIndicator.classList.remove('hidden');
+            scholarAnswer.textContent = ''; // ניקוי תשובות קודמות
+            scholarAnswer.classList.add('hidden'); // הסתרת התשובה עד שהיא מוכנה
+            document.getElementById('askScholarBtn').disabled = true; // נטרול כפתור בזמן טעינה
+
+            try {
+                // בניית היסטוריית הצ'אט עם השאלה של המשתמש
+                let chatHistory = [];
+                chatHistory.push({
+                    role: "user",
+                    parts: [{
+                        text: `
+                        אתה חוקר בתחום הכתבים היהודו-נוצריים החיצוניים.
+                        ענה על השאלה הבאה בצורה תמציתית, עניינית ואקדמית.
+                        השתדל להתבסס על הידע שנמסר לך על חזון דניאל הסורי אם השאלה רלוונטית, ובכללי על הבנתך בתחום.
+                        אם אינך יודע תשובה קונקרטית, ציין זאת באופן מקצועי.
+                        השאלה: ${question}
+                        `
+                    }]
+                });
+
+                const payload = {
+                    contents: chatHistory,
+                    generationConfig: {
+                        responseMimeType: "text/plain",
+                    }
+                };
+
+                const apiKey = ""; // Canvas will automatically provide the API key
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                console.log(result); // לצרכי דיבוג
+
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    const text = result.candidates[0].content.parts[0].text;
+                    scholarAnswer.textContent = text;
+                } else {
+                    scholarAnswer.textContent = 'אנו מתנצלים, לא הצלחנו לקבל תשובה כרגע. אנא נסה/י שוב מאוחר יותר.';
+                }
+            } catch (error) {
+                console.error('שגיאה בקריאה ל-Gemini API:', error);
+                scholarAnswer.textContent = 'אירעה שגיאה. אנא בדוק/בדקי את חיבור האינטרנט ונסה/י שוב.';
+            } finally {
+                loadingIndicator.classList.add('hidden'); // הסתרת מחוון הטעינה
+                scholarAnswer.classList.remove('hidden'); // הצגת התשובה
+                document.getElementById('askScholarBtn').disabled = false; // הפעלת הכפתור מחדש
+            }
+        });
+    </script>
 </body>
 </html>
