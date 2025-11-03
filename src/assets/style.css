@@ -1,0 +1,212 @@
+/* עיצוב בסיסי – מסורתי ונקי, משופר ומתוקן */
+:root {
+  --bg-color: #f9f5e7; /* קרם כמו פפירוס */
+  --text-color: #3D2B1F; /* חום-אדמה, מעט רך יותר */
+  --border-color: #d4af37; /* זהב דק */
+  --notes-color: #8b4513; /* חום כהה להערות */
+  --accent-color: #8b4513; /* צבע נוסף להדגשות */
+  --header-color: #5a3a2a; /* צבע חום-אדמדם לכותרות */
+}
+
+body {
+  font-family: 'Noto Serif Hebrew', serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  line-height: 1.7;
+  direction: rtl;
+  text-align: right;
+  font-size: 1.2rem; /* === שינוי 1: הגדלת גודל בסיסי === */
+}
+
+header a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1, h2, h3 {
+    font-family: 'Times New Roman', Times, serif;
+    color: var(--header-color);
+}
+
+header h1 {
+  text-align: center;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 10px;
+  font-size: 2em;
+  margin-bottom: 30px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+nav a {
+  color: var(--text-color);
+  padding: 5px 15px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+nav a:hover {
+  background-color: rgba(212, 175, 55, 0.2);
+}
+
+.text-main {
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 1.35rem; /* === שינוי 2: הגדלת טקסט ראשי === */
+}
+
+.footnotes {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+  font-size: 1.15rem; /* === שינוי 3: הגדלת הביאורים === */
+  color: var(--notes-color);
+}
+
+.footnotes ol {
+  padding-right: 20px;
+}
+
+footer {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+  font-size: 0.8em;
+  color: #666;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.pagination a {
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  background-color: rgba(212, 175, 55, 0.1);
+  transition: background-color 0.3s;
+}
+
+.pagination a:hover {
+  background-color: rgba(212, 175, 55, 0.3);
+}
+
+#comments-section {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+}
+
+sup {
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+/* עיצוב ייחודי לעמוד הבית */
+.home-page .text-main {
+    text-align: center;
+    border: none;
+    background: none;
+    box-shadow: none;
+}
+
+.home-page h2 {
+    font-size: 1.8rem;
+}
+
+.home-page h3 {
+    font-size: 1.6rem;
+}
+
+.home-page h4 {
+    font-size: 1.4rem;
+    border-bottom: 1px solid var(--border-color);
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-top: 40px;
+}
+
+.home-page ul {
+    list-style: none;
+    padding: 0;
+}
+
+.home-page ul li {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+/* התנהגות גלילה חלקה לכל העמוד */
+html {
+  scroll-behavior: smooth;
+}
+
+/* עיצוב לקישורים של מספרי ההערות */
+sup a {
+  color: var(--accent-color);
+  text-decoration: none; /* מסיר את הקו התחתון המכוער */
+}
+
+sup a:hover {
+  text-decoration: underline;
+  background-color: rgba(212, 175, 55, 0.2);
+}
+/* עיצוב לכפתור "תוכן העניינים" בניווט */
+.pagination a.home-link {
+  font-weight: bold;
+  border-style: dashed;
+}
+/* עיצוב לדפי קטגוריות וכרטיסיות ספרים */
+.category-listing h1 {
+  text-align: center;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+}
+
+.book-list {
+  display: grid;
+  gap: 20px;
+}
+
+.book-card {
+  display: block;
+  padding: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--text-color);
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.book-card h3 {
+  margin-top: 0;
+  color: var(--header-color);
+  text-decoration: underline;
+}
+
+.book-card p {
+  margin-bottom: 0;
+  font-size: 0.9em;
+}

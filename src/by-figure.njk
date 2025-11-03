@@ -1,0 +1,18 @@
+---
+layout: base.njk
+title: "כתבים המיוחסים ליעקב"
+permalink: /by-figure/jacob/index.html
+---
+<div class="text-main category-listing">
+  <h1>{{ title }}</h1>
+  <div class="book-list">
+    {% for item in collections.texts %}
+      {% if item.data.figure == 'jacob' and item.data.pageNumber == 0 %}
+        <a href="{{ item.url | url }}" class="book-card">
+          <h3>{{ item.data.title }}</h3>
+          <p>{{ item.data.description }}</p>
+        </a>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>

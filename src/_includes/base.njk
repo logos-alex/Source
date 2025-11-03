@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} | בית מדרש לכתבים גנוזים</title>
+    <link rel="stylesheet" href="{{ '/assets/style.css' | url }}">
+    
+    {# --- הוספת הגופן המשופר מ-Google Fonts --- #}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Hebrew:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1><a href="/">בית מדרש וירטואלי לכתבים גנוזים</a></h1>
+        <nav>
+            {# כאן תוכל להוסיף ניווט ראשי בעתיד #}
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+            {{ content | safe }}
+        {% endblock %}
+    </main>
+    <footer>
+        <p>&copy; כל הזכויות שמורות - 2025</p>
+    </footer>
+</body>
+</html>

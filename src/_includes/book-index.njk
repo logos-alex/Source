@@ -1,0 +1,55 @@
+{% extends "base.njk" %}
+
+{% block content %}
+  <div class="text-main">
+    {# מציג את הכותרת ואת תוכן המבוא עצמו #}
+    <h1>{{ title }}</h1>
+    {% if source or figure %}
+      <p><em>מקור: {{ source or 'לא מצוין' }} | יחוס: {{ figure or 'לא מצוין' }}</em></p>
+    {% endif %}
+    {{ content | safe }}
+  </div>
+
+  {# --- תוכן העניינים (הגרסה הסופית והנכונה) --- #}
+  <div class="table-of-contents" style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border-color);">
+    <h3>הטקסט המלא, מחולק לחלקים:</h3>
+    <ul>
+      {# 
+        הלולאה עוברת על כל העמודים בספר הספציפי הזה.
+        היא מאורגנת לפי pageNumber בזכות הקוד ב-.eleventy.js
+      #}
+      {% for pageItem in collections.textsByBook[book] %}
+        {# 
+          התיקון הקריטי:
+          הצג קישור רק לעמודים שהם *לא* עמוד המבוא (pageNumber גדול מ-0).
+        #}
+        {% if pageItem.data.pageNumber > 0 %}
+          <li>
+            <a href="{{ pageItem.url | url }}">
+              {{ pageItem.data.title }}
+            </a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+
+  {# --- אזור התגובות של Disqus --- #}
+  <div id="comments-section" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-color);">
+    <h3>תגובות</h3>
+    <div id="disqus_thread"></div>
+    <script>
+        var disqus_config = function () {
+            this.page.url = "{{ page.url | url }}";
+            this.page.identifier = "{{ page.url }}";
+        };
+        (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://hebrew-aramaic-sources.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date(  ));
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+{% endblock %}

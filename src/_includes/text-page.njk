@@ -1,0 +1,66 @@
+{% extends "base.njk" %}
+
+{% block content %}
+  <div class="text-main">
+    <h1>{{ title }}</h1>
+    
+    {% if source or figure %}
+      <p><em>מקור: {{ source or 'לא מצוין' }} | יחוס: {{ figure or 'לא מצוין' }}</em></p>
+    {% endif %}
+    
+    {{ content | safe }}
+  </div>
+
+  <div class="footnotes">
+    <h3>הערות וביאורים</h3>
+    <ol>
+      {% for note in notes %}
+        {# הוספנו id לכל הערה כדי לאפשר קישור ישיר בעתיד #}
+        <li id="note-{{ loop.index }}">{{ note | safe }}</li>
+      {% endfor %}
+    </ol>
+  </div>
+
+  {# --- ניווט בין עמודים (עם כפתור חזרה לתוכן העניינים) --- #}
+  {% set pagesInBook = collections.textsByBook[book] %}
+  {% set currentPageIndex = pagesInBook | findIndexByUrl(page.url) %}
+  
+  <nav class="pagination">
+    {# כפתור "הקודם" (מופיע מימין) - צריך חץ ימינה #}
+    {% if currentPageIndex > 0 %}
+      {% set prevPage = pagesInBook[currentPageIndex - 1] %}
+      <a href="{{ prevPage.url | url }}" class="prev">→ {{ prevPage.data.title }}</a>
+    {% endif %}
+
+    {# === הכפתור החדש שהוספנו === #}
+    {# הקישור מוביל לעמוד המבוא של הספר (תמיד באינדקס 0) #}
+    <a href="{{ pagesInBook[0].url | url }}" class="home-link">📖 תוכן העניינים</a>
+    {# ============================== #}
+    
+    {# כפתור "הבא" (מופיע משמאל) - צריך חץ שמאלה #}
+    {% if currentPageIndex < pagesInBook.length - 1 %}
+      {% set nextPage = pagesInBook[currentPageIndex + 1] %}
+      <a href="{{ nextPage.url | url }}" class="next">← {{ nextPage.data.title }}</a>
+    {% endif %}
+  </nav>
+
+  {# --- אזור התגובות של Disqus --- #}
+  <div id="comments-section" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-color);">
+    <h3>תגובות</h3>
+    <div id="disqus_thread"></div>
+    <script>
+        var disqus_config = function () {
+            this.page.url = "{{ page.url | url }}";
+            this.page.identifier = "{{ page.url }}";
+        };
+        (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://hebrew-aramaic-sources.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date(  ));
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+
+{% endblock %}
