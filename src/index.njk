@@ -20,10 +20,19 @@ bodyClass: home-page
       <li><a href="{{ figureKey | figureLink }}">{{ figureName }}</a></li>
     {% endfor %}
     </ul>
-    <p style="margin-top: 30px;">
-        <strong><a href="/texts/slavic/ladder-of-jacob/">או קפצו ישר לספר ״סולם יעקב״</a></strong>
-    </p>
-    <p style="margin-top: 10px;">
-        <strong><a href="/texts/hebrew/apocalypse-of-elijah/">או קפצו ישר לספר ״חזון אליהו״</a></strong>
-    </p>
+
+    <hr style="border-color: var(--border-color); margin: 40px auto; width: 50%;">
+
+    {# --- כאן מתחיל החלק הדינמי המתוקן --- #}
+    <h3>או קפצו ישר לאחד הספרים:</h3>
+    <ul>
+      {% for item in collections.texts %}
+        {% if item.data.pageNumber == 0 %}
+          <li style="margin-top: 10px;">
+            <strong><a href="{{ item.url | url }}">״{{ item.data.title }}״</a></strong>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+    {# --- סוף החלק הדינמי --- #}
 </div>

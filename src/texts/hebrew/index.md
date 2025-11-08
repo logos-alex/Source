@@ -6,16 +6,7 @@ title: "כתבים ממקור עברי"
 <div class="text-main category-listing">
   <h1>{{ title }}</h1>
   <div class="book-list">
-    {# 
-      הלולאה עוברת על כל הדפים שתויגו כת "texts".
-      זה אוסף ש-Eleventy יוצר אוטומטית.
-    #}
     {% for item in collections.texts %}
-      {# 
-        התנאי בודק שני דברים:
-        1. האם המקור הוא "עברי"?
-        2. האם זהו עמוד המבוא של ספר (pageNumber == 0 )?
-      #}
       {% if item.data.source == 'hebrew' and item.data.pageNumber == 0 %}
         <a href="{{ item.url | url }}" class="book-card">
           <h3>{{ item.data.title }}</h3>

@@ -1,8 +1,13 @@
 ---
-layout: text-page.njk
-title: חזון אליהו
+layout: book-index.njk
+title: "חזון אליהו"
+book: apocalypse-of-elijah
+tags:
+  - texts
 source: hebrew
 figure: elijah
+pageNumber: 0
+description: "כתב אפוקליפטי יהודי עתיק המתאר חזיונות של הנביא אליהו על קץ הימים."
 permalink: /texts/hebrew/apocalypse-of-elijah/
 ---
 
