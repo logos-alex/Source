@@ -115,27 +115,43 @@ nav a:hover {
 }
 
 /* === Pagefind Search Styling === */
-#search {
-  margin: 15px 0;
-  padding: 10px;
-  direction: rtl;
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.7);
+.pagefind-ui {
+  --font-size: 16px !important;
+  --font-family: 'Noto Serif Hebrew', serif !important;
+  --primary-color: #d4af37 !important;
+  --text-color: #333 !important;
+  --background-color: #fff !important;
+  --border-color: #d4af37 !important;
 }
 
-.pagefind-ui {
-  --font-size: 16px;
-  --font-family: 'Noto Serif Hebrew', serif;
-  --primary-color: #5a3a2a;
-  --text-color: var(--text-color);
-  --background-color: transparent;
-  --border-color: var(--border-color);
+.pagefind-ui__form {
+  position: relative !important;
+  width: 100% !important;
+}
+
+.pagefind-ui__input {
+  width: 100% !important;
+  padding: 12px 15px !important;
+  border: 2px solid #d4af37 !important;
+  border-radius: 8px !important;
+  font-size: 16px !important;
+  font-family: 'Noto Serif Hebrew', serif !important;
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+.pagefind-ui__input::placeholder {
+  color: #999 !important;
+}
+
+#search {
+  margin: 15px 0;
+  direction: rtl;
 }
 
 html[data-theme="dark"] .pagefind-ui {
-  --text-color: var(--text-color);
-  --primary-color: var(--header-color);
+  --text-color: #ccc !important;
+  --background-color: #2a2a2a !important;
 }
 
 .text-main {
