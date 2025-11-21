@@ -244,32 +244,38 @@
       })();
     </script>
 
-    <!-- Pagefind Search - DEFERRED LOADING -->
-    <script defer src="/pagefind/pagefind-ui.js"></script>
-    <script defer>
-      function waitForPagefind(attempts = 0) {
-        if (typeof window.PagefindUI !== 'undefined') {
-          try {
-            new window.PagefindUI({
-              element: '#search',
-              showSubResults: true,
-              showEmptyFilters: false
-            });
-            console.log('✅ Pagefind UI Rendered Successfully');
-          } catch(e) {
-            console.error('❌ Pagefind error:', e.message);
+    <!-- Pagefind Search -->
+    <script defer src="/pagefind/pagefind-ui.js" onload="initPF()"></script>
+    <script>
+      window.initPF = function() {
+        setTimeout(() => {
+          if (typeof window.PagefindUI !== 'undefined') {
+            try {
+              console.log('🔄 Initializing Pagefind...');
+              const searchDiv = document.getElementById('search');
+              if (searchDiv) {
+                console.log('✅ Found #search div');
+                new window.PagefindUI({
+                  element: '#search',
+                  showSubResults: true,
+                  showEmptyFilters: false
+                });
+                console.log('✅ Pagefind UI Initialized');
+              } else {
+                console.error('❌ #search div not found');
+              }
+            } catch(e) {
+              console.error('❌ Error:', e.message);
+            }
+          } else {
+            console.error('❌ PagefindUI not available');
           }
-        } else if (attempts < 20) {
-          setTimeout(() => waitForPagefind(attempts + 1), 100);
-        } else {
-          console.error('❌ PagefindUI failed to load');
-        }
-      }
-      document.addEventListener('DOMContentLoaded', waitForPagefind);
-      if (document.readyState === 'loading') {
-        document.addEventListener('load', waitForPagefind);
+        }, 100);
+      };
+      if (document.readyState === 'complete') {
+        window.initPF();
       } else {
-        setTimeout(waitForPagefind, 0);
+        window.addEventListener('load', window.initPF);
       }
     </script>
 
