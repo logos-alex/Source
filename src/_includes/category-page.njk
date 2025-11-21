@@ -14,12 +14,12 @@
     <div class="book-list">
       {# הלולאה עוברת על כל הפריטים ש-Eleventy יספק לדף הזה #}
       {% for item in items %}
-        <a href="{{ item.url | url }}" class="book-card">
-          <h3>{{ item.data.title }}</h3>
+        <div class="book-card">
+          <h3><a href="{{ item.url | url }}">{{ item.data.title }}</a></h3>
           {% if item.data.description %}
             <p>{{ item.data.description }}</p>
           {% endif %}
-        </a>
+        </div>
       {% endfor %}
     </div>
   </div>
