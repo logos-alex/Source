@@ -15,7 +15,9 @@
       <p><em>מקור: {{ sourceHebrew or 'לא מצוין' }} | יחוס: {{ figureHebrew or 'לא מצוין' }}</em></p>
     {% endif %}
     
-    {{ content | safe }}
+    <div class="text-content parallel-columns">
+      {{ content | safe }}
+    </div>
   </div>
   
   <script>

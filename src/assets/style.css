@@ -435,3 +435,59 @@ nav a:focus {
     text-align: center;
   }
 }
+
+/* === תצוגה מקבילה לטקסט ארמי ועברי === */
+.parallel-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  grid-auto-flow: dense;
+}
+
+.parallel-columns h2 {
+  grid-column: 1 / -1;
+  text-align: center;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+}
+
+.parallel-columns h2:nth-of-type(1) {
+  grid-column: 1;
+  text-align: center;
+  border-bottom: none;
+  border-left: 2px solid var(--border-color);
+  padding-left: 10px;
+}
+
+.parallel-columns h2:nth-of-type(2) {
+  grid-column: 2;
+  text-align: center;
+  border-bottom: none;
+  border-right: 2px solid var(--border-color);
+  padding-right: 10px;
+}
+
+.parallel-columns p {
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  line-height: 1.9;
+}
+
+/* עבור מסכים קטנים - חזרה לתצוגה ליניארית */
+@media (max-width: 1024px) {
+  .parallel-columns {
+    grid-template-columns: 1fr;
+  }
+  
+  .parallel-columns h2:nth-of-type(1),
+  .parallel-columns h2:nth-of-type(2) {
+    grid-column: 1;
+    border: none;
+    border-bottom: 2px solid var(--border-color);
+    padding: 10px 0;
+    margin-bottom: 15px;
+  }
+}
