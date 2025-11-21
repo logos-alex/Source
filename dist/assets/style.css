@@ -245,21 +245,24 @@ sup a:hover {
   padding: 20px;
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  text-decoration: none;
   color: var(--text-color);
   background-color: rgba(255, 255, 255, 0.5);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.book-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .book-card h3 {
   margin-top: 0;
   color: var(--header-color);
+}
+
+.book-card h3 a {
+  color: var(--header-color);
+  text-decoration: none;
+  transition: color 0.3s, text-decoration 0.3s;
+}
+
+.book-card h3 a:hover {
   text-decoration: underline;
+  color: var(--accent-color);
 }
 
 .book-card p {
