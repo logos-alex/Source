@@ -1,0 +1,18 @@
+---
+layout: base.njk
+title: "כתבים לפי מקור"
+permalink: /texts/
+---
+
+<div class="text-main category-listing">
+  <h1>{{ title }}</h1>
+  <p>לחץ על אחת הקטגוריות כדי לראות את הכתבים המתורגמים:</p>
+  
+  <div class="book-list">
+    {% for sourceKey, sourceName in sources %}
+      <a href="/texts/{{ sourceKey }}/" class="book-card">
+        <h3>{{ sourceName }}</h3>
+      </a>
+    {% endfor %}
+  </div>
+</div>
