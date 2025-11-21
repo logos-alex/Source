@@ -4,31 +4,36 @@
   <ol>
     <li><a href="/">דף הבית</a></li>
     
-    {% if page.url contains '/texts/' %}
+    {% set urlParts = page.url.split('/') %}
+    
+    {# Texts path: /texts/[source]/[book]/... #}
+    {% if urlParts[1] == 'texts' %}
       <li><a href="/texts/">לפי מקור</a></li>
       
-      {% if source %}
-        {% set sourceHebrew = sources[source] or source %}
-        <li><a href="/texts/{{ source }}/">{{ sourceHebrew }}</a></li>
+      {% if urlParts[2] and urlParts[2] != '' %}
+        {% set sourceKey = urlParts[2] %}
+        {% set sourceHebrew = sources[sourceKey] or sourceKey %}
+        <li><a href="/texts/{{ sourceKey }}/">{{ sourceHebrew }}</a></li>
       {% endif %}
       
-      {% if book and page.url != '/texts/' + source + '/' + book + '/' %}
-        <li><a href="{{ url }}">{{ title }}</a></li>
+      {% if urlParts[3] and urlParts[3] != '' and urlParts.length > 4 %}
+        <li><a href="{{ page.url }}">{{ title }}</a></li>
       {% endif %}
     {% endif %}
     
-    {% if page.url contains '/by-figure/' %}
+    {# By-figure path: /by-figure/[figure]/ #}
+    {% if urlParts[1] == 'by-figure' %}
       <li><a href="/by-figure/">לפי יחוס</a></li>
       
-      {% set pathParts = page.url | split('/') %}
-      {% if pathParts[2] %}
-        {% set figureKey = pathParts[2] %}
+      {% if urlParts[2] and urlParts[2] != '' %}
+        {% set figureKey = urlParts[2] %}
         {% set figureHebrew = figures[figureKey] or figureKey %}
-        <li>{{ figureHebrew }}</li>
+        <li><a href="/by-figure/{{ figureKey }}/">{{ figureHebrew }}</a></li>
       {% endif %}
     {% endif %}
     
-    {% if page.url != '/' and not (page.url contains '/texts/') and not (page.url contains '/by-figure/') %}
+    {# Other pages #}
+    {% if urlParts[1] != 'texts' and urlParts[1] != 'by-figure' and page.url != '/' %}
       <li class="breadcrumb-current">{{ title }}</li>
     {% endif %}
   </ol>

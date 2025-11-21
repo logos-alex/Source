@@ -37,14 +37,50 @@
 </head>
 <body>
     <header>
-        <h1><a href="/">בית מדרש וירטואלי לכתבים גנוזים</a></h1>
-        <nav>
-                        <a href="/">דף הבית</a>
+        <div class="header-top">
+            <h1><a href="/">בית מדרש וירטואלי לכתבים גנוזים</a></h1>
+            <button id="themeToggle" class="theme-toggle" aria-label="בחר מצב אור/חושך" title="מצב אור/חושך">🌙</button>
+        </div>
+        <nav role="navigation" aria-label="ניווט ראשי">
+            <a href="/">דף הבית</a>
             <a href="/texts/">לפי מקור</a>
             <a href="/by-figure/">לפי יחוס</a>
         </nav>
+        
+
+<nav class="breadcrumbs" aria-label="ניווט מקום">
+  <ol>
+    <li><a href="/">דף הבית</a></li>
+    
+    
+    
+    
+    
+      <li><a href="/texts/">לפי מקור</a></li>
+      
+      
+        
+        
+        <li><a href="/texts/slavic/">סלאבית</a></li>
+      
+      
+      
+        <li><a href="/texts/slavic/ladder-of-jacob/">סולם יעקב</a></li>
+      
+    
+    
+    
+    
+    
+    
+    
+  </ol>
+</nav>
+
+
     </header>
-    <main>
+    
+    <main role="main">
         
   <div class="text-main">
     
@@ -139,7 +175,48 @@
     </main>
     <footer>
         <p>&copy; כל הזכויות שמורות - 2025</p>
+        <p style="font-size: 0.7em; color: #999;">
+            <a href="/sitemap.xml" style="color: inherit; text-decoration: none;">Sitemap</a> | 
+            <a href="/robots.txt" style="color: inherit; text-decoration: none;">Robots</a>
+        </p>
     </footer>
+
+    <!-- Dark Mode Script -->
+    <script>
+      (function() {
+        const htmlRoot = document.getElementById('htmlRoot');
+        const themeToggle = document.getElementById('themeToggle');
+        
+        // Check stored preference or system preference
+        function initTheme() {
+          const stored = localStorage.getItem('theme');
+          const prefer = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          const theme = stored || prefer;
+          applyTheme(theme);
+        }
+        
+        function applyTheme(theme) {
+          if (theme === 'dark') {
+            htmlRoot.setAttribute('data-theme', 'dark');
+            if (themeToggle) themeToggle.textContent = '☀️';
+          } else {
+            htmlRoot.removeAttribute('data-theme');
+            if (themeToggle) themeToggle.textContent = '🌙';
+          }
+          localStorage.setItem('theme', theme);
+        }
+        
+        if (themeToggle) {
+          themeToggle.addEventListener('click', function() {
+            const current = htmlRoot.getAttribute('data-theme');
+            const newTheme = current === 'dark' ? 'light' : 'dark';
+            applyTheme(newTheme);
+          });
+        }
+        
+        initTheme();
+      })();
+    </script>
 
     <!-- Google Translate Widget - START -->
     <div id="google_translate_element" style="position: fixed; bottom: 20px; right: 20px; z-index: 999;"></div>

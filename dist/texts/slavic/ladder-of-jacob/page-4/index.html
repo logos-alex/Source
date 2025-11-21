@@ -37,15 +37,56 @@
 </head>
 <body>
     <header>
-        <h1><a href="/">בית מדרש וירטואלי לכתבים גנוזים</a></h1>
-        <nav>
-                        <a href="/">דף הבית</a>
+        <div class="header-top">
+            <h1><a href="/">בית מדרש וירטואלי לכתבים גנוזים</a></h1>
+            <button id="themeToggle" class="theme-toggle" aria-label="בחר מצב אור/חושך" title="מצב אור/חושך">🌙</button>
+        </div>
+        <nav role="navigation" aria-label="ניווט ראשי">
+            <a href="/">דף הבית</a>
             <a href="/texts/">לפי מקור</a>
             <a href="/by-figure/">לפי יחוס</a>
         </nav>
-    </header>
-    <main>
         
+
+<nav class="breadcrumbs" aria-label="ניווט מקום">
+  <ol>
+    <li><a href="/">דף הבית</a></li>
+    
+    
+    
+    
+    
+      <li><a href="/texts/">לפי מקור</a></li>
+      
+      
+        
+        
+        <li><a href="/texts/slavic/">סלאבית</a></li>
+      
+      
+      
+        <li><a href="/texts/slavic/ladder-of-jacob/page-4/">סולם יעקב – חלק ד&#39;</a></li>
+      
+    
+    
+    
+    
+    
+    
+    
+  </ol>
+</nav>
+
+
+    </header>
+    
+    <main role="main">
+        
+  <!-- Reading Progress Bar -->
+  <div class="reading-progress">
+    <div class="reading-progress-bar" id="readingProgress"></div>
+  </div>
+  
   <div class="text-main">
     <h1>סולם יעקב – חלק ד&#39;</h1>
     
@@ -66,6 +107,14 @@
 <strong>לב</strong> וּמִזַּרְעֲךָ יִפְרַח שֹׁרֶשׁ מַלְכוּת, וְיִשְׁבֹּר אֶת-שִׁלְטוֹן הָרְשָׁעִים. וְהוּא עַצְמוֹ יִהְיֶה מוֹשִׁיעַ לָאֻמּוֹת וּמְנוּחָה לַעֲמֵלִים, וְעָנָן הַמֵּצֵל מִצֹּהַר הָעוֹלָם כֻּלּוֹ. כִּי לֹא הָיְתָה יְכוֹלָה הַבְּרִיאָה לְהִתְקַיֵּם אִלְמַלֵּא בָּא, כִּי לֹא יָכְלוּ הַתַּחְתּוֹנִים לְהִתְאַחֵד עִם הָעֶלְיוֹנִים.<sup>[7]</sup></p>
 
   </div>
+  
+  <script>
+    window.addEventListener('scroll', function() {
+      const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (window.scrollY / windowHeight) * 100;
+      document.getElementById('readingProgress').style.width = scrolled + '%';
+    });
+  </script>
 
   <div class="footnotes">
     <h3>הערות וביאורים</h3>
@@ -141,7 +190,48 @@
     </main>
     <footer>
         <p>&copy; כל הזכויות שמורות - 2025</p>
+        <p style="font-size: 0.7em; color: #999;">
+            <a href="/sitemap.xml" style="color: inherit; text-decoration: none;">Sitemap</a> | 
+            <a href="/robots.txt" style="color: inherit; text-decoration: none;">Robots</a>
+        </p>
     </footer>
+
+    <!-- Dark Mode Script -->
+    <script>
+      (function() {
+        const htmlRoot = document.getElementById('htmlRoot');
+        const themeToggle = document.getElementById('themeToggle');
+        
+        // Check stored preference or system preference
+        function initTheme() {
+          const stored = localStorage.getItem('theme');
+          const prefer = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          const theme = stored || prefer;
+          applyTheme(theme);
+        }
+        
+        function applyTheme(theme) {
+          if (theme === 'dark') {
+            htmlRoot.setAttribute('data-theme', 'dark');
+            if (themeToggle) themeToggle.textContent = '☀️';
+          } else {
+            htmlRoot.removeAttribute('data-theme');
+            if (themeToggle) themeToggle.textContent = '🌙';
+          }
+          localStorage.setItem('theme', theme);
+        }
+        
+        if (themeToggle) {
+          themeToggle.addEventListener('click', function() {
+            const current = htmlRoot.getAttribute('data-theme');
+            const newTheme = current === 'dark' ? 'light' : 'dark';
+            applyTheme(newTheme);
+          });
+        }
+        
+        initTheme();
+      })();
+    </script>
 
     <!-- Google Translate Widget - START -->
     <div id="google_translate_element" style="position: fixed; bottom: 20px; right: 20px; z-index: 999;"></div>
