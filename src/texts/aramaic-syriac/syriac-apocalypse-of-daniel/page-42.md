@@ -7,7 +7,7 @@ tags:
   - aramaic-syriac
   - daniel
   - texts
-source: ארמית-סורית
+source: aramaic-syriac
 figure: דניאל
 permalink: /texts/aramaic-syriac/syriac-apocalypse-of-daniel/page-42/
 notes:
