@@ -1,0 +1,28 @@
+{# Mobile Menu Component #}
+<div class="mobile-nav-toggle" id="mobileNavToggle" aria-label="תפריט">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const toggle = document.getElementById('mobileNavToggle');
+  const nav = document.querySelector('nav');
+  
+  if (!toggle || !nav) return;
+  
+  toggle.addEventListener('click', function() {
+    nav.classList.toggle('mobile-open');
+    toggle.classList.toggle('active');
+  });
+  
+  // Close menu when link clicked
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', function() {
+      nav.classList.remove('mobile-open');
+      toggle.classList.remove('active');
+    });
+  });
+});
+</script>

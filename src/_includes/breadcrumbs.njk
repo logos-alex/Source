@@ -1,0 +1,36 @@
+{# Breadcrumbs Navigation Component #}
+{% if page.url != '/' %}
+<nav class="breadcrumbs" aria-label="ניווט מקום">
+  <ol>
+    <li><a href="/">דף הבית</a></li>
+    
+    {% if page.url contains '/texts/' %}
+      <li><a href="/texts/">לפי מקור</a></li>
+      
+      {% if source %}
+        {% set sourceHebrew = sources[source] or source %}
+        <li><a href="/texts/{{ source }}/">{{ sourceHebrew }}</a></li>
+      {% endif %}
+      
+      {% if book and page.url != '/texts/' + source + '/' + book + '/' %}
+        <li><a href="{{ url }}">{{ title }}</a></li>
+      {% endif %}
+    {% endif %}
+    
+    {% if page.url contains '/by-figure/' %}
+      <li><a href="/by-figure/">לפי יחוס</a></li>
+      
+      {% set pathParts = page.url | split('/') %}
+      {% if pathParts[2] %}
+        {% set figureKey = pathParts[2] %}
+        {% set figureHebrew = figures[figureKey] or figureKey %}
+        <li>{{ figureHebrew }}</li>
+      {% endif %}
+    {% endif %}
+    
+    {% if page.url != '/' and not (page.url contains '/texts/') and not (page.url contains '/by-figure/') %}
+      <li class="breadcrumb-current">{{ title }}</li>
+    {% endif %}
+  </ol>
+</nav>
+{% endif %}
