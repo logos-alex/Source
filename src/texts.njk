@@ -10,9 +10,9 @@ permalink: /texts/
   
   <div class="book-list">
     {% for sourceKey, sourceName in sources %}
-      <a href="/texts/{{ sourceKey }}/" class="book-card">
-        <h3>{{ sourceName }}</h3>
-      </a>
+      <div class="book-card">
+        <h3><a href="/texts/{{ sourceKey }}/">{{ sourceName }}</a></h3>
+      </div>
     {% endfor %}
   </div>
 </div>
