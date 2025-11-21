@@ -247,6 +247,7 @@ sup a:hover {
   border-radius: 8px;
   color: var(--text-color);
   background-color: rgba(255, 255, 255, 0.5);
+  cursor: default;
 }
 
 .book-card h3 {
@@ -256,18 +257,19 @@ sup a:hover {
 
 .book-card h3 a {
   color: var(--header-color);
-  text-decoration: none;
-  transition: color 0.3s, text-decoration 0.3s;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.3s;
 }
 
 .book-card h3 a:hover {
-  text-decoration: underline;
   color: var(--accent-color);
 }
 
 .book-card p {
   margin-bottom: 0;
   font-size: 0.9em;
+  cursor: default;
 }
 
 /* === BREADCRUMBS === */
