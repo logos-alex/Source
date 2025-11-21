@@ -1,23 +1,7 @@
 const { DateTime } = require("luxon");
-const path = require("path");
 
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/assets/");
-
-  // Pagefind indexing
-  eleventyConfig.on("eleventy.after", async function ({ dir }) {
-    const inputPath = dir.output;
-    const outputPath = path.join(dir.output, "pagefind");
-    
-    console.log("🔍 יוצר אינדקס Pagefind...");
-    
-    const pagefind = await import("pagefind");
-    const { index } = await pagefind.createIndex();
-    const { page_count } = await index.addDirectory({ path: inputPath });
-    await index.writeFiles({ outputPath });
-    
-    console.log(`✅ Pagefind אינדקס: ${page_count} דפים`);
-  });
 
   eleventyConfig.addCollection("textsByBook", (collectionApi) => {
     const books = {};
