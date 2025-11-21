@@ -3,6 +3,7 @@ const { DateTime } = require("luxon");
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/assets/");
   eleventyConfig.addPassthroughCopy("./src/google5ea0ab9870afd370.html");
+  eleventyConfig.addPassthroughCopy("./src/robots.txt");
 
   eleventyConfig.addCollection("textsByBook", (collectionApi) => {
     const books = {};
