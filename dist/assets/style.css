@@ -114,6 +114,26 @@ nav a:hover {
   border: 1px solid var(--border-color); /* הדגשת גבול במעבר עכבר */
 }
 
+/* === Pagefind Search Styling === */
+#search {
+  margin: 15px 0;
+  direction: rtl;
+}
+
+.pagefind-ui {
+  --font-size: 16px;
+  --font-family: 'Noto Serif Hebrew', serif;
+  --primary-color: #5a3a2a;
+  --text-color: var(--text-color);
+  --background-color: transparent;
+  --border-color: var(--border-color);
+}
+
+html[data-theme="dark"] .pagefind-ui {
+  --text-color: var(--text-color);
+  --primary-color: var(--header-color);
+}
+
 .text-main {
   background-color: rgba(255, 255, 255, 0.5);
   padding: 20px;

@@ -45,6 +45,7 @@
     </script>
     
     <link rel="stylesheet" href="/assets/style.css">
+    <link rel="stylesheet" href="/pagefind/pagefind-ui.css">
     
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -62,6 +63,7 @@
             <a href="/texts/">לפי מקור</a>
             <a href="/by-figure/">לפי יחוס</a>
         </nav>
+        <div id="search"></div>
         
 
 <nav class="breadcrumbs" aria-label="ניווט מקום">
@@ -234,6 +236,9 @@
       }
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <!-- Pagefind Search -->
+    <script src="/pagefind/pagefind-ui.js" onload="new PagefindUI({ element: '#search', showSubResults: true, showEmptyFilters: false });" defer></script>
 
     <style>
       /* עיצוב מותאם לווידג'ט התרגום */
