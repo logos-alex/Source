@@ -5,7 +5,9 @@
     <h1>{{ title }}</h1>
     
     {% if source or figure %}
-      <p><em>מקור: {{ source or 'לא מצוין' }} | יחוס: {{ figure or 'לא מצוין' }}</em></p>
+      {% set sourceHebrew = sources[source] or source %}
+      {% set figureHebrew = figures[figure] or figure %}
+      <p><em>מקור: {{ sourceHebrew or 'לא מצוין' }} | יחוס: {{ figureHebrew or 'לא מצוין' }}</em></p>
     {% endif %}
     
     {{ content | safe }}
