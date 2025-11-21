@@ -1,11 +1,11 @@
 ---
 layout: text-page
 title: "חזון דניאל (הארמני) - עמוד א'"
-source: aramaic
+source: armenian
 figure: daniel
 book: vision-of-daniel
 pageNumber: 1
-permalink: /texts/aramaic/vision-of-daniel/page-a/
+permalink: /texts/armenian/vision-of-daniel/page-a/
 ---
 
 ## עמוד א' (במקור: עמוד יג)
