@@ -1,0 +1,16 @@
+<!-- Pagefind Search Box -->
+<div id="search-container" style="margin: 20px 0; padding: 15px; background: #f5f5dc; border-radius: 8px; border: 1px solid var(--border-color);">
+  <link rel="stylesheet" href="/_pagefind/pagefind-ui.css">
+  <div id="search"></div>
+  <script src="/_pagefind/pagefind-ui.js"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+      new PagefindUI({ 
+        element: "#search",
+        baseUrl: "/",
+        showEmptyFilters: false,
+        highlightParam: "highlight"
+      });
+    });
+  </script>
+</div>
