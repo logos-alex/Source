@@ -28,6 +28,22 @@
     <meta name="twitter:title" content="{{ title }}">
     <meta name="twitter:description" content="{% if description %}{{ description }}{% else %}כתבים גנוזים יהודיים עתיקים{% endif %}">
     
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "{% if pageNumber == 0 %}Book{% else %}Article{% endif %}",
+      "name": "{{ title }}",
+      "description": "{% if description %}{{ description }}{% else %}כתבים גנוזים יהודיים עתיקים{% endif %}",
+      "url": "https://heb-sources.netlify.app{{ page.url }}",
+      "inLanguage": "he",
+      "author": {
+        "@type": "Organization",
+        "name": "בית המדרש הווירטואלי"
+      }
+    }
+    </script>
+    
     <link rel="stylesheet" href="{{ '/assets/style.css' | url }}">
     
     {# --- הוספת הגופן המשופר מ-Google Fonts --- #}

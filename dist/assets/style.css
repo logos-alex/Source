@@ -6,6 +6,7 @@
   --notes-color: #8b4513; /* חום כהה להערות */
   --accent-color: #8b4513; /* צבע נוסף להדגשות */
   --header-color: #5a3a2a; /* צבע חום-אדמדם לכותרות */
+  --text-color-muted: #666; /* צבע אפור להערות לא חשובות */
   color-scheme: light;
 }
 
