@@ -44,7 +44,6 @@
     }
     </script>
     
-    <link rel="stylesheet" href="/pagefind/pagefind-ui.css">
     <link rel="stylesheet" href="/assets/style.css">
     
     
@@ -63,8 +62,6 @@
             <a href="/texts/">לפי מקור</a>
             <a href="/by-figure/">לפי יחוס</a>
         </nav>
-        <div style="text-align: center; margin: 10px 0; font-size: 0.9em; color: var(--text-color-muted);">🔍 חיפוש בכתבים:</div>
-        <div id="search"></div>
         
 
 <nav class="breadcrumbs" aria-label="ניווט מקום">
@@ -252,42 +249,7 @@
       })();
     </script>
 
-    <!-- Pagefind Search -->
-    <script defer src="/pagefind/pagefind-ui.js" onload="initPF()"></script>
-    <script>
-      window.initPF = function() {
-        setTimeout(() => {
-          if (typeof window.PagefindUI !== 'undefined') {
-            try {
-              console.log('🔄 Initializing Pagefind...');
-              const searchDiv = document.getElementById('search');
-              if (searchDiv) {
-                console.log('✅ Found #search div');
-                new window.PagefindUI({
-                  element: '#search',
-                  showSubResults: true,
-                  showEmptyFilters: false
-                });
-                console.log('✅ Pagefind UI Initialized');
-              } else {
-                console.error('❌ #search div not found');
-              }
-            } catch(e) {
-              console.error('❌ Error:', e.message);
-            }
-          } else {
-            console.error('❌ PagefindUI not available');
-          }
-        }, 100);
-      };
-      if (document.readyState === 'complete') {
-        window.initPF();
-      } else {
-        window.addEventListener('load', window.initPF);
-      }
-    </script>
-
-    <!-- Google Translate Widget - LOADS AFTER PAGEFIND -->
+    <!-- Google Translate Widget -->
     <div id="google_translate_element" style="position: fixed; bottom: 20px; right: 20px; z-index: 999;"></div>
     <script type="text/javascript">
       function googleTranslateElementInit( ) {
