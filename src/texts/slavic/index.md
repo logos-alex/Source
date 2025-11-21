@@ -1,21 +1,6 @@
 ---
-layout: base.njk
+layout: category-page.njk
 title: "כתבים ממקור סלאבי"
 description: "כתבים אפוקליפטיים מתרגומים סלאביים - סולם יעקב וטקסטים עתיקים נוספים"
+source: slavic
 ---
-
-<div class="text-main category-listing">
-  <h1>{{ title }}</h1>
-  <div class="book-list">
-    {% for item in collections.texts %}
-      {% if item.data.source == 'slavic' and item.data.pageNumber == 0 %}
-        <a href="{{ item.url | url }}" class="book-card">
-          <h3>{{ item.data.title }}</h3>
-          {% if item.data.description %}
-            <p>{{ item.data.description }}</p>
-          {% endif %}
-        </a>
-      {% endif %}
-    {% endfor %}
-  </div>
-</div>
