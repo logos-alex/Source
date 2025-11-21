@@ -1,7 +1,8 @@
 {
   "hebrew": "עברית",
   "slavic": "סלאבית",
-  "aramaic": "ארמית-סורית",
+  "aramaic": "ארמית",
+  "aramaic-syriac": "ארמית-סורית",
   "armenian": "ארמני",
   "latin": "לטינית"
 }
