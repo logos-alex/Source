@@ -1,10 +1,14 @@
 ---
-layout: text-page
+layout: text-page.njk
 title: "חזון דניאל (הארמני) - עמוד ב'"
 source: armenian
 figure: daniel
 book: vision-of-daniel
 pageNumber: 2
+tags:
+  - armenian
+  - daniel
+  - texts
 permalink: /texts/armenian/vision-of-daniel/page-b/
 ---
 
