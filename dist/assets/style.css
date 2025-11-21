@@ -484,11 +484,6 @@ nav a:focus {
     margin-bottom: 15px;
   }
 }
-/* === תצוגה מקבילה לטקסט ארמי ועברי === */
-.parallel-columns {
-  display: block;
-  overflow: auto;
-}
 
 .parallel-columns h2 {
   width: 50%;
@@ -545,5 +540,74 @@ nav a:focus {
     border: none;
     border-bottom: 2px solid var(--border-color);
     padding: 10px 0;
+  }
+}
+/* === תצוגה מקבילה לטקסט ארמי ועברי - מעודכן === */
+.parallel-text-wrapper {
+  display: block;
+}
+
+.parallel-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+  align-items: start;
+}
+
+.parallel-col {
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  line-height: 2;
+}
+
+.parallel-col.aramaic {
+  border-right: 2px solid var(--border-color);
+  text-align: right;
+  direction: rtl;
+}
+
+.parallel-col.hebrew {
+  border-left: 2px solid var(--border-color);
+  text-align: right;
+  direction: rtl;
+}
+
+.parallel-col h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 8px;
+  text-align: center;
+}
+
+.parallel-col p {
+  margin: 10px 0;
+  padding: 0;
+  background-color: transparent;
+}
+
+/* עבור מסכים קטנים - חזרה לתצוגה ליניארית */
+@media (max-width: 1024px) {
+  .parallel-section {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  
+  .parallel-col {
+    border: none;
+    border-bottom: 2px solid var(--border-color);
+    padding: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .parallel-col.aramaic {
+    border-right: none;
+  }
+  
+  .parallel-col.hebrew {
+    border-left: none;
   }
 }
