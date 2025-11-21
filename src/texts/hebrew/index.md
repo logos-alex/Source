@@ -1,6 +1,7 @@
 ---
 layout: base.njk
 title: "כתבים ממקור עברי"
+description: "כתבים אפוקליפטיים יהודיים בעברית - חזון אליהו וטקסטים נוספים מתקופת בית שני"
 ---
 
 <div class="text-main category-listing">

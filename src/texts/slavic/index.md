@@ -1,6 +1,7 @@
 ---
 layout: base.njk
 title: "כתבים ממקור סלאבי"
+description: "כתבים אפוקליפטיים מתרגומים סלאביים - סולם יעקב וטקסטים עתיקים נוספים"
 ---
 
 <div class="text-main category-listing">
