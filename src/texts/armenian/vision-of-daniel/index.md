@@ -45,3 +45,8 @@ permalink: /texts/armenian/vision-of-daniel/
 - [עמוד ב'](/texts/armenian/vision-of-daniel/page-b/) - נבואות על ערים בפונטוס, פריגיה וגלטיה
 - [עמוד ג'](/texts/armenian/vision-of-daniel/page-c/) - חורבנות בקפדוקיה, סמירנה ואנטיוכיה
 - [עמוד ד'](/texts/armenian/vision-of-daniel/page-d/) - נבואות על אלכסנדריה, מצרים וקונסטנטינופול
+- [עמוד ה'](/texts/armenian/vision-of-daniel/page-e/) - הקיסר האחרון וקונסטנטינופול
+- [עמוד ו'](/texts/armenian/vision-of-daniel/page-f/) - האנטיכריסט והפילוג של המטה
+- [עמוד ז'](/texts/armenian/vision-of-daniel/page-g/) - תיאודוסיוס משיח בקדושה
+- [עמוד ח'](/texts/armenian/vision-of-daniel/page-h/) - מרקיאנוס והקיסרים האחרונים
+- [עמוד ט'](/texts/armenian/vision-of-daniel/page-i/) - החיה הרודפת וחורבן ההודים
