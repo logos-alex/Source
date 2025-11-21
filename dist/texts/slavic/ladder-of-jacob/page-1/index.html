@@ -255,23 +255,34 @@
       })();
     </script>
 
-    <!-- Pagefind Search - FIRST PRIORITY -->
-    <script>
-      function initPagefind() {
-        if (window.PagefindUI !== undefined) {
-          new window.PagefindUI({
-            element: '#search',
-            showSubResults: true,
-            showEmptyFilters: false
-          });
-          console.log('✅ Pagefind initialized successfully');
+    <!-- Pagefind Search - DEFERRED LOADING -->
+    <script defer src="/pagefind/pagefind-ui.js"></script>
+    <script defer>
+      function waitForPagefind(attempts = 0) {
+        if (typeof window.PagefindUI !== 'undefined') {
+          try {
+            new window.PagefindUI({
+              element: '#search',
+              showSubResults: true,
+              showEmptyFilters: false
+            });
+            console.log('✅ Pagefind UI Rendered Successfully');
+          } catch(e) {
+            console.error('❌ Pagefind error:', e.message);
+          }
+        } else if (attempts < 20) {
+          setTimeout(() => waitForPagefind(attempts + 1), 100);
         } else {
-          console.error('❌ PagefindUI not found');
-          setTimeout(initPagefind, 500);
+          console.error('❌ PagefindUI failed to load');
         }
       }
+      document.addEventListener('DOMContentLoaded', waitForPagefind);
+      if (document.readyState === 'loading') {
+        document.addEventListener('load', waitForPagefind);
+      } else {
+        setTimeout(waitForPagefind, 0);
+      }
     </script>
-    <script src="/pagefind/pagefind-ui.js" onload="initPagefind();"></script>
 
     <!-- Google Translate Widget - LOADS AFTER PAGEFIND -->
     <div id="google_translate_element" style="position: fixed; bottom: 20px; right: 20px; z-index: 999;"></div>
