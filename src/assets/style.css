@@ -6,6 +6,31 @@
   --notes-color: #8b4513; /* חום כהה להערות */
   --accent-color: #8b4513; /* צבע נוסף להדגשות */
   --header-color: #5a3a2a; /* צבע חום-אדמדם לכותרות */
+  color-scheme: light;
+}
+
+/* Dark Mode */
+html[data-theme="dark"] {
+  --bg-color: #1a1410;
+  --text-color: #e8dcc8;
+  --border-color: #8b7355;
+  --notes-color: #c99d7d;
+  --accent-color: #d4af37;
+  --header-color: #d4a574;
+  color-scheme: dark;
+}
+
+html[data-theme="dark"] body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+html[data-theme="dark"] a {
+  color: #c9956f;
+}
+
+html[data-theme="dark"] a:visited {
+  color: #a0795f;
 }
 
 body {
@@ -37,6 +62,33 @@ header h1 {
   padding-bottom: 10px;
   font-size: 2em;
   margin-bottom: 30px;
+}
+
+.header-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.theme-toggle {
+  position: absolute;
+  left: 0;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.theme-toggle:hover {
+  background-color: rgba(212, 175, 55, 0.2);
+}
+
+.theme-toggle:focus {
+  outline: 2px solid var(--border-color);
 }
 
 nav {
@@ -213,4 +265,166 @@ sup a:hover {
 .book-card p {
   margin-bottom: 0;
   font-size: 0.9em;
+}
+
+/* === BREADCRUMBS === */
+.breadcrumbs {
+  margin: 15px 0;
+  font-size: 0.95rem;
+}
+
+.breadcrumbs ol {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.breadcrumbs li {
+  display: inline;
+}
+
+.breadcrumbs a {
+  color: var(--accent-color);
+  text-decoration: none;
+  padding: 2px 5px;
+  border-radius: 3px;
+}
+
+.breadcrumbs a:hover {
+  background-color: rgba(212, 175, 55, 0.2);
+  text-decoration: underline;
+}
+
+.breadcrumbs li:not(:last-child)::after {
+  content: " / ";
+  margin: 0 5px;
+  color: var(--border-color);
+}
+
+/* === READING PROGRESS BAR === */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background-color: var(--border-color);
+  z-index: 1000;
+  opacity: 0.8;
+}
+
+.reading-progress-bar {
+  height: 100%;
+  background: linear-gradient(to right, #8b4513, #d4af37);
+  width: 0%;
+  transition: width 0.1s ease;
+}
+
+/* === ACCESSIBILITY === */
+a:focus,
+button:focus,
+nav a:focus {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+/* Skip to content link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: var(--accent-color);
+  color: var(--bg-color);
+  padding: 8px;
+  text-decoration: none;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* === PRINT STYLES === */
+@media print {
+  body {
+    background: white;
+    color: black;
+    font-size: 12pt;
+  }
+  
+  header, footer, .theme-toggle, .breadcrumbs, #comments-section, .pagination {
+    display: none;
+  }
+  
+  .text-main {
+    background: none;
+    border: none;
+    box-shadow: none;
+    page-break-inside: avoid;
+  }
+  
+  h1, h2, h3 {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+  }
+  
+  .footnotes {
+    page-break-inside: avoid;
+  }
+  
+  a {
+    color: black;
+    text-decoration: underline;
+  }
+  
+  a::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+  }
+}
+
+/* === MOBILE RESPONSIVE === */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+  
+  header h1 {
+    font-size: 1.4em;
+    margin-bottom: 15px;
+  }
+  
+  nav {
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  nav a {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+  
+  .text-main {
+    padding: 15px;
+    font-size: 1.1rem;
+  }
+  
+  .breadcrumbs ol {
+    font-size: 0.85rem;
+    gap: 5px;
+  }
+  
+  .pagination {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .pagination a {
+    width: 100%;
+    text-align: center;
+  }
 }

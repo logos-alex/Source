@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl">
+<html lang="he" dir="rtl" id="htmlRoot">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }} | בית מדרש לכתבים גנוזים</title>
+    
+    <!-- Accessibility -->
+    <meta name="color-scheme" content="light dark">
     
     <!-- SEO & Meta Tags -->
     <meta name="description" content="{% if description %}{{ description }}{% else %}בית מדרש וירטואלי - תרגומים ופרשנות של כתבים גנוזים יהודיים עתיקים מתקופת בית שני{% endif %}">
@@ -34,14 +37,19 @@
 </head>
 <body>
     <header>
-        <h1><a href="/">בית מדרש וירטואלי לכתבים גנוזים</a></h1>
-        <nav>
-                        <a href="/">דף הבית</a>
+        <div class="header-top">
+            <h1><a href="/">בית מדרש וירטואלי לכתבים גנוזים</a></h1>
+            <button id="themeToggle" class="theme-toggle" aria-label="בחר מצב אור/חושך" title="מצב אור/חושך">🌙</button>
+        </div>
+        <nav role="navigation" aria-label="ניווט ראשי">
+            <a href="/">דף הבית</a>
             <a href="/texts/">לפי מקור</a>
             <a href="/by-figure/">לפי יחוס</a>
         </nav>
+        {% include "breadcrumbs.njk" %}
     </header>
-    <main>
+    
+    <main role="main">
         {% block content %}
             {{ content | safe }}
         {% endblock %}
@@ -49,6 +57,43 @@
     <footer>
         <p>&copy; כל הזכויות שמורות - 2025</p>
     </footer>
+
+    <!-- Dark Mode Script -->
+    <script>
+      (function() {
+        const htmlRoot = document.getElementById('htmlRoot');
+        const themeToggle = document.getElementById('themeToggle');
+        
+        // Check stored preference or system preference
+        function initTheme() {
+          const stored = localStorage.getItem('theme');
+          const prefer = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          const theme = stored || prefer;
+          applyTheme(theme);
+        }
+        
+        function applyTheme(theme) {
+          if (theme === 'dark') {
+            htmlRoot.setAttribute('data-theme', 'dark');
+            if (themeToggle) themeToggle.textContent = '☀️';
+          } else {
+            htmlRoot.removeAttribute('data-theme');
+            if (themeToggle) themeToggle.textContent = '🌙';
+          }
+          localStorage.setItem('theme', theme);
+        }
+        
+        if (themeToggle) {
+          themeToggle.addEventListener('click', function() {
+            const current = htmlRoot.getAttribute('data-theme');
+            const newTheme = current === 'dark' ? 'light' : 'dark';
+            applyTheme(newTheme);
+          });
+        }
+        
+        initTheme();
+      })();
+    </script>
 
     <!-- Google Translate Widget - START -->
     <div id="google_translate_element" style="position: fixed; bottom: 20px; right: 20px; z-index: 999;"></div>

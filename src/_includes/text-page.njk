@@ -1,6 +1,11 @@
 {% extends "base.njk" %}
 
 {% block content %}
+  <!-- Reading Progress Bar -->
+  <div class="reading-progress">
+    <div class="reading-progress-bar" id="readingProgress"></div>
+  </div>
+  
   <div class="text-main">
     <h1>{{ title }}</h1>
     
@@ -12,6 +17,14 @@
     
     {{ content | safe }}
   </div>
+  
+  <script>
+    window.addEventListener('scroll', function() {
+      const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (window.scrollY / windowHeight) * 100;
+      document.getElementById('readingProgress').style.width = scrolled + '%';
+    });
+  </script>
 
   <div class="footnotes">
     <h3>הערות וביאורים</h3>
