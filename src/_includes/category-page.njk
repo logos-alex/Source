@@ -2,15 +2,12 @@
 
 {% block content %}
   <div class="text-main category-listing">
-    {# כותרת הדף, למשל: "כתבים ממקור סלאבי" #}
     <h1>{{ title }}</h1>
 
-    {# פסקת תיאור קצרה #}
     {% if description %}
       <p class="category-description">{{ description }}</p>
     {% endif %}
 
-    {# רשימת הספרים בקטגוריה - סונן לפי source הנוכחי #}
     <div class="book-list">
       {% set hasBooks = false %}
       {% for item in collections.texts %}
@@ -24,6 +21,7 @@
           </div>
         {% endif %}
       {% endfor %}
+      
       {% if not hasBooks %}
         <p style="color: var(--text-color-muted); font-style: italic;">אין כתבים בקטגוריה זו עדיין</p>
       {% endif %}
