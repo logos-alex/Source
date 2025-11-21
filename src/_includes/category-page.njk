@@ -5,22 +5,28 @@
     {# כותרת הדף, למשל: "כתבים ממקור סלאבי" #}
     <h1>{{ title }}</h1>
 
-    {# פסקת תיאור קצרה (אופציונלי, נוסיף בעתיד) #}
+    {# פסקת תיאור קצרה #}
     {% if description %}
       <p class="category-description">{{ description }}</p>
     {% endif %}
 
-    {# רשימת הספרים בקטגוריה #}
+    {# רשימת הספרים בקטגוריה - סונן לפי source הנוכחי #}
     <div class="book-list">
-      {# הלולאה עוברת על כל הפריטים ש-Eleventy יספק לדף הזה #}
-      {% for item in items %}
-        <div class="book-card">
-          <h3><a href="{{ item.url | url }}">{{ item.data.title }}</a></h3>
-          {% if item.data.description %}
-            <p>{{ item.data.description }}</p>
-          {% endif %}
-        </div>
+      {% set hasBooks = false %}
+      {% for item in collections.texts %}
+        {% if item.data.source == source and item.data.pageNumber == 0 %}
+          {% set hasBooks = true %}
+          <div class="book-card">
+            <h3><a href="{{ item.url | url }}">{{ item.data.title }}</a></h3>
+            {% if item.data.description %}
+              <p>{{ item.data.description }}</p>
+            {% endif %}
+          </div>
+        {% endif %}
       {% endfor %}
+      {% if not hasBooks %}
+        <p style="color: var(--text-color-muted); font-style: italic;">אין כתבים בקטגוריה זו עדיין</p>
+      {% endif %}
     </div>
   </div>
 {% endblock %}
