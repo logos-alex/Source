@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "eleventy --serve",
+    "dev": "eleventy --serve --port=5000",
     "build": "eleventy",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
