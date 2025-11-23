@@ -1,4 +1,5 @@
 const { DateTime } = require("luxon");
+const lunr = require("lunr");
 
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/assets/");
@@ -23,6 +24,23 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addFilter("date", (dateObj) => DateTime.fromJSDate(dateObj).toFormat("dd LLL yyyy"));
   eleventyConfig.addFilter("figureLink", (figure) => `/by-figure/${figure.toLowerCase().replace(/ /g, "-")}/`);
   eleventyConfig.addFilter("findIndexByUrl", (arr, url) => Array.isArray(arr) ? arr.findIndex(item => item.url === url) : -1);
+
+  // יצירת אינדקס חיפוש עבור Lunr.js
+  eleventyConfig.addCollection("searchIndex", function(collection) {
+    const searchData = collection.getAll()
+      .filter(item => item.data.tags && item.data.tags.includes("texts")) // רק דפי טקסט
+      .map(item => ({
+        id: item.url,
+        title: item.data.title,
+        content: item.templateContent,
+        book: item.data.book,
+        source: item.data.source
+      }));
+
+    // יצירת קובץ JSON עם הנתונים
+    this.addPassthroughCopy({ "search.json": "search.json" });
+    return JSON.stringify(searchData);
+  });
 
   return {
     dir: { input: "src", output: "dist" },
