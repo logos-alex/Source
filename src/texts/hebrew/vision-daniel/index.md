@@ -1,6 +1,6 @@
 ---
 layout: book-index.njk
-title: "חזון דניאל"
+title: "חזון דניאל (העברי)"
 book: vision-daniel
 tags:
   - texts

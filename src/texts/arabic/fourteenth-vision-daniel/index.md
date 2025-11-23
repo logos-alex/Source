@@ -1,6 +1,6 @@
 ---
 layout: book-index.njk
-title: "החזון הארבעה-עשר לדניאל"
+title: "החזון הארבעשר לדניאל"
 book: fourteenth-vision-daniel
 tags:
   - texts

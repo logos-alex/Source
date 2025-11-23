@@ -1,6 +1,6 @@
 ---
 layout: book-index.njk
-title: "חזון דניאל הסורי-ארמי"
+title: "חזון דניאל (ארמי-סורי)"
 book: syriac-apocalypse-of-daniel
 tags:
   - texts

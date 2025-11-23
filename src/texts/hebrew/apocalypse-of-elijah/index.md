@@ -1,6 +1,6 @@
 ---
 layout: book-index.njk
-title: "חזון אליהו"
+title: "חזון אליהו (העברי)"
 book: apocalypse-of-elijah
 tags:
   - texts

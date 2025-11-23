@@ -1,6 +1,6 @@
 ---
 layout: book-index.njk
-title: "חזון עזרא הלטיני"
+title: "חזון עזרא (הלטיני)"
 book: vision-of-ezra
 tags:
   - texts
