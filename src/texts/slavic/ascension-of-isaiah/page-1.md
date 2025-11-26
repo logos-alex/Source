@@ -4,10 +4,10 @@ title: "עליית ישעיהו - חלקים א'-ב' (ההתגלות בחצר ה
 book: ascension-of-isaiah
 tags:
   - texts
-source: hebrew
+source: slavic
 figure: isaiah
 pageNumber: 1
-permalink: /texts/hebrew/ascension-of-isaiah/page-1/
+permalink: /texts/slavic/ascension-of-isaiah/page-1/
 ---
 
 ## חלק א': ההתגלות בחצר המלך והעלייה לרקיע

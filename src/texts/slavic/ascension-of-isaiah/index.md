@@ -4,11 +4,11 @@ title: "עליית ישעיהו"
 book: ascension-of-isaiah
 tags:
   - texts
-source: hebrew
+source: slavic
 figure: isaiah
 pageNumber: 0
 description: "חיבור אפוקליפטי עתיק המתאר את עליית הנביא ישעיהו דרך הרקיעים השבעה, ממפגשו עם מלאך המלווה ועד לחזון השילוש והציווי על ירידת הבן לעולם."
-permalink: /texts/hebrew/ascension-of-isaiah/
+permalink: /texts/slavic/ascension-of-isaiah/
 ---
 
 ## סקירה כללית
@@ -39,4 +39,4 @@ permalink: /texts/hebrew/ascension-of-isaiah/
 
 ## קישורים לעמודים
 
-[עמוד א'-ב'](/texts/hebrew/ascension-of-isaiah/page-1/) | [עמוד ג'](/texts/hebrew/ascension-of-isaiah/page-2/) | [עמוד ד'-ה'](/texts/hebrew/ascension-of-isaiah/page-3/) | [עמוד ו'-ז'](/texts/hebrew/ascension-of-isaiah/page-4/) | [עמוד ח'](/texts/hebrew/ascension-of-isaiah/page-5/)
+[עמוד א'-ב'](/texts/slavic/ascension-of-isaiah/page-1/) | [עמוד ג'](/texts/slavic/ascension-of-isaiah/page-2/) | [עמוד ד'-ה'](/texts/slavic/ascension-of-isaiah/page-3/) | [עמוד ו'-ז'](/texts/slavic/ascension-of-isaiah/page-4/) | [עמוד ח'](/texts/slavic/ascension-of-isaiah/page-5/)

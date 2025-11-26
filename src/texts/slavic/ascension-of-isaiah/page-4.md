@@ -4,10 +4,10 @@ title: "עליית ישעיהו - חלקים ז'-ח' (חזון השילוש וה
 book: ascension-of-isaiah
 tags:
   - texts
-source: hebrew
+source: slavic
 figure: isaiah
 pageNumber: 4
-permalink: /texts/hebrew/ascension-of-isaiah/page-4/
+permalink: /texts/slavic/ascension-of-isaiah/page-4/
 ---
 
 ## חלק ז': ספרי המעשים, מיכאל, וחזון השילוש

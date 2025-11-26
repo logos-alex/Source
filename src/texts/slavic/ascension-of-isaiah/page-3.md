@@ -4,10 +4,10 @@ title: "עליית ישעיהו - חלקים ד'-ו' (עליה לרקיעים ג
 book: ascension-of-isaiah
 tags:
   - texts
-source: hebrew
+source: slavic
 figure: isaiah
 pageNumber: 3
-permalink: /texts/hebrew/ascension-of-isaiah/page-3/
+permalink: /texts/slavic/ascension-of-isaiah/page-3/
 ---
 
 ## חלק ד': הרקיעים השלישי, הרביעי והחמישי

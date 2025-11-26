@@ -4,10 +4,10 @@ title: "עליית ישעיהו - חלק ג' (הרקיע התחתון והשמי
 book: ascension-of-isaiah
 tags:
   - texts
-source: hebrew
+source: slavic
 figure: isaiah
 pageNumber: 2
-permalink: /texts/hebrew/ascension-of-isaiah/page-2/
+permalink: /texts/slavic/ascension-of-isaiah/page-2/
 ---
 
 ## חלק ג': הרקיע התחתון והשמיים הראשונים והשניים
