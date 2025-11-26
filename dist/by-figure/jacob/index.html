@@ -447,47 +447,5 @@
     </script>
 
 
-    <!-- Google Translate Widget -->
-    <div id="google_translate_element" style="position: fixed; bottom: 20px; right: 20px; z-index: 999;"></div>
-    <script type="text/javascript">
-      window.googleTranslateElementInit = function() {
-        try {
-          if (typeof google !== 'undefined' && google.translate && google.translate.TranslateElement) {
-            new google.translate.TranslateElement({
-              pageLanguage: 'he',
-              includedLanguages: 'en,ru,es,fr,de,ar',
-              layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-              autoDisplay: false
-            }, 'google_translate_element');
-          }
-        } catch(e) {
-          return false;
-        }
-      };
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-    <style>
-      /* עיצוב מותאם לווידג'ט התרגום */
-      body {
-        top: 0 !important; /* מונע קפיצה של העמוד כשהווידג'ט נטען */
-      }
-      .goog-te-gadget-simple {
-        background-color: #fff !important;
-        border: 1px solid #ccc !important;
-        padding: 6px 10px !important;
-        border-radius: 6px !important;
-        font-size: 14px !important;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      }
-      .goog-te-gadget-simple img {
-        display: none !important; /* מסתיר את האייקון של גוגל */
-      }
-      .goog-te-banner-frame.skiptranslate {
-        display: none !important; /* מסתיר את הבאנר של גוגל שמופיע בראש העמוד לאחר תרגום */
-      }
-    </style>
-    <link rel="stylesheet" href="/pagefind/pagefind-ui.css">
-    <!-- Google Translate Widget - START -->
 </body>
 </html>
