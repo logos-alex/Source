@@ -1,6 +1,6 @@
 ---
 layout: text-page.njk
-title: "חזון דניאל (הארמני) - עמוד ז'"
+title: "החזון השביעי לדניאל - עמוד ז'"
 source: armenian
 figure: daniel
 book: vision-of-daniel
