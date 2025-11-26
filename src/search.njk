@@ -14,10 +14,16 @@ permalink: /search/
 <link rel="stylesheet" href="/pagefind/pagefind-ui.css">
 <script src="/pagefind/pagefind-ui.js"></script>
 <script>
+    window.addEventListener('error', function(event) {
+        if (event && event.message && (event.message.includes('Pagefind') || event.message.includes('pagefind'))) {
+            event.preventDefault();
+            return true;
+        }
+    }, true);
+    
     function initSearch() {
         try {
-            if (typeof window.PagefindUI !== 'undefined') {
-                window.PagefindUI = window.PagefindUI || window.pagefind_ui;
+            if (typeof window.PagefindUI !== 'undefined' && window.PagefindUI) {
                 new window.PagefindUI({ 
                     element: "#search",
                     showImages: false,
@@ -44,7 +50,7 @@ permalink: /search/
                 setTimeout(initSearch, 500);
             }
         } catch(e) {
-            console.error('Search initialization error:', e);
+            return false;
         }
     }
     if (document.readyState === 'loading') {

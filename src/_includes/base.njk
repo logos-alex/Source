@@ -120,7 +120,7 @@
     <!-- Google Translate Widget -->
     <div id="google_translate_element" style="position: fixed; bottom: 20px; right: 20px; z-index: 999;"></div>
     <script type="text/javascript">
-      function googleTranslateElementInit() {
+      window.googleTranslateElementInit = function() {
         try {
           if (typeof google !== 'undefined' && google.translate && google.translate.TranslateElement) {
             new google.translate.TranslateElement({
@@ -131,9 +131,14 @@
             }, 'google_translate_element');
           }
         } catch(e) {
-          console.warn('Google Translate widget failed to load:', e);
+          console.warn('Google Translate widget failed to load');
         }
-      }
+      };
+      window.addEventListener('error', function(event) {
+        if (event && event.message && event.message.includes('Translate')) {
+          event.preventDefault();
+        }
+      }, true);
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
