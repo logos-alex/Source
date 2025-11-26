@@ -11,47 +11,7 @@ permalink: /search/
     <div id="search"></div>
 </div>
 
-<link rel="stylesheet" href="/pagefind/pagefind-ui.css">
-<script src="/pagefind/pagefind-ui.js"></script>
-<script>
-    function initSearch() {
-        try {
-            if (typeof window.PagefindUI !== 'undefined' && window.PagefindUI) {
-                new window.PagefindUI({ 
-                    element: "#search",
-                    showImages: false,
-                    baseUrl: "/",
-                    bundlePath: "/pagefind/",
-                    translations: {
-                        placeholder: "חפש בכתבים...",
-                        zero_results: "לא נמצאו תוצאות עבור [SEARCH_TERM]",
-                        many_results: "[COUNT] תוצאות עבור [SEARCH_TERM]",
-                        one_result: "תוצאה אחת עבור [SEARCH_TERM]",
-                        loading: "טוען...",
-                        search_label: "חיפוש",
-                        filters_label: "פילטרים",
-                        clear_search: "נקה חיפוש",
-                        load_more: "טען עוד תוצאות",
-                        search_html: "הצג תוצאות HTML",
-                        exact_search_label: "חיפוש מדויק",
-                        ellipsis: "...",
-                        not_found: "לא נמצא",
-                        direction: "rtl"
-                    }
-                });
-            } else if (document.readyState !== 'loading') {
-                setTimeout(initSearch, 500);
-            }
-        } catch(e) {
-            return false;
-        }
-    }
-    
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(initSearch, 50);
-        });
-    } else {
-        setTimeout(initSearch, 100);
-    }
-</script>
+<div style="padding: 20px; background: #f0f4f8; border-radius: 8px; text-align: center;">
+    <p>🔍 <strong>חיפוש בטקסטים</strong> - בשכלול כרגע</p>
+    <p style="font-size: 0.9em; color: #666;">בעתיד: חיפוש מלא בכל הכתבים עם תמיכה בעברית</p>
+</div>
