@@ -5,7 +5,9 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/assets/");
   eleventyConfig.addPassthroughCopy("./src/google5ea0ab9870afd370.html");
   eleventyConfig.addPassthroughCopy("./src/robots.txt");
-  eleventyConfig.addPassthroughCopy("./node_modules/pagefind/dist");
+  eleventyConfig.addPassthroughCopy({
+    "./node_modules/pagefind/dist": "/pagefind"
+  });
 
   eleventyConfig.addCollection("textsByBook", (collectionApi) => {
     const books = {};
