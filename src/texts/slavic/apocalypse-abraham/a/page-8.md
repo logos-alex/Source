@@ -9,7 +9,7 @@ tags:
   - texts
 source: סלאבית
 figure: אברהם
-permalink: /texts/slavic/apocalypse-abraham/page-8/
+permalink: /texts/slavic/apocalypse-abraham/a/page-8/
 notes:
   - "וְאֶת-הַדָּבָר אֲשֶׁר אָמַרְתִּי לְכֶם בְּתִתְּכֶם פְּרִי אֶחָד מִן-הַגַּן: הדברת ההכנסה לעדן מופרת בידי מלאך נופל."
   - "וַיִּהְיוּ בֵנִי־אָדָם מְדוּבָּקִים בַּחֲמַת עֲזָאזֵל: גורל האנושות קשור לפעולות עזאזל, הגורם לעוון."

@@ -9,7 +9,7 @@ tags:
   - texts
 source: סלאבית
 figure: אברהם
-permalink: /texts/slavic/apocalypse-abraham/page-7/
+permalink: /texts/slavic/apocalypse-abraham/a/page-7/
 notes:
   - "וַתִּשְׁמַע קוֹלִי וּמַרְאֵה לִי: אברהם רואה ראיה קוסמית שלמה של הבריאה."
   - "כִּנְדַּעְתִּי כִּי הַשָּׁמַיִם וַהָאָרֶץ בִּנְיַן מִשָּׁמֶּן וַיֵּשׁ לָהֶם סוּף: רעיון פילוסופי - אפילו השמים והארץ סופיים."

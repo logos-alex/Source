@@ -9,7 +9,7 @@ tags:
   - texts
 source: סלאבית
 figure: אברהם
-permalink: /texts/slavic/apocalypse-abraham/page-5/
+permalink: /texts/slavic/apocalypse-abraham/a/page-5/
 notes:
   - "אַרְבָּעִים יוֹם וְאַרְבָּעִים לַיְלָה... לִרְאוֹת אֶת-הַמַּלְאָךְ: צום מיסטי. אברהם ניזון מהנוכחות הרוחנית, לא מאוכל גשמי."
   - "הַר חוֹרֵב, הַר הָאֱלֹהִים: ברית בין הבתרים מקושרת בדרמטיות לסיני, למרגלות ההר הקדום."

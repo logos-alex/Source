@@ -9,7 +9,7 @@ tags:
   - texts
 source: סלאבית
 figure: אברהם
-permalink: /texts/slavic/apocalypse-abraham/page-3/
+permalink: /texts/slavic/apocalypse-abraham/a/page-3/
 notes:
   - "וְכָל-הָעִיר נִשְׁמְעוּ קוֹלִי: אברהם אינו סתם שובר פסלים בחשאי, הוא מטיח ביקורת פומבית במרכז העיר."
   - "וּמִשַּׁחַק עִיר בִּשְׁחוֹקָם הָמִּים: הקהל מלעיג ופוקח עיניים. השכנוניה תוך דעתה על המצב."

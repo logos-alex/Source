@@ -9,7 +9,7 @@ tags:
   - texts
 source: סלאבית
 figure: אברהם
-permalink: /texts/slavic/apocalypse-abraham/page-2/
+permalink: /texts/slavic/apocalypse-abraham/a/page-2/
 notes:
   - "הָאֵל בַּרִישָׂת: שם בדוי או שיבוש, אולי קשור למילה 'ברוש' או לשורש הקשור לאש. גרסה מתוחכמת של מדרש אברהם והפסלים."
   - "בַּרִישָׂת קָטָן: במקום לשבור את הפסלים, אברהם עורך ניסוי מדעי מבוקר."

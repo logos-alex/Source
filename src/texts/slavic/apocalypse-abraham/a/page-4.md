@@ -9,7 +9,7 @@ tags:
   - texts
 source: סלאבית
 figure: אברהם
-permalink: /texts/slavic/apocalypse-abraham/page-4/
+permalink: /texts/slavic/apocalypse-abraham/a/page-4/
 notes:
   - "יָהוֹאֵל, שַׁר הָעוֹלָם הַקַּדְמוֹן: זהו שם חדש של מלאך עם אחריות קוסמית. מזוהה עם מטטרון בתרבות מדרשית."
   - "בָּרָקִיעַ הַשְּׁבִיעִי: הרקיע הגבוה ביותר, מקום מושבו של כיסא הכבוד (תרון כבוד)."
