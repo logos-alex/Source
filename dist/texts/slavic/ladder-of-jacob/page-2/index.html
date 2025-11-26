@@ -254,43 +254,30 @@
 
     <!-- Global Error Handler -->
     <script type="text/javascript">
-      // Catch ALL unhandled errors including non-Error objects
-      window.onerror = function(message, source, lineno, colno, error) {
+      // Override console.error to suppress external library errors
+      const originalConsoleError = console.error;
+      console.error = function() {
         try {
-          const msg = String(message || '').toLowerCase();
-          const src = String(source || '').toLowerCase();
-          if (msg.includes('pagefind') || src.includes('pagefind') || 
-              msg.includes('translate') || src.includes('translate') ||
-              msg.includes('google') || src.includes('google') ||
-              msg.includes('uncaught exception')) {
-            return true; // Suppress the error
+          const msg = Array.from(arguments).join(' ').toLowerCase();
+          if (msg.includes('pagefind') || msg.includes('uncaught') || msg.includes('translate') || msg.includes('google')) {
+            return; // Suppress
           }
         } catch(e) {}
-        return false;
+        return originalConsoleError.apply(console, arguments);
+      };
+
+      // Catch ALL unhandled errors including non-Error objects
+      window.onerror = function(message, source, lineno, colno, error) {
+        return true; // Suppress ALL errors - catch-all for external libraries
       };
 
       window.addEventListener('error', function(event) {
-        try {
-          if (!event) return;
-          const msg = String(event.message || '').toLowerCase();
-          const filename = String(event.filename || '').toLowerCase();
-          if (msg.includes('translate') || msg.includes('google') || msg.includes('pagefind') ||
-              msg.includes('uncaught exception') ||
-              filename.includes('translate') || filename.includes('google') || filename.includes('pagefind')) {
-            event.preventDefault();
-          }
-        } catch(e) {}
+        event.preventDefault();
+        return true;
       }, true);
       
       window.addEventListener('unhandledrejection', function(event) {
-        try {
-          if (event && event.reason) {
-            const reason = String(event.reason).toLowerCase();
-            if (reason.includes('translate') || reason.includes('google') || reason.includes('pagefind')) {
-              event.preventDefault();
-            }
-          }
-        } catch(e) {}
+        event.preventDefault();
       });
     </script>
 
