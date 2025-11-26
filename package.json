@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "eleventy --serve --port=5000",
+    "dev": "eleventy --serve --port=5000 & sleep 2 && npm run index",
     "build": "eleventy && npx pagefind --site dist --output-path pagefind",
+    "index": "npx pagefind --site dist --output-path pagefind",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
