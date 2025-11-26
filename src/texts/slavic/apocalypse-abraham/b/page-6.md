@@ -8,7 +8,7 @@ tags:
   - abraham
   - texts
 source: סלאבית
-figure: אברהם
+figure: abraham
 permalink: /texts/slavic/apocalypse-abraham/b/page-6/
 notes:
   - "שדור משרתים עלוני: מתוך מסורת המרכבה של יחזקאל."

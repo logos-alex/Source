@@ -8,7 +8,7 @@ tags:
   - abraham
   - texts
 source: סלאבית
-figure: אברהם
+figure: abraham
 permalink: /texts/slavic/apocalypse-abraham/b/page-5/
 notes:
   - "גרסה ב' מרחיבה את שרשרת הגדלות בפרטים פיוטיים ודרמטיים."

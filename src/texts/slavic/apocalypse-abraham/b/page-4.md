@@ -8,7 +8,7 @@ tags:
   - abraham
   - texts
 source: סלאבית
-figure: אברהם
+figure: abraham
 permalink: /texts/slavic/apocalypse-abraham/b/page-4/
 notes:
   - "לֵךְ, אַלְתֶּזֶה: שם מסתורי של המלאך בגרסה ב' - 'אלתזה' - שם לא שמי שנראה ייחודי לגרסה זו."

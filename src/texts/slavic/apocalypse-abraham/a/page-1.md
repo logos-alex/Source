@@ -8,7 +8,7 @@ tags:
   - abraham
   - texts
 source: סלאבית
-figure: אברהם
+figure: abraham
 permalink: /texts/slavic/apocalypse-abraham/a/page-1/
 notes:
   - "אֱלֹהֵי עֵץ וָאֶבֶן...: רשימת החומרים היא טכניקה פולמוסית קלאסית בנבואה, המדגישה את אפסות הפסלים (השווה דברים ד', כ'ח)."

@@ -8,7 +8,7 @@ tags:
   - abraham
   - texts
 source: סלאבית
-figure: אברהם
+figure: abraham
 permalink: /texts/slavic/apocalypse-abraham/b/page-8/
 notes:
   - "סיום החזון עם צו אלוהי לאברהם להודיע לדורות קדומים."

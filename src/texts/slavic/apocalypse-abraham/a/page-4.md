@@ -8,7 +8,7 @@ tags:
   - abraham
   - texts
 source: סלאבית
-figure: אברהם
+figure: abraham
 permalink: /texts/slavic/apocalypse-abraham/a/page-4/
 notes:
   - "יָהוֹאֵל, שַׁר הָעוֹלָם הַקַּדְמוֹן: זהו שם חדש של מלאך עם אחריות קוסמית. מזוהה עם מטטרון בתרבות מדרשית."

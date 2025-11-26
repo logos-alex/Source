@@ -8,7 +8,7 @@ tags:
   - abraham
   - texts
 source: סלאבית
-figure: אברהם
+figure: abraham
 permalink: /texts/slavic/apocalypse-abraham/a/page-3/
 notes:
   - "וְכָל-הָעִיר נִשְׁמְעוּ קוֹלִי: אברהם אינו סתם שובר פסלים בחשאי, הוא מטיח ביקורת פומבית במרכז העיר."

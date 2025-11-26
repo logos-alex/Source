@@ -8,7 +8,7 @@ tags:
   - abraham
   - texts
 source: סלאבית
-figure: אברהם
+figure: abraham
 permalink: /texts/slavic/apocalypse-abraham/b/page-7/
 notes:
   - "גרסה ב' מעלות יותר פרטים על תכונות השמיים והמרכבה."

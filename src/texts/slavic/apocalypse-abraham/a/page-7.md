@@ -8,7 +8,7 @@ tags:
   - abraham
   - texts
 source: סלאבית
-figure: אברהם
+figure: abraham
 permalink: /texts/slavic/apocalypse-abraham/a/page-7/
 notes:
   - "וַתִּשְׁמַע קוֹלִי וּמַרְאֵה לִי: אברהם רואה ראיה קוסמית שלמה של הבריאה."

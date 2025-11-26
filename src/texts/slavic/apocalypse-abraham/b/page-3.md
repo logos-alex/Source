@@ -8,7 +8,7 @@ tags:
   - abraham
   - texts
 source: סלאבית
-figure: אברהם
+figure: abraham
 permalink: /texts/slavic/apocalypse-abraham/b/page-3/
 notes:
   - "וְקוֹל חָזָק בָּא מִן-הַשָּׁמַיִם: קול אלוהי פתאום ישיר, משוני מעולם קודם."

@@ -8,7 +8,7 @@ tags:
   - abraham
   - texts
 source: סלאבית
-figure: אברהם
+figure: abraham
 permalink: /texts/slavic/apocalypse-abraham/b/page-2/
 notes:
   - "וַאֲנִי אַבְרָם, כְּשָׁמְעִי: נקודת מפנה בטקסט - אברהם עולה מהשתיקה למחשבה פעמיה."

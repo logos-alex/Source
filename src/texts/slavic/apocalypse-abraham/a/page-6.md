@@ -8,7 +8,7 @@ tags:
   - abraham
   - texts
 source: סלאבית
-figure: אברהם
+figure: abraham
 permalink: /texts/slavic/apocalypse-abraham/a/page-6/
 notes:
   - "וַיִּשָּׂא אוֹתִי עַל-כַּנְפֵיו: עלייה מיסטית על כנפי מלאך, דימוי המשלב גן עדן וסיני."

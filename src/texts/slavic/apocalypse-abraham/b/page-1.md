@@ -8,7 +8,7 @@ tags:
   - abraham
   - texts
 source: סלאבית
-figure: אברהם
+figure: abraham
 permalink: /texts/slavic/apocalypse-abraham/b/page-1/
 notes:
   - "הִדְרִיךַ אוֹתִי אֱלֹהֵי אָבִי תֶּרַח: בגרסה ב' הניסוח דרמטי יותר - 'הדריך אותי' במקום הניסוח התמציתי יותר בגרסה א'."

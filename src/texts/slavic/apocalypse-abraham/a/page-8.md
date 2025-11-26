@@ -8,7 +8,7 @@ tags:
   - abraham
   - texts
 source: סלאבית
-figure: אברהם
+figure: abraham
 permalink: /texts/slavic/apocalypse-abraham/a/page-8/
 notes:
   - "וְאֶת-הַדָּבָר אֲשֶׁר אָמַרְתִּי לְכֶם בְּתִתְּכֶם פְּרִי אֶחָד מִן-הַגַּן: הדברת ההכנסה לעדן מופרת בידי מלאך נופל."
