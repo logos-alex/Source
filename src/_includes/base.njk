@@ -120,13 +120,19 @@
     <!-- Google Translate Widget -->
     <div id="google_translate_element" style="position: fixed; bottom: 20px; right: 20px; z-index: 999;"></div>
     <script type="text/javascript">
-      function googleTranslateElementInit( ) {
-        new google.translate.TranslateElement({
-          pageLanguage: 'he',
-          includedLanguages: 'en,ru,es,fr,de,ar',
-          layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-          autoDisplay: false
-        }, 'google_translate_element');
+      function googleTranslateElementInit() {
+        try {
+          if (typeof google !== 'undefined' && google.translate && google.translate.TranslateElement) {
+            new google.translate.TranslateElement({
+              pageLanguage: 'he',
+              includedLanguages: 'en,ru,es,fr,de,ar',
+              layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+              autoDisplay: false
+            }, 'google_translate_element');
+          }
+        } catch(e) {
+          console.warn('Google Translate widget failed to load:', e);
+        }
       }
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>

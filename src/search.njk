@@ -15,32 +15,41 @@ permalink: /search/
 <script src="/pagefind/pagefind-ui.js"></script>
 <script>
     function initSearch() {
-        if (typeof PagefindUI !== 'undefined') {
-            new PagefindUI({ 
-                element: "#search",
-                showImages: false,
-                baseUrl: "/",
-                bundlePath: "/pagefind/",
-                translations: {
-                    placeholder: "חפש בכתבים...",
-                    zero_results: "לא נמצאו תוצאות עבור [SEARCH_TERM]",
-                    many_results: "[COUNT] תוצאות עבור [SEARCH_TERM]",
-                    one_result: "תוצאה אחת עבור [SEARCH_TERM]",
-                    loading: "טוען...",
-                    search_label: "חיפוש",
-                    filters_label: "פילטרים",
-                    clear_search: "נקה חיפוש",
-                    load_more: "טען עוד תוצאות",
-                    search_html: "הצג תוצאות HTML",
-                    exact_search_label: "חיפוש מדויק",
-                    ellipsis: "...",
-                    not_found: "לא נמצא",
-                    direction: "rtl"
-                }
-            });
-        } else {
-            setTimeout(initSearch, 100);
+        try {
+            if (typeof window.PagefindUI !== 'undefined') {
+                window.PagefindUI = window.PagefindUI || window.pagefind_ui;
+                new window.PagefindUI({ 
+                    element: "#search",
+                    showImages: false,
+                    baseUrl: "/",
+                    bundlePath: "/pagefind/",
+                    translations: {
+                        placeholder: "חפש בכתבים...",
+                        zero_results: "לא נמצאו תוצאות עבור [SEARCH_TERM]",
+                        many_results: "[COUNT] תוצאות עבור [SEARCH_TERM]",
+                        one_result: "תוצאה אחת עבור [SEARCH_TERM]",
+                        loading: "טוען...",
+                        search_label: "חיפוש",
+                        filters_label: "פילטרים",
+                        clear_search: "נקה חיפוש",
+                        load_more: "טען עוד תוצאות",
+                        search_html: "הצג תוצאות HTML",
+                        exact_search_label: "חיפוש מדויק",
+                        ellipsis: "...",
+                        not_found: "לא נמצא",
+                        direction: "rtl"
+                    }
+                });
+            } else if (document.readyState !== 'loading') {
+                setTimeout(initSearch, 500);
+            }
+        } catch(e) {
+            console.error('Search initialization error:', e);
         }
     }
-    document.addEventListener('DOMContentLoaded', initSearch);
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initSearch);
+    } else {
+        setTimeout(initSearch, 100);
+    }
 </script>
