@@ -11,15 +11,16 @@ permalink: /search/
     <div id="search"></div>
 </div>
 
-<link rel="stylesheet" href="/pagefind-lib/pagefind-ui.css">
-<script src="/pagefind-lib/pagefind-ui.js"></script>
+<link rel="stylesheet" href="/pagefind/pagefind-ui.css">
+<script src="/pagefind/pagefind-ui.js"></script>
 <script>
-    window.addEventListener('load', function() {
+    function initSearch() {
         if (typeof PagefindUI !== 'undefined') {
             new PagefindUI({ 
                 element: "#search",
                 showImages: false,
                 baseUrl: "/",
+                bundlePath: "/pagefind/",
                 translations: {
                     placeholder: "חפש בכתבים...",
                     zero_results: "לא נמצאו תוצאות עבור [SEARCH_TERM]",
@@ -37,6 +38,9 @@ permalink: /search/
                     direction: "rtl"
                 }
             });
+        } else {
+            setTimeout(initSearch, 100);
         }
-    });
+    }
+    document.addEventListener('DOMContentLoaded', initSearch);
 </script>

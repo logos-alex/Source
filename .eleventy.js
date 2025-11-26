@@ -9,14 +9,14 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/google5ea0ab9870afd370.html");
   eleventyConfig.addPassthroughCopy("./src/robots.txt");
   
-  // Copy pagefind files if they exist
-  if (fs.existsSync(path.join(__dirname, 'pagefind'))) {
-    eleventyConfig.addPassthroughCopy("./pagefind");
-  }
+  // Copy pagefind index files from root to dist
+  eleventyConfig.addPassthroughCopy({
+    "pagefind": "pagefind"
+  });
   
   // Copy pagefind UI library from node_modules
   eleventyConfig.addPassthroughCopy({
-    "./node_modules/pagefind/dist": "/pagefind-lib"
+    "./node_modules/pagefind/dist": "pagefind-lib"
   });
 
   eleventyConfig.addCollection("textsByBook", (collectionApi) => {
