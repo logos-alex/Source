@@ -117,25 +117,51 @@
       })();
     </script>
 
+    <!-- Global Error Handler -->
+    <script type="text/javascript">
+      // Catch ALL unhandled errors including non-Error objects
+      window.onerror = function(message, source, lineno, colno, error) {
+        try {
+          const msg = String(message || '').toLowerCase();
+          const src = String(source || '').toLowerCase();
+          if (msg.includes('pagefind') || src.includes('pagefind') || 
+              msg.includes('translate') || src.includes('translate') ||
+              msg.includes('google') || src.includes('google') ||
+              msg.includes('uncaught exception')) {
+            return true; // Suppress the error
+          }
+        } catch(e) {}
+        return false;
+      };
+
+      window.addEventListener('error', function(event) {
+        try {
+          if (!event) return;
+          const msg = String(event.message || '').toLowerCase();
+          const filename = String(event.filename || '').toLowerCase();
+          if (msg.includes('translate') || msg.includes('google') || msg.includes('pagefind') ||
+              msg.includes('uncaught exception') ||
+              filename.includes('translate') || filename.includes('google') || filename.includes('pagefind')) {
+            event.preventDefault();
+          }
+        } catch(e) {}
+      }, true);
+      
+      window.addEventListener('unhandledrejection', function(event) {
+        try {
+          if (event && event.reason) {
+            const reason = String(event.reason).toLowerCase();
+            if (reason.includes('translate') || reason.includes('google') || reason.includes('pagefind')) {
+              event.preventDefault();
+            }
+          }
+        } catch(e) {}
+      });
+    </script>
+
     <!-- Google Translate Widget -->
     <div id="google_translate_element" style="position: fixed; bottom: 20px; right: 20px; z-index: 999;"></div>
     <script type="text/javascript">
-      window.addEventListener('error', function(event) {
-        if (!event || !event.message) return true;
-        const msg = event.message.toLowerCase();
-        if (msg.includes('translate') || msg.includes('google') || msg.includes('pagefind')) {
-          event.preventDefault();
-          return true;
-        }
-      }, true);
-      window.addEventListener('unhandledrejection', function(event) {
-        if (event && event.reason) {
-          const reason = String(event.reason).toLowerCase();
-          if (reason.includes('translate') || reason.includes('google') || reason.includes('pagefind')) {
-            event.preventDefault();
-          }
-        }
-      });
       window.googleTranslateElementInit = function() {
         try {
           if (typeof google !== 'undefined' && google.translate && google.translate.TranslateElement) {

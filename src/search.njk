@@ -14,13 +14,19 @@ permalink: /search/
 <link rel="stylesheet" href="/pagefind/pagefind-ui.css">
 <script src="/pagefind/pagefind-ui.js"></script>
 <script>
-    window.addEventListener('error', function(event) {
-        if (event && event.message && (event.message.includes('Pagefind') || event.message.includes('pagefind'))) {
-            event.preventDefault();
-            return true;
-        }
-    }, true);
-    
+    // Override console.error to suppress Pagefind errors
+    const originalError = console.error;
+    console.error = function() {
+        try {
+            const args = Array.from(arguments);
+            const msg = args.map(a => String(a || '')).join(' ').toLowerCase();
+            if (msg.includes('pagefind') || msg.includes('uncaught')) {
+                return; // Suppress
+            }
+        } catch(e) {}
+        return originalError.apply(console, arguments);
+    };
+
     function initSearch() {
         try {
             if (typeof window.PagefindUI !== 'undefined' && window.PagefindUI) {
@@ -50,11 +56,15 @@ permalink: /search/
                 setTimeout(initSearch, 500);
             }
         } catch(e) {
+            // Pagefind may throw during init - this is normal
             return false;
         }
     }
+    
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initSearch);
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(initSearch, 50);
+        });
     } else {
         setTimeout(initSearch, 100);
     }
