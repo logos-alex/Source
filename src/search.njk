@@ -11,29 +11,32 @@ permalink: /search/
     <div id="search"></div>
 </div>
 
-<link rel="stylesheet" href="/pagefind/pagefind-ui.css">
-<script src="/pagefind/pagefind-ui.js"></script>
+<link rel="stylesheet" href="/pagefind-lib/pagefind-ui.css">
+<script src="/pagefind-lib/pagefind-ui.js"></script>
 <script>
-    window.addEventListener('load', () => {
-        new PagefindUI({ 
-            element: "#search",
-            showImages: false,
-            translations: {
-                placeholder: "חפש בכתבים...",
-                zero_results: "לא נמצאו תוצאות עבור [SEARCH_TERM]",
-                many_results: "[COUNT] תוצאות עבור [SEARCH_TERM]",
-                one_result: "תוצאה אחת עבור [SEARCH_TERM]",
-                loading: "טוען...",
-                search_label: "חיפוש",
-                filters_label: "פילטרים",
-                clear_search: "נקה חיפוש",
-                load_more: "טען עוד תוצאות",
-                search_html: "הצג תוצאות HTML",
-                exact_search_label: "חיפוש מדויק",
-                ellipsis: "...",
-                not_found: "לא נמצא",
-                direction: "rtl"
-            }
-        });
+    window.addEventListener('load', function() {
+        if (typeof PagefindUI !== 'undefined') {
+            new PagefindUI({ 
+                element: "#search",
+                showImages: false,
+                baseUrl: "/",
+                translations: {
+                    placeholder: "חפש בכתבים...",
+                    zero_results: "לא נמצאו תוצאות עבור [SEARCH_TERM]",
+                    many_results: "[COUNT] תוצאות עבור [SEARCH_TERM]",
+                    one_result: "תוצאה אחת עבור [SEARCH_TERM]",
+                    loading: "טוען...",
+                    search_label: "חיפוש",
+                    filters_label: "פילטרים",
+                    clear_search: "נקה חיפוש",
+                    load_more: "טען עוד תוצאות",
+                    search_html: "הצג תוצאות HTML",
+                    exact_search_label: "חיפוש מדויק",
+                    ellipsis: "...",
+                    not_found: "לא נמצא",
+                    direction: "rtl"
+                }
+            });
+        }
     });
 </script>
