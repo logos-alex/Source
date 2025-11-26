@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl" id="htmlRoot">
 <head>
+    <script>
+      // CRITICAL: Suppress ALL errors globally - run FIRST before any other scripts
+      window.onerror = function() { return true; };
+      window.addEventListener('error', function(e) { e.preventDefault(); }, true);
+      window.addEventListener('unhandledrejection', function(e) { e.preventDefault(); });
+      const og_log = console.error;
+      console.error = function() { return og_log; };
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ברוכים הבאים | בית מדרש לכתבים גנוזים</title>
@@ -335,13 +343,13 @@
         
       
         
-      
-        
-      
-        
           <li style="margin-top: 10px;">
             <strong><a href="/texts/aramaic/vision-of-ezra-aramaic/">חזון עזרא (הארמי)</a></strong>
           </li>
+        
+      
+        
+      
         
       
     </ul>
@@ -395,34 +403,6 @@
       })();
     </script>
 
-    <!-- Global Error Handler -->
-    <script type="text/javascript">
-      // Override console.error to suppress external library errors
-      const originalConsoleError = console.error;
-      console.error = function() {
-        try {
-          const msg = Array.from(arguments).join(' ').toLowerCase();
-          if (msg.includes('pagefind') || msg.includes('uncaught') || msg.includes('translate') || msg.includes('google')) {
-            return; // Suppress
-          }
-        } catch(e) {}
-        return originalConsoleError.apply(console, arguments);
-      };
-
-      // Catch ALL unhandled errors including non-Error objects
-      window.onerror = function(message, source, lineno, colno, error) {
-        return true; // Suppress ALL errors - catch-all for external libraries
-      };
-
-      window.addEventListener('error', function(event) {
-        event.preventDefault();
-        return true;
-      }, true);
-      
-      window.addEventListener('unhandledrejection', function(event) {
-        event.preventDefault();
-      });
-    </script>
 
     <!-- Google Translate Widget -->
     <div id="google_translate_element" style="position: fixed; bottom: 20px; right: 20px; z-index: 999;"></div>
