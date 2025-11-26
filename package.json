@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "eleventy --serve --port=5000",
-    "build": "eleventy && npx pagefind --site dist",
+    "build": "eleventy && pagefind --site dist --output-path pagefind",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
