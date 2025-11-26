@@ -8,6 +8,10 @@ permalink: /by-figure/
   <h1>כתבים לפי יחוס</h1>
   <div class="book-list">
     <div class="book-card">
+      <h3><a href="/by-figure/abraham/">אברהם</a></h3>
+      <p>כתבים המיוחסים לאברהם אבינו</p>
+    </div>
+    <div class="book-card">
       <h3><a href="/by-figure/daniel/">דניאל</a></h3>
       <p>כתבים המיוחסים לדניאל הנביא</p>
     </div>
