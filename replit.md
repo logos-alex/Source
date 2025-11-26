@@ -2,7 +2,7 @@
 
 ## 📖 Project Overview
 
-A static site hosting translations and scholarly commentary of ancient apocalyptic texts, with dual navigation by source language (Hebrew/Slavic/Latin/Aramaic) and biblical figures (Elijah/Jacob/Ezra/Isaiah).
+A static site hosting translations and scholarly commentary of ancient apocalyptic texts, with dual navigation by source language (Hebrew/Slavic/Aramaic/Armenian/Latin/Arabic) and biblical figures (Elijah/Jacob/Ezra/Isaiah/Daniel).
 
 **Production:** https://heb-sources.netlify.app/
 **Repository:** GitHub (with Netlify auto-deploy)
