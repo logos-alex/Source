@@ -6,8 +6,8 @@
     <div class="reading-progress-bar" id="readingProgress"></div>
   </div>
   
-  <div class="text-main">
-    <h1>{{ title }}</h1>
+  <div class="text-main" data-pagefind-body>
+    <h1 data-pagefind-meta="title">{{ title }}</h1>
     
     {% if source or figure %}
       {% set sourceHebrew = sources[source] or source %}
