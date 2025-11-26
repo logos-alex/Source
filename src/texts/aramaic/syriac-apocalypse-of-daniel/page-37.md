@@ -7,9 +7,9 @@ tags:
   - aramaic-syriac
   - daniel
   - texts
-source: aramaic-syriac
+source: aramaic
 figure: דניאל
-permalink: /texts/aramaic-syriac/syriac-apocalypse-of-daniel/page-37/
+permalink: /texts/aramaic/syriac-apocalypse-of-daniel/page-37/
 notes:
   - "קטע זה ממשיך את הסיפור על כורש ודניאל, ומוסיף את דמותו של דריווש (דריוש). הסיפור משלב אלמנטים היסטוריים עם מוטיבים נסיים וסמליים."
   - "המעבר מכורש לגומתא המגוש (גאומטה) ולאחר מכן לדריוש הוא בעל בסיס היסטורי. גאומטה אכן תפס את השלטון לתקופה קצרה לאחר מות כמביסס בנו של כורש."

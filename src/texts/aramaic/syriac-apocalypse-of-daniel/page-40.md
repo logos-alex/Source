@@ -7,9 +7,9 @@ tags:
   - aramaic-syriac
   - daniel
   - texts
-source: aramaic-syriac
+source: aramaic
 figure: דניאל
-permalink: /texts/aramaic-syriac/syriac-apocalypse-of-daniel/page-40/
+permalink: /texts/aramaic/syriac-apocalypse-of-daniel/page-40/
 notes:
   - "פרק זה ממשיך בתיאור האפוקליפטי של תחילת הסוף, בדימויים של הרס קוסמי."
   - "המוטיבים של הים המתזעזע, רעם וברק, וירידת כוכבים מהשמים מזכירים טקסטים אפוקליפטיים אחרים."

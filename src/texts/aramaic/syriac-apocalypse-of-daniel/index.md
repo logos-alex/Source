@@ -4,11 +4,11 @@ title: "החזון דניאל (הארמי)"
 book: syriac-apocalypse-of-daniel
 tags:
   - texts
-source: aramaic-syriac
+source: aramaic
 figure: daniel
 pageNumber: 0
 description: "חיבור אפוקליפטי המשלב סיפור היסטורי-אגדי על דניאל בחצר פרס עם חזיונות על אחרית הימים"
-permalink: /texts/aramaic-syriac/syriac-apocalypse-of-daniel/
+permalink: /texts/aramaic/syriac-apocalypse-of-daniel/
 ---
 
 ## סקירה כללית

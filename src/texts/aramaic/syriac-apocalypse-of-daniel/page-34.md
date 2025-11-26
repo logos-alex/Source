@@ -7,9 +7,9 @@ tags:
   - aramaic-syriac
   - daniel
   - texts
-source: aramaic-syriac
+source: aramaic
 figure: דניאל
-permalink: /texts/aramaic-syriac/syriac-apocalypse-of-daniel/page-34/
+permalink: /texts/aramaic/syriac-apocalypse-of-daniel/page-34/
 notes:
   - "קטע זה ממשיך את תיאור גלות בבל, ומתמקד בחוויותיו האישיות של דניאל. הסיפור מקביל לפרק א' בספר דניאל המקראי, המתאר את בחירת דניאל וחבריו לשירות בחצר המלך ואת הצטיינותו."
   - "התיאור של רוחא דחכמתא רוחא דידעתא ורוחא דסוכלא מהדהד את הנאמר בישעיהו (יא, ב) על המשיח. קשר זה יוצר זיקה בין דמותו של דניאל לבין דמות המשיח העתידי."

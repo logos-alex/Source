@@ -7,9 +7,9 @@ tags:
   - aramaic-syriac
   - daniel
   - texts
-source: aramaic-syriac
+source: aramaic
 figure: דניאל
-permalink: /texts/aramaic-syriac/syriac-apocalypse-of-daniel/page-41/
+permalink: /texts/aramaic/syriac-apocalypse-of-daniel/page-41/
 notes:
   - "קטע זה ממשיך בתיאור אחרית הימים, מתמקד בעקרון האלוהי של מידה כנגד מידה."
   - "התיאור הפיוטי של משפט האל מזכיר את הדימוי המקראי של האל השוקל רוחות ולבבות."
