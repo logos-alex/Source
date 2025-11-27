@@ -29,7 +29,17 @@ module.exports = function(eleventyConfig) {
       books[book].push(item);
     });
     for (const book in books) {
-      books[book].sort((a, b) => a.data.pageNumber - b.data.pageNumber);
+      books[book].sort((a, b) => {
+        // Extract version from URL (a or b from /texts/.../ a/page-X or /texts/.../b/page-X)
+        const versionA = a.url.includes('/a/') ? 'a' : (a.url.includes('/b/') ? 'b' : 'z');
+        const versionB = b.url.includes('/a/') ? 'a' : (b.url.includes('/b/') ? 'b' : 'z');
+        
+        // Sort by version first (a before b), then by pageNumber
+        if (versionA !== versionB) {
+          return versionA.localeCompare(versionB);
+        }
+        return a.data.pageNumber - b.data.pageNumber;
+      });
     }
     return books;
   });
