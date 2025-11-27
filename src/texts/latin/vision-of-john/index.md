@@ -30,7 +30,7 @@ permalink: /texts/latin/vision-of-john/
 - מסרים לקהילות: סלוניקי (תוכחה), איזמיר (תוכחה), רומא (ברכה)
 
 **חלק ב' (פרקים ד'-ה')**: נבואות היסטוריות ואסכטולוגיה
-- סדרת קיסרים (Vaticinium ex eventu - נבואה לאחר מעשה)
+- סדרת קיסרים עם זיהויים היסטוריים
 - זיהוי היסטורי: קונסטנטינוס הגדול, יוליאנוס הכופר
 - בואת האנטיכריסט ממשבט דן
 - היהודים מקבלים משיח שקר
@@ -44,7 +44,7 @@ permalink: /texts/latin/vision-of-john/
 ### תוכן עניינים:
 
 - [פרקים א'-ג' - ההכנה והמסגרת](/texts/latin/vision-of-john/page-1/)
-- [פרקים ד'-ה' - נבואות וה-Vaticinium ex eventu](/texts/latin/vision-of-john/page-2/)
+- [פרקים ד'-ה' - נבואות היסטוריות](/texts/latin/vision-of-john/page-2/)
 - [פרקים ו'-ח' - הימים האחרונים](/texts/latin/vision-of-john/page-3/)
 - [פרקים ט'-י"ד - גורל הנשמות וסיום](/texts/latin/vision-of-john/page-4/)
 
