@@ -51,29 +51,3 @@ permalink: /texts/slavic/apocalypse-abraham/
 
 "חזון אברהם" הוא עדות נדירה ומרשימה למרחבי ההגות והסיפור של תקופת בית שני. זהו חיבור שעניינו בחיפוש האמת, במאבק בין אור וחושך, ובהבנת התכנית האלוהית המנהלת את ההיסטוריה. דרך דמותו של אברהם נפרש עולמה של מסורת עתיקה — ארצית ושמימית כאחד — שחכמתה והדיה ממשיכים להדהד גם כיום.
 
----
-
-## תוכן העניינים
-
-### נוסח א' - קצר ותמציתי
-
-- [דף 1](/texts/slavic/apocalypse-abraham/a/page-1/)
-- [דף 2](/texts/slavic/apocalypse-abraham/a/page-2/)
-- [דף 3](/texts/slavic/apocalypse-abraham/a/page-3/)
-- [דף 4](/texts/slavic/apocalypse-abraham/a/page-4/)
-- [דף 5](/texts/slavic/apocalypse-abraham/a/page-5/)
-- [דף 6](/texts/slavic/apocalypse-abraham/a/page-6/)
-- [דף 7](/texts/slavic/apocalypse-abraham/a/page-7/)
-- [דף 8](/texts/slavic/apocalypse-abraham/a/page-8/)
-
-### נוסח ב' - מורחב ודרמטי
-
-- [דף 1](/texts/slavic/apocalypse-abraham/b/page-1/)
-- [דף 2](/texts/slavic/apocalypse-abraham/b/page-2/)
-- [דף 3](/texts/slavic/apocalypse-abraham/b/page-3/)
-- [דף 4](/texts/slavic/apocalypse-abraham/b/page-4/)
-- [דף 5](/texts/slavic/apocalypse-abraham/b/page-5/)
-- [דף 6](/texts/slavic/apocalypse-abraham/b/page-6/)
-- [דף 7](/texts/slavic/apocalypse-abraham/b/page-7/)
-- [דף 8](/texts/slavic/apocalypse-abraham/b/page-8/)
-
