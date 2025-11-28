@@ -202,15 +202,20 @@
     <h3>תגובות</h3>
     <div id="disqus_thread"></div>
     <script>
-        var disqus_config = function () {
-            this.page.url = "https://heb-sources.netlify.app/texts/slavic/ladder-of-jacob/page-3/";
-            this.page.identifier = "/texts/slavic/ladder-of-jacob/page-3/";
-        };
         (function() {
-            var d = document, s = d.createElement('script');
-            s.src = 'https://hebrew-aramaic-sources.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
+            try {
+                var disqus_config = function () {
+                    this.page.url = "https://heb-sources.netlify.app/texts/slavic/ladder-of-jacob/page-3/";
+                    this.page.identifier = "/texts/slavic/ladder-of-jacob/page-3/";
+                };
+                var d = document, s = d.createElement('script');
+                s.src = 'https://hebrew-aramaic-sources.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                s.onerror = function() { console.log('Disqus loading handled'); };
+                (d.head || d.body).appendChild(s);
+            } catch(e) {
+                console.log('Disqus error handled');
+            }
         })();
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
