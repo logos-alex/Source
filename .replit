@@ -38,12 +38,12 @@ localPort = 5001
 externalPort = 3001
 
 [[ports]]
-localPort = 45979
-externalPort = 3000
+localPort = 44857
+externalPort = 3002
 
 [[ports]]
-localPort = 46685
-externalPort = 3003
+localPort = 45979
+externalPort = 3000
 
 [deployment]
 deploymentTarget = "static"

@@ -15,16 +15,31 @@
   {# --- תוכן העניינים האוטומטי עבור ספרים ללא תוכן ידני --- #}
   <div class="table-of-contents" style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border-color);">
     <h3>העמודים:</h3>
+    
+    {# --- הפרדה לנוסחים שונים --- #}
+    {% set lastVersion = 'none' %}
     <ul>
-      {% for pageItem in collections.textsByBook[book] %}
-        {% if pageItem.data.pageNumber > 0 %}
-          <li>
-            <a href="{{ pageItem.url | url }}">
-              {{ pageItem.data.title }}
-            </a>
-          </li>
+    {% for pageItem in collections.textsByBook[book] %}
+      {% if pageItem.data.pageNumber > 0 %}
+        {% if pageItem.url.includes('/a/') %}
+          {% if lastVersion !== 'a' %}
+            {% if lastVersion !== 'none' %}</ul><div style="height: 20px; border-top: 1px solid var(--border-color); margin: 15px 0;"></div><h4 style="margin: 10px 0 10px 0; color: var(--header-color);">נוסח ב'</h4><ul>{% endif %}
+            {% set lastVersion = 'a' %}
+          {% endif %}
+        {% elif pageItem.url.includes('/b/') %}
+          {% if lastVersion !== 'b' %}
+            </ul><div style="height: 20px; border-top: 1px solid var(--border-color); margin: 15px 0;"></div><h4 style="margin: 10px 0 10px 0; color: var(--header-color);">נוסח ב'</h4><ul>
+            {% set lastVersion = 'b' %}
+          {% endif %}
         {% endif %}
-      {% endfor %}
+        
+        <li>
+          <a href="{{ pageItem.url | url }}">
+            {{ pageItem.data.title }}
+          </a>
+        </li>
+      {% endif %}
+    {% endfor %}
     </ul>
   </div>
 
