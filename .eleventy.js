@@ -30,6 +30,10 @@ module.exports = function(eleventyConfig) {
     });
     for (const book in books) {
       books[book].sort((a, b) => {
+        // Index pages (pageNumber: 0) always come first
+        if (a.data.pageNumber === 0 && b.data.pageNumber !== 0) return -1;
+        if (a.data.pageNumber !== 0 && b.data.pageNumber === 0) return 1;
+        
         // Extract version from URL (a or b from /texts/.../ a/page-X or /texts/.../b/page-X)
         const versionA = a.url.includes('/a/') ? 'a' : (a.url.includes('/b/') ? 'b' : 'z');
         const versionB = b.url.includes('/a/') ? 'a' : (b.url.includes('/b/') ? 'b' : 'z');
