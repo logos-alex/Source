@@ -1,7 +1,15 @@
 {% extends "base.njk" %}
 
 {% block content %}
-  <div class="text-main">
+  <div class="maintenance-banner">
+    <div class="maintenance-content">
+      <h2>🔨 האתר בשיפוצים</h2>
+      <p>עמוד זה אינו זמין כרגע. אנחנו עוסקים בעריכה וארגון של כל החומר.</p>
+      <p><strong><a href="/" style="color: #d4af37; text-decoration: underline;">חזור לדף הבית</a></strong></p>
+    </div>
+  </div>
+
+  <div class="text-main" style="display: none;">
     {# מציג את הכותרת ואת תוכן המבוא עצמו #}
     <h1>{{ title }}</h1>
     {% if source or figure %}
@@ -13,7 +21,7 @@
   </div>
 
   {# --- תוכן העניינים האוטומטי עבור ספרים ללא תוכן ידני --- #}
-  <div class="table-of-contents" style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border-color);">
+  <div class="table-of-contents" style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border-color); display: none;">
     <h3>העמודים:</h3>
     
     {# --- הפרדה לנוסחים שונים --- #}
@@ -44,7 +52,7 @@
   </div>
 
   {# --- אזור התגובות של Disqus --- #}
-  <div id="comments-section" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-color);">
+  <div id="comments-section" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-color); display: none;">
     <h3>תגובות</h3>
     <div id="disqus_thread"></div>
     <script>
