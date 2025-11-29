@@ -1,6 +1,6 @@
 ---
 layout: text-page.njk
-title: "חזון אברהם – חלק ז' (חזון הבריאה וגן העדן)"
+title: "חזון אברהם – נוסח א' – חלק ז' (חזון הבריאה וגן העדן)"
 book: apocalypse-abraham
 pageNumber: 7
 tags:

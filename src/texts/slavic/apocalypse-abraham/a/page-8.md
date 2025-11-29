@@ -1,6 +1,6 @@
 ---
 layout: text-page.njk
-title: "חזון אברהם – חלק ח' (חטא גן עדן וגורל האנושות)"
+title: "חזון אברהם – נוסח א' – חלק ח' (חטא גן עדן וגורל האנושות)"
 book: apocalypse-abraham
 pageNumber: 8
 tags:

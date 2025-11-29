@@ -1,6 +1,6 @@
 ---
 layout: text-page.njk
-title: "חזון אברהם – חלק ו' (העלייה לשמיים וחזון המרכבה)"
+title: "חזון אברהם – נוסח א' – חלק ו' (העלייה לשמיים וחזון המרכבה)"
 book: apocalypse-abraham
 pageNumber: 6
 tags:

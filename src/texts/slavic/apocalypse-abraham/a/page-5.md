@@ -1,6 +1,6 @@
 ---
 layout: text-page.njk
-title: "חזון אברהם – חלק ה' (המסע, הקורבן, והעימות עם עזאזל)"
+title: "חזון אברהם – נוסח א' – חלק ה' (המסע, הקורבן, והעימות עם עזאזל)"
 book: apocalypse-abraham
 pageNumber: 5
 tags:

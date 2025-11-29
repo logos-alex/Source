@@ -1,6 +1,6 @@
 ---
 layout: text-page.njk
-title: "חזון אברהם – חלק ט' (חורבן המקדש ובוא הגואל)"
+title: "חזון אברהם – נוסח א' – חלק ט' (חורבן המקדש ובוא הגואל)"
 book: apocalypse-abraham
 pageNumber: 9
 tags:

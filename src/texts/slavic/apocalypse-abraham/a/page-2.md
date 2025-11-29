@@ -1,6 +1,6 @@
 ---
 layout: text-page.njk
-title: "חזון אברהם – חלק ב' (אברהם והאל בַּרִישָׂת)"
+title: "חזון אברהם – נוסח א' – חלק ב' (אברהם והאל בַּרִישָׂת)"
 book: apocalypse-abraham
 pageNumber: 2
 tags:

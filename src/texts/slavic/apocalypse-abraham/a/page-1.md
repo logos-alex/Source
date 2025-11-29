@@ -1,6 +1,6 @@
 ---
 layout: text-page.njk
-title: "חזון אברהם – חלק א' (אברהם ואלילי אביו)"
+title: "חזון אברהם – נוסח א' – חלק א' (אברהם ואלילי אביו)"
 book: apocalypse-abraham
 pageNumber: 1
 tags:
