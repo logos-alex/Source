@@ -499,3 +499,64 @@ nav a:focus {
     padding: 10px 0;
   }
 }
+
+/* === MAINTENANCE MODE BANNER === */
+.maintenance-banner {
+  background: linear-gradient(135deg, #5a3a2a 0%, #3D2B1F 100%);
+  border-bottom: 4px solid #d4af37;
+  padding: 60px 30px;
+  text-align: center;
+  color: #e8dcc8;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.maintenance-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.maintenance-banner h2 {
+  font-size: 2.5em;
+  margin: 0 0 20px 0;
+  color: #d4af37;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.maintenance-banner p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  margin: 15px 0;
+  color: #e8dcc8;
+}
+
+.maintenance-banner strong {
+  color: #d4af37;
+  font-weight: bold;
+}
+
+/* Dark mode for maintenance banner */
+@media (prefers-color-scheme: dark) {
+  .maintenance-banner {
+    background: linear-gradient(135deg, #1a1410 0%, #2d1f15 100%);
+    border-bottom: 4px solid #d4af37;
+  }
+}
+
+/* Mobile responsive for maintenance banner */
+@media (max-width: 768px) {
+  .maintenance-banner {
+    padding: 40px 20px;
+    margin-bottom: 20px;
+  }
+  
+  .maintenance-banner h2 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+  }
+  
+  .maintenance-banner p {
+    font-size: 1em;
+  }
+}
