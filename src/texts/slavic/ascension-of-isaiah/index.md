@@ -47,4 +47,4 @@ permalink: /texts/slavic/ascension-of-isaiah/
 
 ## קישורים לעמודים
 
-[עמוד א'-ב'](/texts/slavic/ascension-of-isaiah/page-1/) | [עמוד ג'](/texts/slavic/ascension-of-isaiah/page-2/) | [עמוד ד'-ה'](/texts/slavic/ascension-of-isaiah/page-3/) | [עמוד ו'-ז'](/texts/slavic/ascension-of-isaiah/page-4/) | [עמוד ח' - חזון השילוש](/texts/slavic/ascension-of-isaiah/page-5/) | [עמוד ט' - ירידת הבן](/texts/slavic/ascension-of-isaiah/page-6/)
+[עמוד א'-ב'](/texts/slavic/ascension-of-isaiah/page-1/) | [עמוד ג'](/texts/slavic/ascension-of-isaiah/page-2/) | [עמוד ד'-ה'](/texts/slavic/ascension-of-isaiah/page-3/) | [עמוד ו'-ז'](/texts/slavic/ascension-of-isaiah/page-4/) | [עמוד ח' - חזון השילוש](/texts/slavic/ascension-of-isaiah/page-5/) | [עמוד ט' - ירידת הבן](/texts/slavic/ascension-of-isaiah/page-6/) | [עמוד י' - סיכום וחזרה](/texts/slavic/ascension-of-isaiah/page-7/)
