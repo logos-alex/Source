@@ -18,11 +18,19 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy({
     "./node_modules/pagefind/dist": "pagefind-lib"
   });
+  
+  // Filter out drafts from collections
+  eleventyConfig.addFilter("published", (collection) => {
+    return collection.filter(item => !item.data.draft);
+  });
 
   eleventyConfig.addCollection("textsByBook", (collectionApi) => {
     const books = {};
     // חשוב: השתמש ב-getFilteredByTag("texts") כדי לקחת רק את הדפים הנכונים
     collectionApi.getFilteredByTag("texts").forEach((item) => {
+      // Skip draft items
+      if (item.data.draft) return;
+      
       const book = item.data.book;
       if (!book) return;
       if (!books[book]) books[book] = [];
