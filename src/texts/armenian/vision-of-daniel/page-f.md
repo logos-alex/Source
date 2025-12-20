@@ -1,4 +1,5 @@
 ---
+draft: true
 layout: text-page.njk
 title: "החזון השביעי לדניאל - עמוד ו'"
 source: armenian

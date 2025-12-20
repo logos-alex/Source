@@ -1,4 +1,5 @@
 ---
+draft: true
 layout: text-page.njk
 title: "חזון דניאל הסורי-ארמי – עמוד 40"
 book: syriac-apocalypse-of-daniel

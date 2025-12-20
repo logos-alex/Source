@@ -1,4 +1,5 @@
 ---
+draft: true
 layout: book-index.njk
 title: "מעשה דניאל"
 book: maaseh-daniel

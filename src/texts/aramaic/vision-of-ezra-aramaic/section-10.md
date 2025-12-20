@@ -1,4 +1,5 @@
 ---
+draft: true
 layout: text-page.njk
 title: "חזון עזרא (הארמי) - §10 ירושלים כעיר מלכות וסיום"
 book: vision-of-ezra-aramaic

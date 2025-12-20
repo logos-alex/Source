@@ -1,4 +1,5 @@
 ---
+draft: true
 layout: book-index.njk
 title: "החזון דניאל (הארמי)"
 book: syriac-apocalypse-of-daniel

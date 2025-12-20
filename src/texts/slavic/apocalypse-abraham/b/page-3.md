@@ -1,4 +1,5 @@
 ---
+draft: true
 layout: text-page.njk
 title: "חזון אברהם – נוסח ב' – חלק ג' (ההתגלות, חורבן בית תרח והציווי על הקורבן)"
 book: apocalypse-abraham

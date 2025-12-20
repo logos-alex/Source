@@ -1,4 +1,5 @@
 ---
+draft: true
 layout: text-page.njk
 title: "מעשה דניאל – ג׳ (חזיון הגאולה וביום הדין)"
 book: maaseh-daniel

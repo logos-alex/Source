@@ -1,4 +1,5 @@
 ---
+draft: true
 layout: text-page.njk
 title: "פרקי אליהו – חלק ג'"
 book: apocalypse-of-elijah-b

@@ -1,4 +1,5 @@
 ---
+draft: true
 layout: text-page.njk
 title: "חזון עזרא (הארמי) - §6 העורבים והאפעה"
 book: vision-of-ezra-aramaic

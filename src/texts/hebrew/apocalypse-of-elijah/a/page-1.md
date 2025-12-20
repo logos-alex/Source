@@ -1,4 +1,5 @@
 ---
+draft: true
 layout: text-page.njk
 title: "חזון אליהו – חלק א'"
 book: apocalypse-of-elijah-a

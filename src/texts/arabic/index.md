@@ -1,4 +1,5 @@
 ---
+draft: true
 layout: category-page.njk
 title: "ערבית"
 source: arabic

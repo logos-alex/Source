@@ -1,4 +1,5 @@
 ---
+draft: true
 layout: book-index.njk
 title: "סולם יעקב"
 book: ladder-of-jacob

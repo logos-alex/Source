@@ -1,4 +1,5 @@
 ---
+draft: true
 layout: book-index.njk
 title: "החזון הארבעשר לדניאל"
 book: fourteenth-vision-daniel

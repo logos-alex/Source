@@ -1,4 +1,5 @@
 ---
+draft: true
 layout: text-page.njk
 title: "חזון עזרא (הארמי) - §3 חזון הנחש והקרניים"
 book: vision-of-ezra-aramaic

@@ -1,4 +1,5 @@
 ---
+draft: true
 layout: book-index.njk
 title: "עליית ישעיהו"
 book: ascension-of-isaiah

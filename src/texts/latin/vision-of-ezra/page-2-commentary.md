@@ -1,4 +1,5 @@
 ---
+draft: true
 layout: text-page.njk
 title: "חזון עזרא (הלטיני) - פרקים ג'-ד' ביאור"
 book: vision-of-ezra

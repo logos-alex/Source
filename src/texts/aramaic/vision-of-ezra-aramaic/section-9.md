@@ -1,4 +1,5 @@
 ---
+draft: true
 layout: text-page.njk
 title: "חזון עזרא (הארמי) - §9 שלטון ושלום"
 book: vision-of-ezra-aramaic

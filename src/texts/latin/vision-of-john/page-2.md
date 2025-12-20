@@ -1,4 +1,5 @@
 ---
+draft: true
 layout: text-page.njk
 title: "חזון יוחנן (הלטיני) - פרקים ד'-ה' (נבואות היסטוריות)"
 book: vision-of-john

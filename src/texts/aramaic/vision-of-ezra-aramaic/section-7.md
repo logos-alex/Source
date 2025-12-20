@@ -1,4 +1,5 @@
 ---
+draft: true
 layout: text-page.njk
 title: "חזון עזרא (הארמי) - §7 מלחמות ושפיכות דמים"
 book: vision-of-ezra-aramaic

@@ -1,4 +1,5 @@
 ---
+draft: true
 layout: text-page.njk
 title: "חזון אברהם – נוסח ב' – חלק ו' (חזון הבריאה, החטא הקדמון וגורל האנושות)"
 book: apocalypse-abraham

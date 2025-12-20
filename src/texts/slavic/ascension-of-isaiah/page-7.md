@@ -1,4 +1,5 @@
 ---
+draft: true
 layout: text-page.njk
 title: "עליית ישעיהו - עמוד ז' (סיכום החזון, העלייה מחדש, והחזרה לעולם)"
 book: ascension-of-isaiah

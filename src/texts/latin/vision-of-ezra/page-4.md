@@ -1,4 +1,5 @@
 ---
+draft: true
 layout: text-page.njk
 title: "חזון עזרא (הלטיני) - פרקים ז'-ח' (פסוקים 56-65) וסיום"
 book: vision-of-ezra

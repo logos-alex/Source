@@ -1,4 +1,5 @@
 ---
+draft: true
 layout: book-index.njk
 title: "חזון אליהו (העברי)"
 book: apocalypse-of-elijah

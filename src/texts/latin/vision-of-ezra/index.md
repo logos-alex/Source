@@ -1,4 +1,5 @@
 ---
+draft: true
 layout: book-index.njk
 title: "חזון עזרא (הלטיני)"
 book: vision-of-ezra

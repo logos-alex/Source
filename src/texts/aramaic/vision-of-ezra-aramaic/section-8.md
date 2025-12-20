@@ -1,4 +1,5 @@
 ---
+draft: true
 layout: text-page.njk
 title: "חזון עזרא (הארמי) - §8 גור האריה והמלחמה הגדולה"
 book: vision-of-ezra-aramaic

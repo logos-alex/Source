@@ -1,4 +1,5 @@
 ---
+draft: true
 layout: text-page.njk
 title: "סולם יעקב – חלק ה'"
 book: ladder-of-jacob

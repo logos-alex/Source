@@ -1,4 +1,5 @@
 ---
+draft: true
 layout: text-page.njk
 title: "חזון אברהם – נוסח ב' – חלק ד' (המסע, הקורבן והעימות עם עזאזל)"
 book: apocalypse-abraham

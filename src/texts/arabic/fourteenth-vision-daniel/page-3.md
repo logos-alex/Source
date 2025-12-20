@@ -1,4 +1,5 @@
 ---
+draft: true
 layout: text-page.njk
 title: "החזון הארבעה-עשר לדניאל – עמוד שלישי: המלכים והסכסוכים הפנימיים"
 book: fourteenth-vision-daniel

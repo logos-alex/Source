@@ -1,4 +1,5 @@
 ---
+draft: true
 layout: text-page.njk
 title: "חזון עזרא (הארמי) - §4 הנבואה על בני ישמעאל"
 book: vision-of-ezra-aramaic

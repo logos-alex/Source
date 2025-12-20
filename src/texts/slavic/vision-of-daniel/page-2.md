@@ -1,4 +1,5 @@
 ---
+draft: true
 layout: text-page.njk
 title: "חזון דניאל - עמוד שני"
 book: vision-of-daniel

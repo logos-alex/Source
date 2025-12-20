@@ -1,4 +1,5 @@
 ---
+draft: true
 layout: text-page.njk
 title: "מעשה דניאל – א׳ (צדקיה וירמיה)"
 book: maaseh-daniel

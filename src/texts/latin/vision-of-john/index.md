@@ -1,4 +1,5 @@
 ---
+draft: true
 layout: book-index.njk
 title: "חזון יוחנן (הלטיני)"
 book: vision-of-john

@@ -1,4 +1,5 @@
 ---
+draft: true
 layout: text-page.njk
 title: "חזון אברהם – נוסח ב' – חלק ה' (העלייה לשמיים וחזון המרכבה)"
 book: apocalypse-abraham
