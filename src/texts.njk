@@ -10,9 +10,19 @@ permalink: /texts/
   
   <div class="book-list">
     {% for sourceKey, sourceName in sources %}
-      <div class="book-card">
-        <h3><a href="/texts/{{ sourceKey }}/">{{ sourceName }}</a></h3>
-      </div>
+      {# בדוק אם יש תוכן מפורסם (לא draft) במקור זה #}
+      {% set hasPublishedContent = false %}
+      {% for item in collections.texts %}
+        {% if item.data.source == sourceKey and not item.data.draft %}
+          {% set hasPublishedContent = true %}
+        {% endif %}
+      {% endfor %}
+      
+      {% if hasPublishedContent %}
+        <div class="book-card">
+          <h3><a href="/texts/{{ sourceKey }}/">{{ sourceName }}</a></h3>
+        </div>
+      {% endif %}
     {% endfor %}
   </div>
 </div>

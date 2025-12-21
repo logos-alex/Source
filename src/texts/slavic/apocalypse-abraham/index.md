@@ -1,6 +1,7 @@
 ---
 layout: text-page.njk
 title: "חזון אברהם הסלאבי"
+draft: true
 book: apocalypse-abraham
 pageNumber: 0
 tags:

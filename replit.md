@@ -9,7 +9,7 @@ A static site hosting translations and scholarly commentary of ancient apocalypt
 
 ---
 
-## ✨ Current Session - Hebrew Text Reconstruction & Site Reopening
+## ✨ Current Session - Hebrew Text Reconstruction & Selective Content Lock
 
 ### 1. **Apocalypse of Abraham Version A - Full Reconstruction** ✅
 - **Integrated 21 chapters** from Hebrew reconstruction of Slavic manuscript
@@ -20,12 +20,15 @@ A static site hosting translations and scholarly commentary of ancient apocalypt
   - RTL Hebrew text ready for scholarly notes (to be added next)
 - Content includes: Idolatry critique, covenant, visions, eschatology
 
-### 2. **Site Reopened - Maintenance Mode Removed** ✅
-- Removed maintenance banner from all pages
-- Reinstated navigation (לפי מקור, לפי יחוס, etc.)
-- Content pages now fully visible and navigable
-- Build successful: 136 HTML files, 439 copied assets
-- Build time: ~1.1 seconds
+### 2. **Selective Content Locking System** ✅
+- **Published (accessible)**: Only Abraham Version A (21 chapters + index)
+- **Draft (hidden)**: All other texts (104 files) - added `draft: true` flag
+- **Navigation filtering**:
+  - "לפי מקור" (by source): Shows ONLY סלאבית (has published content)
+  - "לפי יחוס" (by figure): Shows ONLY אברהם (has published content)
+  - No broken links or inaccessible categories
+- Build: 22 published pages + site structure (not counting drafts)
+- Drafts are completely hidden from collections and navigation
 
 ## Previous Sessions Features (Already Complete)
 
@@ -228,9 +231,9 @@ git push origin main  # Triggers auto-build on Netlify
 
 ---
 
-**Last Updated:** November 21, 2025 - 14:47 UTC
-**Status:** ✅ Production Ready - SEO Configured - All Systems Green ✨  
-**Content Completion**: 4/20 texts (20%)
+**Last Updated:** December 21, 2025
+**Status:** ✅ Production Ready - Selective Publishing Active - Only Abraham A Live ✨  
+**Content Completion**: 1/20 texts published (5%) | 104 texts locked for future opening
 
 ### 🎯 Latest Session Completion
 - ✅ Google Search Console: Site verified and registered
