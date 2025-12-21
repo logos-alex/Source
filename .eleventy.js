@@ -70,6 +70,15 @@ module.exports = function(eleventyConfig) {
     serverOptions: {
       port: 5000,
       host: "0.0.0.0"
+    },
+    // Skip draft files from output
+    eleventyComputed: {
+      eleventyExcludeFromCollections: (data) => {
+        if (data.draft === true) {
+          return true;
+        }
+        return false;
+      }
     }
   };
 };

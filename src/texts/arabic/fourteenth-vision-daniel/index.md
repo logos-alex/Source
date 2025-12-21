@@ -1,10 +1,10 @@
 ---
-draft: true
 layout: book-index.njk
 title: "החזון הארבעשר לדניאל"
-book: fourteenth-vision-daniel
-tags:
-  - texts
+source: arabic
+description: "חזון אפוקליפטי מערבית קופטית המתאר ארבע חיות, ממלכות ישמעאליות, וחזיונות על קץ העולם והגאולה. נרשם בעברית לפי תרגום מטקסט ערבי מהמאה השביעית."
+draft: true
+---
 source: arabic
 figure: daniel
 pageNumber: 0

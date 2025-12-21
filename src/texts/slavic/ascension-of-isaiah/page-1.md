@@ -1,5 +1,6 @@
 ---
 draft: true
+permalink: false
 layout: text-page.njk
 title: "עליית ישעיהו - עמוד א' (ההתגלות בחצר המלך)"
 book: ascension-of-isaiah

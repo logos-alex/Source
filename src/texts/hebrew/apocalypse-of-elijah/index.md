@@ -1,10 +1,10 @@
 ---
-draft: true
 layout: book-index.njk
 title: "חזון אליהו (העברי)"
-book: apocalypse-of-elijah
-tags:
-  - texts
+source: hebrew
+description: "כתב אפוקליפטי יהודי עתיק המתאר חזיונות של הנביא אליהו על קץ הימים."
+draft: true
+---
 source: hebrew
 figure: elijah
 pageNumber: 0

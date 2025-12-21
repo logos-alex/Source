@@ -1,10 +1,10 @@
 ---
-draft: true
 layout: book-index.njk
 title: "עליית ישעיהו"
-book: ascension-of-isaiah
-tags:
-  - texts
+source: slavic
+description: "חיבור אפוקליפטי עתיק המתאר את עליית הנביא ישעיהו דרך הרקיעים השבעה, ממפגשו עם מלאך המלווה ועד לחזון השילוש והציווי על ירידת הבן לעולם."
+draft: true
+---
 source: slavic
 figure: isaiah
 pageNumber: 0

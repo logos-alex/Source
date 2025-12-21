@@ -1,5 +1,6 @@
 ---
 draft: true
+permalink: false
 layout: text-page.njk
 title: "עליית ישעיהו - עמוד ו' (ירידת הבן דרך הרקיעים)"
 book: ascension-of-isaiah

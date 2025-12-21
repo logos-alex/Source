@@ -1,10 +1,10 @@
 ---
-draft: true
 layout: book-index.njk
 title: "חזון דניאל (הסלאבי)"
-book: vision-of-daniel
-tags:
-  - texts
+source: slavic
+description: "חזון אפוקליפטי סלאבי המיוחס לדניאל הנביא, המתאר שרשרת מלכים רומיים וביזנטיים, עליית האסלאם כעונש אלוהי, והופעת 'הקיסר האחרון' שיחזיר את הנצרות לכוחה."
+draft: true
+---
 source: slavic
 figure: daniel
 pageNumber: 0

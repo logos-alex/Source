@@ -1,6 +1,7 @@
 ---
 layout: base.njk
 title: "כתבים לפי יחוס"
+draft: true
 permalink: /by-figure/
 ---
 

@@ -1,5 +1,6 @@
 ---
 draft: true
+permalink: false
 layout: text-page.njk
 title: "חזון דניאל (הערבי) - פרקים ח'-י'"
 book: vision-of-daniel-arabic

@@ -1,5 +1,6 @@
 ---
 draft: true
+permalink: false
 layout: text-page.njk
 title: "החזון הארבעה-עשר לדניאל – עמוד ראשון: הקדמה וחזון ארבע החיות"
 book: fourteenth-vision-daniel

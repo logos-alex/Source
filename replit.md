@@ -232,8 +232,19 @@ git push origin main  # Triggers auto-build on Netlify
 ---
 
 **Last Updated:** December 21, 2025
-**Status:** ✅ Production Ready - Selective Publishing Active - Only Abraham A Live ✨  
-**Content Completion**: 1/20 texts published (5%) | 104 texts locked for future opening
+**Status:** ✅ Live - Selective Content Lock Active ✨  
+**Current Setup**: 
+- ✅ **Published**: Apocalypse of Abraham Version A (21 pages)
+- ✅ **Navigation**: Only סלאבית (by source) + אברהם (by figure) visible
+- ✅ **Locked**: All other texts (104 files) - no links or access
+- ✅ **Build**: 30 pages live (Abraham A + site pages)
+
+**Process to Open New Texts**:
+1. User provides verified text
+2. Add to `/src/texts/[source]/[book]/` 
+3. Set `draft: false` in frontmatter
+4. Navigation auto-updates to show new category
+5. Rebuild and deploy
 
 ### 🎯 Latest Session Completion
 - ✅ Google Search Console: Site verified and registered

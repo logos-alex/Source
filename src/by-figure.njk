@@ -1,17 +1,9 @@
 ---
-layout: base.njk
 pagination:
-  data: figures
+  data: "[ 'abraham' ]"
   size: 1
   alias: figureKey
-  before: |
-    function(figureList) {
-      const collection = this.ctx.collections.texts || [];
-      // סנן רק דמויות שיש להן תוכן מפורסם (לא draft)
-      return figureList.filter(figure => 
-        collection.some(item => item.data.figure === figure && !item.data.draft)
-      );
-    }
+layout: base.njk
 permalink: "/by-figure/{{ figureKey }}/index.html"
 eleventyComputed:
   title: "כתבים המיוחסים ל{{ figures[figureKey] }}"

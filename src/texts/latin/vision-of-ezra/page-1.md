@@ -1,5 +1,6 @@
 ---
 draft: true
+permalink: false
 layout: text-page.njk
 title: "חזון עזרא - פרקים א'-ב'"
 book: vision-of-ezra

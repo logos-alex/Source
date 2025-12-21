@@ -1,10 +1,10 @@
 ---
-draft: true
 layout: book-index.njk
 title: "חזון יוחנן (הלטיני)"
-book: vision-of-john
-tags:
-  - texts
+source: latin
+description: "חזון אפוקליפטי של יוחנן השליח והאיוונגליסט, המתאר את היסטוריית הקיסרות, בואת האנטיכריסט, ודקדוק הימים האחרונים."
+draft: true
+---
 source: latin
 figure: john
 pageNumber: 0

@@ -1,5 +1,6 @@
 ---
 draft: true
+permalink: false
 layout: text-page.njk
 title: "חזון דניאל הסורי-ארמי – עמוד 43"
 book: syriac-apocalypse-of-daniel

@@ -1,10 +1,10 @@
 ---
-draft: true
 layout: book-index.njk
 title: "חזון דניאל (העברי)"
-book: vision-daniel
-tags:
-  - texts
+source: hebrew
+description: "חזון נבואי שנתגלה לדניאל בימי כורש מלך פרס, המתאר את עליית ממלכות, עוונות המלך הרוע, ושימור ה׳ על עמו בימי האחרון."
+draft: true
+---
 source: hebrew
 figure: daniel
 pageNumber: 0

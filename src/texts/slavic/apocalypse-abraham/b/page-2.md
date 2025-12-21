@@ -1,5 +1,6 @@
 ---
 draft: true
+permalink: false
 layout: text-page.njk
 title: "חזון אברהם – נוסח ב' – חלק ב' (אברהם, האל בַּרִישָׂת והחיפוש אחר האל האמיתי)"
 book: apocalypse-abraham

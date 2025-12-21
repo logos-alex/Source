@@ -1,10 +1,10 @@
 ---
-draft: true
 layout: book-index.njk
 title: "החזון השביעי לדניאל"
 source: armenian
-figure: daniel
-book: vision-of-daniel
+description: "חזון אפוקליפטי יהודי-נוצרי המיוחס לדניאל הנביא, בשימור ארמני - נבואות על קץ הימים, ערים וממלכות, וקיסר האחרון."
+draft: true
+---
 pageNumber: 0
 tags:
   - texts

@@ -1,10 +1,10 @@
 ---
-draft: true
 layout: book-index.njk
 title: "סולם יעקב"
-book: ladder-of-jacob
-tags:
-  - texts
+source: slavic
+description: "חזון אפוקליפטי המיוחס ליעקב אבינו, המתאר את עלייתו השמימה וחוזה את עתיד עם ישראל."
+draft: true
+---
 source: slavic
 figure: jacob
 pageNumber: 0

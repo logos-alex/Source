@@ -1,10 +1,10 @@
 ---
-draft: true
 layout: book-index.njk
 title: "חזון עזרא (הארמי)"
-book: vision-of-ezra-aramaic
-tags:
-  - texts
+source: aramaic
+description: "חזון עזרא הארמי - חיבור אפוקליפטי המשלב סיפור היסטורי-אגדי על עזרא בחצר פרס עם חזיונות על אחרית הימים"
+draft: true
+---
 source: aramaic
 figure: ezra
 pageNumber: 0

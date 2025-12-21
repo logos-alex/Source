@@ -1,10 +1,10 @@
 ---
-draft: true
 layout: book-index.njk
 title: "חזון דניאל (הערבי)"
-book: vision-of-daniel-arabic
-tags:
-  - texts
+source: arabic
+description: "חיבור אפוקליפטי ערבי עתיק המתאר את חזון דניאל הנביא על אחרית הימים, הרס, מלחמות וגאולה. מקודקס פריז הערבי."
+draft: true
+---
 source: arabic
 figure: daniel
 pageNumber: 0

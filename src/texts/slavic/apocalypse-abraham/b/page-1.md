@@ -1,5 +1,6 @@
 ---
 draft: true
+permalink: false
 layout: text-page.njk
 title: "חזון אברהם – נוסח ב' – חלק א' (אברהם והפסילים – גרסה מורחבת)"
 book: apocalypse-abraham

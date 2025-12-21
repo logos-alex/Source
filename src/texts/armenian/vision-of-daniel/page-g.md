@@ -1,5 +1,6 @@
 ---
 draft: true
+permalink: false
 layout: text-page.njk
 title: "החזון השביעי לדניאל - עמוד ז'"
 source: armenian

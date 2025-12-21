@@ -1,10 +1,10 @@
 ---
-draft: true
 layout: book-index.njk
 title: "מעשה דניאל"
-book: maaseh-daniel
-tags:
-  - texts
+source: hebrew
+description: "כתב אפוקליפטי יהודי המתאר את מעשיו של דניאל בירושלם ובגלות בבל, עם חזיונות על גדולת אלקים ועל אחרית הימים."
+draft: true
+---
 source: hebrew
 figure: daniel
 pageNumber: 0

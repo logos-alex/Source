@@ -1,5 +1,6 @@
 ---
 draft: true
+permalink: false
 layout: text-page.njk
 title: "עליית ישעיהו - עמוד ב' (הרקיע התחתון והשמיים הראשונים)"
 book: ascension-of-isaiah

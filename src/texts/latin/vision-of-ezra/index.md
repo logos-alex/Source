@@ -1,10 +1,10 @@
 ---
-draft: true
 layout: book-index.njk
 title: "חזון עזרא (הלטיני)"
-book: vision-of-ezra
-tags:
-  - texts
+source: latin
+description: "מסע אפוקליפטי של עזרא הסופר בשאול, החושף את הגמול לצדיקים והעונשים לרשעים."
+draft: true
+---
 source: latin
 figure: ezra
 pageNumber: 0

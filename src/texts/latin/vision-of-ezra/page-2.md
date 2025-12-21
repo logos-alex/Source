@@ -1,5 +1,6 @@
 ---
 draft: true
+permalink: false
 layout: text-page.njk
 title: "חזון עזרא (הלטיני) - פרקים ג'-ד' (פסוקים 19-36)"
 book: vision-of-ezra

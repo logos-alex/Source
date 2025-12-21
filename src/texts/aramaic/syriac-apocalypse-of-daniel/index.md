@@ -1,10 +1,10 @@
 ---
-draft: true
 layout: book-index.njk
 title: "החזון דניאל (הארמי)"
-book: syriac-apocalypse-of-daniel
-tags:
-  - texts
+source: aramaic
+description: "חיבור אפוקליפטי המשלב סיפור היסטורי-אגדי על דניאל בחצר פרס עם חזיונות על אחרית הימים"
+draft: true
+---
 source: aramaic
 figure: daniel
 pageNumber: 0
