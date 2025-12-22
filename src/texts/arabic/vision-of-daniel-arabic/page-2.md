@@ -9,7 +9,6 @@ tags:
 source: arabic
 figure: daniel
 pageNumber: 2
-permalink: /texts/arabic/vision-of-daniel-arabic/page-2/
 ---
 
 ## פרק ה': מאבקים, הרס ובגידה
@@ -24,7 +23,6 @@ permalink: /texts/arabic/vision-of-daniel-arabic/page-2/
 
 ָוֵאֶרא ְּכֶעֶׂשר... ִמן... ָהִעיר ַהְּגדֹוָלה, ְוֵהם ָעְזרּוַלָּנָחׁש ֲאֶׁשר הּוא ָהֹראׁש.
 
----
 
 ## פרק ו': התחזקות כוחות הרשע והמאבק המתמשך
 
@@ -38,7 +36,6 @@ permalink: /texts/arabic/vision-of-daniel-arabic/page-2/
 
 ָוֵאֶרא... ָיְצָאה ִמִּמְזַרח ָהָאֶרץ ְּבַבָּקָׁשה... ְוָקְטָעה.
 
----
 
 ## פרק ז': נפילת הנחש ועליית כוחות חדשים
 

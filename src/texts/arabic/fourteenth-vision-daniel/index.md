@@ -10,7 +10,6 @@ figure: daniel
 pageNumber: 0
 description: "חזון אפוקליפטי מערבית קופטית המתאר ארבע חיות, ממלכות ישמעאליות, וחזיונות על קץ העולם והגאולה. נרשם בעברית לפי תרגום מטקסט ערבי מהמאה השביעית."
 permalink: /texts/arabic/fourteenth-vision-daniel/
----
 
 ## סקירה כללית
 
@@ -24,4 +23,3 @@ permalink: /texts/arabic/fourteenth-vision-daniel/
 
 מקור הטקסט הוא כתב יד בערבית, שפורסם ותורגם לגרמנית על ידי החוקר גיאורג גראף בשנת 1916, תחת הכותרת "מלכות הישמעאלים בספר דניאל הקופטי" (Das Reich der Ismaeliten im koptischen Danielbuch).
 
----

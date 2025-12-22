@@ -10,7 +10,6 @@ figure: ezra
 pageNumber: 0
 description: "חזון עזרא הארמי - חיבור אפוקליפטי המשלב סיפור היסטורי-אגדי על עזרא בחצר פרס עם חזיונות על אחרית הימים"
 permalink: /texts/aramaic/vision-of-ezra-aramaic/
----
 
 ## הקדמה
 
@@ -21,4 +20,3 @@ permalink: /texts/aramaic/vision-of-ezra-aramaic/
 - **עמוד 1**: קטע א' וקטע ב' - כותרת הספר, תפילת עזרא והתגלויות המלאך
 - **עמוד 2**: קטע ג' וקטע י' - חזיון הנחש והקרניים, סיום וברכה
 
----

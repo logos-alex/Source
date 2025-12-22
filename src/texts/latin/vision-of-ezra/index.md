@@ -10,7 +10,6 @@ figure: ezra
 pageNumber: 0
 description: "מסע אפוקליפטי של עזרא הסופר בשאול, החושף את הגמול לצדיקים והעונשים לרשעים."
 permalink: /texts/latin/vision-of-ezra/
----
 
 ## מבוא: על טיבו של החיבור "חזון עזרא"
 

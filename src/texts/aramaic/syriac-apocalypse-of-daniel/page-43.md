@@ -11,7 +11,6 @@ tags:
   - texts
 source: aramaic
 figure: דניאל
-permalink: /texts/aramaic/syriac-apocalypse-of-daniel/page-43/
 notes:
   - "קטע זה מתמקד בתיאור התפוררות מוסרית וחברתית עמוקה בזמן אחרית הימים."
   - "המוטיב של בן שכפור באביו ונשר שבוגד בAdoniו מופיע שוב כסימן לשבירת הסדר החברתי."

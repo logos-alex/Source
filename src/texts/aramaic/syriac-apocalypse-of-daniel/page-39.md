@@ -11,7 +11,6 @@ tags:
   - texts
 source: aramaic
 figure: דניאל
-permalink: /texts/aramaic/syriac-apocalypse-of-daniel/page-39/
 notes:
   - "קטע זה פותח את החלק האפוקליפטי של החיבור. לאחר הסיפור ההיסטורי-אגדי על דניאל בחצר פרס."
   - "שאלתו של דניאל משקפת ציפייה משיחית לגאולה וקיבוץ גלויות."

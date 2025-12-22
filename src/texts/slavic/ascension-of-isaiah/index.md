@@ -10,7 +10,6 @@ figure: isaiah
 pageNumber: 0
 description: "חיבור אפוקליפטי עתיק המתאר את עליית הנביא ישעיהו דרך הרקיעים השבעה, ממפגשו עם מלאך המלווה ועד לחזון השילוש והציווי על ירידת הבן לעולם."
 permalink: /texts/slavic/ascension-of-isaiah/
----
 
 ## עליית ישעיהו (The Ascension of Isaiah)
 

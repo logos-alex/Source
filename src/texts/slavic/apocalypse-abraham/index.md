@@ -10,7 +10,6 @@ draft: true
 source: סלאבית
 figure: abraham
 permalink: /texts/slavic/apocalypse-abraham/
----
 
 ## חזון אברהם - מבוא
 
@@ -35,6 +34,5 @@ permalink: /texts/slavic/apocalypse-abraham/
 - **נוסח א'**: 21 פרקים עם פרטים תיאולוגיים וחזוני ענק
 - **נוסח ב'**: 6 פרקים (קומפקטית יותר, מעוצבת אחרת)
 
----
 
 בחר נוסח או פרק להמשך קריאה.

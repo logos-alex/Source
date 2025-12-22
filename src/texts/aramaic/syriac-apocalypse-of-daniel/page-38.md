@@ -11,7 +11,6 @@ tags:
   - texts
 source: aramaic
 figure: דניאל
-permalink: /texts/aramaic/syriac-apocalypse-of-daniel/page-38/
 notes:
   - "קטע זה מתאר באופן דרמטי את מסעו של דריווש לירושלים בלוויית דניאל, ריפוי עיוורונו."
   - "המוטיב של נשר גדול הנושא את דריווש לירושלים מזכיר מוטיבים מיתולוגיים עתיקים."

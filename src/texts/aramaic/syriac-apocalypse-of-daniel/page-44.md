@@ -11,7 +11,6 @@ tags:
   - texts
 source: aramaic
 figure: דניאל
-permalink: /texts/aramaic/syriac-apocalypse-of-daniel/page-44/
 notes:
   - "קטע זה ממשיך בתיאור חליפת העתים באחרית הימים בדימויים מנוגדים ופרדוקסים."
   - "הדימויים של הברכה (קציר בשבע, מטר בקיץ) מרמזים על תקופה של שפע לאחר הצרה."

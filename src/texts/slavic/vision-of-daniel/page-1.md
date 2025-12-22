@@ -9,7 +9,6 @@ tags:
 source: slavic
 figure: daniel
 pageNumber: 1
-permalink: /texts/slavic/vision-of-daniel/page-1/
 ---
 
 ## עמוד ראשון
@@ -22,7 +21,6 @@ permalink: /texts/slavic/vision-of-daniel/page-1/
 
 **ג** וְקֶרֶן⁹ אַחֶרֶת תָּקוּם, מֶלֶךְ אַחֵר מִגֶּזַע גוֹתִי, שֶׁשְּׁמוֹ בְּגִימַטְרִיָּה 321¹⁰. וּמַלְכוּתוֹ חֲזָקָה¹¹ וְאַדִּירָה. וּבְיָמָיו יֵצֵא עַם חָזָק וְיִלָּחֵם בּוֹ...
 
----
 
 ## הערות וביאורים
 

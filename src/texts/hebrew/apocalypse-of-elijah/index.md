@@ -10,7 +10,6 @@ figure: elijah
 pageNumber: 0
 description: "כתב אפוקליפטי יהודי עתיק המתאר חזיונות של הנביא אליהו על קץ הימים."
 permalink: /texts/hebrew/apocalypse-of-elijah/
----
 
 ## מבוא כללי: על טיבו של החיבור 'חזון אליהו'
 

@@ -9,7 +9,6 @@ tags:
 source: slavic
 figure: daniel
 pageNumber: 2
-permalink: /texts/slavic/vision-of-daniel/page-2/
 ---
 
 ## עמוד שני
@@ -30,7 +29,6 @@ permalink: /texts/slavic/vision-of-daniel/page-2/
 
 **יג** וְתָבוֹא אִשָּׁה, קְרוֹבָה²⁶ לִבְנֵי סוּשִׁי, מֵאֶרֶץ עִיר טְגָה, אֲשֶׁר שָׁם עוֹמֵד בַּיּוֹם הַזֶּה אוֹת²⁷.
 
----
 
 ## הערות וביאורים
 

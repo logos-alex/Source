@@ -11,7 +11,6 @@ tags:
   - texts
 source: aramaic
 figure: דניאל
-permalink: /texts/aramaic/syriac-apocalypse-of-daniel/page-42/
 notes:
   - "קטע זה מתאר תקופה של כאוס והפרעה לסדר העולמי עם מנהגים תרבותיים מבהילים."
   - "התיאור של גילוח ראש וזקן מרמז על הפרה של איסורי גילוח יהודיים."

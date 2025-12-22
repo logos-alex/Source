@@ -10,7 +10,6 @@ figure: daniel
 pageNumber: 0
 description: "חיבור אפוקליפטי ערבי עתיק המתאר את חזון דניאל הנביא על אחרית הימים, הרס, מלחמות וגאולה. מקודקס פריז הערבי."
 permalink: /texts/arabic/vision-of-daniel-arabic/
----
 
 ## סקירה כללית
 
@@ -27,7 +26,6 @@ permalink: /texts/arabic/vision-of-daniel-arabic/
 - **תרגום**: לעברית עתיקה
 - **תכן**: 14 פרקים של חזון ותיאור
 
----
 
 ## קישורים לעמודים
 

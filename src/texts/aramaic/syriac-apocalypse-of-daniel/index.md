@@ -10,7 +10,6 @@ figure: daniel
 pageNumber: 0
 description: "חיבור אפוקליפטי המשלב סיפור היסטורי-אגדי על דניאל בחצר פרס עם חזיונות על אחרית הימים"
 permalink: /texts/aramaic/syriac-apocalypse-of-daniel/
----
 
 ## סקירה כללית
 
@@ -33,4 +32,3 @@ permalink: /texts/aramaic/syriac-apocalypse-of-daniel/
 - **תרגום עברי**: תרגום מדויק לעברית המשמר את המבנה והמובן
 - **ביאור**: פרשנות עמוקה עם קורות רומזות בספרות קדומה, מקראית, תלמודית, ומדרשית
 
----
