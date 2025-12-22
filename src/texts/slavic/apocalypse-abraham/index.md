@@ -2,7 +2,7 @@
 layout: text-page.njk
 title: "חזון אברהם הסלאבי"
 source: סלאבית
-draft: true
+draft: false
 ---
   - slavic
   - abraham

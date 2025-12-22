@@ -3,13 +3,6 @@ pagination:
   data: figures
   size: 1
   alias: figureKey
-  filter:
-    - elijah
-    - jacob
-    - ezra
-    - isaiah
-    - daniel
-    - john
 layout: base.njk
 permalink: "/by-figure/{{ figureKey }}/index.html"
 eleventyComputed:
@@ -20,15 +13,10 @@ eleventyComputed:
   <h1>{{ title }}</h1>
   <div class="book-list">
     {% for item in collections.texts %}
-      {# 
-        התנאי בודק: הדמות זהה AND זה דף אינדקס AND לא draft
-      #}
-      {% if item.data.figure == figureKey and item.data.pageNumber == 0 and not item.data.draft %}
+      {% if item.data.figure == figureKey and not item.data.draft %}
         <div class="book-card">
-          <h3><a href="{{ item.url | url }}">{{ item.data.title }}</a></h3>
-          {% if item.data.description %}
-            <p>{{ item.data.description }}</p>
-          {% endif %}
+          <h3><a href="{{ item.url }}">{{ item.data.title }}</a></h3>
+          {% if item.data.description %}<p>{{ item.data.description }}</p>{% endif %}
         </div>
       {% endif %}
     {% endfor %}
