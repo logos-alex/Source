@@ -1,6 +1,5 @@
 ---
 draft: true
-permalink: false
 layout: text-page.njk
 title: "חזון יוחנן (הלטיני) - פרקים ט'-י'ד (גורל הנשמות וסיום)"
 book: vision-of-john

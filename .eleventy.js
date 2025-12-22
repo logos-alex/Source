@@ -19,9 +19,16 @@ module.exports = function(eleventyConfig) {
     "./node_modules/pagefind/dist": "pagefind-lib"
   });
   
-  // Filter out drafts from collections
-  eleventyConfig.addFilter("published", (collection) => {
-    return collection.filter(item => !item.data.draft);
+  // Exclude draft pages from build entirely
+  eleventyConfig.addGlobalData("eleventyComputed.eleventyExcludeFromCollections", () => {
+    return (data) => data.draft === true;
+  });
+
+  eleventyConfig.addGlobalData("eleventyComputed.permalink", () => {
+    return (data) => {
+      if (data.draft === true) return false;
+      return data.permalink;
+    };
   });
 
   eleventyConfig.addCollection("textsByBook", (collectionApi) => {

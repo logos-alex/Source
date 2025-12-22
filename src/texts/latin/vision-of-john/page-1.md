@@ -1,6 +1,5 @@
 ---
 draft: true
-permalink: false
 layout: text-page.njk
 title: "חזון יוחנן (הלטיני) - פרקים א'-ג' (ההכנה והמסגרת)"
 book: vision-of-john

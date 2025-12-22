@@ -1,6 +1,5 @@
 ---
 draft: true
-permalink: false
 layout: text-page.njk
 title: "חזון יוחנן (הלטיני) - פרקים ו'-ח' (הימים האחרונים)"
 book: vision-of-john

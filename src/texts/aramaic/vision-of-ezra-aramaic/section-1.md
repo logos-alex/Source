@@ -1,6 +1,5 @@
 ---
 draft: true
-permalink: false
 layout: text-page.njk
 title: "חזון עזרא (הארמי) - §1 כותרת הספר"
 book: vision-of-ezra-aramaic

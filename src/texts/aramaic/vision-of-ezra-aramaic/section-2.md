@@ -1,6 +1,5 @@
 ---
 draft: true
-permalink: false
 layout: text-page.njk
 title: "חזון עזרא (הארמי) - §2 תפילת עזרא והתגלות המלאך"
 book: vision-of-ezra-aramaic

@@ -1,6 +1,5 @@
 ---
 draft: true
-permalink: false
 layout: text-page.njk
 title: "עליית ישעיהו - עמוד ה' (חזון השילוש והציווי על הבן)"
 book: ascension-of-isaiah

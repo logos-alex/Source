@@ -1,6 +1,5 @@
 ---
 draft: true
-permalink: false
 layout: text-page.njk
 title: "חזון דניאל הסורי-ארמי – עמוד 36"
 book: syriac-apocalypse-of-daniel

@@ -1,6 +1,5 @@
 ---
 draft: true
-permalink: false
 layout: text-page.njk
 title: "עליית ישעיהו - עמוד ד' (הרקיעים השלישי-חמישי והרקיע השישי)"
 book: ascension-of-isaiah

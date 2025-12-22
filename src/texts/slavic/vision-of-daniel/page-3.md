@@ -1,6 +1,5 @@
 ---
 draft: true
-permalink: false
 layout: text-page.njk
 title: "חזון דניאל - עמוד שלישי"
 book: vision-of-daniel

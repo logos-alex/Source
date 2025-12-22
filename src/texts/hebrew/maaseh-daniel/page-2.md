@@ -1,6 +1,5 @@
 ---
 draft: true
-permalink: false
 layout: text-page.njk
 title: "מעשה דניאל – ב׳ (דם זכריה הנביא)"
 book: maaseh-daniel

@@ -1,5 +1,5 @@
 {# Breadcrumbs Navigation Component #}
-{% if page.url != '/' %}
+{% if page.url and page.url != '/' %}
 <nav class="breadcrumbs" aria-label="ניווט מקום">
   <ol>
     <li><a href="/">דף הבית</a></li>

@@ -1,6 +1,5 @@
 ---
 draft: true
-permalink: false
 layout: text-page.njk
 title: "חזון אליהו – חלק ב'"
 book: apocalypse-of-elijah-a

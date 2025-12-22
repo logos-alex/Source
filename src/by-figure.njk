@@ -3,11 +3,13 @@ pagination:
   data: figures
   size: 1
   alias: figureKey
-  before: |
-    function(figureList) {
-      // Only allow 'abraham' to be generated for now
-      return ['abraham'];
-    }
+  filter:
+    - elijah
+    - jacob
+    - ezra
+    - isaiah
+    - daniel
+    - john
 layout: base.njk
 permalink: "/by-figure/{{ figureKey }}/index.html"
 eleventyComputed:

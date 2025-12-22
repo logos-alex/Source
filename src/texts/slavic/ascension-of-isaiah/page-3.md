@@ -1,6 +1,5 @@
 ---
 draft: true
-permalink: false
 layout: text-page.njk
 title: "עליית ישעיהו - עמוד ג' (חלקים ד'-ו')"
 book: ascension-of-isaiah

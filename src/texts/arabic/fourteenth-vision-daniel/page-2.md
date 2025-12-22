@@ -1,6 +1,5 @@
 ---
 draft: true
-permalink: false
 layout: text-page.njk
 title: "החזון הארבעה-עשר לדניאל – עמוד שני: החיות השלישית והרביעית"
 book: fourteenth-vision-daniel

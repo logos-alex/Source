@@ -1,6 +1,5 @@
 ---
 draft: true
-permalink: false
 layout: text-page.njk
 title: "חזון עזרא (הארמי) - §5 הקרן הגדולה, הנשר והאפעה"
 book: vision-of-ezra-aramaic

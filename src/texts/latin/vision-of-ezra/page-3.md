@@ -1,6 +1,5 @@
 ---
 draft: true
-permalink: false
 layout: text-page.njk
 title: "חזון עזרא (הלטיני) - פרקים ה'-ו' (פסוקים 37-55)"
 book: vision-of-ezra
