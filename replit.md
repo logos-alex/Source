@@ -231,20 +231,18 @@ git push origin main  # Triggers auto-build on Netlify
 
 ---
 
-**Last Updated:** December 21, 2025
-**Status:** ✅ Live - Selective Content Lock Active ✨  
+**Last Updated:** December 23, 2025
+**Status:** ✅ Live - Cleaned & Focused on Abraham A ✨  
 **Current Setup**: 
-- ✅ **Published**: Apocalypse of Abraham Version A (21 pages)
-- ✅ **Navigation**: Only סלאבית (by source) + אברהם (by figure) visible
-- ✅ **Locked**: All other texts (104 files) - no links or access
-- ✅ **Build**: 30 pages live (Abraham A + site pages)
-
-**Process to Open New Texts**:
-1. User provides verified text
-2. Add to `/src/texts/[source]/[book]/` 
-3. Set `draft: false` in frontmatter
-4. Navigation auto-updates to show new category
-5. Rebuild and deploy
+- ✅ **Published**: ONLY Apocalypse of Abraham Version A (21 chapters)
+- ✅ **All other texts**: Completely deleted (cleaned filesystem)
+- ✅ **Navigation**: 
+  - Home → Only "סלאבית" source + "אברהם" figure
+  - /texts/ → Only סלאבית
+  - /texts/slavic/ → Shows Apocalypse of Abraham
+  - /by-figure/ → Only אברהם
+  - /by-figure/abraham/ → List of all 21 chapters as links
+- ✅ **Build**: 31 pages live (Abraham A + navigation pages)
 
 ### 🎯 Latest Session Completion
 - ✅ Google Search Console: Site verified and registered
