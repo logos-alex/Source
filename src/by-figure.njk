@@ -11,12 +11,25 @@ eleventyComputed:
 
 <div class="text-main category-listing">
   <h1>{{ title }}</h1>
+  
+  {# First, show the main introduction page #}
+  {% for item in collections.texts %}
+    {% if item.data.figure == figureKey and not item.data.draft and item.data.pageNumber == 0 %}
+      <div style="background-color: rgba(212, 175, 55, 0.1); padding: 20px; border-radius: 8px; margin-bottom: 30px; border: 1px solid var(--border-color);">
+        <h2><a href="{{ item.url }}">{{ item.data.title }}</a></h2>
+        <p style="margin-bottom: 15px;">{{ item.data.description or "טקסט אפוקליפטי עתיק המיוחס ל" + figures[figureKey] }}</p>
+        <p><a href="{{ item.url }}" style="color: #8b4513; font-weight: bold; text-decoration: underline;">לחץ כאן לקריאה ומבוא</a></p>
+      </div>
+    {% endif %}
+  {% endfor %}
+  
+  {# Then show the chapter links #}
+  <h3>פרקים בטקסט:</h3>
   <div class="book-list">
     {% for item in collections.texts %}
-      {% if item.data.figure == figureKey and not item.data.draft %}
+      {% if item.data.figure == figureKey and not item.data.draft and item.data.pageNumber != 0 %}
         <div class="book-card">
           <h3><a href="{{ item.url }}">{{ item.data.title }}</a></h3>
-          {% if item.data.description %}<p>{{ item.data.description }}</p>{% endif %}
         </div>
       {% endif %}
     {% endfor %}
