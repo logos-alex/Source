@@ -10,6 +10,7 @@ tags:
   - slavic
   - abraham
   - texts
+  - sub-intro
 permalink: /texts/slavic/apocalypse-abraham/a/
 description: "נוסח א' של חזון אברהם הסלאבי - הגרסה המלאה הכוללת 21 פרקים של ביקורת עבודה זרה וחזון שמימי מפורט."
 ---

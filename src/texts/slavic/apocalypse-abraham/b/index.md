@@ -10,6 +10,7 @@ tags:
   - slavic
   - abraham
   - texts
+  - sub-intro
 permalink: /texts/slavic/apocalypse-abraham/b/
 description: "נוסח ב' של חזון אברהם הסלאבי - גרסה קומפקטית יותר המתמקדת בסיפור המאבק בעבודה זרה והעלייה לשמיים."
 ---

@@ -30,7 +30,7 @@ bodyClass: home-page
     <h3>או קפצו ישר לאחד הספרים:</h3>
     <ul>
       {% for item in collections.texts %}
-        {% if item.data.pageNumber == 0 and item.data.book %}
+        {% if item.data.pageNumber == 0 and item.data.book and "sub-intro" not in item.data.tags %}
           <li style="margin-top: 10px;">
             <strong><a href="{{ item.url | url }}">{{ item.data.title }}</a></strong>
           </li>
