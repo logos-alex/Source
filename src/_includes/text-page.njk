@@ -18,20 +18,6 @@
     <div class="text-content parallel-columns">
       {{ content | safe }}
     </div>
-    
-    {# --- תוכן עניינים אוטומטי לעמודי המבוא --- #}
-    {% if pageNumber == 0 and book %}
-      <div style="background-color: rgba(212, 175, 55, 0.05); padding: 20px; border-radius: 8px; border-right: 3px solid #d4af37; margin-top: 40px;">
-        <h2 style="margin-top: 0;">תוכן העניינים</h2>
-        <ol style="text-align: right; direction: rtl;">
-          {% for item in collections.textsByBook[book] %}
-            {% if item.data.pageNumber != 0 %}
-              <li><a href="{{ item.url | url }}">{{ item.data.title }}</a></li>
-            {% endif %}
-          {% endfor %}
-        </ol>
-      </div>
-    {% endif %}
   </div>
   
   <script>
@@ -42,15 +28,32 @@
     });
   </script>
 
-  <div class="footnotes">
-    <h3>הערות וביאורים</h3>
-    <ol>
-      {% for note in notes %}
-        {# הוספנו id לכל הערה כדי לאפשר קישור ישיר בעתיד #}
-        <li id="note-{{ loop.index }}">{{ note | safe }}</li>
-      {% endfor %}
-    </ol>
-  </div>
+  {# --- תוכן עניינים אוטומטי לעמודי המבוא (מועבר לכאן) --- #}
+  {% if pageNumber == 0 and book %}
+    <div class="text-main" style="margin-top: 40px;">
+      <div style="background-color: rgba(212, 175, 55, 0.05); padding: 20px; border-radius: 8px; border-right: 3px solid #d4af37;">
+        <h2 style="margin-top: 0;">📖 תוכן העניינים</h2>
+        <ol style="text-align: right; direction: rtl; columns: 2; -webkit-columns: 2; -moz-columns: 2;">
+          {% for item in collections.textsByBook[book] %}
+            {% if item.data.pageNumber != 0 %}
+              <li style="margin-bottom: 8px;"><a href="{{ item.url | url }}" style="text-decoration: none; color: var(--accent-color); font-weight: 500;">{{ item.data.title }}</a></li>
+            {% endif %}
+          {% endfor %}
+        </ol>
+      </div>
+    </div>
+  {% endif %}
+
+  {% if pageNumber != 0 %}
+    <div class="footnotes">
+      <h3>הערות וביאורים</h3>
+      <ol>
+        {% for note in notes %}
+          <li id="note-{{ loop.index }}">{{ note | safe }}</li>
+        {% endfor %}
+      </ol>
+    </div>
+  {% endif %}
 
   {# --- ניווט בין עמודים (עם כפתור חזרה לתוכן העניינים) --- #}
   {% set pagesInBook = collections.textsByBook[book] %}
