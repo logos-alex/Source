@@ -66,12 +66,8 @@
       <a href="{{ prevPage.url | url }}" class="prev">→ {{ prevPage.data.title }}</a>
     {% endif %}
 
-    {# === כפתור תוכן העניינים === #}
-    {# הקישור מוביל לעמוד ההקדמה של הספר (אינדקס, pageNumber: 0) #}
-    {% if pageNumber != 0 %}
-      <a href="{{ pagesInBook[0].url | url }}" class="home-link">📖 תוכן העניינים</a>
-    {% endif %}
-    {# ============================== #}
+    {# === כפתור תוכן העניינים (תמיד מופיע בניווט הקבוע) === #}
+    <a href="{{ pagesInBook[0].url | url }}" class="home-link">📖 תוכן העניינים</a>
     
     {# כפתור "הבא" (מופיע משמאל) - צריך חץ שמאלה #}
     {% if currentPageIndex < pagesInBook.length - 1 %}
