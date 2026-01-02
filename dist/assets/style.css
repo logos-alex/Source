@@ -41,10 +41,13 @@ body {
   max-width: 900px;
   margin: 0 auto;
   padding: 20px;
-  line-height: 1.7;
+  line-height: 1.85; /* מרווח שורות משופר לקריאה נוחה */
   direction: rtl;
   text-align: right;
-  font-size: 1.2rem; /* === שינוי 1: הגדלת גודל בסיסי === */
+  font-size: 1.25rem; /* הגדלה קלה של הטקסט הבסיסי */
+  font-variant-ligatures: common-ligatures; /* הפעלת ליגטורות */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 header a {
@@ -117,11 +120,12 @@ nav a:hover {
 
 .text-main {
   background-color: rgba(255, 255, 255, 0.5);
-  padding: 20px;
+  padding: 35px; /* מרווח פנימי אוורירי יותר */
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  margin-bottom: 20px;
-  font-size: 1.35rem; /* === שינוי 2: הגדלת טקסט ראשי === */
+  margin-bottom: 25px;
+  font-size: 1.4rem; 
+  letter-spacing: 0.01em; /* שיפור מרווח אותיות עדין לעברית */
 }
 
 .beta-notice {
