@@ -231,27 +231,22 @@ git push origin main  # Triggers auto-build on Netlify
 
 ---
 
-**Last Updated:** December 23, 2025
-**Status:** ✅ Live - Cleaned & Focused on Abraham A ✨  
+**Last Updated:** January 02, 2026
+**Status:** ✅ Live - Optimized Navigation & UI ✨  
 **Current Setup**: 
 - ✅ **Published**: ONLY Apocalypse of Abraham Version A (21 chapters)
-- ✅ **All other texts**: Completely deleted (cleaned filesystem)
 - ✅ **Navigation**: 
-  - Home → Only "סלאבית" source + "אברהם" figure
-  - /texts/ → Only סלאבית
-  - /texts/slavic/ → Shows Apocalypse of Abraham
-  - /by-figure/ → Only אברהם
-  - /by-figure/abraham/ → List of all 21 chapters as links
+  - Dynamic TOC dropdown in fixed bottom navigation (accessible from all pages)
+  - Clear separation between intro pages and chapter content
+  - Cleaned up breadcrumbs and site-wide links
 - ✅ **Build**: 31 pages live (Abraham A + navigation pages)
+- ✅ **Search**: Pagefind indexing configured for Hebrew
 
 ### 🎯 Latest Session Completion
-- ✅ Google Search Console: Site verified and registered
-- ✅ Sitemap: 30 URLs indexed with proper metadata  
-- ✅ Robots.txt: Deployed and accessible
-- ✅ Build: Clean, no errors, fast compilation
-- ✅ Content: All 33 markdown files intact with proper frontmatter
-- ✅ Production: Site live at https://heb-sources.netlify.app/
-- ✅ SEO: All meta tags, schemas, and canonical URLs configured
+- ✅ Table of Contents: Removed from intro body, moved to a dynamic dropdown in the persistent navigation bar.
+- ✅ Footnotes: Hidden on intro pages where they were irrelevant.
+- ✅ Breadcrumbs: Fixed logical pathing for biblical figures.
+- ✅ Hebrew Support: Enhanced RTL styles for navigation and dropdowns.
 
 ### ⏰ Timeline to Visibility
 - Google typically indexes new sites within 1-4 weeks
