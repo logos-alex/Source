@@ -67,7 +67,19 @@
     {% endif %}
 
     {# === כפתור תוכן העניינים (תמיד מופיע בניווט הקבוע) === #}
-    <a href="{{ pagesInBook[0].url | url }}" class="home-link">📖 תוכן העניינים</a>
+    <div class="toc-dropdown">
+      <a href="{{ pagesInBook[0].url | url }}" class="home-link">📖 תוכן העניינים</a>
+      <div class="toc-dropdown-content">
+        <div class="toc-dropdown-header">פרקים בטקסט</div>
+        <ol>
+          {% for item in collections.textsByBook[book] %}
+            {% if item.data.pageNumber != 0 %}
+              <li><a href="{{ item.url | url }}">{{ item.data.title }}</a></li>
+            {% endif %}
+          {% endfor %}
+        </ol>
+      </div>
+    </div>
     
     {# כפתור "הבא" (מופיע משמאל) - צריך חץ שמאלה #}
     {% if currentPageIndex < pagesInBook.length - 1 %}
