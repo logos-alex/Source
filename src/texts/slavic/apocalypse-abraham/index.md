@@ -1,6 +1,7 @@
 ---
 layout: text-page.njk
 title: "חזון אברהם הסלאבי"
+book: apocalypse-abraham-main
 source: סלאבית
 figure: abraham
 pageNumber: 0
