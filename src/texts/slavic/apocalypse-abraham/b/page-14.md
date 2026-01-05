@@ -1,11 +1,12 @@
 ---
-title: "חזון אברהם (נוסח ב') - פרק יד"
-book: "apocalypse-abraham"
+layout: text-page.njk
+title: "חזון אברהם – נוסח ב' – פרק יד"
+book: apocalypse-abraham-b
+source: סלאבית
+figure: abraham
 pageNumber: 14
-tags: ["texts", "slavic", "abraham", "version-b"]
-source: "slavic"
-figure: "abraham"
-permalink: "/texts/slavic/apocalypse-abraham/b/page-14/"
+tags: ["texts", "slavic", "abraham"]
+permalink: /texts/slavic/apocalypse-abraham/b/page-14/
 draft: false
 ---
 
