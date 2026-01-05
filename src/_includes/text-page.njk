@@ -51,6 +51,7 @@
     {% endif %}
 
     {# === כפתור תוכן העניינים (תמיד מופיע בניווט הקבוע) === #}
+    {% if book %}
     <div class="toc-dropdown">
       <a href="{{ pagesInBook[0].url | url }}" class="home-link">📖 תוכן העניינים</a>
       <div class="toc-dropdown-content">
@@ -64,6 +65,7 @@
         </ol>
       </div>
     </div>
+    {% endif %}
     
     {# כפתור "הבא" (מופיע משמאל) - צריך חץ שמאלה #}
     {% if currentPageIndex < pagesInBook.length - 1 %}
