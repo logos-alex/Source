@@ -21,7 +21,9 @@ bodyClass: home-page
     </ul>
     <h4>👤 לפי יחוס</h4>
     <ul>
-      <li><a href="/by-figure/abraham/">אברהם</a></li>
+    {% for figureKey, figureName in figures %}
+      <li><a href="/by-figure/{{ figureKey }}/">{{ figureName }}</a></li>
+    {% endfor %}
     </ul>
 
     <hr style="border-color: var(--border-color); margin: 40px auto; width: 50%;">
