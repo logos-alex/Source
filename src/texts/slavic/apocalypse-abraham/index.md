@@ -1,14 +1,15 @@
 ---
 layout: text-page.njk
 title: "חזון אברהם הסלאבי"
+book: apocalypse-abraham
 source: slavic
 figure: abraham
 pageNumber: 0
 draft: false
 tags:
+  - texts
   - slavic
   - abraham
-  - texts
 permalink: /texts/slavic/apocalypse-abraham/
 description: "אפוקליפסה עתיקה המתארת חזונו של אברהם, כולל ביקורת על עבודה אליליות, ועלייה לשמיים לראות את מבנה העולם"
 ---
