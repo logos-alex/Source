@@ -5,7 +5,8 @@ book: apoc-daniel-syriac
 source: aramaic
 figure: daniel
 pageNumber: 0
-tags: ["texts", "aramaic", "daniel", "sub-intro"]
+draft: false
+tags: ["texts", "aramaic", "daniel"]
 permalink: /texts/aramaic/apoc-daniel-syriac/
 description: "תרגום עברי וביאור לחזון דניאל הסורי-ארמי, חיבור אפוקליפטי המשלב מסורות מקראיות עם חזיונות על אחרית הימים והאנטיכריסט."
 ---
