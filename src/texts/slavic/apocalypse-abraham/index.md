@@ -1,7 +1,7 @@
 ---
 layout: text-page.njk
 title: "חזון אברהם הסלאבי"
-source: סלאבית
+source: slavic
 figure: abraham
 pageNumber: 0
 draft: false

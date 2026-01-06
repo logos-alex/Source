@@ -7,7 +7,7 @@ tags:
   - slavic
   - abraham
   - texts
-source: סלאבית
+source: slavic
 figure: abraham
 permalink: /texts/slavic/apocalypse-abraham/a/page-10/
 notes: []

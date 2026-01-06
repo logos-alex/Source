@@ -8,9 +8,14 @@ permalink: /texts/slavic/
   <h1>כתבים ממקור סלאבי</h1>
   
   <div class="book-list">
-    <div class="book-card">
-      <h3><a href="/texts/slavic/apocalypse-abraham/">חזון אברהם הסלאבי</a></h3>
-      <p>אפוקליפסה עתיקה המתארת חזונו של אברהם, כולל ביקורת על עבודה אליליות, ועלייה לשמיים לראות את מבנה העולם</p>
-    </div>
+    {% for item in collections.texts %}
+      {% if item.data.source == "slavic" and not item.data.draft and item.data.pageNumber == 0 and "sub-intro" not in item.data.tags %}
+        <div class="book-card">
+          <h3><a href="{{ item.url }}">{{ item.data.title }}</a></h3>
+          <p style="margin-bottom: 15px;">{{ item.data.description }}</p>
+          <p><small>יחוס: <a href="/by-figure/{{ item.data.figure }}/">{{ figures[item.data.figure] }}</a></small></p>
+        </div>
+      {% endif %}
+    {% endfor %}
   </div>
 </div>

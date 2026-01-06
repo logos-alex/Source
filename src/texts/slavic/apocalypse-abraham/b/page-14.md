@@ -2,7 +2,7 @@
 layout: text-page.njk
 title: "חזון אברהם – נוסח ב' – פרק יד"
 book: apocalypse-abraham-b
-source: סלאבית
+source: slavic
 figure: abraham
 pageNumber: 14
 tags: ["texts", "slavic", "abraham"]

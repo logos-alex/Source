@@ -2,7 +2,7 @@
 layout: text-page.njk
 title: "חזון אברהם – נוסח א' – הקדמה"
 book: apocalypse-abraham
-source: סלאבית
+source: slavic
 figure: abraham
 pageNumber: 0
 draft: false

@@ -19,6 +19,9 @@ eleventyComputed:
         <div class="book-card">
           <h3><a href="{{ item.url }}">{{ item.data.title }}</a></h3>
           <p style="margin-bottom: 15px;">{{ item.data.description or "טקסט אפוקליפטי עתיק המיוחס ל" + figures[figureKey] }}</p>
+          {% if item.data.source %}
+            <p><small>מקור: <a href="/texts/{{ item.data.source }}/">{{ sources[item.data.source] }}</a></small></p>
+          {% endif %}
         </div>
       {% endif %}
     {% endfor %}
