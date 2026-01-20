@@ -19,7 +19,8 @@
       {% if book == "apoc-daniel-syriac" %}
         {% set contentParts = content.split("### תרגום עברי") %}
         <div class="column-source">
-          {{ contentParts[0] | safe }}
+          <h3>מקור ארמי</h3>
+          {{ contentParts[0] | replace("### מקור ארמי", "") | safe }}
         </div>
         <div class="column-translation">
           <h3>תרגום עברי</h3>

@@ -67,7 +67,7 @@ body {
 }
 
 /* Specific headers for parallel view */
-.parallel-columns h3:nth-of-type(1) { margin-top: 0; }
+.parallel-columns h3:nth-of-type(1) { display: none; }
 
 .column-source {
   font-style: italic;
@@ -75,10 +75,19 @@ body {
   padding-left: 20px;
 }
 
+.column-source h3 {
+  display: block;
+  text-align: center;
+}
+
 .column-translation {
   padding-right: 20px;
 }
 
+.column-translation h3 {
+  display: block;
+  text-align: center;
+}
 /* Reading Mode */
 body.reading-mode {
   max-width: 800px;
