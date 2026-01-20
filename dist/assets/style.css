@@ -50,30 +50,27 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Parallel Columns Layout - Only for content pages, not indices */
+/* Parallel Columns Layout - Disabled for now to fix display issues */
 .parallel-layout {
-  display: table !important;
+  display: block !important;
   width: 100% !important;
-  table-layout: fixed !important;
-  border-collapse: separate !important;
-  border-spacing: 40px 0 !important;
 }
 
 .column-source,
 .column-translation {
-  display: table-cell !important;
-  vertical-align: top !important;
-  width: 50% !important;
+  display: block !important;
+  width: 100% !important;
+  margin-bottom: 40px;
 }
 
 .column-source {
   font-style: italic;
-  border-left: 1px solid var(--border-color);
-  padding-left: 20px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 20px;
 }
 
 .column-translation {
-  padding-right: 20px;
+  padding-top: 20px;
 }
 
 .column-source h3, 
@@ -83,7 +80,6 @@ body {
   padding-bottom: 10px;
   margin-top: 0;
   margin-bottom: 20px;
-  display: block !important;
 }
 
 @media (max-width: 1024px) {
