@@ -52,10 +52,17 @@ body {
 
 /* Parallel Columns Layout - Only for content pages, not indices */
 .parallel-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: row;
   gap: 40px;
   align-items: start;
+  width: 100%;
+}
+
+.column-source,
+.column-translation {
+  flex: 1;
+  min-width: 0; /* Prevents overflow */
 }
 
 .column-source {
@@ -79,7 +86,7 @@ body {
 
 @media (max-width: 1024px) {
   .parallel-layout {
-    grid-template-columns: 1fr;
+    flex-direction: column;
   }
   .column-source {
     border-left: none;
