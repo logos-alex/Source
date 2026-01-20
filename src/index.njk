@@ -32,7 +32,7 @@ bodyClass: home-page
       {% for item in collections.texts %}
         {% if item.data.pageNumber == 0 and item.data.book and "sub-intro" not in item.data.tags and not item.data.draft %}
           <li style="margin-top: 10px;">
-            <strong><a href="{{ item.url | url }}">{{ item.data.title }}</a></strong>
+            <strong><a href="{{ item.url | url }}">{{ item.data.title | replace("חזון דניאל (סורי-ארמי) – הקדמה", "חזון דניאל (הארמי-סורי)") }}</a></strong>
           </li>
         {% endif %}
       {% endfor %}
