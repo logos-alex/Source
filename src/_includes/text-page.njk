@@ -15,8 +15,8 @@
       <p><em>מקור: {{ sourceHebrew or 'לא מצוין' }} | יחוס: {{ figureHebrew or 'לא מצוין' }}</em></p>
     {% endif %}
     
-    <div class="text-content parallel-columns">
-      {% if book == "apoc-daniel-syriac" %}
+    <div class="text-content {% if book == 'apoc-daniel-syriac' and pageNumber != 0 %}parallel-layout{% endif %}">
+      {% if book == "apoc-daniel-syriac" and pageNumber != 0 %}
         {% set contentParts = content.split("### תרגום עברי") %}
         <div class="column-source">
           <h3>מקור ארמי</h3>
