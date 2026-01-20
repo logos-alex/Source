@@ -1,12 +1,11 @@
 ---
+layout: text-page.njk
 title: "חזון דניאל הצעיר - פרק ד"
-book: "דניאל הצעיר"
+book: young-daniel-syriac
 pageNumber: 4
-figure: "דניאל"
-source: "ארמית"
-tags: ["texts"]
-layout: "text-page.njk"
-permalink: "/texts/aramaic/young-daniel-syriac/page-4/"
+figure: daniel
+source: aramaic
+tags: ["texts", "aramaic", "daniel"]
 ---
 
 <div class="parallel-layout">

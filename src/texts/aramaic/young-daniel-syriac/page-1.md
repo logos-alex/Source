@@ -1,12 +1,11 @@
 ---
+layout: text-page.njk
 title: "חזון דניאל הצעיר - פרק א"
-book: "דניאל הצעיר"
+book: young-daniel-syriac
 pageNumber: 1
-figure: "דניאל"
-source: "ארמית"
-tags: ["texts"]
-layout: "text-page.njk"
-permalink: "/texts/aramaic/young-daniel-syriac/page-1/"
+figure: daniel
+source: aramaic
+tags: ["texts", "aramaic", "daniel"]
 ---
 
 <div class="parallel-layout">
@@ -76,7 +75,7 @@ permalink: "/texts/aramaic/young-daniel-syriac/page-1/"
 תֹּאבַד חָכְמַת חֲכָמִים, וְתֵחָכֵם עָרְמַת עֲרוּמִים.
 יֶאֱסֹף אֶת הָאֹבְדִים, וְיָבִיא אֶת הָעַמִּים.
 
-וְיֵצֵא שְׁמוֹ בָּעַמִּים, וּבִמְקוֹם אֲשֶׁר יֵלֵךְ בּוֹ יִשָּׁמַע קוֹלוֹ.
+וְיֵצֵא שְׁמוֹ בָּעַמִּים, וּבִמְקוֹם אֲשֶׁר יֵלֵךְ בּוֹ יִשָּׁמַع קוֹלוֹ.
 וְהָיָה לְחוֹמוֹת וּלְאוֹר לָאֵלֶּה הַשּׁוֹמְעִים לוֹ.
 וְהָיָה לְעֶזְרָה לַדַּלִּים, וּלְרוֹפֵא לַחוֹלִים.
 לְמוֹדָע וְדִמְיוֹן הוּא לָעַמִּים.
