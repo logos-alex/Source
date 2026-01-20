@@ -18,10 +18,13 @@ description: "תרגום עברי וביאור לדניאל הקטן, חיבור
 דף זה כולל את המקור הארמי לצד תרגום עברי מודרני.
 
 ## פרקי הספר
-<ul>
-  {% for page in collections.all %}
-    {% if page.data.book == "young-daniel-syriac" and page.data.pageNumber and page.data.pageNumber > 0 %}
-      <li><a href="{{ page.url | url }}">פרק {{ page.data.pageNumber }}</a></li>
-    {% endif %}
-  {% endfor %}
-</ul>
+<details>
+  <summary>תוכן העניינים</summary>
+  <ul>
+    {% for page in collections.all %}
+      {% if page.data.book == "young-daniel-syriac" and page.data.pageNumber and page.data.pageNumber > 0 %}
+        <li><a href="{{ page.url | url }}">פרק {{ page.data.pageNumber }}</a></li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</details>
