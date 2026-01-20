@@ -49,9 +49,20 @@
     {# --- הוספת הגופן המשופר מ-Google Fonts --- #}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Hebrew:wght@400;700&display=swap" rel="stylesheet">
-    
-    {# --- Microsoft Clarity - עקיבה והנתחות אתר --- #}
+    <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;700&family=Noto+Serif+Hebrew:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ '/assets/style.css' | url }}">
+</head>
+<body class="{{ bodyClass }}">
+    <button class="reading-mode-toggle" onclick="toggleReadingMode()" title="מצב קריאה">📖</button>
+    <script>
+        function toggleReadingMode() {
+            document.body.classList.toggle('reading-mode');
+            localStorage.setItem('readingMode', document.body.classList.contains('reading-mode'));
+        }
+        if (localStorage.getItem('readingMode') === 'true') {
+            document.body.classList.add('reading-mode');
+        }
+    </script>
     <script type="text/javascript">
         (function(c,l,a,r,i,t,y){
             c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};

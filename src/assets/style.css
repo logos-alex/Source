@@ -35,19 +35,91 @@ html[data-theme="dark"] a:visited {
 }
 
 body {
-  font-family: 'Noto Serif Hebrew', serif;
+  font-family: 'Frank Ruhl Libre', 'Noto Serif Hebrew', serif;
   background: var(--bg-color);
   color: var(--text-color);
-  max-width: 900px;
+  max-width: 1200px; /* Increased for parallel view */
   margin: 0 auto;
   padding: 20px;
-  line-height: 1.85; /* מרווח שורות משופר לקריאה נוחה */
+  line-height: 1.85;
   direction: rtl;
   text-align: right;
-  font-size: 1.25rem; /* הגדלה קלה של הטקסט הבסיסי */
-  font-variant-ligatures: common-ligatures; /* הפעלת ליגטורות */
+  font-size: 1.25rem;
+  font-variant-ligatures: common-ligatures;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+}
+
+/* Parallel Columns Layout */
+.parallel-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.parallel-columns h3 {
+  grid-column: span 2;
+  text-align: center;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 10px;
+  margin-top: 40px;
+}
+
+/* Specific headers for parallel view */
+.parallel-columns h3:nth-of-type(1) { margin-top: 0; }
+
+.column-source {
+  font-style: italic;
+  border-left: 1px solid var(--border-color);
+  padding-left: 20px;
+}
+
+.column-translation {
+  padding-right: 20px;
+}
+
+/* Reading Mode */
+body.reading-mode {
+  max-width: 800px;
+}
+
+body.reading-mode header,
+body.reading-mode footer,
+body.reading-mode .breadcrumbs,
+body.reading-mode nav:not(.pagination),
+body.reading-mode #comments-section {
+  display: none;
+}
+
+.reading-mode-toggle {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: var(--bg-color);
+  border: 2px solid var(--border-color);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1001;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  font-size: 1.2rem;
+}
+
+@media (max-width: 1024px) {
+  .parallel-columns {
+    grid-template-columns: 1fr;
+  }
+  .column-source {
+    border-left: none;
+    border-bottom: 1px solid var(--border-color);
+    padding-left: 0;
+    padding-bottom: 20px;
+  }
 }
 
 header a {

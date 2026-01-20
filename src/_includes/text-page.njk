@@ -16,7 +16,18 @@
     {% endif %}
     
     <div class="text-content parallel-columns">
-      {{ content | safe }}
+      {% if book == "apoc-daniel-syriac" %}
+        {% set contentParts = content.split("### תרגום עברי") %}
+        <div class="column-source">
+          {{ contentParts[0] | safe }}
+        </div>
+        <div class="column-translation">
+          <h3>תרגום עברי</h3>
+          {{ contentParts[1] | safe }}
+        </div>
+      {% else %}
+        {{ content | safe }}
+      {% endif %}
     </div>
   </div>
   
