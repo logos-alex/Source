@@ -52,19 +52,18 @@ body {
 
 /* Parallel Columns Layout - Only for content pages, not indices */
 .parallel-layout {
-  display: flex !important;
-  flex-direction: row !important;
-  gap: 40px;
-  align-items: start;
-  width: 100%;
+  display: table !important;
+  width: 100% !important;
+  table-layout: fixed !important;
+  border-collapse: separate !important;
+  border-spacing: 40px 0 !important;
 }
 
 .column-source,
 .column-translation {
-  flex: 1 1 50% !important;
+  display: table-cell !important;
+  vertical-align: top !important;
   width: 50% !important;
-  min-width: 0;
-  box-sizing: border-box;
 }
 
 .column-source {
@@ -89,11 +88,11 @@ body {
 
 @media (max-width: 1024px) {
   .parallel-layout {
-    flex-direction: column !important;
+    display: block !important;
   }
   .column-source,
   .column-translation {
-    flex: 1 1 100% !important;
+    display: block !important;
     width: 100% !important;
   }
   .column-source {
