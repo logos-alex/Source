@@ -1,4 +1,37 @@
+
 {
-  "slavic": "סלאבית",
-  "aramaic": "ארמית"
+  "books": [
+    {
+      "id": "apoc-daniel-syriac",
+      "title": "חזון דניאל (הארמי-סורי)",
+      "source": "aramaic",
+      "path": "/texts/aramaic/apoc-daniel-syriac/",
+      "figure": "דניאל",
+      "status": "published"
+    },
+    {
+      "id": "apoc-abraham-slavic-a",
+      "title": "חזון אברהם (סלאבי) - נוסח א",
+      "source": "slavic",
+      "path": "/texts/slavic/apocalypse-abraham/a/",
+      "figure": "אברהם",
+      "status": "published"
+    },
+    {
+      "id": "apoc-abraham-slavic-b",
+      "title": "חזון אברהם (סלאבי) - נוסח ב",
+      "source": "slavic",
+      "path": "/texts/slavic/apocalypse-abraham/b/",
+      "figure": "אברהם",
+      "status": "published"
+    },
+    {
+      "id": "young-daniel-syriac",
+      "title": "דניאל הקטן (ארמית-סורית)",
+      "source": "aramaic",
+      "path": "/texts/aramaic/young-daniel-syriac/",
+      "figure": "דניאל",
+      "status": "published"
+    }
+  ]
 }
