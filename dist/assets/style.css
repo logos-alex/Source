@@ -48,6 +48,33 @@ body {
   font-variant-ligatures: common-ligatures;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  letter-spacing: 0.015em;
+}
+
+/* Typography Enhancements */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--header-color);
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* Internal Links Distinction */
+.text-main a:not(.dropbtn):not(.home-link):not(.prev):not(.next) {
+  color: var(--accent-color);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(139, 69, 19, 0.3);
+  transition: all 0.2s ease;
+}
+
+.text-main a:not(.dropbtn):not(.home-link):not(.prev):not(.next):hover {
+  border-bottom-color: var(--accent-color);
+  background-color: rgba(212, 175, 55, 0.1);
+}
+
+[data-theme="dark"] .text-main a:not(.dropbtn):not(.home-link):not(.prev):not(.next) {
+  border-bottom-color: rgba(212, 175, 55, 0.5);
 }
 
 /* Parallel Columns Layout - Disabled for now to fix display issues */
