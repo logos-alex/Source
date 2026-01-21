@@ -90,8 +90,21 @@
             <a href="/">דף הבית</a>
             <a href="/search/">🔍 חיפוש</a>
 
-            <a href="/texts/">לפי מקור</a>
-            <a href="/by-figure/">לפי יחוס</a>
+            <div class="nav-dropdown">
+                <a href="/texts/" class="dropbtn">לפי מקור</a>
+                <div class="dropdown-content">
+                    <a href="/texts/slavic/">סלאבית</a>
+                    <a href="/texts/aramaic/">ארמית</a>
+                </div>
+            </div>
+            
+            <div class="nav-dropdown">
+                <a href="/by-figure/" class="dropbtn">לפי יחוס</a>
+                <div class="dropdown-content">
+                    <a href="/by-figure/abraham/">אברהם</a>
+                    <a href="/by-figure/daniel/">דניאל</a>
+                </div>
+            </div>
         </nav>
         {% include "breadcrumbs.njk" %}
     </header>

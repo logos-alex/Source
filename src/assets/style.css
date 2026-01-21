@@ -112,6 +112,54 @@ body.reading-mode #comments-section {
   display: none;
 }
 
+/* Navigation Dropdowns */
+.nav-dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--bg-color);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1000;
+    border: 1px solid var(--border-color);
+    text-align: right;
+}
+
+.dropdown-content a {
+    color: var(--text-color);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(212, 175, 55, 0.1);
+}
+
+.nav-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Ensure mobile compatibility or fallback if needed */
+@media (max-width: 768px) {
+    .nav-dropdown {
+        display: block;
+        margin-bottom: 5px;
+    }
+    .dropdown-content {
+        position: static;
+        box-shadow: none;
+        border: none;
+        padding-right: 20px;
+        display: block; /* Show links directly on mobile for better UX */
+    }
+}
+
 .reading-mode-toggle {
   position: fixed;
   bottom: 20px;
