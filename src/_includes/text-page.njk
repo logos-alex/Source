@@ -34,7 +34,10 @@
     window.addEventListener('scroll', function() {
       const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       const scrolled = (window.scrollY / windowHeight) * 100;
-      document.getElementById('readingProgress').style.width = scrolled + '%';
+      const progressEl = document.getElementById('readingProgress');
+      if (progressEl) {
+        progressEl.style.width = scrolled + '%';
+      }
     });
   </script>
 
