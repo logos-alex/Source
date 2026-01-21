@@ -3,30 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }} | בית מדרש לכתבים גנוזים</title>
+    <title>{{ title }} | בית מדרש לכתבי מינים</title>
     
     <!-- Accessibility -->
     <meta name="color-scheme" content="light dark">
     
     <!-- SEO & Meta Tags -->
-    <meta name="description" content="{% if description %}{{ description }}{% else %}בית מדרש וירטואלי - תרגומים ופרשנות של כתבים גנוזים יהודיים עתיקים מתקופת בית שני{% endif %}">
-    <meta name="keywords" content="כתבים גנוזים, אפוקליפסה, יהודיקה, בית שני, אליהו, יעקב, עזרא, ישעיהו">
+    <meta name="description" content="{% if description %}{{ description }}{% else %}מסע אל הכתבים הגנוזים והאבודים של המסורת היהודית. תרגומים, ביאורים ועיון בטקסטים שנדחקו אל השוליים.{% endif %}">
+    <meta name="keywords" content="כתבים גנוזים, אפוקריפה, ספרים חיצוניים, יהדות, בית שני, מינות, גנוסטיקה, קבלה, מיסטיקה, דניאל, אברהם, זרובבל, עזרא, ישעיהו, אליהו">
     <meta name="author" content="בית המדרש הווירטואלי">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://heb-sources.netlify.app{{ page.url }}">
     
     <!-- Open Graph Tags for Social Media -->
     <meta property="og:type" content="{% if pageNumber == 0 %}book{% else %}article{% endif %}">
-    <meta property="og:title" content="{{ title }}">
-    <meta property="og:description" content="{% if description %}{{ description }}{% else %}כתבים גנוזים יהודיים עתיקים{% endif %}">
+    <meta property="og:title" content="{{ title }} | בית מדרש לכתבי מינים">
+    <meta property="og:description" content="{% if description %}{{ description }}{% else %}מסע אל הכתבים הגנוזים והאבודים של המסורת היהודית. תרגומים, ביאורים ועיון בטקסטים שנדחקו אל השוליים.{% endif %}">
     <meta property="og:url" content="https://heb-sources.netlify.app{{ page.url }}">
-    <meta property="og:site_name" content="בית מדרש וירטואלי לכתבים גנוזים">
+    <meta property="og:site_name" content="בית מדרש לכתבי מינים">
     <meta property="og:locale" content="he_IL">
     
     <!-- Twitter/X Tags -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="{{ title }}">
-    <meta name="twitter:description" content="{% if description %}{{ description }}{% else %}כתבים גנוזים יהודיים עתיקים{% endif %}">
+    <meta name="twitter:title" content="{{ title }} | בית מדרש לכתבי מינים">
+    <meta name="twitter:description" content="{% if description %}{{ description }}{% else %}מסע אל הכתבים הגנוזים והאבודים של המסורת היהודית. תרגומים, ביאורים ועיון בטקסטים שנדחקו אל השוליים.{% endif %}">
     
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -34,12 +34,12 @@
       "@context": "https://schema.org",
       "@type": "{% if pageNumber == 0 %}Book{% else %}Article{% endif %}",
       "name": "{{ title }}",
-      "description": "{% if description %}{{ description }}{% else %}כתבים גנוזים יהודיים עתיקים{% endif %}",
+      "description": "{% if description %}{{ description }}{% else %}מסע אל הכתבים הגנוזים והאבודים של המסורת היהודית. תרגומים, ביאורים ועיון בטקסטים שנדחקו אל השוליים.{% endif %}",
       "url": "https://heb-sources.netlify.app{{ page.url }}",
       "inLanguage": "he",
       "author": {
         "@type": "Organization",
-        "name": "בית המדרש הווירטואלי"
+        "name": "בית מדרש לכתבי מינים"
       }
     }
     </script>
@@ -83,7 +83,7 @@
 <body>
     <header>
         <div class="header-top">
-            <h1><a href="/">בית מדרש וירטואלי לכתבים גנוזים</a></h1>
+            <h1><a href="/">בית מדרש לכתבי מינים</a></h1>
             <button id="themeToggle" class="theme-toggle" aria-label="בחר מצב אור/חושך" title="מצב אור/חושך">🌙</button>
         </div>
         <nav role="navigation" aria-label="ניווט ראשי">
