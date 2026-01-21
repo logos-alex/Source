@@ -8,13 +8,33 @@ permalink: /search/
     <h1>חיפוש בכתבים</h1>
     <p>הקלד מונח חיפוש כדי למצוא טקסטים רלוונטיים בכתבים הגנוזים:</p>
     
-    <div style="padding: 20px; background: #f0f4f8; border-radius: 8px; text-align: center; margin-top: 20px;">
-        <p>🔍 <strong>חיפוש בטקסטים</strong> - בשכלול כרגע</p>
-        <p style="font-size: 0.9em; color: #666;">בעתיד: חיפוש מלא בכל הכתבים עם תמיכה בעברית</p>
-    </div>
+    <link href="/pagefind-lib/pagefind-ui.css" rel="stylesheet">
+    <script src="/pagefind-lib/pagefind-ui.js"></script>
+    <div id="search" style="margin-top: 20px;"></div>
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            new PagefindUI({ 
+                element: "#search", 
+                showSubResults: true,
+                translations: {
+                    placeholder: "חפש בכתבים...",
+                    clear_search: "נקה",
+                    load_more: "טען תוצאות נוספות",
+                    search_label: "חפש באתר זה",
+                    filters_label: "מסננים",
+                    zero_results: "לא נמצאו תוצאות עבור [SEARCH_TERM]",
+                    many_results: "נמצאו [COUNT] תוצאות עבור [SEARCH_TERM]",
+                    one_result: "נמצאה תוצאה אחת עבור [SEARCH_TERM]",
+                    alt_search: "לא נמצאו תוצאות עבור [SEARCH_TERM]. מציג תוצאות עבור [DIFFERENT_TERM] במקום זאת.",
+                    search_suggestion: "לא נמצאו תוצאות עבור [SEARCH_TERM]. נסה את אחד מהחיפושים הבאים:",
+                    searching: "מחפש..."
+                }
+            });
+        });
+    </script>
     
-    <div style="margin-top: 30px; padding: 15px; border: 1px solid #ddd; border-radius: 5px;">
-        <p><strong>ניתן לגלוש דרך:</strong></p>
+    <div style="margin-top: 30px; padding: 15px; border: 1px solid var(--border-color); border-radius: 5px;">
+        <p><strong>ניתן לגלוש גם דרך:</strong></p>
         <ul>
             <li><a href="/texts/">לפי מקור השפה</a></li>
             <li><a href="/by-figure/">לפי דמויות ביבליות</a></li>
