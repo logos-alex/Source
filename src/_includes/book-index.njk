@@ -14,21 +14,37 @@
 
   {# --- תוכן העניינים האוטומטי עבור ספרים ללא תוכן ידני --- #}
   <div class="table-of-contents" style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border-color);">
-    <h3>העמודים:</h3>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+      <h3 style="margin: 0;">פרקים בטקסט</h3>
+      
+      <div class="toc-dropdown" style="position: relative; display: inline-block;">
+        <button class="dropbtn" style="background: var(--bg-color); border: 1px solid var(--border-color); padding: 5px 15px; cursor: pointer; color: var(--text-color); font-family: inherit;">📖 בחר פרק...</button>
+        <div class="toc-dropdown-content" style="right: auto; left: 0;">
+          <div class="toc-dropdown-header">פרקים בטקסט</div>
+          <ol>
+            {% for item in collections.textsByBook[book] %}
+              {% if item.data.pageNumber != 0 %}
+                <li><a href="{{ item.url | url }}">{{ item.data.title }}</a></li>
+              {% endif %}
+            {% endfor %}
+          </ol>
+        </div>
+      </div>
+    </div>
     
     {# --- הפרדה לנוסחים שונים --- #}
     {% set lastVersion = 'none' %}
-    <ul>
+    <ul class="toc-list">
     {% for pageItem in collections.textsByBook[book] %}
       {% if pageItem.data.pageNumber > 0 %}
         {% if pageItem.url.includes('/a/') %}
           {% if lastVersion !== 'a' %}
-            {% if lastVersion !== 'none' %}</ul><div style="height: 20px; border-top: 1px solid var(--border-color); margin: 15px 0;"></div><h4 style="margin: 10px 0 10px 0; color: var(--header-color);">נוסח ב'</h4><ul>{% endif %}
+            {% if lastVersion !== 'none' %}</ul><div style="height: 20px; border-top: 1px solid var(--border-color); margin: 15px 0;"></div><h4 style="margin: 10px 0 10px 0; color: var(--header-color);">נוסח ב'</h4><ul class="toc-list">{% endif %}
             {% set lastVersion = 'a' %}
           {% endif %}
         {% elif pageItem.url.includes('/b/') %}
           {% if lastVersion !== 'b' %}
-            </ul><div style="height: 20px; border-top: 1px solid var(--border-color); margin: 15px 0;"></div><h4 style="margin: 10px 0 10px 0; color: var(--header-color);">נוסח ב'</h4><ul>
+            </ul><div style="height: 20px; border-top: 1px solid var(--border-color); margin: 15px 0;"></div><h4 style="margin: 10px 0 10px 0; color: var(--header-color);">נוסח ב'</h4><ul class="toc-list">
             {% set lastVersion = 'b' %}
           {% endif %}
         {% endif %}
