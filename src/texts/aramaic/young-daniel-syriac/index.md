@@ -1,5 +1,5 @@
 ---
-layout: text-page.njk
+layout: book-index.njk
 title: "דניאל הקטן (ארמית-סורית): הקדמה"
 book: young-daniel-syriac
 source: aramaic

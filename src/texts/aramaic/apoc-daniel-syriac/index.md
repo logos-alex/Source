@@ -1,5 +1,5 @@
 ---
-layout: text-page.njk
+layout: book-index.njk
 title: "חזון דניאל הסורי-ארמי: הקדמה"
 book: apoc-daniel-syriac
 source: aramaic

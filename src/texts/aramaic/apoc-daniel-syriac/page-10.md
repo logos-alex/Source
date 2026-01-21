@@ -1,6 +1,6 @@
 ---
 title: "חזון דניאל הארמי-סורי - פרק י׳"
-book: "חזון דניאל"
+book: "apoc-daniel-syriac"
 pageNumber: 10
 figure: "דניאל"
 source: "ארמית"
