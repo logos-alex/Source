@@ -1,4 +1,4 @@
----
+ ח---
 title: "חזון דניאל הארמי-סורי פרק א׳"
 book: "apoc-daniel-syriac"
 pageNumber: 1

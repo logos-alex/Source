@@ -1,5 +1,5 @@
 ---
-title: "חזון דניאל הארמי-סורי פרק ג׳"
+title: "חזון דניאל הארמי-סורי - פרק ג׳"
 book: "apoc-daniel-syriac"
 pageNumber: 3
 figure: "דניאל"
