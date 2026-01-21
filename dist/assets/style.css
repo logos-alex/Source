@@ -797,3 +797,22 @@ nav a:focus {
     font-size: 1em;
   }
 }
+
+/* Google Translate Widget */
+#google_translate_element {
+    margin-bottom: 15px;
+}
+
+.goog-te-gadget-simple {
+    border: 1px solid var(--border-color) !important;
+    border-radius: 5px !important;
+    background-color: var(--bg-color) !important;
+}
+
+.goog-te-gadget-simple .goog-te-menu-value span {
+    color: var(--text-color) !important;
+}
+
+.goog-te-gadget-icon {
+    display: none !important;
+}

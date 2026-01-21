@@ -117,6 +117,7 @@
         {% endblock %}
     </main>
     <footer>
+        <div id="google_translate_element"></div>
         <p>&copy; כל הזכויות שמורות - 2025</p>
         <p style="font-size: 0.7em; color: #999;">
             <a href="/sitemap.xml" style="color: inherit; text-decoration: none;">Sitemap</a> | 
@@ -161,6 +162,13 @@
       })();
     </script>
 
+    <!-- Google Translate -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'iw', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>
