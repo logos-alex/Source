@@ -659,10 +659,6 @@ nav a:focus {
     display: block;
 }
 
-.dropbtn {
-    font-family: 'Frank Ruhl Libre', 'Noto Serif Hebrew', serif;
-}
-
 @media (max-width: 768px) {
     .toc-dropdown-content {
         min-width: 200px;
