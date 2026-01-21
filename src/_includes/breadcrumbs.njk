@@ -13,6 +13,7 @@
       {% if urlParts[2] and urlParts[2] != '' %}
         {% set sourceKey = urlParts[2] %}
         {% set sourceHebrew = sources[sourceKey] or sourceKey %}
+        {% if sourceHebrew == 'aramaic' %}{% set sourceHebrew = 'ארמית' %}{% endif %}
         <li><a href="/texts/{{ sourceKey }}/">{{ sourceHebrew }}</a></li>
       {% endif %}
       

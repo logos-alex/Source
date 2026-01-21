@@ -19,11 +19,9 @@
       {% if book == "apoc-daniel-syriac" and pageNumber != 0 %}
         {% set contentParts = content.split("### תרגום עברי") %}
         <div class="column-source">
-          <h3>מקור ארמי</h3>
           {{ contentParts[0] | replace("### מקור ארמי", "") | safe }}
         </div>
         <div class="column-translation">
-          <h3>תרגום עברי</h3>
           {{ contentParts[1] | safe }}
         </div>
       {% else %}
