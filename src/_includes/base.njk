@@ -95,24 +95,24 @@
             <button id="themeToggle" class="theme-toggle" aria-label="בחר מצב אור/חושך" aria-pressed="false" title="מצב אור/חושך">🌙</button>
         </div>
         <nav role="navigation" aria-label="ניווט ראשי">
-            <a href="/">דף הבית</a>
-            <a href="/search/">🔍 חיפוש</a>
+            <a href="/" {% if page.url == "/" %}aria-current="page"{% endif %}>דף הבית</a>
+            <a href="/search/" {% if page.url == "/search/" %}aria-current="page"{% endif %}>🔍 חיפוש</a>
 
             <div class="nav-dropdown">
-                <a href="/texts/" class="dropbtn">לפי מקור</a>
+                <a href="/texts/" class="dropbtn" {% if page.url and page.url.startsWith("/texts/") %}aria-current="page"{% endif %}>לפי מקור</a>
                 <div class="dropdown-content">
-                    <a href="/texts/hebrew/">עברית</a>
-                    <a href="/texts/slavic/">סלאבית</a>
-                    <a href="/texts/aramaic/">ארמית</a>
+                    <a href="/texts/hebrew/" {% if page.url == "/texts/hebrew/" %}aria-current="page"{% endif %}>עברית</a>
+                    <a href="/texts/slavic/" {% if page.url == "/texts/slavic/" %}aria-current="page"{% endif %}>סלאבית</a>
+                    <a href="/texts/aramaic/" {% if page.url == "/texts/aramaic/" %}aria-current="page"{% endif %}>ארמית</a>
                 </div>
             </div>
             
             <div class="nav-dropdown">
-                <a href="/by-figure/" class="dropbtn">לפי יחוס</a>
+                <a href="/by-figure/" class="dropbtn" {% if page.url and page.url.startsWith("/by-figure/") %}aria-current="page"{% endif %}>לפי יחוס</a>
                 <div class="dropdown-content">
-                    <a href="/by-figure/abraham/">אברהם</a>
-                    <a href="/by-figure/daniel/">דניאל</a>
-                    <a href="/by-figure/zerubbabel/">זרובבל</a>
+                    <a href="/by-figure/abraham/" {% if page.url == "/by-figure/abraham/" %}aria-current="page"{% endif %}>אברהם</a>
+                    <a href="/by-figure/daniel/" {% if page.url == "/by-figure/daniel/" %}aria-current="page"{% endif %}>דניאל</a>
+                    <a href="/by-figure/zerubbabel/" {% if page.url == "/by-figure/zerubbabel/" %}aria-current="page"{% endif %}>זרובבל</a>
                 </div>
             </div>
         </nav>
