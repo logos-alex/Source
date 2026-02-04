@@ -1,10 +1,9 @@
 ---
-layout: text-page.njk
+layout: category-page.njk
 title: "חזון אברהם: הקדמה"
 book: apocalypse-abraham
 source: slavic
 figure: abraham
-pageNumber: 0
 draft: false
 tags:
   - texts

@@ -1,10 +1,9 @@
 ---
-layout: text-page.njk
+layout: category-page.njk
 title: "חזון אברהם: נוסח ב' – שער נוסף לחזון"
 book: apocalypse-abraham-b
 source: slavic
 figure: abraham
-pageNumber: 0
 draft: false
 tags:
   - slavic

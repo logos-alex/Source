@@ -1,10 +1,9 @@
 ---
-layout: book-index.njk
+layout: category-page.njk
 title: "ספר זרובבל: הקדמה"
 book: sefer-zerubbabel
 source: hebrew
 figure: zerubbabel
-pageNumber: 0
 draft: false
 tags: ["texts", "hebrew", "zerubbabel"]
 permalink: /texts/hebrew/sefer-zerubbabel/

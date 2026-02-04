@@ -1,10 +1,9 @@
 ---
-layout: book-index.njk
+layout: category-page.njk
 title: "דניאל הקטן (ארמית-סורית): הקדמה"
 book: young-daniel-syriac
 source: aramaic
 figure: daniel
-pageNumber: 0
 draft: false
 tags: ["texts", "aramaic", "daniel"]
 permalink: /texts/aramaic/young-daniel-syriac/

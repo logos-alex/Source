@@ -1,10 +1,9 @@
 ---
-layout: text-page.njk
+layout: category-page.njk
 title: "חזון אברהם: נוסח א' – הסיפור המלא"
 book: apocalypse-abraham
 source: slavic
 figure: abraham
-pageNumber: 0
 draft: false
 tags:
   - slavic

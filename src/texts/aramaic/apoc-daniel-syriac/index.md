@@ -1,10 +1,9 @@
 ---
-layout: book-index.njk
+layout: category-page.njk
 title: "חזון דניאל הסורי-ארמי: הקדמה"
 book: apoc-daniel-syriac
 source: aramaic
 figure: daniel
-pageNumber: 0
 draft: false
 tags: ["texts", "aramaic", "daniel"]
 permalink: /texts/aramaic/apoc-daniel-syriac/
