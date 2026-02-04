@@ -6,6 +6,7 @@ permalink: /texts/hebrew/
 
 <div class="text-main category-listing">
   <h1>כתבים ממקור עברי</h1>
+  <p>החיבורים שבקטגוריה זו עברו ונשתמרו בעברית, ומשקפים שכבות שונות של מסורת ופרשנות.</p>
   
   <div class="book-list">
     {% for item in collections.texts %}
