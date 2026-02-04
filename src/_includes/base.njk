@@ -44,6 +44,8 @@
     }
     </script>
     
+    <link rel="stylesheet" href="/assets/style.css">
+    
     {# --- הוספת הגופן המשופר מ-Google Fonts --- #}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,7 +53,6 @@
     <link rel="stylesheet" href="{{ '/assets/style.css' | url }}">
 </head>
 <body class="{{ bodyClass }}">
-    <a class="skip-link" href="#main-content">דלג לתוכן</a>
     <button class="reading-mode-toggle" onclick="toggleReadingMode()" title="מצב קריאה">📖</button>
     <script>
         function toggleReadingMode() {
@@ -78,6 +79,8 @@
       gtag('js', new Date());
       gtag('config', 'G-M3NHG4MWVR');
     </script>
+</head>
+<body>
     <header>
         <div class="header-top">
             <h1><a href="/">בית מדרש לכתבי מינים</a></h1>
@@ -90,25 +93,25 @@
             <div class="nav-dropdown">
                 <a href="/texts/" class="dropbtn">לפי מקור</a>
                 <div class="dropdown-content">
-                    {% for sourceKey in collections.publishedSources %}
-                      <a href="/texts/{{ sourceKey }}/">{{ sources[sourceKey] or sourceKey }}</a>
-                    {% endfor %}
+                    <a href="/texts/hebrew/">עברית</a>
+                    <a href="/texts/slavic/">סלאבית</a>
+                    <a href="/texts/aramaic/">ארמית</a>
                 </div>
             </div>
             
             <div class="nav-dropdown">
                 <a href="/by-figure/" class="dropbtn">לפי יחוס</a>
                 <div class="dropdown-content">
-                    {% for figureKey in collections.publishedFigures %}
-                      <a href="/by-figure/{{ figureKey }}/">{{ figures[figureKey] or figureKey }}</a>
-                    {% endfor %}
+                    <a href="/by-figure/abraham/">אברהם</a>
+                    <a href="/by-figure/daniel/">דניאל</a>
+                    <a href="/by-figure/zerubbabel/">זרובבל</a>
                 </div>
             </div>
         </nav>
         {% include "breadcrumbs.njk" %}
     </header>
     
-    <main id="main-content" role="main">
+    <main role="main">
         {% block content %}
             {{ content | safe }}
         {% endblock %}

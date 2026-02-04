@@ -7,11 +7,17 @@ permalink: /texts/
 <div class="text-main category-listing">
   <h1>{{ title }}</h1>
   <div class="book-list">
-    {% for sourceKey in collections.publishedSources %}
-      <div class="book-card">
-        <h3><a href="/texts/{{ sourceKey }}/">{{ sources[sourceKey] or sourceKey }}</a></h3>
-        <p>כתבים ששרדו במסורת זו ומאירים רבדים נסתרים במסע היסטורי־רוחני.</p>
-      </div>
-    {% endfor %}
+    <div class="book-card">
+      <h3><a href="/texts/hebrew/">עברית</a></h3>
+      <p>כתבים שנולדו או שרדו בלשון הקודש, חושפים רבדים נסתרים במחשבה היהודית.</p>
+    </div>
+    <div class="book-card">
+      <h3><a href="/texts/slavic/">סלאבית</a></h3>
+      <p>מסעות אפוקליפטיים וחזיונות קוסמיים שנשתמרו בכתבי יד סלאביים עתיקים.</p>
+    </div>
+    <div class="book-card">
+      <h3><a href="/texts/aramaic/">ארמית</a></h3>
+      <p>הדיה של אחות הלשון העברית, הארמית, בכתבים ששרדו במרחב הסורי-ארמי.</p>
+    </div>
   </div>
 </div>

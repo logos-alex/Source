@@ -23,7 +23,7 @@
       {% if pageItem.data.pageNumber > 0 %}
         {% if pageItem.url.includes('/a/') %}
           {% if lastVersion !== 'a' %}
-            {% if lastVersion !== 'none' %}</ul><div style="height: 20px; border-top: 1px solid var(--border-color); margin: 15px 0;"></div><h4 style="margin: 10px 0 10px 0; color: var(--header-color);">נוסח א'</h4><ul>{% endif %}
+            {% if lastVersion !== 'none' %}</ul><div style="height: 20px; border-top: 1px solid var(--border-color); margin: 15px 0;"></div><h4 style="margin: 10px 0 10px 0; color: var(--header-color);">נוסח ב'</h4><ul>{% endif %}
             {% set lastVersion = 'a' %}
           {% endif %}
         {% elif pageItem.url.includes('/b/') %}
