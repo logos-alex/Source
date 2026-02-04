@@ -6,7 +6,7 @@ figure: "דניאל"
 source: "ארמית"
 tags: ["texts"]
 layout: "text-page.njk"
-permalink: "/texts/aramaic/apoc-daniel-syriac/page-31/"
+permalink: "/texts/aramaic/apoc-daniel-syriac/page-32/"
 ---
 
 <div class="parallel-layout">
