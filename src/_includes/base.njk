@@ -44,8 +44,6 @@
     }
     </script>
     
-    <link rel="stylesheet" href="/assets/style.css">
-    
     {# --- הוספת הגופן המשופר מ-Google Fonts --- #}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,6 +51,7 @@
     <link rel="stylesheet" href="{{ '/assets/style.css' | url }}">
 </head>
 <body class="{{ bodyClass }}">
+    <a class="skip-link" href="#main-content">דלג לתוכן</a>
     <button class="reading-mode-toggle" onclick="toggleReadingMode()" title="מצב קריאה">📖</button>
     <script>
         function toggleReadingMode() {
@@ -79,8 +78,6 @@
       gtag('js', new Date());
       gtag('config', 'G-M3NHG4MWVR');
     </script>
-</head>
-<body>
     <header>
         <div class="header-top">
             <h1><a href="/">אוצר הכתבים הגנוזים</a></h1>
@@ -111,7 +108,7 @@
         {% include "breadcrumbs.njk" %}
     </header>
     
-    <main role="main">
+    <main id="main-content" role="main">
         {% block content %}
             {{ content | safe }}
         {% endblock %}
