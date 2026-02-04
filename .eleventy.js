@@ -63,6 +63,30 @@ module.exports = function(eleventyConfig) {
     return books;
   });
 
+  eleventyConfig.addCollection("publishedSources", (collectionApi) => {
+    const sources = new Set();
+    collectionApi.getFilteredByTag("texts").forEach((item) => {
+      if (item.data.draft) return;
+      if (item.data.pageNumber !== 0) return;
+      if (item.data.source) {
+        sources.add(item.data.source);
+      }
+    });
+    return Array.from(sources).sort();
+  });
+
+  eleventyConfig.addCollection("publishedFigures", (collectionApi) => {
+    const figures = new Set();
+    collectionApi.getFilteredByTag("texts").forEach((item) => {
+      if (item.data.draft) return;
+      if (item.data.pageNumber !== 0) return;
+      if (item.data.figure) {
+        figures.add(item.data.figure);
+      }
+    });
+    return Array.from(figures).sort();
+  });
+
   eleventyConfig.addFilter("date", (dateObj) => DateTime.fromJSDate(dateObj).toFormat("dd LLL yyyy"));
   eleventyConfig.addFilter("figureLink", (figure) => `/by-figure/${figure.toLowerCase().replace(/ /g, "-")}/`);
   eleventyConfig.addFilter("findIndexByUrl", (arr, url) => Array.isArray(arr) ? arr.findIndex(item => item.url === url) : -1);
