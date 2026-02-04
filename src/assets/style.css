@@ -105,6 +105,11 @@ h1, h2, h3, h4, h5, h6 {
   border-bottom-color: rgba(212, 175, 55, 0.5);
 }
 
+nav a[aria-current="page"] {
+  border-bottom: 2px solid var(--accent-color);
+  font-weight: 700;
+}
+
 /* Parallel Columns Layout - Disabled for now to fix display issues */
 .parallel-layout {
   display: block !important;
