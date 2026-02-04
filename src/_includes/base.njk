@@ -52,15 +52,26 @@
 </head>
 <body class="{{ bodyClass }}">
     <a class="skip-link" href="#main-content">דלג לתוכן</a>
-    <button class="reading-mode-toggle" onclick="toggleReadingMode()" title="מצב קריאה">📖</button>
+    <button id="readingModeToggle" class="reading-mode-toggle" type="button" aria-pressed="false" title="מצב קריאה">📖</button>
     <script>
-        function toggleReadingMode() {
-            document.body.classList.toggle('reading-mode');
-            localStorage.setItem('readingMode', document.body.classList.contains('reading-mode'));
-        }
-        if (localStorage.getItem('readingMode') === 'true') {
-            document.body.classList.add('reading-mode');
-        }
+        (function() {
+            const toggleButton = document.getElementById('readingModeToggle');
+            const storedReadingMode = localStorage.getItem('readingMode') === 'true';
+
+            if (storedReadingMode) {
+                document.body.classList.add('reading-mode');
+            }
+
+            if (toggleButton) {
+                toggleButton.setAttribute('aria-pressed', String(storedReadingMode));
+                toggleButton.addEventListener('click', function() {
+                    document.body.classList.toggle('reading-mode');
+                    const isReading = document.body.classList.contains('reading-mode');
+                    localStorage.setItem('readingMode', isReading);
+                    toggleButton.setAttribute('aria-pressed', String(isReading));
+                });
+            }
+        })();
     </script>
     <script type="text/javascript">
         (function(c,l,a,r,i,t,y){
@@ -81,7 +92,7 @@
     <header>
         <div class="header-top">
             <h1><a href="/">אוצר הכתבים הגנוזים</a></h1>
-            <button id="themeToggle" class="theme-toggle" aria-label="בחר מצב אור/חושך" title="מצב אור/חושך">🌙</button>
+            <button id="themeToggle" class="theme-toggle" aria-label="בחר מצב אור/חושך" aria-pressed="false" title="מצב אור/חושך">🌙</button>
         </div>
         <nav role="navigation" aria-label="ניווט ראשי">
             <a href="/">דף הבית</a>
@@ -137,12 +148,16 @@
         }
         
         function applyTheme(theme) {
-          if (theme === 'dark') {
+          const isDark = theme === 'dark';
+          if (isDark) {
             htmlRoot.setAttribute('data-theme', 'dark');
             if (themeToggle) themeToggle.textContent = '☀️';
           } else {
             htmlRoot.removeAttribute('data-theme');
             if (themeToggle) themeToggle.textContent = '🌙';
+          }
+          if (themeToggle) {
+            themeToggle.setAttribute('aria-pressed', String(isDark));
           }
           localStorage.setItem('theme', theme);
         }
@@ -163,7 +178,7 @@
     <script type="text/javascript">
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
-                pageLanguage: 'iw',
+                pageLanguage: 'he',
                 includedLanguages: 'en,fr,de,es,ru,ar,it',
                 layout: google.translate.TranslateElement.InlineLayout.SIMPLE
             }, 'google_translate_element');
