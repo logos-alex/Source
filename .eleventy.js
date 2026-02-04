@@ -1,91 +1,45 @@
-const { DateTime } = require("luxon");
 
-
-const fs = require('fs');
-const path = require('path');
+const sourcesData = require('./src/_data/sources.json');
 
 module.exports = function(eleventyConfig) {
-  eleventyConfig.addPassthroughCopy("./src/assets/");
-  eleventyConfig.addPassthroughCopy("./src/google5ea0ab9870afd370.html");
-  eleventyConfig.addPassthroughCopy("./src/robots.txt");
-  
-  // Copy pagefind index files from root to dist
-  eleventyConfig.addPassthroughCopy({
-    "pagefind": "pagefind"
-  });
-  
-  // Copy pagefind UI library from node_modules
-  eleventyConfig.addPassthroughCopy({
-    "./node_modules/pagefind/dist": "pagefind-lib"
-  });
-  
-  // Exclude draft pages from build entirely
-  eleventyConfig.addGlobalData("eleventyComputed.eleventyExcludeFromCollections", () => {
-    return (data) => data.draft === true;
+
+  // Custom filter to find the index of a page in a collection by its URL
+  eleventyConfig.addFilter("findIndexByUrl", (items, url) => {
+    return items.findIndex(item => item.url === url);
   });
 
-  eleventyConfig.addGlobalData("eleventyComputed.permalink", () => {
-    return (data) => {
-      if (data.draft === true) return false;
-      return data.permalink;
-    };
-  });
+  // Create a custom collection for each text source dynamically
+  for (const source of sourcesData.sources) {
+    for (const versionKey in source.versions) {
+      const version = source.versions[versionKey];
+      const collectionName = `${source.id}-${versionKey}`;
+      const textPath = `src/texts/${source.lang}/${source.id}/${versionKey}`;
 
-  eleventyConfig.addCollection("textsByBook", (collectionApi) => {
-    const books = {};
-    // חשוב: השתמש ב-getFilteredByTag("texts") כדי לקחת רק את הדפים הנכונים
-    collectionApi.getFilteredByTag("texts").forEach((item) => {
-      // Skip draft items
-      if (item.data.draft) return;
-      
-      const book = item.data.book;
-      if (!book) return;
-      if (!books[book]) books[book] = [];
-      books[book].push(item);
-    });
-    for (const book in books) {
-      books[book].sort((a, b) => {
-        // Index pages (pageNumber: 0) always come first
-        if (a.data.pageNumber === 0 && b.data.pageNumber !== 0) return -1;
-        if (a.data.pageNumber !== 0 && b.data.pageNumber === 0) return 1;
-        
-        // Extract version from URL (a or b from /texts/.../ a/page-X or /texts/.../b/page-X)
-        const versionA = a.url.includes('/a/') ? 'a' : (a.url.includes('/b/') ? 'b' : 'z');
-        const versionB = b.url.includes('/a/') ? 'a' : (b.url.includes('/b/') ? 'b' : 'z');
-        
-        // Sort by version first (a before b), then by pageNumber
-        if (versionA !== versionB) {
-          return versionA.localeCompare(versionB);
-        }
-        return a.data.pageNumber - b.data.pageNumber;
+      eleventyConfig.addCollection(collectionName, function(collectionApi) {
+        // Use a glob pattern to get all markdown files in the specific version's directory
+        return collectionApi.getFilteredByGlob(`${textPath}/*.md`).sort((a, b) => {
+          // Sort by filename to ensure correct order
+          return a.inputPath.localeCompare(b.inputPath, undefined, { numeric: true, sensitivity: 'base' });
+        });
       });
     }
-    return books;
-  });
+  }
 
-  eleventyConfig.addFilter("date", (dateObj) => DateTime.fromJSDate(dateObj).toFormat("dd LLL yyyy"));
-  eleventyConfig.addFilter("figureLink", (figure) => `/by-figure/${figure.toLowerCase().replace(/ /g, "-")}/`);
-  eleventyConfig.addFilter("findIndexByUrl", (arr, url) => Array.isArray(arr) ? arr.findIndex(item => item.url === url) : -1);
-
+  // Passthrough copy for static assets
+  eleventyConfig.addPassthroughCopy("src/assets");
+  eleventyConfig.addPassthroughCopy("src/_redirects");
+  eleventyConfig.addPassthroughCopy("src/google5ea0ab9870afd370.html");
+  eleventyConfig.addPassthroughCopy({"pagefind": "pagefind"});
 
 
   return {
-    dir: { input: "src", output: "dist" },
-    markdownTemplateEngine: "njk",
-    htmlTemplateEngine: "njk",
-    dataTemplateEngine: "njk",
-    serverOptions: {
-      port: 5000,
-      host: "0.0.0.0"
+    dir: {
+      input: "src",
+      output: "_site",
+      includes: "_includes",
+      data: "_data"
     },
-    // Skip draft files from output
-    eleventyComputed: {
-      eleventyExcludeFromCollections: (data) => {
-        if (data.draft === true) {
-          return true;
-        }
-        return false;
-      }
-    }
+    markdownTemplateEngine: "njk",
+    htmlTemplateEngine: "njk"
   };
 };

@@ -53,7 +53,9 @@
   {% endif %}
 
   {# --- ניווט בין עמודים (עם כפתור חזרה לתוכן העניינים) --- #}
-  {% set pagesInBook = collections.textsByBook[book] %}
+  {# Construct the collection name dynamically from the book and version #}
+  {% set collectionName = book + '-' + version %}
+  {% set pagesInBook = collections[collectionName] %}
   {% set currentPageIndex = pagesInBook | findIndexByUrl(page.url) %}
   
   <nav class="pagination">
@@ -70,7 +72,7 @@
       <div class="toc-dropdown-content">
         <div class="toc-dropdown-header">פרקים בטקסט</div>
         <ol>
-          {% for item in collections.textsByBook[book] %}
+          {% for item in pagesInBook %}
             {% if item.data.pageNumber != 0 %}
               <li><a href="{{ item.url | url }}">{{ item.data.title }}</a></li>
             {% endif %}
