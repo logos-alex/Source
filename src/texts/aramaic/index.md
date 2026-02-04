@@ -6,6 +6,7 @@ permalink: /texts/aramaic/
 
 <div class="text-main category-listing">
   <h1>כתבים ממקור ארמי</h1>
+  <p>ארמית היא לשון המקור של חיבורים רבים מתקופת הבית השני והמרחב הסורי־ארמי. כאן מרוכזים הטקסטים שהשתמרו בה.</p>
   
   <div class="book-list">
     {% for item in collections.texts %}

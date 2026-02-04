@@ -6,6 +6,7 @@ permalink: /texts/slavic/
 
 <div class="text-main category-listing">
   <h1>כתבים ממקור סלאבי</h1>
+  <p>בכתבי היד הסלאביים השתמרו גרסאות ייחודיות לחיבורים אפוקריפיים. כאן תמצאו את התרגומים והביאורים הזמינים.</p>
   
   <div class="book-list">
     {% for item in collections.texts %}
