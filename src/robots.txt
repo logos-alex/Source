@@ -1,4 +1,14 @@
+# Robots.txt for אוצר הכתבים הגנוזים (heb-sources)
+
+# Allow all crawlers
 User-agent: *
 Allow: /
-Disallow: /dist/
+
+# Block crawling of search internals
+Disallow: /pagefind/
+
+# Sitemap location
 Sitemap: https://heb-sources.netlify.app/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1

@@ -13,9 +13,9 @@
   </div>
 
   {# --- תוכן העניינים האוטומטי עבור ספרים ללא תוכן ידני --- #}
-  <div class="table-of-contents" style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border-color);">
+  <div class="table-of-contents">
     <h3>העמודים:</h3>
-    
+
     {# --- הפרדה לנוסחים שונים --- #}
     {% set lastVersion = 'none' %}
     <ul>
@@ -23,16 +23,16 @@
       {% if pageItem.data.pageNumber > 0 %}
         {% if pageItem.url.includes('/a/') %}
           {% if lastVersion !== 'a' %}
-            {% if lastVersion !== 'none' %}</ul><div style="height: 20px; border-top: 1px solid var(--border-color); margin: 15px 0;"></div><h4 style="margin: 10px 0 10px 0; color: var(--header-color);">נוסח ב'</h4><ul>{% endif %}
+            {% if lastVersion !== 'none' %}</ul><div class="version-divider"></div><h4 class="version-header">נוסח ב'</h4><ul>{% endif %}
             {% set lastVersion = 'a' %}
           {% endif %}
         {% elif pageItem.url.includes('/b/') %}
           {% if lastVersion !== 'b' %}
-            </ul><div style="height: 20px; border-top: 1px solid var(--border-color); margin: 15px 0;"></div><h4 style="margin: 10px 0 10px 0; color: var(--header-color);">נוסח ב'</h4><ul>
+            </ul><div class="version-divider"></div><h4 class="version-header">נוסח ב'</h4><ul>
             {% set lastVersion = 'b' %}
           {% endif %}
         {% endif %}
-        
+
         <li>
           <a href="{{ pageItem.url | url }}">
             {{ pageItem.data.title }}
@@ -43,26 +43,57 @@
     </ul>
   </div>
 
-  {# --- אזור התגובות של Disqus --- #}
-  <div id="comments-section" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-color);">
+  {# --- אזור התגובות של Disqus - Lazy Loaded --- #}
+  <div id="comments-section">
     <h3>תגובות</h3>
     <div id="disqus_thread"></div>
+    <button id="load-comments" class="load-comments-btn" type="button">טען תגובות</button>
     <script>
-        (function() {
-            try {
-                var disqus_config = function () {
-                    this.page.url = "https://heb-sources.netlify.app{{ page.url | url }}";
-                    this.page.identifier = "{{ page.url | url }}";
-                };
-                var d = document, s = d.createElement('script');
-                s.src = 'https://hebrew-aramaic-sources.disqus.com/embed.js';
-                s.setAttribute('data-timestamp', +new Date());
-                s.onerror = function() { console.log('Disqus loading handled'); };
-                (d.head || d.body).appendChild(s);
-            } catch(e) {
-                console.log('Disqus error handled');
+      (function() {
+        var disqusLoaded = false;
+        var commentsSection = document.getElementById('comments-section');
+        var loadButton = document.getElementById('load-comments');
+        var disqusThread = document.getElementById('disqus_thread');
+
+        function loadDisqus() {
+          if (disqusLoaded) return;
+          disqusLoaded = true;
+
+          if (loadButton) loadButton.style.display = 'none';
+
+          try {
+            var disqus_config = function () {
+              this.page.url = "https://heb-sources.netlify.app{{ page.url | url }}";
+              this.page.identifier = "{{ page.url | url }}";
+            };
+            var d = document, s = d.createElement('script');
+            s.src = 'https://hebrew-aramaic-sources.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            s.onerror = function() {
+              disqusThread.innerHTML = '<p style="color: var(--text-color-muted);">לא ניתן לטעון תגובות כרגע</p>';
+            };
+            (d.head || d.body).appendChild(s);
+          } catch(e) {
+            console.log('Disqus error handled');
+          }
+        }
+
+        // Load on button click
+        if (loadButton) {
+          loadButton.addEventListener('click', loadDisqus);
+        }
+
+        // Also load when scrolled into view
+        if ('IntersectionObserver' in window) {
+          var observer = new IntersectionObserver(function(entries) {
+            if (entries[0].isIntersecting) {
+              loadDisqus();
+              observer.disconnect();
             }
-        })();
+          }, { rootMargin: '100px' });
+          observer.observe(commentsSection);
+        }
+      })();
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   </div>

@@ -4,6 +4,8 @@ title: "ספר זרובבל: הקדמה"
 book: sefer-zerubbabel
 source: hebrew
 figure: zerubbabel
+pageNumber: 0
+isIntro: true
 draft: false
 tags: ["texts", "hebrew", "zerubbabel"]
 permalink: /texts/hebrew/sefer-zerubbabel/

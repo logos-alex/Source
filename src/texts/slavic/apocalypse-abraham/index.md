@@ -4,6 +4,8 @@ title: "חזון אברהם: הקדמה"
 book: apocalypse-abraham
 source: slavic
 figure: abraham
+pageNumber: 0
+isIntro: true
 draft: false
 tags:
   - texts

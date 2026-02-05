@@ -1,20 +1,23 @@
 {
   "name": "source",
   "version": "1.0.0",
-  "description": "",
+  "description": "אוצר הכתבים הגנוזים - מאגר דיגיטלי לכתבים אפוקריפיים ופסאודו-אפיגרפיים",
   "main": "index.js",
   "scripts": {
     "dev": "npx @11ty/eleventy --serve --port=5000",
     "build": "npx @11ty/eleventy && npx pagefind --site _site --output-path _site/pagefind",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "apocrypha",
+    "hebrew",
+    "jewish-texts",
+    "eleventy"
+  ],
+  "author": "אוצר הכתבים הגנוזים",
   "license": "ISC",
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",
-    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
-    "luxon": "^3.7.2",
     "pagefind": "^1.4.0"
   }
 }

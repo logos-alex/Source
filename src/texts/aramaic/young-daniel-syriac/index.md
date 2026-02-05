@@ -4,6 +4,8 @@ title: "דניאל הקטן (ארמית-סורית): הקדמה"
 book: young-daniel-syriac
 source: aramaic
 figure: daniel
+pageNumber: 0
+isIntro: true
 draft: false
 tags: ["texts", "aramaic", "daniel"]
 permalink: /texts/aramaic/young-daniel-syriac/

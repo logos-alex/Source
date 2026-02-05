@@ -22,11 +22,16 @@
     <meta property="og:url" content="https://heb-sources.netlify.app/texts/slavic/apocalypse-abraham/b/page-24/">
     <meta property="og:site_name" content="אוצר הכתבים הגנוזים">
     <meta property="og:locale" content="he_IL">
-    
+    <meta property="og:image" content="https://heb-sources.netlify.app/assets/og-image.svg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="אוצר הכתבים הגנוזים - מאגר דיגיטלי לכתבים אפוקריפיים">
+
     <!-- Twitter/X Tags -->
-    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="חזון אברהם – נוסח ב&#39; – פרק כד | אוצר הכתבים הגנוזים">
     <meta name="twitter:description" content="מסע אל הכתבים הגנוזים והאבודים של המסורת היהודית. תרגומים, ביאורים ועיון בטקסטים שנדחקו אל השוליים.">
+    <meta name="twitter:image" content="https://heb-sources.netlify.app/assets/og-image.svg">
     
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -52,7 +57,29 @@
 </head>
 <body class="">
     <a class="skip-link" href="#main-content">דלג לתוכן</a>
-    <button id="readingModeToggle" class="reading-mode-toggle" type="button" aria-pressed="false" aria-label="מצב קריאה" title="מצב קריאה">📖</button>
+    <button id="readingModeToggle" class="reading-mode-toggle" type="button" aria-pressed="false" aria-label="מצב קריאה - הסתר ניווט וכותרות">
+        <span aria-hidden="true">📖</span>
+    </button>
+    <script>
+        (function() {
+            const toggleButton = document.getElementById('readingModeToggle');
+            const storedReadingMode = localStorage.getItem('readingMode') === 'true';
+
+            if (storedReadingMode) {
+                document.body.classList.add('reading-mode');
+            }
+
+            if (toggleButton) {
+                toggleButton.setAttribute('aria-pressed', String(storedReadingMode));
+                toggleButton.addEventListener('click', function() {
+                    document.body.classList.toggle('reading-mode');
+                    const isReading = document.body.classList.contains('reading-mode');
+                    localStorage.setItem('readingMode', isReading);
+                    toggleButton.setAttribute('aria-pressed', String(isReading));
+                });
+            }
+        })();
+    </script>
     <script type="text/javascript">
         (function(c,l,a,r,i,t,y){
             c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -71,58 +98,80 @@
     </script>
     <header>
         <div class="header-top">
+            <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="פתח תפריט ניווט" aria-expanded="false" aria-controls="main-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <h1><a href="/">אוצר הכתבים הגנוזים</a></h1>
-            <button id="themeToggle" class="theme-toggle" aria-label="בחר מצב אור/חושך" aria-pressed="false" title="מצב אור/חושך">🌙</button>
+            <button id="themeToggle" class="theme-toggle" aria-label="החלף למצב כהה" aria-pressed="false">
+                <span aria-hidden="true">🌙</span>
+            </button>
         </div>
-        <nav role="navigation" aria-label="ניווט ראשי">
+        <nav role="navigation" aria-label="ניווט ראשי" id="main-nav">
             <a href="/" >דף הבית</a>
-            <a href="/search/" >🔍 חיפוש</a>
+            <a href="/search/"  aria-label="חיפוש באתר"><span aria-hidden="true">🔍</span> חיפוש</a>
 
-            <div class="nav-dropdown">
-                <a href="/texts/" class="dropbtn" aria-current="page">לפי מקור</a>
-                <div class="dropdown-content">
-                    <a href="/texts/hebrew/" >עברית</a>
-                    <a href="/texts/slavic/" >סלאבית</a>
-                    <a href="/texts/aramaic/" >ארמית</a>
+            <div class="nav-dropdown" data-dropdown>
+                <a href="/texts/" class="dropbtn" aria-current="page" aria-expanded="false" aria-haspopup="true">לפי מקור</a>
+                <div class="dropdown-content" role="menu">
+                    <a href="/texts/hebrew/" role="menuitem" >עברית</a>
+                    <a href="/texts/slavic/" role="menuitem" >סלאבית</a>
+                    <a href="/texts/aramaic/" role="menuitem" >ארמית</a>
                 </div>
             </div>
-            
-            <div class="nav-dropdown">
-                <a href="/by-figure/" class="dropbtn" >לפי יחוס</a>
-                <div class="dropdown-content">
-                    <a href="/by-figure/abraham/" >אברהם</a>
-                    <a href="/by-figure/daniel/" >דניאל</a>
-                    <a href="/by-figure/zerubbabel/" >זרובבל</a>
+
+            <div class="nav-dropdown" data-dropdown>
+                <a href="/by-figure/" class="dropbtn"  aria-expanded="false" aria-haspopup="true">לפי יחוס</a>
+                <div class="dropdown-content" role="menu">
+                    <a href="/by-figure/abraham/" role="menuitem" >אברהם</a>
+                    <a href="/by-figure/daniel/" role="menuitem" >דניאל</a>
+                    <a href="/by-figure/zerubbabel/" role="menuitem" >זרובבל</a>
                 </div>
             </div>
         </nav>
         
 
 <nav class="breadcrumbs" aria-label="ניווט מקום">
-  <ol>
-    <li><a href="/">דף הבית</a></li>
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a href="/" itemprop="item"><span itemprop="name">דף הבית</span></a>
+      <meta itemprop="position" content="1" />
+    </li>
+
     
     
+
     
     
-    
-      <li><a href="/texts/">לפי מקור</a></li>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="/texts/" itemprop="item"><span itemprop="name">לפי מקור</span></a>
+        <meta itemprop="position" content="2" />
+      </li>
       
+
       
         
         
         
-        <li><a href="/texts/slavic/">slavic</a></li>
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/texts/slavic/" itemprop="item"><span itemprop="name">slavic</span></a>
+          <meta itemprop="position" content="3" />
+        </li>
+        
       
+
       
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page">
+          <span itemprop="name">חזון אברהם – נוסח ב&#39; – פרק כד</span>
+          <meta itemprop="position" content="4" />
+        </li>
       
-        <li><a href="/texts/slavic/apocalypse-abraham/b/page-24/">חזון אברהם – נוסח ב&#39; – פרק כד</a></li>
-      
+    
+
     
     
-    
-    
-    
+
     
     
   </ol>
@@ -209,25 +258,56 @@
   </nav>
 
   
-  <div id="comments-section" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-color);">
+  <div id="comments-section">
     <h3>תגובות</h3>
     <div id="disqus_thread"></div>
+    <button id="load-comments" class="load-comments-btn" type="button">טען תגובות</button>
     <script>
-        (function() {
-            try {
-                var disqus_config = function () {
-                    this.page.url = "https://heb-sources.netlify.app/texts/slavic/apocalypse-abraham/b/page-24/";
-                    this.page.identifier = "/texts/slavic/apocalypse-abraham/b/page-24/";
-                };
-                var d = document, s = d.createElement('script');
-                s.src = 'https://hebrew-aramaic-sources.disqus.com/embed.js';
-                s.setAttribute('data-timestamp', +new Date());
-                s.onerror = function() { console.log('Disqus loading handled'); };
-                (d.head || d.body).appendChild(s);
-            } catch(e) {
-                console.log('Disqus error handled');
+      (function() {
+        var disqusLoaded = false;
+        var commentsSection = document.getElementById('comments-section');
+        var loadButton = document.getElementById('load-comments');
+        var disqusThread = document.getElementById('disqus_thread');
+
+        function loadDisqus() {
+          if (disqusLoaded) return;
+          disqusLoaded = true;
+
+          if (loadButton) loadButton.style.display = 'none';
+
+          try {
+            var disqus_config = function () {
+              this.page.url = "https://heb-sources.netlify.app/texts/slavic/apocalypse-abraham/b/page-24/";
+              this.page.identifier = "/texts/slavic/apocalypse-abraham/b/page-24/";
+            };
+            var d = document, s = d.createElement('script');
+            s.src = 'https://hebrew-aramaic-sources.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            s.onerror = function() {
+              disqusThread.innerHTML = '<p style="color: var(--text-color-muted);">לא ניתן לטעון תגובות כרגע</p>';
+            };
+            (d.head || d.body).appendChild(s);
+          } catch(e) {
+            console.log('Disqus error handled');
+          }
+        }
+
+        // Load on button click
+        if (loadButton) {
+          loadButton.addEventListener('click', loadDisqus);
+        }
+
+        // Also load when scrolled into view
+        if ('IntersectionObserver' in window) {
+          var observer = new IntersectionObserver(function(entries) {
+            if (entries[0].isIntersecting) {
+              loadDisqus();
+              observer.disconnect();
             }
-        })();
+          }, { rootMargin: '100px' });
+          observer.observe(commentsSection);
+        }
+      })();
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   </div>
@@ -237,15 +317,194 @@
     <footer>
         <div id="google_translate_element"></div>
         <p>&copy; כל הזכויות שמורות - 2025</p>
-        <p style="font-size: 0.7em; color: #999;">
-            <a href="/sitemap.xml" style="color: inherit; text-decoration: none;">Sitemap</a> | 
-            <a href="/robots.txt" style="color: inherit; text-decoration: none;">Robots</a>
+        <p class="footer-links">
+            <a href="/sitemap.xml">Sitemap</a> |
+            <a href="/robots.txt">Robots</a>
         </p>
     </footer>
 
-    <script src="/assets/js/site.js"></script>
-    <!-- Google Translate -->
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <!-- Dark Mode Script -->
+    <script>
+      (function() {
+        const htmlRoot = document.getElementById('htmlRoot');
+        const themeToggle = document.getElementById('themeToggle');
+
+        // Check stored preference or system preference
+        function initTheme() {
+          const stored = localStorage.getItem('theme');
+          const prefer = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          const theme = stored || prefer;
+          applyTheme(theme);
+        }
+
+        function applyTheme(theme) {
+          const isDark = theme === 'dark';
+          if (isDark) {
+            htmlRoot.setAttribute('data-theme', 'dark');
+            if (themeToggle) {
+              themeToggle.querySelector('span').textContent = '☀️';
+              themeToggle.setAttribute('aria-label', 'החלף למצב בהיר');
+            }
+          } else {
+            htmlRoot.removeAttribute('data-theme');
+            if (themeToggle) {
+              themeToggle.querySelector('span').textContent = '🌙';
+              themeToggle.setAttribute('aria-label', 'החלף למצב כהה');
+            }
+          }
+          if (themeToggle) {
+            themeToggle.setAttribute('aria-pressed', String(isDark));
+          }
+          localStorage.setItem('theme', theme);
+        }
+
+        if (themeToggle) {
+          themeToggle.addEventListener('click', function() {
+            const current = htmlRoot.getAttribute('data-theme');
+            const newTheme = current === 'dark' ? 'light' : 'dark';
+            applyTheme(newTheme);
+          });
+        }
+
+        initTheme();
+      })();
+    </script>
+
+    <!-- Accessible Dropdown Navigation -->
+    <script>
+      (function() {
+        const dropdowns = document.querySelectorAll('[data-dropdown]');
+
+        dropdowns.forEach(function(dropdown) {
+          const button = dropdown.querySelector('.dropbtn');
+          const menu = dropdown.querySelector('.dropdown-content');
+          const menuItems = menu.querySelectorAll('a');
+
+          // Toggle dropdown on click
+          button.addEventListener('click', function(e) {
+            e.preventDefault();
+            const isOpen = dropdown.classList.contains('open');
+            // Close all other dropdowns
+            dropdowns.forEach(function(d) {
+              d.classList.remove('open');
+              d.querySelector('.dropbtn').setAttribute('aria-expanded', 'false');
+            });
+            // Toggle current dropdown
+            if (!isOpen) {
+              dropdown.classList.add('open');
+              button.setAttribute('aria-expanded', 'true');
+              menuItems[0].focus();
+            }
+          });
+
+          // Keyboard navigation
+          button.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowDown') {
+              e.preventDefault();
+              dropdown.classList.add('open');
+              button.setAttribute('aria-expanded', 'true');
+              menuItems[0].focus();
+            }
+          });
+
+          menuItems.forEach(function(item, index) {
+            item.addEventListener('keydown', function(e) {
+              if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                if (index < menuItems.length - 1) {
+                  menuItems[index + 1].focus();
+                }
+              } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                if (index > 0) {
+                  menuItems[index - 1].focus();
+                } else {
+                  button.focus();
+                }
+              } else if (e.key === 'Escape') {
+                dropdown.classList.remove('open');
+                button.setAttribute('aria-expanded', 'false');
+                button.focus();
+              } else if (e.key === 'Tab' && !e.shiftKey && index === menuItems.length - 1) {
+                dropdown.classList.remove('open');
+                button.setAttribute('aria-expanded', 'false');
+              }
+            });
+          });
+
+          // Close dropdown when clicking outside
+          document.addEventListener('click', function(e) {
+            if (!dropdown.contains(e.target)) {
+              dropdown.classList.remove('open');
+              button.setAttribute('aria-expanded', 'false');
+            }
+          });
+        });
+
+        // Mobile Navigation Toggle
+        const mobileToggle = document.getElementById('mobileNavToggle');
+        const mainNav = document.getElementById('main-nav');
+
+        if (mobileToggle && mainNav) {
+          mobileToggle.addEventListener('click', function() {
+            const isOpen = mainNav.classList.toggle('mobile-open');
+            mobileToggle.classList.toggle('active');
+            mobileToggle.setAttribute('aria-expanded', String(isOpen));
+            mobileToggle.setAttribute('aria-label', isOpen ? 'סגור תפריט ניווט' : 'פתח תפריט ניווט');
+          });
+
+          // Close mobile menu when link clicked
+          mainNav.querySelectorAll('a:not(.dropbtn)').forEach(function(link) {
+            link.addEventListener('click', function() {
+              mainNav.classList.remove('mobile-open');
+              mobileToggle.classList.remove('active');
+              mobileToggle.setAttribute('aria-expanded', 'false');
+              mobileToggle.setAttribute('aria-label', 'פתח תפריט ניווט');
+            });
+          });
+        }
+      })();
+    </script>
+
+    <!-- Google Translate - Deferred Loading -->
+    <script>
+      (function() {
+        // Only load Google Translate when user scrolls to footer area
+        var translateLoaded = false;
+        function loadGoogleTranslate() {
+          if (translateLoaded) return;
+          translateLoaded = true;
+
+          window.googleTranslateElementInit = function() {
+            new google.translate.TranslateElement({
+              pageLanguage: 'he',
+              includedLanguages: 'en,fr,de,es,ru,ar,it',
+              layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+          };
+
+          var script = document.createElement('script');
+          script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+          script.async = true;
+          document.body.appendChild(script);
+        }
+
+        // Use Intersection Observer to load when footer becomes visible
+        var translateElement = document.getElementById('google_translate_element');
+        if (translateElement && 'IntersectionObserver' in window) {
+          var observer = new IntersectionObserver(function(entries) {
+            if (entries[0].isIntersecting) {
+              loadGoogleTranslate();
+              observer.disconnect();
+            }
+          }, { rootMargin: '200px' });
+          observer.observe(translateElement);
+        } else {
+          // Fallback: load after page load
+          window.addEventListener('load', loadGoogleTranslate);
+        }
+      })();
+    </script>
 
 </body>
 </html>

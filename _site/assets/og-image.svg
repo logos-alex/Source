@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#5a3a2a"/>
+      <stop offset="100%" style="stop-color:#3D2B1F"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="40" y="40" width="1120" height="550" fill="none" stroke="#d4af37" stroke-width="4" rx="10"/>
+  <text x="600" y="280" text-anchor="middle" font-family="serif" font-size="72" fill="#d4af37" font-weight="bold">אוצר הכתבים הגנוזים</text>
+  <text x="600" y="380" text-anchor="middle" font-family="serif" font-size="32" fill="#e8dcc8">מאגר דיגיטלי לכתבים אפוקריפיים ופסאודו-אפיגרפיים</text>
+  <line x1="400" y1="430" x2="800" y2="430" stroke="#d4af37" stroke-width="2"/>
+  <text x="600" y="490" text-anchor="middle" font-family="serif" font-size="24" fill="#c99d7d">תרגומים | ביאורים | מחקר</text>
+</svg>

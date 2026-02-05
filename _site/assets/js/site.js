@@ -14,7 +14,6 @@
     }
     if (themeToggle) {
       themeToggle.setAttribute('aria-pressed', String(isDark));
-      themeToggle.setAttribute('aria-label', isDark ? 'מצב תצוגה: כהה' : 'מצב תצוגה: בהיר');
     }
     localStorage.setItem('theme', theme);
   }
@@ -34,13 +33,11 @@
 
     if (readingToggle) {
       readingToggle.setAttribute('aria-pressed', String(storedReadingMode));
-      readingToggle.setAttribute('aria-label', storedReadingMode ? 'מצב קריאה: פעיל' : 'מצב קריאה: כבוי');
       readingToggle.addEventListener('click', () => {
         document.body.classList.toggle('reading-mode');
         const isReading = document.body.classList.contains('reading-mode');
         localStorage.setItem('readingMode', isReading);
         readingToggle.setAttribute('aria-pressed', String(isReading));
-        readingToggle.setAttribute('aria-label', isReading ? 'מצב קריאה: פעיל' : 'מצב קריאה: כבוי');
       });
     }
   }

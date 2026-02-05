@@ -35,13 +35,6 @@
     
   
     
-    <url>
-      <loc>https://heb-sources.netlify.app/texts/aramaic/apoc-daniel-syriac/</loc>
-      <lastmod>2025-11-21</lastmod>
-      <priority>0.7</priority>
-      <changefreq>monthly</changefreq>
-    </url>
-    
   
     
   
@@ -73,28 +66,6 @@
   
     
   
-    
-  
-    
-  
-    
-    <url>
-      <loc>https://heb-sources.netlify.app/texts/aramaic/young-daniel-syriac/</loc>
-      <lastmod>2025-11-21</lastmod>
-      <priority>0.7</priority>
-      <changefreq>monthly</changefreq>
-    </url>
-    
-  
-    
-  
-    
-    <url>
-      <loc>https://heb-sources.netlify.app/texts/hebrew/sefer-zerubbabel/</loc>
-      <lastmod>2025-11-21</lastmod>
-      <priority>0.7</priority>
-      <changefreq>monthly</changefreq>
-    </url>
     
   
     
@@ -530,14 +501,43 @@
     
   
     
+  
+    
+  
+    
     <url>
-      <loc>https://heb-sources.netlify.app/texts/slavic/apocalypse-abraham/</loc>
+      <loc>https://heb-sources.netlify.app/texts/aramaic/apoc-daniel-syriac/</loc>
       <lastmod>2025-11-21</lastmod>
-      <priority>0.7</priority>
+      <priority>0.8</priority>
       <changefreq>monthly</changefreq>
     </url>
     
   
+    
+    <url>
+      <loc>https://heb-sources.netlify.app/texts/hebrew/sefer-zerubbabel/</loc>
+      <lastmod>2025-11-21</lastmod>
+      <priority>0.8</priority>
+      <changefreq>monthly</changefreq>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://heb-sources.netlify.app/texts/aramaic/young-daniel-syriac/</loc>
+      <lastmod>2025-11-21</lastmod>
+      <priority>0.8</priority>
+      <changefreq>monthly</changefreq>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://heb-sources.netlify.app/texts/slavic/apocalypse-abraham/</loc>
+      <lastmod>2025-11-21</lastmod>
+      <priority>0.8</priority>
+      <changefreq>monthly</changefreq>
+    </url>
     
   
     

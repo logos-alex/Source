@@ -1,41 +1,66 @@
-{# Breadcrumbs Navigation Component #}
+{# Breadcrumbs Navigation Component with Schema.org markup #}
 {% if page.url and page.url != '/' %}
 <nav class="breadcrumbs" aria-label="ניווט מקום">
-  <ol>
-    <li><a href="/">דף הבית</a></li>
-    
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a href="/" itemprop="item"><span itemprop="name">דף הבית</span></a>
+      <meta itemprop="position" content="1" />
+    </li>
+
     {% set urlParts = page.url.split('/') %}
-    
+    {% set position = 2 %}
+
     {# Texts path: /texts/[source]/[book]/... #}
     {% if urlParts[1] == 'texts' %}
-      <li><a href="/texts/">לפי מקור</a></li>
-      
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="/texts/" itemprop="item"><span itemprop="name">לפי מקור</span></a>
+        <meta itemprop="position" content="{{ position }}" />
+      </li>
+      {% set position = position + 1 %}
+
       {% if urlParts[2] and urlParts[2] != '' %}
         {% set sourceKey = urlParts[2] %}
         {% set sourceHebrew = sources[sourceKey] or sourceKey %}
         {% if sourceHebrew == 'aramaic' %}{% set sourceHebrew = 'ארמית' %}{% endif %}
-        <li><a href="/texts/{{ sourceKey }}/">{{ sourceHebrew }}</a></li>
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/texts/{{ sourceKey }}/" itemprop="item"><span itemprop="name">{{ sourceHebrew }}</span></a>
+          <meta itemprop="position" content="{{ position }}" />
+        </li>
+        {% set position = position + 1 %}
       {% endif %}
-      
+
       {% if urlParts[3] and urlParts[3] != '' and urlParts.length > 4 %}
-        <li><a href="{{ page.url }}">{{ title }}</a></li>
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page">
+          <span itemprop="name">{{ title }}</span>
+          <meta itemprop="position" content="{{ position }}" />
+        </li>
       {% endif %}
     {% endif %}
-    
+
     {# By-figure path: /by-figure/[figure]/ #}
     {% if urlParts[1] == 'by-figure' %}
-      <li><a href="/by-figure/">לפי יחוס</a></li>
-      
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="/by-figure/" itemprop="item"><span itemprop="name">לפי יחוס</span></a>
+        <meta itemprop="position" content="{{ position }}" />
+      </li>
+      {% set position = position + 1 %}
+
       {% if urlParts[2] and urlParts[2] != '' %}
         {% set figureKey = urlParts[2] %}
         {% set figureHebrew = figures[figureKey] or figureKey %}
-        <li><a href="/by-figure/{{ figureKey }}/">{{ figureHebrew }}</a></li>
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page">
+          <span itemprop="name">{{ figureHebrew }}</span>
+          <meta itemprop="position" content="{{ position }}" />
+        </li>
       {% endif %}
     {% endif %}
-    
+
     {# Other pages #}
     {% if urlParts[1] != 'texts' and urlParts[1] != 'by-figure' and page.url != '/' %}
-      <li class="breadcrumb-current">{{ title }}</li>
+      <li class="breadcrumb-current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page">
+        <span itemprop="name">{{ title }}</span>
+        <meta itemprop="position" content="{{ position }}" />
+      </li>
     {% endif %}
   </ol>
 </nav>
