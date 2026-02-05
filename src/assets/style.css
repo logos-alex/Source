@@ -51,6 +51,34 @@ body {
   letter-spacing: 0.015em;
 }
 
+.quick-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 20px 0 30px;
+}
+
+.quick-actions a {
+  display: inline-block;
+  padding: 10px 18px;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  background: rgba(212, 175, 55, 0.1);
+  color: var(--text-color);
+  text-decoration: none;
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.quick-actions a:hover {
+  transform: translateY(-1px);
+  background: rgba(212, 175, 55, 0.2);
+  border-color: var(--accent-color);
+}
+
+[data-theme="dark"] .quick-actions a {
+  background: rgba(201, 157, 125, 0.15);
+}
+
 /* Typography Enhancements */
 h1, h2, h3, h4, h5, h6 {
   color: var(--header-color);
@@ -75,6 +103,11 @@ h1, h2, h3, h4, h5, h6 {
 
 [data-theme="dark"] .text-main a:not(.dropbtn):not(.home-link):not(.prev):not(.next) {
   border-bottom-color: rgba(212, 175, 55, 0.5);
+}
+
+nav a[aria-current="page"] {
+  border-bottom: 2px solid var(--accent-color);
+  font-weight: 700;
 }
 
 /* Parallel Columns Layout - Disabled for now to fix display issues */
