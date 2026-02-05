@@ -2,34 +2,34 @@
 {% if page.url and page.url != '/' %}
 <nav class="breadcrumbs" aria-label="ניווט מקום">
   <ol>
-    <li><a href="/">דף הבית</a></li>
+    <li><a href="{{ '/' | url }}">דף הבית</a></li>
     
     {% set urlParts = page.url.split('/') %}
     
     {# Texts path: /texts/[source]/[book]/... #}
     {% if urlParts[1] == 'texts' %}
-      <li><a href="/texts/">לפי מקור</a></li>
+      <li><a href="{{ '/texts/' | url }}">לפי מקור</a></li>
       
       {% if urlParts[2] and urlParts[2] != '' %}
         {% set sourceKey = urlParts[2] %}
         {% set sourceHebrew = sources[sourceKey] or sourceKey %}
         {% if sourceHebrew == 'aramaic' %}{% set sourceHebrew = 'ארמית' %}{% endif %}
-        <li><a href="/texts/{{ sourceKey }}/">{{ sourceHebrew }}</a></li>
+        <li><a href="{{ '/texts/' + sourceKey + '/' | url }}">{{ sourceHebrew }}</a></li>
       {% endif %}
       
       {% if urlParts[3] and urlParts[3] != '' and urlParts.length > 4 %}
-        <li><a href="{{ page.url }}">{{ title }}</a></li>
+        <li><a href="{{ page.url | url }}">{{ title }}</a></li>
       {% endif %}
     {% endif %}
     
     {# By-figure path: /by-figure/[figure]/ #}
     {% if urlParts[1] == 'by-figure' %}
-      <li><a href="/by-figure/">לפי יחוס</a></li>
+      <li><a href="{{ '/by-figure/' | url }}">לפי יחוס</a></li>
       
       {% if urlParts[2] and urlParts[2] != '' %}
         {% set figureKey = urlParts[2] %}
         {% set figureHebrew = figures[figureKey] or figureKey %}
-        <li><a href="/by-figure/{{ figureKey }}/">{{ figureHebrew }}</a></li>
+        <li><a href="{{ '/by-figure/' + figureKey + '/' | url }}">{{ figureHebrew }}</a></li>
       {% endif %}
     {% endif %}
     

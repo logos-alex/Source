@@ -62,19 +62,19 @@
     {# כפתור "הקודם" (מופיע מימין) - צריך חץ ימינה #}
     {% if currentPageIndex > 0 %}
       {% set prevPage = pagesInBook[currentPageIndex - 1] %}
-      <a href="{{ prevPage.url | url }}" class="prev">→ {{ prevPage.data.title }}</a>
+      <a href="{{ prevPage.url | prefixUrl }}" class="prev">→ {{ prevPage.data.title }}</a>
     {% endif %}
 
     {# === כפתור תוכן העניינים (תמיד מופיע בניווט הקבוע) === #}
     {% if book %}
     <div class="toc-dropdown">
-      <a href="{{ pagesInBook[0].url | url }}" class="home-link">📖 תוכן העניינים</a>
+      <a href="{{ pagesInBook[0].url | prefixUrl }}" class="home-link">📖 תוכן העניינים</a>
       <div class="toc-dropdown-content">
         <div class="toc-dropdown-header">פרקים בטקסט</div>
         <ol>
           {% for item in pagesInBook %}
             {% if item.data.pageNumber != 0 %}
-              <li><a href="{{ item.url | url }}">{{ item.data.title }}</a></li>
+              <li><a href="{{ item.url | prefixUrl }}">{{ item.data.title }}</a></li>
             {% endif %}
           {% endfor %}
         </ol>
@@ -85,7 +85,7 @@
     {# כפתור "הבא" (מופיע משמאל) - צריך חץ שמאלה #}
     {% if currentPageIndex < pagesInBook.length - 1 %}
       {% set nextPage = pagesInBook[currentPageIndex + 1] %}
-      <a href="{{ nextPage.url | url }}" class="next">← {{ nextPage.data.title }}</a>
+      <a href="{{ nextPage.url | prefixUrl }}" class="next">← {{ nextPage.data.title }}</a>
     {% endif %}
   </nav>
 
@@ -97,7 +97,7 @@
         (function() {
             try {
                 var disqus_config = function () {
-                    this.page.url = "https://heb-sources.netlify.app{{ page.url | url }}";
+                    this.page.url = "{{ site.origin }}{{ page.url | url }}";
                     this.page.identifier = "{{ page.url | url }}";
                 };
                 var d = document, s = d.createElement('script');

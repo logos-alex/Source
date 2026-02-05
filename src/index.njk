@@ -4,14 +4,15 @@ title: ברוכים הבאים
 bodyClass: home-page
 ---
 <div class="text-main">
+    {% set siteBase = (site.url or "https://logos-alex.github.io/Source/") %}
     <div class="beta-notice">
       <strong>⚠️ אתר בהתהוות:</strong> המאגר בתהליך בנייה מתמשך. נוסחים, ביאורים ותיקונים מתווספים לאורך הזמן, ולכן ייתכנו שינויים בין גרסאות.
     </div>
 
     <div class="quick-actions" aria-label="קישורים מהירים">
-      <a href="/search/">🔍 חיפוש במאגר</a>
-      <a href="/texts/">📜 כל הכתבים לפי מקור</a>
-      <a href="/by-figure/">👤 כתבים לפי דמות</a>
+      <a href="{{ '/search/' | url }}">🔍 חיפוש במאגר</a>
+      <a href="{{ '/texts/' | url }}">📜 כל הכתבים לפי מקור</a>
+      <a href="{{ '/by-figure/' | url }}">👤 כתבים לפי דמות</a>
     </div>
 
     <h2>ברוכים הבאים לאוצר הכתבים הגנוזים</h2>
@@ -40,15 +41,15 @@ bodyClass: home-page
     <h3>הכתבים במאגר</h3>
     <h4>📜 לפי שפת מקור</h4>
     <ul>
-      <li><a href="/texts/hebrew/">עברית</a></li>
-      <li><a href="/texts/slavic/">סלאבית</a></li>
-      <li><a href="/texts/aramaic/">ארמית</a></li>
+      <li><a href="{{ '/texts/hebrew/' | url }}">עברית</a></li>
+      <li><a href="{{ '/texts/slavic/' | url }}">סלאבית</a></li>
+      <li><a href="{{ '/texts/aramaic/' | url }}">ארמית</a></li>
     </ul>
     <h4>👤 לפי דמות מרכזית</h4>
     <ul>
-      <li><a href="/by-figure/abraham/">אברהם</a></li>
-      <li><a href="/by-figure/daniel/">דניאל</a></li>
-      <li><a href="/by-figure/zerubbabel/">זרובבל</a></li>
+      <li><a href="{{ '/by-figure/abraham/' | url }}">אברהם</a></li>
+      <li><a href="{{ '/by-figure/daniel/' | url }}">דניאל</a></li>
+      <li><a href="{{ '/by-figure/zerubbabel/' | url }}">זרובבל</a></li>
     </ul>
 
     <hr style="border-color: var(--border-color); margin: 40px auto; width: 50%;">
@@ -58,7 +59,7 @@ bodyClass: home-page
       {% for item in collections.texts %}
         {% if item.data.pageNumber == 0 and item.data.book and "sub-intro" not in item.data.tags and not item.data.draft %}
           <li style="margin-top: 10px;">
-            <strong><a href="{{ item.url | url }}">{{ item.data.title | replace("חזון דניאל (סורי-ארמי) – הקדמה", "חזון דניאל (הארמי-סורי)") | replace("חזון דניאל הסורי-ארמי: הקדמה", "חזון דניאל (הארמי-סורי)") | replace("דניאל הקטן (ארמית-סורית): הקדמה", "דניאל הקטן") | replace("הקדמה", "") }}</a></strong>
+            <strong><a href="{{ item.url | prefixUrl }}">{{ item.data.title | replace("חזון דניאל (סורי-ארמי) – הקדמה", "חזון דניאל (הארמי-סורי)") | replace("חזון דניאל הסורי-ארמי: הקדמה", "חזון דניאל (הארמי-סורי)") | replace("דניאל הקטן (ארמית-סורית): הקדמה", "דניאל הקטן") | replace("הקדמה", "") }}</a></strong>
           </li>
         {% endif %}
       {% endfor %}
