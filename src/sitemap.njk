@@ -7,7 +7,7 @@ eleventyExcludeFromCollections: true
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   {# Homepage #}
   <url>
-    <loc>https://heb-sources.netlify.app/</loc>
+    <loc>{{ site.origin }}{{ '/' | prefixUrl }}</loc>
     <lastmod>2025-11-21</lastmod>
     <priority>1.0</priority>
     <changefreq>monthly</changefreq>
@@ -15,13 +15,13 @@ eleventyExcludeFromCollections: true
   
   {# Main navigation pages #}
   <url>
-    <loc>https://heb-sources.netlify.app/texts/</loc>
+    <loc>{{ site.origin }}{{ '/texts/' | prefixUrl }}</loc>
     <lastmod>2025-11-21</lastmod>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://heb-sources.netlify.app/by-figure/</loc>
+    <loc>{{ site.origin }}{{ '/by-figure/' | prefixUrl }}</loc>
     <lastmod>2025-11-21</lastmod>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
@@ -31,7 +31,7 @@ eleventyExcludeFromCollections: true
   {% for item in collections.all %}
     {% if item.data.tags and item.data.tags.includes("texts") %}
     <url>
-      <loc>https://heb-sources.netlify.app{{ item.url }}</loc>
+      <loc>{{ site.origin }}{{ item.url | prefixUrl }}</loc>
       <lastmod>2025-11-21</lastmod>
       <priority>{% if item.data.pageNumber == 0 %}0.8{% else %}0.7{% endif %}</priority>
       <changefreq>monthly</changefreq>

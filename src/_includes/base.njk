@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl" id="htmlRoot">
 <head>
+    {% set sitePrefix = (site.pathPrefix or '/Source/') %}
+    {% set siteBase = (site.url or 'https://logos-alex.github.io/Source/') %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }} | אוצר הכתבים הגנוזים</title>
@@ -13,13 +15,13 @@
     <meta name="keywords" content="כתבים גנוזים, אפוקריפה, ספרים חיצוניים, יהדות, בית שני, מינות, גנוסטיקה, קבלה, מיסטיקה, דניאל, אברהם, זרובבל, עזרא, ישעיהו, אליהו">
     <meta name="author" content="בית המדרש הווירטואלי">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://heb-sources.netlify.app{{ page.url }}">
+    <link rel="canonical" href="{{ site.origin }}{{ page.url | prefixUrl }}">
     
     <!-- Open Graph Tags for Social Media -->
     <meta property="og:type" content="{% if pageNumber == 0 %}book{% else %}article{% endif %}">
     <meta property="og:title" content="{{ title }} | אוצר הכתבים הגנוזים">
     <meta property="og:description" content="{% if description %}{{ description }}{% else %}מסע אל הכתבים הגנוזים והאבודים של המסורת היהודית. תרגומים, ביאורים ועיון בטקסטים שנדחקו אל השוליים.{% endif %}">
-    <meta property="og:url" content="https://heb-sources.netlify.app{{ page.url }}">
+    <meta property="og:url" content="{{ site.origin }}{{ page.url | prefixUrl }}">
     <meta property="og:site_name" content="אוצר הכתבים הגנוזים">
     <meta property="og:locale" content="he_IL">
     
@@ -27,6 +29,7 @@
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="{{ title }} | אוצר הכתבים הגנוזים">
     <meta name="twitter:description" content="{% if description %}{{ description }}{% else %}מסע אל הכתבים הגנוזים והאבודים של המסורת היהודית. תרגומים, ביאורים ועיון בטקסטים שנדחקו אל השוליים.{% endif %}">
+    <meta name="twitter:url" content="{{ site.origin }}{{ page.url | prefixUrl }}">
     
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -35,7 +38,7 @@
       "@type": "{% if pageNumber == 0 %}Book{% else %}Article{% endif %}",
       "name": "{{ title }}",
       "description": "{% if description %}{{ description }}{% else %}מסע אל הכתבים הגנוזים והאבודים של המסורת היהודית. תרגומים, ביאורים ועיון בטקסטים שנדחקו אל השוליים.{% endif %}",
-      "url": "https://heb-sources.netlify.app{{ page.url }}",
+      "url": "{{ site.origin }}{{ page.url | prefixUrl }}",
       "inLanguage": "he",
       "author": {
         "@type": "Organization",
@@ -48,7 +51,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;700&family=Noto+Serif+Hebrew:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ '/assets/style.css' | url }}">
+    <link rel="stylesheet" href="{{ siteBase }}assets/style.css">
 </head>
 <body class="{{ bodyClass }}">
     <a class="skip-link" href="#main-content">דלג לתוכן</a>
@@ -91,28 +94,28 @@
     </script>
     <header>
         <div class="header-top">
-            <h1><a href="/">אוצר הכתבים הגנוזים</a></h1>
+            <h1><a href="{{ siteBase }}">אוצר הכתבים הגנוזים</a></h1>
             <button id="themeToggle" class="theme-toggle" aria-label="בחר מצב אור/חושך" aria-pressed="false" title="מצב אור/חושך">🌙</button>
         </div>
         <nav role="navigation" aria-label="ניווט ראשי">
-            <a href="/" {% if page.url == "/" %}aria-current="page"{% endif %}>דף הבית</a>
-            <a href="/search/" {% if page.url == "/search/" %}aria-current="page"{% endif %}>🔍 חיפוש</a>
+            <a href="{{ siteBase }}" {% if page.url == "/" %}aria-current="page"{% endif %}>דף הבית</a>
+            <a href="{{ siteBase }}search/" {% if page.url == "/search/" %}aria-current="page"{% endif %}>🔍 חיפוש</a>
 
             <div class="nav-dropdown">
-                <a href="/texts/" class="dropbtn" {% if page.url and page.url.startsWith("/texts/") %}aria-current="page"{% endif %}>לפי מקור</a>
+                <a href="{{ siteBase }}texts/" class="dropbtn" {% if page.url and page.url.startsWith("/texts/") %}aria-current="page"{% endif %}>לפי מקור</a>
                 <div class="dropdown-content">
-                    <a href="/texts/hebrew/" {% if page.url == "/texts/hebrew/" %}aria-current="page"{% endif %}>עברית</a>
-                    <a href="/texts/slavic/" {% if page.url == "/texts/slavic/" %}aria-current="page"{% endif %}>סלאבית</a>
-                    <a href="/texts/aramaic/" {% if page.url == "/texts/aramaic/" %}aria-current="page"{% endif %}>ארמית</a>
+                    <a href="{{ siteBase }}texts/hebrew/" {% if page.url == "/texts/hebrew/" %}aria-current="page"{% endif %}>עברית</a>
+                    <a href="{{ siteBase }}texts/slavic/" {% if page.url == "/texts/slavic/" %}aria-current="page"{% endif %}>סלאבית</a>
+                    <a href="{{ siteBase }}texts/aramaic/" {% if page.url == "/texts/aramaic/" %}aria-current="page"{% endif %}>ארמית</a>
                 </div>
             </div>
             
             <div class="nav-dropdown">
-                <a href="/by-figure/" class="dropbtn" {% if page.url and page.url.startsWith("/by-figure/") %}aria-current="page"{% endif %}>לפי יחוס</a>
+                <a href="{{ siteBase }}by-figure/" class="dropbtn" {% if page.url and page.url.startsWith("/by-figure/") %}aria-current="page"{% endif %}>לפי יחוס</a>
                 <div class="dropdown-content">
-                    <a href="/by-figure/abraham/" {% if page.url == "/by-figure/abraham/" %}aria-current="page"{% endif %}>אברהם</a>
-                    <a href="/by-figure/daniel/" {% if page.url == "/by-figure/daniel/" %}aria-current="page"{% endif %}>דניאל</a>
-                    <a href="/by-figure/zerubbabel/" {% if page.url == "/by-figure/zerubbabel/" %}aria-current="page"{% endif %}>זרובבל</a>
+                    <a href="{{ siteBase }}by-figure/abraham/" {% if page.url == "/by-figure/abraham/" %}aria-current="page"{% endif %}>אברהם</a>
+                    <a href="{{ siteBase }}by-figure/daniel/" {% if page.url == "/by-figure/daniel/" %}aria-current="page"{% endif %}>דניאל</a>
+                    <a href="{{ siteBase }}by-figure/zerubbabel/" {% if page.url == "/by-figure/zerubbabel/" %}aria-current="page"{% endif %}>זרובבל</a>
                 </div>
             </div>
         </nav>
@@ -128,8 +131,8 @@
         <div id="google_translate_element"></div>
         <p>&copy; כל הזכויות שמורות - 2025</p>
         <p style="font-size: 0.7em; color: #999;">
-            <a href="/sitemap.xml" style="color: inherit; text-decoration: none;">Sitemap</a> | 
-            <a href="/robots.txt" style="color: inherit; text-decoration: none;">Robots</a>
+            <a href="{{ siteBase }}sitemap.xml" style="color: inherit; text-decoration: none;">Sitemap</a> | 
+            <a href="{{ siteBase }}robots.txt" style="color: inherit; text-decoration: none;">Robots</a>
         </p>
     </footer>
 
