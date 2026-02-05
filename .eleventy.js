@@ -7,6 +7,16 @@ module.exports = function(eleventyConfig) {
     return items.findIndex(item => item.url === url);
   });
 
-// Passthrough copy for assets eleventyConfig.addPassthroughCopy("src/assets");
+  // Passthrough copy for assets
+  eleventyConfig.addPassthroughCopy("src/assets");
 
-return { pathPrefix: "/Source/", dir: { input: "src", includes: "_includes", data: "_data", output: "_site" } }; };
+  return {
+    pathPrefix: "/Source/",
+    dir: {
+      input: "src",
+      includes: "_includes",
+      data: "_data",
+      output: "_site"
+    }
+  };
+};
