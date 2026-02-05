@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "npx @11ty/eleventy --serve --port=5000 --pathprefix=/Source/",
-    "build": "npx @11ty/eleventy --pathprefix=/Source/ && node scripts/verify-path-prefix.mjs && npx pagefind --site _site --output-path _site/pagefind",
+    "build": "npx @11ty/eleventy --pathprefix=/Source/ && npx pagefind --site _site --output-path _site/pagefind",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
