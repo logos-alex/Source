@@ -51,7 +51,7 @@
         (function() {
             try {
                 var disqus_config = function () {
-                    this.page.url = "https://heb-sources.netlify.app{{ page.url | url }}";
+                    this.page.url = "{{ site.origin }}{{ page.url | url }}";
                     this.page.identifier = "{{ page.url | url }}";
                 };
                 var d = document, s = d.createElement('script');

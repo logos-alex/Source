@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 Disallow: /dist/
-Sitemap: https://heb-sources.netlify.app/sitemap.xml
+Sitemap: https://logos-alex.github.io/Source/sitemap.xml
