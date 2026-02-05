@@ -9,6 +9,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets");
 
   return {
+    pathPrefix: "/Source/",
     dir: {
       input: "src",
       includes: "_includes",
