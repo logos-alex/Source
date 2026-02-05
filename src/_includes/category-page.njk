@@ -14,7 +14,7 @@
         {% if item.data.pageNumber == 0 and item.data.source == source %}
           {% set hasBooks = true %}
           <div class="book-card">
-            <h3><a href="{{ item.url | url }}">{{ item.data.title }}</a></h3>
+            <h3><a href="{{ item.url | prefixUrl }}">{{ item.data.title }}</a></h3>
             {% if item.data.description %}
               <p>{{ item.data.description }}</p>
             {% endif %}

@@ -11,15 +11,15 @@ permalink: /by-figure/
   
   <div class="book-list">
     <div class="book-card">
-      <h3><a href="/by-figure/abraham/">אברהם</a></h3>
+      <h3><a href="{{ '/by-figure/abraham/' | prefixUrl }}">אברהם</a></h3>
       <p>כתבים המיוחסים לאברהם אבינו, סביב נושאי התגלות, ברית וראשית האמונה.</p>
     </div>
     <div class="book-card">
-      <h3><a href="/by-figure/daniel/">דניאל</a></h3>
+      <h3><a href="{{ '/by-figure/daniel/' | prefixUrl }}">דניאל</a></h3>
       <p>חזיונות אפוקליפטיים ופרשנות היסטורית־מיסטית המיוחסים לדניאל.</p>
     </div>
     <div class="book-card">
-      <h3><a href="/by-figure/zerubbabel/">זרובבל</a></h3>
+      <h3><a href="{{ '/by-figure/zerubbabel/' | prefixUrl }}">זרובבל</a></h3>
       <p>חזון גאולה ושיבה לציון המיוחס לזרובבל, עם נגיעות משיחיות ותיאורי עתיד.</p>
     </div>
   </div>

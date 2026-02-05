@@ -8,12 +8,13 @@ permalink: /search/
     <h1>חיפוש באוצר</h1>
     <p>הקלד מונח חיפוש כדי לאתר טקסטים, שמות או ביטויים מתוך הכתבים והביאורים:</p>
     
-    <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
-    <script src="/pagefind/pagefind-ui.js"></script>
+    <link href="{{ '/pagefind/pagefind-ui.css' | prefixUrl }}" rel="stylesheet">
+    <script src="{{ '/pagefind/pagefind-ui.js' | prefixUrl }}"></script>
     <div id="search" style="margin-top: 20px;"></div>
     <script>
         window.addEventListener('DOMContentLoaded', (event) => {
             new PagefindUI({ 
+                bundlePath: "{{ '/pagefind/' | prefixUrl }}",
                 element: "#search", 
                 showSubResults: true,
                 translations: {
@@ -36,8 +37,8 @@ permalink: /search/
     <div style="margin-top: 30px; padding: 15px; border: 1px solid var(--border-color); border-radius: 5px;">
         <p><strong>אפשר גם לעיין לפי קטגוריות:</strong></p>
         <ul>
-            <li><a href="/texts/">לפי מקור השפה</a></li>
-            <li><a href="/by-figure/">לפי דמויות ביבליות</a></li>
+            <li><a href="{{ '/texts/' | prefixUrl }}">לפי מקור השפה</a></li>
+            <li><a href="{{ '/by-figure/' | prefixUrl }}">לפי דמויות ביבליות</a></li>
         </ul>
     </div>
 </div>
