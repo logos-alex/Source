@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "npx @11ty/eleventy --serve --port=5000",
-    "build": "npx @11ty/eleventy && npx pagefind --site _site --output-path _site/pagefind",
+    "dev": "npx @11ty/eleventy --serve --port=5000 --pathprefix=/Source/",
+    "build": "npx @11ty/eleventy --pathprefix=/Source/ && npx pagefind --site _site --output-path _site/pagefind",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
