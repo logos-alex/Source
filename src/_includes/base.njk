@@ -14,13 +14,13 @@
     <meta name="keywords" content="כתבים גנוזים, אפוקריפה, ספרים חיצוניים, יהדות, בית שני, מינות, גנוסטיקה, קבלה, מיסטיקה, דניאל, אברהם, זרובבל, עזרא, ישעיהו, אליהו">
     <meta name="author" content="בית המדרש הווירטואלי">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="{{ site.origin }}{{ page.url | prefixUrl }}">
+    <link rel="canonical" href="{{ site.origin }}{{ page.url | url }}">
     
     <!-- Open Graph Tags for Social Media -->
     <meta property="og:type" content="{% if pageNumber == 0 %}book{% else %}article{% endif %}">
     <meta property="og:title" content="{{ title }} | אוצר הכתבים הגנוזים">
     <meta property="og:description" content="{% if description %}{{ description }}{% else %}מסע אל הכתבים הגנוזים והאבודים של המסורת היהודית. תרגומים, ביאורים ועיון בטקסטים שנדחקו אל השוליים.{% endif %}">
-    <meta property="og:url" content="{{ site.origin }}{{ page.url | prefixUrl }}">
+    <meta property="og:url" content="{{ site.origin }}{{ page.url | url }}">
     <meta property="og:site_name" content="אוצר הכתבים הגנוזים">
     <meta property="og:locale" content="he_IL">
     
@@ -28,7 +28,7 @@
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="{{ title }} | אוצר הכתבים הגנוזים">
     <meta name="twitter:description" content="{% if description %}{{ description }}{% else %}מסע אל הכתבים הגנוזים והאבודים של המסורת היהודית. תרגומים, ביאורים ועיון בטקסטים שנדחקו אל השוליים.{% endif %}">
-    <meta name="twitter:url" content="{{ site.origin }}{{ page.url | prefixUrl }}">
+    <meta name="twitter:url" content="{{ site.origin }}{{ page.url | url }}">
     
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -37,7 +37,7 @@
       "@type": "{% if pageNumber == 0 %}Book{% else %}Article{% endif %}",
       "name": "{{ title }}",
       "description": "{% if description %}{{ description }}{% else %}מסע אל הכתבים הגנוזים והאבודים של המסורת היהודית. תרגומים, ביאורים ועיון בטקסטים שנדחקו אל השוליים.{% endif %}",
-      "url": "{{ site.origin }}{{ page.url | prefixUrl }}",
+      "url": "{{ site.origin }}{{ page.url | url }}",
       "inLanguage": "he",
       "author": {
         "@type": "Organization",
@@ -93,28 +93,28 @@
     </script>
     <header>
         <div class="header-top">
-            <h1><a href="{{ sitePrefix }}">אוצר הכתבים הגנוזים</a></h1>
+            <h1><a href="{{ '/' | url }}">אוצר הכתבים הגנוזים</a></h1>
             <button id="themeToggle" class="theme-toggle" aria-label="בחר מצב אור/חושך" aria-pressed="false" title="מצב אור/חושך">🌙</button>
         </div>
         <nav role="navigation" aria-label="ניווט ראשי">
-            <a href="{{ sitePrefix }}" {% if page.url == "/" %}aria-current="page"{% endif %}>דף הבית</a>
-            <a href="{{ sitePrefix }}search/" {% if page.url == "/search/" %}aria-current="page"{% endif %}>🔍 חיפוש</a>
+            <a href="{{ '/' | url }}" {% if page.url == "/" %}aria-current="page"{% endif %}>דף הבית</a>
+            <a href="{{ '/search/' | url }}" {% if page.url == "/search/" %}aria-current="page"{% endif %}>🔍 חיפוש</a>
 
             <div class="nav-dropdown">
-                <a href="{{ sitePrefix }}texts/" class="dropbtn" {% if page.url and page.url.startsWith("/texts/") %}aria-current="page"{% endif %}>לפי מקור</a>
+                <a href="{{ '/texts/' | url }}" class="dropbtn" {% if page.url and page.url.startsWith("/texts/") %}aria-current="page"{% endif %}>לפי מקור</a>
                 <div class="dropdown-content">
-                    <a href="{{ sitePrefix }}texts/hebrew/" {% if page.url == "/texts/hebrew/" %}aria-current="page"{% endif %}>עברית</a>
-                    <a href="{{ sitePrefix }}texts/slavic/" {% if page.url == "/texts/slavic/" %}aria-current="page"{% endif %}>סלאבית</a>
-                    <a href="{{ sitePrefix }}texts/aramaic/" {% if page.url == "/texts/aramaic/" %}aria-current="page"{% endif %}>ארמית</a>
+                    <a href="{{ '/texts/hebrew/' | url }}" {% if page.url == "/texts/hebrew/" %}aria-current="page"{% endif %}>עברית</a>
+                    <a href="{{ '/texts/slavic/' | url }}" {% if page.url == "/texts/slavic/" %}aria-current="page"{% endif %}>סלאבית</a>
+                    <a href="{{ '/texts/aramaic/' | url }}" {% if page.url == "/texts/aramaic/" %}aria-current="page"{% endif %}>ארמית</a>
                 </div>
             </div>
             
             <div class="nav-dropdown">
-                <a href="{{ sitePrefix }}by-figure/" class="dropbtn" {% if page.url and page.url.startsWith("/by-figure/") %}aria-current="page"{% endif %}>לפי יחוס</a>
+                <a href="{{ '/by-figure/' | url }}" class="dropbtn" {% if page.url and page.url.startsWith("/by-figure/") %}aria-current="page"{% endif %}>לפי יחוס</a>
                 <div class="dropdown-content">
-                    <a href="{{ sitePrefix }}by-figure/abraham/" {% if page.url == "/by-figure/abraham/" %}aria-current="page"{% endif %}>אברהם</a>
-                    <a href="{{ sitePrefix }}by-figure/daniel/" {% if page.url == "/by-figure/daniel/" %}aria-current="page"{% endif %}>דניאל</a>
-                    <a href="{{ sitePrefix }}by-figure/zerubbabel/" {% if page.url == "/by-figure/zerubbabel/" %}aria-current="page"{% endif %}>זרובבל</a>
+                    <a href="{{ '/by-figure/abraham/' | url }}" {% if page.url == "/by-figure/abraham/" %}aria-current="page"{% endif %}>אברהם</a>
+                    <a href="{{ '/by-figure/daniel/' | url }}" {% if page.url == "/by-figure/daniel/" %}aria-current="page"{% endif %}>דניאל</a>
+                    <a href="{{ '/by-figure/zerubbabel/' | url }}" {% if page.url == "/by-figure/zerubbabel/" %}aria-current="page"{% endif %}>זרובבל</a>
                 </div>
             </div>
         </nav>
@@ -130,8 +130,8 @@
         <div id="google_translate_element"></div>
         <p>&copy; כל הזכויות שמורות - 2025</p>
         <p style="font-size: 0.7em; color: #999;">
-            <a href="{{ sitePrefix }}sitemap.xml" style="color: inherit; text-decoration: none;">Sitemap</a> | 
-            <a href="{{ sitePrefix }}robots.txt" style="color: inherit; text-decoration: none;">Robots</a>
+            <a href="{{ '/sitemap.xml' | url }}" style="color: inherit; text-decoration: none;">Sitemap</a> | 
+            <a href="{{ '/robots.txt' | url }}" style="color: inherit; text-decoration: none;">Robots</a>
         </p>
     </footer>
 
