@@ -1,3 +1,5 @@
+const site = require("./src/_data/site.json");
+
 module.exports = function(eleventyConfig) {
   // Custom filter to find an index by URL
   eleventyConfig.addFilter("findIndexByUrl", (items, url) => {
