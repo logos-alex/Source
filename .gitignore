@@ -1,2 +1,6 @@
 node_modules/
 dist/
+_site/pagefind/fragment/
+_site/pagefind/index/
+_site/pagefind/*.pf_meta
+_site/pagefind/wasm.unknown.pagefind

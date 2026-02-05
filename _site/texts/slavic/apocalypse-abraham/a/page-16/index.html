@@ -52,16 +52,7 @@
 </head>
 <body class="">
     <a class="skip-link" href="#main-content">דלג לתוכן</a>
-    <button class="reading-mode-toggle" onclick="toggleReadingMode()" title="מצב קריאה">📖</button>
-    <script>
-        function toggleReadingMode() {
-            document.body.classList.toggle('reading-mode');
-            localStorage.setItem('readingMode', document.body.classList.contains('reading-mode'));
-        }
-        if (localStorage.getItem('readingMode') === 'true') {
-            document.body.classList.add('reading-mode');
-        }
-    </script>
+    <button id="readingModeToggle" class="reading-mode-toggle" type="button" aria-pressed="false" aria-label="מצב קריאה" title="מצב קריאה">📖</button>
     <script type="text/javascript">
         (function(c,l,a,r,i,t,y){
             c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -81,27 +72,27 @@
     <header>
         <div class="header-top">
             <h1><a href="/">אוצר הכתבים הגנוזים</a></h1>
-            <button id="themeToggle" class="theme-toggle" aria-label="בחר מצב אור/חושך" title="מצב אור/חושך">🌙</button>
+            <button id="themeToggle" class="theme-toggle" aria-label="בחר מצב אור/חושך" aria-pressed="false" title="מצב אור/חושך">🌙</button>
         </div>
         <nav role="navigation" aria-label="ניווט ראשי">
-            <a href="/">דף הבית</a>
-            <a href="/search/">🔍 חיפוש</a>
+            <a href="/" >דף הבית</a>
+            <a href="/search/" >🔍 חיפוש</a>
 
             <div class="nav-dropdown">
-                <a href="/texts/" class="dropbtn">לפי מקור</a>
+                <a href="/texts/" class="dropbtn" aria-current="page">לפי מקור</a>
                 <div class="dropdown-content">
-                    <a href="/texts/hebrew/">עברית</a>
-                    <a href="/texts/slavic/">סלאבית</a>
-                    <a href="/texts/aramaic/">ארמית</a>
+                    <a href="/texts/hebrew/" >עברית</a>
+                    <a href="/texts/slavic/" >סלאבית</a>
+                    <a href="/texts/aramaic/" >ארמית</a>
                 </div>
             </div>
             
             <div class="nav-dropdown">
-                <a href="/by-figure/" class="dropbtn">לפי יחוס</a>
+                <a href="/by-figure/" class="dropbtn" >לפי יחוס</a>
                 <div class="dropdown-content">
-                    <a href="/by-figure/abraham/">אברהם</a>
-                    <a href="/by-figure/daniel/">דניאל</a>
-                    <a href="/by-figure/zerubbabel/">זרובבל</a>
+                    <a href="/by-figure/abraham/" >אברהם</a>
+                    <a href="/by-figure/daniel/" >דניאל</a>
+                    <a href="/by-figure/zerubbabel/" >זרובבל</a>
                 </div>
             </div>
         </nav>
@@ -261,53 +252,8 @@
         </p>
     </footer>
 
-    <!-- Dark Mode Script -->
-    <script>
-      (function() {
-        const htmlRoot = document.getElementById('htmlRoot');
-        const themeToggle = document.getElementById('themeToggle');
-        
-        // Check stored preference or system preference
-        function initTheme() {
-          const stored = localStorage.getItem('theme');
-          const prefer = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-          const theme = stored || prefer;
-          applyTheme(theme);
-        }
-        
-        function applyTheme(theme) {
-          if (theme === 'dark') {
-            htmlRoot.setAttribute('data-theme', 'dark');
-            if (themeToggle) themeToggle.textContent = '☀️';
-          } else {
-            htmlRoot.removeAttribute('data-theme');
-            if (themeToggle) themeToggle.textContent = '🌙';
-          }
-          localStorage.setItem('theme', theme);
-        }
-        
-        if (themeToggle) {
-          themeToggle.addEventListener('click', function() {
-            const current = htmlRoot.getAttribute('data-theme');
-            const newTheme = current === 'dark' ? 'light' : 'dark';
-            applyTheme(newTheme);
-          });
-        }
-        
-        initTheme();
-      })();
-    </script>
-
+    <script src="/assets/js/site.js"></script>
     <!-- Google Translate -->
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'iw',
-                includedLanguages: 'en,fr,de,es,ru,ar,it',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-            }, 'google_translate_element');
-        }
-    </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>

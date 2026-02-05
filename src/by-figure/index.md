@@ -18,5 +18,9 @@ permalink: /by-figure/
       <h3><a href="/by-figure/daniel/">דניאל</a></h3>
       <p>חזיונות אפוקליפטיים ופרשנות היסטורית־מיסטית המיוחסים לדניאל.</p>
     </div>
+    <div class="book-card">
+      <h3><a href="/by-figure/zerubbabel/">זרובבל</a></h3>
+      <p>חזון גאולה ושיבה לציון המיוחס לזרובבל, עם נגיעות משיחיות ותיאורי עתיד.</p>
+    </div>
   </div>
 </div>
