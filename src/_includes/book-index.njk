@@ -34,7 +34,7 @@
         {% endif %}
         
         <li>
-          <a href="{{ pageItem.url | url }}">
+          <a href="{{ pageItem.url | prefixUrl }}">
             {{ pageItem.data.title }}
           </a>
         </li>
@@ -51,8 +51,8 @@
         (function() {
             try {
                 var disqus_config = function () {
-                    this.page.url = "https://heb-sources.netlify.app{{ page.url | url }}";
-                    this.page.identifier = "{{ page.url | url }}";
+                    this.page.url = "{{ site.origin }}{{ page.url | prefixUrl }}";
+                    this.page.identifier = "{{ page.url | prefixUrl }}";
                 };
                 var d = document, s = d.createElement('script');
                 s.src = 'https://hebrew-aramaic-sources.disqus.com/embed.js';
