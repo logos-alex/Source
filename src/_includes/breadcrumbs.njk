@@ -18,7 +18,7 @@
       {% endif %}
       
       {% if urlParts[3] and urlParts[3] != '' and urlParts.length > 4 %}
-        <li><a href="{{ page.url }}">{{ title }}</a></li>
+        <li><a href="{{ page.url | url }}">{{ title }}</a></li>
       {% endif %}
     {% endif %}
     

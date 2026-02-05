@@ -18,7 +18,7 @@ eleventyComputed:
     {% for item in collections.texts %}
       {% if item.data.figure == figureKey and not item.data.draft and item.data.pageNumber == 0 and "sub-intro" not in item.data.tags %}
         <div class="book-card">
-          <h3><a href="{{ item.url }}">{{ item.data.title }}</a></h3>
+          <h3><a href="{{ item.url | url }}">{{ item.data.title }}</a></h3>
           <p style="margin-bottom: 15px;">{{ item.data.description or "גילויים נסתרים ומסעות שמימיים המיוחסים לדמותו של " + figures[figureKey] }}</p>
           {% if item.data.source %}
             <p><small>מקור: <a href="{{ '/texts/' + item.data.source + '/' | url }}">{{ sources[item.data.source] }}</a></small></p>

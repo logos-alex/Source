@@ -12,7 +12,7 @@ permalink: /texts/slavic/
     {% for item in collections.texts %}
       {% if item.data.source == "slavic" and not item.data.draft and item.data.pageNumber == 0 and "sub-intro" not in item.data.tags %}
         <div class="book-card">
-          <h3><a href="{{ item.url }}">{{ item.data.title }}</a></h3>
+          <h3><a href="{{ item.url | url }}">{{ item.data.title }}</a></h3>
           <p style="margin-bottom: 15px;">{{ item.data.description }}</p>
           <p><small>יחוס: <a href="{{ '/by-figure/' | append: item.data.figure | append: '/' | url }}">{{ figures[item.data.figure] }}</a></small></p>
         </div>
