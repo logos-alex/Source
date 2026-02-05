@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" id="htmlRoot">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ברוכים הבאים | אוצר הכתבים הגנוזים</title>
+    
+    <!-- Accessibility -->
+    <meta name="color-scheme" content="light dark">
+    
+    <!-- SEO & Meta Tags -->
+    <meta name="description" content="מסע אל הכתבים הגנוזים והאבודים של המסורת היהודית. תרגומים, ביאורים ועיון בטקסטים שנדחקו אל השוליים.">
+    <meta name="keywords" content="כתבים גנוזים, אפוקריפה, ספרים חיצוניים, יהדות, בית שני, מינות, גנוסטיקה, קבלה, מיסטיקה, דניאל, אברהם, זרובבל, עזרא, ישעיהו, אליהו">
+    <meta name="author" content="בית המדרש הווירטואלי">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://heb-sources.netlify.app/">
+    
+    <!-- Open Graph Tags for Social Media -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="ברוכים הבאים | אוצר הכתבים הגנוזים">
+    <meta property="og:description" content="מסע אל הכתבים הגנוזים והאבודים של המסורת היהודית. תרגומים, ביאורים ועיון בטקסטים שנדחקו אל השוליים.">
+    <meta property="og:url" content="https://heb-sources.netlify.app/">
+    <meta property="og:site_name" content="אוצר הכתבים הגנוזים">
+    <meta property="og:locale" content="he_IL">
+    
+    <!-- Twitter/X Tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="ברוכים הבאים | אוצר הכתבים הגנוזים">
+    <meta name="twitter:description" content="מסע אל הכתבים הגנוזים והאבודים של המסורת היהודית. תרגומים, ביאורים ועיון בטקסטים שנדחקו אל השוליים.">
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "name": "ברוכים הבאים",
+      "description": "מסע אל הכתבים הגנוזים והאבודים של המסורת היהודית. תרגומים, ביאורים ועיון בטקסטים שנדחקו אל השוליים.",
+      "url": "https://heb-sources.netlify.app/",
+      "inLanguage": "he",
+      "author": {
+        "@type": "Organization",
+        "name": "אוצר הכתבים הגנוזים"
+      }
+    }
+    </script>
+    
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;700&family=Noto+Serif+Hebrew:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body class="home-page">
+    <a class="skip-link" href="#main-content">דלג לתוכן</a>
+    <button id="readingModeToggle" class="reading-mode-toggle" type="button" aria-pressed="false" title="מצב קריאה">📖</button>
+    <script>
+        (function() {
+            const toggleButton = document.getElementById('readingModeToggle');
+            const storedReadingMode = localStorage.getItem('readingMode') === 'true';
+
+            if (storedReadingMode) {
+                document.body.classList.add('reading-mode');
+            }
+
+            if (toggleButton) {
+                toggleButton.setAttribute('aria-pressed', String(storedReadingMode));
+                toggleButton.addEventListener('click', function() {
+                    document.body.classList.toggle('reading-mode');
+                    const isReading = document.body.classList.contains('reading-mode');
+                    localStorage.setItem('readingMode', isReading);
+                    toggleButton.setAttribute('aria-pressed', String(isReading));
+                });
+            }
+        })();
+    </script>
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "ucq1c77qd5");
+    </script>
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M3NHG4MWVR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-M3NHG4MWVR');
+    </script>
+    <header>
+        <div class="header-top">
+            <h1><a href="/">אוצר הכתבים הגנוזים</a></h1>
+            <button id="themeToggle" class="theme-toggle" aria-label="בחר מצב אור/חושך" aria-pressed="false" title="מצב אור/חושך">🌙</button>
+        </div>
+        <nav role="navigation" aria-label="ניווט ראשי">
+            <a href="/" aria-current="page">דף הבית</a>
+            <a href="/search/" >🔍 חיפוש</a>
+
+            <div class="nav-dropdown">
+                <a href="/texts/" class="dropbtn" >לפי מקור</a>
+                <div class="dropdown-content">
+                    <a href="/texts/hebrew/" >עברית</a>
+                    <a href="/texts/slavic/" >סלאבית</a>
+                    <a href="/texts/aramaic/" >ארמית</a>
+                </div>
+            </div>
+            
+            <div class="nav-dropdown">
+                <a href="/by-figure/" class="dropbtn" >לפי יחוס</a>
+                <div class="dropdown-content">
+                    <a href="/by-figure/abraham/" >אברהם</a>
+                    <a href="/by-figure/daniel/" >דניאל</a>
+                    <a href="/by-figure/zerubbabel/" >זרובבל</a>
+                </div>
+            </div>
+        </nav>
+        
+
+
+    </header>
+    
+    <main id="main-content" role="main">
+        
+            <div class="text-main">
+    <div class="beta-notice">
+      <strong>⚠️ אתר בהתהוות:</strong> המאגר בתהליך בנייה מתמשך. נוסחים, ביאורים ותיקונים מתווספים לאורך הזמן, ולכן ייתכנו שינויים בין גרסאות.
+    </div>
+
+    <div class="quick-actions" aria-label="קישורים מהירים">
+      <a href="/search/">🔍 חיפוש במאגר</a>
+      <a href="/texts/">📜 כל הכתבים לפי מקור</a>
+      <a href="/by-figure/">👤 כתבים לפי דמות</a>
+    </div>
+
+    <h2>ברוכים הבאים לאוצר הכתבים הגנוזים</h2>
+    <p>כאן נאספים כתבים שנדחקו לשוליים של המסורת: חיבורים שלא נכנסו לקאנון אך השפיעו על הדמיון הדתי והתרבותי של תקופת הבית השני ולאחריה.</p>
+    <p>מטרת הפרויקט היא לאסוף, לתרגם ולבאר כתבים יהודיים ויהודו־נוצריים חיצוניים, תוך הצגת שפת המקור (לרוב ארמית־סורית) לצד תרגום עברי חדש וביאור קצר המבהיר הקשרים היסטוריים וספרותיים.</p>
+    <p>מה קורה כאשר כתבי קודש נדחקים לשוליים, נעלמים מן העין ומן הלב? מה מסתתר בחיבורים שלא מצאו את דרכם אל הקאנון המקובל? כאן אנו יוצאים למסע ארכיאולוגי־ספרותי בעקבות אותם קולות מושתקים, ומנסים להשיבם אל השיח התרבותי והמחקרי.</p>
+    <p>מטרתנו היא לאסוף, לתרגם ולבאר כתבים יהודיים ויהודו־נוצריים חיצוניים, בדגש על חיבורים שטרם ראו אור בעברית. אנו מציגים אותם לצד שפת המקור (לרוב ארמית־סורית), בתרגום חדש, ובתוספת פירוש וביאור המבקשים לפענח את צפונותיהם ולשרטט את עולמם הרעיוני.</p>
+
+    <hr style="border-color: var(--border-color); margin: 40px auto; width: 50%;">
+
+    <h3>למה "אוצר הכתבים הגנוזים"?</h3>
+    <p>השם מדגיש שמדובר בארכיון חי של חיבורים שנשכחו או נזנחו, ולא באוסף מקרי. המטרה אינה להחליף את המסורת, אלא להעמיק אותה ולהשלים את התמונה ההיסטורית והספרותית.</p>
+
+    <hr style="border-color: var(--border-color); margin: 40px auto; width: 50%;">
+
+    <h3>מה תמצאו כאן?</h3>
+    <ul>
+      <li>טקסטים אפוקריפיים ופסאודו־אפיגרפיים בעברית, בארמית ובסלאבית.</li>
+      <li>תרגומים חדשים לצד שפת המקור להשוואה נוחה.</li>
+      <li>הקדמות, הערות שוליים וביאורים קצרים להקשר ולרקע.</li>
+    </ul>
+    <p>השם מבקש לשקף את מהות הפרויקט: לא אוסף מקרי של טקסטים, אלא ארכיון חי של שכבות מודחקות, קולות נשכחים, וזרמים מחשבתיים שנדחקו לשוליים. כאן אנחנו מעניקים מקום לחיבורים שלא זכו לקאנוניזציה, אך תרמו לעיצוב הדמיון הדתי והתרבותי של תקופת הבית השני ולאחריה. המטרה אינה להחליף את המסורת, אלא להעמיק אותה באמצעות הקשבה למרווחים שבין הכתבים.</p>
+
+    <hr style="border-color: var(--border-color); margin: 40px auto; width: 50%;">
+
+    <h3>הכתבים במאגר</h3>
+    <h4>📜 לפי שפת מקור</h4>
+    <ul>
+      <li><a href="/texts/hebrew/">עברית</a></li>
+      <li><a href="/texts/slavic/">סלאבית</a></li>
+      <li><a href="/texts/aramaic/">ארמית</a></li>
+    </ul>
+    <h4>👤 לפי דמות מרכזית</h4>
+    <ul>
+      <li><a href="/by-figure/abraham/">אברהם</a></li>
+      <li><a href="/by-figure/daniel/">דניאל</a></li>
+      <li><a href="/by-figure/zerubbabel/">זרובבל</a></li>
+    </ul>
+
+    <hr style="border-color: var(--border-color); margin: 40px auto; width: 50%;">
+
+    <h3>קפיצה מהירה לכתבים:</h3>
+    <ul>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </ul>
+
+    <hr style="border-color: var(--border-color); margin: 40px auto; width: 50%;">
+    <h3>📚 בקרוב במאגר:</h3>
+    <p>אנו עמלים על הוספת הכתבים הבאים, ועוד רבים אחרים:</p>
+    <ul style="list-style-type: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px;">
+      <li>✨ חזון עזרא (לטיני)</li>
+      <li>✨ חזון עזרא (הארמי)</li>
+      <li>✨ סולם יעקב (הסלאבי)</li>
+      <li>✨ עליית ישעיהו (הסלאבי)</li>
+      <li>✨ ספר אליהו (העברי)</li>
+      <li>✨ חזון דניאל (העברי)</li>
+    </ul>
+</div>
+
+        
+    </main>
+    <footer>
+        <div id="google_translate_element"></div>
+        <p>&copy; כל הזכויות שמורות - 2025</p>
+        <p style="font-size: 0.7em; color: #999;">
+            <a href="/sitemap.xml" style="color: inherit; text-decoration: none;">Sitemap</a> | 
+            <a href="/robots.txt" style="color: inherit; text-decoration: none;">Robots</a>
+        </p>
+    </footer>
+
+    <!-- Dark Mode Script -->
+    <script>
+      (function() {
+        const htmlRoot = document.getElementById('htmlRoot');
+        const themeToggle = document.getElementById('themeToggle');
+        
+        // Check stored preference or system preference
+        function initTheme() {
+          const stored = localStorage.getItem('theme');
+          const prefer = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          const theme = stored || prefer;
+          applyTheme(theme);
+        }
+        
+        function applyTheme(theme) {
+          const isDark = theme === 'dark';
+          if (isDark) {
+            htmlRoot.setAttribute('data-theme', 'dark');
+            if (themeToggle) themeToggle.textContent = '☀️';
+          } else {
+            htmlRoot.removeAttribute('data-theme');
+            if (themeToggle) themeToggle.textContent = '🌙';
+          }
+          if (themeToggle) {
+            themeToggle.setAttribute('aria-pressed', String(isDark));
+          }
+          localStorage.setItem('theme', theme);
+        }
+        
+        if (themeToggle) {
+          themeToggle.addEventListener('click', function() {
+            const current = htmlRoot.getAttribute('data-theme');
+            const newTheme = current === 'dark' ? 'light' : 'dark';
+            applyTheme(newTheme);
+          });
+        }
+        
+        initTheme();
+      })();
+    </script>
+
+    <!-- Google Translate -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'he',
+                includedLanguages: 'en,fr,de,es,ru,ar,it',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+</html>
