@@ -14,7 +14,7 @@
         {% set sourceKey = urlParts[2] %}
         {% set sourceHebrew = sources[sourceKey] or sourceKey %}
         {% if sourceHebrew == 'aramaic' %}{% set sourceHebrew = 'ארמית' %}{% endif %}
-        <li><a href="{{ '/texts/' + sourceKey + '/' | url }}">{{ sourceHebrew }}</a></li>
+        <li><a href="{{ ('/texts/' + sourceKey + '/') | url }}">{{ sourceHebrew }}</a></li>
       {% endif %}
       
       {% if urlParts[3] and urlParts[3] != '' and urlParts.length > 4 %}
@@ -29,7 +29,7 @@
       {% if urlParts[2] and urlParts[2] != '' %}
         {% set figureKey = urlParts[2] %}
         {% set figureHebrew = figures[figureKey] or figureKey %}
-        <li><a href="{{ '/by-figure/' + figureKey + '/' | url }}">{{ figureHebrew }}</a></li>
+        <li><a href="{{ ('/by-figure/' + figureKey + '/') | url }}">{{ figureHebrew }}</a></li>
       {% endif %}
     {% endif %}
     
