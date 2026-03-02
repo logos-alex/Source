@@ -22,5 +22,17 @@ permalink: /by-figure/
       <h3><a href="{{ '/by-figure/zerubbabel/' | url }}">זרובבל</a></h3>
       <p>חזון גאולה ושיבה לציון המיוחס לזרובבל, עם נגיעות משיחיות ותיאורי עתיד.</p>
     </div>
+      <div class="book-card">
+      <h3><a href="{{ '/by-figure/clement/' | url }}">קלמנס מרומא</a></h3>
+      <p>חיבורים מן המסורת הכנסייתית המוקדמת המיוחסים לקלמנס מרומא.</p>
+    </div>
+  </div>
+
+  <h2 style="margin-top: 30px;">נדבכים צדדיים</h2>
+  <div class="book-list">
+    <div class="book-card">
+      <h3><a href="{{ '/by-figure/talmidei-yeshua/' | url }}">מתלמידי ישוע הנוצרי</a></h3>
+      <p>תת־קטלוג ייעודי לדמויות מן המסורת הנוצרית הקדומה, לצד המיון הרגיל לפי ייחוס.</p>
+    </div>
   </div>
 </div>
