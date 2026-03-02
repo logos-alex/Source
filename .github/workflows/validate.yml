@@ -1,13 +1,15 @@
-name: Deploy static site to gh-pages branch (manual fallback)
+name: Validate content and build
 
 on:
+  pull_request:
+    branches: ["main", "work"]
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  deploy:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -24,10 +26,3 @@ jobs:
 
       - name: Verify content and build output
         run: npm run ci:verify
-
-      - name: Deploy _site to gh-pages branch
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site
-          force_orphan: true
