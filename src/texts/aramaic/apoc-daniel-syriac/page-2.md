@@ -1,6 +1,11 @@
 ---
 layout: text-page
-title: Page 2
+title: פרק ב
+book: apoc-daniel-syriac
+source: aramaic
+figure: daniel
+pageNumber: 2
+version: main
 ---
 
 וחܲיותא ונח̈תא ותצביתא עם סאמא ודהבא܂ ומא̈נא דתשבח̈תה דבר אנון עמה܂ ואיתי אנון

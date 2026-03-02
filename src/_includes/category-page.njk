@@ -1,30 +1,56 @@
 {% extends "base.njk" %}
 
 {% block content %}
-  <div class="text-main category-listing">
+  <div class="text-main">
     <h1>{{ title }}</h1>
 
-    {% if description %}
-      <p class="category-description">{{ description }}</p>
+    {% if source or figure %}
+      {% set sourceHebrew = sources[source] or source %}
+      {% set figureHebrew = figures[figure] or figure %}
+      <p><em>מקור: {{ sourceHebrew or 'לא מצוין' }} | ייחוס: {{ figureHebrew or 'לא מצוין' }}</em></p>
     {% endif %}
 
-    <div class="book-list">
-      {% set hasBooks = false %}
-      {% for item in collections.texts %}
-        {% if item.data.pageNumber == 0 and item.data.source == source %}
-          {% set hasBooks = true %}
-          <div class="book-card">
-            <h3><a href="{{ item.url | prefixUrl }}">{{ item.data.title }}</a></h3>
-            {% if item.data.description %}
-              <p>{{ item.data.description }}</p>
-            {% endif %}
-          </div>
+    {{ content | safe }}
+  </div>
+
+  <div class="table-of-contents" style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border-color);">
+    <h3>תוכן העניינים:</h3>
+    <ul>
+      {% set hasPages = false %}
+      {% for item in collections.all | bookPages(page.url, book) %}
+        {% if item.url != page.url %}
+          {% set hasPages = true %}
+          <li><a href="{{ item.url | url }}">{{ item.data.title }}</a></li>
         {% endif %}
       {% endfor %}
-      
-      {% if not hasBooks %}
-        <p style="color: var(--text-color-muted); font-style: italic;">אין כתבים בקטגוריה זו עדיין</p>
-      {% endif %}
-    </div>
+    </ul>
+
+    {% if not hasPages %}
+      <p style="color: var(--text-color-muted); font-style: italic;">פרקי החיבור יתווספו בהמשך.</p>
+    {% endif %}
+  </div>
+
+  {# --- אזור התגובות של Disqus --- #}
+  <div id="comments-section" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-color);">
+    <h3>תגובות</h3>
+    <div id="disqus_thread"></div>
+    <script>
+        (function() {
+            try {
+                var disqus_config = function () {
+                    this.page.url = "{{ site.origin }}{{ page.url | url }}";
+                    this.page.identifier = "{{ page.url | url }}";
+                };
+                var d = document, s = d.createElement('script');
+                s.src = 'https://hebrew-aramaic-sources.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                s.onerror = function() { console.log('Disqus loading handled'); };
+                (d.head || d.body).appendChild(s);
+            } catch(e) {
+                console.log('Disqus error handled');
+            }
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   </div>
 {% endblock %}

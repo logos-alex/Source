@@ -1,6 +1,11 @@
 ---
 layout: text-page
-title: Page 4
+title: פרק ד
+book: apoc-daniel-syriac
+source: aramaic
+figure: daniel
+pageNumber: 4
+version: main
 ---
 
 וקרא כורש מܲלכא דפרס לדניאיל܂ ואמѯ לה׃ חוני לי דניאיל מא̈נא הלין דמן גזא דאיתי נבוכדנצר מן ארעא דיהודא܂
