@@ -849,3 +849,36 @@ nav a:focus {
 .goog-te-gadget-icon {
     display: none !important;
 }
+
+
+.updates-main {
+  max-width: 900px;
+}
+
+.updates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.update-card {
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 18px;
+  background: rgba(212, 175, 55, 0.08);
+}
+
+.update-card h3 {
+  margin-top: 0;
+}
+
+.update-meta {
+  font-size: 0.95rem;
+  color: var(--text-color-muted);
+  margin-bottom: 0;
+}
+
+[data-theme="dark"] .update-card {
+  background: rgba(201, 157, 125, 0.15);
+}
