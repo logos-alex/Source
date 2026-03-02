@@ -5,6 +5,7 @@ book: apocalypse-abraham
 source: slavic
 figure: abraham
 draft: false
+hideToc: true
 tags:
   - texts
   - slavic
