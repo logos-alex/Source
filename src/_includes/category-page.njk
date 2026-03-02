@@ -1,30 +1,32 @@
 {% extends "base.njk" %}
 
 {% block content %}
-  <div class="text-main category-listing">
+  <div class="text-main">
     <h1>{{ title }}</h1>
 
-    {% if description %}
-      <p class="category-description">{{ description }}</p>
+    {% if source or figure %}
+      {% set sourceHebrew = sources[source] or source %}
+      {% set figureHebrew = figures[figure] or figure %}
+      <p><em>מקור: {{ sourceHebrew or 'לא מצוין' }} | ייחוס: {{ figureHebrew or 'לא מצוין' }}</em></p>
     {% endif %}
 
-    <div class="book-list">
-      {% set hasBooks = false %}
-      {% for item in collections.texts %}
-        {% if item.data.pageNumber == 0 and item.data.source == source %}
-          {% set hasBooks = true %}
-          <div class="book-card">
-            <h3><a href="{{ item.url | prefixUrl }}">{{ item.data.title }}</a></h3>
-            {% if item.data.description %}
-              <p>{{ item.data.description }}</p>
-            {% endif %}
-          </div>
+    {{ content | safe }}
+  </div>
+
+  <div class="table-of-contents" style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border-color);">
+    <h3>תוכן העניינים:</h3>
+    <ul>
+      {% set hasPages = false %}
+      {% for item in collections.all %}
+        {% if item.url != page.url and not item.data.draft and (item.data.book == book or item.url.startsWith(page.url)) and (item.data.pageNumber and item.data.pageNumber > 0 or item.url.includes("/page-")) %}
+          {% set hasPages = true %}
+          <li><a href="{{ item.url | url }}">{{ item.data.title }}</a></li>
         {% endif %}
       {% endfor %}
-      
-      {% if not hasBooks %}
-        <p style="color: var(--text-color-muted); font-style: italic;">אין כתבים בקטגוריה זו עדיין</p>
-      {% endif %}
-    </div>
+    </ul>
+
+    {% if not hasPages %}
+      <p style="color: var(--text-color-muted); font-style: italic;">פרקי החיבור יתווספו בהמשך.</p>
+    {% endif %}
   </div>
 {% endblock %}
