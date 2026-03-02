@@ -8,9 +8,7 @@
     "build": "npx @11ty/eleventy --pathprefix=/Source/ && npx pagefind --site _site --output-path _site/pagefind",
     "deploy": "gh-pages -d _site",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "check:frontmatter": "node scripts/verify-frontmatter.mjs",
-    "check:pathprefix": "node scripts/verify-path-prefix.mjs",
-    "ci:verify": "npm run check:frontmatter && npm run build && npm run check:pathprefix"
+    "check:frontmatter": "node scripts/verify-frontmatter.mjs"
   },
   "keywords": [],
   "author": "",

@@ -24,7 +24,6 @@ jobs:
 
       - name: Check frontmatter integrity
         run: npm run check:frontmatter
-
       - name: Build site
         run: npm run build
 
