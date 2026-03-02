@@ -17,8 +17,8 @@
     <h3>תוכן העניינים:</h3>
     <ul>
       {% set hasPages = false %}
-      {% for item in collections.all | bookPages(page.url, book) %}
-        {% if item.url != page.url %}
+      {% for item in collections.all %}
+        {% if item.url != page.url and not item.data.draft and (item.data.book == book or item.url.startsWith(page.url)) and (item.data.pageNumber and item.data.pageNumber > 0 or item.url.includes("/page-")) %}
           {% set hasPages = true %}
           <li><a href="{{ item.url | url }}">{{ item.data.title }}</a></li>
         {% endif %}
@@ -28,29 +28,5 @@
     {% if not hasPages %}
       <p style="color: var(--text-color-muted); font-style: italic;">פרקי החיבור יתווספו בהמשך.</p>
     {% endif %}
-  </div>
-
-  {# --- אזור התגובות של Disqus --- #}
-  <div id="comments-section" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-color);">
-    <h3>תגובות</h3>
-    <div id="disqus_thread"></div>
-    <script>
-        (function() {
-            try {
-                var disqus_config = function () {
-                    this.page.url = "{{ site.origin }}{{ page.url | url }}";
-                    this.page.identifier = "{{ page.url | url }}";
-                };
-                var d = document, s = d.createElement('script');
-                s.src = 'https://hebrew-aramaic-sources.disqus.com/embed.js';
-                s.setAttribute('data-timestamp', +new Date());
-                s.onerror = function() { console.log('Disqus loading handled'); };
-                (d.head || d.body).appendChild(s);
-            } catch(e) {
-                console.log('Disqus error handled');
-            }
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   </div>
 {% endblock %}
