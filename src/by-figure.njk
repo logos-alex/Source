@@ -11,12 +11,14 @@ eleventyComputed:
 
 <div class="text-main category-listing">
   <h1>{{ title }}</h1>
-  <p>הכתבים בעמוד זה מקובצים לפי היחוס המסורתי לדמות המקראית. בחרו חיבור כדי לקרוא את ההקדמה והטקסט.</p>
+  <p>הכתבים בעמוד זה מקובצים לפי הייחוס המסורתי לדמות המקראית. בחרו חיבור כדי לקרוא את ההקדמה והטקסט.</p>
   
   {# Show only the main introduction pages (not chapters or sub-intros) #}
+  {% set hasFigureItems = false %}
   <div class="book-list">
     {% for item in collections.texts %}
-      {% if item.data.figure == figureKey and not item.data.draft and item.data.pageNumber == 0 and "sub-intro" not in item.data.tags %}
+      {% if item.data.figure == figureKey and item.data.book and not item.data.draft and (item.data.pageNumber == 0 or not item.data.pageNumber) and "sub-intro" not in item.data.tags %}
+        {% set hasFigureItems = true %}
         <div class="book-card">
           <h3><a href="{{ item.url | url }}">{{ item.data.title }}</a></h3>
           <p style="margin-bottom: 15px;">{{ item.data.description or "גילויים נסתרים ומסעות שמימיים המיוחסים לדמותו של " + figures[figureKey] }}</p>
@@ -27,4 +29,7 @@ eleventyComputed:
       {% endif %}
     {% endfor %}
   </div>
+  {% if not hasFigureItems %}
+    <p>כרגע אין חיבורים זמינים לקטגוריה זו. חזרו בהמשך לעדכונים.</p>
+  {% endif %}
 </div>
