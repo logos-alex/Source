@@ -26,11 +26,13 @@ module.exports = function(eleventyConfig) {
       });
   });
 
-  // Passthrough copy for assets
+  // Passthrough copy for assets and static files
   eleventyConfig.addPassthroughCopy("src/assets");
+  eleventyConfig.addPassthroughCopy("src/robots.txt");
+  eleventyConfig.addPassthroughCopy("src/_redirects");
 
   return {
-    pathPrefix: "/Source/",
+    pathPrefix: site.pathPrefix,
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",
     dir: {
