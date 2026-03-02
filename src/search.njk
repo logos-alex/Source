@@ -15,56 +15,48 @@ permalink: /search/
             const searchRoot = document.getElementById('search');
             const candidateScriptUrls = [
                 "{{ '/pagefind/pagefind-ui.js' | url }}",
-                "{{ site.pathPrefix }}pagefind/pagefind-ui.js",
                 "/pagefind/pagefind-ui.js"
             ];
 
-            let initialized = false;
-
-            const createSearchUi = (bundlePath) => {
-                if (initialized) return;
+            const initPagefind = () => {
                 if (typeof PagefindUI !== 'function') {
+                    searchRoot.innerHTML = '<p style="color: var(--text-color-muted);">החיפוש אינו זמין כרגע. נסו לרענן את הדף.</p>';
                     return;
                 }
-                initialized = true;
 
                 new PagefindUI({
-                    bundlePath,
-                    element: '#search',
+                    bundlePath: "{{ '/pagefind/' | url }}",
+                    element: "#search",
                     showSubResults: true,
                     translations: {
-                        placeholder: 'חפש בכתבים...',
-                        clear_search: 'נקה',
-                        load_more: 'טען תוצאות נוספות',
-                        search_label: 'חפש באתר זה',
-                        filters_label: 'מסננים',
-                        zero_results: 'לא נמצאו תוצאות עבור [SEARCH_TERM]',
-                        many_results: 'נמצאו [COUNT] תוצאות עבור [SEARCH_TERM]',
-                        one_result: 'נמצאה תוצאה אחת עבור [SEARCH_TERM]',
-                        alt_search: 'לא נמצאו תוצאות עבור [SEARCH_TERM]. מציג תוצאות עבור [DIFFERENT_TERM] במקום זאת.',
-                        search_suggestion: 'לא נמצאו תוצאות עבור [SEARCH_TERM]. נסה את אחד מהחיפושים הבאים:',
-                        searching: 'מחפש...'
+                        placeholder: "חפש בכתבים...",
+                        clear_search: "נקה",
+                        load_more: "טען תוצאות נוספות",
+                        search_label: "חפש באתר זה",
+                        filters_label: "מסננים",
+                        zero_results: "לא נמצאו תוצאות עבור [SEARCH_TERM]",
+                        many_results: "נמצאו [COUNT] תוצאות עבור [SEARCH_TERM]",
+                        one_result: "נמצאה תוצאה אחת עבור [SEARCH_TERM]",
+                        alt_search: "לא נמצאו תוצאות עבור [SEARCH_TERM]. מציג תוצאות עבור [DIFFERENT_TERM] במקום זאת.",
+                        search_suggestion: "לא נמצאו תוצאות עבור [SEARCH_TERM]. נסה את אחד מהחיפושים הבאים:",
+                        searching: "מחפש..."
                     }
                 });
             };
 
             const tryLoadScript = (index = 0) => {
+                if (typeof PagefindUI === 'function') {
+                    initPagefind();
+                    return;
+                }
                 if (index >= candidateScriptUrls.length) {
-                    searchRoot.innerHTML = '<p style="color: var(--text-color-muted);">החיפוש אינו זמין כרגע. נסו לרענן את הדף.</p>';
+                    initPagefind();
                     return;
                 }
 
-                const scriptUrl = candidateScriptUrls[index];
                 const script = document.createElement('script');
-                script.src = scriptUrl;
-                script.onload = () => {
-                    const normalizedScriptUrl = new URL(scriptUrl, window.location.origin).pathname;
-                    const bundlePath = normalizedScriptUrl.replace(/pagefind-ui\.js$/, '');
-                    createSearchUi(bundlePath);
-                    if (!initialized) {
-                        tryLoadScript(index + 1);
-                    }
-                };
+                script.src = candidateScriptUrls[index];
+                script.onload = initPagefind;
                 script.onerror = () => tryLoadScript(index + 1);
                 document.head.appendChild(script);
             };
