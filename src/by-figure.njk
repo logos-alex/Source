@@ -6,7 +6,7 @@ pagination:
 layout: base.njk
 permalink: "/by-figure/{{ figureKey }}/index.html"
 eleventyComputed:
-  title: "כתבים המיוחסים ל{{ figures[figureKey] }}"
+  title: "כתבים המיוחסים ל{{ figures[figureKey] or figureKey }}"
 ---
 
 <div class="text-main category-listing">
