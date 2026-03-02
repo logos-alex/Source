@@ -99,6 +99,7 @@
         <nav role="navigation" aria-label="ניווט ראשי">
             <a href="{{ '/' | url }}" {% if page.url == "/" %}aria-current="page"{% endif %}>דף הבית</a>
             <a href="{{ '/search/' | url }}" {% if page.url == "/search/" %}aria-current="page"{% endif %}>🔍 חיפוש</a>
+            <a href="{{ '/updates/' | url }}" {% if page.url == "/updates/" %}aria-current="page"{% endif %}>🆕 מה חדש</a>
 
             <div class="nav-dropdown">
                 <a href="{{ '/texts/' | url }}" class="dropbtn" {% if page.url and page.url.startsWith("/texts/") %}aria-current="page"{% endif %}>לפי מקור</a>
