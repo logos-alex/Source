@@ -1,7 +1,11 @@
 name: Deploy Eleventy to GitHub Pages
 
 on:
-  # Manual fallback workflow (primary deployment uses deploy-gh-pages-branch.yml)
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["main", "work"]
+
+  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
