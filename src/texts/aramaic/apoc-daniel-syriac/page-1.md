@@ -1,6 +1,11 @@
 ---
 layout: text-page
-title: Page 1
+title: פרק א
+book: apoc-daniel-syriac
+source: aramaic
+figure: daniel
+pageNumber: 1
+version: main
 ---
 
 לדניאיל נבܼיא בארעא דפרס ודעילם܀ במܲלכותה דדריוש מריא דאמלך בפרס܂

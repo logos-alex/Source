@@ -1,6 +1,11 @@
 ---
 layout: text-page
-title: Page 3
+title: פרק ג
+book: apoc-daniel-syriac
+source: aramaic
+figure: daniel
+pageNumber: 3
+version: main
 ---
 
 וסלק סנחריב מܲלכא מן אתור מן כרכא דנינוא ואחד לכלהܿ ארעא דהות לבלטשצר מܲלכא ואמלך בגוהܿ܂

@@ -41,7 +41,7 @@
     });
   </script>
 
-  {% if pageNumber != 0 %}
+  {% if pageNumber != 0 and notes %}
     <div class="footnotes">
       <h3>הערות וביאורים</h3>
       <ol>
@@ -53,9 +53,7 @@
   {% endif %}
 
   {# --- ניווט בין עמודים (עם כפתור חזרה לתוכן העניינים) --- #}
-  {# Construct the collection name dynamically from the book and version #}
-  {% set collectionName = book + '-' + version %}
-  {% set pagesInBook = collections[collectionName] %}
+  {% set pagesInBook = collections.all | bookPages(page.url, book) %}
   {% set currentPageIndex = pagesInBook | findIndexByUrl(page.url) %}
   
   <nav class="pagination">

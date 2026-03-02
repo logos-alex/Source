@@ -7,6 +7,22 @@ module.exports = function(eleventyConfig) {
     return items.findIndex(item => item.url === url);
   });
 
+  
+  eleventyConfig.addFilter("bookPages", (items, currentUrl, book) => {
+    if (!items || !currentUrl) return [];
+    const prefix = currentUrl.replace(/[^/]+\/?$/, "");
+    return items
+      .filter(item => !item.data?.draft)
+      .filter(item => (book && item.data?.book === book) || (item.url && item.url.startsWith(prefix)))
+      .filter(item => item.data?.pageNumber || item.url?.includes('/page-'))
+      .sort((a, b) => {
+        const ap = Number(a.data?.pageNumber || 0);
+        const bp = Number(b.data?.pageNumber || 0);
+        if (ap !== bp) return ap - bp;
+        return (a.url || '').localeCompare(b.url || '');
+      });
+  });
+
   // Passthrough copy for assets
   eleventyConfig.addPassthroughCopy("src/assets");
 
