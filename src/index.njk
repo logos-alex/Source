@@ -69,7 +69,7 @@ bodyClass: home-page
         </strong>
       </li>
       {% for item in collections.texts %}
-        {% if (item.data.pageNumber == 0 or not item.data.pageNumber) and item.data.book and "sub-intro" not in item.data.tags and not item.data.draft %}
+        {% if (item.data.pageNumber == 0 or not item.data.pageNumber) and item.data.book and item.data.book not in ["kitab-al-majall", "clementos-geez"] and "sub-intro" not in item.data.tags and not item.data.draft %}
           {% set hasQuickJumpItems = true %}
           <li style="margin-top: 10px;">
             <strong><a href="{{ item.url | url }}">{{ item.data.title | replace("חזון דניאל (סורי-ארמי) – הקדמה", "חזון דניאל (הארמי-סורי)") | replace("חזון דניאל הסורי-ארמי: הקדמה", "חזון דניאל (הארמי-סורי)") | replace("דניאל הקטן (ארמית-סורית): הקדמה", "דניאל הקטן") | replace("הקדמה", "") }}</a></strong>
