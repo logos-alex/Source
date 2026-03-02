@@ -201,7 +201,8 @@ body.reading-mode #comments-section {
     background-color: rgba(212, 175, 55, 0.1);
 }
 
-.nav-dropdown:hover .dropdown-content {
+.nav-dropdown:hover .dropdown-content,
+.nav-dropdown:focus-within .dropdown-content {
     display: block;
 }
 
