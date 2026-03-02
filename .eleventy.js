@@ -30,7 +30,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets");
 
   return {
-    pathPrefix: "/Source/",
+    pathPrefix: site.pathPrefix,
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",
     dir: {

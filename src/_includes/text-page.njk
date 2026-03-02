@@ -10,7 +10,7 @@
     <h1 data-pagefind-meta="title">{{ title }}</h1>
     
     {% if source or figure %}
-      {% set sourceHebrew = sources[source] or source %}
+      {% set sourceHebrew = languages[source] or source %}
       {% set figureHebrew = figures[figure] or figure %}
       <p><em>מקור: {{ sourceHebrew or 'לא מצוין' }} | ייחוס: {{ figureHebrew or 'לא מצוין' }}</em></p>
     {% endif %}
