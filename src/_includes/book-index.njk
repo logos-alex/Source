@@ -7,7 +7,7 @@
     {% if source or figure %}
       {% set sourceHebrew = sources[source] or source %}
       {% set figureHebrew = figures[figure] or figure %}
-      <p><em>מקור: {{ sourceHebrew or 'לא מצוין' }} | יחוס: {{ figureHebrew or 'לא מצוין' }}</em></p>
+      <p><em>מקור: {{ sourceHebrew or 'לא מצוין' }} | ייחוס: {{ figureHebrew or 'לא מצוין' }}</em></p>
     {% endif %}
     {{ content | safe }}
   </div>
@@ -34,7 +34,7 @@
         {% endif %}
         
         <li>
-          <a href="{{ pageItem.url | prefixUrl }}">
+          <a href="{{ pageItem.url | url }}">
             {{ pageItem.data.title }}
           </a>
         </li>

@@ -12,7 +12,7 @@
     {% if source or figure %}
       {% set sourceHebrew = sources[source] or source %}
       {% set figureHebrew = figures[figure] or figure %}
-      <p><em>מקור: {{ sourceHebrew or 'לא מצוין' }} | יחוס: {{ figureHebrew or 'לא מצוין' }}</em></p>
+      <p><em>מקור: {{ sourceHebrew or 'לא מצוין' }} | ייחוס: {{ figureHebrew or 'לא מצוין' }}</em></p>
     {% endif %}
     
     <div class="text-content {% if book == 'apoc-daniel-syriac' and pageNumber != 0 %}parallel-layout{% endif %}">

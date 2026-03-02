@@ -1,12 +1,12 @@
 ---
 layout: base.njk
-title: "כתבים לפי יחוס"
+title: "כתבים לפי ייחוס"
 draft: false
 permalink: /by-figure/
 ---
 
 <div class="text-main category-listing">
-  <h1>כתבים לפי יחוס</h1>
+  <h1>כתבים לפי ייחוס</h1>
   <p>חלק מן החיבורים נכתבו בשם דמויות מקראיות מרכזיות. כאן תוכלו לנווט לפי הדמות המשויכת לטקסט.</p>
   
   <div class="book-list">
