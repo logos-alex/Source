@@ -13,20 +13,39 @@
     {{ content | safe }}
   </div>
 
-  <div class="table-of-contents" style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border-color);">
-    <h3>תוכן העניינים:</h3>
-    <ul>
-      {% set hasPages = false %}
-      {% for item in collections.all %}
-        {% if item.url != page.url and not item.data.draft and (item.data.book == book or item.url.startsWith(page.url)) and (item.data.pageNumber and item.data.pageNumber > 0 or item.url.includes("/page-")) %}
-          {% set hasPages = true %}
-          <li><a href="{{ item.url | url }}">{{ item.data.title }}</a></li>
-        {% endif %}
-      {% endfor %}
-    </ul>
+  {% set pagesInBook = collections.all | bookPages(page.url, book) %}
+  {% if not hideToc %}
+    <div class="table-of-contents" style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border-color);">
+      <h3>תוכן העניינים:</h3>
+      <ul>
+        {% for item in pagesInBook %}
+          {% if item.url != page.url %}
+            <li><a href="{{ item.url | url }}">{{ item.data.title }}</a></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
 
-    {% if not hasPages %}
-      <p style="color: var(--text-color-muted); font-style: italic;">פרקי החיבור יתווספו בהמשך.</p>
+      {% if pagesInBook.length == 0 %}
+        <p style="color: var(--text-color-muted); font-style: italic;">פרקי החיבור יתווספו בהמשך.</p>
+      {% endif %}
+    </div>
+
+    {% if pagesInBook.length > 0 %}
+      <nav class="pagination">
+        <div class="toc-dropdown">
+          <a href="{{ page.url | url }}" class="home-link">📖 תוכן העניינים</a>
+          <div class="toc-dropdown-content">
+            <div class="toc-dropdown-header">פרקים בטקסט</div>
+            <ol>
+              {% for item in pagesInBook %}
+                <li><a href="{{ item.url | url }}">{{ item.data.title }}</a></li>
+              {% endfor %}
+            </ol>
+          </div>
+        </div>
+
+        <a href="{{ pagesInBook[0].url | url }}" class="next">התחל קריאה ←</a>
+      </nav>
     {% endif %}
-  </div>
+  {% endif %}
 {% endblock %}
