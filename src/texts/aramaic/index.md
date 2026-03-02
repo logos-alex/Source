@@ -16,7 +16,7 @@ permalink: /texts/aramaic/
         <div class="book-card">
           <h3><a href="{{ item.url | url }}">{{ item.data.title | replace: "חזון דניאל הסורי-ארמי: הקדמה", "חזון דניאל (הארמי-סורי)" | replace: "דניאל הקטן (ארמית-סורית): הקדמה", "דניאל הקטן" | replace: "הקדמה", "" }}</a></h3>
           <p style="margin-bottom: 15px;">{{ item.data.description }}</p>
-          <p><small>יחוס: <a href="{{ '/by-figure/' | append: item.data.figure | append: '/' | url }}">{{ figures[item.data.figure] }}</a></small></p>
+          <p><small>ייחוס: <a href="{{ '/by-figure/' | append: item.data.figure | append: '/' | url }}">{{ figures[item.data.figure] }}</a></small></p>
         </div>
       {% endunless %}
       {% endif %}

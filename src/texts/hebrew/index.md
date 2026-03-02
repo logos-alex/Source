@@ -16,7 +16,7 @@ permalink: /texts/hebrew/
         <div class="book-card">
           <h3><a href="{{ item.url | url }}">{{ item.data.title | replace: "הקדמה", "" }}</a></h3>
           <p style="margin-bottom: 15px;">{{ item.data.description }}</p>
-          <p><small>יחוס: <a href="{{ '/by-figure/' | append: item.data.figure | append: '/' | url }}">{{ figures[item.data.figure] or item.data.figure }}</a></small></p>
+          <p><small>ייחוס: <a href="{{ '/by-figure/' | append: item.data.figure | append: '/' | url }}">{{ figures[item.data.figure] or item.data.figure }}</a></small></p>
         </div>
       {% endunless %}
       {% endif %}
