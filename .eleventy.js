@@ -11,9 +11,12 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addFilter("bookPages", (items, currentUrl, book) => {
     if (!items || !currentUrl) return [];
     const prefix = currentUrl.replace(/[^/]+\/?$/, "");
+    const byBook = (item) => book && item.data?.book === book;
+    const byPrefix = (item) => item.url && item.url.startsWith(prefix);
+
     return items
       .filter(item => !item.data?.draft)
-      .filter(item => (book && item.data?.book === book) || (item.url && item.url.startsWith(prefix)))
+      .filter(item => book ? byBook(item) : byPrefix(item))
       .filter(item => item.data?.pageNumber || item.url?.includes('/page-'))
       .sort((a, b) => {
         const ap = Number(a.data?.pageNumber || 0);
