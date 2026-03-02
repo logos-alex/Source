@@ -15,55 +15,54 @@
   {# --- תוכן העניינים האוטומטי עבור ספרים ללא תוכן ידני --- #}
   <div class="table-of-contents" style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border-color);">
     <h3>העמודים:</h3>
-    
-    {# --- הפרדה לנוסחים שונים --- #}
-    {% set lastVersion = 'none' %}
-    <ul>
-    {% for pageItem in collections.textsByBook[book] %}
-      {% if pageItem.data.pageNumber > 0 %}
-        {% if pageItem.url.includes('/a/') %}
-          {% if lastVersion !== 'a' %}
-            {% if lastVersion !== 'none' %}</ul><div style="height: 20px; border-top: 1px solid var(--border-color); margin: 15px 0;"></div><h4 style="margin: 10px 0 10px 0; color: var(--header-color);">נוסח ב'</h4><ul>{% endif %}
-            {% set lastVersion = 'a' %}
-          {% endif %}
-        {% elif pageItem.url.includes('/b/') %}
-          {% if lastVersion !== 'b' %}
-            </ul><div style="height: 20px; border-top: 1px solid var(--border-color); margin: 15px 0;"></div><h4 style="margin: 10px 0 10px 0; color: var(--header-color);">נוסח ב'</h4><ul>
-            {% set lastVersion = 'b' %}
-          {% endif %}
+
+    {% set pagesInBook = collections.all | bookPages(page.url, book) %}
+    {% set byVersion = pagesInBook | groupby("data.version") %}
+
+    {% if pagesInBook.length %}
+      {% for versionGroup in byVersion %}
+        {% set versionKey = versionGroup[0] %}
+        {% set versionPages = versionGroup[1] %}
+
+        {% if byVersion.length > 1 %}
+          <h4 style="margin: 16px 0 10px 0; color: var(--header-color);">
+            {% if versionKey == 'a' %}נוסח א'{% elif versionKey == 'b' %}נוסח ב'{% else %}נוסח עיקרי{% endif %}
+          </h4>
         {% endif %}
-        
-        <li>
-          <a href="{{ pageItem.url | url }}">
-            {{ pageItem.data.title }}
-          </a>
-        </li>
-      {% endif %}
-    {% endfor %}
-    </ul>
+
+        <ul>
+          {% for pageItem in versionPages %}
+            <li>
+              <a href="{{ pageItem.url | url }}">{{ pageItem.data.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endfor %}
+    {% else %}
+      <p style="color: var(--text-color-muted); font-style: italic;">פרקי החיבור יתווספו בהמשך.</p>
+    {% endif %}
   </div>
 
   {# --- אזור התגובות של Disqus --- #}
   <div id="comments-section" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-color);">
     <h3>תגובות</h3>
-    <div id="disqus_thread"></div>
-    <script>
-        (function() {
-            try {
-                var disqus_config = function () {
-                    this.page.url = "{{ site.origin }}{{ page.url | url }}";
-                    this.page.identifier = "{{ page.url | url }}";
-                };
-                var d = document, s = d.createElement('script');
-                s.src = 'https://hebrew-aramaic-sources.disqus.com/embed.js';
-                s.setAttribute('data-timestamp', +new Date());
-                s.onerror = function() { console.log('Disqus loading handled'); };
-                (d.head || d.body).appendChild(s);
-            } catch(e) {
-                console.log('Disqus error handled');
-            }
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    {% if site.disqusShortname %}
+      <div id="disqus_thread"></div>
+      <script>
+          var disqus_config = function () {
+              this.page.url = "{{ site.origin }}{{ page.url | url }}";
+              this.page.identifier = "{{ page.url | url }}";
+          };
+          (function() {
+              var d = document, s = d.createElement('script');
+              s.src = 'https://{{ site.disqusShortname }}.disqus.com/embed.js';
+              s.setAttribute('data-timestamp', +new Date());
+              (d.head || d.body).appendChild(s);
+          })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    {% else %}
+      <p style="color: var(--text-color-muted);">מערכת התגובות כבויה כרגע בהגדרות האתר.</p>
+    {% endif %}
   </div>
 {% endblock %}
