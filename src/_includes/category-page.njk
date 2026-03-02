@@ -13,41 +13,37 @@
     {{ content | safe }}
   </div>
 
-  {% set pagesInBook = collections.all | bookPages(page.url, book) %}
-  {% set normalizedPageUrl = (page.url or "") | replace("/Source", "") %}
-  {% set isMainAbrahamIntro = normalizedPageUrl == "/texts/slavic/apocalypse-abraham/" or normalizedPageUrl == "/texts/slavic/apocalypse-abraham" %}
-  {% if not hideToc and not isMainAbrahamIntro %}
-    <div class="table-of-contents" style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border-color);">
-      <h3>תוכן העניינים:</h3>
-      <ul>
-        {% for item in pagesInBook %}
-          {% if item.url != page.url %}
-            <li><a href="{{ item.url | url }}">{{ item.data.title }}</a></li>
-          {% endif %}
-        {% endfor %}
-      </ul>
+  <div class="table-of-contents" style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border-color);">
+    <h3>תוכן העניינים:</h3>
+    {% set pagesInBook = collections.all | bookPages(page.url, book) %}
+    <ul>
+      {% for item in pagesInBook %}
+        {% if item.url != page.url %}
+          <li><a href="{{ item.url | url }}">{{ item.data.title }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
 
-      {% if pagesInBook.length == 0 %}
-        <p style="color: var(--text-color-muted); font-style: italic;">פרקי החיבור יתווספו בהמשך.</p>
-      {% endif %}
-    </div>
-
-    {% if pagesInBook.length > 0 %}
-      <nav class="pagination">
-        <div class="toc-dropdown">
-          <a href="{{ page.url | url }}" class="home-link">📖 תוכן העניינים</a>
-          <div class="toc-dropdown-content">
-            <div class="toc-dropdown-header">פרקים בטקסט</div>
-            <ol>
-              {% for item in pagesInBook %}
-                <li><a href="{{ item.url | url }}">{{ item.data.title }}</a></li>
-              {% endfor %}
-            </ol>
-          </div>
-        </div>
-
-        <a href="{{ pagesInBook[0].url | url }}" class="next">התחל קריאה ←</a>
-      </nav>
+    {% if pagesInBook.length == 0 %}
+      <p style="color: var(--text-color-muted); font-style: italic;">פרקי החיבור יתווספו בהמשך.</p>
     {% endif %}
+  </div>
+
+  {% if pagesInBook.length > 0 %}
+    <nav class="pagination">
+      <div class="toc-dropdown">
+        <a href="{{ page.url | url }}" class="home-link">📖 תוכן העניינים</a>
+        <div class="toc-dropdown-content">
+          <div class="toc-dropdown-header">פרקים בטקסט</div>
+          <ol>
+            {% for item in pagesInBook %}
+              <li><a href="{{ item.url | url }}">{{ item.data.title }}</a></li>
+            {% endfor %}
+          </ol>
+        </div>
+      </div>
+
+      <a href="{{ pagesInBook[0].url | url }}" class="next">התחל קריאה ←</a>
+    </nav>
   {% endif %}
 {% endblock %}
