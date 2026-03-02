@@ -4,6 +4,8 @@
   const readingToggle = document.getElementById('readingModeToggle');
 
   function applyTheme(theme) {
+    if (!htmlRoot) return;
+
     const isDark = theme === 'dark';
     if (isDark) {
       htmlRoot.setAttribute('data-theme', 'dark');
@@ -42,7 +44,7 @@
     }
   }
 
-  if (themeToggle) {
+  if (themeToggle && htmlRoot) {
     themeToggle.addEventListener('click', () => {
       const current = htmlRoot.getAttribute('data-theme');
       const newTheme = current === 'dark' ? 'light' : 'dark';
@@ -55,6 +57,8 @@
 })();
 
 window.googleTranslateElementInit = function googleTranslateElementInit() {
+  if (!window.google || !google.translate) return;
+
   new google.translate.TranslateElement({
     pageLanguage: 'he',
     includedLanguages: 'en,fr,de,es,ru,ar,it',
