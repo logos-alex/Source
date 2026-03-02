@@ -34,6 +34,8 @@ jobs:
           cache: "npm"
       - name: Install dependencies
         run: npm install
+      - name: Check frontmatter integrity
+        run: npm run check:frontmatter
       - name: Build with Eleventy
         run: npm run build
       - name: Upload artifact
