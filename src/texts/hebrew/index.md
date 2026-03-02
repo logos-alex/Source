@@ -11,14 +11,14 @@ permalink: /texts/hebrew/
   <div class="book-list">
     {% for item in collections.texts %}
       {% if item.data.source == "hebrew" and item.data.draft != true %}
-      {% if item.data.pageNumber == 0 or item.data.pageNumber == blank %}
-      {% unless item.data.tags contains "sub-intro" %}
+      {% if item.data.pageNumber == 0 or not item.data.pageNumber %}
+      {% if "sub-intro" not in (item.data.tags or []) %}
         <div class="book-card">
-          <h3><a href="{{ item.url | url }}">{{ item.data.title | replace: "הקדמה", "" }}</a></h3>
+          <h3><a href="{{ item.url | url }}">{{ item.data.title | replace("הקדמה", "") }}</a></h3>
           <p style="margin-bottom: 15px;">{{ item.data.description }}</p>
-          <p><small>ייחוס: <a href="{{ '/by-figure/' | append: item.data.figure | append: '/' | url }}">{{ figures[item.data.figure] or item.data.figure }}</a></small></p>
+          <p><small>ייחוס: <a href="{{ '/by-figure/' + item.data.figure + '/' | url }}">{{ figures[item.data.figure] or item.data.figure }}</a></small></p>
         </div>
-      {% endunless %}
+      {% endif %}
       {% endif %}
       {% endif %}
     {% endfor %}

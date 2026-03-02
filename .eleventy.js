@@ -28,6 +28,8 @@ module.exports = function(eleventyConfig) {
 
   return {
     pathPrefix: "/Source/",
+    markdownTemplateEngine: "njk",
+    htmlTemplateEngine: "njk",
     dir: {
       input: "src",
       includes: "_includes",
