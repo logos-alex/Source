@@ -24,6 +24,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Check frontmatter integrity
+        run: npm run check:frontmatter
       - name: Build site
         run: npm run build
 
