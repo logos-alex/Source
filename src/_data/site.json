@@ -1,5 +1,6 @@
 {
   "url": "https://logos-alex.github.io/Source/",
   "origin": "https://logos-alex.github.io",
-  "pathPrefix": "/Source/"
+  "pathPrefix": "/Source/",
+  "disqusShortname": ""
 }
