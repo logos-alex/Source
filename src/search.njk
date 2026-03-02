@@ -7,33 +7,64 @@ permalink: /search/
 <div class="text-main">
     <h1>חיפוש באוצר</h1>
     <p>הקלד מונח חיפוש כדי לאתר טקסטים, שמות או ביטויים מתוך הכתבים והביאורים:</p>
-    
+
     <link href="{{ '/pagefind/pagefind-ui.css' | url }}" rel="stylesheet">
-    <script src="{{ '/pagefind/pagefind-ui.js' | url }}"></script>
     <div id="search" style="margin-top: 20px;"></div>
     <script>
-        window.addEventListener('DOMContentLoaded', (event) => {
-            new PagefindUI({ 
-                bundlePath: "{{ '/pagefind/' | url }}",
-                element: "#search", 
-                showSubResults: true,
-                translations: {
-                    placeholder: "חפש בכתבים...",
-                    clear_search: "נקה",
-                    load_more: "טען תוצאות נוספות",
-                    search_label: "חפש באתר זה",
-                    filters_label: "מסננים",
-                    zero_results: "לא נמצאו תוצאות עבור [SEARCH_TERM]",
-                    many_results: "נמצאו [COUNT] תוצאות עבור [SEARCH_TERM]",
-                    one_result: "נמצאה תוצאה אחת עבור [SEARCH_TERM]",
-                    alt_search: "לא נמצאו תוצאות עבור [SEARCH_TERM]. מציג תוצאות עבור [DIFFERENT_TERM] במקום זאת.",
-                    search_suggestion: "לא נמצאו תוצאות עבור [SEARCH_TERM]. נסה את אחד מהחיפושים הבאים:",
-                    searching: "מחפש..."
+        window.addEventListener('DOMContentLoaded', () => {
+            const searchRoot = document.getElementById('search');
+            const candidateScriptUrls = [
+                "{{ '/pagefind/pagefind-ui.js' | url }}",
+                "/pagefind/pagefind-ui.js"
+            ];
+
+            const initPagefind = () => {
+                if (typeof PagefindUI !== 'function') {
+                    searchRoot.innerHTML = '<p style="color: var(--text-color-muted);">החיפוש אינו זמין כרגע. נסו לרענן את הדף.</p>';
+                    return;
                 }
-            });
+
+                new PagefindUI({
+                    bundlePath: "{{ '/pagefind/' | url }}",
+                    element: "#search",
+                    showSubResults: true,
+                    translations: {
+                        placeholder: "חפש בכתבים...",
+                        clear_search: "נקה",
+                        load_more: "טען תוצאות נוספות",
+                        search_label: "חפש באתר זה",
+                        filters_label: "מסננים",
+                        zero_results: "לא נמצאו תוצאות עבור [SEARCH_TERM]",
+                        many_results: "נמצאו [COUNT] תוצאות עבור [SEARCH_TERM]",
+                        one_result: "נמצאה תוצאה אחת עבור [SEARCH_TERM]",
+                        alt_search: "לא נמצאו תוצאות עבור [SEARCH_TERM]. מציג תוצאות עבור [DIFFERENT_TERM] במקום זאת.",
+                        search_suggestion: "לא נמצאו תוצאות עבור [SEARCH_TERM]. נסה את אחד מהחיפושים הבאים:",
+                        searching: "מחפש..."
+                    }
+                });
+            };
+
+            const tryLoadScript = (index = 0) => {
+                if (typeof PagefindUI === 'function') {
+                    initPagefind();
+                    return;
+                }
+                if (index >= candidateScriptUrls.length) {
+                    initPagefind();
+                    return;
+                }
+
+                const script = document.createElement('script');
+                script.src = candidateScriptUrls[index];
+                script.onload = initPagefind;
+                script.onerror = () => tryLoadScript(index + 1);
+                document.head.appendChild(script);
+            };
+
+            tryLoadScript();
         });
     </script>
-    
+
     <div style="margin-top: 30px; padding: 15px; border: 1px solid var(--border-color); border-radius: 5px;">
         <p><strong>אפשר גם לעיין לפי קטגוריות:</strong></p>
         <ul>
