@@ -1,8 +1,6 @@
-name: Deploy static site to gh-pages branch
+name: Deploy static site to gh-pages branch (manual fallback)
 
 on:
-  push:
-    branches: ["main", "work"]
   workflow_dispatch:
 
 permissions:
@@ -28,6 +26,9 @@ jobs:
         run: npm run check:frontmatter
       - name: Build site
         run: npm run build
+
+      - name: Check pathPrefix integrity
+        run: npm run check:pathprefix
 
       - name: Deploy _site to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4
