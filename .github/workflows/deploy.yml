@@ -1,11 +1,7 @@
 name: Deploy Eleventy to GitHub Pages
 
 on:
-  # Runs on pushes targeting the default branch
-  push:
-    branches: ["main"]
-
-  # Allows you to run this workflow manually from the Actions tab
+  # Manual fallback workflow (primary deployment uses deploy-gh-pages-branch.yml)
   workflow_dispatch:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
@@ -35,7 +31,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Build with Eleventy
-        run: npx @11ty/eleventy --pathprefix=/Source/
+        run: npm run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
