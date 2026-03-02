@@ -53,7 +53,6 @@ bodyClass: home-page
       <li><a href="{{ '/by-figure/abraham/' | url }}">אברהם</a></li>
       <li><a href="{{ '/by-figure/daniel/' | url }}">דניאל</a></li>
       <li><a href="{{ '/by-figure/zerubbabel/' | url }}">זרובבל</a></li>
-      <li><a href="{{ '/by-figure/clement/' | url }}">קלמנס מרומא</a></li>
       <li><a href="{{ '/by-figure/talmidei-yeshua/' | url }}">מתלמידי ישוע</a></li>
     </ul>
 
@@ -62,6 +61,13 @@ bodyClass: home-page
     <h3>קפיצה מהירה לכתבים:</h3>
     {% set hasQuickJumpItems = false %}
     <ul>
+      <li style="margin-top: 10px;">
+        <strong>
+          <a href="{{ '/texts/arabic/sefer-megilot/' | url }}">ספר מגילות</a>
+          /
+          <a href="{{ '/texts/geez/clementos/' | url }}">קלמנטוס</a>
+        </strong>
+      </li>
       {% for item in collections.texts %}
         {% if (item.data.pageNumber == 0 or not item.data.pageNumber) and item.data.book and "sub-intro" not in item.data.tags and not item.data.draft %}
           {% set hasQuickJumpItems = true %}
