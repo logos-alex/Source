@@ -18,7 +18,8 @@
     "new:chapter": "node scripts/new-chapter.mjs",
     "check:catalog": "node scripts/verify-catalog-consistency.mjs",
     "check:chapter-titles": "node scripts/verify-chapter-titles.mjs",
-    "report:content": "node scripts/report-content-status.mjs"
+    "report:content": "node scripts/report-content-status.mjs",
+    "check:release-content": "node scripts/verify-release-content.mjs"
   },
   "keywords": [],
   "author": "",
