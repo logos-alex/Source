@@ -74,29 +74,5 @@
         "description": "הגרסה האתיופית־געז של החלק השני."
       }
     }
-  },
-  {
-    "id": "tsavaat-yeshua",
-    "title": "צוואת ישוע",
-    "lang": "aramaic",
-    "description": "חיבור ארמי/סורי המיוחס למסורת תלמידי ישוע.",
-    "versions": {
-      "main": {
-        "title": "נוסח עיקרי",
-        "description": "הגרסה העיקרית של הטקסט."
-      }
-    }
-  },
-  {
-    "id": "apocalypse-abraham-b",
-    "title": "חזון אברהם — נוסח ב'",
-    "lang": "slavic",
-    "description": "נוסח ב' של חזון אברהם כפי שהשתמר במסורת הסלאבית.",
-    "versions": {
-      "b": {
-        "title": "נוסח ב'",
-        "description": "גרסה שנייה של הטקסט."
-      }
-    }
   }
 ]
