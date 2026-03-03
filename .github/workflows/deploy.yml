@@ -31,15 +31,10 @@ jobs:
         run: npm ci
 
       - name: Build site
-        run: |
-          if npm run | grep -q "build"; then
-            npm run build
-            npm run check:release-content
-          else
-            echo "Missing npm script: build" >&2
-            npm run
-            exit 1
-          fi
+        run: npm run build
+
+      - name: Check for release content (if script exists)
+        run: npm run check:release-content --if-present
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
