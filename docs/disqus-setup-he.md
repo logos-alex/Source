@@ -1,23 +1,29 @@
 # הפעלת Disqus באתר
 
-מערכת התגובות פעילה באמצעות ה-Shortname:
-`hebrew-aramaic-sources`
+כרגע מערכת התגובות קיימת בקוד אך כבויה, כי בקובץ `src/_data/site.json` הערך `disqusShortname` ריק.
 
-## איפה התגובות מופיעות?
-- בעמודי תוכן (פרקי טקסט).
-- בעמודי מבוא של חיבורים.
+## למה זה לא עובד כרגע?
+- בתבניות `text-page.njk` ו-`book-index.njk` התגובות נטענות רק אם `site.disqusShortname` מוגדר.
+- כאשר הערך ריק, מוצגת הודעה: "מערכת התגובות כבויה כרגע בהגדרות האתר".
 
-## איפה לא מציגים תגובות?
-- עמוד הבית, חיפוש, דפי ניווט כלליים ועמודי מערכת.
-
-## קונפיגורציה מרכזית
-ההגדרה נמצאת ב-`src/_data/site.json`:
+## איך מפעילים?
+1. להיכנס ל-Disqus וליצור אתר חדש (או להשתמש באתר קיים).
+2. לקחת את ה-Shortname של האתר.
+3. לעדכן בקובץ `src/_data/site.json`:
 ```json
 {
-  "disqusShortname": "hebrew-aramaic-sources"
+  "disqusShortname": "YOUR_SHORTNAME"
 }
 ```
+4. להריץ build ולפרוס:
+```bash
+npm run ci:verify
+```
 
-## בדיקה מהירה
-- לוודא שבדפי תוכן נטען:
-`https://hebrew-aramaic-sources.disqus.com/embed.js`
+## בדיקה מהירה לאחר הפעלה
+- להיכנס לאחד מעמודי התוכן ולוודא שמופיע `<div id="disqus_thread">` ושהסקריפט נטען מ-
+  `https://YOUR_SHORTNAME.disqus.com/embed.js`.
+
+## הערות חשובות
+- מומלץ להגדיר ב-Disqus את ה-domain הראשי המדויק של האתר.
+- אם בעתיד יוחלף הדומיין, כדאי לעדכן זאת גם ב-Disqus כדי למנוע פיצול thread IDs.
