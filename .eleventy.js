@@ -8,7 +8,7 @@ module.exports = function(eleventyConfig) {
   });
 
   
-  eleventyConfig.addFilter("bookPages", (items, currentUrl, book) => {
+  eleventyConfig.addFilter("bookPages", (items, currentUrl, book, includeIndex = true) => {
     if (!items || !currentUrl) return [];
     const prefix = currentUrl.replace(/[^/]+\/?$/, "");
     const byBook = (item) => book && item.data?.book === book;
@@ -18,6 +18,7 @@ module.exports = function(eleventyConfig) {
       .filter(item => !item.data?.draft)
       .filter(item => book ? byBook(item) : byPrefix(item))
       .filter(item => item.data?.pageNumber || item.url?.includes('/page-'))
+      .filter(item => includeIndex ? true : Number(item.data?.pageNumber || 0) > 0)
       .sort((a, b) => {
         const ap = Number(a.data?.pageNumber || 0);
         const bp = Number(b.data?.pageNumber || 0);
@@ -26,11 +27,13 @@ module.exports = function(eleventyConfig) {
       });
   });
 
-  // Passthrough copy for assets
+  // Passthrough copy for assets and static files
   eleventyConfig.addPassthroughCopy("src/assets");
+  eleventyConfig.addPassthroughCopy("src/robots.txt");
+  eleventyConfig.addPassthroughCopy("src/_redirects");
 
   return {
-    pathPrefix: "/Source/",
+    pathPrefix: site.pathPrefix,
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",
     dir: {
