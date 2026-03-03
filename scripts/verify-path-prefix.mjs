@@ -2,7 +2,7 @@ import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 
 const ROOT = '_site';
-const requiredPrefix = '/Source/';
+const requiredPrefix = JSON.parse(readFileSync('src/_data/site.json', 'utf8')).pathPrefix;
 const bad = [];
 
 function walk(dir) {
