@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "npx @11ty/eleventy --serve --port=5000 --pathprefix=/Source/",
-    "build": "npx @11ty/eleventy --pathprefix=/Source/ && npx pagefind --site _site --output-path _site/pagefind",
+    "dev": "eleventy --serve --port=5000 --pathprefix=/Source/",
+    "build": "eleventy --pathprefix=/Source/ && pagefind --site _site --output-path _site/pagefind",
     "deploy": "gh-pages -d _site",
     "test": "echo \"Error: no test specified\" && exit 1",
     "check:frontmatter": "node scripts/verify-frontmatter.mjs"
