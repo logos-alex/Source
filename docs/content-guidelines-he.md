@@ -50,5 +50,28 @@ npm run ci:verify
 הפקודה כוללת:
 - בדיקת frontmatter
 - בדיקת מבנה רציפות פרקים
+- בדיקת תאימות לקטלוג הספרים (book IDs)
+- בדיקת אחידות כותרות פרקים
 - build מלא
 - בדיקת pathPrefix
+- בדיקת קישורים שבורים בתוצר build
+- בדיקת סימוני placeholder/TODO לא רצויים
+
+
+## 6) יצירת פרק חדש (Scaffold)
+להאצה ועקביות, ניתן ליצור תבנית פרק חדשה כך:
+```bash
+npm run new:chapter -- <texts/book/path> <pageNumber> <title> <source> <figure> [version]
+```
+דוגמה:
+```bash
+npm run new:chapter -- aramaic/apoc-daniel-syriac 32 "פרק 32" aramaic daniel main
+```
+
+
+## 7) דוח סטטוס תוכן
+למיפוי מהיר של היקף עבודה תוכני (כמו פרקים ללא תרגום מאומת):
+```bash
+npm run report:content
+```
+התוצר נכתב ל-`docs/content-status-he.md`.
