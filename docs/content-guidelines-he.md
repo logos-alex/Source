@@ -50,7 +50,6 @@ npm run ci:verify
 הפקודה כוללת:
 - בדיקת frontmatter
 - בדיקת מבנה רציפות פרקים
-<<<<<<< HEAD
 - בדיקת תאימות לקטלוג הספרים (book IDs)
 - בדיקת אחידות כותרות פרקים
 - build מלא
@@ -76,7 +75,3 @@ npm run new:chapter -- aramaic/apoc-daniel-syriac 32 "פרק 32" aramaic daniel 
 npm run report:content
 ```
 התוצר נכתב ל-`docs/content-status-he.md`.
-=======
-- build מלא
-- בדיקת pathPrefix
->>>>>>> origin/main
