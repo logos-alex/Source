@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /dist/
+Sitemap: https://logos-alex.github.io/Source/sitemap.xml

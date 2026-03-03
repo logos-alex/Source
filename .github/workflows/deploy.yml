@@ -1,4 +1,4 @@
-name: Deploy Eleventy to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -32,13 +32,9 @@ jobs:
 
       - name: Build site
         run: |
-          if node -e "const s=require('./package.json').scripts||{}; process.exit(s.build?0:1)"; then
+          if npm run | grep -q "build"; then
             npm run build
-            if node -e "const s=require('./package.json').scripts||{}; process.exit(s['check:release-content']?0:1)"; then
-              npm run check:release-content
-            else
-              echo "check:release-content script not found; skipping optional release-content validation"
-            fi
+            npm run check:release-content
           else
             echo "Missing npm script: build" >&2
             npm run
