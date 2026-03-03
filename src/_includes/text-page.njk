@@ -54,7 +54,9 @@
 
   {# --- ניווט בין עמודים (עם כפתור חזרה לתוכן העניינים) --- #}
   {% set pagesInBook = collections.all | bookPages(page.url, book) %}
+  {% set chapterPages = collections.all | bookPages(page.url, book, false) %}
   {% set currentPageIndex = pagesInBook | findIndexByUrl(page.url) %}
+  {% set tocPage = (pagesInBook | selectattr("data.pageNumber", "equalto", 0) | list | first) or pagesInBook[0] %}
   
   <nav class="pagination">
     {# כפתור "הקודם" (מופיע מימין) - צריך חץ ימינה #}
@@ -66,15 +68,13 @@
     {# === כפתור תוכן העניינים (תמיד מופיע בניווט הקבוע) === #}
     {% if book %}
     <div class="toc-dropdown">
-      <a href="{{ pagesInBook[0].url | url }}" class="home-link">📖 תוכן העניינים</a>
+      <a href="{{ tocPage.url | url }}" class="home-link">📖 תוכן העניינים</a>
       <div class="toc-dropdown-content">
         <div class="toc-dropdown-header">פרקים בטקסט</div>
         <ol>
-          {% for item in pagesInBook %}
-            {% if item.data.pageNumber != 0 %}
+          {% for item in chapterPages %}
               <li><a href="{{ item.url | url }}">{{ item.data.title }}</a></li>
-            {% endif %}
-          {% endfor %}
+            {% endfor %}
         </ol>
       </div>
     </div>
