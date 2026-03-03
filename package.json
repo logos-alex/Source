@@ -9,6 +9,7 @@
     "deploy": "gh-pages -d _site",
     "test": "echo \"Error: no test specified\" && exit 1",
     "check:frontmatter": "node scripts/verify-frontmatter.mjs",
+<<<<<<< HEAD
     "check:pathprefix": "node scripts/verify-path-prefix.mjs",
     "ci:verify": "npm run check:frontmatter && npm run check:texts && npm run check:catalog && npm run check:chapter-titles && npm run check:permalinks && npm run check:placeholders && npm run build && npm run check:release-content && npm run check:pathprefix && npm run check:built-links",
     "check:texts": "node scripts/verify-text-structure.mjs",
@@ -20,6 +21,9 @@
     "check:chapter-titles": "node scripts/verify-chapter-titles.mjs",
     "report:content": "node scripts/report-content-status.mjs",
     "check:release-content": "node scripts/verify-release-content.mjs"
+=======
+    "ci:verify": "pnpm run check:frontmatter && pnpm run build"
+>>>>>>> origin/main
   },
   "keywords": [],
   "author": "",
