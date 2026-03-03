@@ -5,8 +5,8 @@ on:
     branches:
       - main
 
-permissions: # Add this section
-  contents: write # Grant write permissions
+permissions:
+  contents: write
 
 jobs:
   build-and-deploy:
