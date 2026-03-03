@@ -1,0 +1,35 @@
+name: Validate content and build
+
+on:
+  pull_request:
+    branches: ["main", "work"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify content and build output
+        run: |
+          if node -e "const s=require('./package.json').scripts||{}; process.exit(s['ci:verify']?0:1)"; then
+            echo "Running ci:verify"
+            npm run ci:verify
+          else
+            echo "ci:verify script not found; falling back to build"
+            npm run build
+          fi
