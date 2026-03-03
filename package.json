@@ -9,7 +9,7 @@
     "deploy": "gh-pages -d _site",
     "test": "echo \"Error: no test specified\" && exit 1",
     "check:frontmatter": "node scripts/verify-frontmatter.mjs",
-    "ci:verify": "npm run check:frontmatter && npm run build"
+    "ci:verify": "pnpm run check:frontmatter && pnpm run build"
   },
   "keywords": [],
   "author": "",
