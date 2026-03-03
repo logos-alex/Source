@@ -33,7 +33,7 @@ function hasKey(frontmatter, key) {
 
 function readValue(frontmatter, key) {
   const match = frontmatter.match(new RegExp(`^${key}:\\s*(.+)$`, 'm'));
-  return match ? match[1].trim().replace(/^['"]|['"]$/g, '') : '';
+  return match ? match[1].trim().replace(/^[\'"]|[\'"]$/g, '') : '';
 }
 
 function assertKeys(frontmatter, file, keys) {
