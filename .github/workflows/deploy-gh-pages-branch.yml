@@ -1,8 +1,6 @@
-name: Deploy static site to gh-pages branch
+name: Deploy static site to gh-pages branch (manual fallback)
 
 on:
-  push:
-    branches: ["main", "work"]
   workflow_dispatch:
 
 permissions:
@@ -25,7 +23,19 @@ jobs:
         run: npm ci
 
       - name: Build site
-        run: npm run build
+        run: |
+          if node -e "const s=require('./package.json').scripts||{}; process.exit(s.build?0:1)"; then
+            npm run build
+            if node -e "const s=require('./package.json').scripts||{}; process.exit(s['check:release-content']?0:1)"; then
+              npm run check:release-content
+            else
+              echo "check:release-content script not found; skipping optional release-content validation"
+            fi
+          else
+            echo "Missing npm script: build" >&2
+            npm run
+            exit 1
+          fi
 
       - name: Deploy _site to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4
