@@ -1,8 +1,6 @@
-name: Deploy static site to gh-pages branch
+name: Deploy static site to gh-pages branch (manual fallback)
 
 on:
-  push:
-    branches: ["main", "work"]
   workflow_dispatch:
 
 permissions:
@@ -25,7 +23,15 @@ jobs:
         run: npm ci
 
       - name: Build site
-        run: npm run build
+        run: |
+          if npm run | grep -q "build"; then
+            npm run build
+            npm run check:release-content
+          else
+            echo "Missing npm script: build" >&2
+            npm run
+            exit 1
+          fi
 
       - name: Deploy _site to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4
