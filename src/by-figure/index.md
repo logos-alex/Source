@@ -22,6 +22,11 @@ permalink: /by-figure/
       <h3><a href="{{ '/by-figure/zerubbabel/' | url }}">זרובבל</a></h3>
       <p>חזון גאולה ושיבה לציון המיוחס לזרובבל, עם נגיעות משיחיות ותיאורי עתיד.</p>
     </div>
+
+    <div class="book-card">
+      <h3><a href="{{ '/by-figure/clement/' | url }}">קלמנס</a></h3>
+      <p>חיבורים המיוחסים לקלמנס מרומא ומסורות קדומות הקשורות לדמותו.</p>
+    </div>
     </div>
 
   <div style="height: 30px;"></div>
