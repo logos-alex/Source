@@ -1,8 +1,6 @@
-name: Deploy static site to gh-pages branch
+name: Deploy static site to gh-pages branch (manual fallback)
 
 on:
-  push:
-    branches: ["main", "work"]
   workflow_dispatch:
 
 permissions:
