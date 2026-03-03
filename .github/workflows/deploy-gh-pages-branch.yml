@@ -25,7 +25,14 @@ jobs:
       - name: Check frontmatter integrity
         run: npm run check:frontmatter
       - name: Build site
-        run: npm run build
+        run: |
+          if npm run | grep -q "build"; then
+            npm run build
+          else
+            echo "Missing npm script: build" >&2
+            npm run
+            exit 1
+          fi
 
       - name: Check pathPrefix integrity
         run: npm run check:pathprefix
