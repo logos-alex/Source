@@ -1,8 +1,6 @@
-name: Deploy static site to gh-pages branch (auto + manual fallback)
+name: Deploy static site to gh-pages branch (manual fallback)
 
 on:
-  push:
-    branches: ["main", "work"]
   workflow_dispatch:
 
 permissions:
@@ -26,12 +24,9 @@ jobs:
 
       - name: Build site
         run: |
-          if node -e "const s=require('./package.json').scripts||{}; process.exit(s.build?0:1)"; then
+          if npm run | grep -q "build"; then
             npm run build
-            npm run --if-present check:release-content
-            if ! node -e "const s=require('./package.json').scripts||{}; process.exit(s['check:release-content']?0:1)"; then
-              echo "check:release-content script not found; skipped optional release-content validation"
-            fi
+            npm run check:release-content
           else
             echo "Missing npm script: build" >&2
             npm run
