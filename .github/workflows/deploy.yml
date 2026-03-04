@@ -1,4 +1,4 @@
-name: Deploy Eleventy to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -31,18 +31,10 @@ jobs:
         run: npm ci
 
       - name: Build site
-        run: |
-          if node -e "const s=require('./package.json').scripts||{}; process.exit(s.build?0:1)"; then
-            npm run build
-            npm run --if-present check:release-content
-            if ! node -e "const s=require('./package.json').scripts||{}; process.exit(s['check:release-content']?0:1)"; then
-              echo "check:release-content script not found; skipped optional release-content validation"
-            fi
-          else
-            echo "Missing npm script: build" >&2
-            npm run
-            exit 1
-          fi
+        run: npm run build
+
+      - name: Check for release content (if script exists)
+        run: npm run check:release-content --if-present
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
