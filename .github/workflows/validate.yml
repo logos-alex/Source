@@ -1,4 +1,4 @@
-name: Validation
+name: Validate
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  verify:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -23,5 +23,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Verify project integrity
-        run: npm run ci:verify
+      - name: verify-frontmatter
+        run: node ./scripts/verify-frontmatter.mjs
+      
+      - name: verify-release-content
+        run: node ./scripts/verify-release-content.mjs
