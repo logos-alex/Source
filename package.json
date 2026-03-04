@@ -21,7 +21,8 @@
     "report:content": "node scripts/report-content-status.mjs",
     "check:release-content": "node scripts/verify-release-content.mjs",
     "resolve:main-conflicts": "bash scripts/resolve-conflicts-main.sh main",
-    "check:conflicts": "node scripts/verify-no-conflict-markers.mjs"
+    "check:conflicts": "node scripts/verify-no-conflict-markers.mjs",
+    "resolve:main-conflicts:push": "AUTO_COMMIT=1 AUTO_PUSH=1 bash scripts/resolve-conflicts-main.sh main"
   },
   "keywords": [],
   "author": "",

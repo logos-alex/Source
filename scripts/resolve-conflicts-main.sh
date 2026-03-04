@@ -15,7 +15,8 @@ if [[ "${1:-}" == "-h" || "${1:-}" == "--help" ]]; then
   echo
   echo "Options:"
   echo "  REMOTE_NAME=<remote>   Override remote (default: origin)"
-  echo "  AUTO_COMMIT=1          Create conflict-resolution commit automatically"
+  echo "  AUTO_COMMIT=1            Create conflict-resolution commit automatically"
+  echo "  AUTO_PUSH=1              Push branch after auto-commit"
   echo "  KEEP_BAD_DANIEL_PAGES=0  Keep ours for Apoc Daniel pages 17+ (default: 1 takes theirs)"
   exit 0
 fi
@@ -23,6 +24,7 @@ fi
 BASE_BRANCH="${1:-main}"
 REMOTE="${REMOTE_NAME:-origin}"
 AUTO_COMMIT="${AUTO_COMMIT:-0}"
+AUTO_PUSH="${AUTO_PUSH:-0}"
 KEEP_BAD_DANIEL_PAGES="${KEEP_BAD_DANIEL_PAGES:-1}"
 
 PREFER_OURS=(
@@ -120,11 +122,18 @@ if npm run build && npm run ci:verify; then
   if [[ "${AUTO_COMMIT}" == "1" ]]; then
     git commit -m "Resolve merge conflicts with ${BASE_BRANCH}" || true
     echo "Auto-commit attempted."
+    if [[ "${AUTO_PUSH}" == "1" ]]; then
+      git push "${REMOTE}" "$(git rev-parse --abbrev-ref HEAD)"
+      echo "Auto-push completed."
+    else
+      echo "Auto-push disabled. To push now run:"
+      echo "  git push ${REMOTE} $(git rev-parse --abbrev-ref HEAD)"
+    fi
   else
     echo "Now commit and push:"
     echo "  git commit -m 'Resolve merge conflicts with ${BASE_BRANCH}'"
+    echo "  git push ${REMOTE} $(git rev-parse --abbrev-ref HEAD)"
   fi
-  echo "  git push ${REMOTE} $(git rev-parse --abbrev-ref HEAD)"
 else
   echo "Checks failed. Resolve issues before committing."
   exit 3
