@@ -11,17 +11,12 @@ set -euo pipefail
 #   scripts/resolve-conflicts-main.sh main
 
 if [[ "${1:-}" == "-h" || "${1:-}" == "--help" ]]; then
-  sed -n "1,20p" "$0"
-  echo
-  echo "Options:"
-  echo "  REMOTE_NAME=<remote>   Override remote (default: origin)"
-  echo "  AUTO_COMMIT=1          Create conflict-resolution commit automatically"
+  sed -n "1,14p" "$0"
   exit 0
 fi
 
 BASE_BRANCH="${1:-main}"
 REMOTE="${REMOTE_NAME:-origin}"
-AUTO_COMMIT="${AUTO_COMMIT:-0}"
 
 PREFER_OURS=(
   ".github/workflows/deploy-gh-pages-branch.yml"
@@ -29,15 +24,10 @@ PREFER_OURS=(
   "docs/content-guidelines-he.md"
   "docs/disqus-setup-he.md"
   "docs/project-deep-dive-he.md"
-  "docs/content-status-he.md"
   "package.json"
   "scripts/verify-frontmatter.mjs"
-  "scripts/verify-release-content.mjs"
   "src/_data/sources-catalog.json"
   "src/updates.njk"
-  "src/_includes/base.njk"
-  "src/_includes/category-page.njk"
-  "src/_includes/text-page.njk"
 )
 
 if ! git remote get-url "${REMOTE}" >/dev/null 2>&1; then
@@ -84,13 +74,8 @@ fi
 echo
 if npm run build && npm run ci:verify; then
   echo "Conflict resolution complete and checks passed."
-  if [[ "${AUTO_COMMIT}" == "1" ]]; then
-    git commit -m "Resolve merge conflicts with ${BASE_BRANCH}" || true
-    echo "Auto-commit attempted."
-  else
-    echo "Now commit and push:"
-    echo "  git commit -m 'Resolve merge conflicts with ${BASE_BRANCH}'"
-  fi
+  echo "Now commit and push:"
+  echo "  git commit -m 'Resolve merge conflicts with ${BASE_BRANCH}'"
   echo "  git push ${REMOTE} $(git rev-parse --abbrev-ref HEAD)"
 else
   echo "Checks failed. Resolve issues before committing."
