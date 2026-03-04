@@ -16,12 +16,14 @@ if [[ "${1:-}" == "-h" || "${1:-}" == "--help" ]]; then
   echo "Options:"
   echo "  REMOTE_NAME=<remote>   Override remote (default: origin)"
   echo "  AUTO_COMMIT=1          Create conflict-resolution commit automatically"
+  echo "  KEEP_BAD_DANIEL_PAGES=0  Keep ours for Apoc Daniel pages 17+ (default: 1 takes theirs)"
   exit 0
 fi
 
 BASE_BRANCH="${1:-main}"
 REMOTE="${REMOTE_NAME:-origin}"
 AUTO_COMMIT="${AUTO_COMMIT:-0}"
+KEEP_BAD_DANIEL_PAGES="${KEEP_BAD_DANIEL_PAGES:-1}"
 
 PREFER_OURS=(
   ".github/workflows/deploy-gh-pages-branch.yml"
@@ -38,6 +40,24 @@ PREFER_OURS=(
   "src/_includes/base.njk"
   "src/_includes/category-page.njk"
   "src/_includes/text-page.njk"
+)
+
+PREFER_THEIRS=(
+  "src/texts/aramaic/apoc-daniel-syriac/page-17.md"
+  "src/texts/aramaic/apoc-daniel-syriac/page-18.md"
+  "src/texts/aramaic/apoc-daniel-syriac/page-19.md"
+  "src/texts/aramaic/apoc-daniel-syriac/page-20.md"
+  "src/texts/aramaic/apoc-daniel-syriac/page-21.md"
+  "src/texts/aramaic/apoc-daniel-syriac/page-22.md"
+  "src/texts/aramaic/apoc-daniel-syriac/page-23.md"
+  "src/texts/aramaic/apoc-daniel-syriac/page-24.md"
+  "src/texts/aramaic/apoc-daniel-syriac/page-25.md"
+  "src/texts/aramaic/apoc-daniel-syriac/page-26.md"
+  "src/texts/aramaic/apoc-daniel-syriac/page-27.md"
+  "src/texts/aramaic/apoc-daniel-syriac/page-28.md"
+  "src/texts/aramaic/apoc-daniel-syriac/page-29.md"
+  "src/texts/aramaic/apoc-daniel-syriac/page-30.md"
+  "src/texts/aramaic/apoc-daniel-syriac/page-31.md"
 )
 
 if ! git remote get-url "${REMOTE}" >/dev/null 2>&1; then
@@ -68,6 +88,19 @@ for file in "${PREFER_OURS[@]}"; do
     git add "${file}"
   fi
 done
+
+if [[ "${KEEP_BAD_DANIEL_PAGES}" == "1" ]]; then
+  for file in "${PREFER_THEIRS[@]}"; do
+    if git diff --name-only --diff-filter=U | grep -qx "${file}"; then
+      echo "Resolving with theirs: ${file}"
+      git checkout --theirs -- "${file}" || true
+      git add "${file}" || true
+      if [[ ! -e "${file}" ]]; then
+        git rm -f --cached --ignore-unmatch "${file}" >/dev/null 2>&1 || true
+      fi
+    fi
+  done
+fi
 
 REMAINING="$(git diff --name-only --diff-filter=U || true)"
 if [[ -n "${REMAINING}" ]]; then
