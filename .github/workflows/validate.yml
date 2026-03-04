@@ -26,7 +26,11 @@ jobs:
 
       - name: Verify content and build output
         run: |
+<<<<<<< HEAD
           if npm run | grep -q "ci:verify"; then
+=======
+          if node -e "const s=require('./package.json').scripts||{}; process.exit(s['ci:verify']?0:1)"; then
+>>>>>>> cad5b50915efbed171b250bada5983667da53930
             echo "Running ci:verify"
             npm run ci:verify
           else
