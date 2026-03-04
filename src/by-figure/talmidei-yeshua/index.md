@@ -10,8 +10,12 @@ permalink: /by-figure/talmidei-yeshua/
 
   <div class="book-list">
     <div class="book-card">
-      <h3><a href="{{ '/by-figure/clement/' | url }}">קלמנס מרומא</a></h3>
-      <p>מסורות וחיבורים המיוחסים לקלמנס מרומא, תלמידו של שמעון כיפא, מן הקולות הבולטים בנצרות הקדומה ובספרות הכנסייתית המוקדמת.</p>
+      <h3><a href="{{ '/texts/arabic/sefer-megilot/' | url }}">ספר מגילות (ערבית)</a></h3>
+      <p>חיבור מרכזי המיוחס למסורת קלמנס, כעת משויך תחת קטגוריית תלמידי ישוע הנוצרי.</p>
+    </div>
+    <div class="book-card">
+      <h3><a href="{{ '/texts/geez/clementos/' | url }}">ספר קלמנטוס (געז)</a></h3>
+      <p>המשך מסורת קלמנס בנוסח געז, במסגרת אותה קטגוריית ייחוס.</p>
     </div>
   </div>
 </div>
