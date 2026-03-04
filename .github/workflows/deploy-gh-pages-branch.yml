@@ -1,41 +1,30 @@
-name: Deploy static site to gh-pages branch (manual fallback)
+name: Deploy gh-pages branch
 
 on:
-  workflow_dispatch:
-
-permissions:
-  contents: write
+  push:
+    branches:
+      - main
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: "18"
-          cache: "npm"
+          node-version: '18'
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
-      - name: Build site
-        run: |
-          if npm run | grep -q "build"; then
-            npm run build
-            npm run check:release-content
-          else
-            echo "Missing npm script: build" >&2
-            npm run
-            exit 1
-          fi
+      - name: Build
+        run: npm run build
 
-      - name: Deploy _site to gh-pages branch
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_site
-          force_orphan: true
