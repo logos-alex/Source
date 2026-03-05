@@ -4,7 +4,7 @@ title: "מָבוא לחיבור כיתאב אל־מג'אל (ספר המגילה)
 
 book: kitab-al-majall
 source: arabic
-figure: clement
+figure: talmidei-yeshua
 draft: false
 tags:
   - texts
