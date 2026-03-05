@@ -404,14 +404,17 @@ sup {
 
 /* עיצוב ייחודי לעמוד הבית */
 .home-page .text-main {
-    text-align: center;
+    text-align: right;
     border: none;
     background: none;
     box-shadow: none;
+    max-width: 980px;
+    margin-inline: auto;
 }
 
 .home-page h2 {
     font-size: 1.8rem;
+    text-align: center;
 }
 
 .home-page h3 {
@@ -424,6 +427,118 @@ sup {
     display: inline-block;
     padding-bottom: 5px;
     margin-top: 40px;
+}
+
+.intro-epigraphs {
+  display: grid;
+  gap: 10px;
+  margin: 8px 0 22px;
+}
+
+.epigraph-collapsible {
+  border-bottom: 1px dashed rgba(212, 175, 55, 0.65);
+  padding-bottom: 8px;
+}
+
+.epigraph-collapsible summary {
+  cursor: pointer;
+  list-style: none;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--notes-color);
+  padding: 4px 0;
+}
+
+.epigraph-collapsible summary::-webkit-details-marker {
+  display: none;
+}
+
+.epigraph-collapsible summary::before {
+  content: "▸ ";
+}
+
+.epigraph-collapsible[open] summary::before {
+  content: "▾ ";
+}
+
+.epigraph-compact {
+  margin: 6px 0 0;
+  padding: 0 10px 0 0;
+  border-right: 2px solid rgba(212, 175, 55, 0.55);
+}
+
+.epigraph-compact p {
+  margin: 0 0 6px;
+  line-height: 1.75;
+  font-size: 1.03rem;
+  text-align: justify;
+}
+
+.epigraph-compact .quote-translation {
+  font-family: "Arial", "Noto Sans Hebrew", sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-color-muted);
+}
+
+.epigraph-compact cite {
+  display: block;
+  text-align: left;
+  font-style: normal;
+  font-size: 0.9rem;
+  color: var(--notes-color);
+}
+
+.epigraph-inline {
+  margin: 0;
+  padding: 4px 0;
+  border-right: 2px solid rgba(212, 175, 55, 0.45);
+  padding-right: 10px;
+}
+
+.epigraph-inline p {
+  margin: 0;
+  font-size: 0.98rem;
+}
+
+.epigraph-inline cite {
+  display: block;
+  margin-top: 3px;
+  font-size: 0.9rem;
+  color: var(--notes-color);
+  font-style: normal;
+}
+
+html[data-theme="dark"] .epigraph-collapsible {
+  border-bottom-color: rgba(201, 157, 125, 0.4);
+}
+.home-intro {
+  padding: 20px 0 10px;
+}
+
+.home-intro > p {
+  margin: 0 0 16px;
+  text-align: justify;
+}
+
+.home-intro-section {
+  margin-top: 26px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(212, 175, 55, 0.4);
+}
+
+.home-intro-section h3 {
+  margin-top: 0;
+}
+
+.home-intro-section p {
+  margin-bottom: 14px;
+  text-align: justify;
+}
+
+html[data-theme="dark"] .epigraph-card {
+  background: rgba(35, 28, 22, 0.75);
+  border-color: rgba(212, 175, 55, 0.4);
 }
 
 .home-page ul {

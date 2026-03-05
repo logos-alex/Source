@@ -2,7 +2,7 @@
 
 | ספר | מקור | מספר פרקים | פרקים ללא תרגום מאומת |
 |---|---:|---:|---:|
-| apoc-daniel-syriac | aramaic | 31 | 16 |
+| apoc-daniel-syriac | aramaic | 16 | 0 |
 | apocalypse-abraham | slavic | 21 | 0 |
 | apocalypse-abraham-b | slavic | 25 | 0 |
 | clementos-geez | geez | 0 | 0 |
