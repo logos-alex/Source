@@ -3,7 +3,7 @@ layout: text-page
 title: פרק ב — בקשת קלימיס ומעשה בראשית
 book: kitab-al-majall
 source: arabic
-figure: clement
+figure: talmidei-yeshua
 pageNumber: 2
 version: main
 ---

@@ -3,7 +3,7 @@ layout: text-page
 title: פרק ד — בריאת האדם ונפילת השטן
 book: kitab-al-majall
 source: arabic
-figure: clement
+figure: talmidei-yeshua
 pageNumber: 4
 version: main
 ---
