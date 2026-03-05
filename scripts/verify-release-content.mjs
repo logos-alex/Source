@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-console.log('Skipping release content check. This check is disabled.');
-process.exit(0);
-=======
 import fs from 'node:fs';
 
 const checks = [
@@ -78,4 +74,3 @@ if (failures > 0) {
 }
 
 console.log('Release-content verification passed.');
->>>>>>> cad5b50915efbed171b250bada5983667da53930
