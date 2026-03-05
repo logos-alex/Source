@@ -431,87 +431,41 @@ sup {
 
 .intro-epigraphs {
   display: grid;
-  gap: 10px;
-  margin: 8px 0 22px;
+  gap: 18px;
+  margin: 20px 0 35px;
 }
 
-.epigraph-collapsible {
-  border-bottom: 1px dashed rgba(212, 175, 55, 0.65);
-  padding-bottom: 8px;
+.epigraph-card {
+  margin: 0;
+  padding: 18px 22px;
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.52);
+  box-shadow: 0 3px 14px rgba(61, 43, 31, 0.06);
 }
 
-.epigraph-collapsible summary {
-  cursor: pointer;
-  list-style: none;
-  font-size: 0.98rem;
-  font-weight: 700;
-  color: var(--notes-color);
-  padding: 4px 0;
-}
-
-.epigraph-collapsible summary::-webkit-details-marker {
-  display: none;
-}
-
-.epigraph-collapsible summary::before {
-  content: "▸ ";
-}
-
-.epigraph-collapsible[open] summary::before {
-  content: "▾ ";
-}
-
-.epigraph-compact {
-  margin: 6px 0 0;
-  padding: 0 10px 0 0;
-  border-right: 2px solid rgba(212, 175, 55, 0.55);
-}
-
-.epigraph-compact p {
-  margin: 0 0 6px;
-  line-height: 1.75;
-  font-size: 1.03rem;
+.epigraph-card p {
+  margin: 0 0 8px;
   text-align: justify;
+  line-height: 1.9;
 }
 
-.epigraph-compact .quote-translation {
-  font-family: "Arial", "Noto Sans Hebrew", sans-serif;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: var(--text-color-muted);
+.epigraph-card p:last-of-type {
+  margin-bottom: 12px;
 }
 
-.epigraph-compact cite {
+.epigraph-card cite {
   display: block;
   text-align: left;
   font-style: normal;
-  font-size: 0.9rem;
+  font-weight: 700;
   color: var(--notes-color);
 }
 
-.epigraph-inline {
-  margin: 0;
-  padding: 4px 0;
-  border-right: 2px solid rgba(212, 175, 55, 0.45);
-  padding-right: 10px;
+.epigraph-card--short p {
+  margin-bottom: 10px;
 }
 
-.epigraph-inline p {
-  margin: 0;
-  font-size: 0.98rem;
-}
-
-.epigraph-inline cite {
-  display: block;
-  margin-top: 3px;
-  font-size: 0.9rem;
-  color: var(--notes-color);
-  font-style: normal;
-}
-
-html[data-theme="dark"] .epigraph-collapsible {
-  border-bottom-color: rgba(201, 157, 125, 0.4);
-}
 .home-intro {
   padding: 20px 0 10px;
 }
