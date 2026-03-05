@@ -3,7 +3,7 @@ layout: text-page
 title: פרק א — הקדמה
 book: kitab-al-majall
 source: arabic
-figure: clement
+figure: talmidei-yeshua
 pageNumber: 1
 version: main
 ---

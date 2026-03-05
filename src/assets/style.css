@@ -404,14 +404,17 @@ sup {
 
 /* עיצוב ייחודי לעמוד הבית */
 .home-page .text-main {
-    text-align: center;
+    text-align: right;
     border: none;
     background: none;
     box-shadow: none;
+    max-width: 980px;
+    margin-inline: auto;
 }
 
 .home-page h2 {
     font-size: 1.8rem;
+    text-align: center;
 }
 
 .home-page h3 {
@@ -424,6 +427,74 @@ sup {
     display: inline-block;
     padding-bottom: 5px;
     margin-top: 40px;
+}
+
+.intro-epigraphs {
+  display: grid;
+  gap: 10px;
+  margin: 8px 0 16px;
+}
+
+.epigraph-item {
+  margin: 0;
+  padding: 0 10px 0 0;
+  border-right: 2px solid rgba(212, 175, 55, 0.45);
+}
+
+.epigraph-item--short {
+  border-right-style: dashed;
+}
+
+.epigraph-source {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+
+.quote-translation {
+  margin: 4px 0 0;
+  font-family: "Arial", "Noto Sans Hebrew", sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-color-muted);
+}
+
+.epigraph-ref {
+  display: block;
+  margin-top: 3px;
+  font-size: 0.82rem;
+  color: var(--notes-color);
+  font-style: normal;
+}
+
+.home-intro {
+  padding: 6px 0 8px;
+}
+
+.home-intro > p {
+  margin: 0 0 12px;
+  text-align: justify;
+}
+
+.home-intro-section {
+  margin-top: 18px;
+}
+
+.home-intro-section h3 {
+  margin: 0 0 8px;
+  font-size: 1.28rem;
+}
+
+.home-intro-section p {
+  margin: 0 0 10px;
+  text-align: justify;
+}
+
+.home-divider {
+  border: 0;
+  border-top: 1px solid rgba(212, 175, 55, 0.5);
+  margin: 24px auto;
+  width: min(70%, 560px);
 }
 
 .home-page ul {
