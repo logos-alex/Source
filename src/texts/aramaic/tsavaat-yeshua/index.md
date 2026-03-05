@@ -3,7 +3,7 @@ layout: category-page.njk
 title: "מבוא לחיבור צוואת ישוע (Testamentum Domini)"
 book: tsavaat-yeshua
 source: aramaic
-figure: clement
+figure: talmidei-yeshua
 draft: false
 tags:
   - texts

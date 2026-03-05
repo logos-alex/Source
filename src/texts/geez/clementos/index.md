@@ -3,7 +3,7 @@ layout: category-page.njk
 title: "מבוא לספר קלמנטוס אשר לרומא (Qalëmentos)"
 book: clementos-geez
 source: geez
-figure: clement
+figure: talmidei-yeshua
 draft: false
 tags:
   - texts
