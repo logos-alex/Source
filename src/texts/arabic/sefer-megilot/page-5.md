@@ -3,7 +3,7 @@ layout: text-page
 title: פרק ה — אדם בגן העדן
 book: kitab-al-majall
 source: arabic
-figure: clement
+figure: talmidei-yeshua
 pageNumber: 5
 version: main
 ---

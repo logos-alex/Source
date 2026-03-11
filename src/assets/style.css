@@ -404,14 +404,17 @@ sup {
 
 /* עיצוב ייחודי לעמוד הבית */
 .home-page .text-main {
-    text-align: center;
+    text-align: right;
     border: none;
     background: none;
     box-shadow: none;
+    max-width: 980px;
+    margin-inline: auto;
 }
 
 .home-page h2 {
     font-size: 1.8rem;
+    text-align: center;
 }
 
 .home-page h3 {
@@ -425,6 +428,99 @@ sup {
     padding-bottom: 5px;
     margin-top: 40px;
 }
+
+.intro-epigraphs {
+  display: grid;
+  gap: 10px;
+  margin: 12px 0 24px;
+}
+
+.epigraph-card {
+  margin: 0;
+  padding: 8px 12px;
+  border-right: 3px solid rgba(212, 175, 55, 0.5);
+  background: transparent;
+}
+
+.epigraph-card p {
+  margin: 0 0 6px;
+  text-align: justify;
+  line-height: 1.7;
+  font-size: 1.08rem;
+}
+
+.epigraph-card p:last-of-type {
+  margin-bottom: 8px;
+}
+
+.epigraph-card .quote-translation {
+  font-family: 'Frank Ruhl Libre', 'Noto Serif Hebrew', serif;
+  font-size: 1rem;
+  color: var(--notes-color);
+}
+
+.epigraph-card cite {
+  display: block;
+  text-align: left;
+  font-style: normal;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--notes-color);
+}
+
+.epigraph-card--short p {
+  margin-bottom: 10px;
+}
+
+.home-intro {
+  padding: 18px 0 10px;
+}
+
+.home-intro-lead,
+.home-intro-signoff {
+  margin: 0 0 16px;
+  text-align: justify;
+  font-size: 1.12rem;
+}
+
+.home-intro-grid {
+  display: grid;
+  gap: 14px;
+  margin: 14px 0 16px;
+}
+
+.intro-block {
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 10px;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.intro-block h3 {
+  margin: 0 0 8px;
+  font-size: 1.28rem;
+}
+
+.intro-block p {
+  margin: 0 0 10px;
+  text-align: justify;
+  font-size: 1.05rem;
+  line-height: 1.72;
+}
+
+.intro-block p:last-child {
+  margin-bottom: 0;
+}
+
+html[data-theme="dark"] .epigraph-card {
+  border-right-color: rgba(212, 175, 55, 0.4);
+}
+
+html[data-theme="dark"] .intro-block {
+  background: rgba(35, 28, 22, 0.45);
+  border-color: rgba(212, 175, 55, 0.35);
+}
+
 
 .home-page ul {
     list-style: none;
