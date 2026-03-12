@@ -36,8 +36,8 @@ bodyClass: home-page
       </blockquote>
 
       <blockquote class="epigraph-card epigraph-card--short">
-        <p>רַבִּי עֲקִיבָא אוֹמֵר: אַף הַקּוֹרֵא בַּסְּפָרִים הַחִיצוֹנִים... וּרְצוֹנוֹ לוֹמַר: לֹא שֶׁבָּא לְהָבִין וּלְהוֹרוֹת, אֶלָּא שֶׁקּוֹרֵא עַל דַּעַת לָלוּץ וּלְהִתְלוֹצֵץ; וּבְזֶה יִתְחַיֵּב וְיִעֲנַשׁ, אֲבָל כְּשֶׁקּוֹרֵא לְהָבִין וּלְהוֹרוֹת — לֹא.</p>
-        <cite>— המאירי, בית הבחירה (סנהדרין ק ע״ב)</cite>
+        <p>רַבִּי עֲקִיבָא אוֹמֵר: אַף הַקּוֹרֵא בַּסְּפָרִים הַחִיצוֹנִים... וּרְצוֹנוֹ לוֹמַר: לֹא שֶׁבָּא לְהָבִין וּלְהוֹרוֹת, אֶלָּא שֶׁקּוֹרֵא עַל דַּעַת לָלֶכֶת בֶּאֱמוּנָתָם. וּכְבָר יָדַעְתָּ מֵהֶם שֶׁאֵין מַאֲמִינִים אֶלָּא בְּמָה שֶׁהָעִיּוּן נוֹתֵן וְהַהֶקֵּשׁ מְחַיֵּב.</p>
+        <cite>— המאירי (בית הבחירה לסנהדרין)</cite>
       </blockquote>
     </section>
     <section class="home-intro" aria-label="מבוא">
@@ -84,7 +84,7 @@ bodyClass: home-page
         {% if (item.data.pageNumber == 0 or not item.data.pageNumber) and item.data.book and item.data.book not in ["kitab-al-majall", "clementos-geez"] and "sub-intro" not in item.data.tags and not item.data.draft %}
           {% set hasQuickJumpItems = true %}
           <li style="margin-top: 10px;">
-            <strong><a href="{{ item.url | url }}">{{ item.data.title | replace("חזון דניאל (סורי-ארמי) – הקדמה", "חזון דניאל (הארמי-סורי)") | replace("חזון דניאל הסורי-ארמי: הקדמה", "חזון דניאל (הארמי-סורי)") | replace("דניאל הקטן (ארמית-סורית): הקדמה", "דניאל הקטן") | replace("הקדמה", "") }}</a></strong>
+            <strong><a href="{{ item.url | url }}">{{ item.data.title | replace("מבוא לחיבור ", "") | replace("מבוא לספר ", "") | replace("חזון דניאל (סורי-ארמי) – הקדמה", "חזון דניאל ארמי-סורי") | replace("חזון דניאל הסורי-ארמי: הקדמה", "חזון דניאל ארמי-סורי") | replace("דניאל הקטן (ארמית-סורית): הקדמה", "דניאל הקטן") | replace(": הקדמה", "") | replace("הקדמה", "") | replace("מבוא", "") | trim }}</a></strong>
           </li>
         {% endif %}
       {% endfor %}

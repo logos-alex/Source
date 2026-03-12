@@ -1,6 +1,6 @@
 ---
 layout: category-page.njk
-title: "חזון דניאל הסורי-ארמי: הקדמה"
+title: "חזון דניאל ארמי-סורי"
 book: apoc-daniel-syriac
 source: aramaic
 figure: daniel
