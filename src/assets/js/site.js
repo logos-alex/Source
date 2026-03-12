@@ -27,6 +27,67 @@
     applyTheme(theme);
   }
 
+
+
+  function initMobileNavigation() {
+    const nav = document.getElementById('mainNav');
+    const navToggle = document.getElementById('mainNavToggle');
+    if (!nav || !navToggle) return;
+
+    navToggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('mobile-open');
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+      navToggle.textContent = isOpen ? '✕' : '☰';
+    });
+
+    nav.querySelectorAll('.nav-dropdown').forEach((dropdown, index) => {
+      const dropLink = dropdown.querySelector('.dropbtn');
+      const menu = dropdown.querySelector('.dropdown-content');
+      if (!dropLink || !menu) return;
+
+      const toggle = document.createElement('button');
+      const menuId = `nav-submenu-${index + 1}`;
+      menu.id = menuId;
+      toggle.type = 'button';
+      toggle.className = 'mobile-submenu-toggle';
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-controls', menuId);
+      toggle.setAttribute('aria-label', `פתיחה וסגירה של תת-תפריט ${dropLink.textContent.trim()}`);
+      toggle.textContent = '▾';
+      dropLink.insertAdjacentElement('afterend', toggle);
+
+      toggle.addEventListener('click', () => {
+        const isExpanded = dropdown.classList.toggle('mobile-expanded');
+        toggle.setAttribute('aria-expanded', String(isExpanded));
+      });
+    });
+  }
+
+  function initTocDropdowns() {
+    document.querySelectorAll('.toc-dropdown').forEach((dropdown) => {
+      const trigger = dropdown.querySelector('.home-link');
+      const menu = dropdown.querySelector('.toc-dropdown-content');
+      if (!trigger || !menu) return;
+
+      const closeMenu = () => {
+        dropdown.classList.remove('toc-open');
+        trigger.setAttribute('aria-expanded', 'false');
+      };
+
+      trigger.setAttribute('aria-expanded', 'false');
+      trigger.addEventListener('click', (event) => {
+        if (window.innerWidth > 768) return;
+        event.preventDefault();
+        const open = dropdown.classList.toggle('toc-open');
+        trigger.setAttribute('aria-expanded', String(open));
+      });
+
+      document.addEventListener('click', (event) => {
+        if (!dropdown.contains(event.target)) closeMenu();
+      });
+    });
+  }
+
   function initReadingMode() {
     const storedReadingMode = localStorage.getItem('readingMode') === 'true';
     if (storedReadingMode) {
@@ -54,6 +115,8 @@
 
   initTheme();
   initReadingMode();
+  initMobileNavigation();
+  initTocDropdowns();
 })();
 
 window.googleTranslateElementInit = function googleTranslateElementInit() {
