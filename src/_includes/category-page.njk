@@ -36,11 +36,11 @@
         <a href="{{ page.url | url }}" class="home-link">📖 תוכן העניינים</a>
         <div class="toc-dropdown-content">
           <div class="toc-dropdown-header">פרקים בטקסט</div>
-          <ol>
+          <ul>
             {% for item in chapterPages %}
               <li><a href="{{ item.url | url }}">{{ item.data.title }}</a></li>
             {% endfor %}
-          </ol>
+          </ul>
         </div>
       </div>
 

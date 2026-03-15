@@ -75,8 +75,9 @@
         <div class="header-top">
             <h1><a href="{{ '/' | url }}">אוצר הכתבים הגנוזים</a></h1>
             <button id="themeToggle" class="theme-toggle" aria-label="בחר מצב אור/חושך" aria-pressed="false" title="מצב אור/חושך">🌙</button>
+            <button id="mainNavToggle" class="main-nav-toggle" type="button" aria-controls="mainNav" aria-expanded="false" aria-label="פתיחה וסגירה של תפריט הניווט">☰</button>
         </div>
-        <nav role="navigation" aria-label="ניווט ראשי">
+        <nav id="mainNav" role="navigation" aria-label="ניווט ראשי">
             <a href="{{ '/' | url }}" {% if page.url == "/" %}aria-current="page"{% endif %}>דף הבית</a>
             <a href="{{ '/search/' | url }}" {% if page.url == "/search/" %}aria-current="page"{% endif %}>🔍 חיפוש</a>
             <a href="{{ '/updates/' | url }}" {% if page.url == "/updates/" %}aria-current="page"{% endif %}>🆕 מה חדש</a>
