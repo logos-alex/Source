@@ -110,30 +110,32 @@ nav a[aria-current="page"] {
   font-weight: 700;
 }
 
-/* Parallel Columns Layout - Disabled for now to fix display issues */
+/* Parallel Columns Layout */
 .parallel-layout {
-  display: block !important;
-  width: 100% !important;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  width: 100%;
 }
 
 .column-source,
 .column-translation {
-  display: block !important;
-  width: 100% !important;
-  margin-bottom: 40px;
+  display: block;
+  width: 100%;
+  margin-bottom: 0;
 }
 
 .column-source {
   font-style: italic;
-  border-bottom: 1px solid var(--border-color);
-  padding-bottom: 20px;
+  border-left: 2px solid var(--border-color);
+  padding-left: 16px;
 }
 
 .column-translation {
-  padding-top: 20px;
+  padding-right: 16px;
 }
 
-.column-source h3, 
+.column-source h3,
 .column-translation h3 {
   text-align: center;
   border-bottom: 1px solid var(--border-color);
@@ -144,12 +146,11 @@ nav a[aria-current="page"] {
 
 @media (max-width: 1024px) {
   .parallel-layout {
-    display: block !important;
+    display: block;
   }
   .column-source,
   .column-translation {
-    display: block !important;
-    width: 100% !important;
+    width: 100%;
   }
   .column-source {
     border-left: none;
@@ -157,6 +158,9 @@ nav a[aria-current="page"] {
     padding-left: 0;
     padding-bottom: 20px;
     margin-bottom: 20px;
+  }
+  .column-translation {
+    padding-right: 0;
   }
 }
 /* Reading Mode */
