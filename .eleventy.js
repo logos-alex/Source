@@ -45,6 +45,8 @@ module.exports = function(eleventyConfig) {
     return String(n);
   };
 
+  eleventyConfig.addFilter("toHebrewNumeral", toHebrewNumeral);
+
   eleventyConfig.addFilter("chapterDisplayTitle", (item, book) => {
     if (!item) return "";
     const rawTitle = item.data?.title || "";
