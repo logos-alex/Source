@@ -17,37 +17,15 @@
     
     <div class="text-content {% if book == 'apoc-daniel-syriac' and pageNumber != 0 %}parallel-layout{% endif %}">
       {% if book == "apoc-daniel-syriac" and pageNumber != 0 %}
-        {# Normalize common HTML variants so split is robust in CI/production builds #}
-        {% set normalizedContent = content | replace("<hr />", "<hr>") %}
-        {% set normalizedContent = normalizedContent | replace("<hr/>", "<hr>") %}
-        {% set normalizedContent = normalizedContent | replace('<h3 id="תרגום-עברי">תרגום עברי</h3>', '<h3>תרגום עברי</h3>') %}
-        {% set normalizedContent = normalizedContent | replace('<h3 id="מקור-ארמי">מקור ארמי</h3>', '<h3>מקור ארמי</h3>') %}
-
-        {% set contentParts = normalizedContent.split("<hr>") %}
+        {% set contentParts = content.split("<h3>תרגום עברי</h3>") %}
         {% if contentParts.length < 2 %}
-          {% set contentParts = normalizedContent.split("<h3>תרגום עברי</h3>") %}
+          {% set contentParts = content.split("<hr>") %}
         {% endif %}
-
-        {% set sourcePart = contentParts[0] or "" %}
-        {% set translationPart = contentParts[1] or "" %}
-
-        {% set sourceParts = sourcePart.split("<h3>מקור ארמי</h3>") %}
-        {% if sourceParts.length > 1 %}
-          {% set sourcePart = sourceParts[1] %}
-        {% endif %}
-
-        {% if not translationPart and contentParts.length < 2 %}
-          {% set translationParts = normalizedContent.split("<h3>תרגום עברי</h3>") %}
-          {% if translationParts.length > 1 %}
-            {% set translationPart = translationParts[1] %}
-          {% endif %}
-        {% endif %}
-
         <div class="column-source">
-          {{ sourcePart | safe }}
+          {{ (contentParts[0] or "") | replace("<h3>מקור ארמי</h3>", "") | safe }}
         </div>
         <div class="column-translation">
-          {{ translationPart | safe }}
+          {{ (contentParts[1] or "") | safe }}
         </div>
       {% else %}
         {{ content | safe }}
