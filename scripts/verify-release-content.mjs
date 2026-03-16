@@ -4,7 +4,7 @@ const checks = [
   {
     file: '_site/updates/index.html',
     allOf: [
-      '<div class="updates-grid" aria-label="רשימת עדכונים">',
+      '<div class="updates-grid" aria-label="רשימת עדכונים"',
       'updates-v2-2026-03-03'
     ],
     anyOf: [
