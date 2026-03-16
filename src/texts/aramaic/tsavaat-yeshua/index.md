@@ -1,6 +1,6 @@
 ---
 layout: category-page.njk
-title: "מבוא לחיבור צוואת ישוע (Testamentum Domini)"
+title: "צוואת ישוע"
 book: tsavaat-yeshua
 source: aramaic
 figure: talmidei-yeshua
