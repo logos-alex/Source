@@ -21,19 +21,15 @@
     
     <div class="text-content {% if book == 'apoc-daniel-syriac' and pageNumber != 0 %}parallel-layout{% endif %}">
       {% if book == "apoc-daniel-syriac" and pageNumber != 0 %}
-        {% set split = content | splitParallelContent %}
-        {% set sourcePart = split.source %}
-        {% set translationPart = split.translation %}
-
-        {% if not translationPart %}
-          {% set translationPart = '<p>תרגום עברי לפרק זה יושלם בהמשך.</p>' %}
+        {% set contentParts = content.split("<h3>תרגום עברי</h3>") %}
+        {% if contentParts.length < 2 %}
+          {% set contentParts = content.split("<hr>") %}
         {% endif %}
-
         <div class="column-source">
-          {{ sourcePart | safe }}
+          {{ (contentParts[0] or "") | replace("<h3>מקור ארמי</h3>", "") | safe }}
         </div>
         <div class="column-translation">
-          {{ translationPart | safe }}
+          {{ (contentParts[1] or "") | safe }}
         </div>
       {% else %}
         {{ content | safe }}

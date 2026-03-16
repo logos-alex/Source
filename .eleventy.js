@@ -45,33 +45,6 @@ module.exports = function(eleventyConfig) {
     return String(n);
   };
 
-  eleventyConfig.addFilter("toHebrewNumeral", (num) => toHebrewNumeral(num));
-
-  eleventyConfig.addFilter("splitParallelContent", (html) => {
-    const raw = String(html || "");
-    const normalized = raw
-      .replace(/<hr\s*\/?>/gi, "<hr>")
-      .replace(/<h3[^>]*>\s*מקור ארמי\s*<\/h3>/i, "")
-      .trim();
-
-    let source = normalized;
-    let translation = "";
-
-    if (normalized.includes("<hr>")) {
-      const parts = normalized.split("<hr>");
-      source = (parts.shift() || "").trim();
-      translation = parts.join("<hr>").trim();
-    } else {
-      const marker = normalized.match(/<h3[^>]*>\s*תרגום עברי\s*<\/h3>/i);
-      if (marker && typeof marker.index === "number") {
-        source = normalized.slice(0, marker.index).trim();
-        translation = normalized.slice(marker.index + marker[0].length).trim();
-      }
-    }
-
-    return { source, translation };
-  });
-
   eleventyConfig.addFilter("chapterDisplayTitle", (item, book) => {
     if (!item) return "";
     const rawTitle = item.data?.title || "";
