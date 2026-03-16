@@ -846,7 +846,7 @@ nav a:focus {
     color: var(--header-color);
 }
 
-.toc-dropdown-content ol {
+.toc-dropdown-content ul {
     list-style: none;
     padding: 0;
     margin: 0;

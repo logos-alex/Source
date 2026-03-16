@@ -20,7 +20,7 @@
     <ul>
       {% for item in chapterPages %}
         {% if item.url != page.url %}
-          <li><a href="{{ item.url | url }}">{{ item.data.title }}</a></li>
+          <li><a href="{{ item.url | url }}">{{ item | chapterDisplayTitle(book) }}</a></li>
         {% endif %}
       {% endfor %}
     </ul>
@@ -38,7 +38,7 @@
           <div class="toc-dropdown-header">פרקים בטקסט</div>
           <ul>
             {% for item in chapterPages %}
-              <li><a href="{{ item.url | url }}">{{ item.data.title }}</a></li>
+              <li><a href="{{ item.url | url }}">{{ item | chapterDisplayTitle(book) }}</a></li>
             {% endfor %}
           </ul>
         </div>

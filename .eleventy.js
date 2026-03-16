@@ -27,6 +27,36 @@ module.exports = function(eleventyConfig) {
       });
   });
 
+
+
+  const toHebrewNumeral = (num) => {
+    const n = Number(num);
+    if (!Number.isInteger(n) || n <= 0) return "";
+    const units = ["", "א", "ב", "ג", "ד", "ה", "ו", "ז", "ח", "ט"];
+    const tens = ["", "י", "כ", "ל", "מ", "נ", "ס", "ע", "פ", "צ"];
+    if (n === 15) return "טו";
+    if (n === 16) return "טז";
+    if (n < 10) return units[n];
+    if (n < 100) {
+      const t = Math.floor(n / 10);
+      const u = n % 10;
+      return `${tens[t]}${units[u]}`;
+    }
+    return String(n);
+  };
+
+  eleventyConfig.addFilter("chapterDisplayTitle", (item, book) => {
+    if (!item) return "";
+    const rawTitle = item.data?.title || "";
+    if (book !== "apoc-daniel-syriac") return rawTitle;
+    if (!rawTitle.includes("פרק")) return rawTitle;
+    if (/פרק\s+[א-ת״'"׳]+/.test(rawTitle)) return rawTitle;
+    const pageNumber = Number(item.data?.pageNumber || 0);
+    if (pageNumber > 0) {
+      return `פרק ${toHebrewNumeral(pageNumber)}`;
+    }
+    return rawTitle;
+  });
   // Passthrough copy for assets and static files
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/robots.txt");

@@ -65,7 +65,7 @@
     {# כפתור "הקודם" (מופיע מימין) - צריך חץ ימינה #}
     {% if currentPageIndex > 0 %}
       {% set prevPage = pagesInBook[currentPageIndex - 1] %}
-      <a href="{{ prevPage.url | url }}" class="prev">→ {{ prevPage.data.title }}</a>
+      <a href="{{ prevPage.url | url }}" class="prev">→ {{ prevPage | chapterDisplayTitle(book) }}</a>
     {% endif %}
 
     {# === כפתור תוכן העניינים (תמיד מופיע בניווט הקבוע) === #}
@@ -76,7 +76,7 @@
         <div class="toc-dropdown-header">פרקים בטקסט</div>
         <ul>
           {% for item in chapterPages %}
-              <li><a href="{{ item.url | url }}">{{ item.data.title }}</a></li>
+              <li><a href="{{ item.url | url }}">{{ item | chapterDisplayTitle(book) }}</a></li>
             {% endfor %}
         </ul>
       </div>
@@ -86,7 +86,7 @@
     {# כפתור "הבא" (מופיע משמאל) - צריך חץ שמאלה #}
     {% if currentPageIndex < pagesInBook.length - 1 %}
       {% set nextPage = pagesInBook[currentPageIndex + 1] %}
-      <a href="{{ nextPage.url | url }}" class="next">← {{ nextPage.data.title }}</a>
+      <a href="{{ nextPage.url | url }}" class="next">← {{ nextPage | chapterDisplayTitle(book) }}</a>
     {% endif %}
   </nav>
 
