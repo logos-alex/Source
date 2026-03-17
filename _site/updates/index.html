@@ -75,8 +75,9 @@
         <div class="header-top">
             <h1><a href="/Source/">אוצר הכתבים הגנוזים</a></h1>
             <button id="themeToggle" class="theme-toggle" aria-label="בחר מצב אור/חושך" aria-pressed="false" title="מצב אור/חושך">🌙</button>
+            <button id="mainNavToggle" class="main-nav-toggle" type="button" aria-controls="mainNav" aria-expanded="false" aria-label="פתיחה וסגירה של תפריט הניווט">☰</button>
         </div>
-        <nav role="navigation" aria-label="ניווט ראשי">
+        <nav id="mainNav" role="navigation" aria-label="ניווט ראשי">
             <a href="/Source/" >דף הבית</a>
             <a href="/Source/search/" >🔍 חיפוש</a>
             <a href="/Source/updates/" aria-current="page">🆕 מה חדש</a>
@@ -132,7 +133,7 @@
   <h2>מה חדש במיזם</h2>
   <p>כאן נפרסם עדכונים שרלוונטיים בעיקר לחוויית הקריאה, החיפוש והניווט באתר.</p>
 
-  <div class="updates-grid" aria-label="רשימת עדכונים">
+  <div class="updates-grid" aria-label="רשימת עדכונים" data-release-marker="updates-v2-2026-03-03">
     <article class="update-card">
       <h3>👤 שיוך קלמנס אוחד תחת "מתלמידי ישוע"</h3>
       <p>ברשימת "לפי ייחוס" בוצע איחוד: חיבורי קלמנס מוצגים תחת הקטגוריה "מתלמידי ישוע הנוצרי" במקום קטגוריה נפרדת.</p>

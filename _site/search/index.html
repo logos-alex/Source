@@ -75,8 +75,9 @@
         <div class="header-top">
             <h1><a href="/Source/">אוצר הכתבים הגנוזים</a></h1>
             <button id="themeToggle" class="theme-toggle" aria-label="בחר מצב אור/חושך" aria-pressed="false" title="מצב אור/חושך">🌙</button>
+            <button id="mainNavToggle" class="main-nav-toggle" type="button" aria-controls="mainNav" aria-expanded="false" aria-label="פתיחה וסגירה של תפריט הניווט">☰</button>
         </div>
-        <nav role="navigation" aria-label="ניווט ראשי">
+        <nav id="mainNav" role="navigation" aria-label="ניווט ראשי">
             <a href="/Source/" >דף הבית</a>
             <a href="/Source/search/" aria-current="page">🔍 חיפוש</a>
             <a href="/Source/updates/" >🆕 מה חדש</a>
@@ -135,6 +136,15 @@
 
     <link href="/Source/pagefind/pagefind-ui.css" rel="stylesheet">
     <div id="search" style="margin-top: 20px;"></div>
+
+    <div style="margin-top: 16px; padding: 12px; border-inline-start: 4px solid var(--border-color); background: color-mix(in srgb, var(--bg-secondary) 80%, transparent);">
+        <p style="margin: 0 0 8px 0;"><strong>שימו לב לגבי חיפוש בעברית:</strong> מנוע החיפוש אינו מבצע ניתוח שורשים (stemming), ולכן עדיף לחפש גם בצורות כתיב חלופיות.</p>
+        <ul style="margin: 0; padding-inline-start: 20px;">
+            <li>נסו גם יחיד/רבים וזכר/נקבה (למשל: "מלאך", "מלאכים").</li>
+            <li>נסו צורות כתיב קרובות או כתיב מלא/חסר.</li>
+            <li>אם אין תוצאות — עברו לניווט לפי מקור או לפי דמות.</li>
+        </ul>
+    </div>
     <script>
         window.addEventListener('DOMContentLoaded', () => {
             const searchRoot = document.getElementById('search');
