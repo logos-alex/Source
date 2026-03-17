@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "eleventy --serve --port=5000 --pathprefix=/Source/",
     "build": "eleventy --pathprefix=/Source/ && pagefind --site _site --output-path _site/pagefind",
-    "deploy": "gh-pages -d _site",
+    "deploy": "gh-pages -d _site -r https://github.com/logos-alex/Source.git",
     "test": "echo \"Error: no test specified\" && exit 1",
     "check:frontmatter": "node scripts/verify-frontmatter.mjs",
     "check:pathprefix": "node scripts/verify-path-prefix.mjs",
