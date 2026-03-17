@@ -1,0 +1,17 @@
+name: Check deployed links
+
+on:
+  schedule:
+    - cron: '0 4 * * 1'
+  workflow_dispatch:
+
+jobs:
+  link-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check links on deployed site
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --verbose --no-progress --max-concurrency 8 --accept 200,206,429 https://logos-alex.github.io/Source/
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
