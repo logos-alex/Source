@@ -19,7 +19,7 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci
+        run: env -u npm_config_http-proxy npm ci
 
       - name: Validate project
-        run: npm run ci:verify
+        run: env -u npm_config_http-proxy npm run ci:verify

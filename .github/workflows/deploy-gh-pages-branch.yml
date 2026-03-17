@@ -20,13 +20,13 @@ jobs:
           cache: "npm"
 
       - name: Install dependencies
-        run: npm ci
+        run: env -u npm_config_http-proxy npm ci
 
       - name: Build site
         run: |
           if npm run | grep -q "build"; then
-            npm run build
-            npm run check:release-content
+            env -u npm_config_http-proxy npm run build
+            env -u npm_config_http-proxy npm run check:release-content
           else
             echo "Missing npm script: build" >&2
             npm run
