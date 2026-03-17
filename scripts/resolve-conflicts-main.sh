@@ -2,35 +2,30 @@
 set -euo pipefail
 
 # Resolve common PR conflicts by preferring the current branch (ours)
-# for the files that carry the CI/content rollout changes.
+# for files that carry CI/content rollout changes.
 #
 # Usage:
 #   scripts/resolve-conflicts-main.sh [base-branch]
 #
-# Example:
-#   scripts/resolve-conflicts-main.sh main
+# Options:
+#   REMOTE_NAME=<remote>          Override remote (default: origin)
+#   AUTO_COMMIT=1                 Create conflict-resolution commit automatically
+#   KEEP_BAD_DANIEL_PAGES=0       Keep ours for Apoc Daniel pages 17+ (default: 1 takes theirs)
 
 if [[ "${1:-}" == "-h" || "${1:-}" == "--help" ]]; then
-<<<<<<< HEAD
-  sed -n "1,14p" "$0"
-=======
   sed -n "1,20p" "$0"
   echo
   echo "Options:"
-  echo "  REMOTE_NAME=<remote>   Override remote (default: origin)"
-  echo "  AUTO_COMMIT=1          Create conflict-resolution commit automatically"
-  echo "  KEEP_BAD_DANIEL_PAGES=0  Keep ours for Apoc Daniel pages 17+ (default: 1 takes theirs)"
->>>>>>> cad5b50915efbed171b250bada5983667da53930
+  echo "  REMOTE_NAME=<remote>"
+  echo "  AUTO_COMMIT=1"
+  echo "  KEEP_BAD_DANIEL_PAGES=0"
   exit 0
 fi
 
 BASE_BRANCH="${1:-main}"
 REMOTE="${REMOTE_NAME:-origin}"
-<<<<<<< HEAD
-=======
 AUTO_COMMIT="${AUTO_COMMIT:-0}"
 KEEP_BAD_DANIEL_PAGES="${KEEP_BAD_DANIEL_PAGES:-1}"
->>>>>>> cad5b50915efbed171b250bada5983667da53930
 
 PREFER_OURS=(
   ".github/workflows/deploy-gh-pages-branch.yml"
@@ -38,12 +33,6 @@ PREFER_OURS=(
   "docs/content-guidelines-he.md"
   "docs/disqus-setup-he.md"
   "docs/project-deep-dive-he.md"
-<<<<<<< HEAD
-  "package.json"
-  "scripts/verify-frontmatter.mjs"
-  "src/_data/sources-catalog.json"
-  "src/updates.njk"
-=======
   "docs/content-status-he.md"
   "package.json"
   "scripts/verify-frontmatter.mjs"
@@ -71,7 +60,6 @@ PREFER_THEIRS=(
   "src/texts/aramaic/apoc-daniel-syriac/page-29.md"
   "src/texts/aramaic/apoc-daniel-syriac/page-30.md"
   "src/texts/aramaic/apoc-daniel-syriac/page-31.md"
->>>>>>> cad5b50915efbed171b250bada5983667da53930
 )
 
 if ! git remote get-url "${REMOTE}" >/dev/null 2>&1; then
@@ -103,8 +91,6 @@ for file in "${PREFER_OURS[@]}"; do
   fi
 done
 
-<<<<<<< HEAD
-=======
 if [[ "${KEEP_BAD_DANIEL_PAGES}" == "1" ]]; then
   for file in "${PREFER_THEIRS[@]}"; do
     if git diff --name-only --diff-filter=U | grep -qx "${file}"; then
@@ -118,7 +104,6 @@ if [[ "${KEEP_BAD_DANIEL_PAGES}" == "1" ]]; then
   done
 fi
 
->>>>>>> cad5b50915efbed171b250bada5983667da53930
 REMAINING="$(git diff --name-only --diff-filter=U || true)"
 if [[ -n "${REMAINING}" ]]; then
   echo
@@ -134,10 +119,6 @@ fi
 echo
 if npm run build && npm run ci:verify; then
   echo "Conflict resolution complete and checks passed."
-<<<<<<< HEAD
-  echo "Now commit and push:"
-  echo "  git commit -m 'Resolve merge conflicts with ${BASE_BRANCH}'"
-=======
   if [[ "${AUTO_COMMIT}" == "1" ]]; then
     git commit -m "Resolve merge conflicts with ${BASE_BRANCH}" || true
     echo "Auto-commit attempted."
@@ -145,7 +126,6 @@ if npm run build && npm run ci:verify; then
     echo "Now commit and push:"
     echo "  git commit -m 'Resolve merge conflicts with ${BASE_BRANCH}'"
   fi
->>>>>>> cad5b50915efbed171b250bada5983667da53930
   echo "  git push ${REMOTE} $(git rev-parse --abbrev-ref HEAD)"
 else
   echo "Checks failed. Resolve issues before committing."
