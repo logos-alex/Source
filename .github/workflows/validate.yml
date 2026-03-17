@@ -18,8 +18,30 @@ jobs:
           node-version: '20'
           cache: 'npm'
 
+      - name: Normalize npm proxy config
+        run: |
+          npm config delete proxy || true
+          npm config delete http-proxy || true
+          npm config delete https-proxy || true
+
       - name: Install dependencies
-        run: env -u npm_config_http-proxy npm ci
+        run: env -u npm_config_http_proxy -u npm_config_https_proxy -u NPM_CONFIG_HTTP_PROXY -u NPM_CONFIG_HTTPS_PROXY npm ci
 
       - name: Validate project
-        run: env -u npm_config_http-proxy npm run ci:verify
+        run: env -u npm_config_http_proxy -u npm_config_https_proxy -u NPM_CONFIG_HTTP_PROXY -u NPM_CONFIG_HTTPS_PROXY npm run ci:verify
+
+      - name: Upload _site artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-preview
+          path: _site
+          if-no-files-found: warn
+
+      - name: Upload Pagefind artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pagefind-index
+          path: _site/pagefind
+          if-no-files-found: warn
