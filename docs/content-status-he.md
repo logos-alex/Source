@@ -6,7 +6,7 @@
 | apocalypse-abraham | slavic | 21 | 0 |
 | apocalypse-abraham-b | slavic | 25 | 0 |
 | clementos-geez | geez | 0 | 0 |
-| kitab-al-majall | arabic | 14 | 0 |
+| kitab-al-majall | arabic | 0 | 0 |
 | sefer-zerubbabel | hebrew | 7 | 0 |
 | tsavaat-yeshua | aramaic | 0 | 0 |
 | young-daniel-syriac | aramaic | 5 | 0 |
