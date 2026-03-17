@@ -10,6 +10,15 @@ permalink: /search/
 
     <link href="{{ '/pagefind/pagefind-ui.css' | url }}" rel="stylesheet">
     <div id="search" style="margin-top: 20px;"></div>
+
+    <div style="margin-top: 16px; padding: 12px; border-inline-start: 4px solid var(--border-color); background: color-mix(in srgb, var(--bg-secondary) 80%, transparent);">
+        <p style="margin: 0 0 8px 0;"><strong>שימו לב לגבי חיפוש בעברית:</strong> מנוע החיפוש אינו מבצע ניתוח שורשים (stemming), ולכן עדיף לחפש גם בצורות כתיב חלופיות.</p>
+        <ul style="margin: 0; padding-inline-start: 20px;">
+            <li>נסו גם יחיד/רבים וזכר/נקבה (למשל: "מלאך", "מלאכים").</li>
+            <li>נסו צורות כתיב קרובות או כתיב מלא/חסר.</li>
+            <li>אם אין תוצאות — עברו לניווט לפי מקור או לפי דמות.</li>
+        </ul>
+    </div>
     <script>
         window.addEventListener('DOMContentLoaded', () => {
             const searchRoot = document.getElementById('search');

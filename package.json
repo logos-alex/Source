@@ -10,7 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "check:frontmatter": "node scripts/verify-frontmatter.mjs",
     "check:pathprefix": "node scripts/verify-path-prefix.mjs",
-    "ci:verify": "npm run check:frontmatter && npm run check:texts && npm run check:catalog && npm run check:chapter-titles && npm run check:permalinks && npm run check:placeholders && npm run build && npm run check:release-content && npm run check:pathprefix && npm run check:built-links",
+    "ci:verify": "node scripts/ci-verify.mjs",
     "check:texts": "node scripts/verify-text-structure.mjs",
     "check:permalinks": "node scripts/verify-permalinks.mjs",
     "check:placeholders": "node scripts/verify-placeholders.mjs",
