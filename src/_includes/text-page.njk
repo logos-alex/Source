@@ -7,7 +7,7 @@
   </div>
   
   <div class="text-main" data-pagefind-body>
-    {% if book == 'apoc-daniel-syriac' and pageNumber != 0 %}
+    {% if (book == 'apoc-daniel-syriac' or book == 'young-daniel-syriac') and pageNumber != 0 %}
       <h1 data-pagefind-meta="title">פרק {{ pageNumber | toHebrewNumeral }}</h1>
     {% else %}
       <h1 data-pagefind-meta="title">{{ title }}</h1>
@@ -19,8 +19,9 @@
       <p><em>מקור: {{ sourceHebrew or 'לא מצוין' }} | ייחוס: {{ figureHebrew or 'לא מצוין' }}</em></p>
     {% endif %}
     
-    <div class="text-content {% if book == 'apoc-daniel-syriac' and pageNumber != 0 %}parallel-layout{% endif %}">
-      {% if book == "apoc-daniel-syriac" and pageNumber != 0 %}
+    {% set hasLegacyTextPair = 'class="text-pair"' in content %}
+    <div class="text-content {% if (book == 'apoc-daniel-syriac' or book == 'young-daniel-syriac') and pageNumber != 0 and not hasLegacyTextPair %}parallel-layout{% endif %}">
+      {% if (book == "apoc-daniel-syriac" or book == "young-daniel-syriac") and pageNumber != 0 and not hasLegacyTextPair %}
         {% set contentParts = content.split("<h3>תרגום עברי</h3>") %}
         {% if contentParts.length < 2 %}
           {% set contentParts = content.split("<hr>") %}
