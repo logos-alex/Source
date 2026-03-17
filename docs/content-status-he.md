@@ -9,6 +9,6 @@
 | kitab-al-majall | arabic | 0 | 0 |
 | sefer-zerubbabel | hebrew | 7 | 0 |
 | tsavaat-yeshua | aramaic | 0 | 0 |
-| young-daniel-syriac | aramaic | 0 | 0 |
+| young-daniel-syriac | aramaic | 5 | 0 |
 
 > הדוח נוצר אוטומטית על ידי `npm run report:content`.
