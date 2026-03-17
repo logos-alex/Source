@@ -163,6 +163,41 @@ nav a[aria-current="page"] {
     padding-right: 0;
   }
 }
+
+.text-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.text-pair .source-text {
+  font-style: italic;
+  border-left: 2px solid var(--border-color);
+  padding-left: 16px;
+}
+
+.text-pair .translation-text {
+  padding-right: 16px;
+}
+
+@media (max-width: 1024px) {
+  .text-pair {
+    display: block;
+  }
+
+  .text-pair .source-text {
+    border-left: none;
+    border-bottom: 1px solid var(--border-color);
+    padding-left: 0;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+
+  .text-pair .translation-text {
+    padding-right: 0;
+  }
+}
+
 /* Reading Mode */
 body.reading-mode {
   max-width: 800px;
