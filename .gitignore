@@ -1,3 +1,7 @@
+# Build output (generated automatically, should not be committed)
+_site/
+dist/
+
 # Logs
 logs
 *.log

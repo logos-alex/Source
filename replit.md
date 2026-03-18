@@ -2,45 +2,11 @@
 
 ## 📖 Project Overview
 
-A static site hosting translations and scholarly commentary of ancient apocalyptic texts, with dual navigation by source language (Hebrew/Slavic/Aramaic/Armenian/Latin/Arabic) and biblical figures (Elijah/Jacob/Ezra/Isaiah/Daniel).
+A static site hosting translations and scholarly commentary of ancient apocalyptic texts.
+Dual navigation by source language (Hebrew/Slavic/Aramaic/Arabic/Geez/Latin) and biblical figures.
 
-**Production:** https://heb-sources.netlify.app/
-**Repository:** GitHub (with Netlify auto-deploy)
-
----
-
-## ✨ Current Session - Hebrew Text Reconstruction & Selective Content Lock
-
-### 1. **Apocalypse of Abraham Version A - Full Reconstruction** ✅
-- **Integrated 21 chapters** from Hebrew reconstruction of Slavic manuscript
-- Each chapter = separate page (page-1.md to page-21.md)
-- Under: `/texts/slavic/apocalypse-abraham/a/`
-- All chapters properly formatted with frontmatter:
-  - title, book, pageNumber, tags, source, figure, permalink
-  - RTL Hebrew text ready for scholarly notes (to be added next)
-- Content includes: Idolatry critique, covenant, visions, eschatology
-
-### 2. **Selective Content Locking System** ✅
-- **Published (accessible)**: Only Abraham Version A (21 chapters + index)
-- **Draft (hidden)**: All other texts (104 files) - added `draft: true` flag
-- **Navigation filtering**:
-  - "לפי מקור" (by source): Shows ONLY סלאבית (has published content)
-  - "לפי יחוס" (by figure): Shows ONLY אברהם (has published content)
-  - No broken links or inaccessible categories
-- Build: 22 published pages + site structure (not counting drafts)
-- Drafts are completely hidden from collections and navigation
-
-## Previous Sessions Features (Already Complete)
-
-### Session 2 - SEO & Infrastructure ✅
-- Google Search Console integration + verification file
-- robots.txt properly configured 
-- Sitemap.xml with 30+ URLs, metadata, and lastmod dates
-- Meta tags: Open Graph, Twitter Card, JSON-LD schema
-- Canonical URLs on all pages
-
-### Session 1 - Site Architecture ✅
-- Breadcrumbs Navigation | Dark Mode | Mobile Responsive | Accessibility | Reading Progress | Print Optimization | 404 Page
+**Production:** https://logos-alex.github.io/Source/
+**Repository:** GitHub (with GitHub Actions auto-deploy)
 
 ---
 
@@ -49,25 +15,42 @@ A static site hosting translations and scholarly commentary of ancient apocalypt
 ```
 src/
 ├── _data/
-│   ├── figures.json          # elijah, jacob, ezra, isaiah → Hebrew names
-│   ├── sources.json          # hebrew, slavic, aramaic, latin → Hebrew names
-│   └── site.json             # Site metadata
+│   ├── figures.json          # figure keys → Hebrew names
+│   ├── sources.json          # source keys → Hebrew names
+│   ├── languages.json        # language keys → Hebrew names (used in text-page.njk)
+│   ├── sources-catalog.json  # Full catalog of books with metadata
+│   ├── figureCatalogKeys.json # List of active figure keys
+│   ├── build-info.js         # Git commit/branch/date (auto at build time)
+│   └── site.json             # Site metadata (pathPrefix, origin, etc.)
 ├── _includes/
-│   ├── base.njk              # Main layout with dark mode + breadcrumbs
-│   ├── text-page.njk         # Text display with reading progress
+│   ├── base.njk              # Main layout (dark mode, breadcrumbs, nav)
+│   ├── text-page.njk         # Text display (reading progress, parallel layout, ToC, Disqus)
 │   ├── book-index.njk        # Book listing
+│   ├── category-page.njk     # Category/language page
 │   ├── breadcrumbs.njk       # Navigation path component
-│   └── mobile-menu.njk       # Mobile nav (prepared)
+│   └── mobile-menu.njk       # Mobile nav
 ├── assets/
-│   └── style.css             # All styles (dark mode, mobile, print, accessibility)
+│   └── style.css             # All styles (dark mode, mobile, print, RTL)
 ├── texts/
-│   └── [source]/[book]/      # Content organized by language → book
-├── by-figure/
-│   └── [figure]/             # Auto-generated collections by figure
+│   ├── arabic/sefer-megilot/ # 34 pages
+│   ├── aramaic/
+│   │   ├── apoc-daniel-syriac/  # 31 pages (parallel Aramaic+Hebrew layout)
+│   │   ├── young-daniel-syriac/ # 5 pages
+│   │   └── tsavaat-yeshua/      # index only
+│   ├── geez/clementos/       # 17 pages
+│   ├── hebrew/sefer-zerubbabel/ # 7 pages
+│   ├── latin/                # index only
+│   └── slavic/apocalypse-abraham/
+│       ├── a/                # 21 pages (Version A)
+│       └── b/                # 25 pages (Version B)
+├── by-figure/                # Figure index pages (abraham, daniel, zerubbabel, talmidei-yeshua)
+├── scripts/                  # CI/verify scripts (all used in package.json)
 ├── index.njk                 # Homepage
 ├── texts.njk                 # Source directory
-├── by-figure.njk            # Figure pages (collection)
-├── sitemap.njk              # XML sitemap
+├── by-figure.njk             # Figure collection pages
+├── search.njk                # Pagefind search page
+├── updates.njk               # Updates/changelog page
+├── sitemap.njk               # XML sitemap
 └── 404.md                    # Error page
 ```
 
@@ -76,23 +59,29 @@ src/
 ## 🔧 Key Technologies
 
 - **Generator:** Eleventy 3.1.2
-- **Template Language:** Nunjucks (njk)
-- **Styling:** CSS with CSS variables for theming
-- **Data Files:** JSON (figures, sources)
-- **Features:** 
-  - Collections API for organizing by book/figure
-  - Syntax highlighting support (@11ty/eleventy-plugin-syntaxhighlight)
-  - Date formatting (luxon)
-  - Search indexing (pagefind - configured)
+- **Template Language:** Nunjucks (`markdownTemplateEngine: "njk"`, `htmlTemplateEngine: "njk"`)
+- **Styling:** CSS with CSS variables for theming (RTL, dark mode)
+- **pathPrefix:** `/Source/` (set in site.json, used in .eleventy.js)
+- **Search:** Pagefind (runs after build)
+- **Deploy:** GitHub Actions → GitHub Pages
 
 ---
 
-## 📊 Content Statistics
+## ⚙️ Custom Filters in .eleventy.js
 
-- **Files:** 19 markdown/content files
-- **Templates:** 9 Nunjucks templates  
-- **Build Output:** ~340KB (gzipped)
-- **Build Time:** ~0.1s
+| Filter | Purpose |
+|---|---|
+| `findIndexByUrl(items, url)` | Finds index of current page in array |
+| `bookPages(items, url, book, includeIndex=true)` | Pages in same book, sorted by pageNumber |
+| `toHebrewNumeral(num)` | Converts number to Hebrew letters (א, ב, ...) |
+| `chapterDisplayTitle(item, book)` | Human-readable chapter title for nav |
+
+---
+
+## 📊 Content Statistics (current)
+
+- **Total pages built:** ~166 HTML files
+- **Books:** Arabic (34pp), Aramaic Daniel (31pp), Slavic Abraham A (21pp), Slavic Abraham B (25pp), Geez (17pp), Hebrew (7pp), Aramaic Young Daniel (5pp)
 
 ---
 
@@ -101,154 +90,55 @@ src/
 ### Light Mode (Default)
 - Background: `#f9f5e7` (Cream/Papyrus)
 - Text: `#3D2B1F` (Brown-earth)
-- Border: `#d4af37` (Thin gold)
-- Headers: `#5a3a2a` (Dark brown)
-- Accents: `#8b4513` (Saddle brown)
+- Border: `#d4af37` (Gold)
 
 ### Dark Mode
 - Background: `#1a1410` (Deep brown)
 - Text: `#e8dcc8` (Light cream)
-- Border: `#8b7355` (Muted brown)
-- Headers: `#d4a574` (Light tan)
 - Accents: `#d4af37` (Gold)
 
 ---
 
-## 🚀 Deployment & Git
+## 🚀 Deployment
 
-**Netlify Auto-Deploy:**
+**GitHub Actions auto-deploy on push to main:**
 ```bash
-git push origin main  # Triggers auto-build on Netlify
+git add .
+git commit -m "..."
+git push origin main
 ```
 
-**Environment:**
-- Framework: Eleventy
-- Build command: `npm run build`
-- Publish directory: `dist/`
+Build command: `npm run build`
+Output dir: `_site/`
 
-**Important Files:**
-- `.eleventy.js` - Build config (collections, filters)
-- `package.json` - Dependencies
-- `replit.md` - This file
+**Important:** `_site/` and `dist/` are in `.gitignore` - do not commit them.
 
 ---
 
-## 🔍 SEO & Meta
+## 📝 Content Guidelines
 
-- ✅ Sitemap.xml
-- ✅ Robots.txt
-- ✅ Open Graph tags
-- ✅ Canonical URLs
-- ✅ Hebrew language meta
-
----
-
-## 💡 Future Enhancements & Recommendations
-
-### HIGH PRIORITY 🔴
-1. **Pagefind Search Activation** - Already installed, configure UI component
-2. **Optimize Typography** - Hebrew ligatures, letter-spacing refinement
-3. **Figure Summary Pages** - Each biblical figure (Elijah/Jacob/Ezra/Isaiah) as dedicated page with all related texts
-4. **Content Completion** - Add remaining texts for each source (currently: 4 texts, capacity: 20+)
-
-### MEDIUM PRIORITY 🟡
-5. **Bibliography & References** - Centralized reference list with academic citations
-6. **Related Texts** - Cross-references between texts that reference same themes/figures
-7. **Advanced Filtering** - Filter by era, text length, complexity level
-8. **Print Stylesheet** - Further optimize for academic paper printing
-
-### LOWER PRIORITY 🟢
-9. **Comments System** - Disqus integration ready (text-page.njk has Disqus code)
-10. **Analytics** - Google Analytics for user behavior tracking
-11. **API Endpoint** - JSON API for programmatic access to texts
-12. **Archive Blog** - Commentary and scholarly articles about texts
-
----
-
-## 🔍 Technical Audit Summary
-
-### ✅ Strengths
-- **Clean Architecture** - Well-organized file structure, easy to maintain
-- **Responsive Design** - Works on mobile/tablet/desktop (768px breakpoint)
-- **Accessibility** - ARIA labels, focus states, color scheme aware
-- **SEO Ready** - Sitemap, robots.txt, canonical URLs, Open Graph, JSON-LD
-- **Dark Mode** - Full dark theme with localStorage persistence
-- **Build Speed** - ~0.8s build time (excellent)
-- **Performance** - 996KB total output (very lightweight)
-- **Hebrew Support** - RTL layout, proper language tagging, Google Fonts
-
-### ⚠️ Areas for Enhancement
-1. **Content Density** - Only 4 texts currently (7 texts worth of structure exists)
-2. **Search** - Pagefind installed but not activated in UI
-3. **Typography** - Could use Hebrew-specific letter-spacing adjustments
-4. **Link Styling** - Internal links could have visual distinction
-5. **Mobile Navigation** - Mobile menu template exists but not fully integrated
-6. **Caching Headers** - May need explicit cache control on Netlify
-7. **Lazy Loading** - Consider lazy-loading for future image content
-8. **Comments** - Disqus integration in place but may need moderation settings
-
-### 📊 Metrics
-- **Build Files**: 41 generated HTML files
-- **Templates**: 11 reusable Nunjucks components
-- **Data Files**: 3 JSON files for configuration
-- **CSS**: 436 lines (well-organized, CSS variables used)
-- **Bundle Size**: ~996KB (1MB - very reasonable)
-- **Build Time**: 0.8 seconds (fast)
-
----
-
-## 🎯 Recommended Action Plan
-
-### Phase 1: Content Expansion (Next Session)
-- [ ] Complete Latin texts (Vision of Ezra has 1 page, typically 5-10)
-- [ ] Complete Slavic texts (Ladder of Jacob has 5 pages, typically 10+)
-- [ ] Add Hebrew and Aramaic texts
-- [ ] Validate all texts have consistent frontmatter
-
-### Phase 2: Feature Activation (Current)
-- [ ] Activate Pagefind search UI component
-- [ ] Configure Disqus moderation settings
-- [ ] Add "Related Texts" suggestions section
-- [ ] Implement figure summary pages
-
-### Phase 3: Polish & Optimization
-- [ ] Fine-tune Hebrew typography
-- [ ] Add print CSS for academic use
-- [ ] Implement social sharing buttons
-- [ ] Add estimated reading time for texts
-
----
-
-## 📝 User Preferences & Notes
-
-- All text/navigation in Hebrew (RTL layout)
+- All UI/navigation in Hebrew (RTL layout)
 - Academic/scholarly tone
-- Traditional parchment aesthetics maintained (papyrus/brown/gold)
-- User prefers git push workflow for deployment
-- Dark mode with brown-gold color scheme (not blue/gray)
-- **CRITICAL**: Exact preservation of source text - never rewrite or fabricate
-- Format: Main text separated from commentary/notes (notes in frontmatter array)
+- Traditional parchment aesthetics (papyrus/brown/gold)
+- **CRITICAL**: Never rewrite or fabricate source text
+- Parallel layout for Aramaic books: split at `<h3>תרגום עברי</h3>` or `<hr>`
+- Frontmatter required: `title`, `book`, `pageNumber`, `source`, `figure`, `permalink`
 
 ---
 
-**Last Updated:** January 02, 2026
-**Status:** ✅ Live - Optimized Navigation & UI ✨  
-**Current Setup**: 
-- ✅ **Published**: ONLY Apocalypse of Abraham Version A (21 chapters)
-- ✅ **Navigation**: 
-  - Dynamic TOC dropdown in fixed bottom navigation (accessible from all pages)
-  - Clear separation between intro pages and chapter content
-  - Cleaned up breadcrumbs and site-wide links
-- ✅ **Build**: 31 pages live (Abraham A + navigation pages)
-- ✅ **Search**: Pagefind indexing configured for Hebrew
+## 🔍 npm Scripts
 
-### 🎯 Latest Session Completion
-- ✅ Table of Contents: Removed from intro body, moved to a dynamic dropdown in the persistent navigation bar.
-- ✅ Footnotes: Hidden on intro pages where they were irrelevant.
-- ✅ Breadcrumbs: Fixed logical pathing for biblical figures.
-- ✅ Hebrew Support: Enhanced RTL styles for navigation and dropdowns.
+| Script | Purpose |
+|---|---|
+| `npm run dev` | Dev server on port 5000 |
+| `npm run build` | Full build (Eleventy + Pagefind) |
+| `npm run ci:verify` | Run all verify scripts |
+| `npm run check:frontmatter` | Verify frontmatter completeness |
+| `npm run check:pathprefix` | Verify path prefix in built HTML |
+| `npm run new:chapter` | Helper to create a new chapter file |
+| `npm run report:content` | Content status report |
 
-### ⏰ Timeline to Visibility
-- Google typically indexes new sites within 1-4 weeks
-- Check Search Console for indexing progress
-- Sitemap auto-updates on each build/content change
+---
+
+**Last Updated:** March 18, 2026
+**Status:** ✅ Live on GitHub Pages — 166 pages, server running
