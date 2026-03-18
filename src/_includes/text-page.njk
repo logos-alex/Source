@@ -19,18 +19,24 @@
       <p><em>מקור: {{ sourceHebrew or 'לא מצוין' }} | ייחוס: {{ figureHebrew or 'לא מצוין' }}</em></p>
     {% endif %}
     
-    <div class="text-content {% if (book == 'apoc-daniel-syriac' or book == 'young-daniel-syriac') and pageNumber != 0 %}parallel-layout{% endif %}">
+    <div class="text-content">
       {% if (book == "apoc-daniel-syriac" or book == "young-daniel-syriac") and pageNumber != 0 %}
         {% set contentParts = content.split("<h3>תרגום עברי</h3>") %}
         {% if contentParts.length < 2 %}
           {% set contentParts = content.split("<hr>") %}
         {% endif %}
-        <div class="column-source">
-          {{ (contentParts[0] or "") | replace("<h3>מקור ארמי</h3>", "") | safe }}
-        </div>
-        <div class="column-translation">
-          {{ (contentParts[1] or "") | safe }}
-        </div>
+        {% if contentParts.length >= 2 %}
+          <div class="parallel-layout">
+            <div class="column-source">
+              {{ (contentParts[0] or "") | replace("<h3>מקור ארמי</h3>", "") | safe }}
+            </div>
+            <div class="column-translation">
+              {{ (contentParts[1] or "") | safe }}
+            </div>
+          </div>
+        {% else %}
+          {{ content | safe }}
+        {% endif %}
       {% else %}
         {{ content | safe }}
       {% endif %}
