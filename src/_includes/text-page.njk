@@ -28,17 +28,17 @@
         {% if contentParts.length >= 2 %}
           <div class="parallel-layout">
             <div class="column-source">
-              {{ (contentParts[0] or "") | replace("<h3>מקור ארמי</h3>", "") | safe }}
+              {{ (contentParts[0] or "") | replace("<h3>מקור ארמי</h3>", "") | renderNoteRefs | safe }}
             </div>
             <div class="column-translation">
-              {{ (contentParts[1] or "") | safe }}
+              {{ (contentParts[1] or "") | renderNoteRefs | safe }}
             </div>
           </div>
         {% else %}
-          {{ content | safe }}
+          {{ content | renderNoteRefs | safe }}
         {% endif %}
       {% else %}
-        {{ content | safe }}
+        {{ content | renderNoteRefs | safe }}
       {% endif %}
     </div>
   </div>
@@ -59,7 +59,10 @@
       <h3>הערות וביאורים</h3>
       <ul>
         {% for note in notes %}
-          <li id="note-{{ loop.index }}">{{ note | safe }}</li>
+          <li id="note-{{ loop.index }}">
+            {{ note | safe }}
+            <a class="note-backlink" href="#ref-{{ loop.index }}" aria-label="חזרה להערה {{ loop.index }}">↩</a>
+          </li>
         {% endfor %}
       </ul>
     </div>
