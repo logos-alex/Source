@@ -59,7 +59,7 @@
       <h3>הערות וביאורים</h3>
       <ul>
         {% for note in notes %}
-          <li id="note-{{ loop.index }}">{{ note | safe }}</li>
+          <li id="note-{{ loop.index }}">{{ note | safe }} <a href="#ref-{{ loop.index }}" class="note-backlink" aria-label="חזרה למיקום ההפניה בגוף הטקסט">↩</a></li>
         {% endfor %}
       </ul>
     </div>
