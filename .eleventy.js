@@ -1,4 +1,5 @@
 const site = require("./src/_data/site.json");
+const { displayBookTitle } = require("./lib/display-book-title.cjs");
 
 module.exports = function(eleventyConfig) {
   const normalizeUrl = (value = "") => String(value).replace(/\/+$/, "");
@@ -38,7 +39,8 @@ module.exports = function(eleventyConfig) {
     return items.findIndex(item => item.url === url);
   });
 
-  
+  eleventyConfig.addFilter("displayBookTitle", displayBookTitle);
+
   eleventyConfig.addFilter("bookPages", (items, currentUrl, book, includeIndex = true) => {
     if (!items || !currentUrl) return [];
     const prefix = currentUrl.replace(/[^/]+\/?$/, "");
