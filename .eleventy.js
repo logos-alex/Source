@@ -78,14 +78,21 @@ module.exports = function(eleventyConfig) {
     return String(n);
   };
 
+  const booksWithHebrewChapterTitles = new Set([
+    "apoc-daniel-syriac",
+    "young-daniel-syriac",
+  ]);
+
+  const usesHebrewChapterTitles = (book) => booksWithHebrewChapterTitles.has(book);
+
   eleventyConfig.addFilter("toHebrewNumeral", toHebrewNumeral);
+  eleventyConfig.addFilter("usesHebrewChapterTitles", usesHebrewChapterTitles);
 
   eleventyConfig.addFilter("chapterDisplayTitle", (item, book) => {
     if (!item) return "";
     const rawTitle = item.data?.title || "";
-    if (book !== "apoc-daniel-syriac") return rawTitle;
+    if (!usesHebrewChapterTitles(book)) return rawTitle;
     if (!rawTitle.includes("פרק")) return rawTitle;
-    if (/פרק\s+[א-ת״'"׳]+/.test(rawTitle)) return rawTitle;
     const pageNumber = Number(item.data?.pageNumber || 0);
     if (pageNumber > 0) {
       return `פרק ${toHebrewNumeral(pageNumber)}`;
