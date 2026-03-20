@@ -57,7 +57,14 @@ try {
   expectIncludes(updatesHtml, `data-release-series="${updates.release.series}"`, 'release series marker', updatesFile, failures);
   expectIncludes(updatesHtml, `data-release-id="${updates.release.id}"`, 'release id marker', updatesFile, failures);
   expectIncludes(updatesHtml, `data-min-cards="${updates.release.minimumCardCount}"`, 'minimum-card marker', updatesFile, failures);
-  expectMinimumCount(updatesHtml, /<article class="update-card"[^>]*data-update-id="[^"]+"/g, updates.release.minimumCardCount, 'release cards with stable ids', updatesFile, failures);
+  expectMinimumCount(
+    updatesHtml,
+    /<article\b[^>]*class="[^"]*\bupdate-card\b[^"]*"[^>]*data-update-id="[^"]+"/g,
+    updates.release.minimumCardCount,
+    'release cards with stable ids',
+    updatesFile,
+    failures
+  );
 
   for (const item of updates.items) {
     expectIncludes(updatesHtml, `data-update-id="${item.id}"`, `update id '${item.id}'`, updatesFile, failures);
