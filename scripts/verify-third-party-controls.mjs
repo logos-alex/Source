@@ -12,7 +12,7 @@ const buildWarnings = [];
 
 const build = (config) => {
   writeFileSync(configPath, `${JSON.stringify(config, null, 2)}\n`);
-  execFileSync('npm', ['exec', '--', 'eleventy', `--pathprefix=${config.pathPrefix || '/'}`], {
+  execFileSync('./node_modules/.bin/eleventy', [`--pathprefix=${config.pathPrefix || '/'}`], {
     cwd: repoRoot,
     stdio: 'pipe'
   });
