@@ -43,17 +43,6 @@
     </div>
   </div>
   
-  <script>
-    window.addEventListener('scroll', function() {
-      const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrolled = (window.scrollY / windowHeight) * 100;
-      const progressEl = document.getElementById('readingProgress');
-      if (progressEl) {
-        progressEl.style.width = scrolled + '%';
-      }
-    });
-  </script>
-
   {% if pageNumber != 0 and notes %}
     <div class="footnotes">
       <h3>הערות וביאורים</h3>

@@ -2,6 +2,21 @@
   const htmlRoot = document.getElementById('htmlRoot');
   const themeToggle = document.getElementById('themeToggle');
   const readingToggle = document.getElementById('readingModeToggle');
+  const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  function prefersReducedMotion() {
+    return reducedMotionQuery.matches;
+  }
+
+  function syncReducedMotionPreference() {
+    if (!htmlRoot) return;
+
+    if (prefersReducedMotion()) {
+      htmlRoot.setAttribute('data-reduced-motion', 'reduce');
+    } else {
+      htmlRoot.removeAttribute('data-reduced-motion');
+    }
+  }
 
   function applyTheme(theme) {
     if (!htmlRoot) return;
@@ -120,6 +135,43 @@
     }
   }
 
+  function initReadingProgress() {
+    const progressEl = document.getElementById('readingProgress');
+    if (!progressEl) return;
+
+    let ticking = false;
+
+    const updateProgress = () => {
+      ticking = false;
+
+      if (prefersReducedMotion()) {
+        progressEl.style.width = '0%';
+        progressEl.setAttribute('aria-hidden', 'true');
+        return;
+      }
+
+      const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = windowHeight > 0 ? (window.scrollY / windowHeight) * 100 : 0;
+      progressEl.style.width = `${Math.min(100, Math.max(0, scrolled))}%`;
+      progressEl.removeAttribute('aria-hidden');
+    };
+
+    const queueProgressUpdate = () => {
+      if (prefersReducedMotion() || ticking) return;
+
+      ticking = true;
+      window.requestAnimationFrame(updateProgress);
+    };
+
+    updateProgress();
+    window.addEventListener('scroll', queueProgressUpdate, { passive: true });
+    window.addEventListener('resize', updateProgress, { passive: true });
+    reducedMotionQuery.addEventListener('change', () => {
+      syncReducedMotionPreference();
+      updateProgress();
+    });
+  }
+
   if (themeToggle && htmlRoot) {
     themeToggle.addEventListener('click', () => {
       const current = htmlRoot.getAttribute('data-theme');
@@ -128,10 +180,12 @@
     });
   }
 
+  syncReducedMotionPreference();
   initTheme();
   initReadingMode();
   initMobileNavigation();
   initTocDropdowns();
+  initReadingProgress();
 })();
 
 window.googleTranslateElementInit = function googleTranslateElementInit() {

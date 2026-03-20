@@ -753,6 +753,30 @@ sup a:hover {
   transition: width 0.1s ease;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .quick-actions a,
+  .text-main a:not(.dropbtn):not(.home-link):not(.prev):not(.next),
+  .theme-toggle,
+  nav a,
+  .pagination a,
+  .book-card h3 a,
+  .reading-progress-bar {
+    transition: none;
+  }
+
+  .quick-actions a:hover {
+    transform: none;
+  }
+
+  .reading-progress {
+    display: none;
+  }
+}
+
 /* === ACCESSIBILITY === */
 a:focus,
 button:focus,
