@@ -15,6 +15,7 @@
     "check:permalinks": "node scripts/verify-permalinks.mjs",
     "check:placeholders": "node scripts/verify-placeholders.mjs",
     "check:built-links": "node scripts/verify-built-links.mjs",
+    "check:intro-navigation": "node scripts/verify-intro-navigation.mjs",
     "new:chapter": "node scripts/new-chapter.mjs",
     "check:catalog": "node scripts/verify-catalog-consistency.mjs",
     "check:chapter-titles": "node scripts/verify-chapter-titles.mjs",

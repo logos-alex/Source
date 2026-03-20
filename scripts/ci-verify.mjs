@@ -11,6 +11,7 @@ const steps = [
   ["npm", "exec", "--", "eleventy", "--pathprefix=/Source/"],
   ["npm", "exec", "--", "pagefind", "--site", "_site", "--output-path", "_site/pagefind"],
   ["node", "scripts/verify-release-content.mjs"],
+  ["node", "scripts/verify-intro-navigation.mjs"],
   ["node", "scripts/verify-path-prefix.mjs"],
   ["node", "scripts/verify-built-links.mjs"]
 ];
