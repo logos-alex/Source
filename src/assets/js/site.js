@@ -88,6 +88,21 @@
     });
   }
 
+  function updateReadingModeAccessibility(isReading) {
+    if (!readingToggle) return;
+
+    const nextActionLabel = isReading
+      ? readingToggle.dataset.readingLabelOn || 'כיבוי מצב קריאה'
+      : readingToggle.dataset.readingLabelOff || 'הפעלת מצב קריאה';
+    const stateDescription = isReading
+      ? readingToggle.dataset.readingDescriptionOn || 'מצב קריאה פעיל. לחיצה תכבה את מצב הקריאה.'
+      : readingToggle.dataset.readingDescriptionOff || 'מצב קריאה כבוי. לחיצה תפעיל את מצב הקריאה.';
+
+    readingToggle.setAttribute('aria-pressed', String(isReading));
+    readingToggle.setAttribute('aria-label', nextActionLabel);
+    readingToggle.setAttribute('aria-description', stateDescription);
+  }
+
   function initReadingMode() {
     const storedReadingMode = localStorage.getItem('readingMode') === 'true';
     if (storedReadingMode) {
@@ -95,12 +110,12 @@
     }
 
     if (readingToggle) {
-      readingToggle.setAttribute('aria-pressed', String(storedReadingMode));
+      updateReadingModeAccessibility(storedReadingMode);
       readingToggle.addEventListener('click', () => {
         document.body.classList.toggle('reading-mode');
         const isReading = document.body.classList.contains('reading-mode');
         localStorage.setItem('readingMode', isReading);
-        readingToggle.setAttribute('aria-pressed', String(isReading));
+        updateReadingModeAccessibility(isReading);
       });
     }
   }
