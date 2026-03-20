@@ -28,17 +28,17 @@
         {% if contentParts.length >= 2 %}
           <div class="parallel-layout">
             <div class="column-source">
-              {{ (contentParts[0] or "") | replace("<h3>מקור ארמי</h3>", "") | safe }}
+              {{ (contentParts[0] or "") | replace("<h3>מקור ארמי</h3>", "") | renderNoteRefs | safe }}
             </div>
             <div class="column-translation">
-              {{ (contentParts[1] or "") | safe }}
+              {{ (contentParts[1] or "") | renderNoteRefs | safe }}
             </div>
           </div>
         {% else %}
-          {{ content | safe }}
+          {{ content | renderNoteRefs | safe }}
         {% endif %}
       {% else %}
-        {{ content | safe }}
+        {{ content | renderNoteRefs | safe }}
       {% endif %}
     </div>
   </div>
