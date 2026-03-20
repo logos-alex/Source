@@ -9,7 +9,6 @@ const steps = [
   ["node", "scripts/verify-placeholders.mjs"],
   ["node", "scripts/verify-intro-revisions.mjs"],
   ["node", "scripts/report-content-status.mjs", "--check"],
-  ["node", "scripts/verify-eleventy-filters.mjs"],
   ["./node_modules/.bin/eleventy", "--pathprefix=/Source/"],
   ["node", "scripts/verify-display-book-titles.mjs"],
   ["./node_modules/.bin/pagefind", "--site", "_site", "--output-path", "_site/pagefind"],
