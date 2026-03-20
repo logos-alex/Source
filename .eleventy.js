@@ -1,4 +1,5 @@
 const site = require("./src/_data/site.json");
+const { displayBookTitle } = require("./lib/display-book-title.cjs");
 
 module.exports = function(eleventyConfig) {
   const normalizeUrl = (value = "") => String(value).replace(/\/+$/, "");
