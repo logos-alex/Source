@@ -1,6 +1,17 @@
 const site = require("./src/_data/site.json");
 
 module.exports = function(eleventyConfig) {
+  eleventyConfig.addFilter("renderNoteRefs", (html) => {
+    if (!html) return "";
+    const seenRefs = new Set();
+    return String(html).replace(/\[(\d+)\]/g, (_, noteNumber) => {
+      const isFirstReference = !seenRefs.has(noteNumber);
+      seenRefs.add(noteNumber);
+      const idAttr = isFirstReference ? ` id="ref-${noteNumber}"` : "";
+      return `<sup class="note-ref"><a${idAttr} href="#note-${noteNumber}" aria-label="הערה ${noteNumber}">[${noteNumber}]</a></sup>`;
+    });
+  });
+
   // Custom filter to find an index by URL
   eleventyConfig.addFilter("findIndexByUrl", (items, url) => {
     if (!items || !url) return -1;
