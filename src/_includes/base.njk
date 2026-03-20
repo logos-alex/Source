@@ -2,6 +2,12 @@
 <html lang="he" dir="rtl" id="htmlRoot">
 <head>
     {% set sitePrefix = (site.pathPrefix or '/Source/') %}
+    {% set fonts = site.fonts or {} %}
+    {% set thirdParty = site.thirdParty or {} %}
+    {% set analytics = thirdParty.analytics or {} %}
+    {% set clarity = thirdParty.clarity or {} %}
+    {% set translate = thirdParty.translate or {} %}
+    {% set hasConsentControls = (analytics.enabled and analytics.requiresConsent) or (clarity.enabled and clarity.requiresConsent) %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }} | אוצר הכתבים הגנוזים</title>
@@ -45,31 +51,59 @@
       }
     }
     </script>
-    
-    {# --- הוספת הגופן המשופר מ-Google Fonts --- #}
+
+    {#
+      טעינה חיונית בכל עמוד:
+      - CSS מקומי, מטא-דאטה ו-site.js.
+      טעינה שנדחית/מותנית:
+      - Google Translate רק אחרי אינטראקציה מפורשת.
+      - Google Analytics + Microsoft Clarity רק אם הופעלו ב-config ורק אחרי consent + אינטראקציה.
+      - פונטים חיצוניים רק אם מפעילים אותם במפורש; אחרת מסתמכים על stack מקומי/self-hosted.
+    #}
+    {% if fonts.useSelfHosted and fonts.selfHostedStylesheet %}
+    <link rel="stylesheet" href="{{ fonts.selfHostedStylesheet | url }}">
+    {% elif fonts.loadExternal %}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;700&family=Noto+Serif+Hebrew:wght@300;400;700&display=swap" rel="stylesheet">
+    {% endif %}
     <link rel="stylesheet" href="{{ '/assets/style.css' | url }}">
 </head>
 <body class="{{ bodyClass }}">
     <a class="skip-link" href="#main-content">דלג לתוכן</a>
     <button id="readingModeToggle" class="reading-mode-toggle" type="button" aria-pressed="false" title="מצב קריאה">📖</button>
-    <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "ucq1c77qd5");
-    </script>
 
-    {# --- Google Analytics (GA4) --- #}
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M3NHG4MWVR"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-M3NHG4MWVR');
+      window.siteRuntimeConfig = {
+        fonts: {
+          provider: "{{ fonts.provider or 'system' }}",
+          loadExternal: {{ "true" if fonts.loadExternal else "false" }},
+          useSelfHosted: {{ "true" if fonts.useSelfHosted else "false" }},
+          selfHostedStylesheet: "{{ fonts.selfHostedStylesheet or '' }}",
+          fallbackStack: "{{ fonts.fallbackStack or '' }}"
+        },
+        thirdParty: {
+          consentMode: "{{ thirdParty.consentMode or 'opt-in' }}",
+          analytics: {
+            enabled: {{ "true" if analytics.enabled else "false" }},
+            measurementId: "{{ analytics.measurementId or '' }}",
+            requiresConsent: {{ "true" if analytics.requiresConsent else "false" }},
+            loadStrategy: "{{ analytics.loadStrategy or 'disabled' }}"
+          },
+          clarity: {
+            enabled: {{ "true" if clarity.enabled else "false" }},
+            projectId: "{{ clarity.projectId or '' }}",
+            requiresConsent: {{ "true" if clarity.requiresConsent else "false" }},
+            loadStrategy: "{{ clarity.loadStrategy or 'disabled' }}"
+          },
+          translate: {
+            enabled: {{ "true" if translate.enabled else "false" }},
+            requiresConsent: {{ "true" if translate.requiresConsent else "false" }},
+            loadStrategy: "{{ translate.loadStrategy or 'disabled' }}",
+            includedLanguages: "{{ translate.includedLanguages or 'en' }}"
+          }
+        }
+      };
     </script>
     <header>
         <div class="header-top">
@@ -112,16 +146,36 @@
         {% endblock %}
     </main>
     <footer>
-        <div id="google_translate_element"></div>
+        {% if translate.enabled %}
+        <div class="footer-tool-group">
+            <p class="footer-tool-copy">תרגום מכונה נטען רק אם בוחרים בכך, כדי לחסוך בקשות חיצוניות מיותרות.</p>
+            <button id="translateLauncher" class="footer-action" type="button" data-third-party-trigger="translate">
+              הפעל תרגום אוטומטי
+            </button>
+            <div id="google_translate_element" hidden></div>
+        </div>
+        {% endif %}
+
+        {% if hasConsentControls %}
+        <div class="footer-tool-group footer-tool-group--privacy">
+            <p class="footer-tool-copy">שירותי מדידה חיצוניים כבויים כברירת מחדל וייטענו רק אחרי אישור מפורש.</p>
+            {% if analytics.enabled and analytics.requiresConsent %}
+            <button class="footer-action" type="button" data-consent-service="analytics">אפשר Google Analytics</button>
+            {% endif %}
+            {% if clarity.enabled and clarity.requiresConsent %}
+            <button class="footer-action" type="button" data-consent-service="clarity">אפשר Microsoft Clarity</button>
+            {% endif %}
+        </div>
+        {% endif %}
+
         <p>&copy; כל הזכויות שמורות - 2025</p>
         <p style="font-size: 0.7em; color: #999;">
-            <a href="{{ '/sitemap.xml' | url }}" style="color: inherit; text-decoration: none;">Sitemap</a> | 
+            <a href="{{ '/sitemap.xml' | url }}" style="color: inherit; text-decoration: none;">Sitemap</a> |
             <a href="{{ '/robots.txt' | url }}" style="color: inherit; text-decoration: none;">Robots</a>
         </p>
     </footer>
 
     <script src="{{ '/assets/js/site.js' | url }}" defer></script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>

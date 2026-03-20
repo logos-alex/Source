@@ -7,6 +7,7 @@
   --accent-color: #8b4513; /* צבע נוסף להדגשות */
   --header-color: #5a3a2a; /* צבע חום-אדמדם לכותרות */
   --text-color-muted: #666; /* צבע אפור להערות לא חשובות */
+  --font-serif: 'Frank Ruhl Libre', 'Noto Serif Hebrew', 'Times New Roman', 'David', 'Georgia', serif;
   color-scheme: light;
 }
 
@@ -34,8 +35,9 @@ html[data-theme="dark"] a:visited {
   color: #a0795f;
 }
 
+
 body {
-  font-family: 'Frank Ruhl Libre', 'Noto Serif Hebrew', serif;
+  font-family: var(--font-serif);
   background: var(--bg-color);
   color: var(--text-color);
   max-width: 1200px; /* Increased for parallel view */
@@ -555,7 +557,7 @@ sup {
 }
 
 .epigraph-card .quote-translation {
-  font-family: 'Frank Ruhl Libre', 'Noto Serif Hebrew', serif;
+  font-family: var(--font-serif);
   font-size: 1rem;
   color: var(--notes-color);
 }
@@ -1113,4 +1115,42 @@ nav a:focus {
 
 [data-theme="dark"] .update-card {
   background: rgba(201, 157, 125, 0.15);
+}
+
+.footer-tool-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.footer-tool-group--privacy {
+  border-top: 1px solid rgba(90, 58, 42, 0.15);
+  padding-top: 12px;
+}
+
+.footer-tool-copy {
+  margin: 0;
+  color: var(--text-color-muted);
+  font-size: 0.95rem;
+}
+
+.footer-action {
+  border: 1px solid var(--border-color);
+  background: rgba(212, 175, 55, 0.08);
+  color: var(--text-color);
+  border-radius: 999px;
+  padding: 8px 14px;
+  font: inherit;
+  cursor: pointer;
+}
+
+.footer-action:disabled {
+  cursor: default;
+  opacity: 0.7;
+}
+
+#google_translate_element[hidden] {
+  display: none;
 }

@@ -2,5 +2,33 @@
   "url": "https://logos-alex.github.io/Source/",
   "origin": "https://logos-alex.github.io",
   "pathPrefix": "/Source/",
-  "disqusShortname": "hebrew-aramaic-sources"
+  "disqusShortname": "hebrew-aramaic-sources",
+  "fonts": {
+    "provider": "google",
+    "loadExternal": false,
+    "useSelfHosted": false,
+    "selfHostedStylesheet": "/assets/fonts/fonts.css",
+    "fallbackStack": "'Noto Serif Hebrew', 'Times New Roman', 'David', 'Georgia', serif"
+  },
+  "thirdParty": {
+    "consentMode": "opt-in",
+    "analytics": {
+      "enabled": false,
+      "measurementId": "G-M3NHG4MWVR",
+      "requiresConsent": true,
+      "loadStrategy": "after-consent-and-interaction"
+    },
+    "clarity": {
+      "enabled": false,
+      "projectId": "ucq1c77qd5",
+      "requiresConsent": true,
+      "loadStrategy": "after-consent-and-interaction"
+    },
+    "translate": {
+      "enabled": true,
+      "requiresConsent": false,
+      "loadStrategy": "on-interaction",
+      "includedLanguages": "en,fr,de,es,ru,ar,it"
+    }
+  }
 }
