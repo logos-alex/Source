@@ -13,7 +13,7 @@
   </div>
 
   {# --- תוכן העניינים האוטומטי עבור ספרים ללא תוכן ידני --- #}
-  <div class="table-of-contents" style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border-color);">
+  <div class="table-of-contents c-section-divider">
     <h3>העמודים:</h3>
 
     {% set pagesInBook = collections.all | bookPages(page.url, book) %}
@@ -25,7 +25,7 @@
         {% set versionPages = versionGroup[1] %}
 
         {% if byVersion.length > 1 %}
-          <h4 style="margin: 16px 0 10px 0; color: var(--header-color);">
+          <h4 class="table-of-contents__version-heading">
             {% if versionKey == 'a' %}נוסח א'{% elif versionKey == 'b' %}נוסח ב'{% else %}נוסח עיקרי{% endif %}
           </h4>
         {% endif %}
@@ -39,12 +39,12 @@
         </ul>
       {% endfor %}
     {% else %}
-      <p style="color: var(--text-color-muted); font-style: italic;">פרקי החיבור יתווספו בהמשך.</p>
+      <p class="c-muted--italic">פרקי החיבור יתווספו בהמשך.</p>
     {% endif %}
   </div>
 
   {# --- אזור התגובות של Disqus --- #}
-  <div id="comments-section" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-color);">
+  <div id="comments-section" class="c-section-divider">
     <h3>תגובות</h3>
     {% if site.disqusShortname %}
       <div id="disqus_thread"></div>
@@ -62,7 +62,7 @@
       </script>
       <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     {% else %}
-      <p style="color: var(--text-color-muted);">מערכת התגובות כבויה כרגע בהגדרות האתר.</p>
+      <p class="c-muted">מערכת התגובות כבויה כרגע בהגדרות האתר.</p>
     {% endif %}
   </div>
 {% endblock %}

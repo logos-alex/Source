@@ -9,11 +9,11 @@ permalink: /search/
     <p>הקלד מונח חיפוש כדי לאתר טקסטים, שמות או ביטויים מתוך הכתבים והביאורים:</p>
 
     <link href="{{ '/pagefind/pagefind-ui.css' | url }}" rel="stylesheet">
-    <div id="search" style="margin-top: 20px;"></div>
+    <div id="search" class="search-shell"></div>
 
-    <div style="margin-top: 16px; padding: 12px; border-inline-start: 4px solid var(--border-color); background: color-mix(in srgb, var(--bg-secondary) 80%, transparent);">
-        <p style="margin: 0 0 8px 0;"><strong>שימו לב לגבי חיפוש בעברית:</strong> מנוע החיפוש אינו מבצע ניתוח שורשים (stemming), ולכן עדיף לחפש גם בצורות כתיב חלופיות.</p>
-        <ul style="margin: 0; padding-inline-start: 20px;">
+    <div class="c-info-box">
+        <p class="c-info-box__title"><strong>שימו לב לגבי חיפוש בעברית:</strong> מנוע החיפוש אינו מבצע ניתוח שורשים (stemming), ולכן עדיף לחפש גם בצורות כתיב חלופיות.</p>
+        <ul>
             <li>נסו גם יחיד/רבים וזכר/נקבה (למשל: "מלאך", "מלאכים").</li>
             <li>נסו צורות כתיב קרובות או כתיב מלא/חסר.</li>
             <li>אם אין תוצאות — עברו לניווט לפי מקור או לפי דמות.</li>
@@ -29,7 +29,7 @@ permalink: /search/
 
             const initPagefind = () => {
                 if (typeof PagefindUI !== 'function') {
-                    searchRoot.innerHTML = '<p style="color: var(--text-color-muted);">החיפוש אינו זמין כרגע. נסו לרענן את הדף.</p>';
+                    searchRoot.innerHTML = '<p class="c-muted">החיפוש אינו זמין כרגע. נסו לרענן את הדף.</p>';
                     return;
                 }
 
@@ -74,7 +74,7 @@ permalink: /search/
         });
     </script>
 
-    <div style="margin-top: 30px; padding: 15px; border: 1px solid var(--border-color); border-radius: 5px;">
+    <div class="c-card c-card--compact search-browse-box">
         <p><strong>אפשר גם לעיין לפי קטגוריות:</strong></p>
         <ul>
             <li><a href="{{ '/texts/' | url }}">לפי מקור השפה</a></li>

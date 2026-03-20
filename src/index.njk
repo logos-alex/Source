@@ -4,7 +4,7 @@ title: ברוכים הבאים
 bodyClass: home-page
 ---
 <div class="text-main">
-    <div class="beta-notice">
+    <div class="beta-notice c-notice c-notice--beta">
       <strong>⚠️ אתר בהתהוות:</strong> המאגר בתהליך בנייה מתמשך. נוסחים, ביאורים ותיקונים מתווספים לאורך הזמן, ולכן ייתכנו שינויים בין גרסאות.
     </div>
 
@@ -67,8 +67,8 @@ bodyClass: home-page
 
     <h3>קפיצה מהירה לכתבים:</h3>
     {% set hasQuickJumpItems = false %}
-    <ul>
-      <li style="margin-top: 10px;">
+    <ul class="c-list-reset c-list-spaced quick-jump-list">
+      <li class="quick-jump-list__item">
         <strong>
           <a href="{{ '/texts/arabic/sefer-megilot/' | url }}">{{ "מבוא לכּיתאב אל־מג׳אל (Kitāb al-Mağāll)" | displayBookTitle }}</a>
           /
@@ -78,7 +78,7 @@ bodyClass: home-page
       {% for item in collections.texts %}
         {% if (item.data.pageNumber == 0 or not item.data.pageNumber) and item.data.book and item.data.book not in ["kitab-al-majall", "clementos-geez"] and "sub-intro" not in item.data.tags and not item.data.draft %}
           {% set hasQuickJumpItems = true %}
-          <li style="margin-top: 10px;">
+          <li class="quick-jump-list__item">
             <strong><a href="{{ item.url | url }}">{{ item | displayBookTitle }}</a></strong>
           </li>
         {% endif %}
@@ -91,7 +91,7 @@ bodyClass: home-page
     <hr class="home-divider">
     <h3>📚 בקרוב במאגר:</h3>
     <p>אנו עמלים על הוספת הכתבים הבאים, ועוד רבים אחרים:</p>
-    <ul style="list-style-type: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px;">
+    <ul class="c-list-grid upcoming-list">
       <li>✨ חזון עזרא (לטיני)</li>
       <li>✨ חזון עזרא (הארמי)</li>
       <li>✨ סולם יעקב (הסלאבי)</li>

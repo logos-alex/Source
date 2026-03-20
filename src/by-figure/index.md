@@ -24,7 +24,7 @@ permalink: /by-figure/
     </div>
     </div>
 
-  <div style="height: 30px;"></div>
+  <div class="c-spacer" aria-hidden="true"></div>
   <div class="book-list" data-figure-list="extended">
     <div class="book-card" data-figure-key="talmidei-yeshua">
       <h3><a href="{{ '/by-figure/talmidei-yeshua/' | url }}" data-figure-link="talmidei-yeshua">מתלמידי ישוע הנוצרי</a></h3>
