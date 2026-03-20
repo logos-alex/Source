@@ -23,7 +23,7 @@ eleventyComputed:
           <h3><a href="{{ item.url | url }}">{{ item | displayBookTitle }}</a></h3>
           <p class="book-card__description">{{ item.data.description or "גילויים נסתרים ומסעות שמימיים המיוחסים לדמותו של " + figures[figureKey] }}</p>
           {% if item.data.source %}
-            <p><small>מקור: <a href="{{ ('/texts/' + item.data.source + '/') | url }}">{{ languages[item.data.source] }}</a></small></p>
+            <p><small>מקור: <a class="book-card__meta-link" href="{{ ('/texts/' + item.data.source + '/') | url }}">{{ languages[item.data.source] }}</a></small></p>
           {% endif %}
         </div>
       {% endif %}
