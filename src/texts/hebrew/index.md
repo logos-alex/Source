@@ -15,7 +15,7 @@ permalink: /texts/hebrew/
       {% if "sub-intro" not in (item.data.tags or []) %}
         <div class="book-card">
           <h3><a href="{{ item.url | url }}">{{ item | displayBookTitle }}</a></h3>
-          <p style="margin-bottom: 15px;">{{ item.data.description }}</p>
+          <p class="book-card__description">{{ item.data.description }}</p>
           <p><small>ייחוס: <a href="{{ ('/by-figure/' + item.data.figure + '/') | url }}">{{ figures[item.data.figure] or item.data.figure }}</a></small></p>
         </div>
       {% endif %}
