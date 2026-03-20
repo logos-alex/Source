@@ -42,8 +42,6 @@
     applyTheme(theme);
   }
 
-
-
   function initMobileNavigation() {
     const nav = document.getElementById('mainNav');
     const navToggle = document.getElementById('mainNavToggle');
@@ -189,11 +187,12 @@
 })();
 
 window.googleTranslateElementInit = function googleTranslateElementInit() {
+  const translate = (window.siteRuntimeConfig && window.siteRuntimeConfig.thirdParty && window.siteRuntimeConfig.thirdParty.translate) || {};
   if (!window.google || !google.translate) return;
 
   new google.translate.TranslateElement({
     pageLanguage: 'he',
-    includedLanguages: 'en,fr,de,es,ru,ar,it',
+    includedLanguages: translate.includedLanguages || 'en,fr,de,es,ru,ar,it',
     layout: google.translate.TranslateElement.InlineLayout.SIMPLE
   }, 'google_translate_element');
 };

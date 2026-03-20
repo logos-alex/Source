@@ -23,7 +23,8 @@
     "check:content-report": "node scripts/report-content-status.mjs --check",
     "check:release-content": "node scripts/verify-release-content.mjs",
     "check:intro-revisions": "node scripts/verify-intro-revisions.mjs",
-    "check:display-book-titles": "node scripts/verify-display-book-titles.mjs"
+    "check:display-book-titles": "node scripts/verify-display-book-titles.mjs",
+    "check:third-party": "node scripts/verify-third-party-controls.mjs"
   },
   "keywords": [],
   "author": "",

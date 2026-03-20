@@ -90,8 +90,9 @@ html[data-theme="dark"] a:visited {
   color: #a0795f;
 }
 
+
 body {
-  font-family: 'Frank Ruhl Libre', 'Noto Serif Hebrew', serif;
+  font-family: var(--font-serif);
   background: var(--bg-color);
   color: var(--text-color);
   max-width: 1200px; /* Increased for parallel view */
@@ -770,7 +771,7 @@ sup {
 }
 
 .epigraph-card .quote-translation {
-  font-family: 'Frank Ruhl Libre', 'Noto Serif Hebrew', serif;
+  font-family: var(--font-serif);
   font-size: 1rem;
   color: var(--notes-color);
 }
