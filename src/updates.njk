@@ -15,7 +15,7 @@ bodyClass: updates-page
     data-min-cards="{{ updates.release.minimumCardCount }}"
   >
     {% for item in updates.items %}
-    <article class="update-card" data-update-id="{{ item.id }}" data-update-flags="{{ item.flags | join(' ') }}">
+    <article class="update-card c-card c-card--accent" data-update-id="{{ item.id }}" data-update-flags="{{ item.flags | join(' ') }}">
       <h3>{{ item.title }}</h3>
       <p>{{ item.summary }}</p>
       {% if item.links and item.links.length %}

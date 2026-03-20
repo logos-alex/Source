@@ -2,10 +2,21 @@
   const htmlRoot = document.getElementById('htmlRoot');
   const themeToggle = document.getElementById('themeToggle');
   const readingToggle = document.getElementById('readingModeToggle');
-  const runtimeConfig = window.siteRuntimeConfig || {};
-  const thirdParty = runtimeConfig.thirdParty || {};
-  const scriptRegistry = window.__externalScriptRegistry = window.__externalScriptRegistry || {};
-  const consentStoragePrefix = 'site-consent:';
+  const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  function prefersReducedMotion() {
+    return reducedMotionQuery.matches;
+  }
+
+  function syncReducedMotionPreference() {
+    if (!htmlRoot) return;
+
+    if (prefersReducedMotion()) {
+      htmlRoot.setAttribute('data-reduced-motion', 'reduce');
+    } else {
+      htmlRoot.removeAttribute('data-reduced-motion');
+    }
+  }
 
   function applyTheme(theme) {
     if (!htmlRoot) return;
@@ -90,6 +101,21 @@
     });
   }
 
+  function updateReadingModeAccessibility(isReading) {
+    if (!readingToggle) return;
+
+    const nextActionLabel = isReading
+      ? readingToggle.dataset.readingLabelOn || 'כיבוי מצב קריאה'
+      : readingToggle.dataset.readingLabelOff || 'הפעלת מצב קריאה';
+    const stateDescription = isReading
+      ? readingToggle.dataset.readingDescriptionOn || 'מצב קריאה פעיל. לחיצה תכבה את מצב הקריאה.'
+      : readingToggle.dataset.readingDescriptionOff || 'מצב קריאה כבוי. לחיצה תפעיל את מצב הקריאה.';
+
+    readingToggle.setAttribute('aria-pressed', String(isReading));
+    readingToggle.setAttribute('aria-label', nextActionLabel);
+    readingToggle.setAttribute('aria-description', stateDescription);
+  }
+
   function initReadingMode() {
     const storedReadingMode = localStorage.getItem('readingMode') === 'true';
     if (storedReadingMode) {
@@ -97,175 +123,50 @@
     }
 
     if (readingToggle) {
-      readingToggle.setAttribute('aria-pressed', String(storedReadingMode));
+      updateReadingModeAccessibility(storedReadingMode);
       readingToggle.addEventListener('click', () => {
         document.body.classList.toggle('reading-mode');
         const isReading = document.body.classList.contains('reading-mode');
         localStorage.setItem('readingMode', isReading);
-        readingToggle.setAttribute('aria-pressed', String(isReading));
+        updateReadingModeAccessibility(isReading);
       });
     }
   }
 
-  function hasConsent(serviceKey) {
-    return localStorage.getItem(`${consentStoragePrefix}${serviceKey}`) === 'granted';
-  }
+  function initReadingProgress() {
+    const progressEl = document.getElementById('readingProgress');
+    if (!progressEl) return;
 
-  function setConsent(serviceKey, value) {
-    localStorage.setItem(`${consentStoragePrefix}${serviceKey}`, value ? 'granted' : 'denied');
-  }
+    let ticking = false;
 
-  function whenBrowserIdle(callback) {
-    if ('requestIdleCallback' in window) {
-      window.requestIdleCallback(callback, { timeout: 2500 });
-      return;
-    }
+    const updateProgress = () => {
+      ticking = false;
 
-    window.setTimeout(callback, 1200);
-  }
-
-  function runOnFirstInteraction(callback) {
-    let fired = false;
-    const handler = () => {
-      if (fired) return;
-      fired = true;
-      ['pointerdown', 'keydown', 'touchstart', 'scroll'].forEach((eventName) => {
-        window.removeEventListener(eventName, handler, passiveOnce);
-      });
-      callback();
-    };
-    const passiveOnce = { passive: true, once: true };
-
-    ['pointerdown', 'keydown', 'touchstart', 'scroll'].forEach((eventName) => {
-      window.addEventListener(eventName, handler, passiveOnce);
-    });
-  }
-
-  function scheduleDeferredLoad(callback, { triggeredByUserAction = false } = {}) {
-    if (triggeredByUserAction) {
-      whenBrowserIdle(callback);
-      return;
-    }
-
-    runOnFirstInteraction(() => whenBrowserIdle(callback));
-  }
-
-  function loadExternalScript(serviceKey, src, { async = true } = {}) {
-    if (!src) {
-      return Promise.reject(new Error(`Missing src for ${serviceKey}`));
-    }
-
-    if (scriptRegistry[serviceKey]) {
-      return scriptRegistry[serviceKey];
-    }
-
-    const existingScript = document.querySelector(`script[data-external-service="${serviceKey}"]`);
-    if (existingScript) {
-      scriptRegistry[serviceKey] = Promise.resolve(existingScript);
-      return scriptRegistry[serviceKey];
-    }
-
-    scriptRegistry[serviceKey] = new Promise((resolve, reject) => {
-      const script = document.createElement('script');
-      script.src = src;
-      script.async = async;
-      script.dataset.externalService = serviceKey;
-      script.onload = () => resolve(script);
-      script.onerror = () => reject(new Error(`Failed to load ${serviceKey}`));
-      document.head.appendChild(script);
-    });
-
-    return scriptRegistry[serviceKey];
-  }
-
-  function enableAnalytics({ triggeredByUserAction = false } = {}) {
-    const analytics = thirdParty.analytics || {};
-    if (!analytics.enabled || !analytics.measurementId) return;
-    if (analytics.requiresConsent && !hasConsent('analytics')) return;
-
-    scheduleDeferredLoad(() => {
-      window.dataLayer = window.dataLayer || [];
-      window.gtag = window.gtag || function gtag() {
-        window.dataLayer.push(arguments);
-      };
-      window.gtag('js', new Date());
-      window.gtag('config', analytics.measurementId, { anonymize_ip: true });
-
-      loadExternalScript(
-        'google-analytics',
-        `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(analytics.measurementId)}`
-      ).catch((error) => {
-        console.warn(error);
-      });
-    }, { triggeredByUserAction });
-  }
-
-  function enableClarity({ triggeredByUserAction = false } = {}) {
-    const clarity = thirdParty.clarity || {};
-    if (!clarity.enabled || !clarity.projectId) return;
-    if (clarity.requiresConsent && !hasConsent('clarity')) return;
-
-    scheduleDeferredLoad(() => {
-      if (window.clarity) return;
-
-      window.clarity = window.clarity || function clarityProxy() {
-        (window.clarity.q = window.clarity.q || []).push(arguments);
-      };
-
-      loadExternalScript(
-        'microsoft-clarity',
-        `https://www.clarity.ms/tag/${encodeURIComponent(clarity.projectId)}`
-      ).catch((error) => {
-        console.warn(error);
-      });
-    }, { triggeredByUserAction });
-  }
-
-  function initConsentControls() {
-    document.querySelectorAll('[data-consent-service]').forEach((button) => {
-      const serviceKey = button.getAttribute('data-consent-service');
-      if (!serviceKey) return;
-
-      if (hasConsent(serviceKey)) {
-        button.disabled = true;
-        button.textContent = 'מאופשר';
+      if (prefersReducedMotion()) {
+        progressEl.style.width = '0%';
+        progressEl.setAttribute('aria-hidden', 'true');
+        return;
       }
 
-      button.addEventListener('click', () => {
-        setConsent(serviceKey, true);
-        button.disabled = true;
-        button.textContent = 'מאופשר';
+      const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = windowHeight > 0 ? (window.scrollY / windowHeight) * 100 : 0;
+      progressEl.style.width = `${Math.min(100, Math.max(0, scrolled))}%`;
+      progressEl.removeAttribute('aria-hidden');
+    };
 
-        if (serviceKey === 'analytics') enableAnalytics({ triggeredByUserAction: true });
-        if (serviceKey === 'clarity') enableClarity({ triggeredByUserAction: true });
-      });
-    });
-  }
+    const queueProgressUpdate = () => {
+      if (prefersReducedMotion() || ticking) return;
 
-  function initGoogleTranslate() {
-    const translate = thirdParty.translate || {};
-    const translateLauncher = document.getElementById('translateLauncher');
-    const translateContainer = document.getElementById('google_translate_element');
+      ticking = true;
+      window.requestAnimationFrame(updateProgress);
+    };
 
-    if (!translate.enabled || !translateLauncher || !translateContainer) return;
-
-    translateLauncher.addEventListener('click', () => {
-      translateLauncher.disabled = true;
-      translateLauncher.textContent = 'טוען תרגום...';
-
-      loadExternalScript(
-        'google-translate',
-        'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'
-      )
-        .then(() => {
-          translateContainer.hidden = false;
-          translateLauncher.textContent = 'תרגום פעיל';
-        })
-        .catch((error) => {
-          console.warn(error);
-          translateLauncher.disabled = false;
-          translateLauncher.textContent = 'נסה שוב לטעון תרגום';
-        });
+    updateProgress();
+    window.addEventListener('scroll', queueProgressUpdate, { passive: true });
+    window.addEventListener('resize', updateProgress, { passive: true });
+    reducedMotionQuery.addEventListener('change', () => {
+      syncReducedMotionPreference();
+      updateProgress();
     });
   }
 
@@ -277,14 +178,12 @@
     });
   }
 
+  syncReducedMotionPreference();
   initTheme();
   initReadingMode();
   initMobileNavigation();
   initTocDropdowns();
-  initConsentControls();
-  initGoogleTranslate();
-  enableAnalytics();
-  enableClarity();
+  initReadingProgress();
 })();
 
 window.googleTranslateElementInit = function googleTranslateElementInit() {
