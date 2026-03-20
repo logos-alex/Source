@@ -1,6 +1,26 @@
 const site = require("./src/_data/site.json");
 
 module.exports = function(eleventyConfig) {
+  const normalizeUrl = (value = "") => String(value).replace(/\/+$/, "");
+  const getPageNumber = (item, { prefix = "", book } = {}) => {
+    const explicitPageNumber = Number(item?.data?.pageNumber);
+    if (Number.isInteger(explicitPageNumber) && explicitPageNumber >= 0) {
+      return explicitPageNumber;
+    }
+
+    const itemUrl = item?.url || "";
+    const inCurrentBook = book ? item?.data?.book === book : itemUrl.startsWith(prefix);
+    const normalizedPrefix = normalizeUrl(prefix);
+    const isIntroPage =
+      inCurrentBook &&
+      (
+        item?.inputPath?.endsWith("/index.md") ||
+        (itemUrl && !itemUrl.includes("/page-") && normalizeUrl(itemUrl) === normalizedPrefix)
+      );
+
+    return isIntroPage ? 0 : null;
+  };
+
   eleventyConfig.addFilter("renderNoteRefs", (html) => {
     if (!html) return "";
     const seenRefs = new Set();
@@ -28,14 +48,16 @@ module.exports = function(eleventyConfig) {
     return items
       .filter(item => !item.data?.draft)
       .filter(item => book ? byBook(item) : byPrefix(item))
-      .filter(item => item.data?.pageNumber || item.url?.includes('/page-'))
-      .filter(item => includeIndex ? true : Number(item.data?.pageNumber || 0) > 0)
+      .map(item => ({ item, pageNumber: getPageNumber(item, { prefix, book }) }))
+      .filter(({ pageNumber }) => pageNumber !== null)
+      .filter(({ pageNumber }) => includeIndex ? true : pageNumber > 0)
       .sort((a, b) => {
-        const ap = Number(a.data?.pageNumber || 0);
-        const bp = Number(b.data?.pageNumber || 0);
+        const ap = a.pageNumber;
+        const bp = b.pageNumber;
         if (ap !== bp) return ap - bp;
-        return (a.url || '').localeCompare(b.url || '');
-      });
+        return (a.item.url || '').localeCompare(b.item.url || '');
+      })
+      .map(({ item }) => item);
   });
 
 
