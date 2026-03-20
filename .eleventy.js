@@ -38,6 +38,11 @@ module.exports = function(eleventyConfig) {
     return items.findIndex(item => item.url === url);
   });
 
+  eleventyConfig.addFilter("findCollectionItemByUrl", (items, url) => {
+    if (!items || !url) return null;
+    return items.find(item => item.url === url) || null;
+  });
+
   
   eleventyConfig.addFilter("bookPages", (items, currentUrl, book, includeIndex = true) => {
     if (!items || !currentUrl) return [];
@@ -98,6 +103,21 @@ module.exports = function(eleventyConfig) {
       return `פרק ${toHebrewNumeral(pageNumber)}`;
     }
     return rawTitle;
+  });
+
+  eleventyConfig.addFilter("normalizeBookTitle", (value) => {
+    if (!value) return "";
+
+    return String(value)
+      .replace("מבוא לחיבור ", "")
+      .replace("מבוא לספר ", "")
+      .replace("חזון דניאל (סורי-ארמי) – הקדמה", "חזון דניאל ארמי-סורי")
+      .replace("חזון דניאל הסורי-ארמי: הקדמה", "חזון דניאל ארמי-סורי")
+      .replace("דניאל הקטן (ארמית-סורית): הקדמה", "דניאל הקטן")
+      .replace(": הקדמה", "")
+      .replace("הקדמה", "")
+      .replace("מבוא", "")
+      .trim();
   });
   // Passthrough copy for assets and static files
   eleventyConfig.addPassthroughCopy("src/assets");
