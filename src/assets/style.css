@@ -889,7 +889,6 @@ sup a:hover {
   border-radius: var(--ds-radius-md);
   color: var(--ds-color-text);
   background-color: var(--ds-color-surface);
-  pointer-events: none;
 }
 
 .book-card h3 {
@@ -1369,4 +1368,3 @@ nav a:focus {
   color: var(--text-color-muted);
   margin-bottom: 0;
 }
-

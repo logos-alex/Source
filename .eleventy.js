@@ -44,6 +44,8 @@ module.exports = function(eleventyConfig) {
     return items.find(item => item.url === url) || null;
   });
 
+  eleventyConfig.addFilter("displayBookTitle", displayBookTitle);
+
   
   eleventyConfig.addFilter("bookPages", (items, currentUrl, book, includeIndex = true) => {
     if (!items || !currentUrl) return [];
