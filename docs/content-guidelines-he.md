@@ -75,3 +75,9 @@ npm run new:chapter -- aramaic/apoc-daniel-syriac 32 "פרק 32" aramaic daniel 
 npm run report:content
 ```
 התוצר נכתב ל-`docs/content-status-he.md`.
+
+## 8) מדיניות נגישות לתנועה
+- יש לכבד תמיד את העדפת המערכת `prefers-reduced-motion: reduce`.
+- אין להסתמך על `scroll-behavior: smooth`, אנימציות, או `transition` כאמצעי חיוני לשימושיות או להבנת התוכן.
+- רכיבים אינטראקטיביים כגון קישורי פעולה מהירה, dropdowns, פס התקדמות קריאה וקישורי ניווט צריכים להישאר קריאים ושמישים גם ללא תנועה.
+- אם מוסיפים JavaScript שמעדכן מיקום, גלילה, או אפקטים חזותיים בתדירות גבוהה, יש להוסיף תנאי מפורש שמכבד `prefers-reduced-motion` ולספק מצב יציב ושקט יותר כברירת מחדל למשתמשים שבחרו בכך.
