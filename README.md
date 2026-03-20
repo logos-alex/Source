@@ -20,5 +20,6 @@
 
 ## הערות תפעול
 - הפריסה מניחה `pathPrefix=/Source/` (חשוב ל־GitHub Pages).
-- מנהל החבילות הרשמי לפרויקט הוא `npm` (עם `package-lock.json` יחיד).
+- מנהל החבילות הרשמי לפרויקט הוא `npm`, והמקור היחיד לפקודות ולנעילת תלויות הוא `package.json`/`package-lock.json` שבשורש המאגר.
+- שרידי `Source/package.json` ו-`Source/package-lock.json` הוסרו כי לא הייתה להם צריכה פעילה; אם נדרש ההקשר ההיסטורי, הוא מתועד ב-`docs/project-audit-he.md`.
 - אם סביבת העבודה כוללת proxy vars של npm, מומלץ להריץ פקודות עם ניקוי משתני proxy לפני `npm ci`/`npm run`.
