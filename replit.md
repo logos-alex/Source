@@ -80,8 +80,10 @@ src/
 
 ## 📊 Content Statistics (current)
 
-- **Total pages built:** ~166 HTML files
-- **Books:** Arabic (34pp), Aramaic Daniel (31pp), Slavic Abraham A (21pp), Slavic Abraham B (25pp), Geez (17pp), Hebrew (7pp), Aramaic Young Daniel (5pp)
+- **Total pages built:** 149 HTML files (על בסיס ריצת `npm run ci:verify`)
+- **Books עם פרקים:** Arabic (34), Aramaic Daniel (31), Slavic Abraham A (21), Slavic Abraham B (25), Hebrew (7), Aramaic Young Daniel (5)
+- **Books במצב index-only:** Geez/clementos, Aramaic/tsavaat-yeshua, Latin
+- **מקור נתונים מומלץ:** `docs/content-status-he.md` (נוצר ע״י `npm run report:content`)
 
 ---
 
@@ -111,7 +113,7 @@ git push origin main
 Build command: `npm run build`
 Output dir: `_site/`
 
-**Important:** `_site/` and `dist/` are in `.gitignore` - do not commit them.
+**Important:** `_site/` ו-`dist/` הן תוצרי build; לא עורכים אותן ידנית.
 
 ---
 
@@ -140,5 +142,5 @@ Output dir: `_site/`
 
 ---
 
-**Last Updated:** March 18, 2026
-**Status:** ✅ Live on GitHub Pages — 166 pages, server running
+**Last Updated:** March 20, 2026
+**Status:** ✅ Live on GitHub Pages — נתוני התוכן מתעדכנים דרך `npm run report:content`
