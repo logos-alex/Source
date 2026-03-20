@@ -1,0 +1,60 @@
+{
+  "release": {
+    "series": "updates-v3",
+    "id": "2026-03-stable-release-markers",
+    "minimumCardCount": 4
+  },
+  "items": [
+    {
+      "id": "clement-attribution-unified",
+      "title": "👤 שיוך קלמנס אוחד תחת \"מתלמידי ישוע\"",
+      "summary": "ברשימת \"לפי ייחוס\" בוצע איחוד: חיבורי קלמנס מוצגים תחת הקטגוריה \"מתלמידי ישוע הנוצרי\" במקום קטגוריה נפרדת.",
+      "dateLabel": "מרץ 2026",
+      "category": "ניווט ותוכן",
+      "flags": ["by-figure", "taxonomy"],
+      "links": [
+        {
+          "id": "figure-talmidei-yeshua",
+          "href": "/by-figure/talmidei-yeshua/",
+          "label": "לעמוד הייחוס המעודכן"
+        }
+      ]
+    },
+    {
+      "id": "comments-enabled",
+      "title": "💬 נפתח אזור תגובות בעמודי תוכן",
+      "summary": "ניתן להגיב כעת בעמודי מבוא ובפרקי טקסט, כדי לאפשר הערות, תיקונים ודיון סביב התכנים עצמם.",
+      "dateLabel": "מרץ 2026",
+      "category": "קהילה ושיח",
+      "flags": ["disqus", "discussion"],
+      "links": [
+        {
+          "id": "comments-book-index",
+          "href": "/texts/aramaic/apoc-daniel-syriac/",
+          "label": "לדוגמה: עמוד מבוא עם תגובות"
+        },
+        {
+          "id": "comments-chapter-page",
+          "href": "/texts/aramaic/apoc-daniel-syriac/page-1/",
+          "label": "לדוגמה: פרק עם תגובות"
+        }
+      ]
+    },
+    {
+      "id": "text-presentation-stabilized",
+      "title": "📚 שיפור הצגה וסידור של טקסטים",
+      "summary": "בוצעו התאמות שמייצבות את סדר הפרקים, התצוגה באוספים וקישורי המעבר בין עמודים — לשימוש קריא ואחיד יותר.",
+      "dateLabel": "מרץ 2026",
+      "category": "קריאות ושימושיות",
+      "flags": ["presentation", "collections"]
+    },
+    {
+      "id": "reading-experience-tuned",
+      "title": "📖 שיפורי קריאות ותצוגה",
+      "summary": "בוצעו מספר התאמות קטנות במבנה התוכן ובסגנון התצוגה כדי לשפר את נוחות הקריאה, במיוחד במכשירים ניידים ובמצבי קריאה שונים.",
+      "dateLabel": "מרץ 2026",
+      "category": "חווית משתמש",
+      "flags": ["ux", "reading"]
+    }
+  ]
+}

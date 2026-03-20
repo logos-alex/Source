@@ -5,19 +5,36 @@
     <li><a href="{{ '/' | url }}">דף הבית</a></li>
     
     {% set urlParts = page.url.split('/') %}
+    {% set isTextsPage = urlParts[1] == 'texts' %}
+    {% set hasSource = urlParts[2] and urlParts[2] != '' %}
+    {% set hasBook = urlParts[3] and urlParts[3] != '' %}
+    {% set isSimpleChapterPage =
+      isTextsPage and
+      hasSource and
+      hasBook and
+      urlParts[4] and
+      urlParts[4].startsWith('page-') and
+      (not urlParts[5] or urlParts[5] == '')
+    %}
     
     {# Texts path: /texts/[source]/[book]/... #}
-    {% if urlParts[1] == 'texts' %}
+    {% if isTextsPage %}
       <li><a href="{{ '/texts/' | url }}">לפי מקור</a></li>
       
-      {% if urlParts[2] and urlParts[2] != '' %}
+      {% if hasSource %}
         {% set sourceKey = urlParts[2] %}
         {% set sourceHebrew = languages[sourceKey] or sourceKey %}
         {% if sourceHebrew == 'aramaic' %}{% set sourceHebrew = 'ארמית' %}{% endif %}
         <li><a href="{{ ('/texts/' + sourceKey + '/') | url }}">{{ sourceHebrew }}</a></li>
       {% endif %}
       
-      {% if urlParts[3] and urlParts[3] != '' and urlParts.length > 4 %}
+      {% if isSimpleChapterPage %}
+        {% set bookUrl = '/texts/' + urlParts[2] + '/' + urlParts[3] + '/' %}
+        {% set bookIntro = collections.all | findCollectionItemByUrl(bookUrl) %}
+        {% set bookTitle = (bookIntro.data.title if bookIntro and bookIntro.data and bookIntro.data.title else urlParts[3]) | normalizeBookTitle %}
+        <li><a href="{{ bookUrl | url }}">{{ bookTitle }}</a></li>
+        <li class="breadcrumb-current">{{ title }}</li>
+      {% elif hasBook and urlParts.length > 4 %}
         <li><a href="{{ page.url | url }}">{{ title }}</a></li>
       {% endif %}
     {% endif %}
@@ -34,7 +51,7 @@
     {% endif %}
     
     {# Other pages #}
-    {% if urlParts[1] != 'texts' and urlParts[1] != 'by-figure' and page.url != '/' %}
+    {% if not isTextsPage and urlParts[1] != 'by-figure' and page.url != '/' %}
       <li class="breadcrumb-current">{{ title }}</li>
     {% endif %}
   </ol>

@@ -7,29 +7,28 @@ bodyClass: updates-page
   <h2>מה חדש במיזם</h2>
   <p>כאן נפרסם עדכונים שרלוונטיים בעיקר לחוויית הקריאה, החיפוש והניווט באתר.</p>
 
-  <div class="updates-grid" aria-label="רשימת עדכונים" data-release-marker="updates-v2-2026-03-03">
-    <article class="update-card">
-      <h3>👤 שיוך קלמנס אוחד תחת "מתלמידי ישוע"</h3>
-      <p>ברשימת "לפי ייחוס" בוצע איחוד: חיבורי קלמנס מוצגים תחת הקטגוריה "מתלמידי ישוע הנוצרי" במקום קטגוריה נפרדת.</p>
-      <p class="update-meta">תאריך: מרץ 2026 · קטגוריה: ניווט ותוכן</p>
+  <div
+    class="updates-grid"
+    aria-label="רשימת עדכונים"
+    data-release-series="{{ updates.release.series }}"
+    data-release-id="{{ updates.release.id }}"
+    data-min-cards="{{ updates.release.minimumCardCount }}"
+  >
+    {% for item in updates.items %}
+    <article class="update-card" data-update-id="{{ item.id }}" data-update-flags="{{ item.flags | join(' ') }}">
+      <h3>{{ item.title }}</h3>
+      <p>{{ item.summary }}</p>
+      {% if item.links and item.links.length %}
+      <ul class="update-links" data-critical-links="true">
+        {% for link in item.links %}
+        <li>
+          <a href="{{ link.href | url }}" data-critical-link="{{ link.id }}">{{ link.label }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+      <p class="update-meta">תאריך: {{ item.dateLabel }} · קטגוריה: {{ item.category }}</p>
     </article>
-
-    <article class="update-card">
-      <h3>💬 נפתח אזור תגובות בעמודי תוכן</h3>
-      <p>ניתן להגיב כעת בעמודי מבוא ובפרקי טקסט, כדי לאפשר הערות, תיקונים ודיון סביב התכנים עצמם.</p>
-      <p class="update-meta">תאריך: מרץ 2026 · קטגוריה: קהילה ושיח</p>
-    </article>
-
-    <article class="update-card">
-      <h3>📚 שיפור הצגה וסידור של טקסטים</h3>
-      <p>בוצעו התאמות שמייצבות את סדר הפרקים, התצוגה באוספים וקישורי המעבר בין עמודים — לשימוש קריא ואחיד יותר.</p>
-      <p class="update-meta">תאריך: מרץ 2026 · קטגוריה: קריאות ושימושיות</p>
-    </article>
-
-    <article class="update-card">
-      <h3>📖 שיפורי קריאות ותצוגה</h3>
-      <p>בוצעו מספר התאמות קטנות במבנה התוכן ובסגנון התצוגה כדי לשפר את נוחות הקריאה, במיוחד במכשירים ניידים ובמצבי קריאה שונים.</p>
-      <p class="update-meta">תאריך: מרץ 2026 · קטגוריה: חווית משתמש</p>
-    </article>
+    {% endfor %}
   </div>
 </div>
