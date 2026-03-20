@@ -1,8 +1,0 @@
-{
-  "dependencies": {
-    "lunr": "^2.3.9"
-  },
-  "scripts": {
-    "ci:verify": "echo 'הכנס פה את שלבי האימות שלך'"
-  }
-}
