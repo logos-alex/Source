@@ -2,6 +2,21 @@
   const htmlRoot = document.getElementById('htmlRoot');
   const themeToggle = document.getElementById('themeToggle');
   const readingToggle = document.getElementById('readingModeToggle');
+  const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  function prefersReducedMotion() {
+    return reducedMotionQuery.matches;
+  }
+
+  function syncReducedMotionPreference() {
+    if (!htmlRoot) return;
+
+    if (prefersReducedMotion()) {
+      htmlRoot.setAttribute('data-reduced-motion', 'reduce');
+    } else {
+      htmlRoot.removeAttribute('data-reduced-motion');
+    }
+  }
 
   function applyTheme(theme) {
     if (!htmlRoot) return;
@@ -88,6 +103,21 @@
     });
   }
 
+  function updateReadingModeAccessibility(isReading) {
+    if (!readingToggle) return;
+
+    const nextActionLabel = isReading
+      ? readingToggle.dataset.readingLabelOn || 'כיבוי מצב קריאה'
+      : readingToggle.dataset.readingLabelOff || 'הפעלת מצב קריאה';
+    const stateDescription = isReading
+      ? readingToggle.dataset.readingDescriptionOn || 'מצב קריאה פעיל. לחיצה תכבה את מצב הקריאה.'
+      : readingToggle.dataset.readingDescriptionOff || 'מצב קריאה כבוי. לחיצה תפעיל את מצב הקריאה.';
+
+    readingToggle.setAttribute('aria-pressed', String(isReading));
+    readingToggle.setAttribute('aria-label', nextActionLabel);
+    readingToggle.setAttribute('aria-description', stateDescription);
+  }
+
   function initReadingMode() {
     const storedReadingMode = localStorage.getItem('readingMode') === 'true';
     if (storedReadingMode) {
@@ -95,14 +125,51 @@
     }
 
     if (readingToggle) {
-      readingToggle.setAttribute('aria-pressed', String(storedReadingMode));
+      updateReadingModeAccessibility(storedReadingMode);
       readingToggle.addEventListener('click', () => {
         document.body.classList.toggle('reading-mode');
         const isReading = document.body.classList.contains('reading-mode');
         localStorage.setItem('readingMode', isReading);
-        readingToggle.setAttribute('aria-pressed', String(isReading));
+        updateReadingModeAccessibility(isReading);
       });
     }
+  }
+
+  function initReadingProgress() {
+    const progressEl = document.getElementById('readingProgress');
+    if (!progressEl) return;
+
+    let ticking = false;
+
+    const updateProgress = () => {
+      ticking = false;
+
+      if (prefersReducedMotion()) {
+        progressEl.style.width = '0%';
+        progressEl.setAttribute('aria-hidden', 'true');
+        return;
+      }
+
+      const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = windowHeight > 0 ? (window.scrollY / windowHeight) * 100 : 0;
+      progressEl.style.width = `${Math.min(100, Math.max(0, scrolled))}%`;
+      progressEl.removeAttribute('aria-hidden');
+    };
+
+    const queueProgressUpdate = () => {
+      if (prefersReducedMotion() || ticking) return;
+
+      ticking = true;
+      window.requestAnimationFrame(updateProgress);
+    };
+
+    updateProgress();
+    window.addEventListener('scroll', queueProgressUpdate, { passive: true });
+    window.addEventListener('resize', updateProgress, { passive: true });
+    reducedMotionQuery.addEventListener('change', () => {
+      syncReducedMotionPreference();
+      updateProgress();
+    });
   }
 
   if (themeToggle && htmlRoot) {
@@ -113,10 +180,12 @@
     });
   }
 
+  syncReducedMotionPreference();
   initTheme();
   initReadingMode();
   initMobileNavigation();
   initTocDropdowns();
+  initReadingProgress();
 })();
 
 window.googleTranslateElementInit = function googleTranslateElementInit() {

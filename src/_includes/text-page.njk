@@ -43,17 +43,6 @@
     </div>
   </div>
   
-  <script>
-    window.addEventListener('scroll', function() {
-      const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrolled = (window.scrollY / windowHeight) * 100;
-      const progressEl = document.getElementById('readingProgress');
-      if (progressEl) {
-        progressEl.style.width = scrolled + '%';
-      }
-    });
-  </script>
-
   {% if pageNumber != 0 and notes %}
     <div class="footnotes">
       <h3>הערות וביאורים</h3>
@@ -101,7 +90,7 @@
   </nav>
 
   {# --- אזור התגובות של Disqus --- #}
-  <div id="comments-section" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-color);">
+  <div id="comments-section" class="c-section-divider">
     <h3>תגובות</h3>
     {% if site.disqusShortname %}
       <div id="disqus_thread"></div>
@@ -119,7 +108,7 @@
       </script>
       <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     {% else %}
-      <p style="color: var(--text-color-muted);">מערכת התגובות כבויה כרגע בהגדרות האתר.</p>
+      <p class="c-muted">מערכת התגובות כבויה כרגע בהגדרות האתר.</p>
     {% endif %}
   </div>
 

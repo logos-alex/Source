@@ -54,7 +54,7 @@
 </head>
 <body class="{{ bodyClass }}">
     <a class="skip-link" href="#main-content">דלג לתוכן</a>
-    <button id="readingModeToggle" class="reading-mode-toggle" type="button" aria-pressed="false" title="מצב קריאה">📖</button>
+    <button id="readingModeToggle" class="reading-mode-toggle" type="button" aria-pressed="false" aria-label="הפעלת מצב קריאה" aria-description="מצב קריאה כבוי. לחיצה תפעיל מצב קריאה להצגת התוכן ללא הסחות." title="מצב קריאה" data-reading-label-on="כיבוי מצב קריאה" data-reading-label-off="הפעלת מצב קריאה" data-reading-description-on="מצב קריאה פעיל. לחיצה תכבה את מצב הקריאה ותחזיר את כל רכיבי הממשק." data-reading-description-off="מצב קריאה כבוי. לחיצה תפעיל מצב קריאה להצגת התוכן ללא הסחות."><span aria-hidden="true">📖</span><span style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">הפעלת או כיבוי מצב קריאה</span></button>
     <script type="text/javascript">
         (function(c,l,a,r,i,t,y){
             c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -114,9 +114,9 @@
     <footer>
         <div id="google_translate_element"></div>
         <p>&copy; כל הזכויות שמורות - 2025</p>
-        <p style="font-size: 0.7em; color: #999;">
-            <a href="{{ '/sitemap.xml' | url }}" style="color: inherit; text-decoration: none;">Sitemap</a> | 
-            <a href="{{ '/robots.txt' | url }}" style="color: inherit; text-decoration: none;">Robots</a>
+        <p class="c-footer-meta">
+            <a href="{{ '/sitemap.xml' | url }}">Sitemap</a> | 
+            <a href="{{ '/robots.txt' | url }}">Robots</a>
         </p>
     </footer>
 
