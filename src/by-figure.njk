@@ -20,7 +20,7 @@ eleventyComputed:
       {% if item.data.figure == figureKey and item.data.book and not item.data.draft and (item.data.pageNumber == 0 or not item.data.pageNumber) and "sub-intro" not in item.data.tags %}
         {% set hasFigureItems = true %}
         <div class="book-card">
-          <h3><a href="{{ item.url | url }}">{{ item | displayBookTitle }}</a></h3>
+          <h3><a class="book-card__primary-link" href="{{ item.url | url }}">{{ item | displayBookTitle }}</a></h3>
           <p class="book-card__description">{{ item.data.description or "גילויים נסתרים ומסעות שמימיים המיוחסים לדמותו של " + figures[figureKey] }}</p>
           {% if item.data.source %}
             <p><small>מקור: <a class="book-card__meta-link" href="{{ ('/texts/' + item.data.source + '/') | url }}">{{ languages[item.data.source] }}</a></small></p>
