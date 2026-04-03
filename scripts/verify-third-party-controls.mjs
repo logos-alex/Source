@@ -1,5 +1,5 @@
 import { execFileSync } from 'node:child_process';
-import { readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
+import { readFileSync, readdirSync, rmSync, statSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 
 const repoRoot = process.cwd();
@@ -11,6 +11,7 @@ const originalConfigText = readFileSync(configPath, 'utf8');
 const buildWarnings = [];
 
 const build = (config) => {
+  rmSync(path.join(repoRoot, '_site'), { recursive: true, force: true });
   writeFileSync(configPath, `${JSON.stringify(config, null, 2)}\n`);
   execFileSync('./node_modules/.bin/eleventy', [`--pathprefix=${config.pathPrefix || '/'}`], {
     cwd: repoRoot,
