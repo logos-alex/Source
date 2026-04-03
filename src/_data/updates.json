@@ -1,10 +1,41 @@
 {
   "release": {
     "series": "updates-v3",
-    "id": "2026-03-stable-release-markers",
+    "id": "2026-04-navigation-and-armenian-daniel",
     "minimumCardCount": 4
   },
   "items": [
+    {
+      "id": "armenian-daniel-added",
+      "title": "📘 נוסף לאתר: חזון דניאל (ארמני)",
+      "summary": "נפתח חיבור חדש במדור הארמני עם מבוא ייעודי ועמוד טקסט ראשי, בשיוך לדמות דניאל.",
+      "dateLabel": "אפריל 2026",
+      "category": "תוכן חדש",
+      "flags": ["content", "armenian", "daniel"],
+      "links": [
+        {
+          "id": "vision-daniel-armenian-index",
+          "href": "/texts/armenian/vision-daniel-armenian/",
+          "label": "לעמוד המבוא"
+        }
+      ]
+    },
+    {
+      "id": "navigation-armenian-enoch-fix",
+      "title": "🧭 תפריט עליון עודכן לפי מקור/ייחוס",
+      "summary": "תוקן הניווט העליון: ארמנית נוספה תחת \"לפי מקור\" וחנוך נוסף תחת \"לפי ייחוס\".",
+      "dateLabel": "אפריל 2026",
+      "category": "ניווט",
+      "flags": ["navigation", "header", "taxonomy"]
+    },
+    {
+      "id": "ci-third-party-hardening",
+      "title": "🛡️ חיזוק בדיקות טעינת שירותי צד ג'",
+      "summary": "נוספה בדיקת בקרת צד ג' ל־CI, כולל ניקוי build לפני כל תרחיש כדי למנוע כשלים כתוצאה משאריות פלט ישן.",
+      "dateLabel": "אפריל 2026",
+      "category": "תשתית ואיכות",
+      "flags": ["ci", "qa", "third-party"]
+    },
     {
       "id": "clement-attribution-unified",
       "title": "👤 שיוך קלמנס אוחד תחת \"מתלמידי ישוע\"",
