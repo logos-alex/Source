@@ -26,6 +26,10 @@ permalink: /by-figure/
 
   <div class="c-spacer" aria-hidden="true"></div>
   <div class="book-list" data-figure-list="extended">
+    <div class="book-card" data-figure-key="enoch">
+      <h3><a class="book-card__primary-link" href="{{ '/by-figure/enoch/' | url }}" data-figure-link="enoch">חנוך</a></h3>
+      <p>חזיונות נבואיים ומסורות אחרית הימים המיוחסים לחנוך הצדיק.</p>
+    </div>
     <div class="book-card" data-figure-key="talmidei-yeshua">
       <h3><a class="book-card__primary-link" href="{{ '/by-figure/talmidei-yeshua/' | url }}" data-figure-link="talmidei-yeshua">מתלמידי ישוע הנוצרי</a></h3>
       <p>חיבורים מן המסורת הנוצרית הקדומה, ובכללם מסורות המיוחסות לקלמנס ותלמידים מוקדמים, מרוכזים תחת קטגוריה זו.</p>
