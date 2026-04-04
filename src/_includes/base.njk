@@ -72,14 +72,6 @@
 <body class="{{ bodyClass }}">
     <a class="skip-link" href="#main-content">דלג לתוכן</a>
     <button id="readingModeToggle" class="reading-mode-toggle" type="button" aria-pressed="false" aria-label="הפעלת מצב קריאה" aria-description="מצב קריאה כבוי. לחיצה תפעיל מצב קריאה להצגת התוכן ללא הסחות." title="מצב קריאה" data-reading-label-on="כיבוי מצב קריאה" data-reading-label-off="הפעלת מצב קריאה" data-reading-description-on="מצב קריאה פעיל. לחיצה תכבה את מצב הקריאה ותחזיר את כל רכיבי הממשק." data-reading-description-off="מצב קריאה כבוי. לחיצה תפעיל מצב קריאה להצגת התוכן ללא הסחות."><span aria-hidden="true">📖</span><span style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">הפעלת או כיבוי מצב קריאה</span></button>
-    <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "ucq1c77qd5");
-    </script>
-
     <script>
       window.siteRuntimeConfig = {
         fonts: {
@@ -129,6 +121,7 @@
                     <a href="{{ '/texts/hebrew/' | url }}" {% if page.url == "/texts/hebrew/" %}aria-current="page"{% endif %}>עברית</a>
                     <a href="{{ '/texts/slavic/' | url }}" {% if page.url == "/texts/slavic/" %}aria-current="page"{% endif %}>סלאבית</a>
                     <a href="{{ '/texts/aramaic/' | url }}" {% if page.url == "/texts/aramaic/" %}aria-current="page"{% endif %}>ארמית</a>
+                    <a href="{{ '/texts/armenian/' | url }}" {% if page.url == "/texts/armenian/" %}aria-current="page"{% endif %}>ארמנית</a>
                     <a href="{{ '/texts/arabic/' | url }}" {% if page.url == "/texts/arabic/" %}aria-current="page"{% endif %}>ערבית</a>
                     <a href="{{ '/texts/geez/' | url }}" {% if page.url == "/texts/geez/" %}aria-current="page"{% endif %}>געז</a>
                 </div>
@@ -139,6 +132,7 @@
                 <div class="dropdown-content">
                     <a href="{{ '/by-figure/abraham/' | url }}" {% if page.url == "/by-figure/abraham/" %}aria-current="page"{% endif %}>אברהם</a>
                     <a href="{{ '/by-figure/daniel/' | url }}" {% if page.url == "/by-figure/daniel/" %}aria-current="page"{% endif %}>דניאל</a>
+                    <a href="{{ '/by-figure/enoch/' | url }}" {% if page.url == "/by-figure/enoch/" %}aria-current="page"{% endif %}>חנוך</a>
                     <a href="{{ '/by-figure/zerubbabel/' | url }}" {% if page.url == "/by-figure/zerubbabel/" %}aria-current="page"{% endif %}>זרובבל</a>
                     <a href="{{ '/by-figure/talmidei-yeshua/' | url }}" {% if page.url == "/by-figure/talmidei-yeshua/" %}aria-current="page"{% endif %}>מתלמידי ישוע הנוצרי</a>
                 </div>
