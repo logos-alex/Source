@@ -6,17 +6,20 @@ on:
 permissions:
   contents: write
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
-          node-version: "20"
+          node-version: "22"
           cache: "npm"
           cache-dependency-path: package-lock.json
 
@@ -41,8 +44,28 @@ jobs:
           fi
 
       - name: Deploy _site to gh-pages branch
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site
-          force_orphan: true
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          if git ls-remote --exit-code --heads origin gh-pages; then
+            git worktree add /tmp/gh-pages gh-pages
+          else
+            git worktree add -b gh-pages /tmp/gh-pages
+          fi
+
+          rsync -a --delete ./_site/ /tmp/gh-pages/
+          touch /tmp/gh-pages/.nojekyll
+
+          cd /tmp/gh-pages
+          if [ -n "$(git status --porcelain)" ]; then
+            git add --all
+            git commit -m "Deploy static site from ${GITHUB_SHA}"
+            git push origin gh-pages
+          else
+            echo "No changes to deploy."
+          fi
+
+          cd -
+          git worktree remove /tmp/gh-pages --force

@@ -186,13 +186,170 @@
   initReadingProgress();
 })();
 
+window.__externalScriptRegistry = window.__externalScriptRegistry || new Set();
+
+const THIRD_PARTY_CONSENT_KEY = 'thirdPartyConsent';
+const THIRD_PARTY_LOADED_KEY = 'thirdPartyLoadedServices';
+const runtimeThirdParty = (window.siteRuntimeConfig && window.siteRuntimeConfig.thirdParty) || {};
+const runtimeAnalytics = runtimeThirdParty.analytics || {};
+const runtimeClarity = runtimeThirdParty.clarity || {};
+const runtimeTranslate = runtimeThirdParty.translate || {};
+
+function readJsonStorage(key) {
+  try {
+    const raw = localStorage.getItem(key);
+    return raw ? JSON.parse(raw) : {};
+  } catch {
+    return {};
+  }
+}
+
+function writeJsonStorage(key, value) {
+  localStorage.setItem(key, JSON.stringify(value));
+}
+
+function ensureExternalScript({ service, src, onload, id }) {
+  if (!src || !service) return;
+  const scriptKey = `${service}:${src}`;
+  if (window.__externalScriptRegistry.has(scriptKey)) return;
+
+  const existing = document.querySelector(`script[data-external-service="${service}"][src="${src}"]`);
+  if (existing) {
+    window.__externalScriptRegistry.add(scriptKey);
+    return;
+  }
+
+  const script = document.createElement('script');
+  script.async = true;
+  script.src = src;
+  if (id) script.id = id;
+  script.setAttribute('data-external-service', service);
+  if (typeof onload === 'function') {
+    script.addEventListener('load', onload, { once: true });
+  }
+
+  document.head.appendChild(script);
+  window.__externalScriptRegistry.add(scriptKey);
+}
+
+function hasConsent(service) {
+  const state = readJsonStorage(THIRD_PARTY_CONSENT_KEY);
+  return Boolean(state[service]);
+}
+
+function setConsent(service) {
+  const state = readJsonStorage(THIRD_PARTY_CONSENT_KEY);
+  state[service] = true;
+  writeJsonStorage(THIRD_PARTY_CONSENT_KEY, state);
+}
+
+function markServiceLoaded(service) {
+  const state = readJsonStorage(THIRD_PARTY_LOADED_KEY);
+  state[service] = true;
+  writeJsonStorage(THIRD_PARTY_LOADED_KEY, state);
+}
+
+function isServiceLoaded(service) {
+  const state = readJsonStorage(THIRD_PARTY_LOADED_KEY);
+  return Boolean(state[service]);
+}
+
+function loadAnalytics() {
+  if (!runtimeAnalytics.enabled || isServiceLoaded('analytics') || !runtimeAnalytics.measurementId) return;
+
+  ensureExternalScript({
+    service: 'analytics',
+    src: `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(runtimeAnalytics.measurementId)}`
+  });
+
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = window.gtag || function gtag() {
+    window.dataLayer.push(arguments);
+  };
+  window.gtag('js', new Date());
+  window.gtag('config', runtimeAnalytics.measurementId);
+  markServiceLoaded('analytics');
+}
+
+function loadClarity() {
+  if (!runtimeClarity.enabled || isServiceLoaded('clarity') || !runtimeClarity.projectId) return;
+
+  window.clarity = window.clarity || function clarity() {
+    (window.clarity.q = window.clarity.q || []).push(arguments);
+  };
+
+  ensureExternalScript({
+    service: 'clarity',
+    src: `https://www.clarity.ms/tag/${encodeURIComponent(runtimeClarity.projectId)}`
+  });
+
+  markServiceLoaded('clarity');
+}
+
+function loadTranslate() {
+  if (!runtimeTranslate.enabled || isServiceLoaded('translate')) return;
+  const translateContainer = document.getElementById('google_translate_element');
+  if (translateContainer) {
+    translateContainer.hidden = false;
+  }
+
+  ensureExternalScript({
+    service: 'translate',
+    src: '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'
+  });
+
+  markServiceLoaded('translate');
+}
+
+function shouldLoadService(service, config) {
+  if (!config || !config.enabled) return false;
+  if (!config.requiresConsent) return true;
+  return hasConsent(service);
+}
+
+function initThirdPartyButtons() {
+  const consentButtons = document.querySelectorAll('[data-consent-service]');
+  consentButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const service = button.getAttribute('data-consent-service');
+      if (!service) return;
+      setConsent(service);
+      button.disabled = true;
+      button.textContent = 'אושר';
+      if (service === 'analytics') loadAnalytics();
+      if (service === 'clarity') loadClarity();
+    });
+  });
+
+  const translateLauncher = document.querySelector('[data-third-party-trigger="translate"]');
+  if (translateLauncher) {
+    translateLauncher.addEventListener('click', () => {
+      if (runtimeTranslate.requiresConsent) setConsent('translate');
+      loadTranslate();
+      translateLauncher.setAttribute('aria-disabled', 'true');
+      translateLauncher.disabled = true;
+    });
+  }
+}
+
+function initThirdPartyIntegrations() {
+  if (shouldLoadService('analytics', runtimeAnalytics)) loadAnalytics();
+  if (shouldLoadService('clarity', runtimeClarity)) loadClarity();
+  if (shouldLoadService('translate', runtimeTranslate) && runtimeTranslate.loadStrategy !== 'on-interaction') {
+    loadTranslate();
+  }
+
+  initThirdPartyButtons();
+}
+
 window.googleTranslateElementInit = function googleTranslateElementInit() {
-  const translate = (window.siteRuntimeConfig && window.siteRuntimeConfig.thirdParty && window.siteRuntimeConfig.thirdParty.translate) || {};
   if (!window.google || !google.translate) return;
 
   new google.translate.TranslateElement({
     pageLanguage: 'he',
-    includedLanguages: translate.includedLanguages || 'en,fr,de,es,ru,ar,it',
+    includedLanguages: runtimeTranslate.includedLanguages || 'en,fr,de,es,ru,ar,it',
     layout: google.translate.TranslateElement.InlineLayout.SIMPLE
   }, 'google_translate_element');
 };
+
+initThirdPartyIntegrations();
