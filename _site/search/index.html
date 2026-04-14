@@ -2,6 +2,12 @@
 <html lang="he" dir="rtl" id="htmlRoot">
 <head>
     
+    
+    
+    
+    
+    
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>חיפוש בכתבים | אוצר הכתבים הגנוזים</title>
@@ -45,31 +51,45 @@
       }
     }
     </script>
+
     
     
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;700&family=Noto+Serif+Hebrew:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/Source/assets/style.css">
 </head>
 <body class="">
     <a class="skip-link" href="#main-content">דלג לתוכן</a>
-    <button id="readingModeToggle" class="reading-mode-toggle" type="button" aria-pressed="false" title="מצב קריאה">📖</button>
-    <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "ucq1c77qd5");
-    </script>
-
-    
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M3NHG4MWVR"></script>
+    <button id="readingModeToggle" class="reading-mode-toggle" type="button" aria-pressed="false" aria-label="הפעלת מצב קריאה" aria-description="מצב קריאה כבוי. לחיצה תפעיל מצב קריאה להצגת התוכן ללא הסחות." title="מצב קריאה" data-reading-label-on="כיבוי מצב קריאה" data-reading-label-off="הפעלת מצב קריאה" data-reading-description-on="מצב קריאה פעיל. לחיצה תכבה את מצב הקריאה ותחזיר את כל רכיבי הממשק." data-reading-description-off="מצב קריאה כבוי. לחיצה תפעיל מצב קריאה להצגת התוכן ללא הסחות."><span aria-hidden="true">📖</span><span style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">הפעלת או כיבוי מצב קריאה</span></button>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-M3NHG4MWVR');
+      window.siteRuntimeConfig = {
+        fonts: {
+          provider: "google",
+          loadExternal: false,
+          useSelfHosted: false,
+          selfHostedStylesheet: "/assets/fonts/fonts.css",
+          fallbackStack: "&#39;Noto Serif Hebrew&#39;, &#39;Times New Roman&#39;, &#39;David&#39;, &#39;Georgia&#39;, serif"
+        },
+        thirdParty: {
+          consentMode: "opt-in",
+          analytics: {
+            enabled: false,
+            measurementId: "G-M3NHG4MWVR",
+            requiresConsent: true,
+            loadStrategy: "after-consent-and-interaction"
+          },
+          clarity: {
+            enabled: false,
+            projectId: "ucq1c77qd5",
+            requiresConsent: true,
+            loadStrategy: "after-consent-and-interaction"
+          },
+          translate: {
+            enabled: true,
+            requiresConsent: false,
+            loadStrategy: "on-interaction",
+            includedLanguages: "en,fr,de,es,ru,ar,it"
+          }
+        }
+      };
     </script>
     <header>
         <div class="header-top">
@@ -88,6 +108,7 @@
                     <a href="/Source/texts/hebrew/" >עברית</a>
                     <a href="/Source/texts/slavic/" >סלאבית</a>
                     <a href="/Source/texts/aramaic/" >ארמית</a>
+                    <a href="/Source/texts/armenian/" >ארמנית</a>
                     <a href="/Source/texts/arabic/" >ערבית</a>
                     <a href="/Source/texts/geez/" >געז</a>
                 </div>
@@ -98,6 +119,7 @@
                 <div class="dropdown-content">
                     <a href="/Source/by-figure/abraham/" >אברהם</a>
                     <a href="/Source/by-figure/daniel/" >דניאל</a>
+                    <a href="/Source/by-figure/enoch/" >חנוך</a>
                     <a href="/Source/by-figure/zerubbabel/" >זרובבל</a>
                     <a href="/Source/by-figure/talmidei-yeshua/" >מתלמידי ישוע הנוצרי</a>
                 </div>
@@ -108,6 +130,10 @@
 <nav class="breadcrumbs" aria-label="ניווט מקום">
   <ol>
     <li><a href="/Source/">דף הבית</a></li>
+    
+    
+    
+    
     
     
     
@@ -135,11 +161,11 @@
     <p>הקלד מונח חיפוש כדי לאתר טקסטים, שמות או ביטויים מתוך הכתבים והביאורים:</p>
 
     <link href="/Source/pagefind/pagefind-ui.css" rel="stylesheet">
-    <div id="search" style="margin-top: 20px;"></div>
+    <div id="search" class="search-shell"></div>
 
-    <div style="margin-top: 16px; padding: 12px; border-inline-start: 4px solid var(--border-color); background: color-mix(in srgb, var(--bg-secondary) 80%, transparent);">
-        <p style="margin: 0 0 8px 0;"><strong>שימו לב לגבי חיפוש בעברית:</strong> מנוע החיפוש אינו מבצע ניתוח שורשים (stemming), ולכן עדיף לחפש גם בצורות כתיב חלופיות.</p>
-        <ul style="margin: 0; padding-inline-start: 20px;">
+    <div class="c-info-box">
+        <p class="c-info-box__title"><strong>שימו לב לגבי חיפוש בעברית:</strong> מנוע החיפוש אינו מבצע ניתוח שורשים (stemming), ולכן עדיף לחפש גם בצורות כתיב חלופיות.</p>
+        <ul>
             <li>נסו גם יחיד/רבים וזכר/נקבה (למשל: "מלאך", "מלאכים").</li>
             <li>נסו צורות כתיב קרובות או כתיב מלא/חסר.</li>
             <li>אם אין תוצאות — עברו לניווט לפי מקור או לפי דמות.</li>
@@ -155,7 +181,7 @@
 
             const initPagefind = () => {
                 if (typeof PagefindUI !== 'function') {
-                    searchRoot.innerHTML = '<p style="color: var(--text-color-muted);">החיפוש אינו זמין כרגע. נסו לרענן את הדף.</p>';
+                    searchRoot.innerHTML = '<p class="c-muted">החיפוש אינו זמין כרגע. נסו לרענן את הדף.</p>';
                     return;
                 }
 
@@ -200,7 +226,7 @@
         });
     </script>
 
-    <div style="margin-top: 30px; padding: 15px; border: 1px solid var(--border-color); border-radius: 5px;">
+    <div class="c-card c-card--compact search-browse-box">
         <p><strong>אפשר גם לעיין לפי קטגוריות:</strong></p>
         <ul>
             <li><a href="/Source/texts/">לפי מקור השפה</a></li>
@@ -212,16 +238,26 @@
         
     </main>
     <footer>
-        <div id="google_translate_element"></div>
+        
+        <div class="footer-tool-group">
+            <p class="footer-tool-copy">תרגום מכונה נטען רק אם בוחרים בכך, כדי לחסוך בקשות חיצוניות מיותרות.</p>
+            <button id="translateLauncher" class="footer-action" type="button" data-third-party-trigger="translate">
+              הפעל תרגום אוטומטי
+            </button>
+            <div id="google_translate_element" hidden></div>
+        </div>
+        
+
+        
+
         <p>&copy; כל הזכויות שמורות - 2025</p>
-        <p style="font-size: 0.7em; color: #999;">
-            <a href="/Source/sitemap.xml" style="color: inherit; text-decoration: none;">Sitemap</a> | 
-            <a href="/Source/robots.txt" style="color: inherit; text-decoration: none;">Robots</a>
+        <p class="c-footer-meta">
+            <a href="/Source/sitemap.xml">Sitemap</a> | 
+            <a href="/Source/robots.txt">Robots</a>
         </p>
     </footer>
 
     <script src="/Source/assets/js/site.js" defer></script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>
