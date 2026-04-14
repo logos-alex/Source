@@ -320,6 +320,7 @@ html[data-theme="dark"] .c-notice--beta {
 
 /* Typography Enhancements */
 h1, h2, h3, h4, h5, h6 {
+  font-family: 'Frank Ruhl Libre', 'Noto Serif Hebrew', 'Times New Roman', Times, serif;
   color: var(--header-color);
   margin-top: 1.5em;
   margin-bottom: 0.5em;
@@ -485,24 +486,6 @@ body.reading-mode #comments-section {
 }
 
 /* Ensure mobile compatibility or fallback if needed */
-@media (max-width: 768px) {
-    .nav-dropdown {
-        display: block;
-        margin-bottom: 5px;
-    }
-    .dropdown-content {
-        position: static;
-        box-shadow: none;
-        border: none;
-        padding-right: 20px;
-        display: none;
-    }
-
-    .nav-dropdown.mobile-expanded .dropdown-content {
-        display: block;
-    }
-}
-
 .reading-mode-toggle {
   position: fixed;
   bottom: 20px;
@@ -524,11 +507,6 @@ body.reading-mode #comments-section {
 header a {
   text-decoration: none;
   color: inherit;
-}
-
-h1, h2, h3 {
-    font-family: 'Frank Ruhl Libre', 'Noto Serif Hebrew', 'Times New Roman', Times, serif;
-    color: var(--header-color);
 }
 
 header h1 {
@@ -644,13 +622,15 @@ html[data-theme="dark"] .beta-notice {
 }
 
 .footnotes li {
-  margin-bottom: 10px;
+  margin-bottom: 0.65em;
 }
 
 .note-backlink {
+  display: inline-block;
+  margin-inline-start: 0.45em;
   text-decoration: none;
-  margin-right: 6px;
   font-weight: 700;
+  font-size: 0.9em;
 }
 
 footer {
@@ -694,17 +674,6 @@ sup {
 
 .note-ref a:hover {
   text-decoration: underline;
-}
-
-.footnotes li {
-  margin-bottom: 0.65em;
-}
-
-.note-backlink {
-  display: inline-block;
-  margin-inline-start: 0.45em;
-  text-decoration: none;
-  font-size: 0.9em;
 }
 
 /* עיצוב ייחודי לעמוד הבית */
@@ -1090,7 +1059,21 @@ nav a:focus {
   }
 
   .nav-dropdown {
+    display: block;
     position: static;
+    margin-bottom: 5px;
+  }
+
+  .dropdown-content {
+    position: static;
+    box-shadow: none;
+    border: none;
+    padding-right: 20px;
+    display: none;
+  }
+
+  .nav-dropdown.mobile-expanded .dropdown-content {
+    display: block;
   }
 
   .dropbtn {
@@ -1132,6 +1115,26 @@ nav a:focus {
   .pagination a {
     width: 100%;
     text-align: center;
+  }
+
+  .toc-dropdown-content {
+    min-width: 200px;
+    right: 0;
+    transform: none;
+  }
+
+  .maintenance-banner {
+    padding: 40px 20px;
+    margin-bottom: 20px;
+  }
+  
+  .maintenance-banner h2 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+  }
+  
+  .maintenance-banner p {
+    font-size: 1em;
   }
 }
 
@@ -1197,21 +1200,6 @@ nav a:focus {
     display: block;
 }
 
-@media (max-width: 768px) {
-    .toc-dropdown-content {
-        min-width: 200px;
-        right: 0;
-        transform: none;
-    }
-}
-
-
-
-
-
-
-/* (Parallel columns responsive rules merged into the @media 1024px block above) */
-
 /* === MAINTENANCE MODE BANNER === */
 .maintenance-banner {
   background: linear-gradient(135deg, #5a3a2a 0%, #3D2B1F 100%);
@@ -1253,23 +1241,6 @@ nav a:focus {
   .maintenance-banner {
     background: linear-gradient(135deg, #1a1410 0%, #2d1f15 100%);
     border-bottom: 4px solid #d4af37;
-  }
-}
-
-/* Mobile responsive for maintenance banner */
-@media (max-width: 768px) {
-  .maintenance-banner {
-    padding: 40px 20px;
-    margin-bottom: 20px;
-  }
-  
-  .maintenance-banner h2 {
-    font-size: 1.8em;
-    margin-bottom: 15px;
-  }
-  
-  .maintenance-banner p {
-    font-size: 1em;
   }
 }
 

@@ -4,9 +4,9 @@
   "pathPrefix": "/Source/",
   "disqusShortname": "hebrew-aramaic-sources",
   "fonts": {
-    "provider": "google",
-    "loadExternal": true,
-    "useSelfHosted": false,
+    "provider": "self-hosted",
+    "loadExternal": false,
+    "useSelfHosted": true,
     "selfHostedStylesheet": "/assets/fonts/fonts.css",
     "fallbackStack": "'Frank Ruhl Libre', 'Noto Serif Hebrew', 'Times New Roman', 'David', 'Georgia', serif"
   },

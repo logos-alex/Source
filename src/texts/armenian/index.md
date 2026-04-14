@@ -1,6 +1,7 @@
 ---
 layout: base.njk
 title: "כתבים ממקור ארמני"
+description: "חיבורים אפוקליפטיים ונבואיים שמקורם הארמני, בתרגום ועריכה לעברית."
 permalink: /texts/armenian/
 ---
 

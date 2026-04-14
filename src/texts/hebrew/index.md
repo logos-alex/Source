@@ -1,6 +1,7 @@
 ---
 layout: base.njk
 title: "כתבים ממקור עברי"
+description: "חיבורים שנכתבו ונשתמרו בעברית, ומשקפים שכבות שונות של מסורת ופרשנות יהודית."
 permalink: /texts/hebrew/
 ---
 

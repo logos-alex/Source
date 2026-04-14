@@ -1,0 +1,60 @@
+/* Self-hosted Hebrew fonts for אוצר הכתבים הגנוזים */
+/* Frank Ruhl Libre — primary Hebrew serif */
+/* Noto Serif Hebrew — fallback Hebrew serif */
+
+/* Frank Ruhl Libre 300 (Light) */
+@font-face {
+  font-family: 'Frank Ruhl Libre';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('frank-ruhl-libre-300.ttf') format('truetype');
+}
+
+/* Frank Ruhl Libre 400 (Regular) */
+@font-face {
+  font-family: 'Frank Ruhl Libre';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('frank-ruhl-libre-400.ttf') format('truetype');
+}
+
+/* Frank Ruhl Libre 700 (Bold) */
+@font-face {
+  font-family: 'Frank Ruhl Libre';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('frank-ruhl-libre-700.ttf') format('truetype');
+}
+
+/* Noto Serif Hebrew 300 (Light) */
+@font-face {
+  font-family: 'Noto Serif Hebrew';
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: normal;
+  font-display: swap;
+  src: url('noto-serif-hebrew-300.ttf') format('truetype');
+}
+
+/* Noto Serif Hebrew 400 (Regular) */
+@font-face {
+  font-family: 'Noto Serif Hebrew';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+  font-display: swap;
+  src: url('noto-serif-hebrew-400.ttf') format('truetype');
+}
+
+/* Noto Serif Hebrew 700 (Bold) */
+@font-face {
+  font-family: 'Noto Serif Hebrew';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: normal;
+  font-display: swap;
+  src: url('noto-serif-hebrew-700.ttf') format('truetype');
+}
