@@ -5,10 +5,10 @@
   "disqusShortname": "hebrew-aramaic-sources",
   "fonts": {
     "provider": "google",
-    "loadExternal": false,
+    "loadExternal": true,
     "useSelfHosted": false,
     "selfHostedStylesheet": "/assets/fonts/fonts.css",
-    "fallbackStack": "'Noto Serif Hebrew', 'Times New Roman', 'David', 'Georgia', serif"
+    "fallbackStack": "'Frank Ruhl Libre', 'Noto Serif Hebrew', 'Times New Roman', 'David', 'Georgia', serif"
   },
   "thirdParty": {
     "consentMode": "opt-in",

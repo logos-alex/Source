@@ -98,7 +98,7 @@ for (const check of [
     markers: [
       'id="comments-section"',
       'id="disqus_thread"',
-      `this.page.identifier = "${withSitePrefix('/texts/aramaic/apoc-daniel-syriac/')}"`,
+      'id="disqusConsentBtn"',
       'hebrew-aramaic-sources.disqus.com/embed.js'
     ]
   },
@@ -107,7 +107,7 @@ for (const check of [
     markers: [
       'id="comments-section"',
       'id="disqus_thread"',
-      `this.page.identifier = "${withSitePrefix('/texts/aramaic/apoc-daniel-syriac/page-1/')}"`,
+      'id="disqusConsentBtn"',
       'hebrew-aramaic-sources.disqus.com/embed.js'
     ]
   }

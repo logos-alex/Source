@@ -29,12 +29,14 @@
     <meta property="og:url" content="https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/b/page-3/">
     <meta property="og:site_name" content="אוצר הכתבים הגנוזים">
     <meta property="og:locale" content="he_IL">
+    <meta property="og:image" content="https://logos-alex.github.io/Source/assets/og-image.png">
     
     <!-- Twitter/X Tags -->
-    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="חזון אברהם – נוסח ב&#39; – פרק ג | אוצר הכתבים הגנוזים">
     <meta name="twitter:description" content="מסע אל הכתבים הגנוזים והאבודים של המסורת היהודית. תרגומים, ביאורים ועיון בטקסטים שנדחקו אל השוליים.">
     <meta name="twitter:url" content="https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/b/page-3/">
+    <meta name="twitter:image" content="https://logos-alex.github.io/Source/assets/og-image.png">
     
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -54,7 +56,13 @@
 
     
     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;700&family=Noto+Serif+Hebrew:wght@300;400;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="/Source/assets/style.css">
+    <link rel="icon" type="image/png" href="/Source/assets/favicon.png">
+    <link rel="icon" type="image/x-icon" href="/Source/assets/favicon.ico">
 </head>
 <body class="">
     <a class="skip-link" href="#main-content">דלג לתוכן</a>
@@ -63,10 +71,10 @@
       window.siteRuntimeConfig = {
         fonts: {
           provider: "google",
-          loadExternal: false,
+          loadExternal: true,
           useSelfHosted: false,
           selfHostedStylesheet: "/assets/fonts/fonts.css",
-          fallbackStack: "&#39;Noto Serif Hebrew&#39;, &#39;Times New Roman&#39;, &#39;David&#39;, &#39;Georgia&#39;, serif"
+          fallbackStack: "&#39;Frank Ruhl Libre&#39;, &#39;Noto Serif Hebrew&#39;, &#39;Times New Roman&#39;, &#39;David&#39;, &#39;Georgia&#39;, serif"
         },
         thirdParty: {
           consentMode: "opt-in",
@@ -302,25 +310,66 @@
   </nav>
 
   
-  <div id="comments-section" class="c-section-divider">
-    <h3>תגובות</h3>
+  
+
+
+<div id="comments-section" class="c-section-divider">
+  <h3>תגובות</h3>
+
+  
     
-      <div id="disqus_thread"></div>
-      <script>
-          var disqus_config = function () {
-              this.page.url = "https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/b/page-3/";
-              this.page.identifier = "/Source/texts/slavic/apocalypse-abraham/b/page-3/";
-          };
-          (function() {
-              var d = document, s = d.createElement('script');
-              s.src = 'https://hebrew-aramaic-sources.disqus.com/embed.js';
-              s.setAttribute('data-timestamp', +new Date());
-              (d.head || d.body).appendChild(s);
-          })();
-      </script>
-      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    
-  </div>
+
+    <div id="disqus-consent-area">
+      <p class="c-muted">מערכת התגובות (Disqus) טוענת סקריפטים חיצוניים וקוקיז. לחצו להפעלה.</p>
+      <button class="footer-action" type="button" id="disqusConsentBtn" data-consent-service="disqus">אפשר תגובות (Disqus)</button>
+    </div>
+
+    <div id="disqus_thread" style="display:none;"></div>
+
+    <script>
+      (function () {
+        var consentBtn = document.getElementById('disqusConsentBtn');
+        var consentArea = document.getElementById('disqus-consent-area');
+        var threadEl = document.getElementById('disqus_thread');
+        if (!consentBtn || !threadEl) return;
+
+        function loadDisqus() {
+          threadEl.style.display = '';
+          if (consentArea) consentArea.style.display = 'none';
+
+          var d = document, s = d.createElement('script');
+          s.src = 'https://hebrew-aramaic-sources.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          s.setAttribute('data-external-service', 'disqus');
+          (d.head || d.body).appendChild(s);
+        }
+
+        var storedConsent = (function () {
+          try {
+            var raw = localStorage.getItem('thirdPartyConsent');
+            return raw ? JSON.parse(raw) : {};
+          } catch { return {}; }
+        })();
+
+        if (storedConsent.disqus) {
+          loadDisqus();
+        } else {
+          consentBtn.addEventListener('click', function () {
+            try {
+              var raw = localStorage.getItem('thirdPartyConsent');
+              var state = raw ? JSON.parse(raw) : {};
+              state.disqus = true;
+              localStorage.setItem('thirdPartyConsent', JSON.stringify(state));
+            } catch {}
+            loadDisqus();
+          });
+        }
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  
+</div>
+
 
 
     </main>
@@ -337,7 +386,7 @@
 
         
 
-        <p>&copy; כל הזכויות שמורות - 2025</p>
+        <p>&copy; כל הזכויות שמורות - 2025–2026</p>
         <p class="c-footer-meta">
             <a href="/Source/sitemap.xml">Sitemap</a> | 
             <a href="/Source/robots.txt">Robots</a>

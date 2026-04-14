@@ -92,7 +92,7 @@ html[data-theme="dark"] a:visited {
 
 
 body {
-  font-family: var(--font-serif);
+  font-family: 'Frank Ruhl Libre', 'Noto Serif Hebrew', 'Times New Roman', 'David', 'Georgia', serif;
   background: var(--bg-color);
   color: var(--text-color);
   max-width: 1200px; /* Increased for parallel view */
@@ -521,25 +521,13 @@ body.reading-mode #comments-section {
   font-size: 1.2rem;
 }
 
-@media (max-width: 1024px) {
-  .parallel-columns {
-    grid-template-columns: 1fr;
-  }
-  .column-source {
-    border-left: none;
-    border-bottom: 1px solid var(--border-color);
-    padding-left: 0;
-    padding-bottom: 20px;
-  }
-}
-
 header a {
   text-decoration: none;
   color: inherit;
 }
 
 h1, h2, h3 {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Frank Ruhl Libre', 'Noto Serif Hebrew', 'Times New Roman', Times, serif;
     color: var(--header-color);
 }
 
@@ -771,7 +759,7 @@ sup {
 }
 
 .epigraph-card .quote-translation {
-  font-family: var(--font-serif);
+  font-family: 'Noto Serif Hebrew', 'Times New Roman', serif;
   font-size: 1rem;
   color: var(--notes-color);
 }
@@ -1222,43 +1210,7 @@ nav a:focus {
 
 
 
-/* עבור מסכים קטנים - חזרה לתצוגה ליניארית */
-@media (max-width: 1024px) {
-  .parallel-columns {
-    grid-template-columns: 1fr;
-  }
-  
-  .parallel-columns h2:nth-of-type(1),
-  .parallel-columns h2:nth-of-type(2) {
-    grid-column: 1;
-    border: none;
-    border-bottom: 2px solid var(--border-color);
-    padding: 10px 0;
-    margin-bottom: 15px;
-  }
-}
-
-
-
-
-
-
-
-/* עבור מסכים קטנים - חזרה לתצוגה ליניארית */
-@media (max-width: 1024px) {
-  .parallel-columns h2,
-  .parallel-columns p {
-    width: 100%;
-    float: none;
-    clear: both;
-  }
-  
-  .parallel-columns h2 {
-    border: none;
-    border-bottom: 2px solid var(--border-color);
-    padding: 10px 0;
-  }
-}
+/* (Parallel columns responsive rules merged into the @media 1024px block above) */
 
 /* === MAINTENANCE MODE BANNER === */
 .maintenance-banner {

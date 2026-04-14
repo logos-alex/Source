@@ -29,12 +29,14 @@
     <meta property="og:url" content="{{ site.origin }}{{ page.url | url }}">
     <meta property="og:site_name" content="אוצר הכתבים הגנוזים">
     <meta property="og:locale" content="he_IL">
+    <meta property="og:image" content="{{ site.origin }}/Source/assets/og-image.png">
     
     <!-- Twitter/X Tags -->
-    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{ title }} | אוצר הכתבים הגנוזים">
     <meta name="twitter:description" content="{% if description %}{{ description }}{% else %}מסע אל הכתבים הגנוזים והאבודים של המסורת היהודית. תרגומים, ביאורים ועיון בטקסטים שנדחקו אל השוליים.{% endif %}">
     <meta name="twitter:url" content="{{ site.origin }}{{ page.url | url }}">
+    <meta name="twitter:image" content="{{ site.origin }}/Source/assets/og-image.png">
     
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -68,6 +70,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;700&family=Noto+Serif+Hebrew:wght@300;400;700&display=swap" rel="stylesheet">
     {% endif %}
     <link rel="stylesheet" href="{{ '/assets/style.css' | url }}">
+    <link rel="icon" type="image/png" href="{{ '/assets/favicon.png' | url }}">
+    <link rel="icon" type="image/x-icon" href="{{ '/assets/favicon.ico' | url }}">
 </head>
 <body class="{{ bodyClass }}">
     <a class="skip-link" href="#main-content">דלג לתוכן</a>
@@ -169,7 +173,7 @@
         </div>
         {% endif %}
 
-        <p>&copy; כל הזכויות שמורות - 2025</p>
+        <p>&copy; כל הזכויות שמורות - 2025–2026</p>
         <p class="c-footer-meta">
             <a href="{{ '/sitemap.xml' | url }}">Sitemap</a> | 
             <a href="{{ '/robots.txt' | url }}">Robots</a>
