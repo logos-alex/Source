@@ -117,6 +117,7 @@
                     <a href="/Source/texts/armenian/" >ארמנית</a>
                     <a href="/Source/texts/arabic/" >ערבית</a>
                     <a href="/Source/texts/geez/" >געז</a>
+                    <a href="/Source/texts/latin/" >לטינית</a>
                 </div>
             </div>
             
@@ -312,66 +313,25 @@
   </nav>
 
   
-  
-
-
-<div id="comments-section" class="c-section-divider">
-  <h3>תגובות</h3>
-
-  
+  <div id="comments-section" class="c-section-divider">
+    <h3>תגובות</h3>
     
-
-    <div id="disqus-consent-area">
-      <p class="c-muted">מערכת התגובות (Disqus) טוענת סקריפטים חיצוניים וקוקיז. לחצו להפעלה.</p>
-      <button class="footer-action" type="button" id="disqusConsentBtn" data-consent-service="disqus">אפשר תגובות (Disqus)</button>
-    </div>
-
-    <div id="disqus_thread" style="display:none;"></div>
-
-    <script>
-      (function () {
-        var consentBtn = document.getElementById('disqusConsentBtn');
-        var consentArea = document.getElementById('disqus-consent-area');
-        var threadEl = document.getElementById('disqus_thread');
-        if (!consentBtn || !threadEl) return;
-
-        function loadDisqus() {
-          threadEl.style.display = '';
-          if (consentArea) consentArea.style.display = 'none';
-
-          var d = document, s = d.createElement('script');
-          s.src = 'https://hebrew-aramaic-sources.disqus.com/embed.js';
-          s.setAttribute('data-timestamp', +new Date());
-          s.setAttribute('data-external-service', 'disqus');
-          (d.head || d.body).appendChild(s);
-        }
-
-        var storedConsent = (function () {
-          try {
-            var raw = localStorage.getItem('thirdPartyConsent');
-            return raw ? JSON.parse(raw) : {};
-          } catch { return {}; }
-        })();
-
-        if (storedConsent.disqus) {
-          loadDisqus();
-        } else {
-          consentBtn.addEventListener('click', function () {
-            try {
-              var raw = localStorage.getItem('thirdPartyConsent');
-              var state = raw ? JSON.parse(raw) : {};
-              state.disqus = true;
-              localStorage.setItem('thirdPartyConsent', JSON.stringify(state));
-            } catch {}
-            loadDisqus();
-          });
-        }
-      })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  
-</div>
-
+      <div id="disqus_thread"></div>
+      <script>
+          var disqus_config = function () {
+              this.page.url = "https://logos-alex.github.io/Source/texts/aramaic/apoc-daniel-syriac/page-26/";
+              this.page.identifier = "/Source/texts/aramaic/apoc-daniel-syriac/page-26/";
+          };
+          (function() {
+              var d = document, s = d.createElement('script');
+              s.src = 'https://hebrew-aramaic-sources.disqus.com/embed.js';
+              s.setAttribute('data-timestamp', +new Date());
+              (d.head || d.body).appendChild(s);
+          })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+  </div>
 
 
     </main>

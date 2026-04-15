@@ -98,7 +98,6 @@ for (const check of [
     markers: [
       'id="comments-section"',
       'id="disqus_thread"',
-      'id="disqusConsentBtn"',
       'hebrew-aramaic-sources.disqus.com/embed.js'
     ]
   },
@@ -107,7 +106,6 @@ for (const check of [
     markers: [
       'id="comments-section"',
       'id="disqus_thread"',
-      'id="disqusConsentBtn"',
       'hebrew-aramaic-sources.disqus.com/embed.js'
     ]
   }
