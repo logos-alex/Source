@@ -481,7 +481,8 @@ body.reading-mode #comments-section {
 }
 
 .nav-dropdown:hover .dropdown-content,
-.nav-dropdown:focus-within .dropdown-content {
+.nav-dropdown:focus-within .dropdown-content,
+.nav-dropdown.desktop-open .dropdown-content {
     display: block;
 }
 

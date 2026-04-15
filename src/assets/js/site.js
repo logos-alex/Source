@@ -53,11 +53,20 @@
       navToggle.textContent = isOpen ? '✕' : '☰';
     });
 
+    /* Desktop: toggle dropdown on click, close on outside click */
     nav.querySelectorAll('.nav-dropdown').forEach((dropdown, index) => {
       const dropLink = dropdown.querySelector('.dropbtn');
       const menu = dropdown.querySelector('.dropdown-content');
       if (!dropLink || !menu) return;
 
+      dropLink.addEventListener('click', (event) => {
+        if (window.innerWidth <= 768) return; // mobile handled below
+        event.preventDefault();
+        const isOpen = dropdown.classList.toggle('desktop-open');
+        dropLink.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      /* Mobile: create submenu toggle button */
       const toggle = document.createElement('button');
       const menuId = `nav-submenu-${index + 1}`;
       menu.id = menuId;
@@ -72,6 +81,17 @@
       toggle.addEventListener('click', () => {
         const isExpanded = dropdown.classList.toggle('mobile-expanded');
         toggle.setAttribute('aria-expanded', String(isExpanded));
+      });
+    });
+
+    /* Close any open desktop dropdown when clicking outside */
+    document.addEventListener('click', (event) => {
+      nav.querySelectorAll('.nav-dropdown.desktop-open').forEach((dropdown) => {
+        if (!dropdown.contains(event.target)) {
+          dropdown.classList.remove('desktop-open');
+          const dropLink = dropdown.querySelector('.dropbtn');
+          if (dropLink) dropLink.setAttribute('aria-expanded', 'false');
+        }
       });
     });
   }
