@@ -1073,6 +1073,13 @@ nav a:focus-visible {
     display: none;
   }
 
+  /* Override global hover/focus-within rules — on touch devices hover is sticky */
+  .nav-dropdown:hover .dropdown-content,
+  .nav-dropdown:focus-within .dropdown-content,
+  .nav-dropdown.desktop-open .dropdown-content {
+    display: none;
+  }
+
   .nav-dropdown.mobile-expanded .dropdown-content {
     display: block;
   }
