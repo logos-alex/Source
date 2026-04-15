@@ -2,6 +2,12 @@
 _site/
 dist/
 
+# Pagefind search index (regenerated on every build)
+pagefind/
+
+# npm link artifact
+source@1.0.0
+
 # Logs
 logs
 *.log

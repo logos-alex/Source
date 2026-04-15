@@ -21,6 +21,108 @@
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
+  <url>
+    <loc>https://logos-alex.github.io/Source/search/</loc>
+    <lastmod>2025-11-21</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://logos-alex.github.io/Source/updates/</loc>
+    <lastmod>2025-11-21</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  
+  
+  <url>
+    <loc>https://logos-alex.github.io/Source/texts/hebrew/</loc>
+    <lastmod>2025-11-21</lastmod>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://logos-alex.github.io/Source/texts/slavic/</loc>
+    <lastmod>2025-11-21</lastmod>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://logos-alex.github.io/Source/texts/aramaic/</loc>
+    <lastmod>2025-11-21</lastmod>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://logos-alex.github.io/Source/texts/arabic/</loc>
+    <lastmod>2025-11-21</lastmod>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://logos-alex.github.io/Source/texts/geez/</loc>
+    <lastmod>2025-11-21</lastmod>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://logos-alex.github.io/Source/texts/armenian/</loc>
+    <lastmod>2025-11-21</lastmod>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://logos-alex.github.io/Source/texts/latin/</loc>
+    <lastmod>2025-11-21</lastmod>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  
+
+  
+  
+  <url>
+    <loc>https://logos-alex.github.io/Source/by-figure/abraham/</loc>
+    <lastmod>2025-11-21</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://logos-alex.github.io/Source/by-figure/daniel/</loc>
+    <lastmod>2025-11-21</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://logos-alex.github.io/Source/by-figure/enoch/</loc>
+    <lastmod>2025-11-21</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://logos-alex.github.io/Source/by-figure/zerubbabel/</loc>
+    <lastmod>2025-11-21</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://logos-alex.github.io/Source/by-figure/talmidei-yeshua/</loc>
+    <lastmod>2025-11-21</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  
   
   
   

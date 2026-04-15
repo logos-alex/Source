@@ -1,6 +1,7 @@
 ---
 layout: base.njk
 title: "כתבים לפי ייחוס"
+description: "ניווט בכתבים הגנוזים לפי דמויות מקראיות — אברהם, דניאל, זרובבל, חנוך ועוד."
 draft: false
 permalink: /by-figure/
 ---

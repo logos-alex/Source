@@ -16,7 +16,7 @@
     <meta name="color-scheme" content="light dark">
     
     <!-- SEO & Meta Tags -->
-    <meta name="description" content="{% if description %}{{ description }}{% else %}מסע אל הכתבים הגנוזים והאבודים של המסורת היהודית. תרגומים, ביאורים ועיון בטקסטים שנדחקו אל השוליים.{% endif %}">
+    <meta name="description" content="{% if description %}{{ description }}{% elif pageNumber and title %}{{ title }} — טקסט ותרגום באתר אוצר הכתבים הגנוזים.{% else %}מסע אל הכתבים הגנוזים והאבודים של המסורת היהודית. תרגומים, ביאורים ועיון בטקסטים שנדחקו אל השוליים.{% endif %}">
     <meta name="keywords" content="כתבים גנוזים, אפוקריפה, ספרים חיצוניים, יהדות, בית שני, מינות, גנוסטיקה, קבלה, מיסטיקה, דניאל, אברהם, זרובבל, עזרא, ישעיהו, אליהו">
     <meta name="author" content="בית המדרש הווירטואלי">
     <meta name="robots" content="index, follow">
@@ -120,7 +120,7 @@
             <a href="{{ '/updates/' | url }}" {% if page.url == "/updates/" %}aria-current="page"{% endif %}>🆕 מה חדש</a>
 
             <div class="nav-dropdown">
-                <a href="{{ '/texts/' | url }}" class="dropbtn" {% if page.url and page.url.startsWith("/texts/") %}aria-current="page"{% endif %}>לפי מקור</a>
+                <a href="{{ '/texts/' | url }}" class="dropbtn" aria-haspopup="true" aria-expanded="false" {% if page.url and page.url.startsWith("/texts/") %}aria-current="page"{% endif %}>לפי מקור</a>
                 <div class="dropdown-content">
                     <a href="{{ '/texts/hebrew/' | url }}" {% if page.url == "/texts/hebrew/" %}aria-current="page"{% endif %}>עברית</a>
                     <a href="{{ '/texts/slavic/' | url }}" {% if page.url == "/texts/slavic/" %}aria-current="page"{% endif %}>סלאבית</a>
@@ -133,7 +133,7 @@
             </div>
             
             <div class="nav-dropdown">
-                <a href="{{ '/by-figure/' | url }}" class="dropbtn" {% if page.url and page.url.startsWith("/by-figure/") %}aria-current="page"{% endif %}>לפי ייחוס</a>
+                <a href="{{ '/by-figure/' | url }}" class="dropbtn" aria-haspopup="true" aria-expanded="false" {% if page.url and page.url.startsWith("/by-figure/") %}aria-current="page"{% endif %}>לפי ייחוס</a>
                 <div class="dropdown-content">
                     <a href="{{ '/by-figure/abraham/' | url }}" {% if page.url == "/by-figure/abraham/" %}aria-current="page"{% endif %}>אברהם</a>
                     <a href="{{ '/by-figure/daniel/' | url }}" {% if page.url == "/by-figure/daniel/" %}aria-current="page"{% endif %}>דניאל</a>

@@ -26,6 +26,38 @@ eleventyExcludeFromCollections: true
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
+  <url>
+    <loc>{{ site.origin }}{{ '/search/' | url }}</loc>
+    <lastmod>2025-11-21</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>{{ site.origin }}{{ '/updates/' | url }}</loc>
+    <lastmod>2025-11-21</lastmod>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  {# Language category pages #}
+  {% for langSlug in ["hebrew", "slavic", "aramaic", "arabic", "geez", "armenian", "latin"] %}
+  <url>
+    <loc>{{ site.origin }}{{ ('/texts/' + langSlug + '/') | url }}</loc>
+    <lastmod>2025-11-21</lastmod>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  {% endfor %}
+
+  {# By-figure pages #}
+  {% for figSlug in ["abraham", "daniel", "enoch", "zerubbabel", "talmidei-yeshua"] %}
+  <url>
+    <loc>{{ site.origin }}{{ ('/by-figure/' + figSlug + '/') | url }}</loc>
+    <lastmod>2025-11-21</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  {% endfor %}
   
   {# All text pages #}
   {% for item in collections.all %}
