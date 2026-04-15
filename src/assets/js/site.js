@@ -62,8 +62,18 @@
       dropLink.addEventListener('click', (event) => {
         if (window.innerWidth <= 768) return; // mobile handled below
         event.preventDefault();
-        const isOpen = dropdown.classList.toggle('desktop-open');
-        dropLink.setAttribute('aria-expanded', String(isOpen));
+        const wasOpen = dropdown.classList.contains('desktop-open');
+        if (wasOpen) {
+          // Close: remove desktop-open, add forced-closed to override :hover
+          dropdown.classList.remove('desktop-open');
+          dropdown.classList.add('forced-closed');
+          dropLink.setAttribute('aria-expanded', 'false');
+        } else {
+          // Open: add desktop-open, remove forced-closed
+          dropdown.classList.add('desktop-open');
+          dropdown.classList.remove('forced-closed');
+          dropLink.setAttribute('aria-expanded', 'true');
+        }
       });
 
       /* Mobile: create submenu toggle button */
@@ -89,9 +99,17 @@
       nav.querySelectorAll('.nav-dropdown.desktop-open').forEach((dropdown) => {
         if (!dropdown.contains(event.target)) {
           dropdown.classList.remove('desktop-open');
+          dropdown.classList.add('forced-closed');
           const dropLink = dropdown.querySelector('.dropbtn');
           if (dropLink) dropLink.setAttribute('aria-expanded', 'false');
         }
+      });
+    });
+
+    /* Remove forced-closed when mouse leaves dropdown, so :hover works again next time */
+    nav.querySelectorAll('.nav-dropdown').forEach((dropdown) => {
+      dropdown.addEventListener('mouseleave', () => {
+        dropdown.classList.remove('forced-closed');
       });
     });
   }

@@ -486,6 +486,11 @@ body.reading-mode #comments-section {
     display: block;
 }
 
+/* When user explicitly closes dropdown via click, override :hover */
+.nav-dropdown.forced-closed:hover .dropdown-content {
+    display: none;
+}
+
 /* Ensure mobile compatibility or fallback if needed */
 .reading-mode-toggle {
   position: fixed;
