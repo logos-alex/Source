@@ -25,5 +25,5 @@ permalink: /texts/latin/
     {% endfor %}
   </div>
 
-  <p class="c-muted--italic">טקסטים לטיניים יתווספו בהמשך.</p>
+  <p class="c-muted--italic">טקסטים לטיניים יתווספו בהמשך. בינתיים, חזרו ל<a href="{{ '/' | url }}">דף הבית</a> כדי לצפות בכתבים הזמינים, או עיינו ב<a href="{{ '/texts/' | url }}">כל המקורות</a>.</p>
 </div>

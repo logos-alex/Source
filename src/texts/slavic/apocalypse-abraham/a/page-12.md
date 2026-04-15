@@ -1,7 +1,8 @@
 ---
-layout: text-page.njk
+layout: text-page
 title: "חזון אברהם – נוסח א' – פרק יב"
 book: apocalypse-abraham
+version: a
 pageNumber: 12
 tags:
   - slavic

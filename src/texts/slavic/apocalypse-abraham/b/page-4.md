@@ -1,7 +1,8 @@
 ---
-layout: text-page.njk
+layout: text-page
 title: "חזון אברהם – נוסח ב' – פרק ד"
 book: apocalypse-abraham-b
+version: b
 source: slavic
 figure: abraham
 pageNumber: 4

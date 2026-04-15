@@ -11,5 +11,6 @@ function safeExec(command) {
 module.exports = {
   commitShort: safeExec('git rev-parse --short HEAD'),
   branch: safeExec('git rev-parse --abbrev-ref HEAD'),
-  builtAtUTC: new Date().toISOString()
+  builtAtUTC: new Date().toISOString(),
+  buildYear: new Date().getFullYear()
 };

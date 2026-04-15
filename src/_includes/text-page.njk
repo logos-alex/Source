@@ -70,7 +70,7 @@
     {# === כפתור תוכן העניינים (תמיד מופיע בניווט הקבוע) === #}
     {% if book %}
     <div class="toc-dropdown">
-      <a href="{{ tocPage.url | url }}" class="home-link">📖 תוכן העניינים</a>
+      <a href="{{ tocPage.url | url }}" class="home-link"><span aria-hidden="true">📖</span> תוכן העניינים</a>
       <div class="toc-dropdown-content">
         <div class="toc-dropdown-header">פרקים בטקסט</div>
         <ul>

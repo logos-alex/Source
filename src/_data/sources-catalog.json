@@ -87,18 +87,7 @@
       }
     }
   },
-  {
-    "id": "apocalypse-abraham-b",
-    "title": "חזון אברהם — נוסח ב'",
-    "lang": "slavic",
-    "description": "נוסח ב' של חזון אברהם כפי שהשתמר במסורת הסלאבית.",
-    "versions": {
-      "b": {
-        "title": "נוסח ב'",
-        "description": "גרסה שנייה של הטקסט."
-      }
-    }
-  },
+
   {
     "id": "vision-enoch-righteous-armenian",
     "title": "חזון חנוך הצדיק (ארמנית)",
