@@ -9,7 +9,7 @@
 | kitab-al-majall | arabic | 34 | 0 |
 | sefer-zerubbabel | hebrew | 7 | 0 |
 | tsavaat-yeshua | aramaic | 0 | 0 |
-| vision-daniel-armenian | armenian | 12 | 0 |
+| vision-daniel-armenian | armenian | 28 | 0 |
 | vision-enoch-righteous-armenian | armenian | 8 | 0 |
 | young-daniel-syriac | aramaic | 5 | 0 |
 
