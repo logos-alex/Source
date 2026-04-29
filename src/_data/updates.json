@@ -6,6 +6,36 @@
   },
   "items": [
     {
+      "id": "vision-daniel-armenian-finalized",
+      "title": "📜 חזון דניאל (ארמני) עודכן לנוסח מלא ומתוקן",
+      "summary": "החיבור הוחלף לנוסח העדכני המלא, והמבנה אורגן לפרקי קריאה מסודרים של שני סימנים בכל עמוד.",
+      "dateLabel": "אפריל 2026",
+      "category": "תוכן ועדכוני נוסח",
+      "flags": ["content", "armenian", "daniel"],
+      "links": [
+        {
+          "id": "vision-daniel-armenian-index",
+          "href": "/texts/armenian/vision-daniel-armenian/",
+          "label": "לעמוד המבוא והנוסח"
+        }
+      ]
+    },
+    {
+      "id": "new-figure-category-yeshmaelim",
+      "title": "🧭 נוספה קטגוריית ייחוס חדשה: ממקורות הישמעאלים",
+      "summary": "נוספה קטגוריה חדשה בעמוד 'לפי ייחוס' עבור מסורות חוץ־תנ"כיות בספרות חכמי האסלאם.",
+      "dateLabel": "אפריל 2026",
+      "category": "ניווט ותוכן",
+      "flags": ["by-figure", "taxonomy", "arabic", "geez"],
+      "links": [
+        {
+          "id": "figure-mekorot-yeshmaelim",
+          "href": "/by-figure/mekorot-yeshmaelim/",
+          "label": "לעמוד הייחוס החדש"
+        }
+      ]
+    },
+    {
       "id": "armenian-daniel-added",
       "title": "📘 נוסף לאתר: חזון דניאל (ארמני)",
       "summary": "נפתח חיבור חדש במדור הארמני עם מבוא ייעודי ועמוד טקסט ראשי, בשיוך לדמות דניאל.",

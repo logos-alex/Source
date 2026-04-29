@@ -3,7 +3,7 @@ layout: text-page
 title: פרק לג (עמוד לג)
 book: kitab-al-majall
 source: arabic
-figure: talmidei-yeshua
+figure: mekorot-yeshmaelim
 pageNumber: 33
 version: main
 ---

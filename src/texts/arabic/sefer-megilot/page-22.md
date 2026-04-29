@@ -3,7 +3,7 @@ layout: text-page
 title: פרק כב (עמוד כב)
 book: kitab-al-majall
 source: arabic
-figure: talmidei-yeshua
+figure: mekorot-yeshmaelim
 pageNumber: 22
 version: main
 ---

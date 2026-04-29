@@ -3,7 +3,7 @@ layout: text-page
 title: פרק טו (עמוד טו)
 book: kitab-al-majall
 source: arabic
-figure: talmidei-yeshua
+figure: mekorot-yeshmaelim
 pageNumber: 15
 version: main
 ---

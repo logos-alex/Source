@@ -3,7 +3,7 @@ layout: text-page
 title: פרק ד (עמוד ד)
 book: kitab-al-majall
 source: arabic
-figure: talmidei-yeshua
+figure: mekorot-yeshmaelim
 pageNumber: 4
 version: main
 notes:

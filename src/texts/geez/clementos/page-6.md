@@ -3,7 +3,7 @@ layout: text-page
 title: פרק ו (עמוד ו)
 book: clementos-geez
 source: geez
-figure: talmidei-yeshua
+figure: mekorot-yeshmaelim
 pageNumber: 6
 version: main
 notes:

@@ -3,7 +3,7 @@ layout: text-page
 title: פרק א (עמוד א)
 book: kitab-al-majall
 source: arabic
-figure: talmidei-yeshua
+figure: mekorot-yeshmaelim
 pageNumber: 1
 version: main
 notes:

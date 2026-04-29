@@ -3,7 +3,7 @@ layout: text-page
 title: פרק יח (עמוד יח)
 book: kitab-al-majall
 source: arabic
-figure: talmidei-yeshua
+figure: mekorot-yeshmaelim
 pageNumber: 18
 version: main
 ---

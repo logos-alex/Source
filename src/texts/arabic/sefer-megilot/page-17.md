@@ -3,7 +3,7 @@ layout: text-page
 title: פרק יז (עמוד יז)
 book: kitab-al-majall
 source: arabic
-figure: talmidei-yeshua
+figure: mekorot-yeshmaelim
 pageNumber: 17
 version: main
 ---

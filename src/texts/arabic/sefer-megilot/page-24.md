@@ -3,7 +3,7 @@ layout: text-page
 title: פרק כד (עמוד כד)
 book: kitab-al-majall
 source: arabic
-figure: talmidei-yeshua
+figure: mekorot-yeshmaelim
 pageNumber: 24
 version: main
 ---

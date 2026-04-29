@@ -3,7 +3,7 @@ layout: text-page
 title: פרק כה (עמוד כה)
 book: kitab-al-majall
 source: arabic
-figure: talmidei-yeshua
+figure: mekorot-yeshmaelim
 pageNumber: 25
 version: main
 ---

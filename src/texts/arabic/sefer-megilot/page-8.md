@@ -3,7 +3,7 @@ layout: text-page
 title: פרק ח (עמוד ח)
 book: kitab-al-majall
 source: arabic
-figure: talmidei-yeshua
+figure: mekorot-yeshmaelim
 pageNumber: 8
 version: main
 notes:

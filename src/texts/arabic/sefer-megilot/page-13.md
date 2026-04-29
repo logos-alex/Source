@@ -3,7 +3,7 @@ layout: text-page
 title: פרק יג (עמוד יג)
 book: kitab-al-majall
 source: arabic
-figure: talmidei-yeshua
+figure: mekorot-yeshmaelim
 pageNumber: 13
 version: main
 ---

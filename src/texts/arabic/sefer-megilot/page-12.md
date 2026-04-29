@@ -3,7 +3,7 @@ layout: text-page
 title: פרק יב (עמוד יב)
 book: kitab-al-majall
 source: arabic
-figure: talmidei-yeshua
+figure: mekorot-yeshmaelim
 pageNumber: 12
 version: main
 ---

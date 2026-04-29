@@ -3,7 +3,7 @@ layout: text-page
 title: פרק כח (עמוד כח)
 book: kitab-al-majall
 source: arabic
-figure: talmidei-yeshua
+figure: mekorot-yeshmaelim
 pageNumber: 28
 version: main
 ---
