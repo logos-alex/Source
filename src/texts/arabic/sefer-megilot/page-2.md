@@ -3,7 +3,7 @@ layout: text-page
 title: פרק ב (עמוד ב)
 book: kitab-al-majall
 source: arabic
-figure: talmidei-yeshua
+figure: mekorot-yeshmaelim
 pageNumber: 2
 version: main
 notes:

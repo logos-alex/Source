@@ -3,7 +3,7 @@ layout: text-page
 title: פרק ט (עמוד ט)
 book: clementos-geez
 source: geez
-figure: talmidei-yeshua
+figure: mekorot-yeshmaelim
 pageNumber: 9
 version: main
 notes:

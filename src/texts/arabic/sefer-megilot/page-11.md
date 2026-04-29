@@ -3,7 +3,7 @@ layout: text-page
 title: פרק יא (עמוד יא)
 book: kitab-al-majall
 source: arabic
-figure: talmidei-yeshua
+figure: mekorot-yeshmaelim
 pageNumber: 11
 version: main
 ---

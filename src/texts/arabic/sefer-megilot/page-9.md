@@ -3,7 +3,7 @@ layout: text-page
 title: פרק ט (עמוד ט)
 book: kitab-al-majall
 source: arabic
-figure: talmidei-yeshua
+figure: mekorot-yeshmaelim
 pageNumber: 9
 version: main
 notes:

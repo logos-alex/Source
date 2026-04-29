@@ -3,7 +3,7 @@ layout: text-page
 title: פרק ה (עמוד ה)
 book: kitab-al-majall
 source: arabic
-figure: talmidei-yeshua
+figure: mekorot-yeshmaelim
 pageNumber: 5
 version: main
 notes:

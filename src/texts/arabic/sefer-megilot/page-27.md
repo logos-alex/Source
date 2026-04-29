@@ -3,7 +3,7 @@ layout: text-page
 title: פרק כז (עמוד כז)
 book: kitab-al-majall
 source: arabic
-figure: talmidei-yeshua
+figure: mekorot-yeshmaelim
 pageNumber: 27
 version: main
 ---

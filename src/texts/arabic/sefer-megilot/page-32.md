@@ -3,7 +3,7 @@ layout: text-page
 title: פרק לב (עמוד לב)
 book: kitab-al-majall
 source: arabic
-figure: talmidei-yeshua
+figure: mekorot-yeshmaelim
 pageNumber: 32
 version: main
 ---

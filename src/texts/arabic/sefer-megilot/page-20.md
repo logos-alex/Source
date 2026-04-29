@@ -3,7 +3,7 @@ layout: text-page
 title: פרק כ (עמוד כ)
 book: kitab-al-majall
 source: arabic
-figure: talmidei-yeshua
+figure: mekorot-yeshmaelim
 pageNumber: 20
 version: main
 ---

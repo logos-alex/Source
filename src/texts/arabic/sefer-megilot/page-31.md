@@ -3,7 +3,7 @@ layout: text-page
 title: פרק לא (עמוד לא)
 book: kitab-al-majall
 source: arabic
-figure: talmidei-yeshua
+figure: mekorot-yeshmaelim
 pageNumber: 31
 version: main
 ---

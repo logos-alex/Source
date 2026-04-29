@@ -4,7 +4,7 @@ title: "מבוא לכּיתאב אל־מג׳אל (Kitāb al-Mağāll)"
 
 book: kitab-al-majall
 source: arabic
-figure: talmidei-yeshua
+figure: mekorot-yeshmaelim
 draft: false
 tags:
   - texts

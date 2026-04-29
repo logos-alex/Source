@@ -3,7 +3,7 @@ layout: text-page
 title: פרק ג (עמוד ג)
 book: kitab-al-majall
 source: arabic
-figure: talmidei-yeshua
+figure: mekorot-yeshmaelim
 pageNumber: 3
 version: main
 notes:

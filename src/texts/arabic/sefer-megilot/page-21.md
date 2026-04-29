@@ -3,7 +3,7 @@ layout: text-page
 title: פרק כא (עמוד כא)
 book: kitab-al-majall
 source: arabic
-figure: talmidei-yeshua
+figure: mekorot-yeshmaelim
 pageNumber: 21
 version: main
 ---

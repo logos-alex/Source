@@ -3,7 +3,7 @@ layout: text-page
 title: פרק ל (עמוד ל)
 book: kitab-al-majall
 source: arabic
-figure: talmidei-yeshua
+figure: mekorot-yeshmaelim
 pageNumber: 30
 version: main
 ---

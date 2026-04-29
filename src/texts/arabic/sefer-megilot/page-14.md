@@ -3,7 +3,7 @@ layout: text-page
 title: פרק יד (עמוד יד)
 book: kitab-al-majall
 source: arabic
-figure: talmidei-yeshua
+figure: mekorot-yeshmaelim
 pageNumber: 14
 version: main
 ---

@@ -8,6 +8,16 @@ const FIGURES = JSON.parse(readFileSync('src/_data/figures.json', 'utf8'));
 const FIGURE_CATALOG_KEYS = JSON.parse(readFileSync('src/_data/figureCatalogKeys.json', 'utf8'));
 
 const KNOWN_BOOK_IDS = new Set(CATALOG.map((entry) => entry.id));
+const VERSIONED_BOOK_IDS = new Map();
+for (const entry of CATALOG) {
+  const versions = entry?.versions ?? {};
+  for (const versionKey of Object.keys(versions)) {
+    VERSIONED_BOOK_IDS.set(`${entry.id}-${versionKey}`, {
+      baseId: entry.id,
+      versionKey
+    });
+  }
+}
 const ACTIVE_FIGURE_KEYS = new Set(FIGURE_CATALOG_KEYS);
 const usedFigures = new Map();
 const errors = [];
@@ -44,12 +54,22 @@ function check(file) {
   if (!fm) return;
 
   const book = readKey(fm, 'book');
+  const version = readKey(fm, 'version');
   const figure = readKey(fm, 'figure');
 
   noteUsedFigure(figure, file);
 
-  if (book && !KNOWN_BOOK_IDS.has(book)) {
+  if (book && !KNOWN_BOOK_IDS.has(book) && !VERSIONED_BOOK_IDS.has(book)) {
     errors.push(`${file}: unknown book '${book}' (not found in sources-catalog.json)`);
+  }
+
+  if (book && VERSIONED_BOOK_IDS.has(book)) {
+    const { versionKey } = VERSIONED_BOOK_IDS.get(book);
+    if (version && version !== versionKey) {
+      errors.push(
+        `${file}: book '${book}' implies version '${versionKey}', but frontmatter has version '${version}'`
+      );
+    }
   }
 }
 
