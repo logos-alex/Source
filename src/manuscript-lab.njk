@@ -1,0 +1,142 @@
+---
+layout: base.njk
+title: סביבת תעתוק כתבי יד
+description: סביבת עבודה ניסיונית לתכנון תעתוק כתבי יד עתיקים בשילוב Transkribus, שכבת סוכנים וביקורת אנושית.
+permalink: /manuscript-lab/
+bodyClass: manuscript-lab-page
+---
+
+<div class="text-main manuscript-lab" data-manuscript-lab>
+  <section class="lab-hero c-card c-card--accent" aria-labelledby="lab-title">
+    <p class="lab-kicker">MVP ניסיוני · Transkribus + סוכנים</p>
+    <h1 id="lab-title">סביבת תעתוק כתבי יד</h1>
+    <p class="lab-lead">עמוד עבודה ראשוני שמתרגם את הרעיון למערכת מעשית: מעלים PDF או תמונות, מגדירים שפה וכתב, מריצים תעתוק ב־Transkribus, ואז נותנים לשכבת סוכנים לסמן אי־ודאות, להכין תיקונים ולייצא תוצר נקי.</p>
+    <div class="lab-actions c-action-group">
+      <a href="#lab-workbench" class="lab-button lab-button--primary">פתח שולחן עבודה</a>
+      <a href="#lab-architecture" class="lab-button">ראה ארכיטקטורה</a>
+    </div>
+  </section>
+
+  <section class="lab-status-grid" aria-label="תמונת מצב של המערכת">
+    <article class="lab-status-card">
+      <strong>1</strong>
+      <span>HTR ראשוני</span>
+      <p>Transkribus הוא מנוע הזיהוי הראשון, כדי לקבל תוצאות מהר וללא אימון מקומי כבד.</p>
+    </article>
+    <article class="lab-status-card">
+      <strong>3</strong>
+      <span>סביבת סוכנים</span>
+      <p>סוכנים מנהלים קדם־עיבוד, בחירת מודלים, בקרת איכות, הצעות תיקון וייצוא.</p>
+    </article>
+    <article class="lab-status-card">
+      <strong>∞</strong>
+      <span>למידה מתיקונים</span>
+      <p>כל תיקון ידני נשמר כ־Ground Truth עתידי לאימון מודל מותאם לכתב היד.</p>
+    </article>
+  </section>
+
+  <section id="lab-workbench" class="lab-workbench c-card" aria-labelledby="workbench-title">
+    <div class="lab-section-heading">
+      <p class="lab-kicker">Workbench</p>
+      <h2 id="workbench-title">שולחן עבודה לתעתוק</h2>
+      <p>ה־MVP כאן הוא דמו סטטי מכוון־מוצר: הוא אינו שולח קבצים ל־Transkribus עדיין, אבל הוא מדגים את זרימת העבודה, אוסף מפרט ריצה, מסמן סיכוני תעתוק ומייצא טקסט או JSON.</p>
+    </div>
+
+    <div class="lab-form-grid">
+      <div class="lab-panel lab-panel--upload">
+        <h3>א. מקור כתב היד</h3>
+        <label class="lab-dropzone" for="manuscriptFiles">
+          <span aria-hidden="true">📄</span>
+          <strong>בחר PDF או תמונות עמודים</strong>
+          <small>PDF, PNG, JPG או TIFF. בשלב הבא נחבר את זה ל־API/שרת עיבוד.</small>
+        </label>
+        <input id="manuscriptFiles" class="lab-file-input" type="file" accept="application/pdf,image/*,.tif,.tiff" multiple>
+        <div id="fileSummary" class="lab-file-summary c-muted">טרם נבחרו קבצים.</div>
+      </div>
+
+      <div class="lab-panel">
+        <h3>ב. פרופיל זיהוי</h3>
+        <label for="scriptProfile">שפה / כתב</label>
+        <select id="scriptProfile">
+          <option value="hebrew-rtl">עברית / ארמית בכתב עברי</option>
+          <option value="arabic-rtl">ערבית</option>
+          <option value="syriac-rtl">סורית</option>
+          <option value="garshuni-rtl">גרשוני — ערבית באותיות סוריות</option>
+          <option value="latin-ltr">לטינית</option>
+          <option value="greek-ltr">יוונית</option>
+          <option value="mixed">מעורב / לא ידוע</option>
+        </select>
+
+        <label for="transcriptionMode">סוג תעתיק מבוקש</label>
+        <select id="transcriptionMode">
+          <option value="diplomatic">דיפלומטי — נאמן למה שרואים</option>
+          <option value="normalized">מנורמל — הצעות כתיב ופתיחת קיצורים</option>
+          <option value="both">שתי גרסאות במקביל</option>
+        </select>
+
+        <label for="engineProfile">מנוע תעתוק ראשוני</label>
+        <select id="engineProfile">
+          <option value="transkribus">Transkribus API</option>
+          <option value="transkribus-kraken">Transkribus עכשיו, Kraken/eScriptorium בעתיד</option>
+          <option value="manual">הזנת תעתיק ידנית לבדיקה בלבד</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="lab-panel lab-panel--wide">
+      <h3>ג. תעתיק ראשוני / פלט Transkribus</h3>
+      <p class="c-muted">בגרסה מחוברת, השדה הזה יתמלא אוטומטית מפלט HTR. כרגע אפשר להדביק פלט ניסיוני כדי לראות את שכבת הביקורת.</p>
+      <textarea id="draftTranscript" rows="9" aria-label="תעתיק ראשוני לבדיקה"></textarea>
+      <div class="lab-actions c-action-group">
+        <button id="analyzeTranscript" class="lab-button lab-button--primary" type="button">נתח וסמן אי־ודאות</button>
+        <button id="exportTxt" class="lab-button" type="button">ייצא TXT</button>
+        <button id="exportJson" class="lab-button" type="button">ייצא JSON</button>
+      </div>
+    </div>
+
+    <div class="lab-results" aria-live="polite">
+      <section class="lab-panel lab-panel--report">
+        <h3>דוח סוכן ביקורת</h3>
+        <div id="agentReport" class="lab-report-empty">הדוח יופיע אחרי ניתוח התעתיק.</div>
+      </section>
+
+      <section class="lab-panel lab-panel--report">
+        <h3>תוכנית ריצה מוצעת</h3>
+        <ol id="runPlan" class="lab-run-plan">
+          <li>בחר קובץ ופרופיל שפה.</li>
+          <li>הרץ HTR ראשוני ב־Transkribus.</li>
+          <li>בדוק שורות בסיכון גבוה.</li>
+          <li>שמור תיקונים כ־Ground Truth.</li>
+        </ol>
+      </section>
+    </div>
+  </section>
+
+  <section id="lab-architecture" class="lab-architecture c-section-divider" aria-labelledby="architecture-title">
+    <div class="lab-section-heading">
+      <p class="lab-kicker">Architecture</p>
+      <h2 id="architecture-title">איך מחברים בין Transkribus לסביבה סוכנית</h2>
+    </div>
+    <div class="lab-flow" role="list">
+      <div role="listitem"><strong>Ingestion</strong><span>PDF / IIIF / תמונות</span></div>
+      <div role="listitem"><strong>Image Agent</strong><span>חיתוך, יישור, ניקוי</span></div>
+      <div role="listitem"><strong>Transkribus</strong><span>HTR וסגמנטציה ראשונית</span></div>
+      <div role="listitem"><strong>Review Agent</strong><span>Confidence, חריגות, שורות קשות</span></div>
+      <div role="listitem"><strong>Language Agent</strong><span>עברית, ערבית, סורית, גרשוני, לטינית, יוונית</span></div>
+      <div role="listitem"><strong>Export</strong><span>TXT / JSON / TEI בסיסי</span></div>
+    </div>
+  </section>
+
+  <section class="lab-roadmap c-card c-card--soft" aria-labelledby="roadmap-title">
+    <h2 id="roadmap-title">מפת דרכים לגרסה אמיתית</h2>
+    <ul class="lab-checklist">
+      <li><strong>MVP:</strong> העלאת PDF, שמירת פרופיל, תעתיק ראשוני, עריכה וייצוא TXT.</li>
+      <li><strong>חיבור API:</strong> שליחת מסמכים ל־Transkribus, polling לתוצאות ושמירת metadata.</li>
+      <li><strong>ביקורת סוכנית:</strong> סימון שורות חלשות, זיהוי כתב/שפה והצעות תיקון עם אי־ודאות.</li>
+      <li><strong>Ground Truth:</strong> שמירת תיקונים לפי שורה והכנת דאטה לאימון מודל מותאם.</li>
+      <li><strong>מחקר מתקדם:</strong> תמיכה ב־IIIF, TEI-XML, קיצורים, RTL מורכב וגרשוני.</li>
+    </ul>
+  </section>
+</div>
+
+<script src="{{ '/assets/js/manuscript-lab.js' | url }}" defer></script>
