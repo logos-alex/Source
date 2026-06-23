@@ -1,20 +1,38 @@
 {% extends "base.njk" %}
 
 {% block content %}
-  <div class="text-main">
-    <h1>{{ title }}</h1>
+  <article class="text-main">
+    <header class="text-header">
+      <h1>{{ title }}</h1>
+      {% if source or figure %}
+        {% set sourceHebrew = languages[source] or source %}
+        {% set figureHebrew = figures[figure] or figure %}
+        <p class="text-meta">
+          {% if sourceHebrew %}<span class="text-meta__item"><span class="text-meta__label">מקור:</span> {{ sourceHebrew }}</span>{% endif %}
+          {% if sourceHebrew and figureHebrew %}<span class="text-meta__sep" aria-hidden="true">·</span>{% endif %}
+          {% if figureHebrew %}<span class="text-meta__item"><span class="text-meta__label">ייחוס:</span> {{ figureHebrew }}</span>{% endif %}
+        </p>
+      {% endif %}
+    </header>
 
-    {% if source or figure %}
-      {% set sourceHebrew = languages[source] or source %}
-      {% set figureHebrew = figures[figure] or figure %}
-      <p><em>מקור: {{ sourceHebrew or 'לא מצוין' }} | ייחוס: {{ figureHebrew or 'לא מצוין' }}</em></p>
-    {% endif %}
+    <div class="text-content">
+      {{ content | renderNoteRefs | safe }}
+    </div>
+  </article>
 
-    {{ content | safe }}
-  </div>
+  {% if pageNumber != 0 and notes %}
+    <div class="footnotes">
+      <h3>הערות וביאורים</h3>
+      <ul>
+        {% for note in notes %}
+          <li id="note-{{ loop.index }}">{{ note | safe }} <a href="#ref-{{ loop.index }}" class="note-backlink" aria-label="חזרה למיקום ההפניה בגוף הטקסט">↩</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
 
   <div class="table-of-contents c-section-divider">
-    <h3>תוכן העניינים:</h3>
+    <h3>תוכן העניינים</h3>
     {% set pagesInBook = collections.all | bookPages(page.url, book) %}
     {% set chapterPages = collections.all | bookPages(page.url, book, false) %}
     <ul>
@@ -31,9 +49,10 @@
   </div>
 
   {% if chapterPages.length > 0 %}
-    <nav class="pagination">
+    <nav class="pagination" aria-label="ניווט">
+      <span></span>
       <div class="toc-dropdown">
-        <a href="{{ page.url | url }}" class="home-link"><span aria-hidden="true">📖</span> תוכן העניינים</a>
+        <a href="{{ page.url | url }}" class="home-link">תוכן העניינים</a>
         <div class="toc-dropdown-content">
           <div class="toc-dropdown-header">פרקים בטקסט</div>
           <ul>
@@ -43,13 +62,11 @@
           </ul>
         </div>
       </div>
-
       <a href="{{ chapterPages[0].url | url }}" class="next">התחל קריאה ←</a>
     </nav>
   {% endif %}
 
-
-  {# --- אזור התגובות של Disqus --- #}
+  {# --- אזור התגובות --- #}
   <div id="comments-section" class="c-section-divider">
     <h3>תגובות</h3>
     {% if site.disqusShortname %}

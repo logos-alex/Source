@@ -11,14 +11,19 @@
       "summary": "החיבור הוחלף לנוסח העדכני המלא, והמבנה אורגן לפרקי קריאה מסודרים של שני סימנים בכל עמוד.",
       "dateLabel": "אפריל 2026",
       "category": "תוכן ועדכוני נוסח",
-      "flags": ["content", "armenian", "daniel"],
+      "flags": [
+        "content",
+        "armenian",
+        "daniel"
+      ],
       "links": [
         {
           "id": "vision-daniel-armenian-index",
           "href": "/texts/armenian/vision-daniel-armenian/",
           "label": "לעמוד המבוא והנוסח"
         }
-      ]
+      ],
+      "pubDateRFC822": "Tue, 01 Apr 2026 00:00:00 GMT"
     },
     {
       "id": "new-figure-category-yeshmaelim",
@@ -26,14 +31,20 @@
       "summary": "נוספה קטגוריה חדשה בעמוד 'לפי ייחוס' עבור מסורות חוץ־תנ\"כיות בספרות חכמי האסלאם.",
       "dateLabel": "אפריל 2026",
       "category": "ניווט ותוכן",
-      "flags": ["by-figure", "taxonomy", "arabic", "geez"],
+      "flags": [
+        "by-figure",
+        "taxonomy",
+        "arabic",
+        "geez"
+      ],
       "links": [
         {
           "id": "figure-mekorot-yeshmaelim",
           "href": "/by-figure/mekorot-yeshmaelim/",
           "label": "לעמוד הייחוס החדש"
         }
-      ]
+      ],
+      "pubDateRFC822": "Tue, 01 Apr 2026 00:00:00 GMT"
     },
     {
       "id": "armenian-daniel-added",
@@ -41,14 +52,19 @@
       "summary": "נפתח חיבור חדש במדור הארמני עם מבוא ייעודי ועמוד טקסט ראשי, בשיוך לדמות דניאל.",
       "dateLabel": "אפריל 2026",
       "category": "תוכן חדש",
-      "flags": ["content", "armenian", "daniel"],
+      "flags": [
+        "content",
+        "armenian",
+        "daniel"
+      ],
       "links": [
         {
           "id": "vision-daniel-armenian-index",
           "href": "/texts/armenian/vision-daniel-armenian/",
           "label": "לעמוד המבוא"
         }
-      ]
+      ],
+      "pubDateRFC822": "Tue, 01 Apr 2026 00:00:00 GMT"
     },
     {
       "id": "navigation-armenian-enoch-fix",
@@ -56,7 +72,12 @@
       "summary": "תוקן הניווט העליון: ארמנית נוספה תחת \"לפי מקור\" וחנוך נוסף תחת \"לפי ייחוס\".",
       "dateLabel": "אפריל 2026",
       "category": "ניווט",
-      "flags": ["navigation", "header", "taxonomy"]
+      "flags": [
+        "navigation",
+        "header",
+        "taxonomy"
+      ],
+      "pubDateRFC822": "Tue, 01 Apr 2026 00:00:00 GMT"
     },
     {
       "id": "ci-third-party-hardening",
@@ -64,7 +85,12 @@
       "summary": "נוספה בדיקת בקרת צד ג' ל־CI, כולל ניקוי build לפני כל תרחיש כדי למנוע כשלים כתוצאה משאריות פלט ישן.",
       "dateLabel": "אפריל 2026",
       "category": "תשתית ואיכות",
-      "flags": ["ci", "qa", "third-party"]
+      "flags": [
+        "ci",
+        "qa",
+        "third-party"
+      ],
+      "pubDateRFC822": "Tue, 01 Apr 2026 00:00:00 GMT"
     },
     {
       "id": "clement-attribution-unified",
@@ -72,14 +98,18 @@
       "summary": "ברשימת \"לפי ייחוס\" בוצע איחוד: חיבורי קלמנס מוצגים תחת הקטגוריה \"מתלמידי ישוע הנוצרי\" במקום קטגוריה נפרדת.",
       "dateLabel": "מרץ 2026",
       "category": "ניווט ותוכן",
-      "flags": ["by-figure", "taxonomy"],
+      "flags": [
+        "by-figure",
+        "taxonomy"
+      ],
       "links": [
         {
           "id": "figure-talmidei-yeshua",
           "href": "/by-figure/talmidei-yeshua/",
           "label": "לעמוד הייחוס המעודכן"
         }
-      ]
+      ],
+      "pubDateRFC822": "Tue, 01 Mar 2026 00:00:00 GMT"
     },
     {
       "id": "comments-enabled",
@@ -87,7 +117,10 @@
       "summary": "ניתן להגיב כעת בעמודי מבוא ובפרקי טקסט, כדי לאפשר הערות, תיקונים ודיון סביב התכנים עצמם.",
       "dateLabel": "מרץ 2026",
       "category": "קהילה ושיח",
-      "flags": ["disqus", "discussion"],
+      "flags": [
+        "disqus",
+        "discussion"
+      ],
       "links": [
         {
           "id": "comments-book-index",
@@ -99,7 +132,8 @@
           "href": "/texts/aramaic/apoc-daniel-syriac/page-1/",
           "label": "לדוגמה: פרק עם תגובות"
         }
-      ]
+      ],
+      "pubDateRFC822": "Tue, 01 Mar 2026 00:00:00 GMT"
     },
     {
       "id": "text-presentation-stabilized",
@@ -107,7 +141,11 @@
       "summary": "בוצעו התאמות שמייצבות את סדר הפרקים, התצוגה באוספים וקישורי המעבר בין עמודים — לשימוש קריא ואחיד יותר.",
       "dateLabel": "מרץ 2026",
       "category": "קריאות ושימושיות",
-      "flags": ["presentation", "collections"]
+      "flags": [
+        "presentation",
+        "collections"
+      ],
+      "pubDateRFC822": "Tue, 01 Mar 2026 00:00:00 GMT"
     },
     {
       "id": "reading-experience-tuned",
@@ -115,7 +153,11 @@
       "summary": "בוצעו מספר התאמות קטנות במבנה התוכן ובסגנון התצוגה כדי לשפר את נוחות הקריאה, במיוחד במכשירים ניידים ובמצבי קריאה שונים.",
       "dateLabel": "מרץ 2026",
       "category": "חווית משתמש",
-      "flags": ["ux", "reading"]
+      "flags": [
+        "ux",
+        "reading"
+      ],
+      "pubDateRFC822": "Tue, 01 Mar 2026 00:00:00 GMT"
     }
   ]
 }

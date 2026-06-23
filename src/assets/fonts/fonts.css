@@ -1,8 +1,6 @@
-/* Self-hosted Hebrew fonts for אוצר הכתבים הגנוזים */
-/* Frank Ruhl Libre — primary Hebrew serif */
-/* Noto Serif Hebrew — fallback Hebrew serif */
+/* LOGIA — אוצר הכתבים הגנוזים — Self-hosted fonts */
 
-/* Frank Ruhl Libre 300 (Light) */
+/* Frank Ruhl Libre — primary Hebrew serif (body & headings) */
 @font-face {
   font-family: 'Frank Ruhl Libre';
   font-style: normal;
@@ -10,8 +8,6 @@
   font-display: swap;
   src: url('frank-ruhl-libre-300.ttf') format('truetype');
 }
-
-/* Frank Ruhl Libre 400 (Regular) */
 @font-face {
   font-family: 'Frank Ruhl Libre';
   font-style: normal;
@@ -19,8 +15,6 @@
   font-display: swap;
   src: url('frank-ruhl-libre-400.ttf') format('truetype');
 }
-
-/* Frank Ruhl Libre 700 (Bold) */
 @font-face {
   font-family: 'Frank Ruhl Libre';
   font-style: normal;
@@ -29,7 +23,7 @@
   src: url('frank-ruhl-libre-700.ttf') format('truetype');
 }
 
-/* Noto Serif Hebrew 300 (Light) */
+/* Noto Serif Hebrew — fallback Hebrew serif */
 @font-face {
   font-family: 'Noto Serif Hebrew';
   font-style: normal;
@@ -38,8 +32,6 @@
   font-display: swap;
   src: url('noto-serif-hebrew-300.ttf') format('truetype');
 }
-
-/* Noto Serif Hebrew 400 (Regular) */
 @font-face {
   font-family: 'Noto Serif Hebrew';
   font-style: normal;
@@ -48,8 +40,6 @@
   font-display: swap;
   src: url('noto-serif-hebrew-400.ttf') format('truetype');
 }
-
-/* Noto Serif Hebrew 700 (Bold) */
 @font-face {
   font-family: 'Noto Serif Hebrew';
   font-style: normal;
@@ -57,4 +47,20 @@
   font-stretch: normal;
   font-display: swap;
   src: url('noto-serif-hebrew-700.ttf') format('truetype');
+}
+
+/* EB Garamond — Latin display serif (wordmark, headings in Latin script) */
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url('EB-Garamond-Variable.ttf') format('truetype') tech('variations');
+}
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url('EB-Garamond-Variable.ttf') format('truetype');
 }

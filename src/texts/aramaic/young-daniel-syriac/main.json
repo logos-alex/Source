@@ -1,3 +1,9 @@
 {
-  "version": "main"
+  "book": "young-daniel-syriac",
+  "source": "aramaic",
+  "version": "main",
+  "versionLabel": "נוסח עברי מתוקן, מלא ומנוקד",
+  "language": "aramaic",
+  "totalPages": 7,
+  "editionDate": "יוני 2026"
 }

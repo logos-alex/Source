@@ -8,64 +8,94 @@ eleventyExcludeFromCollections: true
   {# Homepage #}
   <url>
     <loc>{{ site.origin }}{{ '/' | url }}</loc>
-    <lastmod>2025-11-21</lastmod>
+    <lastmod>{{ buildInfo.builtAtUTC }}</lastmod>
     <priority>1.0</priority>
     <changefreq>monthly</changefreq>
   </url>
-  
+
   {# Main navigation pages #}
   <url>
     <loc>{{ site.origin }}{{ '/texts/' | url }}</loc>
-    <lastmod>2025-11-21</lastmod>
+    <lastmod>{{ buildInfo.builtAtUTC }}</lastmod>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>{{ site.origin }}{{ '/by-figure/' | url }}</loc>
-    <lastmod>2025-11-21</lastmod>
+    <lastmod>{{ buildInfo.builtAtUTC }}</lastmod>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>{{ site.origin }}{{ '/search/' | url }}</loc>
-    <lastmod>2025-11-21</lastmod>
+    <lastmod>{{ buildInfo.builtAtUTC }}</lastmod>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>{{ site.origin }}{{ '/updates/' | url }}</loc>
-    <lastmod>2025-11-21</lastmod>
+    <lastmod>{{ buildInfo.builtAtUTC }}</lastmod>
     <priority>0.7</priority>
     <changefreq>weekly</changefreq>
   </url>
+  <url>
+    <loc>{{ site.origin }}{{ '/about/' | url }}</loc>
+    <lastmod>{{ buildInfo.builtAtUTC }}</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>{{ site.origin }}{{ '/methodology/' | url }}</loc>
+    <lastmod>{{ buildInfo.builtAtUTC }}</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>{{ site.origin }}{{ '/license/' | url }}</loc>
+    <lastmod>{{ buildInfo.builtAtUTC }}</lastmod>
+    <priority>0.4</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>{{ site.origin }}{{ '/privacy/' | url }}</loc>
+    <lastmod>{{ buildInfo.builtAtUTC }}</lastmod>
+    <priority>0.4</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>{{ site.origin }}{{ '/contact/' | url }}</loc>
+    <lastmod>{{ buildInfo.builtAtUTC }}</lastmod>
+    <priority>0.5</priority>
+    <changefreq>yearly</changefreq>
+  </url>
 
-  {# Language category pages #}
-  {% for langSlug in ["hebrew", "slavic", "aramaic", "arabic", "geez", "armenian", "latin"] %}
+  {# Language category pages — dynamically from languages.json #}
+  {% for langSlug, langName in languages %}
   <url>
     <loc>{{ site.origin }}{{ ('/texts/' + langSlug + '/') | url }}</loc>
-    <lastmod>2025-11-21</lastmod>
+    <lastmod>{{ buildInfo.builtAtUTC }}</lastmod>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
   </url>
   {% endfor %}
 
-  {# By-figure pages #}
-  {% for figSlug in ["abraham", "daniel", "enoch", "zerubbabel", "talmidei-yeshua"] %}
+  {# By-figure pages — dynamically from figureCatalogKeys.json #}
+  {% for figSlug in figureCatalogKeys %}
   <url>
     <loc>{{ site.origin }}{{ ('/by-figure/' + figSlug + '/') | url }}</loc>
-    <lastmod>2025-11-21</lastmod>
+    <lastmod>{{ buildInfo.builtAtUTC }}</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   {% endfor %}
-  
-  {# All text pages #}
+
+  {# All text pages (book indexes + chapter pages) #}
   {% for item in collections.all %}
-    {% if item.data.tags and item.data.tags.includes("texts") %}
+    {% if item.data.tags and item.data.tags.includes("texts") and not item.data.draft %}
     <url>
       <loc>{{ site.origin }}{{ item.url | url }}</loc>
-      <lastmod>2025-11-21</lastmod>
-      <priority>{% if item.data.pageNumber == 0 %}0.8{% else %}0.7{% endif %}</priority>
+      <lastmod>{{ buildInfo.builtAtUTC }}</lastmod>
+      <priority>{% if item.data.pageNumber == 0 or not item.data.pageNumber %}0.8{% else %}0.7{% endif %}</priority>
       <changefreq>monthly</changefreq>
     </url>
     {% endif %}

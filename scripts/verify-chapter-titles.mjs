@@ -3,10 +3,36 @@ import { join } from "node:path";
 
 const ROOT = "src/texts";
 const errors = [];
+// Books that use strict "פרק N" chapter titles (normalized by chapterDisplayTitle filter).
+// Note: sichat-moshe uses "חטיבה"/"נספח" patterns and is excluded from strict validation.
 const booksWithHebrewChapterTitles = new Set([
   "apoc-daniel-syriac",
   "young-daniel-syriac",
+  "clementine-r1",
+  "clementine-r2",
+  "clementine-r3",
+  "clementine-r4",
+  "clementine-homilies",
 ]);
+
+// Pages whose titles legitimately don't start with "פרק" even in books that normally use it
+// (e.g. appendices, page references in second half of a book).
+const TITLE_EXCEPTIONS = new Set([
+  "src/texts/aramaic/clementine-homilies/page-23.md", // נספח פילולוגי
+  "src/texts/aramaic/clementine-r1/page-61.md",
+  "src/texts/aramaic/clementine-r2/page-76.md",
+  "src/texts/aramaic/clementine-r3/page-55.md",
+  "src/texts/aramaic/clementine-r4/page-3.md",
+]);
+
+// Title patterns that are legitimate alternatives to "פרק N" in Hebrew-chapter-title books.
+const LEGITIMATE_TITLE_PATTERNS = [
+  /^\[עמוד/,        // [עמוד 48] — part II page references in apoc-daniel-syriac
+  /^נספח/,          // נספח פילולוגי
+  /^פתיחה/,         // פתיחה
+  /^חטיבה/,         // חטיבה א
+  /^חתימה/,         // חתימה
+];
 
 function toHebrewNumeral(num) {
   const n = Number(num);
@@ -31,7 +57,9 @@ function usesHebrewChapterTitles(book) {
 function normalizedChapterDisplayTitle({ title, pageNumber, book }) {
   const rawTitle = title || "";
   if (!usesHebrewChapterTitles(book)) return rawTitle;
-  if (!rawTitle.includes("פרק")) return rawTitle;
+  // Match "פרק" with or without niqqud
+  const stripped = rawTitle.replace(/[\u0591-\u05BD\u05BF\u05C1-\u05C2\u05C4-\u05C5\u05C7]/g, "");
+  if (!stripped.includes("פרק")) return rawTitle;
   const page = Number(pageNumber || 0);
   if (page > 0) return `פרק ${toHebrewNumeral(page)}`;
   return rawTitle;
@@ -64,12 +92,25 @@ function check(file) {
   const book = readKey(fm, "book");
   const pageNumber = readKey(fm, "pageNumber");
 
-  if (!title.includes("פרק")) {
-    errors.push(`${file}: chapter title should include 'פרק' (got '${title}')`);
+  // Only enforce strict "פרק N" format for books that use Hebrew chapter titles.
+  // Other books may use varied title patterns: "חזיון א", "פתיחה", "נספח א",
+  // "4Q201 · 4QEnʾa", "פסוקים 1–15", "פֶּרֶק ח" (with niqqud), etc.
+  if (!usesHebrewChapterTitles(book)) return;
+
+  // Skip pages with legitimate non-"פרק" titles (appendices, part II page refs, etc.)
+  const relPath = file.replace(/\\/g, "/");
+  if (TITLE_EXCEPTIONS.has(relPath)) return;
+
+  // Also skip pages whose titles match a known legitimate pattern
+  if (LEGITIMATE_TITLE_PATTERNS.some(re => re.test(title))) return;
+
+  // For Hebrew-chapter-title books, validate the title contains "פרק" and
+  // that the chapterDisplayTitle filter would normalize it correctly.
+  const stripped = (title || "").replace(/[\u0591-\u05BD\u05BF\u05C1-\u05C2\u05C4-\u05C5\u05C7]/g, "");
+  if (!stripped.includes("פרק")) {
+    errors.push(`${file}: chapter title should include 'פרק' for book '${book}' (got '${title}')`);
     return;
   }
-
-  if (!usesHebrewChapterTitles(book)) return;
 
   const normalizedTitle = normalizedChapterDisplayTitle({ title, pageNumber, book });
   const expectedTitle = `פרק ${toHebrewNumeral(pageNumber)}`;

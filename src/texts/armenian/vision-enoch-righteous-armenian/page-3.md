@@ -5,6 +5,7 @@ book: vision-enoch-righteous-armenian
 source: armenian
 figure: enoch
 pageNumber: 3
+permalink: /texts/armenian/vision-enoch-righteous-armenian/page-3/
 version: main
 notes:
   - >

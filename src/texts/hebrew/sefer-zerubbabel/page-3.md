@@ -5,6 +5,7 @@ book: sefer-zerubbabel
 source: hebrew
 figure: zerubbabel
 pageNumber: 3
+permalink: /texts/hebrew/sefer-zerubbabel/page-3/
 version: main
 ---
 

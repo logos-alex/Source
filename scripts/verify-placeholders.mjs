@@ -3,8 +3,16 @@ import { join } from 'node:path';
 
 const ROOT = 'src';
 const ALLOWED_PATTERNS = [
-  /placeholder:\s*"חפש בכתבים\.\.\."/i, // pagefind translation key in search UI
-  /⚠️\s*תרגום עברי לעמוד זה יתווסף לאחר אימות הנוסח\./ // explicit editorial marker
+  // pagefind search input placeholder (Hebrew) — accepts both "חפש" and "חיפוש" forms
+  /placeholder=["']חיפוש?\s+בכתבים/i,
+  // pagefind translation key in search UI
+  /placeholder:\s*"חפש בכתבים\.\.\."/i,
+  // CSS ::placeholder selector and its style rules
+  /::placeholder\s*\{/,
+  /\.header-search__input::placeholder/,
+  /placeholder\s*:/i, // CSS property declarations (e.g. placeholder color)
+  // explicit editorial marker
+  /⚠️\s*תרגום עברי לעמוד זה יתווסף לאחר אימות הנוסח\./
 ];
 
 const NEEDLES = ['TODO', 'FIXME', 'TBD', 'XXX', 'placeholder'];

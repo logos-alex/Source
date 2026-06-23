@@ -86,12 +86,38 @@ module.exports = function(eleventyConfig) {
     return String(n);
   };
 
-  const booksWithHebrewChapterTitles = new Set([
+  // Books marked with `parallelLayout: true` in sources-catalog.json use
+  // Hebrew chapter titles (e.g. "פרק א", "פרק ב") and parallel source/translation layout.
+  // Falls back to a hardcoded set for books not yet in the catalog.
+  const FALLBACK_PARALLEL_BOOKS = new Set([
     "apoc-daniel-syriac",
     "young-daniel-syriac",
+    "clementine-r1",
+    "clementine-r2",
+    "clementine-r3",
+    "clementine-r4",
+    "clementine-homilies",
+    "sichat-moshe",
   ]);
 
-  const usesHebrewChapterTitles = (book) => booksWithHebrewChapterTitles.has(book);
+  let _parallelBooksCache = null;
+  function getParallelBooks() {
+    if (_parallelBooksCache) return _parallelBooksCache;
+    _parallelBooksCache = new Set(FALLBACK_PARALLEL_BOOKS);
+    try {
+      const catalog = require("./src/_data/sources-catalog.json");
+      for (const book of catalog) {
+        if (book && book.parallelLayout === true) {
+          _parallelBooksCache.add(book.id);
+        }
+      }
+    } catch (_e) {
+      // catalog not available — fallback set is used
+    }
+    return _parallelBooksCache;
+  }
+
+  const usesHebrewChapterTitles = (book) => getParallelBooks().has(book);
 
   eleventyConfig.addFilter("toHebrewNumeral", toHebrewNumeral);
   eleventyConfig.addFilter("usesHebrewChapterTitles", usesHebrewChapterTitles);
@@ -126,6 +152,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/robots.txt");
   eleventyConfig.addPassthroughCopy("src/_redirects");
+  eleventyConfig.addPassthroughCopy("src/manifest.json");
 
   return {
     pathPrefix: site.pathPrefix,

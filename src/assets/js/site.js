@@ -24,13 +24,17 @@
     const isDark = theme === 'dark';
     if (isDark) {
       htmlRoot.setAttribute('data-theme', 'dark');
-      if (themeToggle) themeToggle.textContent = '☀️';
     } else {
       htmlRoot.removeAttribute('data-theme');
-      if (themeToggle) themeToggle.textContent = '🌙';
     }
     if (themeToggle) {
       themeToggle.setAttribute('aria-pressed', String(isDark));
+      const moonIcon = themeToggle.querySelector('.icon-moon');
+      const sunIcon = themeToggle.querySelector('.icon-sun');
+      if (moonIcon && sunIcon) {
+        moonIcon.style.display = isDark ? 'none' : '';
+        sunIcon.style.display = isDark ? '' : 'none';
+      }
     }
     localStorage.setItem('theme', theme);
   }
@@ -50,7 +54,10 @@
     navToggle.addEventListener('click', () => {
       const isOpen = nav.classList.toggle('mobile-open');
       navToggle.setAttribute('aria-expanded', String(isOpen));
-      navToggle.textContent = isOpen ? '✕' : '☰';
+      // Toggle icon between hamburger and close
+      navToggle.innerHTML = isOpen
+        ? '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>'
+        : '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
     });
 
     /* Desktop: toggle dropdown on click, close on outside click */
@@ -391,3 +398,73 @@ window.googleTranslateElementInit = function googleTranslateElementInit() {
 };
 
 initThirdPartyIntegrations();
+
+/* ====================================================================
+   Back-to-Top button — appears after scrolling past viewport
+   ==================================================================== */
+(function initBackToTop() {
+  const btn = document.getElementById('backToTop');
+  if (!btn) return;
+
+  const toggle = () => {
+    if (window.scrollY > window.innerHeight * 0.6) {
+      btn.classList.add('is-visible');
+    } else {
+      btn.classList.remove('is-visible');
+    }
+  };
+
+  window.addEventListener('scroll', toggle, { passive: true });
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
+  });
+  toggle();
+})();
+
+/* ====================================================================
+   Font-size controls (text pages) — A- / A+ buttons
+   Persisted in localStorage
+   ==================================================================== */
+(function initFontControls() {
+  const controls = document.querySelector('.text-controls');
+  if (!controls) return;
+
+  const buttons = controls.querySelectorAll('.text-controls__btn');
+  const stored = localStorage.getItem('fontScale') || 'md';
+  document.body.setAttribute('data-font-scale', stored);
+  buttons.forEach((b) => {
+    if (b.dataset.scale === stored) b.classList.add('is-active');
+    b.addEventListener('click', () => {
+      const scale = b.dataset.scale;
+      document.body.setAttribute('data-font-scale', scale);
+      localStorage.setItem('fontScale', scale);
+      buttons.forEach((bb) => bb.classList.remove('is-active'));
+      b.classList.add('is-active');
+    });
+  });
+})();
+
+/* ====================================================================
+   Search page — read ?q= from URL and inject into Pagefind input
+   ==================================================================== */
+(function initSearchQuery() {
+  if (!window.location.pathname.endsWith('/search/')) return;
+
+  const params = new URLSearchParams(window.location.search);
+  const q = params.get('q');
+  if (!q) return;
+
+  // Pagefind UI is initialized asynchronously; poll until ready
+  let attempts = 0;
+  const tryFill = () => {
+    attempts++;
+    const input = document.querySelector('#search .pagefind-ui__search-input');
+    if (input) {
+      input.value = q;
+      input.dispatchEvent(new Event('input', { bubbles: true }));
+      return;
+    }
+    if (attempts < 20) setTimeout(tryFill, 150);
+  };
+  setTimeout(tryFill, 300);
+})();

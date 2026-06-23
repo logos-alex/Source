@@ -1,84 +1,90 @@
 ---
 layout: base.njk
-title: חיפוש בכתבים
+title: חיפוש באוצר
 permalink: /search/
+bodyClass: search-page
 ---
 
-<div class="text-main">
+<div class="text-main" style="max-width: var(--max-w);">
+  <header class="text-header">
+    <p class="text-header__eyebrow">Search</p>
     <h1>חיפוש באוצר</h1>
-    <p>הקלד מונח חיפוש כדי לאתר טקסטים, שמות או ביטויים מתוך הכתבים והביאורים:</p>
+    <p>הקלידו מונח חיפוש כדי לאתר טקסטים, שמות או ביטויים מתוך הכתבים והביאורים.</p>
+  </header>
 
-    <link href="{{ '/pagefind/pagefind-ui.css' | url }}" rel="stylesheet">
-    <div id="search" class="search-shell"></div>
+  <link href="{{ '/pagefind/pagefind-ui.css' | url }}" rel="stylesheet">
+  <div id="search" class="search-shell"></div>
 
-    <div class="c-info-box">
-        <p class="c-info-box__title"><strong>שימו לב לגבי חיפוש בעברית:</strong> מנוע החיפוש אינו מבצע ניתוח שורשים (stemming), ולכן עדיף לחפש גם בצורות כתיב חלופיות.</p>
-        <ul>
-            <li>נסו גם יחיד/רבים וזכר/נקבה (למשל: "מלאך", "מלאכים").</li>
-            <li>נסו צורות כתיב קרובות או כתיב מלא/חסר.</li>
-            <li>אם אין תוצאות — עברו לניווט לפי מקור או לפי דמות.</li>
-        </ul>
-    </div>
-    <script>
-        window.addEventListener('DOMContentLoaded', () => {
-            const searchRoot = document.getElementById('search');
-            const candidateScriptUrls = [
-                "{{ '/pagefind/pagefind-ui.js' | url }}",
-                "/pagefind/pagefind-ui.js"
-            ];
+  <div class="c-info-box">
+    <p class="c-info-box__title">שימו לב לגבי חיפוש בעברית</p>
+    <p>מנוע החיפוש אינו מבצע ניתוח שורשים (stemming), ולכן עדיף לחפש גם בצורות כתיב חלופיות.</p>
+    <ul>
+      <li>נסו גם יחיד/רבים וזכר/נקבה (למשל: "מלאך", "מלאכים").</li>
+      <li>נסו צורות כתיב קרובות או כתיב מלא/חסר.</li>
+      <li>אם אין תוצאות — עברו לניווט לפי מקור או לפי דמות.</li>
+    </ul>
+  </div>
 
-            const initPagefind = () => {
-                if (typeof PagefindUI !== 'function') {
-                    searchRoot.innerHTML = '<p class="c-muted">החיפוש אינו זמין כרגע. נסו לרענן את הדף.</p>';
-                    return;
-                }
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const searchRoot = document.getElementById('search');
+      const candidateScriptUrls = [
+        "{{ '/pagefind/pagefind-ui.js' | url }}",
+        "/pagefind/pagefind-ui.js"
+      ];
 
-                new PagefindUI({
-                    bundlePath: "{{ '/pagefind/' | url }}",
-                    element: "#search",
-                    showSubResults: true,
-                    translations: {
-                        placeholder: "חפש בכתבים...",
-                        clear_search: "נקה",
-                        load_more: "טען תוצאות נוספות",
-                        search_label: "חפש באתר זה",
-                        filters_label: "מסננים",
-                        zero_results: "לא נמצאו תוצאות עבור [SEARCH_TERM]",
-                        many_results: "נמצאו [COUNT] תוצאות עבור [SEARCH_TERM]",
-                        one_result: "נמצאה תוצאה אחת עבור [SEARCH_TERM]",
-                        alt_search: "לא נמצאו תוצאות עבור [SEARCH_TERM]. מציג תוצאות עבור [DIFFERENT_TERM] במקום זאת.",
-                        search_suggestion: "לא נמצאו תוצאות עבור [SEARCH_TERM]. נסה את אחד מהחיפושים הבאים:",
-                        searching: "מחפש..."
-                    }
-                });
-            };
+      const initPagefind = () => {
+        if (typeof PagefindUI !== 'function') {
+          searchRoot.innerHTML = '<p class="c-muted">החיפוש אינו זמין כרגע. נסו לרענן את הדף.</p>';
+          return;
+        }
 
-            const tryLoadScript = (index = 0) => {
-                if (typeof PagefindUI === 'function') {
-                    initPagefind();
-                    return;
-                }
-                if (index >= candidateScriptUrls.length) {
-                    initPagefind();
-                    return;
-                }
-
-                const script = document.createElement('script');
-                script.src = candidateScriptUrls[index];
-                script.onload = initPagefind;
-                script.onerror = () => tryLoadScript(index + 1);
-                document.head.appendChild(script);
-            };
-
-            tryLoadScript();
+        new PagefindUI({
+          bundlePath: "{{ '/pagefind/' | url }}",
+          element: "#search",
+          showSubResults: true,
+          translations: {
+            placeholder: "חפש בכתבים...",
+            clear_search: "נקה",
+            load_more: "טען תוצאות נוספות",
+            search_label: "חפש באתר זה",
+            filters_label: "מסננים",
+            zero_results: "לא נמצאו תוצאות עבור [SEARCH_TERM]",
+            many_results: "נמצאו [COUNT] תוצאות עבור [SEARCH_TERM]",
+            one_result: "נמצאה תוצאה אחת עבור [SEARCH_TERM]",
+            alt_search: "לא נמצאו תוצאות עבור [SEARCH_TERM]. מציג תוצאות עבור [DIFFERENT_TERM] במקום זאת.",
+            search_suggestion: "לא נמצאו תוצאות עבור [SEARCH_TERM]. נסה את אחד מהחיפושים הבאים:",
+            searching: "מחפש..."
+          }
         });
-    </script>
+      };
 
-    <div class="c-card c-card--compact search-browse-box">
-        <p><strong>אפשר גם לעיין לפי קטגוריות:</strong></p>
-        <ul>
-            <li><a href="{{ '/texts/' | url }}">לפי מקור השפה</a></li>
-            <li><a href="{{ '/by-figure/' | url }}">לפי דמויות מקראיות</a></li>
-        </ul>
-    </div>
+      const tryLoadScript = (index = 0) => {
+        if (typeof PagefindUI === 'function') {
+          initPagefind();
+          return;
+        }
+        if (index >= candidateScriptUrls.length) {
+          initPagefind();
+          return;
+        }
+
+        const script = document.createElement('script');
+        script.src = candidateScriptUrls[index];
+        script.onload = initPagefind;
+        script.onerror = () => tryLoadScript(index + 1);
+        document.head.appendChild(script);
+      };
+
+      tryLoadScript();
+    });
+  </script>
+
+  <div class="c-card c-card--compact search-browse-box">
+    <p><strong>אפשר גם לעיין לפי קטגוריות:</strong></p>
+    <ul>
+      <li><a href="{{ '/texts/' | url }}">לפי מקור השפה</a></li>
+      <li><a href="{{ '/by-figure/' | url }}">לפי דמויות מקראיות</a></li>
+    </ul>
+  </div>
 </div>

@@ -1,20 +1,27 @@
 {% extends "base.njk" %}
 
 {% block content %}
-  <div class="text-main">
-    {# מציג את הכותרת ואת תוכן המבוא עצמו #}
-    <h1>{{ title }}</h1>
-    {% if source or figure %}
-      {% set sourceHebrew = languages[source] or source %}
-      {% set figureHebrew = figures[figure] or figure %}
-      <p><em>מקור: {{ sourceHebrew or 'לא מצוין' }} | ייחוס: {{ figureHebrew or 'לא מצוין' }}</em></p>
-    {% endif %}
-    {{ content | safe }}
-  </div>
+  <article class="text-main">
+    <header class="text-header">
+      <h1>{{ title }}</h1>
+      {% if source or figure %}
+        {% set sourceHebrew = languages[source] or source %}
+        {% set figureHebrew = figures[figure] or figure %}
+        <p class="text-meta">
+          {% if sourceHebrew %}<span class="text-meta__item"><span class="text-meta__label">מקור:</span> {{ sourceHebrew }}</span>{% endif %}
+          {% if sourceHebrew and figureHebrew %}<span class="text-meta__sep" aria-hidden="true">·</span>{% endif %}
+          {% if figureHebrew %}<span class="text-meta__item"><span class="text-meta__label">ייחוס:</span> {{ figureHebrew }}</span>{% endif %}
+        </p>
+      {% endif %}
+    </header>
 
-  {# --- תוכן העניינים האוטומטי עבור ספרים ללא תוכן ידני --- #}
+    <div class="text-content">
+      {{ content | safe }}
+    </div>
+  </article>
+
   <div class="table-of-contents c-section-divider">
-    <h3>העמודים:</h3>
+    <h3>העמודים</h3>
 
     {% set pagesInBook = collections.all | bookPages(page.url, book) %}
     {% set byVersion = pagesInBook | groupby("data.version") %}
@@ -32,9 +39,7 @@
 
         <ul>
           {% for pageItem in versionPages %}
-            <li>
-              <a href="{{ pageItem.url | url }}">{{ pageItem.data.title }}</a>
-            </li>
+            <li><a href="{{ pageItem.url | url }}">{{ pageItem.data.title }}</a></li>
           {% endfor %}
         </ul>
       {% endfor %}
@@ -43,7 +48,7 @@
     {% endif %}
   </div>
 
-  {# --- אזור התגובות של Disqus --- #}
+  {# --- אזור התגובות --- #}
   <div id="comments-section" class="c-section-divider">
     <h3>תגובות</h3>
     {% if site.disqusShortname %}

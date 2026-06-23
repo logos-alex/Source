@@ -13,13 +13,13 @@
   "thirdParty": {
     "consentMode": "opt-in",
     "analytics": {
-      "enabled": false,
+      "enabled": true,
       "measurementId": "G-M3NHG4MWVR",
       "requiresConsent": true,
       "loadStrategy": "after-consent-and-interaction"
     },
     "clarity": {
-      "enabled": false,
+      "enabled": true,
       "projectId": "ucq1c77qd5",
       "requiresConsent": true,
       "loadStrategy": "after-consent-and-interaction"

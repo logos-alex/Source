@@ -5,6 +5,7 @@ book: clementos-geez
 source: geez
 figure: mekorot-yeshmaelim
 pageNumber: 9
+permalink: /texts/geez/clementos/page-9/
 version: main
 notes:
   - >

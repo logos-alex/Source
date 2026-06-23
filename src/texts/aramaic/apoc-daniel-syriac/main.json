@@ -1,3 +1,9 @@
 {
-  "version": "main"
+  "book": "apoc-daniel-syriac",
+  "source": "aramaic",
+  "version": "main",
+  "versionLabel": "נוסח עברי מתוקן ומסודר",
+  "language": "aramaic",
+  "totalPages": 32,
+  "editionDate": "יוני 2026"
 }
