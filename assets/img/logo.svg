@@ -1,0 +1,21 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="LOGIA">
+  <!-- Outer seal ring -->
+  <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="1.1"/>
+  <!-- Inner fine ring -->
+  <circle cx="50" cy="50" r="41.5" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.55"/>
+
+  <!-- Λ (lambda) — first letter of ΛΟΓΙΑ.
+       The form simultaneously evokes an open book, a temple pediment,
+       and a mountain of hidden knowledge. -->
+  <g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 50 30 L 22 73"/>
+    <path d="M 50 30 L 78 73"/>
+    <path d="M 36 73 L 64 73"/>
+  </g>
+
+  <!-- Revelation dot — the hidden being made manifest -->
+  <circle cx="50" cy="19" r="2.1" fill="currentColor"/>
+
+  <!-- Subtle base line — the foundation / the page -->
+  <line x1="28" y1="82" x2="72" y2="82" stroke="currentColor" stroke-width="0.7" opacity="0.6"/>
+</svg>

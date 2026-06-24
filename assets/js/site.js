@@ -24,13 +24,17 @@
     const isDark = theme === 'dark';
     if (isDark) {
       htmlRoot.setAttribute('data-theme', 'dark');
-      if (themeToggle) themeToggle.textContent = '☀️';
     } else {
       htmlRoot.removeAttribute('data-theme');
-      if (themeToggle) themeToggle.textContent = '🌙';
     }
     if (themeToggle) {
       themeToggle.setAttribute('aria-pressed', String(isDark));
+      const moonIcon = themeToggle.querySelector('.icon-moon');
+      const sunIcon = themeToggle.querySelector('.icon-sun');
+      if (moonIcon && sunIcon) {
+        moonIcon.style.display = isDark ? 'none' : '';
+        sunIcon.style.display = isDark ? '' : 'none';
+      }
     }
     localStorage.setItem('theme', theme);
   }
@@ -50,14 +54,36 @@
     navToggle.addEventListener('click', () => {
       const isOpen = nav.classList.toggle('mobile-open');
       navToggle.setAttribute('aria-expanded', String(isOpen));
-      navToggle.textContent = isOpen ? '✕' : '☰';
+      // Toggle icon between hamburger and close
+      navToggle.innerHTML = isOpen
+        ? '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>'
+        : '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
     });
 
+    /* Desktop: toggle dropdown on click, close on outside click */
     nav.querySelectorAll('.nav-dropdown').forEach((dropdown, index) => {
       const dropLink = dropdown.querySelector('.dropbtn');
       const menu = dropdown.querySelector('.dropdown-content');
       if (!dropLink || !menu) return;
 
+      dropLink.addEventListener('click', (event) => {
+        if (window.innerWidth <= 768) return; // mobile handled below
+        event.preventDefault();
+        const wasOpen = dropdown.classList.contains('desktop-open');
+        if (wasOpen) {
+          // Close: remove desktop-open, add forced-closed to override :hover
+          dropdown.classList.remove('desktop-open');
+          dropdown.classList.add('forced-closed');
+          dropLink.setAttribute('aria-expanded', 'false');
+        } else {
+          // Open: add desktop-open, remove forced-closed
+          dropdown.classList.add('desktop-open');
+          dropdown.classList.remove('forced-closed');
+          dropLink.setAttribute('aria-expanded', 'true');
+        }
+      });
+
+      /* Mobile: create submenu toggle button */
       const toggle = document.createElement('button');
       const menuId = `nav-submenu-${index + 1}`;
       menu.id = menuId;
@@ -72,6 +98,25 @@
       toggle.addEventListener('click', () => {
         const isExpanded = dropdown.classList.toggle('mobile-expanded');
         toggle.setAttribute('aria-expanded', String(isExpanded));
+      });
+    });
+
+    /* Close any open desktop dropdown when clicking outside */
+    document.addEventListener('click', (event) => {
+      nav.querySelectorAll('.nav-dropdown.desktop-open').forEach((dropdown) => {
+        if (!dropdown.contains(event.target)) {
+          dropdown.classList.remove('desktop-open');
+          dropdown.classList.add('forced-closed');
+          const dropLink = dropdown.querySelector('.dropbtn');
+          if (dropLink) dropLink.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+
+    /* Remove forced-closed when mouse leaves dropdown, so :hover works again next time */
+    nav.querySelectorAll('.nav-dropdown').forEach((dropdown) => {
+      dropdown.addEventListener('mouseleave', () => {
+        dropdown.classList.remove('forced-closed');
       });
     });
   }
@@ -170,6 +215,44 @@
     });
   }
 
+  function initParallelToggle() {
+    const toggles = document.querySelectorAll('.parallel-toggle');
+    if (!toggles.length) return;
+
+    const STORAGE_KEY = 'parallelSourceVisible';
+
+    // Load preference (default: show source)
+    const showSource = localStorage.getItem(STORAGE_KEY) !== 'false';
+
+    function applyState(visible) {
+      document.querySelectorAll('[data-parallel-container]').forEach(container => {
+        if (visible) {
+          container.classList.remove('parallel-source-hidden');
+        } else {
+          container.classList.add('parallel-source-hidden');
+        }
+      });
+
+      toggles.forEach(btn => {
+        const mode = btn.dataset.parallelToggle;
+        const isActive = (mode === 'show' && visible) || (mode === 'hide' && !visible);
+        btn.setAttribute('aria-pressed', String(isActive));
+      });
+    }
+
+    // Apply initial state
+    applyState(showSource);
+
+    toggles.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const mode = btn.dataset.parallelToggle;
+        const visible = mode === 'show';
+        localStorage.setItem(STORAGE_KEY, String(visible));
+        applyState(visible);
+      });
+    });
+  }
+
   if (themeToggle && htmlRoot) {
     themeToggle.addEventListener('click', () => {
       const current = htmlRoot.getAttribute('data-theme');
@@ -184,29 +267,20 @@
   initMobileNavigation();
   initTocDropdowns();
   initReadingProgress();
+  initParallelToggle();
 })();
 
+/* ====================================================================
+   Third-party services — loaded directly (no consent gating).
+   Toggle each service on/off via site.json -> thirdParty.<service>.enabled
+   ==================================================================== */
 window.__externalScriptRegistry = window.__externalScriptRegistry || new Set();
 
-const THIRD_PARTY_CONSENT_KEY = 'thirdPartyConsent';
-const THIRD_PARTY_LOADED_KEY = 'thirdPartyLoadedServices';
 const runtimeThirdParty = (window.siteRuntimeConfig && window.siteRuntimeConfig.thirdParty) || {};
 const runtimeAnalytics = runtimeThirdParty.analytics || {};
 const runtimeClarity = runtimeThirdParty.clarity || {};
+const runtimeDisqus = runtimeThirdParty.disqus || {};
 const runtimeTranslate = runtimeThirdParty.translate || {};
-
-function readJsonStorage(key) {
-  try {
-    const raw = localStorage.getItem(key);
-    return raw ? JSON.parse(raw) : {};
-  } catch {
-    return {};
-  }
-}
-
-function writeJsonStorage(key, value) {
-  localStorage.setItem(key, JSON.stringify(value));
-}
 
 function ensureExternalScript({ service, src, onload, id }) {
   if (!src || !service) return;
@@ -232,30 +306,8 @@ function ensureExternalScript({ service, src, onload, id }) {
   window.__externalScriptRegistry.add(scriptKey);
 }
 
-function hasConsent(service) {
-  const state = readJsonStorage(THIRD_PARTY_CONSENT_KEY);
-  return Boolean(state[service]);
-}
-
-function setConsent(service) {
-  const state = readJsonStorage(THIRD_PARTY_CONSENT_KEY);
-  state[service] = true;
-  writeJsonStorage(THIRD_PARTY_CONSENT_KEY, state);
-}
-
-function markServiceLoaded(service) {
-  const state = readJsonStorage(THIRD_PARTY_LOADED_KEY);
-  state[service] = true;
-  writeJsonStorage(THIRD_PARTY_LOADED_KEY, state);
-}
-
-function isServiceLoaded(service) {
-  const state = readJsonStorage(THIRD_PARTY_LOADED_KEY);
-  return Boolean(state[service]);
-}
-
 function loadAnalytics() {
-  if (!runtimeAnalytics.enabled || isServiceLoaded('analytics') || !runtimeAnalytics.measurementId) return;
+  if (!runtimeAnalytics.enabled || !runtimeAnalytics.measurementId) return;
 
   ensureExternalScript({
     service: 'analytics',
@@ -268,11 +320,10 @@ function loadAnalytics() {
   };
   window.gtag('js', new Date());
   window.gtag('config', runtimeAnalytics.measurementId);
-  markServiceLoaded('analytics');
 }
 
 function loadClarity() {
-  if (!runtimeClarity.enabled || isServiceLoaded('clarity') || !runtimeClarity.projectId) return;
+  if (!runtimeClarity.enabled || !runtimeClarity.projectId) return;
 
   window.clarity = window.clarity || function clarity() {
     (window.clarity.q = window.clarity.q || []).push(arguments);
@@ -282,12 +333,10 @@ function loadClarity() {
     service: 'clarity',
     src: `https://www.clarity.ms/tag/${encodeURIComponent(runtimeClarity.projectId)}`
   });
-
-  markServiceLoaded('clarity');
 }
 
 function loadTranslate() {
-  if (!runtimeTranslate.enabled || isServiceLoaded('translate')) return;
+  if (!runtimeTranslate.enabled) return;
   const translateContainer = document.getElementById('google_translate_element');
   if (translateContainer) {
     translateContainer.hidden = false;
@@ -297,49 +346,6 @@ function loadTranslate() {
     service: 'translate',
     src: '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'
   });
-
-  markServiceLoaded('translate');
-}
-
-function shouldLoadService(service, config) {
-  if (!config || !config.enabled) return false;
-  if (!config.requiresConsent) return true;
-  return hasConsent(service);
-}
-
-function initThirdPartyButtons() {
-  const consentButtons = document.querySelectorAll('[data-consent-service]');
-  consentButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      const service = button.getAttribute('data-consent-service');
-      if (!service) return;
-      setConsent(service);
-      button.disabled = true;
-      button.textContent = 'אושר';
-      if (service === 'analytics') loadAnalytics();
-      if (service === 'clarity') loadClarity();
-    });
-  });
-
-  const translateLauncher = document.querySelector('[data-third-party-trigger="translate"]');
-  if (translateLauncher) {
-    translateLauncher.addEventListener('click', () => {
-      if (runtimeTranslate.requiresConsent) setConsent('translate');
-      loadTranslate();
-      translateLauncher.setAttribute('aria-disabled', 'true');
-      translateLauncher.disabled = true;
-    });
-  }
-}
-
-function initThirdPartyIntegrations() {
-  if (shouldLoadService('analytics', runtimeAnalytics)) loadAnalytics();
-  if (shouldLoadService('clarity', runtimeClarity)) loadClarity();
-  if (shouldLoadService('translate', runtimeTranslate) && runtimeTranslate.loadStrategy !== 'on-interaction') {
-    loadTranslate();
-  }
-
-  initThirdPartyButtons();
 }
 
 window.googleTranslateElementInit = function googleTranslateElementInit() {
@@ -352,4 +358,87 @@ window.googleTranslateElementInit = function googleTranslateElementInit() {
   }, 'google_translate_element');
 };
 
-initThirdPartyIntegrations();
+// Eager-load analytics + clarity on every page (no consent needed)
+loadAnalytics();
+loadClarity();
+
+// Translate launcher — kept as a button click (UX, not consent)
+// so we don't load Google Translate for every visitor
+const translateLauncher = document.querySelector('[data-third-party-trigger="translate"]');
+if (translateLauncher) {
+  translateLauncher.addEventListener('click', () => {
+    loadTranslate();
+    translateLauncher.setAttribute('aria-disabled', 'true');
+    translateLauncher.disabled = true;
+  });
+}
+
+/* ====================================================================
+   Back-to-Top button — appears after scrolling past viewport
+   ==================================================================== */
+(function initBackToTop() {
+  const btn = document.getElementById('backToTop');
+  if (!btn) return;
+
+  const toggle = () => {
+    if (window.scrollY > window.innerHeight * 0.6) {
+      btn.classList.add('is-visible');
+    } else {
+      btn.classList.remove('is-visible');
+    }
+  };
+
+  window.addEventListener('scroll', toggle, { passive: true });
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
+  });
+  toggle();
+})();
+
+/* ====================================================================
+   Font-size controls (text pages) — A- / A+ buttons
+   Persisted in localStorage
+   ==================================================================== */
+(function initFontControls() {
+  const controls = document.querySelector('.text-controls');
+  if (!controls) return;
+
+  const buttons = controls.querySelectorAll('.text-controls__btn');
+  const stored = localStorage.getItem('fontScale') || 'md';
+  document.body.setAttribute('data-font-scale', stored);
+  buttons.forEach((b) => {
+    if (b.dataset.scale === stored) b.classList.add('is-active');
+    b.addEventListener('click', () => {
+      const scale = b.dataset.scale;
+      document.body.setAttribute('data-font-scale', scale);
+      localStorage.setItem('fontScale', scale);
+      buttons.forEach((bb) => bb.classList.remove('is-active'));
+      b.classList.add('is-active');
+    });
+  });
+})();
+
+/* ====================================================================
+   Search page — read ?q= from URL and inject into Pagefind input
+   ==================================================================== */
+(function initSearchQuery() {
+  if (!window.location.pathname.endsWith('/search/')) return;
+
+  const params = new URLSearchParams(window.location.search);
+  const q = params.get('q');
+  if (!q) return;
+
+  // Pagefind UI is initialized asynchronously; poll until ready
+  let attempts = 0;
+  const tryFill = () => {
+    attempts++;
+    const input = document.querySelector('#search .pagefind-ui__search-input');
+    if (input) {
+      input.value = q;
+      input.dispatchEvent(new Event('input', { bubbles: true }));
+      return;
+    }
+    if (attempts < 20) setTimeout(tryFill, 150);
+  };
+  setTimeout(tryFill, 300);
+})();

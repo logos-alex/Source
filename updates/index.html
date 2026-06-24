@@ -10,32 +10,48 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>מה חדש | אוצר הכתבים הגנוזים</title>
-    
+    <title>מה חדש | LOGIA — אוצר הכתבים הגנוזים</title>
+
     <!-- Accessibility -->
     <meta name="color-scheme" content="light dark">
-    
+
+    <!-- PWA / Mobile -->
+    <meta name="theme-color" content="#1C1813" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#FAF6EE" media="(prefers-color-scheme: light)">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="LOGIA">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="manifest" href="/Source/manifest.json">
+
     <!-- SEO & Meta Tags -->
     <meta name="description" content="מסע אל הכתבים הגנוזים והאבודים של המסורת היהודית. תרגומים, ביאורים ועיון בטקסטים שנדחקו אל השוליים.">
-    <meta name="keywords" content="כתבים גנוזים, אפוקריפה, ספרים חיצוניים, יהדות, בית שני, מינות, גנוסטיקה, קבלה, מיסטיקה, דניאל, אברהם, זרובבל, עזרא, ישעיהו, אליהו">
-    <meta name="author" content="בית המדרש הווירטואלי">
+    <meta name="keywords" content="LOGIA, כתבים גנוזים, אפוקריפה, ספרים חיצוניים, יהדות, בית שני, מינות, גנוסטיקה, קבלה, מיסטיקה, דניאל, אברהם, זרובבל, עזרא, ישעיהו, אליהו">
+    <meta name="author" content="LOGIA — אוצר הכתבים הגנוזים">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://logos-alex.github.io/Source/updates/">
-    
+
     <!-- Open Graph Tags for Social Media -->
+    
     <meta property="og:type" content="article">
-    <meta property="og:title" content="מה חדש | אוצר הכתבים הגנוזים">
+    <meta property="og:title" content="מה חדש | LOGIA — אוצר הכתבים הגנוזים">
     <meta property="og:description" content="מסע אל הכתבים הגנוזים והאבודים של המסורת היהודית. תרגומים, ביאורים ועיון בטקסטים שנדחקו אל השוליים.">
     <meta property="og:url" content="https://logos-alex.github.io/Source/updates/">
-    <meta property="og:site_name" content="אוצר הכתבים הגנוזים">
+    <meta property="og:site_name" content="LOGIA — אוצר הכתבים הגנוזים">
     <meta property="og:locale" content="he_IL">
-    
+    <meta property="og:image" content="https://logos-alex.github.io/Source/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="לוגו LOGIA — אוצר הכתבים הגנוזים, חותם מעגלי עם האות למדא על רקע שנהב-ברונזה">
+
     <!-- Twitter/X Tags -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="מה חדש | אוצר הכתבים הגנוזים">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="מה חדש | LOGIA — אוצר הכתבים הגנוזים">
     <meta name="twitter:description" content="מסע אל הכתבים הגנוזים והאבודים של המסורת היהודית. תרגומים, ביאורים ועיון בטקסטים שנדחקו אל השוליים.">
     <meta name="twitter:url" content="https://logos-alex.github.io/Source/updates/">
-    
+    <meta name="twitter:image" content="https://logos-alex.github.io/Source/assets/og-image.png">
+    <meta name="twitter:image:alt" content="לוגו LOGIA — אוצר הכתבים הגנוזים">
+
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
     {
@@ -47,168 +63,527 @@
       "inLanguage": "he",
       "author": {
         "@type": "Organization",
-        "name": "אוצר הכתבים הגנוזים"
+        "name": "LOGIA — אוצר הכתבים הגנוזים"
       }
     }
     </script>
+    
 
     
     
+    <link rel="stylesheet" href="/Source/assets/fonts/fonts.css">
+    
     <link rel="stylesheet" href="/Source/assets/style.css">
+    <link rel="preload" as="image" href="/Source/assets/og-image.png" type="image/png">
+    <link rel="icon" type="image/svg+xml" href="/Source/assets/favicon.svg">
+    <link rel="icon" type="image/png" sizes="192x192" href="/Source/assets/favicon-192.png" loading="lazy">
+    <link rel="icon" type="image/png" sizes="512x512" href="/Source/assets/favicon-512.png" loading="lazy">
+    <link rel="icon" type="image/x-icon" href="/Source/assets/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/Source/assets/apple-touch-icon.png">
+    <link rel="mask-icon" href="/Source/assets/favicon.svg" color="#8B6F3A">
 </head>
 <body class="updates-page">
     <a class="skip-link" href="#main-content">דלג לתוכן</a>
-    <button id="readingModeToggle" class="reading-mode-toggle" type="button" aria-pressed="false" aria-label="הפעלת מצב קריאה" aria-description="מצב קריאה כבוי. לחיצה תפעיל מצב קריאה להצגת התוכן ללא הסחות." title="מצב קריאה" data-reading-label-on="כיבוי מצב קריאה" data-reading-label-off="הפעלת מצב קריאה" data-reading-description-on="מצב קריאה פעיל. לחיצה תכבה את מצב הקריאה ותחזיר את כל רכיבי הממשק." data-reading-description-off="מצב קריאה כבוי. לחיצה תפעיל מצב קריאה להצגת התוכן ללא הסחות."><span aria-hidden="true">📖</span><span style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">הפעלת או כיבוי מצב קריאה</span></button>
+
+    <button id="readingModeToggle" class="reading-mode-toggle icon-btn" type="button" aria-pressed="false" aria-label="הפעלת מצב קריאה" aria-description="מצב קריאה כבוי. לחיצה תפעיל מצב קריאה להצגת התוכן ללא הסחות." title="מצב קריאה" data-reading-label-on="כיבוי מצב קריאה" data-reading-label-off="הפעלת מצב קריאה" data-reading-description-on="מצב קריאה פעיל. לחיצה תכבה את מצב הקריאה ותחזיר את כל רכיבי הממשק." data-reading-description-off="מצב קריאה כבוי. לחיצה תפעיל מצב קריאה להצגת התוכן ללא הסחות.">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+      </svg>
+      <span class="sr-only" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">הפעלת או כיבוי מצב קריאה</span>
+    </button>
+
     <script>
       window.siteRuntimeConfig = {
         fonts: {
-          provider: "google",
+          provider: "self-hosted",
           loadExternal: false,
-          useSelfHosted: false,
+          useSelfHosted: true,
           selfHostedStylesheet: "/assets/fonts/fonts.css",
-          fallbackStack: "&#39;Noto Serif Hebrew&#39;, &#39;Times New Roman&#39;, &#39;David&#39;, &#39;Georgia&#39;, serif"
+          fallbackStack: "&#39;Frank Ruhl Libre&#39;, &#39;Noto Serif Hebrew&#39;, &#39;Times New Roman&#39;, &#39;David&#39;, &#39;Georgia&#39;, serif"
         },
         thirdParty: {
-          consentMode: "opt-in",
           analytics: {
-            enabled: false,
-            measurementId: "G-M3NHG4MWVR",
-            requiresConsent: true,
-            loadStrategy: "after-consent-and-interaction"
+            enabled: true,
+            measurementId: "G-M3NHG4MWVR"
           },
           clarity: {
-            enabled: false,
-            projectId: "ucq1c77qd5",
-            requiresConsent: true,
-            loadStrategy: "after-consent-and-interaction"
+            enabled: true,
+            projectId: "ucq1c77qd5"
+          },
+          disqus: {
+            enabled: true,
+            shortname: "hebrew-aramaic-sources"
           },
           translate: {
             enabled: true,
-            requiresConsent: false,
-            loadStrategy: "on-interaction",
             includedLanguages: "en,fr,de,es,ru,ar,it"
           }
         }
       };
     </script>
+
     <header>
         <div class="header-top">
-            <h1><a href="/Source/">אוצר הכתבים הגנוזים</a></h1>
-            <button id="themeToggle" class="theme-toggle" aria-label="בחר מצב אור/חושך" aria-pressed="false" title="מצב אור/חושך">🌙</button>
-            <button id="mainNavToggle" class="main-nav-toggle" type="button" aria-controls="mainNav" aria-expanded="false" aria-label="פתיחה וסגירה של תפריט הניווט">☰</button>
+            <a href="/Source/" class="site-brand">
+              <span class="site-brand__mark" aria-hidden="true">
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" style="width:100%;height:100%;">
+  <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="1.1"/>
+  <circle cx="50" cy="50" r="41.5" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.55"/>
+  <g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 50 30 L 22 73"/>
+    <path d="M 50 30 L 78 73"/>
+    <path d="M 36 73 L 64 73"/>
+  </g>
+  <circle cx="50" cy="19" r="2.1" fill="currentColor"/>
+  <line x1="28" y1="82" x2="72" y2="82" stroke="currentColor" stroke-width="0.7" opacity="0.6"/>
+</svg>
+</span>
+              <span class="site-brand__text">
+                <span class="site-brand__name">LOGIA</span>
+                <span class="site-brand__tagline">אוצר הכתבים הגנוזים</span>
+              </span>
+            </a>
+
+            <div class="header-controls">
+              <form class="header-search" role="search" action="/Source/search/" method="get">
+                <label for="headerSearchInput" class="sr-only">חיפוש באוצר</label>
+                <input
+                  id="headerSearchInput"
+                  class="header-search__input"
+                  type="search"
+                  name="q"
+                  placeholder="חיפוש בכתבים…"
+                  autocomplete="off"
+                  aria-label="חיפוש בכתבים">
+                <button class="header-search__btn" type="submit" aria-label="חיפוש">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="11" cy="11" r="8"/>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                  </svg>
+                </button>
+              </form>
+              <button id="themeToggle" class="icon-btn theme-toggle" aria-label="בחר מצב אור/חושך" aria-pressed="false" title="מצב אור/חושך">
+                <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+                <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none;">
+                  <circle cx="12" cy="12" r="5"/>
+                  <line x1="12" y1="1" x2="12" y2="3"/>
+                  <line x1="12" y1="21" x2="12" y2="23"/>
+                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                  <line x1="1" y1="12" x2="3" y2="12"/>
+                  <line x1="21" y1="12" x2="23" y2="12"/>
+                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+              </button>
+              <button id="mainNavToggle" class="main-nav-toggle" type="button" aria-controls="mainNav" aria-expanded="false" aria-label="פתיחה וסגירה של תפריט הניווט">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                  <line x1="3" y1="6" x2="21" y2="6"/>
+                  <line x1="3" y1="12" x2="21" y2="12"/>
+                  <line x1="3" y1="18" x2="21" y2="18"/>
+                </svg>
+              </button>
+            </div>
         </div>
+
         <nav id="mainNav" role="navigation" aria-label="ניווט ראשי">
             <a href="/Source/" >דף הבית</a>
-            <a href="/Source/search/" >🔍 חיפוש</a>
-            <a href="/Source/updates/" aria-current="page">🆕 מה חדש</a>
-
+            <a href="/Source/updates/" aria-current="page">מה חדש</a>
             <div class="nav-dropdown">
-                <a href="/Source/texts/" class="dropbtn" >לפי מקור</a>
+                <a href="/Source/texts/" class="dropbtn" aria-haspopup="true" aria-expanded="false" >לפי מקור</a>
                 <div class="dropdown-content">
                     <a href="/Source/texts/hebrew/" >עברית</a>
                     <a href="/Source/texts/slavic/" >סלאבית</a>
                     <a href="/Source/texts/aramaic/" >ארמית</a>
+                    <a href="/Source/texts/armenian/" >ארמנית</a>
                     <a href="/Source/texts/arabic/" >ערבית</a>
+                    <a href="/Source/texts/greek/" >יוונית</a>
                     <a href="/Source/texts/geez/" >געז</a>
+                    <a href="/Source/texts/latin/" >לטינית</a>
                 </div>
             </div>
-            
+
             <div class="nav-dropdown">
-                <a href="/Source/by-figure/" class="dropbtn" >לפי ייחוס</a>
+                <a href="/Source/by-figure/" class="dropbtn" aria-haspopup="true" aria-expanded="false" >לפי ייחוס</a>
                 <div class="dropdown-content">
                     <a href="/Source/by-figure/abraham/" >אברהם</a>
                     <a href="/Source/by-figure/daniel/" >דניאל</a>
+                    <a href="/Source/by-figure/enoch/" >חנוך</a>
+                    <a href="/Source/by-figure/ezra/" >עזרא</a>
+                    <a href="/Source/by-figure/isaiah/" >ישעיהו</a>
                     <a href="/Source/by-figure/zerubbabel/" >זרובבל</a>
                     <a href="/Source/by-figure/talmidei-yeshua/" >מתלמידי ישוע הנוצרי</a>
                 </div>
             </div>
+            <a href="/Source/about/" >אודות</a>
+            <a href="/Source/methodology/" >מתודולוגיה</a>
+            <a href="/Source/contact/" >צור קשר</a>
         </nav>
         
 
 <nav class="breadcrumbs" aria-label="ניווט מקום">
   <ol>
     <li><a href="/Source/">דף הבית</a></li>
+
     
     
     
     
     
+
     
     
+
     
     
+
     
     
-    
-    
-    
-    
-      <li class="breadcrumb-current">מה חדש</li>
+      <li class="breadcrumb-current" aria-current="page">מה חדש</li>
     
   </ol>
 </nav>
 
 
     </header>
-    
+
     <main id="main-content" role="main">
         
             <div class="text-main updates-main">
-  <h2>מה חדש במיזם</h2>
-  <p>כאן נפרסם עדכונים שרלוונטיים בעיקר לחוויית הקריאה, החיפוש והניווט באתר.</p>
+  <header class="text-header">
+    <p class="text-header__eyebrow">Updates</p>
+    <h2>מה חדש במיזם</h2>
+    <p>כאן נפרסם עדכונים שרלוונטיים בעיקר לחוויית הקריאה, החיפוש והניווט באתר.</p>
+  </header>
 
   <div
     class="updates-grid"
     aria-label="רשימת עדכונים"
-    data-release-series="updates-v3"
-    data-release-id="2026-03-stable-release-markers"
-    data-min-cards="4"
+    data-release-series="updates-v4"
+    data-release-id="2026-06-launch-prep"
+    data-min-cards="6"
   >
     
-    <article class="update-card c-card c-card--accent" data-update-id="clement-attribution-unified" data-update-flags="by-figure taxonomy">
-      <h3>👤 שיוך קלמנס אוחד תחת &quot;מתלמידי ישוע&quot;</h3>
-      <p>ברשימת &quot;לפי ייחוס&quot; בוצע איחוד: חיבורי קלמנס מוצגים תחת הקטגוריה &quot;מתלמידי ישוע הנוצרי&quot; במקום קטגוריה נפרדת.</p>
+    <article class="update-card" data-update-id="klalot-hashvatim-published" data-update-flags="content latin talmidei-yeshua new-text unpublished-manuscript">
+      <h3>📜 קללות השבטים — Le Maledizioni delle Tribù — פרסום ראשון</h3>
+      <p>פרסום ראשון של חיבור אנטי-יהודי נוצרי נדיר ביותר מאיטליה (המאה ה-18, מקור מ-1386). החיבור מתאר קללות שנגזרו על שנים עשר שבטי ישראל בגלל חלקם לכאורה בצליבת ישו. מעולם לא הועלה על הדפוס ובקושי ידוע. תרגום עברי מכתב-יד Vat.ebr.461 בסגנון רבני-איטלקי.</p>
       
       <ul class="update-links" data-critical-links="true">
         
         <li>
-          <a href="/Source/by-figure/talmidei-yeshua/" data-critical-link="figure-talmidei-yeshua">לעמוד הייחוס המעודכן</a>
+          <a href="/Source/texts/latin/klalot-hashvatim/" data-critical-link="klalot-hashvatim-index">לעמוד המבוא</a>
         </li>
         
       </ul>
+      
+      <p class="update-meta">תאריך: יוני 2026 · קטגוריה: חיבורים חדשים</p>
+    </article>
+    
+    <article class="update-card" data-update-id="midrash-daniel-raba" data-update-flags="content aramaic daniel commentary midrash">
+      <h3>📖 מדרש דניאל רבא — הנדבח הפרשני לחזון דניאל הסורי</h3>
+      <p>נוסף &#39;מדרש דניאל רבא&#39; — אוסף חומר מדרשי רחב היקף העוסק בדניאל, חורבן הבית, הגלות, ושיבת ציון. המדרש מופץ כהערות צמודות לדפי חזון דניאל הסורי-ארמי — בשיטת פירוש רש&quot;י לתורה. 16 פרקי מדרש על פני 31 דפים, ממקורות מגוונים: יוסיפון, ירחמאל/גסטר, חזון דניאל העברי (גנזי שעכטר + פירקוביץ&#39;), ומדרשי חז&quot;ל.</p>
+      
+      <ul class="update-links" data-critical-links="true">
+        
+        <li>
+          <a href="/Source/texts/aramaic/apoc-daniel-syriac/" data-critical-link="apoc-daniel-syriac-index">לעמוד המבוא</a>
+        </li>
+        
+      </ul>
+      
+      <p class="update-meta">תאריך: יוני 2026 · קטגוריה: פרשנות וביאורים</p>
+    </article>
+    
+    <article class="update-card" data-update-id="clementine-aramaic-commentary" data-update-flags="content aramaic talmidei-yeshua commentary">
+      <h3>📝 הכרעות קלמנטיניות (ארמית) — פרשנות תיאולוגית־השוואתית מעמיקה</h3>
+      <p>נוסף פירוש מעמיק על כל חמשת חיבורי הקלמנטינה הארמית (R1–R4 + הומיליות י–יד). הפירוש מופץ כהערות צמודות לדפים — בשיטת כתב אלמגאל. 82 הערות על פני 75 דפים, עם מובאות והקבלות ממקורות ישראל (מקרא, חז&quot;ל, היכלות, רס&quot;ג, רמב&quot;ם, רמב&quot;ן, קומראן, זוהר) ומאבות הכנסייה. הפירוש בנוי כהערות-שוליים ממוספרות עם הפניות מדויקות למקורות.</p>
+      
+      <ul class="update-links" data-critical-links="true">
+        
+        <li>
+          <a href="/Source/texts/aramaic/clementine-r1/" data-critical-link="clementine-r1-index">הכרעות ספר א</a>
+        </li>
+        
+        <li>
+          <a href="/Source/texts/aramaic/clementine-homilies/" data-critical-link="clementine-homilies-index">הומיליות י–יד</a>
+        </li>
+        
+      </ul>
+      
+      <p class="update-meta">תאריך: יוני 2026 · קטגוריה: פרשנות וביאורים</p>
+    </article>
+    
+    <article class="update-card" data-update-id="clementine-greek-commentary" data-update-flags="content greek talmidei-yeshua commentary">
+      <h3>📝 הומיליות הקלמנטינה המדומה (יוונית) — פירוש תיאולוגי־השוואתי מעמיק</h3>
+      <p>נוסף פירוש מעמיק בן 22 פרקים על החיבור היווני, בסגנון פרשני הדת הקדמונים. הפירוש מביא מובאות והקבלות רבות ממקורות ישראל (מקרא, חז&quot;ל, היכלות, רס&quot;ג, רמב&quot;ם, רמב&quot;ן, קומראן) ומאבות הכנסייה (יוסטינוס, אירנאיוס, תרטוליאנוס, אוריגנס, אפרם סוריה). הפירוש מופץ כהערות צמודות לדפים הרלוונטיים — בשיטת כתב אלמגאל. נושאים: מלכות היחיד, הנביא האמיתי, הכזבים שבכתובים, מצוות הקורבנות, כלל הזוגות, הטבילה, ההשגחה, ועוד.</p>
+      
+      <ul class="update-links" data-critical-links="true">
+        
+        <li>
+          <a href="/Source/texts/greek/clementine-homilies-greek/" data-critical-link="clementine-greek-index">לעמוד המבוא</a>
+        </li>
+        
+      </ul>
+      
+      <p class="update-meta">תאריך: יוני 2026 · קטגוריה: פרשנות וביאורים</p>
+    </article>
+    
+    <article class="update-card" data-update-id="vat-ar-165-nusach-b-published" data-update-flags="content arabic talmidei-yeshua new-text unpublished-manuscript">
+      <h3>📜 הכיתאב הגדול לכיפא — נוסח ב&#39; (Vat.ar.165) — פרסום ראשון</h3>
+      <p>פרסום ראשון של תרגום עברי מלא מתוך כתב-יד ותיקן ערבי 165 (1477) — נוסח מאוחר של מסורת ספר המגילות שלא פורסם. 24 דפים מתוך כתב-היד. מכסה: פתיחה, מעשה בראשית, בריאת אדם, מערת האוצרות, תפילות 24 השעות, וסיפורי האבות הקדמונים עד עליית חנוך.</p>
+      
+      <ul class="update-links" data-critical-links="true">
+        
+        <li>
+          <a href="/Source/texts/arabic/ketav-almagal-nusach-b/" data-critical-link="ketav-almagal-nusach-b-index">לעמוד המבוא</a>
+        </li>
+        
+      </ul>
+      
+      <p class="update-meta">תאריך: יוני 2026 · קטגוריה: חיבורים חדשים</p>
+    </article>
+    
+    <article class="update-card" data-update-id="vat-ar-32-chazon-kifa-published" data-update-flags="content arabic talmidei-yeshua new-text unpublished-manuscript">
+      <h3>📜 חזון כיפא לקלמיס (Vat.ar.32) — פרסום ראשון בכל שפה</h3>
+      <p>פרסום ראשון של תעתיק בכל שפה של נוסחה זו של מסורת ספר המגילות. מתוך כתב-יד ותיקן ערבי 32 (1584). 57 דפים בשני שערים: שער א&#39; — הנבואות המדיניות-אסכטולוגיות על מלכות האסלאם; שער ב&#39; — צוואת פטרוס לקלמנס. כולל נספח: אגדת צנצנת השמן של מרים החוטאת.</p>
+      
+      <ul class="update-links" data-critical-links="true">
+        
+        <li>
+          <a href="/Source/texts/arabic/chazon-kifa-laklemis/" data-critical-link="chazon-kifa-laklemis-index">לעמוד המבוא</a>
+        </li>
+        
+      </ul>
+      
+      <p class="update-meta">תאריך: יוני 2026 · קטגוריה: חיבורים חדשים</p>
+    </article>
+    
+    <article class="update-card" data-update-id="vat-ar-83-glia-de-klemis-published" data-update-flags="content arabic talmidei-yeshua new-text unpublished-manuscript">
+      <h3>📜 גליא דקלמיס (Vat.ar.83) — חיבור עצמאי, פרסום ראשון</h3>
+      <p>פרסום ראשון של תעתיק של אפוקליפסה ערבית-נוצרית עצמאית המיוחסת לקלמנס תלמיד פטרוס. מתוך כתב-יד ותיקן ערבי 83 (המאה ה-15). 16 דפים בשני שערים: שער ראשון — קטע לוגי-פילוסופי; שער שני — אפוקליפסה המתארת את מלכי הכתות והממלכות עד אחרית הימים. קרוב למסורת אפוקליפסת פסבדו-מתודיוס ולאגדת הקיסר האחרון.</p>
+      
+      <ul class="update-links" data-critical-links="true">
+        
+        <li>
+          <a href="/Source/texts/arabic/glia-de-klemis/" data-critical-link="glia-de-klemis-index">לעמוד המבוא</a>
+        </li>
+        
+      </ul>
+      
+      <p class="update-meta">תאריך: יוני 2026 · קטגוריה: חיבורים חדשים</p>
+    </article>
+    
+    <article class="update-card" data-update-id="clementine-family-overview" data-update-flags="content navigation clementine">
+      <h3>📚 משפחת הספרות הקלמנטינית — מבוא משותף בעמוד האודות</h3>
+      <p>נוסף מבוא משותף בעמוד &#39;אודות&#39; המאגד את כל חיבורי משפחת הספרות הפסאודו-קלמנטינית במיזם: המסורת הקלאסית (הומיליות והכרעות — ארמית ויוונית), המסורת האתיופית (קלמנטוס), ומסורת ספר המגילות בארבעת נוסחיה (הנוסח המפורסם + שלושה נוסחים מכתבי-יד הוותיקן). כולל הפניות הדדיות בין כל החיבורים.</p>
+      
+      <ul class="update-links" data-critical-links="true">
+        
+        <li>
+          <a href="/Source/about/" data-critical-link="about-page">לעמוד האודות</a>
+        </li>
+        
+      </ul>
+      
+      <p class="update-meta">תאריך: יוני 2026 · קטגוריה: תשתית וניווט</p>
+    </article>
+    
+    <article class="update-card" data-update-id="ketav-almagal-full-commentary" data-update-flags="content arabic talmidei-yeshua commentary">
+      <h3>📝 כתב אלמגאל — פרשנות מורחבת לכל 34 הפרקים</h3>
+      <p>נוספו 87 הערות פרשניות לכל פרקי החיבור: רקע מדרשי, הקבלות למקורות יהודיים (פירקי דרבי אליעזר, בראשית רבה, סנהדרין, חגיגה), זיהוי שכבות עריכה, וקישור לספרות הקלמנטינית ולזוהר.</p>
+      
+      <ul class="update-links" data-critical-links="true">
+        
+        <li>
+          <a href="/Source/texts/arabic/ketav-almagal/" data-critical-link="ketav-almagal-index">לעמוד המבוא</a>
+        </li>
+        
+      </ul>
+      
+      <p class="update-meta">תאריך: יוני 2026 · קטגוריה: פרשנות וביאורים</p>
+    </article>
+    
+    <article class="update-card" data-update-id="clementos-commentary-review" data-update-flags="content geez talmidei-yeshua commentary">
+      <h3>📝 קלמנטוס (געז) — פרשנות עשירה בכל 9 הפרקים</h3>
+      <p>פרשנות מעמיקה בכל פרקי החיבור: ניתוח תיאולוגי, הקבלות למקרא ולמדרש (חגיגה, בראשית רבה, רמב&quot;ם, אבות), ועיון במוטיבים החוזרים. תוקן ייחוס החיבור ל&quot;מתלמידי ישוע הנוצרי&quot;.</p>
+      
+      <ul class="update-links" data-critical-links="true">
+        
+        <li>
+          <a href="/Source/texts/geez/clementos/" data-critical-link="clementos-index">לעמוד המבוא</a>
+        </li>
+        
+      </ul>
+      
+      <p class="update-meta">תאריך: יוני 2026 · קטגוריה: פרשנות וביאורים</p>
+    </article>
+    
+    <article class="update-card" data-update-id="daniel-syriac-commentary-enriched" data-update-flags="content aramaic daniel commentary">
+      <h3>📝 חזון דניאל הארמי-סורי — הערות פרשניות וניתוח תיאולוגי</h3>
+      <p>נוספו הערות פרשניות עשירות ל-15 עמודי החיבור: ניתוח תיאולוגי, השוואות למקורות חז&quot;ל והברית החדשה, וביאור מוטיבים אפוקליפטיים (משיח השקר, חבלי משיח, כלי המקדש).</p>
+      
+      <ul class="update-links" data-critical-links="true">
+        
+        <li>
+          <a href="/Source/texts/aramaic/apoc-daniel-syriac/" data-critical-link="daniel-syriac-index">לעמוד המבוא</a>
+        </li>
+        
+      </ul>
+      
+      <p class="update-meta">תאריך: יוני 2026 · קטגוריה: פרשנות וביאורים</p>
+    </article>
+    
+    <article class="update-card" data-update-id="abraham-b-full-reconstruction" data-update-flags="content slavic abraham">
+      <h3>📜 חזון אברהם נוסח ב׳ — שחזור מלא מילה-במילה</h3>
+      <p>נוסח ב׳ הוחלף בשחזור מלא מילה-במילה בדרך הנדסה לאחור מן הסלאבית הכנסייתית לרובד הארמי-העברי האפוקליפטי. 25 פרקים (א–כה).</p>
+      
+      <ul class="update-links" data-critical-links="true">
+        
+        <li>
+          <a href="/Source/texts/slavic/apocalypse-abraham/b/" data-critical-link="abraham-b-index">לעמוד המבוא</a>
+        </li>
+        
+      </ul>
+      
+      <p class="update-meta">תאריך: יוני 2026 · קטגוריה: תוכן ועדכוני נוסח</p>
+    </article>
+    
+    <article class="update-card" data-update-id="ezra-suri-commentary-separated" data-update-flags="content aramaic ezra commentary">
+      <h3>📝 חזון עזרא הסורי — הפרדת פירוש מטקסט</h3>
+      <p>25 הערות פרשניות הופרדו מטקסט החיבור והועברו למערכת הערות השוליים. הטקסט עצמו נשאר נקי.</p>
+      
+      <ul class="update-links" data-critical-links="true">
+        
+        <li>
+          <a href="/Source/texts/aramaic/chazon-ezra-suri/" data-critical-link="ezra-suri-index">לעמוד המבוא</a>
+        </li>
+        
+      </ul>
+      
+      <p class="update-meta">תאריך: יוני 2026 · קטגוריה: פרשנות וביאורים</p>
+    </article>
+    
+    <article class="update-card" data-update-id="enoch-qumran-display-improved" data-update-flags="ux aramaic enoch">
+      <h3>🎨 שיפור תצוגה: חנוך קומראן ארמית</h3>
+      <p>שופרה התצוגה של עדויות חנוך הארמיות מקומראן — הפרדה ברורה בין מקור ארמי, תרגום עברי וביאור. טקסט החיבור עצמו לא שונה.</p>
+      
+      <p class="update-meta">תאריך: יוני 2026 · קטגוריה: עיצוב ותצוגה</p>
+    </article>
+    
+    <article class="update-card" data-update-id="greek-recategorization" data-update-flags="navigation taxonomy greek armenian">
+      <h3>🧭 תיקון קיטלוג: חיבורים יווניים הועברו לקטגוריית יוונית</h3>
+      <p>שלושה חיבורים שנשתמרו ביוונית (אפוקליפסיס אסדרס, מעלה ישעיהו, ספר חנוך א׳) הועברו מקטגוריית ארמנית לקטגוריית יוונית. תוקן גם ייחוס קלמנטוס ל&quot;מתלמידי ישוע&quot;.</p>
+      
+      <p class="update-meta">תאריך: יוני 2026 · קטגוריה: ניווט ותוכן</p>
+    </article>
+    
+    <article class="update-card" data-update-id="new-texts-batch" data-update-flags="content arabic aramaic armenian greek hebrew slavic">
+      <h3>📚 נוספו 6 חיבורים חדשים + שפה חדשה (יוונית)</h3>
+      <p>ספרא דזרובבל (מהדורה חדשה), חזון דניאל הערבי, חזון דניאל הקופטי, חזון עזרא הסורי, חזון דניאל השביעי (נוסח מתוקן), והומיליות הקלמנטינה המדומה מיוונית. סה&quot;כ 25 ספרים ב-8 שפות.</p>
+      
+      <ul class="update-links" data-critical-links="true">
+        
+        <li>
+          <a href="/Source/texts/" data-critical-link="texts-index">לכל הכתבים</a>
+        </li>
+        
+      </ul>
+      
+      <p class="update-meta">תאריך: יוני 2026 · קטגוריה: תוכן חדש</p>
+    </article>
+    
+    <article class="update-card" data-update-id="home-page-redesigned" data-update-flags="ux home about">
+      <h3>🏠 דף הבית ודף האודות — עוצבו מחדש</h3>
+      <p>מבוא מורחב עם 5 ציטוטי פתיחה (רבי שמעון/זוהר כמרכזי, חזון עזרא, מכבים ב׳, רב יוסף, המאירי). דף אודות עם 7 סעיפים. טון מופחת אקדמי.</p>
+      
+      <p class="update-meta">תאריך: יוני 2026 · קטגוריה: עיצוב ותצוגה</p>
+    </article>
+    
+    <article class="update-card" data-update-id="parallel-toggle-added" data-update-flags="ux parallel aramaic">
+      <h3>🔄 כפתור הצג/הסתר מקור ארמי בתצוגה מקבילית</h3>
+      <p>בכל דף עם תצוגה מקבילית נוסף כפתור להצגת או הסתרת המקור הארמי, עם שמירת העדפה ב-localStorage.</p>
+      
+      <p class="update-meta">תאריך: יוני 2026 · קטגוריה: חווית משתמש</p>
+    </article>
+    
+    <article class="update-card" data-update-id="infrastructure-fixes" data-update-flags="infrastructure ci seo">
+      <h3>🛠️ תיקוני תשתית מערכתיים</h3>
+      <p>תיקון buildInfo (לא נטען כלל!), 24 עמודים חסרי permalink, RSS pubDate ל-RFC-822, sitemap דינמי, og:image meta, הסרת _redirects catch-all, איחוד CSS, הרחבת verify-permalinks, העברת booksWithHebrewChapterTitles ל-catalog.</p>
+      
+      <p class="update-meta">תאריך: יוני 2026 · קטגוריה: תשתית ואיכות</p>
+    </article>
+    
+    <article class="update-card" data-update-id="vision-daniel-armenian-finalized" data-update-flags="content armenian daniel">
+      <h3>📜 חזון דניאל (ארמני) עודכן לנוסח מלא ומתוקן</h3>
+      <p>החיבור הוחלף לנוסח העדכני המלא, והמבנה אורגן לפרקי קריאה מסודרים של שני סימנים בכל עמוד.</p>
+      
+      <ul class="update-links" data-critical-links="true">
+        
+        <li>
+          <a href="/Source/texts/armenian/vision-daniel-armenian/" data-critical-link="vision-daniel-armenian-index">לעמוד המבוא והנוסח</a>
+        </li>
+        
+      </ul>
+      
+      <p class="update-meta">תאריך: אפריל 2026 · קטגוריה: תוכן ועדכוני נוסח</p>
+    </article>
+    
+    <article class="update-card" data-update-id="armenian-daniel-added" data-update-flags="content armenian daniel">
+      <h3>📘 נוסף לאתר: חזון דניאל (ארמני)</h3>
+      <p>נפתח חיבור חדש במדור הארמני עם מבוא ייעודי ועמוד טקסט ראשי, בשיוך לדמות דניאל.</p>
+      
+      <ul class="update-links" data-critical-links="true">
+        
+        <li>
+          <a href="/Source/texts/armenian/vision-daniel-armenian/" data-critical-link="vision-daniel-armenian-index">לעמוד המבוא</a>
+        </li>
+        
+      </ul>
+      
+      <p class="update-meta">תאריך: אפריל 2026 · קטגוריה: תוכן חדש</p>
+    </article>
+    
+    <article class="update-card" data-update-id="navigation-armenian-enoch-fix" data-update-flags="navigation header taxonomy">
+      <h3>🧭 תפריט עליון עודכן לפי מקור/ייחוס</h3>
+      <p>תוקן הניווט העליון: ארמנית נוספה תחת &quot;לפי מקור&quot; וחנוך נוסף תחת &quot;לפי ייחוס&quot;.</p>
+      
+      <p class="update-meta">תאריך: אפריל 2026 · קטגוריה: ניווט</p>
+    </article>
+    
+    <article class="update-card" data-update-id="ci-third-party-hardening" data-update-flags="ci third-party">
+      <h3>🛡️ בדיקות טעינת שירותי צד ג&#39;</h3>
+      <p>נוספו בדיקות אוטומטיות לוודא ששירותי צד שלישי (Google Analytics, Microsoft Clarity, Disqus, Google Translate) נטענים כראוי — כיבוי מלא כש-enabled=false, ומניעת כפילויות טעינה.</p>
+      
+      <p class="update-meta">תאריך: מרץ 2026 · קטגוריה: תשתית ואיכות</p>
+    </article>
+    
+    <article class="update-card" data-update-id="clement-attribution-unified" data-update-flags="navigation taxonomy clementine">
+      <h3>👤 שיוך קלמנס אוחד תחת &quot;מתלמידי ישוע&quot;</h3>
+      <p>כל חיבורי קלמנס אוחדו תחת קטגוריית ייחוס אחת: &quot;מתלמידי ישוע הנוצרי&quot;.</p>
       
       <p class="update-meta">תאריך: מרץ 2026 · קטגוריה: ניווט ותוכן</p>
     </article>
     
-    <article class="update-card c-card c-card--accent" data-update-id="comments-enabled" data-update-flags="disqus discussion">
+    <article class="update-card" data-update-id="comments-enabled" data-update-flags="comments disqus">
       <h3>💬 נפתח אזור תגובות בעמודי תוכן</h3>
-      <p>ניתן להגיב כעת בעמודי מבוא ובפרקי טקסט, כדי לאפשר הערות, תיקונים ודיון סביב התכנים עצמם.</p>
-      
-      <ul class="update-links" data-critical-links="true">
-        
-        <li>
-          <a href="/Source/texts/aramaic/apoc-daniel-syriac/" data-critical-link="comments-book-index">לדוגמה: עמוד מבוא עם תגובות</a>
-        </li>
-        
-        <li>
-          <a href="/Source/texts/aramaic/apoc-daniel-syriac/page-1/" data-critical-link="comments-chapter-page">לדוגמה: פרק עם תגובות</a>
-        </li>
-        
-      </ul>
+      <p>אזור תגובות זמין כעת בתחתית כל עמוד חיבור.</p>
       
       <p class="update-meta">תאריך: מרץ 2026 · קטגוריה: קהילה ושיח</p>
     </article>
     
-    <article class="update-card c-card c-card--accent" data-update-id="text-presentation-stabilized" data-update-flags="presentation collections">
+    <article class="update-card" data-update-id="text-presentation-stabilized" data-update-flags="ux display">
       <h3>📚 שיפור הצגה וסידור של טקסטים</h3>
-      <p>בוצעו התאמות שמייצבות את סדר הפרקים, התצוגה באוספים וקישורי המעבר בין עמודים — לשימוש קריא ואחיד יותר.</p>
+      <p>שופרה הצגת הטקסטים בכל האתר: פסקאות, כותרות, ותצוגה מקבילית.</p>
       
       <p class="update-meta">תאריך: מרץ 2026 · קטגוריה: קריאות ושימושיות</p>
     </article>
     
-    <article class="update-card c-card c-card--accent" data-update-id="reading-experience-tuned" data-update-flags="ux reading">
+    <article class="update-card" data-update-id="reading-experience-tuned" data-update-flags="ux reading-mode font-controls">
       <h3>📖 שיפורי קריאות ותצוגה</h3>
-      <p>בוצעו מספר התאמות קטנות במבנה התוכן ובסגנון התצוגה כדי לשפר את נוחות הקריאה, במיוחד במכשירים ניידים ובמצבי קריאה שונים.</p>
+      <p>שופרו פקדי גודל גופן, מצב קריאה, וכפתור חזרה לראש.</p>
       
       <p class="update-meta">תאריך: מרץ 2026 · קטגוריה: חווית משתמש</p>
     </article>
@@ -218,7 +593,65 @@
 
         
     </main>
+
     <footer>
+      <div class="footer-inner">
+
+        <div class="footer-brand">
+          <span class="footer-brand__mark" aria-hidden="true">
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" style="width:100%;height:100%;">
+  <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="1.1"/>
+  <circle cx="50" cy="50" r="41.5" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.55"/>
+  <g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 50 30 L 22 73"/>
+    <path d="M 50 30 L 78 73"/>
+    <path d="M 36 73 L 64 73"/>
+  </g>
+  <circle cx="50" cy="19" r="2.1" fill="currentColor"/>
+  <line x1="28" y1="82" x2="72" y2="82" stroke="currentColor" stroke-width="0.7" opacity="0.6"/>
+</svg>
+</span>
+          <div class="footer-brand__text">
+            <span class="footer-brand__name">LOGIA</span>
+            <span class="footer-brand__tagline">אוצר הכתבים הגנוזים</span>
+          </div>
+        </div>
+        <p class="footer-tagline">השבת קולות עתיקים אל שפת המוצא — שחזורים, תרגומים וביאורים של טקסטים שנדחקו אל שולי המסורת.</p>
+
+        <nav class="footer-nav" aria-label="ניווט בפוטר">
+          <div class="footer-nav__col">
+            <h4>תוכן</h4>
+            <ul>
+              <li><a href="/Source/texts/">לפי מקור</a></li>
+              <li><a href="/Source/by-figure/">לפי ייחוס</a></li>
+              <li><a href="/Source/search/">חיפוש באוצר</a></li>
+              <li><a href="/Source/updates/">מה חדש</a></li>
+              <li><a href="/Source/updates/feed.xml">פיד RSS</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav__col">
+            <h4>המיזם</h4>
+            <ul>
+              <li><a href="/Source/about/">אודות LOGIA</a></li>
+              <li><a href="/Source/methodology/">מתודולוגיה</a></li>
+              <li><a href="/Source/license/">רישיון ושימוש</a></li>
+              <li><a href="/Source/privacy/">מדיניות פרטיות</a></li>
+              <li><a href="/Source/contact/">צור קשר</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav__col">
+            <h4>מקורות מובילים</h4>
+            <ul>
+              <li><a href="/Source/texts/hebrew/">עברית</a></li>
+              <li><a href="/Source/texts/slavic/">סלאבית</a></li>
+              <li><a href="/Source/texts/aramaic/">ארמית</a></li>
+              <li><a href="/Source/texts/armenian/">ארמנית</a></li>
+              <li><a href="/Source/texts/arabic/">ערבית</a></li>
+              <li><a href="/Source/texts/greek/">יוונית</a></li>
+            </ul>
+          </div>
+        </nav>
+
         
         <div class="footer-tool-group">
             <p class="footer-tool-copy">תרגום מכונה נטען רק אם בוחרים בכך, כדי לחסוך בקשות חיצוניות מיותרות.</p>
@@ -229,16 +662,25 @@
         </div>
         
 
-        
-
-        <p>&copy; כל הזכויות שמורות - 2025</p>
-        <p class="c-footer-meta">
-            <a href="/Source/sitemap.xml">Sitemap</a> | 
-            <a href="/Source/robots.txt">Robots</a>
-        </p>
+        <div class="footer-meta">
+          <p>התכנים באתר מופצים בנחלת הכלל (<a href="/Source/license/">CC0 1.0</a>) — ניתן להשתמש, לצטט ולשנות בחופשיות.</p>
+          <p class="c-footer-meta">
+            &copy; LOGIA — 2025–2026 ·
+            <a href="/Source/sitemap.xml">Sitemap</a> ·
+            <a href="/Source/robots.txt">Robots</a> ·
+            <a href="/Source/manifest.json">Manifest</a>
+          </p>
+        </div>
+      </div>
     </footer>
 
-    <script src="/Source/assets/js/site.js" defer></script>
+    <button id="backToTop" class="back-to-top" type="button" aria-label="חזרה לראש העמוד" title="חזרה לראש העמוד">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="12" y1="19" x2="12" y2="5"/>
+        <polyline points="5 12 12 5 19 12"/>
+      </svg>
+    </button>
 
+    <script src="/Source/assets/js/site.js" defer></script>
 </body>
 </html>
