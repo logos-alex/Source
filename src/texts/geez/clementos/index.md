@@ -8,7 +8,7 @@ draft: false
 tags:
   - texts
   - geez
-  - clement
+  - talmidei-yeshua
 permalink: /texts/geez/clementos/
 description: "מבוא לחלק השני של המסורת הקלמנטינית כפי שהשתמרה בגעז."
 ---

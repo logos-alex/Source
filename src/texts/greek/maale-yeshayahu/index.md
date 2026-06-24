@@ -8,7 +8,7 @@ figure: isaiah
 pageNumber: 0
 draft: false
 tags:
-  - armenian
+  - greek
   - isaiah
   - texts
 permalink: /texts/greek/maale-yeshayahu/

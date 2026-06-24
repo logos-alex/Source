@@ -1,6 +1,32 @@
 const site = require("./src/_data/site.json");
 const { displayBookTitle } = require("./lib/display-book-title.cjs");
 
+// Lightweight inline-markdown renderer for YAML note fields.
+// Processes: **bold**, *italic*, `code`, and [N] footnote refs.
+// Does NOT process block-level markdown (headings, paragraphs, lists) —
+// notes are already rendered inside <li> elements by the templates.
+// Note: Does NOT escape HTML — notes are authored content from YAML files
+// (not user input), and some notes intentionally contain HTML like <strong>.
+function renderInlineMarkdown(text) {
+  if (!text) return "";
+  let result = String(text);
+
+  // Bold: **text** → <strong>text</strong>
+  result = result.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+
+  // Italic: *text* → <em>text</em> (but not inside <strong> or after *)
+  result = result.replace(/(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)/g, "<em>$1</em>");
+
+  // Inline code: `text` → <code>text</code>
+  result = result.replace(/`(.+?)`/g, "<code>$1</code>");
+
+  // Links: [text](url) → <a href="url">text</a>
+  // (but not [N] which are footnote refs — those are handled by renderNoteRefs)
+  result = result.replace(/\[([^\]\d][^\]]*)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+
+  return result;
+}
+
 module.exports = function(eleventyConfig) {
   const normalizeUrl = (value = "") => String(value).replace(/\/+$/, "");
   const getPageNumber = (item, { prefix = "", book } = {}) => {
@@ -22,15 +48,23 @@ module.exports = function(eleventyConfig) {
     return isIntroPage ? 0 : null;
   };
 
+  // Render inline markdown (bold, italic, code, links) — used for YAML note fields
+  eleventyConfig.addFilter("renderMarkdownInline", renderInlineMarkdown);
+
+  // Combined filter: render inline markdown + process [N] footnote refs
   eleventyConfig.addFilter("renderNoteRefs", (html) => {
     if (!html) return "";
+    // First render inline markdown
+    let result = renderInlineMarkdown(html);
+    // Then process [N] footnote references
     const seenRefs = new Set();
-    return String(html).replace(/\[(\d+)\]/g, (_, noteNumber) => {
+    result = result.replace(/\[(\d+)\]/g, (_, noteNumber) => {
       const isFirstReference = !seenRefs.has(noteNumber);
       seenRefs.add(noteNumber);
       const idAttr = isFirstReference ? ` id="ref-${noteNumber}"` : "";
       return `<sup class="note-ref"><a${idAttr} href="#note-${noteNumber}" aria-label="הערה ${noteNumber}">[${noteNumber}]</a></sup>`;
     });
+    return result;
   });
 
   // Custom filter to find an index by URL

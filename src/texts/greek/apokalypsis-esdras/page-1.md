@@ -7,7 +7,7 @@ figure: ezra
 pageNumber: 1
 version: main
 tags:
-  - armenian
+  - greek
   - ezra
   - texts
 permalink: /texts/greek/apokalypsis-esdras/page-1/

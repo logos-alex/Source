@@ -7,7 +7,7 @@ figure: enoch
 pageNumber: 1
 version: main
 tags:
-  - armenian
+  - greek
   - enoch
   - texts
 permalink: /texts/greek/sefer-hanoch-a/page-1/

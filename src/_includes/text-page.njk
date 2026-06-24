@@ -8,8 +8,8 @@
   <article class="text-main" data-pagefind-body>
     <header class="text-header">
       {% if book | usesHebrewChapterTitles and pageNumber != 0 %}
-        <p class="text-header__eyebrow">פרק</p>
-        <h1 data-pagefind-meta="title">{{ pageNumber | toHebrewNumeral }}</h1>
+        <p class="text-header__eyebrow">פרק {{ pageNumber | toHebrewNumeral }}</p>
+        <h1 data-pagefind-meta="title">{{ title }}</h1>
       {% else %}
         <h1 data-pagefind-meta="title">{{ title }}</h1>
       {% endif %}
@@ -71,7 +71,7 @@
       <h3>הערות וביאורים</h3>
       <ul>
         {% for note in notes %}
-          <li id="note-{{ loop.index }}">{{ note | safe }} <a href="#ref-{{ loop.index }}" class="note-backlink" aria-label="חזרה למיקום ההפניה בגוף הטקסט">↩</a></li>
+          <li id="note-{{ loop.index }}">{{ note | renderMarkdownInline | safe }} <a href="#ref-{{ loop.index }}" class="note-backlink" aria-label="חזרה למיקום ההפניה בגוף הטקסט">↩</a></li>
         {% endfor %}
       </ul>
     </div>
