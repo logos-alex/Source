@@ -3,7 +3,7 @@ layout: category-page.njk
 title: "קלמנטוס (געז)"
 book: clementos-geez
 source: geez
-figure: mekorot-yeshmaelim
+figure: talmidei-yeshua
 draft: false
 tags:
   - texts

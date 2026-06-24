@@ -1,15 +1,387 @@
 {
   "release": {
-    "series": "updates-v3",
-    "id": "2026-04-navigation-and-armenian-daniel",
-    "minimumCardCount": 4
+    "series": "updates-v4",
+    "id": "2026-06-launch-prep",
+    "minimumCardCount": 6
   },
   "items": [
+    {
+      "id": "klalot-hashvatim-published",
+      "title": "📜 קללות השבטים — Le Maledizioni delle Tribù — פרסום ראשון",
+      "summary": "פרסום ראשון של חיבור אנטי-יהודי נוצרי נדיר ביותר מאיטליה (המאה ה-18, מקור מ-1386). החיבור מתאר קללות שנגזרו על שנים עשר שבטי ישראל בגלל חלקם לכאורה בצליבת ישו. מעולם לא הועלה על הדפוס ובקושי ידוע. תרגום עברי מכתב-יד Vat.ebr.461 בסגנון רבני-איטלקי.",
+      "dateLabel": "יוני 2026",
+      "pubDateRFC822": "Tue, 24 Jun 2026 00:00:00 GMT",
+      "category": "חיבורים חדשים",
+      "flags": [
+        "content",
+        "latin",
+        "talmidei-yeshua",
+        "new-text",
+        "unpublished-manuscript"
+      ],
+      "links": [
+        {
+          "id": "klalot-hashvatim-index",
+          "href": "/texts/latin/klalot-hashvatim/",
+          "label": "לעמוד המבוא"
+        }
+      ]
+    },
+    {
+      "id": "midrash-daniel-raba",
+      "title": "📖 מדרש דניאל רבא — הנדבח הפרשני לחזון דניאל הסורי",
+      "summary": "נוסף 'מדרש דניאל רבא' — אוסף חומר מדרשי רחב היקף העוסק בדניאל, חורבן הבית, הגלות, ושיבת ציון. המדרש מופץ כהערות צמודות לדפי חזון דניאל הסורי-ארמי — בשיטת פירוש רש\"י לתורה. 16 פרקי מדרש על פני 31 דפים, ממקורות מגוונים: יוסיפון, ירחמאל/גסטר, חזון דניאל העברי (גנזי שעכטר + פירקוביץ'), ומדרשי חז\"ל.",
+      "dateLabel": "יוני 2026",
+      "pubDateRFC822": "Tue, 24 Jun 2026 00:00:00 GMT",
+      "category": "פרשנות וביאורים",
+      "flags": [
+        "content",
+        "aramaic",
+        "daniel",
+        "commentary",
+        "midrash"
+      ],
+      "links": [
+        {
+          "id": "apoc-daniel-syriac-index",
+          "href": "/texts/aramaic/apoc-daniel-syriac/",
+          "label": "לעמוד המבוא"
+        }
+      ]
+    },
+    {
+      "id": "clementine-aramaic-commentary",
+      "title": "📝 הכרעות קלמנטיניות (ארמית) — פרשנות תיאולוגית־השוואתית מעמיקה",
+      "summary": "נוסף פירוש מעמיק על כל חמשת חיבורי הקלמנטינה הארמית (R1–R4 + הומיליות י–יד). הפירוש מופץ כהערות צמודות לדפים — בשיטת כתב אלמגאל. 82 הערות על פני 75 דפים, עם מובאות והקבלות ממקורות ישראל (מקרא, חז\"ל, היכלות, רס\"ג, רמב\"ם, רמב\"ן, קומראן, זוהר) ומאבות הכנסייה. הפירוש בנוי כהערות-שוליים ממוספרות עם הפניות מדויקות למקורות.",
+      "dateLabel": "יוני 2026",
+      "pubDateRFC822": "Tue, 24 Jun 2026 00:00:00 GMT",
+      "category": "פרשנות וביאורים",
+      "flags": [
+        "content",
+        "aramaic",
+        "talmidei-yeshua",
+        "commentary"
+      ],
+      "links": [
+        {
+          "id": "clementine-r1-index",
+          "href": "/texts/aramaic/clementine-r1/",
+          "label": "הכרעות ספר א"
+        },
+        {
+          "id": "clementine-homilies-index",
+          "href": "/texts/aramaic/clementine-homilies/",
+          "label": "הומיליות י–יד"
+        }
+      ]
+    },
+    {
+      "id": "clementine-greek-commentary",
+      "title": "📝 הומיליות הקלמנטינה המדומה (יוונית) — פירוש תיאולוגי־השוואתי מעמיק",
+      "summary": "נוסף פירוש מעמיק בן 22 פרקים על החיבור היווני, בסגנון פרשני הדת הקדמונים. הפירוש מביא מובאות והקבלות רבות ממקורות ישראל (מקרא, חז\"ל, היכלות, רס\"ג, רמב\"ם, רמב\"ן, קומראן) ומאבות הכנסייה (יוסטינוס, אירנאיוס, תרטוליאנוס, אוריגנס, אפרם סוריה). הפירוש מופץ כהערות צמודות לדפים הרלוונטיים — בשיטת כתב אלמגאל. נושאים: מלכות היחיד, הנביא האמיתי, הכזבים שבכתובים, מצוות הקורבנות, כלל הזוגות, הטבילה, ההשגחה, ועוד.",
+      "dateLabel": "יוני 2026",
+      "pubDateRFC822": "Tue, 24 Jun 2026 00:00:00 GMT",
+      "category": "פרשנות וביאורים",
+      "flags": [
+        "content",
+        "greek",
+        "talmidei-yeshua",
+        "commentary"
+      ],
+      "links": [
+        {
+          "id": "clementine-greek-index",
+          "href": "/texts/greek/clementine-homilies-greek/",
+          "label": "לעמוד המבוא"
+        }
+      ]
+    },
+    {
+      "id": "vat-ar-165-nusach-b-published",
+      "title": "📜 הכיתאב הגדול לכיפא — נוסח ב' (Vat.ar.165) — פרסום ראשון",
+      "summary": "פרסום ראשון של תרגום עברי מלא מתוך כתב-יד ותיקן ערבי 165 (1477) — נוסח מאוחר של מסורת ספר המגילות שלא פורסם. 24 דפים מתוך כתב-היד. מכסה: פתיחה, מעשה בראשית, בריאת אדם, מערת האוצרות, תפילות 24 השעות, וסיפורי האבות הקדמונים עד עליית חנוך.",
+      "dateLabel": "יוני 2026",
+      "pubDateRFC822": "Tue, 24 Jun 2026 00:00:00 GMT",
+      "category": "חיבורים חדשים",
+      "flags": [
+        "content",
+        "arabic",
+        "talmidei-yeshua",
+        "new-text",
+        "unpublished-manuscript"
+      ],
+      "links": [
+        {
+          "id": "ketav-almagal-nusach-b-index",
+          "href": "/texts/arabic/ketav-almagal-nusach-b/",
+          "label": "לעמוד המבוא"
+        }
+      ]
+    },
+    {
+      "id": "vat-ar-32-chazon-kifa-published",
+      "title": "📜 חזון כיפא לקלמיס (Vat.ar.32) — פרסום ראשון בכל שפה",
+      "summary": "פרסום ראשון של תעתיק בכל שפה של נוסחה זו של מסורת ספר המגילות. מתוך כתב-יד ותיקן ערבי 32 (1584). 57 דפים בשני שערים: שער א' — הנבואות המדיניות-אסכטולוגיות על מלכות האסלאם; שער ב' — צוואת פטרוס לקלמנס. כולל נספח: אגדת צנצנת השמן של מרים החוטאת.",
+      "dateLabel": "יוני 2026",
+      "pubDateRFC822": "Tue, 24 Jun 2026 00:00:00 GMT",
+      "category": "חיבורים חדשים",
+      "flags": [
+        "content",
+        "arabic",
+        "talmidei-yeshua",
+        "new-text",
+        "unpublished-manuscript"
+      ],
+      "links": [
+        {
+          "id": "chazon-kifa-laklemis-index",
+          "href": "/texts/arabic/chazon-kifa-laklemis/",
+          "label": "לעמוד המבוא"
+        }
+      ]
+    },
+    {
+      "id": "vat-ar-83-glia-de-klemis-published",
+      "title": "📜 גליא דקלמיס (Vat.ar.83) — חיבור עצמאי, פרסום ראשון",
+      "summary": "פרסום ראשון של תעתיק של אפוקליפסה ערבית-נוצרית עצמאית המיוחסת לקלמנס תלמיד פטרוס. מתוך כתב-יד ותיקן ערבי 83 (המאה ה-15). 16 דפים בשני שערים: שער ראשון — קטע לוגי-פילוסופי; שער שני — אפוקליפסה המתארת את מלכי הכתות והממלכות עד אחרית הימים. קרוב למסורת אפוקליפסת פסבדו-מתודיוס ולאגדת הקיסר האחרון.",
+      "dateLabel": "יוני 2026",
+      "pubDateRFC822": "Tue, 24 Jun 2026 00:00:00 GMT",
+      "category": "חיבורים חדשים",
+      "flags": [
+        "content",
+        "arabic",
+        "talmidei-yeshua",
+        "new-text",
+        "unpublished-manuscript"
+      ],
+      "links": [
+        {
+          "id": "glia-de-klemis-index",
+          "href": "/texts/arabic/glia-de-klemis/",
+          "label": "לעמוד המבוא"
+        }
+      ]
+    },
+    {
+      "id": "clementine-family-overview",
+      "title": "📚 משפחת הספרות הקלמנטינית — מבוא משותף בעמוד האודות",
+      "summary": "נוסף מבוא משותף בעמוד 'אודות' המאגד את כל חיבורי משפחת הספרות הפסאודו-קלמנטינית במיזם: המסורת הקלאסית (הומיליות והכרעות — ארמית ויוונית), המסורת האתיופית (קלמנטוס), ומסורת ספר המגילות בארבעת נוסחיה (הנוסח המפורסם + שלושה נוסחים מכתבי-יד הוותיקן). כולל הפניות הדדיות בין כל החיבורים.",
+      "dateLabel": "יוני 2026",
+      "pubDateRFC822": "Tue, 24 Jun 2026 00:00:00 GMT",
+      "category": "תשתית וניווט",
+      "flags": [
+        "content",
+        "navigation",
+        "clementine"
+      ],
+      "links": [
+        {
+          "id": "about-page",
+          "href": "/about/",
+          "label": "לעמוד האודות"
+        }
+      ]
+    },
+    {
+      "id": "ketav-almagal-full-commentary",
+      "title": "📝 כתב אלמגאל — פרשנות מורחבת לכל 34 הפרקים",
+      "summary": "נוספו 87 הערות פרשניות לכל פרקי החיבור: רקע מדרשי, הקבלות למקורות יהודיים (פירקי דרבי אליעזר, בראשית רבה, סנהדרין, חגיגה), זיהוי שכבות עריכה, וקישור לספרות הקלמנטינית ולזוהר.",
+      "dateLabel": "יוני 2026",
+      "pubDateRFC822": "Mon, 01 Jun 2026 00:00:00 GMT",
+      "category": "פרשנות וביאורים",
+      "flags": [
+        "content",
+        "arabic",
+        "talmidei-yeshua",
+        "commentary"
+      ],
+      "links": [
+        {
+          "id": "ketav-almagal-index",
+          "href": "/texts/arabic/ketav-almagal/",
+          "label": "לעמוד המבוא"
+        }
+      ]
+    },
+    {
+      "id": "clementos-commentary-review",
+      "title": "📝 קלמנטוס (געז) — פרשנות עשירה בכל 9 הפרקים",
+      "summary": "פרשנות מעמיקה בכל פרקי החיבור: ניתוח תיאולוגי, הקבלות למקרא ולמדרש (חגיגה, בראשית רבה, רמב\"ם, אבות), ועיון במוטיבים החוזרים. תוקן ייחוס החיבור ל\"מתלמידי ישוע הנוצרי\".",
+      "dateLabel": "יוני 2026",
+      "pubDateRFC822": "Mon, 01 Jun 2026 00:00:00 GMT",
+      "category": "פרשנות וביאורים",
+      "flags": [
+        "content",
+        "geez",
+        "talmidei-yeshua",
+        "commentary"
+      ],
+      "links": [
+        {
+          "id": "clementos-index",
+          "href": "/texts/geez/clementos/",
+          "label": "לעמוד המבוא"
+        }
+      ]
+    },
+    {
+      "id": "daniel-syriac-commentary-enriched",
+      "title": "📝 חזון דניאל הארמי-סורי — הערות פרשניות וניתוח תיאולוגי",
+      "summary": "נוספו הערות פרשניות עשירות ל-15 עמודי החיבור: ניתוח תיאולוגי, השוואות למקורות חז\"ל והברית החדשה, וביאור מוטיבים אפוקליפטיים (משיח השקר, חבלי משיח, כלי המקדש).",
+      "dateLabel": "יוני 2026",
+      "pubDateRFC822": "Mon, 01 Jun 2026 00:00:00 GMT",
+      "category": "פרשנות וביאורים",
+      "flags": [
+        "content",
+        "aramaic",
+        "daniel",
+        "commentary"
+      ],
+      "links": [
+        {
+          "id": "daniel-syriac-index",
+          "href": "/texts/aramaic/apoc-daniel-syriac/",
+          "label": "לעמוד המבוא"
+        }
+      ]
+    },
+    {
+      "id": "abraham-b-full-reconstruction",
+      "title": "📜 חזון אברהם נוסח ב׳ — שחזור מלא מילה-במילה",
+      "summary": "נוסח ב׳ הוחלף בשחזור מלא מילה-במילה בדרך הנדסה לאחור מן הסלאבית הכנסייתית לרובד הארמי-העברי האפוקליפטי. 25 פרקים (א–כה).",
+      "dateLabel": "יוני 2026",
+      "pubDateRFC822": "Mon, 01 Jun 2026 00:00:00 GMT",
+      "category": "תוכן ועדכוני נוסח",
+      "flags": [
+        "content",
+        "slavic",
+        "abraham"
+      ],
+      "links": [
+        {
+          "id": "abraham-b-index",
+          "href": "/texts/slavic/apocalypse-abraham/b/",
+          "label": "לעמוד המבוא"
+        }
+      ]
+    },
+    {
+      "id": "ezra-suri-commentary-separated",
+      "title": "📝 חזון עזרא הסורי — הפרדת פירוש מטקסט",
+      "summary": "25 הערות פרשניות הופרדו מטקסט החיבור והועברו למערכת הערות השוליים. הטקסט עצמו נשאר נקי.",
+      "dateLabel": "יוני 2026",
+      "pubDateRFC822": "Mon, 01 Jun 2026 00:00:00 GMT",
+      "category": "פרשנות וביאורים",
+      "flags": [
+        "content",
+        "aramaic",
+        "ezra",
+        "commentary"
+      ],
+      "links": [
+        {
+          "id": "ezra-suri-index",
+          "href": "/texts/aramaic/chazon-ezra-suri/",
+          "label": "לעמוד המבוא"
+        }
+      ]
+    },
+    {
+      "id": "enoch-qumran-display-improved",
+      "title": "🎨 שיפור תצוגה: חנוך קומראן ארמית",
+      "summary": "שופרה התצוגה של עדויות חנוך הארמיות מקומראן — הפרדה ברורה בין מקור ארמי, תרגום עברי וביאור. טקסט החיבור עצמו לא שונה.",
+      "dateLabel": "יוני 2026",
+      "pubDateRFC822": "Mon, 01 Jun 2026 00:00:00 GMT",
+      "category": "עיצוב ותצוגה",
+      "flags": [
+        "ux",
+        "aramaic",
+        "enoch"
+      ]
+    },
+    {
+      "id": "greek-recategorization",
+      "title": "🧭 תיקון קיטלוג: חיבורים יווניים הועברו לקטגוריית יוונית",
+      "summary": "שלושה חיבורים שנשתמרו ביוונית (אפוקליפסיס אסדרס, מעלה ישעיהו, ספר חנוך א׳) הועברו מקטגוריית ארמנית לקטגוריית יוונית. תוקן גם ייחוס קלמנטוס ל\"מתלמידי ישוע\".",
+      "dateLabel": "יוני 2026",
+      "pubDateRFC822": "Mon, 01 Jun 2026 00:00:00 GMT",
+      "category": "ניווט ותוכן",
+      "flags": [
+        "navigation",
+        "taxonomy",
+        "greek",
+        "armenian"
+      ]
+    },
+    {
+      "id": "new-texts-batch",
+      "title": "📚 נוספו 6 חיבורים חדשים + שפה חדשה (יוונית)",
+      "summary": "ספרא דזרובבל (מהדורה חדשה), חזון דניאל הערבי, חזון דניאל הקופטי, חזון עזרא הסורי, חזון דניאל השביעי (נוסח מתוקן), והומיליות הקלמנטינה המדומה מיוונית. סה\"כ 25 ספרים ב-8 שפות.",
+      "dateLabel": "יוני 2026",
+      "pubDateRFC822": "Mon, 01 Jun 2026 00:00:00 GMT",
+      "category": "תוכן חדש",
+      "flags": [
+        "content",
+        "arabic",
+        "aramaic",
+        "armenian",
+        "greek",
+        "hebrew",
+        "slavic"
+      ],
+      "links": [
+        {
+          "id": "texts-index",
+          "href": "/texts/",
+          "label": "לכל הכתבים"
+        }
+      ]
+    },
+    {
+      "id": "home-page-redesigned",
+      "title": "🏠 דף הבית ודף האודות — עוצבו מחדש",
+      "summary": "מבוא מורחב עם 5 ציטוטי פתיחה (רבי שמעון/זוהר כמרכזי, חזון עזרא, מכבים ב׳, רב יוסף, המאירי). דף אודות עם 7 סעיפים. טון מופחת אקדמי.",
+      "dateLabel": "יוני 2026",
+      "pubDateRFC822": "Mon, 01 Jun 2026 00:00:00 GMT",
+      "category": "עיצוב ותצוגה",
+      "flags": [
+        "ux",
+        "home",
+        "about"
+      ]
+    },
+    {
+      "id": "parallel-toggle-added",
+      "title": "🔄 כפתור הצג/הסתר מקור ארמי בתצוגה מקבילית",
+      "summary": "בכל דף עם תצוגה מקבילית נוסף כפתור להצגת או הסתרת המקור הארמי, עם שמירת העדפה ב-localStorage.",
+      "dateLabel": "יוני 2026",
+      "pubDateRFC822": "Mon, 01 Jun 2026 00:00:00 GMT",
+      "category": "חווית משתמש",
+      "flags": [
+        "ux",
+        "parallel",
+        "aramaic"
+      ]
+    },
+    {
+      "id": "infrastructure-fixes",
+      "title": "🛠️ תיקוני תשתית מערכתיים",
+      "summary": "תיקון buildInfo (לא נטען כלל!), 24 עמודים חסרי permalink, RSS pubDate ל-RFC-822, sitemap דינמי, og:image meta, הסרת _redirects catch-all, איחוד CSS, הרחבת verify-permalinks, העברת booksWithHebrewChapterTitles ל-catalog.",
+      "dateLabel": "יוני 2026",
+      "pubDateRFC822": "Mon, 01 Jun 2026 00:00:00 GMT",
+      "category": "תשתית ואיכות",
+      "flags": [
+        "infrastructure",
+        "ci",
+        "seo"
+      ]
+    },
     {
       "id": "vision-daniel-armenian-finalized",
       "title": "📜 חזון דניאל (ארמני) עודכן לנוסח מלא ומתוקן",
       "summary": "החיבור הוחלף לנוסח העדכני המלא, והמבנה אורגן לפרקי קריאה מסודרים של שני סימנים בכל עמוד.",
       "dateLabel": "אפריל 2026",
+      "pubDateRFC822": "Tue, 01 Apr 2026 00:00:00 GMT",
       "category": "תוכן ועדכוני נוסח",
       "flags": [
         "content",
@@ -22,14 +394,14 @@
           "href": "/texts/armenian/vision-daniel-armenian/",
           "label": "לעמוד המבוא והנוסח"
         }
-      ],
-      "pubDateRFC822": "Tue, 01 Apr 2026 00:00:00 GMT"
+      ]
     },
     {
       "id": "new-figure-category-yeshmaelim",
       "title": "🧭 נוספה קטגוריית ייחוס חדשה: ממקורות הישמעאלים",
       "summary": "נוספה קטגוריה חדשה בעמוד 'לפי ייחוס' עבור מסורות חוץ־תנ\"כיות בספרות חכמי האסלאם.",
       "dateLabel": "אפריל 2026",
+      "pubDateRFC822": "Tue, 01 Apr 2026 00:00:00 GMT",
       "category": "ניווט ותוכן",
       "flags": [
         "by-figure",
@@ -43,14 +415,14 @@
           "href": "/by-figure/mekorot-yeshmaelim/",
           "label": "לעמוד הייחוס החדש"
         }
-      ],
-      "pubDateRFC822": "Tue, 01 Apr 2026 00:00:00 GMT"
+      ]
     },
     {
       "id": "armenian-daniel-added",
       "title": "📘 נוסף לאתר: חזון דניאל (ארמני)",
       "summary": "נפתח חיבור חדש במדור הארמני עם מבוא ייעודי ועמוד טקסט ראשי, בשיוך לדמות דניאל.",
       "dateLabel": "אפריל 2026",
+      "pubDateRFC822": "Tue, 01 Apr 2026 00:00:00 GMT",
       "category": "תוכן חדש",
       "flags": [
         "content",
@@ -63,101 +435,83 @@
           "href": "/texts/armenian/vision-daniel-armenian/",
           "label": "לעמוד המבוא"
         }
-      ],
-      "pubDateRFC822": "Tue, 01 Apr 2026 00:00:00 GMT"
+      ]
     },
     {
       "id": "navigation-armenian-enoch-fix",
       "title": "🧭 תפריט עליון עודכן לפי מקור/ייחוס",
       "summary": "תוקן הניווט העליון: ארמנית נוספה תחת \"לפי מקור\" וחנוך נוסף תחת \"לפי ייחוס\".",
       "dateLabel": "אפריל 2026",
+      "pubDateRFC822": "Tue, 01 Apr 2026 00:00:00 GMT",
       "category": "ניווט",
       "flags": [
         "navigation",
         "header",
         "taxonomy"
-      ],
-      "pubDateRFC822": "Tue, 01 Apr 2026 00:00:00 GMT"
+      ]
     },
     {
       "id": "ci-third-party-hardening",
       "title": "🛡️ חיזוק בדיקות טעינת שירותי צד ג'",
-      "summary": "נוספה בדיקת בקרת צד ג' ל־CI, כולל ניקוי build לפני כל תרחיש כדי למנוע כשלים כתוצאה משאריות פלט ישן.",
-      "dateLabel": "אפריל 2026",
+      "summary": "נוספו בדיקות אוטומטיות לוודא ששירותי צד שלישי נטענים רק אחרי הסכמה מפורשת.",
+      "dateLabel": "מרץ 2026",
+      "pubDateRFC822": "Fri, 01 Mar 2026 00:00:00 GMT",
       "category": "תשתית ואיכות",
       "flags": [
         "ci",
-        "qa",
+        "privacy",
         "third-party"
-      ],
-      "pubDateRFC822": "Tue, 01 Apr 2026 00:00:00 GMT"
+      ]
     },
     {
       "id": "clement-attribution-unified",
       "title": "👤 שיוך קלמנס אוחד תחת \"מתלמידי ישוע\"",
-      "summary": "ברשימת \"לפי ייחוס\" בוצע איחוד: חיבורי קלמנס מוצגים תחת הקטגוריה \"מתלמידי ישוע הנוצרי\" במקום קטגוריה נפרדת.",
+      "summary": "כל חיבורי קלמנס אוחדו תחת קטגוריית ייחוס אחת: \"מתלמידי ישוע הנוצרי\".",
       "dateLabel": "מרץ 2026",
+      "pubDateRFC822": "Fri, 01 Mar 2026 00:00:00 GMT",
       "category": "ניווט ותוכן",
       "flags": [
-        "by-figure",
-        "taxonomy"
-      ],
-      "links": [
-        {
-          "id": "figure-talmidei-yeshua",
-          "href": "/by-figure/talmidei-yeshua/",
-          "label": "לעמוד הייחוס המעודכן"
-        }
-      ],
-      "pubDateRFC822": "Tue, 01 Mar 2026 00:00:00 GMT"
+        "navigation",
+        "taxonomy",
+        "clementine"
+      ]
     },
     {
       "id": "comments-enabled",
       "title": "💬 נפתח אזור תגובות בעמודי תוכן",
-      "summary": "ניתן להגיב כעת בעמודי מבוא ובפרקי טקסט, כדי לאפשר הערות, תיקונים ודיון סביב התכנים עצמם.",
+      "summary": "אזור תגובות זמין כעת בתחתית כל עמוד חיבור.",
       "dateLabel": "מרץ 2026",
+      "pubDateRFC822": "Fri, 01 Mar 2026 00:00:00 GMT",
       "category": "קהילה ושיח",
       "flags": [
-        "disqus",
-        "discussion"
-      ],
-      "links": [
-        {
-          "id": "comments-book-index",
-          "href": "/texts/aramaic/apoc-daniel-syriac/",
-          "label": "לדוגמה: עמוד מבוא עם תגובות"
-        },
-        {
-          "id": "comments-chapter-page",
-          "href": "/texts/aramaic/apoc-daniel-syriac/page-1/",
-          "label": "לדוגמה: פרק עם תגובות"
-        }
-      ],
-      "pubDateRFC822": "Tue, 01 Mar 2026 00:00:00 GMT"
+        "comments",
+        "disqus"
+      ]
     },
     {
       "id": "text-presentation-stabilized",
       "title": "📚 שיפור הצגה וסידור של טקסטים",
-      "summary": "בוצעו התאמות שמייצבות את סדר הפרקים, התצוגה באוספים וקישורי המעבר בין עמודים — לשימוש קריא ואחיד יותר.",
+      "summary": "שופרה הצגת הטקסטים בכל האתר: פסקאות, כותרות, ותצוגה מקבילית.",
       "dateLabel": "מרץ 2026",
+      "pubDateRFC822": "Fri, 01 Mar 2026 00:00:00 GMT",
       "category": "קריאות ושימושיות",
       "flags": [
-        "presentation",
-        "collections"
-      ],
-      "pubDateRFC822": "Tue, 01 Mar 2026 00:00:00 GMT"
+        "ux",
+        "display"
+      ]
     },
     {
       "id": "reading-experience-tuned",
       "title": "📖 שיפורי קריאות ותצוגה",
-      "summary": "בוצעו מספר התאמות קטנות במבנה התוכן ובסגנון התצוגה כדי לשפר את נוחות הקריאה, במיוחד במכשירים ניידים ובמצבי קריאה שונים.",
+      "summary": "שופרו פקדי גודל גופן, מצב קריאה, וכפתור חזרה לראש.",
       "dateLabel": "מרץ 2026",
+      "pubDateRFC822": "Fri, 01 Mar 2026 00:00:00 GMT",
       "category": "חווית משתמש",
       "flags": [
         "ux",
-        "reading"
-      ],
-      "pubDateRFC822": "Tue, 01 Mar 2026 00:00:00 GMT"
+        "reading-mode",
+        "font-controls"
+      ]
     }
   ]
 }

@@ -3,7 +3,7 @@ layout: text-page
 title: פרק ג (עמוד ג)
 book: clementos-geez
 source: geez
-figure: mekorot-yeshmaelim
+figure: talmidei-yeshua
 pageNumber: 3
 permalink: /texts/geez/clementos/page-3/
 version: main

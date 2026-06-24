@@ -3,7 +3,7 @@ layout: text-page
 title: פרק ד (עמוד ד)
 book: clementos-geez
 source: geez
-figure: mekorot-yeshmaelim
+figure: talmidei-yeshua
 pageNumber: 4
 permalink: /texts/geez/clementos/page-4/
 version: main

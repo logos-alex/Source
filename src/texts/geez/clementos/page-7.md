@@ -3,7 +3,7 @@ layout: text-page
 title: פרק ז (עמוד ז)
 book: clementos-geez
 source: geez
-figure: mekorot-yeshmaelim
+figure: talmidei-yeshua
 pageNumber: 7
 permalink: /texts/geez/clementos/page-7/
 version: main

@@ -3,7 +3,7 @@ layout: text-page
 title: פרק א (עמוד א)
 book: clementos-geez
 source: geez
-figure: mekorot-yeshmaelim
+figure: talmidei-yeshua
 pageNumber: 1
 permalink: /texts/geez/clementos/page-1/
 version: main

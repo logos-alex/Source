@@ -3,7 +3,7 @@ layout: text-page
 title: פרק ב (עמוד ב)
 book: clementos-geez
 source: geez
-figure: mekorot-yeshmaelim
+figure: talmidei-yeshua
 pageNumber: 2
 permalink: /texts/geez/clementos/page-2/
 version: main

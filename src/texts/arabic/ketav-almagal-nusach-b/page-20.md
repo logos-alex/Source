@@ -1,0 +1,20 @@
+---
+layout: text-page
+title: "עמוד כב — שְׁבָרִים מִדַּפֵּי הַשּׁוּלַיִם"
+book: ketav-almagal-nusach-b
+source: arabic
+figure: talmidei-yeshua
+pageNumber: 20
+version: main
+tags:
+  - arabic
+  - talmidei-yeshua
+  - texts
+permalink: /texts/arabic/ketav-almagal-nusach-b/page-20/
+rarity: unpublished
+manuscript: "Vat.ar.165 (1477)"
+---
+
+…אֶל הַפַּרְדֵּס. וְשָׂם אוֹתוֹ בְּ… וּשְׁנֵיהֶם בְּכָל… וּבָרָא… וּבֵרֵךְ… הָיוּ… וְאָמַר… אָדָם וְ… שָׁנָה… אַרְבָּעִים… וְהָיָה… בַּלַּיְלָה… הַפְּרִי… עָבַר… וְהָיָה… הַחֲנֵפִים… מַה שֶּׁהָיָה… הַחֵטְא… פֹּעַל הַצַּ… הָאַחֵר… הַשֶּׁ… הַשַּׁיְ… אַחִי… כְּ… עַל הַ…
+
+    [הֶעָרָה: הָעַמּוּד הַזֶּה מַכִּיל בְּעִקָּר מִלִּים בּוֹדְדוֹת מִשּׁוּלֵי הַדַּף.]

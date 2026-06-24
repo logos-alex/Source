@@ -39,11 +39,21 @@
           {% set contentParts = content.split("<hr>") %}
         {% endif %}
         {% if contentParts.length >= 2 %}
-          <div class="parallel-layout">
-            <div class="column-source">
+          <div class="parallel-controls" role="group" aria-label="תצוגת מקור">
+            <button class="parallel-toggle" type="button" data-parallel-toggle="show" aria-pressed="true">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="12" y1="3" x2="12" y2="21"/></svg>
+              <span>מקור + תרגום</span>
+            </button>
+            <button class="parallel-toggle" type="button" data-parallel-toggle="hide" aria-pressed="false">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+              <span>תרגום בלבד</span>
+            </button>
+          </div>
+          <div class="parallel-layout" data-parallel-container>
+            <div class="column-source" data-parallel-source>
               {{ (contentParts[0] or "") | replace("<h3>מקור ארמי</h3>", "") | renderNoteRefs | safe }}
             </div>
-            <div class="column-translation">
+            <div class="column-translation" data-parallel-translation>
               {{ (contentParts[1] or "") | renderNoteRefs | safe }}
             </div>
           </div>

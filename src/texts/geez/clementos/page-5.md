@@ -3,7 +3,7 @@ layout: text-page
 title: פרק ה (עמוד ה)
 book: clementos-geez
 source: geez
-figure: mekorot-yeshmaelim
+figure: talmidei-yeshua
 pageNumber: 5
 permalink: /texts/geez/clementos/page-5/
 version: main

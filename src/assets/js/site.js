@@ -215,6 +215,44 @@
     });
   }
 
+  function initParallelToggle() {
+    const toggles = document.querySelectorAll('.parallel-toggle');
+    if (!toggles.length) return;
+
+    const STORAGE_KEY = 'parallelSourceVisible';
+
+    // Load preference (default: show source)
+    const showSource = localStorage.getItem(STORAGE_KEY) !== 'false';
+
+    function applyState(visible) {
+      document.querySelectorAll('[data-parallel-container]').forEach(container => {
+        if (visible) {
+          container.classList.remove('parallel-source-hidden');
+        } else {
+          container.classList.add('parallel-source-hidden');
+        }
+      });
+
+      toggles.forEach(btn => {
+        const mode = btn.dataset.parallelToggle;
+        const isActive = (mode === 'show' && visible) || (mode === 'hide' && !visible);
+        btn.setAttribute('aria-pressed', String(isActive));
+      });
+    }
+
+    // Apply initial state
+    applyState(showSource);
+
+    toggles.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const mode = btn.dataset.parallelToggle;
+        const visible = mode === 'show';
+        localStorage.setItem(STORAGE_KEY, String(visible));
+        applyState(visible);
+      });
+    });
+  }
+
   if (themeToggle && htmlRoot) {
     themeToggle.addEventListener('click', () => {
       const current = htmlRoot.getAttribute('data-theme');
@@ -229,6 +267,7 @@
   initMobileNavigation();
   initTocDropdowns();
   initReadingProgress();
+  initParallelToggle();
 })();
 
 window.__externalScriptRegistry = window.__externalScriptRegistry || new Set();
