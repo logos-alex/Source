@@ -277,6 +277,7 @@ const THIRD_PARTY_LOADED_KEY = 'thirdPartyLoadedServices';
 const runtimeThirdParty = (window.siteRuntimeConfig && window.siteRuntimeConfig.thirdParty) || {};
 const runtimeAnalytics = runtimeThirdParty.analytics || {};
 const runtimeClarity = runtimeThirdParty.clarity || {};
+const runtimeDisqus = runtimeThirdParty.disqus || {};
 const runtimeTranslate = runtimeThirdParty.translate || {};
 
 function readJsonStorage(key) {
@@ -385,6 +386,50 @@ function loadTranslate() {
   markServiceLoaded('translate');
 }
 
+function loadDisqus() {
+  if (!runtimeDisqus.enabled || isServiceLoaded('disqus') || !runtimeDisqus.shortname) return;
+
+  const configScript = document.getElementById('disqus-page-config');
+  let pageUrl = window.location.href;
+  let pageIdentifier = window.location.pathname;
+
+  if (configScript) {
+    try {
+      const parsed = JSON.parse(configScript.textContent || '{}');
+      if (parsed.pageUrl) pageUrl = parsed.pageUrl;
+      if (parsed.pageIdentifier) pageIdentifier = parsed.pageIdentifier;
+    } catch (_e) {
+      // Fall back to window.location values
+    }
+  }
+
+  // Configure Disqus before injecting the loader
+  window.disqus_config = function disqusConfig() {
+    this.page.url = pageUrl;
+    this.page.identifier = pageIdentifier;
+  };
+
+  // Reveal the container
+  const thread = document.getElementById('disqus_thread');
+  if (thread) {
+    thread.hidden = false;
+  }
+
+  // Hide the inline consent prompt now that consent was given
+  document.querySelectorAll('[data-consent-prompt="disqus"]').forEach((el) => {
+    el.hidden = true;
+  });
+
+  const shortname = encodeURIComponent(runtimeDisqus.shortname);
+  ensureExternalScript({
+    service: 'disqus',
+    src: `https://${shortname}.disqus.com/embed.js`,
+    id: 'disqus-embed'
+  });
+
+  markServiceLoaded('disqus');
+}
+
 function shouldLoadService(service, config) {
   if (!config || !config.enabled) return false;
   if (!config.requiresConsent) return true;
@@ -402,6 +447,7 @@ function initThirdPartyButtons() {
       button.textContent = 'אושר';
       if (service === 'analytics') loadAnalytics();
       if (service === 'clarity') loadClarity();
+      if (service === 'disqus') loadDisqus();
     });
   });
 
@@ -419,6 +465,7 @@ function initThirdPartyButtons() {
 function initThirdPartyIntegrations() {
   if (shouldLoadService('analytics', runtimeAnalytics)) loadAnalytics();
   if (shouldLoadService('clarity', runtimeClarity)) loadClarity();
+  if (shouldLoadService('disqus', runtimeDisqus)) loadDisqus();
   if (shouldLoadService('translate', runtimeTranslate) && runtimeTranslate.loadStrategy !== 'on-interaction') {
     loadTranslate();
   }

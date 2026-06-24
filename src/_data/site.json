@@ -24,6 +24,12 @@
       "requiresConsent": true,
       "loadStrategy": "after-consent-and-interaction"
     },
+    "disqus": {
+      "enabled": true,
+      "shortname": "hebrew-aramaic-sources",
+      "requiresConsent": true,
+      "loadStrategy": "after-consent"
+    },
     "translate": {
       "enabled": true,
       "requiresConsent": false,

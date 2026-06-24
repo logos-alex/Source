@@ -5,12 +5,13 @@ book: tsavaat-yeshua
 source: aramaic
 figure: talmidei-yeshua
 draft: false
+comingSoon: true
 tags:
   - texts
   - aramaic
   - clement
 permalink: /texts/aramaic/tsavaat-yeshua/
-description: "מבוא לחלק השלישי בסדרת שמונת הספרים של קלמנטוס: המקור הסורי של צוואת ישוע והחזון האפוקליפטי על קץ הימים."
+description: "מבוא לחלק השלישי בסדרת שמונת הספרים של קלמנטוס: המקור הסורי של צוואת ישוע והחזון האפוקליפטי על קץ הימים. טקסט החיבור עצמו יתווסף בהמשך."
 ---
 
 ## החלק השלישי בסדרת "שמונת הספרים של קלמנטוס" – המקור הסורי

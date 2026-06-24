@@ -452,3 +452,52 @@ Stage Summary:
 - 2 חיבורי חנוך חדשים: 10 + 8 = 18 עמודים
 - סה"כ אתר: 491 עמודי HTML, 1800 קבצים, 19 ספרים
 - חנוך מיוצג כעת בשלוש צורות: שחזור מיוונית (sefer-hanoch-a), עדויות ארמיות מקומראן (enoch-qumran-aramaic), וחזון חנוך הצדיק הארמני (vision-enoch-righteous-armenian)
+
+---
+Task ID: 16
+Agent: Super Z (main) — Pre-publish deep audit + critical privacy/SEO/nav fixes
+Task: בחינה יסודית מקיפה ומעמיקה לקראת פרסום ברשת — תיקוני פרטיות, SEO, ניווט ו-UX
+
+Work Log:
+- [A] תיקון קריטי — Disqus opt-in (הבעיה החמורה ביותר שנמצאה):
+  · זיהוי: ב-worklog Task 1 נטען ש-Disqus מקבל כפתור הסכמה דרך disqus.njk partial, אך ה-partial מעולם לא נוצר — בפועל, בכל 3 התבניות (text-page/category-page/book-index) נטען embed.js של Disqus מיד בטעינת העמוד, ללא כל הסכמה. זתיירוד חמור של מדיניות הפרטיות (opt-in).
+  · יצירת src/_includes/disqus.njk: תבנית partial חדשה עם כפתור הסכמה מפורש, אזור הסבר, וקישור למדיניות הפרטיות.
+  · החלפת כל ההטמעות הישירות ב-3 התבניות: {% include "disqus.njk" %} במקום סקריפט ישיר.
+  · הוספת קונפיגורציית disqus ב-site.json (thirdParty.disqus: enabled/requiresConsent/loadStrategy).
+  · הרחבת site.js: loadDisqus() פונקציה שטוענת embed.js רק לאחר הסכמה מפורשת, עם קריאת page config מ-JSON מוטמע.
+  · עדכון base.njk: runtime config כולל disqus, footer כולל כפתור "אפשר Disqus (תגובות)".
+- [B] תיקון קריטי — סנכרון privacy.md:
+  · החלפת הטקסט השגוי "מצב ברירת מחדל: פעיל" ל"כבוי. מופיע אך ורק ככפתור הסכמה... ואינו נטען אלא לאחר שהמשתמש אישר זאת מפורשות."
+  · עדכון כותרת כדי להדגיש שהטמעה היא רק בדפי חיבור (לא בכל הדפים).
+- [C] תיקון קריטי — הרחבת CI:
+  · verify-third-party-controls.mjs: הוספת בדיקות Disqus — איסור על הזרקת embed.js ב-base.njk וב-3 התבניות, בדיקת היעדר disqus_thread במצב disabled, בדיקת היעדר תגי <script src=...disqus.com/embed.js> בכל ה-HTML הבנוי (קריטי!), הגבלת כפילויות כפתורי consent.
+  · הוספת loadDisqus ו-data-consent-service="disqus" לבדיקות ה-site.js.
+- [D] תיקון ניווט:
+  · הוספת כרטיס "ממקורות הישמעאלים" ל-by-figure/index.md (היה קיים ב-dropdown nav אך חסר בעמוד האינדקס — קישור 404 מהניווט לעמוד שלא מופיע ברשימה הראשית).
+- [E] שיפורי SEO:
+  · תיקון og:image/twitter:image — שימוש דינמי ב-site.pathPrefix במקום hardcode "/Source/" (מאפשר פריסה תחת נתיב שונה).
+  · הוספת JSON-LD WebSite עם SearchAction בדף הבית (מאפשר sitelinks search box ב-Google).
+  · הוספת JSON-LD Organization עם logo בדף הבית.
+- [F] ניקוי breadcrumbs.njk:
+  · הסרת fallback מיותר `{% if sourceHebrew == 'aramaic' %}{% set sourceHebrew = 'ארמית' %}{% endif %}` (languages.json כבר מכסה את כל השפות).
+  · החלפת `<li><a href="{{ page.url }}">{{ title }}</a></li>` (קישור לעמוד עצמו — לא תקין) ב-`<li class="breadcrumb-current" aria-current="page">{{ title }}</li>` (סמנטיקה נכונה).
+- [G] שיפור נגישות:
+  · הוספת lang="he" ו-aria-live="polite" ל-#disqus_thread.
+  · הוספת role="region" ו-aria-label לאזור ה-consent.
+  · שיפור ניווט מקלדת בכפתור ה-consent (aria-controls).
+- [H] תיוג חיבורים בהכנה:
+  · הוספת שדה comingSoon: true ל-tsavaat-yeshua (חיבור עם מבוא בלבד, ללא פרקים).
+  · יצירת patch script להוספת badge "בקרוב" לכל 8 דפי אינדקס השפות + by-figure.njk.
+  · הוספת .book-card__badge ו-.book-card--coming-soon ב-CSS (גבול מקווקו, רקע רך).
+  · עדכון description של tsavaat-yeshua לציין שהטקסט בהכנה.
+- [I] תיעוד:
+  · הסרת סקריפט patch זמני (patch-coming-soon-badge.py) — השינויים כבר הוחלו.
+
+Stage Summary:
+- **תיקון פרטיות קריטי**: Disqus כעת opt-in באמת (לא רק בטענות ה-worklog) — embed.js אינו נטען עד שהמשתמש לוחץ על כפתור הסכמה מפורש. זה תיקן סתירה חמורה בין מדיניות הפרטיות לבין המציאות בשטח.
+- **CI חיזוק**: verify-third-party-controls.mjs כעת תופס רגרסיה של טעינת Disqus מוקדמת — בעיה שהייתה בלתי-נראית עד כה.
+- **תיקון ניווט**: הקישור ל"ממקורות הישמעאלים" בתפריט העליון כעת מוביל לעמוד שמופיע גם ברשימת by-figure הראשית (לא רק ב-dropdown).
+- **SEO משופר**: og:image דינמי לנתיב פריסה, JSON-LD WebSite+Organization עם SearchAction (sitelinks search box), תיקון breadcrumbs סמנטי (aria-current).
+- **UX משופר**: badge "בקרוב" על חיבורי tsavaat-yeshua (ועתידיים נוספים) — הקורא יודע מיד איזה חיבור מלא ואיזה בהכנה.
+- **נגישות**: lang, aria-live, aria-controls, aria-current בכל המקומות הרלוונטיים.
+- סה"כ 11 קבצים שונו: disqus.njk (חדש), text-page.njk, category-page.njk, book-index.njk, base.njk, breadcrumbs.njk, site.js, site.json, privacy.md, style.css, by-figure.njk, by-figure/index.md, tsavaat-yeshua/index.md, ו-8 דפי אינדקס שפה.

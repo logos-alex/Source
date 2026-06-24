@@ -6,8 +6,9 @@
     {% set thirdParty = site.thirdParty or {} %}
     {% set analytics = thirdParty.analytics or {} %}
     {% set clarity = thirdParty.clarity or {} %}
+    {% set disqus = thirdParty.disqus or {} %}
     {% set translate = thirdParty.translate or {} %}
-    {% set hasConsentControls = (analytics.enabled and analytics.requiresConsent) or (clarity.enabled and clarity.requiresConsent) %}
+    {% set hasConsentControls = (analytics.enabled and analytics.requiresConsent) or (clarity.enabled and clarity.requiresConsent) or (disqus.enabled and disqus.requiresConsent) %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }} | LOGIA — אוצר הכתבים הגנוזים</title>
@@ -32,13 +33,14 @@
     <link rel="canonical" href="{{ site.origin }}{{ page.url | url }}">
 
     <!-- Open Graph Tags for Social Media -->
+    {% set ogImageUrl = site.origin ~ site.pathPrefix ~ 'assets/og-image.png' %}
     <meta property="og:type" content="{% if pageNumber == 0 %}book{% else %}article{% endif %}">
     <meta property="og:title" content="{{ title }} | LOGIA — אוצר הכתבים הגנוזים">
     <meta property="og:description" content="{% if description %}{{ description }}{% else %}מסע אל הכתבים הגנוזים והאבודים של המסורת היהודית. תרגומים, ביאורים ועיון בטקסטים שנדחקו אל השוליים.{% endif %}">
     <meta property="og:url" content="{{ site.origin }}{{ page.url | url }}">
     <meta property="og:site_name" content="LOGIA — אוצר הכתבים הגנוזים">
     <meta property="og:locale" content="he_IL">
-    <meta property="og:image" content="{{ site.origin }}/Source/assets/og-image.png">
+    <meta property="og:image" content="{{ ogImageUrl }}">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="לוגו LOGIA — אוצר הכתבים הגנוזים, חותם מעגלי עם האות למדא על רקע שנהב-ברונזה">
@@ -48,7 +50,7 @@
     <meta name="twitter:title" content="{{ title }} | LOGIA — אוצר הכתבים הגנוזים">
     <meta name="twitter:description" content="{% if description %}{{ description }}{% else %}מסע אל הכתבים הגנוזים והאבודים של המסורת היהודית. תרגומים, ביאורים ועיון בטקסטים שנדחקו אל השוליים.{% endif %}">
     <meta name="twitter:url" content="{{ site.origin }}{{ page.url | url }}">
-    <meta name="twitter:image" content="{{ site.origin }}/Source/assets/og-image.png">
+    <meta name="twitter:image" content="{{ ogImageUrl }}">
     <meta name="twitter:image:alt" content="לוגו LOGIA — אוצר הכתבים הגנוזים">
 
     <!-- JSON-LD Structured Data -->
@@ -66,6 +68,39 @@
       }
     }
     </script>
+    {% if page.url == '/' %}
+    {# WebSite + Organization structured data — only on homepage #}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "LOGIA — אוצר הכתבים הגנוזים",
+      "alternateName": "LOGIA",
+      "url": "{{ site.origin }}{{ site.pathPrefix }}",
+      "inLanguage": "he",
+      "description": "אוצר הכתבים הגנוזים — איסוף, תרגום והנגשה של ספרות יהודית ויהודו-נוצרית קדומה.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "{{ site.origin }}{{ site.pathPrefix }}search/?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "LOGIA — אוצר הכתבים הגנוזים",
+      "url": "{{ site.origin }}{{ site.pathPrefix }}",
+      "logo": "{{ ogImageUrl }}",
+      "description": "אוצר הכתבים הגנוזים — איסוף, תרגום והנגשה של ספרות יהודית ויהודו-נוצרית קדומה.",
+      "sameAs": []
+    }
+    </script>
+    {% endif %}
 
     {# Fonts: self-hosted Frank Ruhl Libre + Noto Serif Hebrew + EB Garamond (Latin display) #}
     {% if fonts.useSelfHosted and fonts.selfHostedStylesheet %}
@@ -117,6 +152,12 @@
             projectId: "{{ clarity.projectId or '' }}",
             requiresConsent: {{ "true" if clarity.requiresConsent else "false" }},
             loadStrategy: "{{ clarity.loadStrategy or 'disabled' }}"
+          },
+          disqus: {
+            enabled: {{ "true" if disqus.enabled else "false" }},
+            shortname: "{{ disqus.shortname or site.disqusShortname or '' }}",
+            requiresConsent: {{ "true" if disqus.requiresConsent else "false" }},
+            loadStrategy: "{{ disqus.loadStrategy or 'disabled' }}"
           },
           translate: {
             enabled: {{ "true" if translate.enabled else "false" }},
@@ -282,12 +323,15 @@
         {% endif %}
         {% if hasConsentControls %}
         <div class="footer-tool-group footer-tool-group--privacy">
-            <p class="footer-tool-copy">שירותי מדידה חיצוניים כבויים כברירת מחדל וייטענו רק אחרי אישור מפורש.</p>
+            <p class="footer-tool-copy">שירותי צד-שלישי כבויים כברירת מחדל וייטענו רק אחרי אישור מפורש.</p>
             {% if analytics.enabled and analytics.requiresConsent %}
             <button class="footer-action" type="button" data-consent-service="analytics">אפשר Google Analytics</button>
             {% endif %}
             {% if clarity.enabled and clarity.requiresConsent %}
             <button class="footer-action" type="button" data-consent-service="clarity">אפשר Microsoft Clarity</button>
+            {% endif %}
+            {% if disqus.enabled and disqus.requiresConsent %}
+            <button class="footer-action" type="button" data-consent-service="disqus">אפשר Disqus (תגובות)</button>
             {% endif %}
         </div>
         {% endif %}

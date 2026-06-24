@@ -113,27 +113,11 @@
     {% endif %}
   </nav>
 
-  {# --- אזור התגובות --- #}
-  <div id="comments-section" class="c-section-divider">
-    <h3>תגובות</h3>
-    {% if site.disqusShortname %}
-      <div id="disqus_thread"></div>
-      <script>
-          var disqus_config = function () {
-              this.page.url = "{{ site.origin }}{{ page.url | url }}";
-              this.page.identifier = "{{ page.url | url }}";
-          };
-          (function() {
-              var d = document, s = d.createElement('script');
-              s.src = 'https://{{ site.disqusShortname }}.disqus.com/embed.js';
-              s.setAttribute('data-timestamp', +new Date());
-              (d.head || d.body).appendChild(s);
-          })();
-      </script>
-      <noscript>יש לאפשר JavaScript כדי לצפות ב<a href="https://disqus.com/?ref_noscript">תגובות המופעלות על ידי Disqus.</a></noscript>
-    {% else %}
-      <p class="c-muted">מערכת התגובות כבויה כרגע בהגדרות האתר.</p>
-    {% endif %}
-  </div>
+  {# --- אזור התגובות (opt-in בלבד, מופעל רק לאחר הסכמה מפורשת) --- #}
+  {% set disqusConfig = { pageUrl: site.origin ~ page.url, pageIdentifier: page.url } %}
+  <script type="application/json" id="disqus-page-config" data-disqus-shortname="{{ site.disqusShortname }}">
+    {{ disqusConfig | dump | safe }}
+  </script>
+  {% include "disqus.njk" %}
 
 {% endblock %}

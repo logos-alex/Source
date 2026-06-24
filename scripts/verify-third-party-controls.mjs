@@ -57,12 +57,23 @@ try {
   assert(!baseTemplate.includes('https://www.googletagmanager.com/gtag/js'), 'base.njk should not eagerly inject GA');
   assert(!baseTemplate.includes('https://www.clarity.ms/tag/'), 'base.njk should not eagerly inject Clarity');
   assert(!baseTemplate.includes('translate.google.com/translate_a/element.js'), 'base.njk should not eagerly inject Google Translate');
+  // Disqus must never be eagerly injected by base.njk — only loaded after consent via site.js
+  assert(!baseTemplate.includes('.disqus.com/embed.js'), 'base.njk must not eagerly inject Disqus embed.js');
+  // The text-page / category-page / book-index includes must also avoid eager Disqus loading
+  for (const includeName of ['text-page.njk', 'category-page.njk', 'book-index.njk']) {
+    const includePath = path.join(repoRoot, 'src/_includes', includeName);
+    const includeText = readFileSync(includePath, 'utf8');
+    assert(!includeText.includes('.disqus.com/embed.js'), `${includeName} must not eagerly inject Disqus embed.js — use {% include "disqus.njk" %} instead`);
+  }
   assert(siteJs.includes('window.__externalScriptRegistry'), 'site.js should keep a registry for deduplicating external scripts');
   assert(siteJs.includes('data-external-service'), 'site.js should mark injected external scripts for duplicate prevention');
+  assert(siteJs.includes('loadDisqus'), 'site.js should expose a loadDisqus function for opt-in loading');
+  assert(siteJs.includes("data-consent-service=\"disqus\"") || siteJs.includes("'disqus'"), 'site.js should respond to disqus consent buttons');
 
   const disabledConfig = structuredClone(originalConfig);
   disabledConfig.thirdParty.analytics.enabled = false;
   disabledConfig.thirdParty.clarity.enabled = false;
+  disabledConfig.thirdParty.disqus.enabled = false;
   disabledConfig.thirdParty.translate.enabled = false;
   disabledConfig.fonts.loadExternal = false;
   disabledConfig.fonts.useSelfHosted = false;
@@ -72,6 +83,8 @@ try {
     assert(!disabledHtml.includes('translateLauncher'), 'Translate launcher should disappear when translate is disabled');
     assert(!disabledHtml.includes('data-consent-service="analytics"'), 'Analytics consent control should disappear when analytics is disabled');
     assert(!disabledHtml.includes('data-consent-service="clarity"'), 'Clarity consent control should disappear when clarity is disabled');
+    assert(!disabledHtml.includes('data-consent-service="disqus"'), 'Disqus consent control should disappear when disqus is disabled');
+    assert(!disabledHtml.includes('disqus_thread'), 'Disqus container should disappear when disqus is disabled');
     assert(!disabledHtml.includes('fonts.googleapis.com'), 'External font stylesheet should disappear when external fonts are disabled');
   }
 
@@ -80,6 +93,8 @@ try {
   enabledConfig.thirdParty.analytics.requiresConsent = true;
   enabledConfig.thirdParty.clarity.enabled = true;
   enabledConfig.thirdParty.clarity.requiresConsent = true;
+  enabledConfig.thirdParty.disqus.enabled = true;
+  enabledConfig.thirdParty.disqus.requiresConsent = true;
   enabledConfig.thirdParty.translate.enabled = true;
   enabledConfig.fonts.loadExternal = true;
   enabledConfig.fonts.useSelfHosted = false;
@@ -90,11 +105,17 @@ try {
       const html = readFileSync(file, 'utf8');
       const analyticsControls = html.match(/data-consent-service="analytics"/g) || [];
       const clarityControls = html.match(/data-consent-service="clarity"/g) || [];
+      const disqusControls = html.match(/data-consent-service="disqus"/g) || [];
       const translateLaunchers = html.match(/id="translateLauncher"/g) || [];
 
       assert(analyticsControls.length <= 1, `${path.relative(repoRoot, file)} injects analytics control more than once`);
       assert(clarityControls.length <= 1, `${path.relative(repoRoot, file)} injects clarity control more than once`);
+      assert(disqusControls.length <= 2, `${path.relative(repoRoot, file)} injects disqus control more than twice (one inline + one footer allowed)`);
       assert(translateLaunchers.length <= 1, `${path.relative(repoRoot, file)} injects translate launcher more than once`);
+
+      // Critical: Disqus embed.js must NOT be referenced as an eager script tag in built HTML
+      const eagerDisqusScriptMatches = html.match(/<script[^>]+src="https:\/\/[a-z0-9-]+\.disqus\.com\/embed\.js"/g) || [];
+      assert(eagerDisqusScriptMatches.length === 0, `${path.relative(repoRoot, file)} eagerly loads Disqus embed.js — must be lazy / consent-gated`);
     }
   }
 
