@@ -15,8 +15,8 @@
 
   --c-text:         #1C1813;
   --c-text-2:       #4A4138;
-  --c-text-muted:   #756A5B;
-  --c-text-faint:   #A89B89;
+  --c-text-muted:   #5F564B;
+  --c-text-faint:   #897D6B;
 
   --c-border:       #D8C9A8;
   --c-border-soft:  #E5D9BD;
@@ -93,8 +93,8 @@ html[data-theme="dark"] {
 
   --c-text:         #EFE7D5;
   --c-text-2:       #C9BCA1;
-  --c-text-muted:   #998B76;
-  --c-text-faint:   #6E6553;
+  --c-text-muted:   #AE9F88;
+  --c-text-faint:   #8A7F6E;
 
   --c-border:       #3A3024;
   --c-border-soft:  #2A241B;
@@ -140,7 +140,7 @@ body {
   color: var(--c-text);
   background: var(--c-bg);
   direction: rtl;
-  text-align: right;
+  text-align: start;
   font-variant-ligatures: common-ligatures;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -219,7 +219,7 @@ hr {
 }
 
 code, pre {
-  font-family: 'Sarasa Mono SC', 'Courier New', monospace;
+  font-family: 'Courier New', 'DejaVu Sans Mono', monospace;
   font-size: 0.95em;
   background: var(--c-surface-ink);
   border-radius: var(--r-sm);
@@ -1083,13 +1083,16 @@ main {
   }
 }
 
-/* Reading progress bar */
+/* Reading progress bar — at very top of viewport, above header */
 .reading-progress {
-  position: sticky;
-  top: 64px;
-  height: 2px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
   background: transparent;
-  z-index: 50;
+  z-index: 200;
+  pointer-events: none;
 }
 .reading-progress-bar {
   height: 100%;
@@ -1510,7 +1513,7 @@ body.reading-mode .reading-mode-toggle { display: inline-flex !important; }
 .reading-mode-toggle {
   position: fixed;
   inset-block-end: var(--s-5);
-  inset-inline-start: var(--s-5);
+  inset-inline-end: var(--s-5);
   z-index: 90;
 }
 
@@ -1775,7 +1778,7 @@ body.reading-mode .reading-mode-toggle { display: inline-flex !important; }
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
 }
-body.reading-mode .back-to-top { display: none !important; }
+/* back-to-top stays visible in reading mode for accessibility */
 
 /* --------------------------- Font Size Controls -------------------- */
 .text-controls {
@@ -1837,4 +1840,89 @@ body[data-font-scale="xl"] .text-content { font-size: var(--fs-xl); line-height:
   .text-main { max-width: none; padding: 0; }
   a { color: black; text-decoration: underline; }
   a::after { content: ""; }
+}
+
+/* ====================================================================
+   Accessibility additions — sr-only, focus-visible, surface-accent
+   ==================================================================== */
+
+/* Screen-reader-only utility — visually hidden but available to AT */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Surface accent token — used for focus rings on search and similar */
+:root {
+  --c-surface-accent: rgba(139, 111, 58, 0.15);
+}
+html[data-theme="dark"] {
+  --c-surface-accent: rgba(201, 163, 93, 0.20);
+}
+
+/* Global focus-visible styles for keyboard accessibility */
+a:focus-visible,
+.btn:focus-visible,
+.book-card__primary-link:focus-visible,
+.book-card__meta-link:focus-visible,
+.pagination a:focus-visible,
+.breadcrumbs a:focus-visible,
+.footer-nav__col a:focus-visible,
+.footer-action:focus-visible,
+.toc-dropdown a:focus-visible,
+.quick-jump__item:focus-visible,
+.update-links a:focus-visible,
+.parallel-toggle:focus-visible,
+.text-controls__btn:focus-visible,
+.header-search__btn:focus-visible,
+.header-search__input:focus-visible,
+.mobile-submenu-toggle:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 2px;
+  border-radius: var(--r-sm);
+}
+
+/* Header search focus — visible ring using surface-accent */
+.header-search:focus-within {
+  box-shadow: 0 0 0 3px var(--c-surface-accent);
+}
+.header-search__input:focus {
+  outline: none;
+}
+
+/* ====================================================================
+   Mobile search link + Start reading CTA
+   ==================================================================== */
+
+/* Mobile search link — visible only in mobile nav */
+.mobile-search-link {
+  display: none;
+}
+@media (max-width: 880px) {
+  .mobile-search-link {
+    display: block;
+    padding: var(--s-3) var(--s-4);
+    border-top: 1px solid var(--c-border-soft);
+    margin-top: var(--s-3);
+    font-weight: 700;
+    color: var(--c-accent);
+  }
+}
+
+/* Start reading CTA — at top of book intro pages */
+.start-reading-cta {
+  text-align: center;
+  margin: var(--s-5) 0;
+  padding: var(--s-4);
+}
+.start-reading-cta .btn {
+  font-size: var(--fs-md);
+  padding: var(--s-3) var(--s-6);
 }
