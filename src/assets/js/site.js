@@ -270,28 +270,17 @@
   initParallelToggle();
 })();
 
+/* ====================================================================
+   Third-party services — loaded directly (no consent gating).
+   Toggle each service on/off via site.json -> thirdParty.<service>.enabled
+   ==================================================================== */
 window.__externalScriptRegistry = window.__externalScriptRegistry || new Set();
 
-const THIRD_PARTY_CONSENT_KEY = 'thirdPartyConsent';
-const THIRD_PARTY_LOADED_KEY = 'thirdPartyLoadedServices';
 const runtimeThirdParty = (window.siteRuntimeConfig && window.siteRuntimeConfig.thirdParty) || {};
 const runtimeAnalytics = runtimeThirdParty.analytics || {};
 const runtimeClarity = runtimeThirdParty.clarity || {};
 const runtimeDisqus = runtimeThirdParty.disqus || {};
 const runtimeTranslate = runtimeThirdParty.translate || {};
-
-function readJsonStorage(key) {
-  try {
-    const raw = localStorage.getItem(key);
-    return raw ? JSON.parse(raw) : {};
-  } catch {
-    return {};
-  }
-}
-
-function writeJsonStorage(key, value) {
-  localStorage.setItem(key, JSON.stringify(value));
-}
 
 function ensureExternalScript({ service, src, onload, id }) {
   if (!src || !service) return;
@@ -317,30 +306,8 @@ function ensureExternalScript({ service, src, onload, id }) {
   window.__externalScriptRegistry.add(scriptKey);
 }
 
-function hasConsent(service) {
-  const state = readJsonStorage(THIRD_PARTY_CONSENT_KEY);
-  return Boolean(state[service]);
-}
-
-function setConsent(service) {
-  const state = readJsonStorage(THIRD_PARTY_CONSENT_KEY);
-  state[service] = true;
-  writeJsonStorage(THIRD_PARTY_CONSENT_KEY, state);
-}
-
-function markServiceLoaded(service) {
-  const state = readJsonStorage(THIRD_PARTY_LOADED_KEY);
-  state[service] = true;
-  writeJsonStorage(THIRD_PARTY_LOADED_KEY, state);
-}
-
-function isServiceLoaded(service) {
-  const state = readJsonStorage(THIRD_PARTY_LOADED_KEY);
-  return Boolean(state[service]);
-}
-
 function loadAnalytics() {
-  if (!runtimeAnalytics.enabled || isServiceLoaded('analytics') || !runtimeAnalytics.measurementId) return;
+  if (!runtimeAnalytics.enabled || !runtimeAnalytics.measurementId) return;
 
   ensureExternalScript({
     service: 'analytics',
@@ -353,11 +320,10 @@ function loadAnalytics() {
   };
   window.gtag('js', new Date());
   window.gtag('config', runtimeAnalytics.measurementId);
-  markServiceLoaded('analytics');
 }
 
 function loadClarity() {
-  if (!runtimeClarity.enabled || isServiceLoaded('clarity') || !runtimeClarity.projectId) return;
+  if (!runtimeClarity.enabled || !runtimeClarity.projectId) return;
 
   window.clarity = window.clarity || function clarity() {
     (window.clarity.q = window.clarity.q || []).push(arguments);
@@ -367,12 +333,10 @@ function loadClarity() {
     service: 'clarity',
     src: `https://www.clarity.ms/tag/${encodeURIComponent(runtimeClarity.projectId)}`
   });
-
-  markServiceLoaded('clarity');
 }
 
 function loadTranslate() {
-  if (!runtimeTranslate.enabled || isServiceLoaded('translate')) return;
+  if (!runtimeTranslate.enabled) return;
   const translateContainer = document.getElementById('google_translate_element');
   if (translateContainer) {
     translateContainer.hidden = false;
@@ -382,95 +346,6 @@ function loadTranslate() {
     service: 'translate',
     src: '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'
   });
-
-  markServiceLoaded('translate');
-}
-
-function loadDisqus() {
-  if (!runtimeDisqus.enabled || isServiceLoaded('disqus') || !runtimeDisqus.shortname) return;
-
-  const configScript = document.getElementById('disqus-page-config');
-  let pageUrl = window.location.href;
-  let pageIdentifier = window.location.pathname;
-
-  if (configScript) {
-    try {
-      const parsed = JSON.parse(configScript.textContent || '{}');
-      if (parsed.pageUrl) pageUrl = parsed.pageUrl;
-      if (parsed.pageIdentifier) pageIdentifier = parsed.pageIdentifier;
-    } catch (_e) {
-      // Fall back to window.location values
-    }
-  }
-
-  // Configure Disqus before injecting the loader
-  window.disqus_config = function disqusConfig() {
-    this.page.url = pageUrl;
-    this.page.identifier = pageIdentifier;
-  };
-
-  // Reveal the container
-  const thread = document.getElementById('disqus_thread');
-  if (thread) {
-    thread.hidden = false;
-  }
-
-  // Hide the inline consent prompt now that consent was given
-  document.querySelectorAll('[data-consent-prompt="disqus"]').forEach((el) => {
-    el.hidden = true;
-  });
-
-  const shortname = encodeURIComponent(runtimeDisqus.shortname);
-  ensureExternalScript({
-    service: 'disqus',
-    src: `https://${shortname}.disqus.com/embed.js`,
-    id: 'disqus-embed'
-  });
-
-  markServiceLoaded('disqus');
-}
-
-function shouldLoadService(service, config) {
-  if (!config || !config.enabled) return false;
-  if (!config.requiresConsent) return true;
-  return hasConsent(service);
-}
-
-function initThirdPartyButtons() {
-  const consentButtons = document.querySelectorAll('[data-consent-service]');
-  consentButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      const service = button.getAttribute('data-consent-service');
-      if (!service) return;
-      setConsent(service);
-      button.disabled = true;
-      button.textContent = 'אושר';
-      if (service === 'analytics') loadAnalytics();
-      if (service === 'clarity') loadClarity();
-      if (service === 'disqus') loadDisqus();
-    });
-  });
-
-  const translateLauncher = document.querySelector('[data-third-party-trigger="translate"]');
-  if (translateLauncher) {
-    translateLauncher.addEventListener('click', () => {
-      if (runtimeTranslate.requiresConsent) setConsent('translate');
-      loadTranslate();
-      translateLauncher.setAttribute('aria-disabled', 'true');
-      translateLauncher.disabled = true;
-    });
-  }
-}
-
-function initThirdPartyIntegrations() {
-  if (shouldLoadService('analytics', runtimeAnalytics)) loadAnalytics();
-  if (shouldLoadService('clarity', runtimeClarity)) loadClarity();
-  if (shouldLoadService('disqus', runtimeDisqus)) loadDisqus();
-  if (shouldLoadService('translate', runtimeTranslate) && runtimeTranslate.loadStrategy !== 'on-interaction') {
-    loadTranslate();
-  }
-
-  initThirdPartyButtons();
 }
 
 window.googleTranslateElementInit = function googleTranslateElementInit() {
@@ -483,7 +358,20 @@ window.googleTranslateElementInit = function googleTranslateElementInit() {
   }, 'google_translate_element');
 };
 
-initThirdPartyIntegrations();
+// Eager-load analytics + clarity on every page (no consent needed)
+loadAnalytics();
+loadClarity();
+
+// Translate launcher — kept as a button click (UX, not consent)
+// so we don't load Google Translate for every visitor
+const translateLauncher = document.querySelector('[data-third-party-trigger="translate"]');
+if (translateLauncher) {
+  translateLauncher.addEventListener('click', () => {
+    loadTranslate();
+    translateLauncher.setAttribute('aria-disabled', 'true');
+    translateLauncher.disabled = true;
+  });
+}
 
 /* ====================================================================
    Back-to-Top button — appears after scrolling past viewport

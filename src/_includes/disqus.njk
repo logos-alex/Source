@@ -1,54 +1,31 @@
 {#
-  Disqus comments section — opt-in only.
-  Loaded only after explicit consent via the button below.
-  Consent state is persisted in localStorage (key: thirdPartyConsent.disqus).
-  Mirrors the pattern used by Google Analytics / Microsoft Clarity / Google Translate.
-
-  Visibility rules:
-  - When thirdParty.disqus is configured, respect its enabled flag (true/false).
-  - Otherwise fall back to legacy site.disqusShortname presence (backwards compat).
+  Disqus comments section — embedded directly on book/text pages.
+  Toggle via site.json -> thirdParty.disqus.enabled (and legacy site.disqusShortname).
 #}
 {% set disqusConfig = site.thirdParty.disqus or {} %}
 {% set disqusShortname = disqusConfig.shortname or site.disqusShortname %}
 {% if site.thirdParty.disqus %}
-  {# Explicit modern config — respect enabled flag (could be true or false) #}
   {% set disqusEnabled = disqusConfig.enabled %}
 {% else %}
-  {# No explicit config — fall back to legacy site.disqusShortname presence #}
   {% set disqusEnabled = disqusShortname | length > 0 %}
 {% endif %}
 
-<div id="comments-section" class="c-section-divider comments-section">
+{% if disqusEnabled and disqusShortname %}
+<div id="comments-section" class="c-section-divider">
   <h3>תגובות</h3>
-
-  {% if disqusEnabled and disqusShortname %}
-
-    {# Consent prompt — shown until the user approves Disqus #}
-    <div class="comments-consent" data-consent-prompt="disqus" role="region" aria-label="הסכמה לטעינת תגובות">
-      <p class="comments-consent__copy">
-        מערכת התגובות מופעלת על ידי Disqus — שירות חיצוני המציב עוגיות משלו.
-        כדי לצפות בתגובות או להגיב, יש לאפשר טעינת Disqus.
-        פרטים נוספים ב<a href="{{ '/privacy/' | url }}">מדיניות הפרטיות</a>.
-      </p>
-      <button
-        type="button"
-        class="footer-action comments-consent__btn"
-        data-consent-service="disqus"
-        aria-controls="disqus_thread">
-        אפשר טעינת תגובות (Disqus)
-      </button>
-    </div>
-
-    {# Disqus container — populated lazily after consent #}
-    <div id="disqus_thread" lang="he" hidden aria-live="polite"></div>
-
-    <noscript>
-      יש לאפשר JavaScript ולאשר טעינת Disqus כדי לצפות ב<a href="https://disqus.com/?ref_noscript" rel="noopener">תגובות המופעלות על ידי Disqus.</a>
-    </noscript>
-
-  {% else %}
-
-    <p class="c-muted">מערכת התגובות כבויה כרגע בהגדרות האתר.</p>
-
-  {% endif %}
+  <div id="disqus_thread" lang="he"></div>
+  <script>
+      var disqus_config = function () {
+          this.page.url = "{{ site.origin }}{{ page.url | url }}";
+          this.page.identifier = "{{ page.url | url }}";
+      };
+      (function() {
+          var d = document, s = d.createElement('script');
+          s.src = 'https://{{ disqusShortname }}.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+      })();
+  </script>
+  <noscript>יש לאפשר JavaScript כדי לצפות ב<a href="https://disqus.com/?ref_noscript">תגובות המופעלות על ידי Disqus.</a></noscript>
 </div>
+{% endif %}

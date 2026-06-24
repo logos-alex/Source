@@ -8,7 +8,6 @@
     {% set clarity = thirdParty.clarity or {} %}
     {% set disqus = thirdParty.disqus or {} %}
     {% set translate = thirdParty.translate or {} %}
-    {% set hasConsentControls = (analytics.enabled and analytics.requiresConsent) or (clarity.enabled and clarity.requiresConsent) or (disqus.enabled and disqus.requiresConsent) %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }} | LOGIA — אוצר הכתבים הגנוזים</title>
@@ -140,29 +139,20 @@
           fallbackStack: "{{ fonts.fallbackStack or '' }}"
         },
         thirdParty: {
-          consentMode: "{{ thirdParty.consentMode or 'opt-in' }}",
           analytics: {
             enabled: {{ "true" if analytics.enabled else "false" }},
-            measurementId: "{{ analytics.measurementId or '' }}",
-            requiresConsent: {{ "true" if analytics.requiresConsent else "false" }},
-            loadStrategy: "{{ analytics.loadStrategy or 'disabled' }}"
+            measurementId: "{{ analytics.measurementId or '' }}"
           },
           clarity: {
             enabled: {{ "true" if clarity.enabled else "false" }},
-            projectId: "{{ clarity.projectId or '' }}",
-            requiresConsent: {{ "true" if clarity.requiresConsent else "false" }},
-            loadStrategy: "{{ clarity.loadStrategy or 'disabled' }}"
+            projectId: "{{ clarity.projectId or '' }}"
           },
           disqus: {
             enabled: {{ "true" if disqus.enabled else "false" }},
-            shortname: "{{ disqus.shortname or site.disqusShortname or '' }}",
-            requiresConsent: {{ "true" if disqus.requiresConsent else "false" }},
-            loadStrategy: "{{ disqus.loadStrategy or 'disabled' }}"
+            shortname: "{{ disqus.shortname or site.disqusShortname or '' }}"
           },
           translate: {
             enabled: {{ "true" if translate.enabled else "false" }},
-            requiresConsent: {{ "true" if translate.requiresConsent else "false" }},
-            loadStrategy: "{{ translate.loadStrategy or 'disabled' }}",
             includedLanguages: "{{ translate.includedLanguages or 'en' }}"
           }
         }
@@ -319,20 +309,6 @@
               הפעל תרגום אוטומטי
             </button>
             <div id="google_translate_element" hidden></div>
-        </div>
-        {% endif %}
-        {% if hasConsentControls %}
-        <div class="footer-tool-group footer-tool-group--privacy">
-            <p class="footer-tool-copy">שירותי צד-שלישי כבויים כברירת מחדל וייטענו רק אחרי אישור מפורש.</p>
-            {% if analytics.enabled and analytics.requiresConsent %}
-            <button class="footer-action" type="button" data-consent-service="analytics">אפשר Google Analytics</button>
-            {% endif %}
-            {% if clarity.enabled and clarity.requiresConsent %}
-            <button class="footer-action" type="button" data-consent-service="clarity">אפשר Microsoft Clarity</button>
-            {% endif %}
-            {% if disqus.enabled and disqus.requiresConsent %}
-            <button class="footer-action" type="button" data-consent-service="disqus">אפשר Disqus (תגובות)</button>
-            {% endif %}
         </div>
         {% endif %}
 

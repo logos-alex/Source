@@ -501,3 +501,63 @@ Stage Summary:
 - **UX משופר**: badge "בקרוב" על חיבורי tsavaat-yeshua (ועתידיים נוספים) — הקורא יודע מיד איזה חיבור מלא ואיזה בהכנה.
 - **נגישות**: lang, aria-live, aria-controls, aria-current בכל המקומות הרלוונטיים.
 - סה"כ 11 קבצים שונו: disqus.njk (חדש), text-page.njk, category-page.njk, book-index.njk, base.njk, breadcrumbs.njk, site.js, site.json, privacy.md, style.css, by-figure.njk, by-figure/index.md, tsavaat-yeshua/index.md, ו-8 דפי אינדקס שפה.
+
+---
+Task ID: 17
+Agent: Super Z (main) — Strip the over-engineered opt-in consent system
+Task: הסרת מערכת ההסכמה (opt-in) המופרזת — חזרה לטעינה ישירה של כל שירותי צד-שלישי
+
+Work Log:
+- [A] רקע: החלטת בעל הפרויקט שמערכת ה-consent (opt-in) שגדלה בפרויקט עם הזמן היא "חרטא רצינית" — אין בעיה ש-Disqus, Google Translate, GA, ו-Clarity יעלו ישירות. המערכת רק גורמת לבעיות תחזוקה ומורכבות מיותרת.
+- [B] פישוט site.json:
+  · הסרת consentMode, requiresConsent, loadStrategy מכל 4 השירותים
+  · כל שירות כעת מוגדר רק עם enabled + המזהה שלו (measurementId / projectId / shortname / includedLanguages)
+- [C] פישוט site.js (החזרה לגרסה פשוטה):
+  · הסרת כל מנגנון ה-consent: readJsonStorage, writeJsonStorage, hasConsent, setConsent, markServiceLoaded, isServiceLoaded, shouldLoadService, initThirdPartyButtons, THIRD_PARTY_CONSENT_KEY, THIRD_PARTY_LOADED_KEY
+  · הסרת loadDisqus (Disqus נטען ישירות מתוך disqus.njk, לא דרך JS)
+  · שמירת ensureExternalScript ל-deduplication (מונע טעינה כפולה)
+  · שמירת loadAnalytics, loadClarity, loadTranslate
+  · טעינה ישירה: loadAnalytics() + loadClarity() נקראים מיד בטעינת הדף
+  · Translate: נשאר ככפתור (UX, לא consent) — לא הגיוני לטעון את Google Translate לכל מבקר
+- [D] פישוט base.njk:
+  · הסרת hasConsentControls
+  · הסרת כל כפתורי data-consent-service מהפוטר
+  · פישוט window.siteRuntimeConfig — הסרת consentMode, requiresConsent, loadStrategy מכל שירות
+  · שמירת הכפתור "הפעל תרגום אוטומטי" (UX, לא consent)
+- [E] פישוט disqus.njk:
+  · הסרת comments-consent block, comments-consent__btn, data-consent-prompt, data-consent-service
+  · חזרה להטמעה ישירה: <div id="disqus_thread"> + <script> עם disqus_config + embed.js
+  · שמירת תמיכה ב-site.thirdParty.disqus.enabled (כיבוי אם רוצים)
+  · שמירת fallback ל-site.disqusShortname (legacy)
+- [F] הסרת הסקריפטים המיותרים ב-text-page.njk, category-page.njk, book-index.njk:
+  · הסרת <script type="application/json" id="disqus-page-config"> שהיה דרוש ל-loadDisqus
+  · עכשיו רק: {% include "disqus.njk" %}
+- [G] ניקוי CSS:
+  · הסרת .comments-consent, .comments-consent__copy, .comments-consent__btn, .comments-consent[hidden], #disqus_thread[hidden]
+  · שמירת #comments-section בסיסי
+- [H] כתיבה מחדש של privacy.md:
+  · מ-95 שורות מורכבות עם 8 סעיפים → 7 סעיפים קצרים וכנים
+  · הסרת הטענות השגויות על "opt-in" ו"הסכמה מפורשת"
+  · הסרת סעיף "זכויות המשתמש" (GDPR) — לא רלוונטי לאתר שלא אוסף נתונים בעצמו
+  · הוספת סעיף "הגבלת טעינת שירותים" — הפניה ל-uBlock Origin ו-Privacy Badger
+  · הוספת סעיף "ילדים"
+  · טון ישיר: "אלה השירותים שפועלים, אלה המדיניויות שלהם, זהו"
+- [I] פישוט verify-third-party-controls.mjs:
+  · הסרת כל הבדיקות על disqus opt-in, loadDisqus, data-consent-service
+  · שמירת בדיקות בסיסיות: ensureExternalScript קיים, שירותים נעלמים כש-enabled=false, אין כפילויות
+- [J] חזרה ל-verify-release-content.mjs המקורי:
+  · בדיקה ש-hebrew-aramaic-sources.disqus.com/embed.js כן מופיע ב-HTML הבנוי (חיובי)
+  · הסרת forbiddenMarkers לחלוטין
+- [K] בנייה + CI:
+  · כל 16 בדיקות ה-CI עוברות ✓
+  · 721 קבצים נבנו, Pagefind אינדקס 661 עמודים
+  · אימות ידני: embed.js מופיע פעם אחת בדף חיבור, 0 כפתורי consent, translate launcher קיים
+
+Stage Summary:
+- **הוסרה מערכת opt-in המלאה** — 4 שירותים (GA, Clarity, Disqus, Translate) כעת נטענים ישירות ללא כפתורי הסכמה.
+- **Translate נשאר ככפתור UX** (לא consent) — לא הגיוני לטעון את Google Translate לכל מבקר.
+- **privacy.md** קצר, כן, לעניין — 7 סעיפים במקום 8 מורכבים.
+- **site.js** קוצץ מ-510 ל-~370 שורות — הסרת readJsonStorage, writeJsonStorage, hasConsent, setConsent, markServiceLoaded, isServiceLoaded, shouldLoadService, initThirdPartyButtons, initThirdPartyIntegrations (8 פונקציות שהוסרו).
+- **CI** נשאר חזק — verify-third-party-controls עדיין מוודא ששירותים נעלמים כש-enabled=false ושאין כפילויות.
+- 11 קבצים שונו: site.json, site.js, base.njk, disqus.njk, text-page.njk, category-page.njk, book-index.njk, privacy.md, verify-third-party-controls.mjs, verify-release-content.mjs, style.css.
+- סה"כ: הפרויקט פשוט יותר, ישיר יותר, וכן יותר עם המשתמשים.

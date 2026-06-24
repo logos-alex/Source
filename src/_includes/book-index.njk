@@ -48,10 +48,6 @@
     {% endif %}
   </div>
 
-  {# --- אזור התגובות (opt-in בלבד, מופעל רק לאחר הסכמה מפורשת) --- #}
-  {% set disqusConfig = { pageUrl: site.origin ~ page.url, pageIdentifier: page.url } %}
-  <script type="application/json" id="disqus-page-config" data-disqus-shortname="{{ site.disqusShortname }}">
-    {{ disqusConfig | dump | safe }}
-  </script>
+  {# --- אזור התגובות --- #}
   {% include "disqus.njk" %}
 {% endblock %}

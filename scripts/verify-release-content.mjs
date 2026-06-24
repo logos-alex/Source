@@ -98,13 +98,7 @@ for (const check of [
     markers: [
       'id="comments-section"',
       'id="disqus_thread"',
-      'data-consent-service="disqus"',
-      'data-consent-prompt="disqus"'
-    ],
-    forbiddenMarkers: [
-      // Privacy-critical: Disqus embed.js must NOT be eagerly loaded — only after consent.
-      'hebrew-aramaic-sources.disqus.com/embed.js',
-      '<script src="https://hebrew-aramaic-sources.disqus.com'
+      'hebrew-aramaic-sources.disqus.com/embed.js'
     ]
   },
   {
@@ -112,12 +106,7 @@ for (const check of [
     markers: [
       'id="comments-section"',
       'id="disqus_thread"',
-      'data-consent-service="disqus"',
-      'data-consent-prompt="disqus"'
-    ],
-    forbiddenMarkers: [
-      'hebrew-aramaic-sources.disqus.com/embed.js',
-      '<script src="https://hebrew-aramaic-sources.disqus.com'
+      'hebrew-aramaic-sources.disqus.com/embed.js'
     ]
   }
 ]) {
@@ -125,13 +114,6 @@ for (const check of [
     const html = readBuiltFile(check.file);
     for (const marker of check.markers) {
       expectIncludes(html, marker, 'release marker', check.file, failures);
-    }
-    // Privacy regression guard: ensure Disqus is not eagerly loaded
-    for (const forbidden of check.forbiddenMarkers || []) {
-      if (html.includes(forbidden)) {
-        console.error(`❌ Forbidden marker (privacy regression) found in ${check.file}: ${forbidden}`);
-        failures.count += 1;
-      }
     }
   } catch (error) {
     console.error(`❌ ${error.message}`);
