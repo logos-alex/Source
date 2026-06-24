@@ -1,7 +1,7 @@
 ---
 layout: text-page
 title: פרק ט (עמוד ט)
-book: clementos-geez
+book: clementos
 source: geez
 figure: talmidei-yeshua
 pageNumber: 9

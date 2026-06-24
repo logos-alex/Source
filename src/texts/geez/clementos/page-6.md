@@ -1,7 +1,7 @@
 ---
 layout: text-page
 title: פרק ו (עמוד ו)
-book: clementos-geez
+book: clementos
 source: geez
 figure: talmidei-yeshua
 pageNumber: 6

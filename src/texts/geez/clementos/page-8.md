@@ -1,7 +1,7 @@
 ---
 layout: text-page
 title: פרק ח (עמוד ח)
-book: clementos-geez
+book: clementos
 source: geez
 figure: talmidei-yeshua
 pageNumber: 8

@@ -397,27 +397,6 @@
       ]
     },
     {
-      "id": "new-figure-category-yeshmaelim",
-      "title": "🧭 נוספה קטגוריית ייחוס חדשה: ממקורות הישמעאלים",
-      "summary": "נוספה קטגוריה חדשה בעמוד 'לפי ייחוס' עבור מסורות חוץ־תנ\"כיות בספרות חכמי האסלאם.",
-      "dateLabel": "אפריל 2026",
-      "pubDateRFC822": "Tue, 01 Apr 2026 00:00:00 GMT",
-      "category": "ניווט ותוכן",
-      "flags": [
-        "by-figure",
-        "taxonomy",
-        "arabic",
-        "geez"
-      ],
-      "links": [
-        {
-          "id": "figure-mekorot-yeshmaelim",
-          "href": "/by-figure/mekorot-yeshmaelim/",
-          "label": "לעמוד הייחוס החדש"
-        }
-      ]
-    },
-    {
       "id": "armenian-daniel-added",
       "title": "📘 נוסף לאתר: חזון דניאל (ארמני)",
       "summary": "נפתח חיבור חדש במדור הארמני עם מבוא ייעודי ועמוד טקסט ראשי, בשיוך לדמות דניאל.",
@@ -452,14 +431,13 @@
     },
     {
       "id": "ci-third-party-hardening",
-      "title": "🛡️ חיזוק בדיקות טעינת שירותי צד ג'",
-      "summary": "נוספו בדיקות אוטומטיות לוודא ששירותי צד שלישי נטענים רק אחרי הסכמה מפורשת.",
+      "title": "🛡️ בדיקות טעינת שירותי צד ג'",
+      "summary": "נוספו בדיקות אוטומטיות לוודא ששירותי צד שלישי (Google Analytics, Microsoft Clarity, Disqus, Google Translate) נטענים כראוי — כיבוי מלא כש-enabled=false, ומניעת כפילויות טעינה.",
       "dateLabel": "מרץ 2026",
       "pubDateRFC822": "Fri, 01 Mar 2026 00:00:00 GMT",
       "category": "תשתית ואיכות",
       "flags": [
         "ci",
-        "privacy",
         "third-party"
       ]
     },

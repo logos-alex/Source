@@ -13,7 +13,8 @@
         "title": "נוסח ב' — שחזור מלא מילה-במילה",
         "description": "שחזור מלא מילה-במילה בדרך הנדסה לאחור מן הסלאבית הכנסייתית לרובד הארמי-העברי האפוקליפטי. 25 פרקים (א–כה)."
       }
-    }
+    },
+    "figure": "abraham"
   },
   {
     "id": "apoc-daniel-syriac",
@@ -26,7 +27,8 @@
         "description": "הגרסה העיקרית של הטקסט."
       }
     },
-    "parallelLayout": true
+    "parallelLayout": true,
+    "figure": "daniel"
   },
   {
     "id": "young-daniel-syriac",
@@ -39,7 +41,8 @@
         "description": "הגרסה העיקרית של הטקסט."
       }
     },
-    "parallelLayout": true
+    "parallelLayout": true,
+    "figure": "daniel"
   },
   {
     "id": "sefer-zerubbabel",
@@ -51,10 +54,11 @@
         "title": "הנוסח הגדול המתוקן — מאוחד מארבעה עדי נוסח",
         "description": "מהדורה ביקורתית המאחדת ארבעה עדי נוסח: יעלניק (1853), אהרן, אוקספורד, ישראל."
       }
-    }
+    },
+    "figure": "zerubbabel"
   },
   {
-    "id": "clementos-geez",
+    "id": "clementos",
     "title": "קלמנטוס (געז)",
     "lang": "geez",
     "description": "החלק השני של המסורת הדו־חלקית, כפי שנשתמרה בגעז.",
@@ -76,7 +80,8 @@
         "title": "נוסח עיקרי",
         "description": "הגרסה העיקרית של הטקסט."
       }
-    }
+    },
+    "figure": "talmidei-yeshua"
   },
   {
     "id": "vision-enoch-righteous-armenian",
@@ -88,7 +93,8 @@
         "title": "נוסח עיקרי",
         "description": "הנוסח הערוך על פי חומר הגלם שסופק."
       }
-    }
+    },
+    "figure": "enoch"
   },
   {
     "id": "vision-daniel-armenian",
@@ -100,7 +106,8 @@
         "title": "נוסח עברי מתוקן, מלא ומנוקד",
         "description": "מבוסס על מהדורת Kalemkiar 1892 ומחקרי DiTommaso (2014) ו-La Porta (2013)."
       }
-    }
+    },
+    "figure": "daniel"
   },
   {
     "id": "ketav-almagal",
@@ -112,7 +119,8 @@
         "title": "נוסח עברי מתוקן ומהודר",
         "description": "תרגום-עיבוד ממקור ערבי (OpenITI), עם רובד לשוני מקראי-רבני."
       }
-    }
+    },
+    "figure": "talmidei-yeshua"
   },
   {
     "id": "chazon-ezra-sofer",
@@ -124,7 +132,8 @@
         "title": "נוסח עברי משוחזר",
         "description": "שחזור המקור השמי (יווני/ארמי) שמאחורי הלטינית — הנדסה לאחור מתוך כתב-היד Vat. Barberini lat. 2318."
       }
-    }
+    },
+    "figure": "ezra"
   },
   {
     "id": "clementine-r1",
@@ -137,7 +146,8 @@
         "description": "תרגום-עיבוד ממקור סורי־ארמי בשיטת Dynamic Geonic Rendering."
       }
     },
-    "parallelLayout": true
+    "parallelLayout": true,
+    "figure": "talmidei-yeshua"
   },
   {
     "id": "clementine-r2",
@@ -150,7 +160,8 @@
         "description": "תרגום-עיבוד ממקור סורי־ארמי בשיטת Dynamic Geonic Rendering."
       }
     },
-    "parallelLayout": true
+    "parallelLayout": true,
+    "figure": "talmidei-yeshua"
   },
   {
     "id": "clementine-r3",
@@ -163,7 +174,8 @@
         "description": "תרגום-עיבוד ממקור סורי־ארמי בשיטת Dynamic Geonic Rendering."
       }
     },
-    "parallelLayout": true
+    "parallelLayout": true,
+    "figure": "talmidei-yeshua"
   },
   {
     "id": "clementine-r4",
@@ -176,7 +188,8 @@
         "description": "תרגום-עיבוד ממקור סורי־ארמי בשיטת Dynamic Geonic Rendering, עם נספח פילולוגי."
       }
     },
-    "parallelLayout": true
+    "parallelLayout": true,
+    "figure": "talmidei-yeshua"
   },
   {
     "id": "clementine-homilies",
@@ -189,7 +202,8 @@
         "description": "תרגום-עיבוד ממקור סורי־ארמי בשיטת Dynamic Geonic Rendering."
       }
     },
-    "parallelLayout": true
+    "parallelLayout": true,
+    "figure": "talmidei-yeshua"
   },
   {
     "id": "apokalypsis-esdras",
@@ -201,7 +215,8 @@
         "title": "נוסח עברי מן היוונית",
         "description": "תרגום מן הנוסח היווני (el.wikisource.org), על בסיס מהדורת טישנדורף."
       }
-    }
+    },
+    "figure": "ezra"
   },
   {
     "id": "maale-yeshayahu",
@@ -213,7 +228,8 @@
         "title": "נוסח משולב — מתוקן מתוך שני כתבי-היד",
         "description": "תרגום מן הנוסח היווני (el.wikisource.org), שילוב שני כתבי-היד ליצירה אחת רציפה."
       }
-    }
+    },
+    "figure": "isaiah"
   },
   {
     "id": "maasei-timotheos",
@@ -225,7 +241,8 @@
         "title": "נוסח עברי מן הלטינית",
         "description": "תרגום מן הנוסח הלטיני (la.wikisource.org / Acta Timothei), מקור יווני שאבד."
       }
-    }
+    },
+    "figure": "talmidei-yeshua"
   },
   {
     "id": "sichat-moshe",
@@ -238,7 +255,8 @@
         "description": "שחזור מדעי בדרך הנדסה לאחור, מתוך קריאה מלאה של הנוסח הסורי. הנוסח העברי משקף את המקור הארמי כמה שיותר קרוב."
       }
     },
-    "parallelLayout": true
+    "parallelLayout": true,
+    "figure": "abraham"
   },
   {
     "id": "sefer-hanoch-a",
@@ -250,7 +268,8 @@
         "title": "שחזור עברי מן היווני",
         "description": "הנדסה לאחור מתוך התרגום היווני, בלשון משנאית קדומה."
       }
-    }
+    },
+    "figure": "enoch"
   },
   {
     "id": "enoch-qumran-aramaic",
@@ -262,7 +281,8 @@
         "title": "מהדורה דו-לשונית ארמית-עברית",
         "description": "אוסף כל השרידים הארמיים מקומראן עם תרגום עברי ישיר, על פי CAL."
       }
-    }
+    },
+    "figure": "enoch"
   },
   {
     "id": "chazon-daniel-aravi",
@@ -274,7 +294,8 @@
         "title": "נוסח עברי משוחזר מתוך הנוסח הערבי",
         "description": "שחזור בדרך הנדסה לאחור מן הערבית לרובד הלשוני החז״לי-האפוקליפטי."
       }
-    }
+    },
+    "figure": "daniel"
   },
   {
     "id": "chazon-daniel-kopti",
@@ -286,7 +307,8 @@
         "title": "נוסח עברי משוחזר מתוך הנוסח הערבי-הקופטי",
         "description": "שחזור בדרך הנדסה לאחור מן הערבית-הקופטית לרובד הלשוני החז״לי-האפוקליפטי."
       }
-    }
+    },
+    "figure": "daniel"
   },
   {
     "id": "chazon-ezra-suri",
@@ -299,7 +321,8 @@
         "title": "נוסח עברי משוחזר מתוך הנוסח הסורי",
         "description": "שחזור בדרך הנדסה לאחור — הנוסח העברי משקף את המקור הארמי (סורית) כמה שיותר קרוב, מילה במילה."
       }
-    }
+    },
+    "figure": "ezra"
   },
   {
     "id": "clementine-homilies-greek",
@@ -311,7 +334,8 @@
         "title": "מהדורה מתוקנת ומאוחדת — מיוונית",
         "description": "הנוסח השלם: איגרות, הומיליות א–כ. תרגום מיוונית על בסיס Schwegler, Lagarde, Migne."
       }
-    }
+    },
+    "figure": "talmidei-yeshua"
   },
   {
     "id": "ketav-almagal-nusach-b",

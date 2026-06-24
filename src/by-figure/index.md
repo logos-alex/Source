@@ -47,9 +47,5 @@ permalink: /by-figure/
       <h3><a class="book-card__primary-link" href="{{ '/by-figure/talmidei-yeshua/' | url }}" data-figure-link="talmidei-yeshua">מתלמידי ישוע הנוצרי</a></h3>
       <p class="book-card__description">חיבורים מן המסורת הנוצרית הקדומה, ובכללם מסורות המיוחסות לקלמנס ותלמידים מוקדמים, מרוכזים תחת קטגוריה זו.</p>
     </article>
-    <article class="book-card" data-figure-key="mekorot-yeshmaelim">
-      <h3><a class="book-card__primary-link" href="{{ '/by-figure/mekorot-yeshmaelim/' | url }}" data-figure-link="mekorot-yeshmaelim">ממקורות הישמעאלים</a></h3>
-      <p class="book-card__description">מסורות חוץ־תנ"כיות המשתקפות בספרות חכמי האסלאם — עדויות משלימות לסיפורי האבות, בריאת העולם וקץ הימים.</p>
-    </article>
   </div>
 </div>

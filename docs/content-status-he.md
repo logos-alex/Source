@@ -17,7 +17,7 @@
 | clementine-r2 | aramaic | 76 | 0 |
 | clementine-r3 | aramaic | 55 | 0 |
 | clementine-r4 | aramaic | 3 | 0 |
-| clementos-geez | geez | 9 | 0 |
+| clementos | geez | 9 | 0 |
 | enoch-qumran-aramaic | aramaic | 8 | 0 |
 | glia-de-klemis | arabic | 16 | 0 |
 | ketav-almagal | arabic | 34 | 0 |

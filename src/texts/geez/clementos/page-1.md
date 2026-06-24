@@ -1,7 +1,7 @@
 ---
 layout: text-page
 title: פרק א (עמוד א)
-book: clementos-geez
+book: clementos
 source: geez
 figure: talmidei-yeshua
 pageNumber: 1

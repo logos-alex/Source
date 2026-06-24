@@ -1,7 +1,7 @@
 ---
 layout: text-page
 title: פרק ד (עמוד ד)
-book: clementos-geez
+book: clementos
 source: geez
 figure: talmidei-yeshua
 pageNumber: 4

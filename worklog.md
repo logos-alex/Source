@@ -561,3 +561,60 @@ Stage Summary:
 - **CI** נשאר חזק — verify-third-party-controls עדיין מוודא ששירותים נעלמים כש-enabled=false ושאין כפילויות.
 - 11 קבצים שונו: site.json, site.js, base.njk, disqus.njk, text-page.njk, category-page.njk, book-index.njk, privacy.md, verify-third-party-controls.mjs, verify-release-content.mjs, style.css.
 - סה"כ: הפרויקט פשוט יותר, ישיר יותר, וכן יותר עם המשתמשים.
+
+---
+Task ID: 18
+Agent: Super Z (main) — Deep audit round 2: consistency & stale docs
+Task: בחינה יסודית שנייה — תיקון חוסר עקביות, תיעוד מיושן, וקטגוריה ריקה
+
+Work Log:
+- [A] חוסר עקביות clementos-geez → clementos:
+  · catalog id היה "clementos-geez" אבל התיקייה ב-filesystem היא "clementos"
+  · frontmatter book: היה "clementos-geez" בכל 10 הקבצים
+  · תוקן: catalog id → "clementos", frontmatter book → "clementos" בכל הקבצים
+  · תוקן גם ב-docs/content-status-he.md
+- [B] figure חסר ב-catalog עבור 23 חיבורים:
+  · frontmatter הכיל figure אבל catalog לא
+  · סקריפט Python קרא figure מכל index.md והוסיף ל-catalog
+  · כעת כל 25 החיבורים ב-catalog מכילים figure
+- [C] קטגוריה ריקה mekorot-yeshmaelim:
+  · הייתה קטגוריה בניווט וב-by-figure/index.md
+  · אף חיבור לא היה משויך אליה (כל החיבורים הערביים משויכים ל-talmidei-yeshua או daniel)
+  · העמוד הציג "כרגע אין חיבורים זמינים לקטגוריה זו" — לא מקצועי לפרסום
+  · הוסרה לחלוטין מ-figures.json, figureCatalogKeys.json, base.njk nav, by-figure/index.md, updates.json
+- [D] README.md:
+  · "7 שפות" → "8 שפות" (נוספה יוונית)
+  · הסרת "(opt-in)" מתיאור Disqus ו-Analytics
+- [E] replit.md — מספרים ושיוכים מיושנים:
+  · "19 ספרים · 7 שפות · ~468 עמודים" → "25 חיבורים · 8 שפות · ~661 עמודים"
+  · "ספר חנוך א' (שחזור מיוונית) | ארמנית" → "יוונית" (תיקון שיוך)
+  · "אפוקליפסיס אסדרס | ארמנית" → "יוונית"
+  · "מעלה ישעיהו | ארמנית" → "יוונית"
+  · "חזון דניאל (ארמני) | 28" → "5" (מספר עמודים שגוי)
+- [F] updates.json — ci-third-party-hardening:
+  · תיאור ישן: "נוספו בדיקות אוטומטיות לוודא ששירותי צד שלישי נטענים רק אחרי הסכמה מפורשת"
+  · תיאור חדש: "נוספו בדיקות אוטומטיות לוודא ששירותי צד שלישי... נטענים כראוי — כיבוי מלא כש-enabled=false, ומניעת כפילויות טעינה"
+  · הוסר flag "privacy" (כבר לא רלוונטי אחרי Task 17)
+- [G] docs/project-onboarding-he.md:
+  · "clementos-geez, tsavaat-yeshua" → "tsavaat-yeshua" (clementos כבר לא ריק)
+  · נוסף: "כעת מסומן ב-badge 'בקרוב' ברשימת החיבורים"
+- [H] בדיקות נוספות שבוצעו:
+  · אין קישורים שבורים (0 מתוך 733 קישורים פנימיים)
+  · אין TODO/FIXME/placeholder אמיתיים בתוכן
+  · אין תמונות חסרות (אין תמונות בתוכן כלל)
+  · כל 7 עמודי by-figure מכילים חיבורים (1-14 כרטיסים כל אחד)
+  · כל 8 עמודי השפות מכילים חיבורים (1-11 כרטיסים כל אחד)
+  · כל 25 החיבורים ב-catalog מופיעים בעמוד השפה המתאים
+  · Pagefind אינדקס 661 עמודים, 49,215 מילים
+- [I] enoch-qumran-aramaic — נבדק ונמצא תקין:
+  · ללא parallelLayout, אבל המבנה שונה (מקור-תרגום מקוטע לפי פסוקים עם הערות)
+  · התצוגה האנכית הנוכחית עובדת טוב — לא מתאים לתצוגה דו-טורית
+  · הוספתי figure: enoch ל-catalog (היה חסר)
+- [J] CI: כל 16 בדיקות עוברות ✓
+
+Stage Summary:
+- 8 בעיות תוקנו: clementos naming, 23 חסר figure, mekorot-yeshmaelim ריק, README/replit/docs מיושנים, updates.json מטעה
+- אפס קישורים שבורים, אפס עמודים ריקים, אפס TODO
+- כל החיבורים משויכים נכון לשפה ולדמות
+- תיעוד פנימי מדויק כעת
+- הפרויקט נקי יותר ועקבי יותר — אבל עדיין דורש בדיקה ויזואלית בדפדפן לפני פריסה

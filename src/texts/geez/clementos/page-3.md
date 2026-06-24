@@ -1,7 +1,7 @@
 ---
 layout: text-page
 title: פרק ג (עמוד ג)
-book: clementos-geez
+book: clementos
 source: geez
 figure: talmidei-yeshua
 pageNumber: 3

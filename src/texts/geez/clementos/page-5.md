@@ -1,7 +1,7 @@
 ---
 layout: text-page
 title: פרק ה (עמוד ה)
-book: clementos-geez
+book: clementos
 source: geez
 figure: talmidei-yeshua
 pageNumber: 5
