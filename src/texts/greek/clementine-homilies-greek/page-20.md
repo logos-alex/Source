@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ג: הומיליה 2"
+description: "אלה ויותר מאלה הבטיח לנו, רק שבהיותנו עמו נחשיך את רוע המעשה, למען תעלה מרמתו, ובכל זאת לא הואלנו, כי אם גם יעצנוהו לחדל מעזבון כזה, אומרים לו: אנחנו, שמעון, זוכרים את ידידותנו ..."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

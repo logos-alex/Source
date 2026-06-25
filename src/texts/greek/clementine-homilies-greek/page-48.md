@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ד: הומיליות 3--9"
+description: "היה זמן אשר לא היה מאומה כי אם תוהו ותערובת יסודות בלתי-מסודרים עדיין מעורבבים ערבוב חסר-הבחנה, וזאת גם טבע הדברים מודה, וגם האנשים הגדולים כך חשבו."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "פסוקים 63–74"
+description: 'ויפקוד פקידים בסביבות אפריקי וחילות גדולים.'
 book: chazon-daniel-kopti
 source: arabic
 figure: daniel

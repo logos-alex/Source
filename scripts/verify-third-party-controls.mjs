@@ -1,22 +1,45 @@
 import { execFileSync } from 'node:child_process';
-import { readFileSync, readdirSync, rmSync, statSync, writeFileSync } from 'node:fs';
+import { copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, statSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
+import { tmpdir } from 'node:os';
 
 const repoRoot = process.cwd();
 const configPath = path.join(repoRoot, 'src/_data/site.json');
 const baseTemplatePath = path.join(repoRoot, 'src/_includes/base.njk');
 const siteJsPath = path.join(repoRoot, 'src/assets/js/site.js');
-const originalConfig = JSON.parse(readFileSync(configPath, 'utf8'));
 const originalConfigText = readFileSync(configPath, 'utf8');
 const buildWarnings = [];
+const failures = [];
+
+// Use a backup file (in tmpdir) so we can restore on exit even if the process is killed.
+const backupPath = path.join(tmpdir(), `logia-site-${process.pid}.json`);
+writeFileSync(backupPath, originalConfigText, 'utf8');
+
+// Restore on any exit — including SIGINT, SIGTERM, uncaughtException.
+function restoreConfig(signal) {
+  try {
+    if (existsSync(backupPath)) {
+      const backup = readFileSync(backupPath, 'utf8');
+      writeFileSync(configPath, backup, 'utf8');
+    }
+  } catch (_) { /* no-op */ }
+  if (signal) process.exit(1);
+}
+process.on('SIGINT', () => restoreConfig('SIGINT'));
+process.on('SIGTERM', () => restoreConfig('SIGTERM'));
+process.on('uncaughtException', (err) => { console.error(err); restoreConfig('uncaughtException'); });
+process.on('beforeExit', restoreConfig);
+
+// Cross-platform eleventy invocation: prefer npx --no-install (works on Windows + Unix).
+function runEleventy(pathPrefix) {
+  const args = ['--no-install', 'eleventy', `--pathprefix=${pathPrefix || '/'}`];
+  execFileSync('npx', args, { cwd: repoRoot, stdio: 'pipe' });
+}
 
 const build = (config) => {
   rmSync(path.join(repoRoot, '_site'), { recursive: true, force: true });
   writeFileSync(configPath, `${JSON.stringify(config, null, 2)}\n`);
-  execFileSync('./node_modules/.bin/eleventy', [`--pathprefix=${config.pathPrefix || '/'}`], {
-    cwd: repoRoot,
-    stdio: 'pipe'
-  });
+  runEleventy(config.pathPrefix);
 };
 
 const tryBuild = (config, label) => {
@@ -26,6 +49,7 @@ const tryBuild = (config, label) => {
   } catch (error) {
     const message = String(error.stderr || error.message || error).trim().split('\n').slice(0, 4).join(' | ');
     buildWarnings.push(`${label}: ${message}`);
+    failures.push(`${label}: build failed`);
     return false;
   }
 };
@@ -47,7 +71,10 @@ const walkHtmlFiles = (dir) => {
 };
 
 const assert = (condition, message) => {
-  if (!condition) throw new Error(message);
+  if (!condition) {
+    failures.push(message);
+    throw new Error(message);
+  }
 };
 
 try {
@@ -59,6 +86,7 @@ try {
   assert(siteJs.includes('loadAnalytics'), 'site.js should expose loadAnalytics');
   assert(siteJs.includes('loadClarity'), 'site.js should expose loadClarity');
 
+  const originalConfig = JSON.parse(originalConfigText);
   const disabledConfig = structuredClone(originalConfig);
   disabledConfig.thirdParty.analytics.enabled = false;
   disabledConfig.thirdParty.clarity.enabled = false;
@@ -92,10 +120,16 @@ try {
       const analyticsScripts = html.match(/googletagmanager\.com\/gtag\/js/g) || [];
       const clarityScripts = html.match(/clarity\.ms\/tag\//g) || [];
 
-      assert(translateLaunchers.length <= 1, `${path.relative(repoRoot, file)} injects translate launcher more than once`);
-      assert(analyticsScripts.length <= 1, `${path.relative(repoRoot, file)} injects analytics script more than once`);
-      assert(clarityScripts.length <= 1, `${path.relative(repoRoot, file)} injects clarity script more than once`);
+      if (translateLaunchers.length > 1) failures.push(`${path.relative(repoRoot, file)} injects translate launcher more than once`);
+      if (analyticsScripts.length > 1) failures.push(`${path.relative(repoRoot, file)} injects analytics script more than once`);
+      if (clarityScripts.length > 1) failures.push(`${path.relative(repoRoot, file)} injects clarity script more than once`);
     }
+  }
+
+  if (failures.length) {
+    console.error('Third-party loading controls verification failed:\n');
+    for (const f of failures) console.error(`- ${f}`);
+    process.exit(1);
   }
 
   if (buildWarnings.length) {
@@ -107,6 +141,8 @@ try {
     console.log('Third-party loading controls verified.');
   }
 } finally {
-  writeFileSync(configPath, originalConfigText);
-  tryBuild(originalConfig, 'restore original build');
+  restoreConfig();
+  // Rebuild with original config so _site is in a known-good state.
+  tryBuild(JSON.parse(originalConfigText), 'restore original build');
+  try { rmSync(backupPath, { force: true }); } catch (_) { /* no-op */ }
 }

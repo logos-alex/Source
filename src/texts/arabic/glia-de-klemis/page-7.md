@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "דף ז — מלכים על דרך אותיות שמותיהם"
+description: 'שְׁמוֹ אָלֶף נוּן. וְאַחֲרָיו יִמְלֹךְ מֶלֶךְ אֲשֶׁר רֹאשׁ שְׁמוֹ אָלֶף.'
 book: glia-de-klemis
 source: arabic
 figure: talmidei-yeshua

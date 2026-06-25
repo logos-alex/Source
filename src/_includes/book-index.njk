@@ -5,7 +5,8 @@
     <header class="text-header">
       <h1>{{ title }}</h1>
       {% if source or figure %}
-        {% set sourceHebrew = languages[source] or source %}
+        {% set langEntry = languages[source] %}
+        {% set sourceHebrew = (langEntry.label if langEntry else source) %}
         {% set figureHebrew = figures[figure] or figure %}
         <p class="text-meta">
           {% if sourceHebrew %}<span class="text-meta__item"><span class="text-meta__label">מקור:</span> {{ sourceHebrew }}</span>{% endif %}
@@ -20,8 +21,9 @@
     </div>
   </article>
 
+  {% if not hideToc %}
   <div class="table-of-contents c-section-divider">
-    <h3>העמודים</h3>
+    <h2>העמודים</h2>
 
     {% set pagesInBook = collections.all | bookPages(page.url, book) %}
     {% set byVersion = pagesInBook | groupby("data.version") %}
@@ -32,9 +34,9 @@
         {% set versionPages = versionGroup[1] %}
 
         {% if byVersion.length > 1 %}
-          <h4 class="table-of-contents__version-heading">
+          <h3 class="table-of-contents__version-heading">
             {% if versionKey == 'a' %}נוסח א'{% elif versionKey == 'b' %}נוסח ב'{% else %}נוסח עיקרי{% endif %}
-          </h4>
+          </h3>
         {% endif %}
 
         <ul>
@@ -47,6 +49,7 @@
       <p class="c-muted--italic">פרקי החיבור יתווספו בהמשך.</p>
     {% endif %}
   </div>
+  {% endif %}
 
     {# --- אזור התגובות --- #}
   {% include "disqus.njk" %}

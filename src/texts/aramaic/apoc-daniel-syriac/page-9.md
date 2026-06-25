@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "פרק ט'"
+description: 'ותזוע ארעא וימא. וימ̈מא נהומון. ונשתוחן תלליהון.'
 book: apoc-daniel-syriac
 source: aramaic
 figure: daniel

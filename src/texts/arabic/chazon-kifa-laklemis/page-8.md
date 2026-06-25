@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "דף ד ע״ב — עמוד 7"
+description: "מַחֲרִיב דָּת בִּזְמַן אֲשֶׁר יֵצֵא מִמֶּנּוּ בְּנֵי יִשְׂרָאֵל."
 book: chazon-kifa-laklemis
 source: arabic
 figure: talmidei-yeshua

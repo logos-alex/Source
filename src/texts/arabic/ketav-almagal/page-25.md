@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "השופטים"
+description: "ואחר כן שיעבדו המואבים את בני ישראל שמונה עשרה שנה."
 book: ketav-almagal
 source: arabic
 figure: talmidei-yeshua

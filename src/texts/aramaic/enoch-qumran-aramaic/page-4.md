@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "4Q205 · 4QEnʾd"
+description: 'תרגום עברי: הַחֲטִיבָה הָרְבִיעִית — לִקּוּטִים מִמְּסָעוֹת חֲנוֹךְ > > מקביל ל: חנוך א'' א, כ''ב–כ''ו --- [… לא יתנזקון ביומא דינא מן [… מן תנה — [… ואמרת להוה בריך דין קשט[א …] ר...'
 book: enoch-qumran-aramaic
 source: aramaic
 figure: enoch

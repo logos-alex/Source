@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "המבול"
+description: "ואז יצאו בני שת מן ההר הקדוש אל מושב קין ובניו, ולא נשארו על ההר זולתם שלושת האבות: מתושלח ולמך ונח."
 book: ketav-almagal
 source: arabic
 figure: talmidei-yeshua

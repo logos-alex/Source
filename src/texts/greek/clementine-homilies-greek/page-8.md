@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ב: הומיליה 1"
+description: 'חלק ב: הומיליה 1 > [[מקור: הומיליות הקלמנטינה, מהדורת Albert Schwegler, Tübingen > 1847.]] > > [[השוואה: ANF vol.'
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

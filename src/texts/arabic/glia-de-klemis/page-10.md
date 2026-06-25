@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "דף י — חורבן וגוועוֹן"
+description: '…הַמְּצוֹת בָּרְמָחִים. וְתִהְיֶינָה עַצְמוֹת בְּנֵי הָאָדָם בְּיָמֵיהֶם זְרוּעוֹת עַל הָאָרֶץ כְּזֵרְעוֹנֵי הַמִּלְחָמוֹת.'
 book: glia-de-klemis
 source: arabic
 figure: talmidei-yeshua

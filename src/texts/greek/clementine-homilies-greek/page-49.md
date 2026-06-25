@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ד: הומיליות 3--9"
+description: "את העצם הראשון והרב הזה, הטמא והקשה, אומרים שנבלע בקרונוס, הוא הזמן, בטבע, בגלל ירידתו למטה."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

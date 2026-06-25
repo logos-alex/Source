@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ו: הומיליות 15--19"
+description: "ואל החושבים אותו כזה יכול איש בצדק לומר כי נאמר אין מכיר את האב זולתי הבן וכאשר אין יודע את הבן זולתי האב וכנים הדברים כי אם ידעו לא חטאו בהאמינם בספרים הכתובים באמת לנסיון על א..."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

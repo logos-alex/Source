@@ -12,33 +12,11 @@ permalink: /texts/
   </header>
 
   <div class="book-list">
+    {% for langSlug, langEntry in languages %}
     <article class="book-card">
-      <h3><a class="book-card__primary-link" href="{{ '/texts/hebrew/' | url }}">עברית</a></h3>
-      <p class="book-card__description">כתבים שנולדו או שרדו בלשון הקודש, וחושפים רבדים נסתרים במחשבה היהודית.</p>
+      <h2><a class="book-card__primary-link" href="{{ ('/texts/' + langSlug + '/') | url }}">{{ langEntry.label }}</a></h2>
+      <p class="book-card__description">{{ langEntry.description }}</p>
     </article>
-    <article class="book-card">
-      <h3><a class="book-card__primary-link" href="{{ '/texts/slavic/' | url }}">סלאבית</a></h3>
-      <p class="book-card__description">מסעות אפוקליפטיים וחזיונות קוסמיים שנשתמרו בכתבי יד סלאביים עתיקים.</p>
-    </article>
-    <article class="book-card">
-      <h3><a class="book-card__primary-link" href="{{ '/texts/aramaic/' | url }}">ארמית</a></h3>
-      <p class="book-card__description">הדים של אחות הלשון העברית, הארמית, בכתבים ששרדו במרחב הסורי־ארמי.</p>
-    </article>
-    <article class="book-card">
-      <h3><a class="book-card__primary-link" href="{{ '/texts/arabic/' | url }}">ערבית</a></h3>
-      <p class="book-card__description">תרגומים, עיבודים וחיבורים שנשתמרו במסורות ערביות־יהודיות ונוצריות־מזרחיות.</p>
-    </article>
-    <article class="book-card">
-      <h3><a class="book-card__primary-link" href="{{ '/texts/geez/' | url }}">געז</a></h3>
-      <p class="book-card__description">מסורת אתיופית קלאסית ששמרה כתבים אפוקריפיים ייחודיים לצד מסורות פרשניות עתיקות.</p>
-    </article>
-    <article class="book-card">
-      <h3><a class="book-card__primary-link" href="{{ '/texts/armenian/' | url }}">ארמנית</a></h3>
-      <p class="book-card__description">מסורת תרגום ושימור ארמנית שמוסרת חיבורים אפוקליפטיים נדירים בנוסח ייחודי.</p>
-    </article>
-    <article class="book-card">
-      <h3><a class="book-card__primary-link" href="{{ '/texts/latin/' | url }}">לטינית</a></h3>
-      <p class="book-card__description">תרגומים ועיבודים שנשתמרו במסורת הלטינית, בעיקר מן העולם הנוצרי־מערבי.</p>
-    </article>
+    {% endfor %}
   </div>
 </div>

@@ -1,7 +1,8 @@
 ---
 layout: text-page
 title: "פרק ה --- חיפוש האל האמיתי: אש, מים, ארץ, שמש, ירח, כוכבים"
-book: apocalypse-abraham-b
+description: "(20) והוה כי שמע אברם מלין דאבוהי, אתדנן בדעתיה, וקם בעציבותא דרוגזא דנפשא."
+book: apocalypse-abraham
 source: slavic
 figure: abraham
 pageNumber: 5

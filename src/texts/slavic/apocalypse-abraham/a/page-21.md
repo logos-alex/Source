@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חזון אברהם – נוסח א' – פרק כא"
+description: 'וָאֹמַר: ''אֲדֹנִי, הֲיֹכַל יַעַשׂ אֱלֹהִים זָת.'
 book: apocalypse-abraham
 version: a
 pageNumber: 21

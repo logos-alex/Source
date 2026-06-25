@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ד: הומיליות 3--9"
+description: "ומה גם החכמים המפורסמים הלא בחרו בתענוג ועם אשר חפצו נלוו בראשם מורה יון אשר עליו אמר פויבוס בעצמו מכל האנשים סוקרטיס החכם ביותר הלא בעיר המשפטית ביותר בספרטא שם את הנשים לכל וא..."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

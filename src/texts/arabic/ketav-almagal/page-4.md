@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "אדם בגן עדן"
+description: "ובעוד אדם שומע את נאם אלוהים איתו ועומד על מקום הגולגלתא, ונאסף כל הבריאה לשמוע את ערבות אלוהים איתו, הנה נשאו ענן מאור ונסעו אותו לגן עדן."
 book: ketav-almagal
 source: arabic
 figure: talmidei-yeshua

@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "[עמוד 60]"
+description: "אז קרן שלישית מן השמים תקרא, ושופר גדול מירושלים יידבר."
 book: apoc-daniel-syriac
 source: aramaic
 figure: daniel

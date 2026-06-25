@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "4Q207 · 4QEnʾf"
+description: 'תרגום עברי: הַחֲטִיבָה הַשִּׁשִׁית — קְטָע קָצָר > > מקביל ל: חנוך א'' פ''ח (משל החיות) > 207 0 i 1–5 [… מ]נה (על[ה … כ]וכבא ח[ד … — […] בניהון הו בעדין חזית — […]ן ודיריהון [וע]ג...'
 book: enoch-qumran-aramaic
 source: aramaic
 figure: enoch

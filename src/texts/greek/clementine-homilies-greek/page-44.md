@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ד: הומיליות 3--9"
+description: "עוד נלוה אל אחותו הנולדת לו מן השמים והים מכריתת קרונוס אהבה וקפריס אשר קוראים לה דודונה וילוה גם אל אנטיופה בת ניקטיאוס בהדמותו לשעיר וממנה נולדו אמפיון וזיתוס אל אלקמנה אשת אמ..."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

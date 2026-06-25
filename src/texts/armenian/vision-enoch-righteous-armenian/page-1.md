@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: פרק א (עמוד א)
+description: 'בשנה פלונית יצאו מחנות הצדיקים. וָאֵרֶא מַרְאָה אֶחָד נֶגֶד פָּנַי בָּהָר, בְּשָׁעָה הַשְּׁלִישִׁית לַיּוֹם.'
 book: vision-enoch-righteous-armenian
 source: armenian
 figure: enoch

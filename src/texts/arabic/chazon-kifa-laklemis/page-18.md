@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "דף ט ע״א — עמוד 16"
+description: "הַיּוֹנָה ― בְּרוּאָה כְּמוֹ הָרֵעַ."
 book: chazon-kifa-laklemis
 source: arabic
 figure: talmidei-yeshua

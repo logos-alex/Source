@@ -1,14 +1,15 @@
 ---
 layout: text-page
 title: "חטיבה א --- מצוות עשה ומידות טובות"
+description: 'אמר מושא. אלהי מנו דיהב לחמא ליתמא בית אבא לא מדינא מנא אגרה.'
 book: sichat-moshe
 source: aramaic
-figure: abraham
+figure: moshe
 pageNumber: 2
 version: main
 tags:
   - aramaic
-  - abraham
+  - moshe
   - texts
 permalink: /texts/aramaic/sichat-moshe/page-2/
 ---

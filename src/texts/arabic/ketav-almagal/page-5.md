@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "אלוהים מנחם את אדם"
+description: "והיה כניסת אדם לגן על שלוש שעות, ועבר הוא וחוה במלכות הגדולה שלוש שעות, ונערו שלוש שעות, ובשעה התשיעית הייתה יציאתם מן הגן, מגורשים בצער רב ובכי גדול וספד ואנחה."
 book: ketav-almagal
 source: arabic
 figure: talmidei-yeshua

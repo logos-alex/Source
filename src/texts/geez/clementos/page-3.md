@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: פרק ג (עמוד ג)
+description: 'וְלֹא תַּכְלִית. הֱיוֹתֵנוּ בַּכֹּל, וְגֹדֶל כֹּחֵנוּ, וּמַה שֶׁלְּמַטָּה מִבְּרִיאָתֵנוּ — הוּא מֵאִתָּנוּ.'
 book: clementos
 source: geez
 figure: talmidei-yeshua

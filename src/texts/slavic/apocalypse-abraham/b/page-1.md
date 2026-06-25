@@ -1,7 +1,8 @@
 ---
 layout: text-page
 title: "פרק א --- נעורי אברהם; אלילי תרח ונפילת מרומת"
-book: apocalypse-abraham-b
+description: "(1) הוית ביומא ההוא, ואנא אברם בר תרח --- בעידנא דמבעי הוא למבעי ולמבזז בקשוט עובדא דשכיבתא, דהות עבדתא דמרי, דאברם, בעידנא דמקריב קרבנא דמרי."
+book: apocalypse-abraham
 source: slavic
 figure: abraham
 pageNumber: 1

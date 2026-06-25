@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ד: הומיליות 3--9"
+description: "ויאמר את הדברים האלה ויסמוך את ידו על זכי ויאמר: אדון ומושל הכל, האב והאלהים, אתה תשמור רועה עם עדרו."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

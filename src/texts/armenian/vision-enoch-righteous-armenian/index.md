@@ -2,10 +2,14 @@
 layout: category-page.njk
 title: "חזון חנוך הצדיק: הקדמה"
 book: vision-enoch-righteous-armenian
+version: main
 source: armenian
 figure: enoch
 draft: false
-tags: ["texts", "armenian", "enoch"]
+tags:
+  - texts
+  - armenian
+  - enoch
 permalink: /texts/armenian/vision-enoch-righteous-armenian/
 pageNumber: 0
 description: "חיבור אפוקליפטי המיוחס לחנוך ומקורו בארמנית, המתאר עימות בין מלכויות, חורבן, שיקום ודין אחרית הימים."

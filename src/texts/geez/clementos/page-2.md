@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: פרק ב (עמוד ב)
+description: '<p><strong>ביאורי הפרק:</strong> ההפניות בגוף הטקסט מסומנות במספר עילי (לדוגמה: <sup><a href=''#note-11''>11</a></sup>) ומובילות לקטע <a href=''#note-11''>הערות וביאורים</a> שבתחתית...'
 book: clementos
 source: geez
 figure: talmidei-yeshua

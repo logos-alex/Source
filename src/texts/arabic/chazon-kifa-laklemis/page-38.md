@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "דף י״ט ע״א — עמוד 36"
+description: 'לְבָבָם, כִּי לְבָבָם כְּצוּר. וְיִהְיוּ עִמָּם הַנְּבִיאִים לְפָרֵשׁ לָהֶם אֵת אֲשֶׁר זֻעְזְעוּ בּוֹ.'
 book: chazon-kifa-laklemis
 source: arabic
 figure: talmidei-yeshua

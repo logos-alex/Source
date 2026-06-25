@@ -97,16 +97,14 @@ for (const check of [
     file: '_site/texts/aramaic/apoc-daniel-syriac/index.html',
     markers: [
       'id="comments-section"',
-      'id="disqus_thread"',
-      'hebrew-aramaic-sources.disqus.com/embed.js'
+      'id="disqus_thread"'
     ]
   },
   {
     file: '_site/texts/aramaic/apoc-daniel-syriac/page-1/index.html',
     markers: [
       'id="comments-section"',
-      'id="disqus_thread"',
-      'hebrew-aramaic-sources.disqus.com/embed.js'
+      'id="disqus_thread"'
     ]
   }
 ]) {

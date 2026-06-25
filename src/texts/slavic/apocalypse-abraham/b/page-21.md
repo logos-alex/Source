@@ -1,7 +1,8 @@
 ---
 layout: text-page
 title: "פרק כא --- האיש מן השמאל ועבודת האומות"
-book: apocalypse-abraham-b
+description: "(111) ואמר לי תקיפא דקודשא: אסתכל עוד תת שמיא ואתרא דאנת בעי, וחזי."
+book: apocalypse-abraham
 source: slavic
 figure: abraham
 pageNumber: 21

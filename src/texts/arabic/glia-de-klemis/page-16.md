@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "דף טז — שיברון המלכוּת והבריחה אל ההרים"
+description: "…שָׁבְעַ מֵאוֹת וּשְׁלֹשִׁים וְחָמֵשׁ שָׁנָה לְמַלְכוּת הָאַחֲרוֹן."
 book: glia-de-klemis
 source: arabic
 figure: talmidei-yeshua

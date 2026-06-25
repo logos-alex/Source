@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "פרק ה'"
+description: 'דנעבד אספחן לאיסר דעילם. ונבניה בחמתא ובאפדנא.'
 book: apoc-daniel-syriac
 source: aramaic
 figure: daniel

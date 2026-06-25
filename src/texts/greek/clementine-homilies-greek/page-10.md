@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ב: הומיליה 1"
+description: "ואנכי בדבר אלה על אחרים, הוכחתי גם את עצמי לומר: מדוע אתרעם באחרים, ואני אשום באותו פשע הזנח."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "פרק ד — סיפור בכירא הנביא השקר ושושלתו"
+description: "א והיה בימים ההם איש משומרון, ושמו בכירא, ממשפחת צדקיהו בן־כנעני הנביא השקר — היושב בבית־עניה."
 book: maale-yeshayahu
 source: greek
 figure: isaiah

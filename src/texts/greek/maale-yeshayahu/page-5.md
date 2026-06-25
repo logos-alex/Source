@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "פרק ה — בכירא מאתר את ישעיהו ומתלונן עליו"
+description: "א וידע בכירא את מקום ישעיהו והנביאים אשר עמו, כי הוא ישב בארץ בית־לחם ונדבק אל מנשה."
 book: maale-yeshayahu
 source: greek
 figure: isaiah

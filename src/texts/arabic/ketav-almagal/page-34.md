@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "הדוקסולוגיה הסופית"
+description: "ולאדוננו ואלוהינו ואדוננו ישוע המשיח --- התשבחה והגבורה והגדולה וההדר וההשתחוויה, עם האב ורוח הקודש, מעתה ובכל עת ועד דור דורים, אמן."
 book: ketav-almagal
 source: arabic
 figure: talmidei-yeshua

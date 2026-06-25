@@ -1,14 +1,15 @@
 ---
 layout: text-page
 title: "נספח א: הערות על השחזור"
+description: 'כותרת החיבור. המילה \תשיעיתא\ (תשעיתא) היא \מעשה\ / \סיפור\, מלשון \שאל\ / \סיפר\.'
 book: sichat-moshe
 source: aramaic
-figure: abraham
+figure: moshe
 pageNumber: 7
 version: main
 tags:
   - aramaic
-  - abraham
+  - moshe
   - texts
 permalink: /texts/aramaic/sichat-moshe/page-7/
 ---

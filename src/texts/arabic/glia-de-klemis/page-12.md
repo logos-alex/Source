@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "דף יב — חורבן מצרים ועליית מלך מן המזרח"
+description: "…לְצַד הַיָּם, וַחֲרֻבוֹת כְּנֵסִיוֹת."
 book: glia-de-klemis
 source: arabic
 figure: talmidei-yeshua

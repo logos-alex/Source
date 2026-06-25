@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: פרק ז (עמוד ז)
+description: "אָז יֵרָאֶה כּוֹכָב בּוֹלֵט מִצַּד מַעֲרָב, וְאַרְבַּע קַרְנוֹת לוֹ — אוֹת לְשָׁלוֹם רַב יוֹתֵר בָּרוּחוֹת הָהֵן."
 book: vision-enoch-righteous-armenian
 source: armenian
 figure: enoch

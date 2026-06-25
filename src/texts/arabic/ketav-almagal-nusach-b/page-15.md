@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "עמוד יז — תְּפִלּוֹת שָׁעוֹת הַיּוֹם"
+description: "…מַעֲלָתְכֶם, וְלֹא יָסוּר מִלִּכְלוֹל אֶתְכֶם בְּהַשְׁגָּחָתוֹ."
 book: ketav-almagal-nusach-b
 source: arabic
 figure: talmidei-yeshua

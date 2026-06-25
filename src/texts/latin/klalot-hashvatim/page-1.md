@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "מבוא והקדמה"
+description: 'תרגום (עברית בסגנון התקופה — רבני-איטלקי, מאה י''ח) …יאמר: אם תתחייבו באמונתכם, אודיעכם את הקללה, אשר נגעה כמעט בנסיעי, אשר כלה נתחדשה.'
 book: klalot-hashvatim
 source: latin
 figure: talmidei-yeshua

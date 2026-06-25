@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ד: הומיליות 3--9"
+description: "ואולם להמון העם לכעוס מעט על דעות כאלה הוא סביר."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

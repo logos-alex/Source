@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ד: הומיליות 3--9"
+description: "ובתפלות יש לפנות אל האלהים ולהודות ולהעיד כי אין יציאת השד מחוסר רגש, כי אם אטיות."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

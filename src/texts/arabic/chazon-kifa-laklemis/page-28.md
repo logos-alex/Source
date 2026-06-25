@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "דף י״ד ע״א — עמוד 26"
+description: "הָעֵצִים ― יוֹצִיאוּ עָלִים וְיִשְׂאוּ פֵרוֹת, וְיַשְׂבִּיעוּ הָאֲנָשִׁים מִן הַמַּאֲכָל וְהַמַּשְׁקֶה, כִּי יִהְיֶה בְּיָמָיו יֹקֶר וְרָעָב גָּדוֹל עַל הָאָרֶץ."
 book: chazon-kifa-laklemis
 source: arabic
 figure: talmidei-yeshua

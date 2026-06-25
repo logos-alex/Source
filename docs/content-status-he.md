@@ -1,36 +1,48 @@
 # דוח סטטוס תוכן
 
-| ספר | מקור | מספר פרקים | פרקים ללא תרגום מאומת |
-|---|---:|---:|---:|
-| apoc-daniel-syriac | aramaic | 32 | 0 |
-| apocalypse-abraham | slavic | 21 | 0 |
-| apocalypse-abraham-b | slavic | 25 | 0 |
-| apokalypsis-esdras | greek | 7 | 0 |
-| chazon-daniel-aravi | arabic | 7 | 0 |
-| chazon-daniel-kopti | arabic | 8 | 0 |
-| chazon-ezra-sofer | latin | 8 | 0 |
-| chazon-ezra-suri | aramaic | 10 | 0 |
-| chazon-kifa-laklemis | arabic | 57 | 0 |
-| clementine-homilies | aramaic | 23 | 0 |
-| clementine-homilies-greek | greek | 105 | 0 |
-| clementine-r1 | aramaic | 61 | 0 |
-| clementine-r2 | aramaic | 76 | 0 |
-| clementine-r3 | aramaic | 55 | 0 |
-| clementine-r4 | aramaic | 3 | 0 |
-| clementos | geez | 9 | 0 |
-| enoch-qumran-aramaic | aramaic | 8 | 0 |
-| glia-de-klemis | arabic | 16 | 0 |
-| ketav-almagal | arabic | 34 | 0 |
-| ketav-almagal-nusach-b | arabic | 24 | 0 |
-| klalot-hashvatim | latin | 14 | 0 |
-| maale-yeshayahu | greek | 7 | 0 |
-| maasei-timotheos | latin | 5 | 0 |
-| sefer-hanoch-a | greek | 10 | 0 |
-| sefer-zerubbabel | hebrew | 8 | 0 |
-| sichat-moshe | aramaic | 8 | 0 |
-| tsavaat-yeshua | aramaic | 0 | 0 |
-| vision-daniel-armenian | armenian | 5 | 0 |
-| vision-enoch-righteous-armenian | armenian | 8 | 0 |
-| young-daniel-syriac | aramaic | 7 | 0 |
+## סיכום מצטבר
+
+| מדד | ערך |
+|---|---:|
+| סה"כ ספרים | 29 |
+| סה"כ פרקים | 661 |
+| סה"כ הערות שוליים | 374 |
+| סה"כ מילים (בערך) | 539,835 |
+| ספרים עם תצוגה מקבילית | 9 |
+| ספרים בהכנה (comingSoon) | 1 |
+
+## פירוט לפי ספר
+
+| ספר | מקור | דמות | פרקים | הערות | מילים | מקבילית | ללא תרגום מאומת |
+|---|---|---|---:|---:|---:|:---:|---:|
+| apoc-daniel-syriac | aramaic | daniel | 32 | 32 | 11,138 | ✓ | 0 |
+| apocalypse-abraham | slavic | abraham | 46 | 115 | 7,671 |  | 0 |
+| apokalypsis-esdras | greek | ezra | 7 | 0 | 2,094 |  | 0 |
+| chazon-daniel-aravi | arabic | daniel | 7 | 0 | 1,990 |  | 0 |
+| chazon-daniel-kopti | arabic | daniel | 8 | 0 | 1,401 |  | 0 |
+| chazon-ezra-sofer | latin | ezra | 8 | 8 | 2,724 |  | 0 |
+| chazon-ezra-suri | aramaic | ezra | 10 | 0 | 2,259 | ✓ | 0 |
+| chazon-kifa-laklemis | arabic | talmidei-yeshua | 57 | 0 | 9,687 |  | 0 |
+| clementine-homilies | aramaic | talmidei-yeshua | 23 | 21 | 88,131 | ✓ | 0 |
+| clementine-homilies-greek | greek | talmidei-yeshua | 105 | 22 | 52,285 |  | 0 |
+| clementine-r1 | aramaic | talmidei-yeshua | 61 | 40 | 107,715 | ✓ | 0 |
+| clementine-r2 | aramaic | talmidei-yeshua | 76 | 26 | 123,164 | ✓ | 0 |
+| clementine-r3 | aramaic | talmidei-yeshua | 55 | 34 | 63,472 | ✓ | 0 |
+| clementine-r4 | aramaic | talmidei-yeshua | 3 | 2 | 652 | ✓ | 0 |
+| clementos | geez | talmidei-yeshua | 9 | 9 | 2,389 |  | 0 |
+| enoch-qumran-aramaic | aramaic | enoch | 8 | 0 | 5,623 |  | 0 |
+| glia-de-klemis | arabic | talmidei-yeshua | 16 | 0 | 4,296 |  | 0 |
+| ketav-almagal | arabic | talmidei-yeshua | 34 | 33 | 13,560 |  | 0 |
+| ketav-almagal-nusach-b | arabic | talmidei-yeshua | 24 | 0 | 6,477 |  | 0 |
+| klalot-hashvatim | latin | talmidei-yeshua | 14 | 0 | 676 |  | 0 |
+| maale-yeshayahu | greek | isaiah | 7 | 0 | 2,488 |  | 0 |
+| maasei-timotheos | latin | talmidei-yeshua | 5 | 5 | 745 |  | 0 |
+| sefer-hanoch-a | greek | enoch | 10 | 0 | 1,992 |  | 0 |
+| sefer-zerubbabel | hebrew | zerubbabel | 8 | 7 | 2,915 |  | 0 |
+| sichat-moshe | aramaic | moshe | 8 | 0 | 2,969 | ✓ | 0 |
+| tsavaat-yeshua | aramaic | talmidei-yeshua | 0 | 0 | 0 |  | 0 |
+| vision-daniel-armenian | armenian | daniel | 5 | 12 | 2,602 |  | 0 |
+| vision-enoch-righteous-armenian | armenian | enoch | 8 | 8 | 1,566 |  | 0 |
+| young-daniel-syriac | aramaic | daniel | 7 | 0 | 17,154 | ✓ | 0 |
 
 > הדוח נוצר אוטומטית על ידי `npm run report:content`.

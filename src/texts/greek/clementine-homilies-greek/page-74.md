@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ו: הומיליות 15--19"
+description: 'חלק ו: הומיליות 15--19 > [[מקור: הומיליות הקלמנטינה, מהדורת Albert Schwegler, Tübingen > 1847.]] > > [[השוואה: ANF vol.'
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

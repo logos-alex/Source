@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ו: הומיליות 15--19"
+description: "ויאמר פטרוס אינם מתעים אלא מוכיחים ומוציאים לאור את הכוונה הרעה הצפונה בכל אחד נגד אלהים כנחש."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

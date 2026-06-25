@@ -1,7 +1,8 @@
 ---
 layout: text-page
 title: "פרק ט --- הציפור הטמאה (עזאזל); אזהרת המלאך והוראותיו"
-book: apocalypse-abraham-b
+description: "(46) ונחת עופתא דסאבא על גושמי זבחיא."
+book: apocalypse-abraham
 source: slavic
 figure: abraham
 pageNumber: 9

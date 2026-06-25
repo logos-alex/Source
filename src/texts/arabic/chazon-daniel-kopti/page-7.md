@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "פסוקים 75–86"
+description: 'והתורכי יהרוג את סרבידוס ויקח את מלכותו.'
 book: chazon-daniel-kopti
 source: arabic
 figure: daniel

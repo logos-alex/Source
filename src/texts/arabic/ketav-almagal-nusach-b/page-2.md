@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "עמוד ד — דִּבְרֵי קְלֶמֶנְס בִּפְתַח הַסֵּפֶר"
+description: "[הַתַּלְמִידִים] חָבְבוּ אוֹתוֹ וּמֵאַהֲבָתָם לוֹ עֲשָׂאוּהוּ לְאָב, וְנָטוּ כֻּלָּם אֵלָיו וְהוּא אֲלֵיהֶם."
 book: ketav-almagal-nusach-b
 source: arabic
 figure: talmidei-yeshua

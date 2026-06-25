@@ -1,7 +1,8 @@
 ---
 layout: text-page
 title: "פרק כה --- שנים-עשר המזבחות; המקדש העתיד; סיום החיבור"
-book: apocalypse-abraham-b
+description: "(130) והוה כי שמעת את כל אלין מן פומא דתקיפא דקודשא --- נפלית על אפי ארעא וסגדית לאלהא בריך הוא."
+book: apocalypse-abraham
 source: slavic
 figure: abraham
 pageNumber: 25

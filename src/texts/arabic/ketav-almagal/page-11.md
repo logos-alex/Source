@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "דורות שת וירידת בניו"
+description: "ונמשך האבל על אדם מבניו ובני בניו מאה וארבעים יום, כי הוא ראשון מת בארץ."
 book: ketav-almagal
 source: arabic
 figure: talmidei-yeshua

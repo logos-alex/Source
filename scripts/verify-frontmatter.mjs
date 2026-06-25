@@ -23,7 +23,8 @@ function walk(dir, cb) {
 }
 
 function getFrontmatter(content) {
-  const match = content.match(/^---\n([\s\S]*?)\n---\n/);
+  // CRLF-safe: accept both \n and \r\n line endings.
+  const match = content.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n/);
   return match ? match[1] : null;
 }
 
@@ -32,8 +33,8 @@ function hasKey(frontmatter, key) {
 }
 
 function readValue(frontmatter, key) {
-  const match = frontmatter.match(new RegExp(`^${key}:\\s*(.+)$`, 'm'));
-  return match ? match[1].trim().replace(/^[\'"]|[\'"]$/g, '') : '';
+  const match = frontmatter.match(new RegExp(`^${key}:\\s*(.+?)\\s*$`, 'm'));
+  return match ? match[1].replace(/^[\'"]|[\'"]$/g, '') : '';
 }
 
 function assertKeys(frontmatter, file, keys) {
@@ -52,7 +53,7 @@ function assertKnownValue(frontmatter, file, key, allowed) {
   }
 }
 
-function checkPage(file, frontmatter) {
+function checkPage(file, frontmatter, base) {
   assertKeys(frontmatter, file, ['layout', 'title', 'book', 'source', 'figure', 'pageNumber']);
 
   // Tags are required — they drive sitemap inclusion
@@ -71,6 +72,22 @@ function checkPage(file, frontmatter) {
     const numeric = Number(raw);
     if (!Number.isInteger(numeric) || numeric <= 0) {
       errors.push(`${file}: pageNumber must be a positive integer (got '${raw}')`);
+    } else {
+      // Verify pageNumber matches the filename page-N
+      const fileMatch = file.match(/page-(\d+)\.md$/);
+      if (fileMatch && Number(fileMatch[1]) !== numeric) {
+        errors.push(`${file}: pageNumber ${numeric} does not match filename page-${fileMatch[1]}`);
+      }
+    }
+  }
+
+  // Verify permalink format for chapter pages.
+  // Accepts either /texts/<source>/<book>/page-N/ or /texts/<source>/<book>/<version>/page-N/
+  if (hasKey(frontmatter, 'permalink')) {
+    const permalink = readValue(frontmatter, 'permalink');
+    const expected = /^\/texts\/[^/]+\/[^/]+(?:\/[^/]+)?\/page-\d+\/?$/;
+    if (/^page-\d+\.md$/.test(base) && !expected.test(permalink)) {
+      errors.push(`${file}: permalink '${permalink}' does not match expected format /texts/<source>/<book>/[version/]page-N/`);
     }
   }
 
@@ -103,7 +120,7 @@ walk(TEXTS_ROOT, (file) => {
   const base = parts[parts.length - 1];
 
   if (/^page-\d+\.md$/.test(base)) {
-    checkPage(file, frontmatter);
+    checkPage(file, frontmatter, base);
     return;
   }
 

@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ג: הומיליה 2"
+description: "ואם איש, כאשר נראה לשמעון השומרוני, לא ירצה לתת כי צדיק האלהים --- למי עוד יוכל לתת זאת, או וכלפי שיוכל להיות."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

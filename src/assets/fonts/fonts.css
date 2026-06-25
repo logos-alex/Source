@@ -1,4 +1,9 @@
-/* LOGIA — אוצר הכתבים הגנוזים — Self-hosted fonts */
+/* LOGIA — אוצר הכתבים הגנוזים — Self-hosted fonts (WOFF2 + subsetting) */
+
+/* Hebrew Unicode range — used for unicode-range on all Hebrew fonts.
+   Includes: Hebrew block (0590-05FF), Alphabetic Presentation Forms Hebrew (FB1D-FB4F),
+   ZWJ/ZWNJ/ZWJ, dashes, quotation marks, ellipsis, euro sign. */
+/* The unicode-range is applied per @font-face below. */
 
 /* Frank Ruhl Libre — primary Hebrew serif (body & headings) */
 @font-face {
@@ -6,21 +11,27 @@
   font-style: normal;
   font-weight: 300;
   font-display: swap;
-  src: url('frank-ruhl-libre-300.ttf') format('truetype');
+  src: url('frank-ruhl-libre-300.woff2') format('woff2'),
+       url('frank-ruhl-libre-300.ttf') format('truetype');
+  unicode-range: U+0590-05FF, U+FB1D-FB4F, U+200D, U+200E, U+200F, U+2010-2015, U+2018-201F, U+20AC, U+2026;
 }
 @font-face {
   font-family: 'Frank Ruhl Libre';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('frank-ruhl-libre-400.ttf') format('truetype');
+  src: url('frank-ruhl-libre-400.woff2') format('woff2'),
+       url('frank-ruhl-libre-400.ttf') format('truetype');
+  unicode-range: U+0590-05FF, U+FB1D-FB4F, U+200D, U+200E, U+200F, U+2010-2015, U+2018-201F, U+20AC, U+2026;
 }
 @font-face {
   font-family: 'Frank Ruhl Libre';
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('frank-ruhl-libre-700.ttf') format('truetype');
+  src: url('frank-ruhl-libre-700.woff2') format('woff2'),
+       url('frank-ruhl-libre-700.ttf') format('truetype');
+  unicode-range: U+0590-05FF, U+FB1D-FB4F, U+200D, U+200E, U+200F, U+2010-2015, U+2018-201F, U+20AC, U+2026;
 }
 
 /* Noto Serif Hebrew — fallback Hebrew serif */
@@ -30,7 +41,9 @@
   font-weight: 300;
   font-stretch: normal;
   font-display: swap;
-  src: url('noto-serif-hebrew-300.ttf') format('truetype');
+  src: url('noto-serif-hebrew-300.woff2') format('woff2'),
+       url('noto-serif-hebrew-300.ttf') format('truetype');
+  unicode-range: U+0590-05FF, U+FB1D-FB4F, U+200D, U+200E, U+200F, U+2010-2015, U+2018-201F, U+20AC, U+2026;
 }
 @font-face {
   font-family: 'Noto Serif Hebrew';
@@ -38,7 +51,9 @@
   font-weight: 400;
   font-stretch: normal;
   font-display: swap;
-  src: url('noto-serif-hebrew-400.ttf') format('truetype');
+  src: url('noto-serif-hebrew-400.woff2') format('woff2'),
+       url('noto-serif-hebrew-400.ttf') format('truetype');
+  unicode-range: U+0590-05FF, U+FB1D-FB4F, U+200D, U+200E, U+200F, U+2010-2015, U+2018-201F, U+20AC, U+2026;
 }
 @font-face {
   font-family: 'Noto Serif Hebrew';
@@ -46,21 +61,19 @@
   font-weight: 700;
   font-stretch: normal;
   font-display: swap;
-  src: url('noto-serif-hebrew-700.ttf') format('truetype');
+  src: url('noto-serif-hebrew-700.woff2') format('woff2'),
+       url('noto-serif-hebrew-700.ttf') format('truetype');
+  unicode-range: U+0590-05FF, U+FB1D-FB4F, U+200D, U+200E, U+200F, U+2010-2015, U+2018-201F, U+20AC, U+2026;
 }
 
-/* EB Garamond — Latin display serif (wordmark, headings in Latin script) */
+/* EB Garamond — used ONLY for the wordmark "LOGIA" (5 Latin letters).
+   Subset to those letters only — file is ~2 KB instead of 831 KB. */
 @font-face {
   font-family: 'EB Garamond';
   font-style: normal;
-  font-weight: 400 800;
+  font-weight: 400;
   font-display: swap;
-  src: url('EB-Garamond-Variable.ttf') format('truetype') tech('variations');
-}
-@font-face {
-  font-family: 'EB Garamond';
-  font-style: normal;
-  font-weight: 400 800;
-  font-display: swap;
-  src: url('EB-Garamond-Variable.ttf') format('truetype');
+  src: url('EB-Garamond-Logo.woff2') format('woff2'),
+       url('EB-Garamond-Variable.ttf') format('truetype');
+  unicode-range: U+004C, U+004F, U+0047, U+0049, U+0041; /* L, O, G, I, A */
 }

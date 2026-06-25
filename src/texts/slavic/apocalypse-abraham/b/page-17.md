@@ -1,7 +1,8 @@
 ---
 layout: text-page
 title: "פרק יז --- גן עדן; אדם וחוה; עזאזל ועץ הדעת"
-book: apocalypse-abraham-b
+description: "(91) ואמר לי: אסתכל השתא תת רקיעא לרגליך, והבן ית בריאה דאתבריא קדם סגי זמן בעלמא הדין, ומה דאתי בתרך בדרך ובדרות בניך."
+book: apocalypse-abraham
 source: slavic
 figure: abraham
 pageNumber: 17

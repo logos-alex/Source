@@ -108,3 +108,29 @@ web_modules/
 
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
+
+# OS metadata
+.DS_Store
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# IDE / editor directories
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+*.swp
+*.swo
+*~
+.#*
+\#*#
+
+# Local environment overrides
+.env.local
+.env.*.local
+
+# Build artifacts (extra safety)
+_site-test/
+_tmp/
+tmp/

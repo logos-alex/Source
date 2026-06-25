@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ו: הומיליות 15--19"
+description: "אחד הוא אפוא אלהים באמת היושב בצורה נשגבה והוא לב למעלה ולמטה פעמים כפלים וממנו כמרכז יפרח כח חיוני ובלתי גופני ויורה עצמות אין קץ למעלה ואין חקר למטה ובלתי נמדד לרחב הכל יחד עם..."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

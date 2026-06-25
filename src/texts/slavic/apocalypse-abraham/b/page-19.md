@@ -1,7 +1,8 @@
 ---
 layout: text-page
 title: "פרק יט --- תרח לא שמע; חזון חורבן המקדש"
-book: apocalypse-abraham-b
+description: "(103) ואמר לי: אבוך תרח --- מנא לא שמע ית קלך, ולא אשתבק מן עבודת צלמיא, עד דאבד הוא וביתיה עמיה."
+book: apocalypse-abraham
 source: slavic
 figure: abraham
 pageNumber: 19

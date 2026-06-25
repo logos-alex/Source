@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ו: הומיליות 15--19"
+description: "אך כאשר אמרת הרע אם נברא הוא או כיצור חי נולד או בעצמותו הוצא על ידו או נערב בחוץ או נתערבה רצונו בתערובת או בלא תערובת ובלא עצת אלהים נמצא מאין או על ידי אלהים לא נהיה כלל ועיק..."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

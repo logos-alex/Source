@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "עמוד י"
+description: 'כִּי הָאֵל יִתְבָּרַךְ וְיִשְׂגֵּא שְׁמוֹ נָטַל מִמֶּנּוּ אֶת בְּגַד הַטּוֹב וְהָאַדִּירוּת, וַיִּקְרָא שְׁמוֹ ''שֵׁיטַאן'' (= שָׂטָן), וְהִשְׁפִּילוֹ.'
 book: ketav-almagal-nusach-b
 source: arabic
 figure: talmidei-yeshua

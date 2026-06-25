@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "דף ח ע״א — עמוד 14"
+description: "יֹאבְדוּ, וְיִשָּׁאֲרוּ אַלְמָנוֹת."
 book: chazon-kifa-laklemis
 source: arabic
 figure: talmidei-yeshua

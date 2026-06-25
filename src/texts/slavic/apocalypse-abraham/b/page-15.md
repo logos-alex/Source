@@ -1,7 +1,8 @@
 ---
 layout: text-page
 title: "פרק טו --- הקול קורא אברהם והבטחת האהבה"
-book: apocalypse-abraham-b
+description: "(83) והא שמעת קלא כקלא דימא דסגיאין."
+book: apocalypse-abraham
 source: slavic
 figure: abraham
 pageNumber: 15

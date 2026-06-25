@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "[עמוד 48]"
+description: "ונתנוהו לעולם לפתחהּ של הארץ, להלך מים אל ים ומקצות השמים עד קצות השמים."
 book: apoc-daniel-syriac
 source: aramaic
 figure: daniel

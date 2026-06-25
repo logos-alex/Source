@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ד: הומיליות 3--9"
+description: "את המעשים הטובים והרעים האלה יודע אני ומקדים להגיד לכם כשתי דרכים, ומראה לכם באיזו מהן ההולכים אובדים, ובאיזו מהלכים נשמרים, בהנהגת האלהים."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

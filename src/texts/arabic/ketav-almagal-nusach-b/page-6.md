@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "עמוד ח — בְּרִיאַת אָדָם"
+description: "לָחֲשׁוּ אִישׁ אֶל אָחִיו וְאָמְרוּ: מַה הַדִּבּוּר הַמֻּפְלָא הַגָּדוֹל אֲשֶׁר לֹא נִשְׁמַע כְּמוֹתוֹ מִן הָאָדוֹן מֵעוֹלָם."
 book: ketav-almagal-nusach-b
 source: arabic
 figure: talmidei-yeshua

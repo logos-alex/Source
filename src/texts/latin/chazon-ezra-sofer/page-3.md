@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "פסוקים 32–49"
+description: "32 וָאֹמַר אֶל־הַמַּלְאָךְ: אֲדֹנִי, מִי אֵלֶּה."
 book: chazon-ezra-sofer
 source: latin
 figure: ezra

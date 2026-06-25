@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ו: הומיליות 15--19"
+description: "אבל כי גם רשעים יראו מראות וחלומות אמת נגלה הוא ומן הכתוב אוכל להוכיח כי כתוב בתורה כי אבימלך בהיותו רשע בחפצו לטמא את אשת אברהם הצדיק שמע מאת אלהים בחלום כאשר תאמר הכתוב לבלתי ..."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

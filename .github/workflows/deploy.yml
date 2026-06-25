@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - work
   workflow_dispatch:
 
 permissions:
@@ -22,17 +21,20 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
+        with:
+          fetch-depth: 0  # needed for git-based lastmod in sitemap
 
       - name: Setup Node.js
         uses: actions/setup-node@v5
         with:
-          node-version: '22'
+          node-version: '22.11.0'
           cache: 'npm'
           cache-dependency-path: package-lock.json
 

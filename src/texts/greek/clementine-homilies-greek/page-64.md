@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ה: מבחר קטעים מהומיליות 10--14"
+description: 'חלק ה: מבחר קטעים מהומיליות 10--14 (מהדורת Paul de Lagarde, Leipzig 1865) > [[מקור: מהדורת Paul de Lagarde, Clementina graece, Leipzig > 1865.]] > > [[השוואה: ANF vol.'
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

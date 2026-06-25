@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "סעיף ט --- האיש מהדרום והסוף הגדול"
+description: "[1] בתר תלתא שבועין ופלגה, גברא חילתנא חד נפק מן תימנא עם עמא רבא, ושולטנה מטא לארעא דשובדנא."
 book: chazon-ezra-suri
 source: aramaic
 figure: ezra

@@ -1,7 +1,8 @@
 ---
 layout: text-page
 title: "פרק כג --- חלוקת הזמנים; חלקי הקץ"
-book: apocalypse-abraham-b
+description: '(120) וענית ואמרת: עלאה תקיפא! עד אמתי? ואמר לי: אמרת למחוייך ית מה דקביעת, כמה דשאלת.'
+book: apocalypse-abraham
 source: slavic
 figure: abraham
 pageNumber: 23

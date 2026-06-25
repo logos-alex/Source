@@ -81,69 +81,28 @@ bodyClass: home-page
   <section class="quick-jump" aria-label="קפיצה מהירה">
     <h2 class="quick-jump__title">קפיצה מהירה לכתבים</h2>
     <div class="quick-jump__grid">
-      <a href="{{ '/texts/hebrew/' | url }}" class="quick-jump__item">
+      {% for langSlug, langEntry in languages %}
+      <a href="{{ ('/texts/' + langSlug + '/') | url }}" class="quick-jump__item">
         <span>
-          <span class="quick-jump__item-label">עברית</span>
-          <span class="quick-jump__item-meta">כתבים מלשון הקודש</span>
+          <span class="quick-jump__item-label">{{ langEntry.label }}</span>
+          <span class="quick-jump__item-meta">{{ langEntry.description }}</span>
         </span>
       </a>
-      <a href="{{ '/texts/slavic/' | url }}" class="quick-jump__item">
-        <span>
-          <span class="quick-jump__item-label">סלאבית</span>
-          <span class="quick-jump__item-meta">מסורת סלאבית עתיקה</span>
-        </span>
-      </a>
-      <a href="{{ '/texts/aramaic/' | url }}" class="quick-jump__item">
-        <span>
-          <span class="quick-jump__item-label">ארמית</span>
-          <span class="quick-jump__item-meta">מרחב סורי-ארמי</span>
-        </span>
-      </a>
-      <a href="{{ '/texts/armenian/' | url }}" class="quick-jump__item">
-        <span>
-          <span class="quick-jump__item-label">ארמנית</span>
-          <span class="quick-jump__item-meta">מסורת ארמנית נדירה</span>
-        </span>
-      </a>
-      <a href="{{ '/texts/arabic/' | url }}" class="quick-jump__item">
-        <span>
-          <span class="quick-jump__item-label">ערבית</span>
-          <span class="quick-jump__item-meta">מסורות יהודיות-נוצריות-מזרחיות</span>
-        </span>
-      </a>
-      <a href="{{ '/texts/greek/' | url }}" class="quick-jump__item">
-        <span>
-          <span class="quick-jump__item-label">יוונית</span>
-          <span class="quick-jump__item-meta">ספרות אפוקליפטית קדומה</span>
-        </span>
-      </a>
-      <a href="{{ '/texts/geez/' | url }}" class="quick-jump__item">
-        <span>
-          <span class="quick-jump__item-label">געז</span>
-          <span class="quick-jump__item-meta">מסורת אתיופית קלאסית</span>
-        </span>
-      </a>
-      <a href="{{ '/texts/latin/' | url }}" class="quick-jump__item">
-        <span>
-          <span class="quick-jump__item-label">לטינית</span>
-          <span class="quick-jump__item-meta">מן המסורת הלטינית-מערבית</span>
-        </span>
-      </a>
+      {% endfor %}
     </div>
   </section>
 
-  <section class="coming-soon" aria-label="בקרוב">
-    <h2>בקרוב במאגר</h2>
-    <p class="coming-soon__lead">המאגר ממשיך להתרחב. בכוונתנו להוסיף בעתיד הקרוב:</p>
+  <section class="coming-soon" aria-label="סטטוס המאגר">
+    <h2>מצב המאגר וכיווני התפתחות</h2>
+    <p class="coming-soon__lead">המאגר מכיל כעת 29 חיבורים ב־8 שפות מקור, עם 661 פרקי תוכן ומעל 500,000 מילים. חלק מן החיבורים מופיעים בנוסח מלא עם ביאורים, ואילו אחרים מוצגים בנוסח מקוטע וממתינים להשלמה. בכוונתנו להוסיף בעתיד:</p>
     <ul>
-      <li>כתבים קבליים ואפוקריפיים שטרם נדפסו — ישירות מתוך כתבי-יד</li>
-      <li>סולם יעקב (הסלאבי)</li>
-      <li>עליית ישעיהו (הסלאבי)</li>
-      <li>ספר אליהו (העברי)</li>
-      <li>חזון דניאל (העברי)</li>
+      <li>השלמת חיבורים שמופיעים כעת בנוסח מקוטע (בעיקר במסורת הערבית־נוצרית והלטינית)</li>
+      <li>הוספת ביאורים והערות שוליים לחיבורים שעדיין ללא פירוש</li>
+      <li>כתבים קבליים ואפוקריפיים שטרם נדפסו — ישירות מתוך כתבי־יד</li>
+      <li>סולם יעקב (הסלאבי), עליית ישעיהו (הסלאבי), ספר אליהו (העברי)</li>
       <li>חיבורים נוספים ממסורות המזרח והמערב</li>
     </ul>
-    <p class="coming-soon__note">ועוד אינספור חיבורים נוספים מן הספרות החיצונית והגנוזה שמצויים בידינו וממתינים לשילוב.</p>
+    <p class="coming-soon__note">רוצים לתרום תוכן, תרגום או ביאור? ניתן ליצור קשר דרך עמוד <a href="{{ '/contact/' | url }}">צור קשר</a>.</p>
   </section>
 
 </div>

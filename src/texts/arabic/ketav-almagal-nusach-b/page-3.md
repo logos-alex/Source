@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "עמוד ה — תְּשׁוּבַת שִׁמְעוֹן כֵּיפָא"
+description: "…מַכִּירִים אוֹתִי בַּהֱיוֹתִי בַּעַל יְדִיעָה בַּחָכְמָה עַד שֶׁאַשִּׁיב בִּתְשׁוּבָה."
 book: ketav-almagal-nusach-b
 source: arabic
 figure: talmidei-yeshua

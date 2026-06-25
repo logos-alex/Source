@@ -1,7 +1,8 @@
 ---
 layout: text-page
 title: "פרק י --- תחילת העלייה; קצה האש; רקיע ששי"
-book: apocalypse-abraham-b
+description: "(56) וסליק יתי לקצא דנורא, וסלקנא כרוחין סגיאין."
+book: apocalypse-abraham
 source: slavic
 figure: abraham
 pageNumber: 10

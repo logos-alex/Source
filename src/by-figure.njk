@@ -7,6 +7,7 @@ layout: base.njk
 permalink: "/by-figure/{{ figureKey }}/index.html"
 eleventyComputed:
   title: "כתבים המיוחסים ל{{ figures[figureKey] or figureKey }}"
+  description: "חיבורים חיצוניים המיוחסים ל{{ figures[figureKey] or figureKey }} — חזיונות, אפוקליפסות ומדרשים קדומים בתרגום עברי עם ביאורים."
 ---
 
 <div class="text-main category-listing">
@@ -25,7 +26,9 @@ eleventyComputed:
           <h2><a class="book-card__primary-link" href="{{ item.url | url }}">{{ item | displayBookTitle }}</a></h2>
           <p class="book-card__description">{{ item.data.description or "גילויים נסתרים ומסעות שמימיים המיוחסים לדמותו של " + figures[figureKey] }}</p>
           {% if item.data.source %}
-            <p><small>מקור: <a class="book-card__meta-link" href="{{ ('/texts/' + item.data.source + '/') | url }}">{{ languages[item.data.source] }}</a></small></p>
+            {% set langEntry = languages[item.data.source] %}
+            {% set langLabel = (langEntry.label if langEntry else item.data.source) %}
+            <p><small>מקור: <a class="book-card__meta-link" href="{{ ('/texts/' + item.data.source + '/') | url }}">{{ langLabel }}</a></small></p>
           {% endif %}
         </article>
       {% endif %}

@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ד: הומיליות 3--9"
+description: 'חלק ד: הומיליות 3--9 > [[מקור: הומיליות הקלמנטינה, מהדורת Albert Schwegler, Tübingen > 1847.]] > > [[השוואה: ANF vol.'
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

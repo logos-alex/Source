@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "קללת שבט בנימין"
+description: "אלו הם, אשר נתנו את הספוג טבול בחומץ ומרה לאדון, באמרו «צמא»."
 book: klalot-hashvatim
 source: latin
 figure: talmidei-yeshua

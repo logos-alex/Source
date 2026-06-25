@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "עמוד יא — הַפַּרְדֵּס כִּכְנֵסִיָּה"
+description: "הוּא בֵּית הַתְּפִלָּה (כְּנֶסֶת) שֶׁל הָאֵל הַפּוֹנֶה מִן הַמִּזְרָח לְרוּם שְׁמוֹנֶה מַעֲלוֹת מִמַּעֲלוֹת הַשֶּׁמֶשׁ."
 book: ketav-almagal-nusach-b
 source: arabic
 figure: talmidei-yeshua

@@ -1,31 +1,16 @@
 {#
-  Disqus comments section — embedded directly on book/text pages.
+  Disqus comments section — embedded on text/book pages.
   Toggle via site.json -> thirdParty.disqus.enabled
+  The actual script loading is handled lazily by site.js (IntersectionObserver).
 #}
 {% set disqusConfig = site.thirdParty.disqus or {} %}
 {% set disqusShortname = disqusConfig.shortname or site.disqusShortname %}
-{% if site.thirdParty.disqus %}
-  {% set disqusEnabled = disqusConfig.enabled %}
-{% else %}
-  {% set disqusEnabled = disqusShortname | length > 0 %}
-{% endif %}
+{% set disqusEnabled = disqusConfig.enabled %}
 
 {% if disqusEnabled and disqusShortname %}
-<div id="comments-section" class="c-section-divider">
-  <h3>תגובות</h3>
+<div id="comments-section" class="c-section-divider comments-section">
+  <h2 class="comments-section__heading">תגובות</h2>
   <div id="disqus_thread" lang="he"></div>
-  <script>
-      var disqus_config = function () {
-          this.page.url = "{{ site.origin }}{{ page.url | url }}";
-          this.page.identifier = "{{ page.url | url }}";
-      };
-      (function() {
-          var d = document, s = d.createElement('script');
-          s.src = 'https://{{ disqusShortname }}.disqus.com/embed.js';
-          s.setAttribute('data-timestamp', +new Date());
-          (d.head || d.body).appendChild(s);
-      })();
-  </script>
   <noscript>יש לאפשר JavaScript כדי לצפות ב<a href="https://disqus.com/?ref_noscript">תגובות המופעלות על ידי Disqus.</a></noscript>
 </div>
 {% endif %}

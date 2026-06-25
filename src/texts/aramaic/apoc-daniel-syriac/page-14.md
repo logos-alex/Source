@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "פרק יד"
+description: 'בלחוד באשיותא דאסירותא. ובעבדא דעורלא בבסרא.'
 book: apoc-daniel-syriac
 source: aramaic
 figure: daniel

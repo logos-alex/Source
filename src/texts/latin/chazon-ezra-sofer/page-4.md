@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "פסוקים 50–64"
+description: "50 וָאֶרְאֶה בִּמְקוֹם חָשׁוּךְ כִּבְשָׁן אַחֵר, וְשָׁם הֻשְׁלְכוּ נָשִׁים אֲשֶׁר הָיוּ שָׁם."
 book: chazon-ezra-sofer
 source: latin
 figure: ezra

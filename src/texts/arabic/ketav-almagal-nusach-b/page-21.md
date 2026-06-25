@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "עמוד כג — צַוָּאַת שֵׁת לְיֶרֶד"
+description: "…אֶל הַפַּרְדֵּס — חוֹטֵא לֹא יְקַבֵּל הַפַּרְדֵּס לֹא טָמֵא וְלֹא חֻלִּי, וְלֹא נִשּׂוּאִין וְלֹא זְנוּת."
 book: ketav-almagal-nusach-b
 source: arabic
 figure: talmidei-yeshua

@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ד: הומיליות 3--9"
+description: "ובכל זאת, אם יראה איש את הכל בדיוק בשכלו, ימצא כי בעד האדם עשה האלהים."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

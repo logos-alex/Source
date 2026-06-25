@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "דף ז ע״ב — עמוד 13"
+description: "אֱלֹהַי הַדְּבָרִים הָאֲבֵלִים מִשְּׁאָר הָעוֹלָם, זוּלָתִי כְּבָשֶׂיךָ וּפֵרוּשָׁן אֲשֶׁר אַתָּה מְבַשֵּׂר בַּבְּשׂוֹרָה הָאֱנוֹשִׁית."
 book: chazon-kifa-laklemis
 source: arabic
 figure: talmidei-yeshua

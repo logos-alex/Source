@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "משה ויהושע"
+description: "ואשר לשמועת משה נביא האלוהים --- הספרים המכילים את תולדות בני ישראל מספרים כי לוי בבואו עם אביו יעקב אל מצרים ילד לו שם את בנו עמרם אבי משה."
 book: ketav-almagal
 source: arabic
 figure: talmidei-yeshua

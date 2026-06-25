@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: פרק ו (עמוד ו)
+description: 'אֶלָּא מְשַׁבְּחִים אוֹתָנוּ וּמְקַדְּשִׁים אוֹתָנוּ.<sup><a href=''#note-1'' id=''ref-1''>1</a></sup> וַאֲנַחְנוּ — שְׁנֵי הָרָאשִׁים שֶׁל שְׁנֵי מַעֲלוֹת הַמַּלְאָכִים שֶׁשַּׂמְנוּ.'
 book: clementos
 source: geez
 figure: talmidei-yeshua

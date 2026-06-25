@@ -1,14 +1,15 @@
 ---
 layout: text-page
 title: "חטיבה ד --- תוספות: אמונה, צדקה, העמדת תלמידים"
+description: 'ואמר מושא. מרי ואלהי מנו דמהימנ בשררא ומשלמנותא בדחלתכ] מנא אגרה.'
 book: sichat-moshe
 source: aramaic
-figure: abraham
+figure: moshe
 pageNumber: 5
 version: main
 tags:
   - aramaic
-  - abraham
+  - moshe
   - texts
 permalink: /texts/aramaic/sichat-moshe/page-5/
 ---

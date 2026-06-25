@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
-Disallow: /dist/
+Disallow: /pagefind/
+Disallow: /*.pf_fragment$
+Disallow: /*.pf_index$
+Disallow: /*.pf_ref$
+
 Sitemap: https://logos-alex.github.io/Source/sitemap.xml

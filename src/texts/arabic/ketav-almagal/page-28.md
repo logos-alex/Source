@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "מלכי יהודה מרחבעם עד חזקיה"
+description: "ומלך אחרי שלמה רחבעם בנו, ויטמא את הארץ בעבודת האלילים וברוב הזנות בעיר ירושלים, וישחט לשדים."
 book: ketav-almagal
 source: arabic
 figure: talmidei-yeshua

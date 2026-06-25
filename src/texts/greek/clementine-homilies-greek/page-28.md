@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ד: הומיליות 3--9"
+description: 'אל תתעו. אבינו לא העלים דבר. ומזה שהתורה המונחת ברבים, מכסה עליו באשמת בלתי-ידיעה למען הבלתי-ראוים, שולחת את החפצים באמת אליו לאמר: שאל את אביך ויגידך, את זקניך ויאמרו לך.'
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

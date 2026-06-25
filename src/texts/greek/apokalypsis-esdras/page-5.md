@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חזיון ה"
+description: "א וַיֹּאמֶר הַנָּבִיא: רַחֵם, אֲדֹנָי, אֶת דּוֹר הַנּוֹצְרִים."
 book: apokalypsis-esdras
 source: greek
 figure: ezra

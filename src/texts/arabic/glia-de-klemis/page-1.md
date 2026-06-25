@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "דף א"
+description: "[העמוד הימני] …מן האחרת, ואינן מתהפכות."
 book: glia-de-klemis
 source: arabic
 figure: talmidei-yeshua

@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ו: הומיליות 15--19"
+description: "פרק 10 ויאמר פטרוס יען כי נעים כן דברת אל ההמון הנוכחי אני אדבר לא לרצון כי אם באמת אמור לי איך תכיר את כל הנוכחים כראוים במקום אשר בגלותך לא הסכים אתך אף אחד כי השבח אשר נעשה ל..."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

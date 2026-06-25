@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "דף ב"
+description: "…בין שתהיינה חלקיה מחייבות או שוללות."
 book: glia-de-klemis
 source: arabic
 figure: talmidei-yeshua

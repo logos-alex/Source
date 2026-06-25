@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ד: הומיליות 3--9"
+description: "ואזיקי קרונוס הם קפיאת השמים והארץ, כאשר שמעתי גם מאחרים המוסרים משלים, והכריתה מן האברים היא הפרדת היסודות והבחנתם, כי מטבעם נכרתו ונבדלו הכל, ויוכן כל אחד לעצמו; ואין הזמן מול..."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

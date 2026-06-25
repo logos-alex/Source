@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ד: הומיליות 3--9"
+description: "אבל גם במצרים עד היום הזה איש נעבד כאל לפני מותו."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

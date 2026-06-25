@@ -1,7 +1,8 @@
 ---
 layout: text-page
 title: "פרק ו --- הקול מן השמים; ציווי הזבח ותענית ארבעים יום"
-book: apocalypse-abraham-b
+description: "(26) והוה כד אמר אברהם מלין אלין לתרח אבוהי בחצרא דביתיה --- והא קלא תקיפא אתא בנהרא דאשא, למימר: אברם."
+book: apocalypse-abraham
 source: slavic
 figure: abraham
 pageNumber: 6

@@ -1,7 +1,8 @@
 ---
 layout: text-page
 title: "פרק יא --- המרכבה; ארבע החיות; אופני האש"
-book: apocalypse-abraham-b
+description: '(61) ולא יכילנא למחזי ברומא הדין. ומלאכא תפש יתי בימיניה, ואחא יתי בקולות בכתבא, וביה שמשא דמזהרא מן תתא, וסיהרא עם כוכביא דנסיבא קדם.'
+book: apocalypse-abraham
 source: slavic
 figure: abraham
 pageNumber: 11

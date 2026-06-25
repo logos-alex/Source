@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "דף יג — כניסת המָשִׁיחַ (\"גוּר אַרְיֵה\") וטיהור העולם"
+description: "…וְיֹאבְדוּ כָּל הַחוֹלְקִים עַל מַלְכוּתִי וְהַמַּכְזִיבִים אוֹתָהּ."
 book: glia-de-klemis
 source: arabic
 figure: talmidei-yeshua

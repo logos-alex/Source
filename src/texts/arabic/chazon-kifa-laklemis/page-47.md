@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "דף כ״ג ע״ב — עמוד 45"
+description: "אֲשֶׁר תֵּאַרְתִּי, וְהַנֹּעַם יִהְיֶה לוֹ."
 book: chazon-kifa-laklemis
 source: arabic
 figure: talmidei-yeshua

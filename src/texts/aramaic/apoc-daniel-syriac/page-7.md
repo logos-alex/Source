@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "פרק ז'"
+description: 'דנאזל לארעא דיהודא. וישבוק דניאיל נביא. לנהפך לאורישלם.'
 book: apoc-daniel-syriac
 source: aramaic
 figure: daniel

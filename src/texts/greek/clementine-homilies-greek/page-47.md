@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ד: הומיליות 3--9"
+description: "והאחרים שמעו קודם את דברי ויחפצו לדעת את הבא אחרי כן ויבאו אלי לפקד את אפיון וימצאנו אותו רחוץ כבר וישב אל השלחן הערוך ועל כן מעט דקדקנו בדבר על האלהים והוא כנראה הבין את כונתנו..."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

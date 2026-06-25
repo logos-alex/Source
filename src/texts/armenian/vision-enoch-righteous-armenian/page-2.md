@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: פרק ב (עמוד ב)
+description: "וַיַּעַל רֹאשׁ הַוִּישַׁאפ (הַתַּנִּין), וְתֵשַׁע עֵינַיִם לוֹ, וְרַגְלָיו כְּטַרְפֵּי אַרְיֵה, וּמְרוּצָתוֹ כִּנְמֵר."
 book: vision-enoch-righteous-armenian
 source: armenian
 figure: enoch

@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חזיון ד"
+description: "א וַיֹּאמֶר הַנָּבִיא: אֲדֹנָי, לֹא אֶחְדַּל מִשָּׁפְטֶךָ."
 book: apokalypsis-esdras
 source: greek
 figure: ezra

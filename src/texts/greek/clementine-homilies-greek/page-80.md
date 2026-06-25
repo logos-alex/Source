@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ו: הומיליות 15--19"
+description: "וישמע שמעון את הדברים האלה ויאמר כיון שנביא הנותן אותות ומופתים מחייב להאמין באל אחר ולדעת כי גם מות חייב גם מורך נתן אותות ומופתים ובדין הומת."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

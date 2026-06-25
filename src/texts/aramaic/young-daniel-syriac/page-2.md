@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "פרק ב"
+description: 'תוב דניאל אתחזי לעמא דרב הו מן כלהון.'
 book: young-daniel-syriac
 source: aramaic
 figure: daniel

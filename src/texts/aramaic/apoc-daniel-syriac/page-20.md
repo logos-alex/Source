@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "[עמוד 52]"
+description: "אז מעינות מים ייגרשו, ונהרות עמוקים לבסתרהונם יתהפכו, וייסתרו בפחד מלפני מלך רב של שמים וארץ, אדון כל המעשים."
 book: apoc-daniel-syriac
 source: aramaic
 figure: daniel

@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ו: הומיליות 15--19"
+description: "ויהי בבקר בצאת פטרוס לדבר ושמעון הקדימו ויאמר אמש בלכתי הבטחתי לשוב היום ולדון ולהראות כי לא הוא אלהים עליון בורא העולם כי אם אחר אשר הוא לבדו טוב ועד הנה נעלם הוא ועתה אמור לי ..."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

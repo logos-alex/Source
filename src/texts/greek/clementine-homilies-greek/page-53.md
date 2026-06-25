@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ד: הומיליות 3--9"
+description: "לאלהים אשר ברא את השמים ואת הכל אין חסרה תואנה לישועת החפצים להיוושע."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

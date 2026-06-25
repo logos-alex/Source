@@ -1,7 +1,8 @@
 ---
 layout: text-page
 title: "פרק יב --- רקיע שביעי; כסא הכבוד ושירת האש"
-book: apocalypse-abraham-b
+description: "(67) וכד אסיק לעילא טב, חזית תמן נהורא בהיר לטיא."
+book: apocalypse-abraham
 source: slavic
 figure: abraham
 pageNumber: 12

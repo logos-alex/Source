@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חזקיה, מנשה ומות ישעיהו"
+description: "והיה חזקיה בן חמש ועשרים שנה במלכו, ושם אמו חפצי בת זכריה."
 book: ketav-almagal
 source: arabic
 figure: talmidei-yeshua

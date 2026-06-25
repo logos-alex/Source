@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "פסוקים 38–49"
+description: 'ואחרי זאת ישמע מלך ארם (סוריא) באחרית, כי אויב קרוב אליו.'
 book: chazon-daniel-kopti
 source: arabic
 figure: daniel

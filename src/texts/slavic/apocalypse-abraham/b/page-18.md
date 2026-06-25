@@ -1,7 +1,8 @@
 ---
 layout: text-page
 title: "פרק יח --- חזון החמס ועבודה-זרה; המקדש והמזבח"
-book: apocalypse-abraham-b
+description: '(97) ואמר לי: אסתכל בחזונא! וחזית, והא קדם הות קיימא בריאה דאתבריא קדם.'
+book: apocalypse-abraham
 source: slavic
 figure: abraham
 pageNumber: 18

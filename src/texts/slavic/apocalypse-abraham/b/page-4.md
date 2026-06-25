@@ -1,7 +1,8 @@
 ---
 layout: text-page
 title: "פרק ד --- אברהם מכהה את אביו על חולשת האליל"
-book: apocalypse-abraham-b
+description: '(17) וענית ואמרת ליה: שמע אבא תרח! אלין מברכין את צלמיא דילך?'
+book: apocalypse-abraham
 source: slavic
 figure: abraham
 pageNumber: 4

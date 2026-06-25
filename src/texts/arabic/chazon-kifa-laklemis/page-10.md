@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "דף ג ע״א — עמוד 4"
+description: "וְיֻתַּן בַּנִּשּׂוּאִין לָקַחַת שְׁתֵּי אֲחָיוֹת, וְיִהְיוּ רֹב חֲבֵרֵיהֶם כּוֹפְרִים בִּילְדֵיהֶם."
 book: chazon-kifa-laklemis
 source: arabic
 figure: talmidei-yeshua

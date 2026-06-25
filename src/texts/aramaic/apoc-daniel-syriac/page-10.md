@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "פרק י'"
+description: 'צורא מכיל. וכאילא מפזל. וכמתקלא משלם. וכקנטינרא שקל.'
 book: apoc-daniel-syriac
 source: aramaic
 figure: daniel

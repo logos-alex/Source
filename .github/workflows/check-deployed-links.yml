@@ -2,16 +2,43 @@ name: Check deployed links
 
 on:
   schedule:
-    - cron: '0 4 * * 1'
+    - cron: '0 4 * * *'
   workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
 
 jobs:
   link-check:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Check links on deployed site
         uses: lycheeverse/lychee-action@v2
         with:
-          args: --verbose --no-progress --max-concurrency 8 --accept 200,206,429 https://logos-alex.github.io/Source/
+          args: >-
+            --verbose
+            --no-progress
+            --max-concurrency 8
+            --accept 200,206
+            --exclude 'disqus\.com'
+            --exclude 'googletagmanager\.com'
+            --exclude 'clarity\.ms'
+            --exclude 'translate\.google\.com'
+            https://logos-alex.github.io/Source/
+          fail: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Open issue on failure
+        if: failure()
+        uses: dbuzanski/create-issue-action@v1
+        with:
+          title: '[Link-Check] Broken links detected on deployed site'
+          body: |
+            The scheduled link-check workflow detected broken links on the deployed site.
+
+            See: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          labels: bug,links
+          assignees: logos-alex

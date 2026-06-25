@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "[עמוד 54]"
+description: "וייתרו כטרף מן האילן, ושמש וירח לא יאירו; ורקיע האוחז מטר וטל – בו ביום ההוא ייסתר ויעבר, ומלאכי התהום תחתונים ינהרו ידיהם, ועמוד השמים יירפו."
 book: apoc-daniel-syriac
 source: aramaic
 figure: daniel

@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חזיון א"
+description: "א דְּבַר־נָבוּא וְהִתְגַּלּוּת שֶׁל אֶסְדְרָס הַנָּבִיא הַקָּדוֹשׁ, יְדִיד הָאֱלֹהִים."
 book: apokalypsis-esdras
 source: greek
 figure: ezra

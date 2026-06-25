@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ד: הומיליות 3--9"
+description: "ואם יחפוץ איש לומר כי הנבואות על-ידי דברים כאלה דומות להכרה המוקדמת הטבעית באמת, הוטעה הרבה."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

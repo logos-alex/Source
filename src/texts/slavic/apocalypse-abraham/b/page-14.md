@@ -1,7 +1,8 @@
 ---
 layout: text-page
 title: "פרק יד --- הכרובים שש-כנפים; ברכת אברהם בן-תרח"
-book: apocalypse-abraham-b
+description: "(78) וחזית תמן בקביעו דאבנין בזוין עליהון סעפין כעננין, תת כסא דחיותא דמשתנין."
+book: apocalypse-abraham
 source: slavic
 figure: abraham
 pageNumber: 14

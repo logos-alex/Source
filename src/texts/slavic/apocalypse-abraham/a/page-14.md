@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חזון אברהם – נוסח א' – פרק יד"
+description: "וַיְהִי כַּאֲשֶׁר רָאָה הַמַּלְאָךְ אֲשֶׁר עִמִּי כִּי הֶחְלַפְתִּי [התבוננתי], עָזַב אוֹתִי וְהָלַךְ אֵלֵיהֶם."
 book: apocalypse-abraham
 version: a
 pageNumber: 14

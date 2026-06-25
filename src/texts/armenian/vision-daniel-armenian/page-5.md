@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "פסוקים 1–6"
+description: 'מסורת כתבי־היד: החיבור נשתמר בחמישה כתבי־יד ארמניים: (A) לונדון, Lambeth Palace Library, armen.'
 book: vision-daniel-armenian
 source: armenian
 figure: daniel

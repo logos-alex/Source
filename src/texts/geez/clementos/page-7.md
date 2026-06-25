@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: פרק ז (עמוד ז)
+description: 'בְּלִי עָמָל וּבְלִי יְגִיעָה. אֲנַחְנוּ הַכֹּחַ וְהַתְּשׁוּעָה; וּגְבוּרָתֵנוּ שְׁלֵמָה לְכָל אֲשֶׁר בָּרָאנוּ.'
 book: clementos
 source: geez
 figure: talmidei-yeshua

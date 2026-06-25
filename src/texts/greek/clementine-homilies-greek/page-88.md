@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ו: הומיליות 15--19"
+description: "ויהי ככלות שמעון לדבר ויאמר פטרוס אליו תוכל להעיד בו כי כן אתה מאמין לא את אשר אתה אומר עתה בסתר כי אם את אשר אתה מאמין ולא מודה כי דברים במקום דברים אתה מגדיר ומבלבל על כן אם ת..."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

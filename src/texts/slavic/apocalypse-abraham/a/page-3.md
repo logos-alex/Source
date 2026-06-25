@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חזון אברהם – נוסח א' – פרק ג"
+description: "וּבְעוֹדִי הֹלֵךְ בַּדֶּרֶךְ, נִטְרְפָה לִבִּי וּמַחְשַׁבְתִּי הִתְפַּשְּׁטָה בִּי."
 book: apocalypse-abraham
 version: a
 pageNumber: 3

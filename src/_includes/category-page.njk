@@ -5,7 +5,8 @@
     <header class="text-header">
       <h1>{{ title }}</h1>
       {% if source or figure %}
-        {% set sourceHebrew = languages[source] or source %}
+        {% set langEntry = languages[source] %}
+        {% set sourceHebrew = (langEntry.label if langEntry else source) %}
         {% set figureHebrew = figures[figure] or figure %}
         <p class="text-meta">
           {% if sourceHebrew %}<span class="text-meta__item"><span class="text-meta__label">מקור:</span> {{ sourceHebrew }}</span>{% endif %}
@@ -20,7 +21,7 @@
     </div>
 
     {% set pagesInBook = collections.all | bookPages(page.url, book) %}
-    {% set chapterPages = collections.all | bookPages(page.url, book, false) %}
+    {% set chapterPages = pagesInBook | rejectattr("data.pageNumber", "equalto", 0) | list %}
     {% if chapterPages.length > 0 %}
       <div class="start-reading-cta">
         <a href="{{ chapterPages[0].url | url }}" class="btn btn--primary">התחל קריאה ←</a>
@@ -28,19 +29,19 @@
     {% endif %}
   </article>
 
-  {% if pageNumber != 0 and notes %}
+  {% if pageNumber and pageNumber != 0 and notes %}
     <div class="footnotes">
-      <h3>הערות וביאורים</h3>
+      <h2 class="footnotes__heading">הערות וביאורים</h2>
       <ul>
         {% for note in notes %}
-          <li id="note-{{ loop.index }}">{{ note | renderMarkdownInline | safe }} <a href="#ref-{{ loop.index }}" class="note-backlink" aria-label="חזרה למיקום ההפניה בגוף הטקסט">↩</a></li>
+          <li id="note-{{ loop.index }}">{{ note | renderMarkdownInline | safe }} <a href="#ref-{{ loop.index }}" class="note-backlink" aria-label="חזרה להערה {{ loop.index }}">↩</a></li>
         {% endfor %}
       </ul>
     </div>
   {% endif %}
 
   <div class="table-of-contents c-section-divider">
-    <h3>תוכן העניינים</h3>
+    <h2>תוכן העניינים</h2>
     <ul>
       {% for item in chapterPages %}
         {% if item.url != page.url %}

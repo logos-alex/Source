@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "דף ג — פתיחה"
+description: "מספר אקלימנטוס תלמיד פֶּטרוֹס השליח."
 book: glia-de-klemis
 source: arabic
 figure: talmidei-yeshua

@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "פסוקים 87–88"
+description: 'ה\'' --- אלהי הכל, אלהי האלפים, ויודע העיתים והמלכויות.'
 book: chazon-daniel-kopti
 source: arabic
 figure: daniel

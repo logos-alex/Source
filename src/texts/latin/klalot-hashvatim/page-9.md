@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "קללת שבט לוי"
+description: "אלו הם, אשר חילקו את גורלו של המשיח, ועליהם הקללה הזאת, כי לא יוכלו להפיל דבר ארצה, כי תמיד עמם הוא."
 book: klalot-hashvatim
 source: latin
 figure: talmidei-yeshua

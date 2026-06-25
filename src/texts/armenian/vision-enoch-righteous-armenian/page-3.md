@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: פרק ג (עמוד ג)
+description: "יַעַן אֲשֶׁר עָמַד עַל הַיָּם, יִהְיֶה מֶלֶךְ עָצוּם כַּבָּרָק."
 book: vision-enoch-righteous-armenian
 source: armenian
 figure: enoch

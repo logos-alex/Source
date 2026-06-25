@@ -1,7 +1,8 @@
 ---
 layout: text-page
 title: "פרק טז --- אברהם נופל ונחזק; גילוי המקום והבריאה"
-book: apocalypse-abraham-b
+description: "(86) ובעידנא דשמע אנא ית קלא דאמר לי מלין אלין, חזית לעילא ולתתא --- והא לא אית דמותא דאינשא."
+book: apocalypse-abraham
 source: slavic
 figure: abraham
 pageNumber: 16

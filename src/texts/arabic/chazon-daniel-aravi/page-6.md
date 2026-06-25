@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "פסוקים 61–72"
+description: 'ואראה כי רומי תגבר על כל הארץ ותמלוך.'
 book: chazon-daniel-aravi
 source: arabic
 figure: daniel

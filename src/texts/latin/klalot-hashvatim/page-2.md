@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "קללת שבט יהודה"
+description: "אלו הם, אשר בגדו במשיח בשעתו, ועליהם שלוש קללות."
 book: klalot-hashvatim
 source: latin
 figure: talmidei-yeshua

@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "דף ח — מלך אכזר ושיברון"
+description: '[העמוד הימני] …עוֹמֵד עַל הָאֱמוּנָה הַשְּׁלֵמָה, כֶּאֱמוּנַת הַמֶּלֶךְ אֲשֶׁר קְדָמוֹ נוּ''ן.'
 book: glia-de-klemis
 source: arabic
 figure: talmidei-yeshua

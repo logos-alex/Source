@@ -1,14 +1,15 @@
 ---
 layout: text-page
 title: "חתימה"
+description: 'הויא דמושא: אידינ בחילא דאיתיא: ותשעיתא דמושא גביא בנביותא משלמא.'
 book: sichat-moshe
 source: aramaic
-figure: abraham
+figure: moshe
 pageNumber: 6
 version: main
 tags:
   - aramaic
-  - abraham
+  - moshe
   - texts
 permalink: /texts/aramaic/sichat-moshe/page-6/
 ---

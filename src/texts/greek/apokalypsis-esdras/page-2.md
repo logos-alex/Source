@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חזיון ב"
+description: "א בְּדַבְּרוֹ אֵלַּו אֵלֶּה, בָּא מִיכָאֵל וְגַבְרִיאֵל וְכָל הַשְּׁלִיחִים, וַיֹּאמְרוּ: ב שָׁלוֹם לְךָ, אִישׁ־הָאֱמוּנָה שֶׁל הָאֱלֹהִים."
 book: apokalypsis-esdras
 source: greek
 figure: ezra

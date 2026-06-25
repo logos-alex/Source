@@ -31,22 +31,30 @@ function toFsPath(urlPath) {
   return null;
 }
 
+// Extract URLs from many attribute types, not just href/src.
+// Covers: href, src, srcset (multiple URLs), link href, meta content (URLs only),
+// form action, iframe src, image href (SVG), data-* that look like URLs.
+const URL_ATTR_RE = /(?:href|src|action|poster|data-url|data-href|data-src)\s*=\s*"([^"]+)"/g;
+const SRCSET_RE = /srcset\s*=\s*"([^"]+)"/g;
+const META_URL_RE = /<meta[^>]+content\s*=\s*"((?:\/[^"]+"|https?:\/\/[^"]+))"/g;
+const JSONLD_URL_RE = /"(?:url|@id|image|logo|sameAs)"\s*:\s*"([^"]+)"/g;
+
+function looksLikeInternal(url) {
+  return url.startsWith('/') || url.startsWith(sitePrefix);
+}
+
 function check(file) {
   const html = readFileSync(file, 'utf8');
-  const re = /(?:href|src)="([^"]+)"/g;
+
+  // 1. Standard attributes (href, src, action, etc.)
   let m;
-  while ((m = re.exec(html))) {
+  URL_ATTR_RE.lastIndex = 0;
+  while ((m = URL_ATTR_RE.exec(html))) {
     const url = m[1];
     if (!url) continue;
-
-    // Ignore external, mail, data, js pseudo links
     if (/^(https?:)?\/\//.test(url) || /^(mailto:|tel:|javascript:|data:)/.test(url)) continue;
-
-    // Ignore anchor-only links
     if (url.startsWith('#')) continue;
-
-    // Ignore false-positive hrefs from markdown mangling (Hebrew/Aramaic text
-    // containing […] patterns that markdown-it misinterprets as [text](url) links).
+    // Ignore false-positive Hebrew/Aramaic text misparsed as URL
     if (!url.startsWith('/') && /[\u0590-\u05FF\u0600-\u06FF\s]/.test(url)) continue;
 
     let fsPath = null;
@@ -60,9 +68,46 @@ function check(file) {
         if (existsSync(relIndex)) fsPath = relIndex;
       }
     }
-
     if (!fsPath) {
       errors.push(`${file}: broken link/resource '${url}'`);
+    }
+  }
+
+  // 2. srcset (responsive images) — comma-separated URL+descriptor pairs
+  SRCSET_RE.lastIndex = 0;
+  while ((m = SRCSET_RE.exec(html))) {
+    const srcset = m[1];
+    for (const entry of srcset.split(',')) {
+      const url = entry.trim().split(/\s+/)[0];
+      if (!url) continue;
+      if (/^(https?:)?\/\//.test(url) || /^(mailto:|tel:|javascript:|data:)/.test(url)) continue;
+      if (!looksLikeInternal(url)) continue;
+      const fsPath = toFsPath(url);
+      if (!fsPath) {
+        errors.push(`${file}: broken srcset URL '${url}'`);
+      }
+    }
+  }
+
+  // 3. meta content URLs (og:image, twitter:image, canonical)
+  META_URL_RE.lastIndex = 0;
+  while ((m = META_URL_RE.exec(html))) {
+    const url = m[1];
+    if (!looksLikeInternal(url)) continue;
+    const fsPath = toFsPath(url);
+    if (!fsPath) {
+      errors.push(`${file}: broken meta URL '${url}'`);
+    }
+  }
+
+  // 4. JSON-LD url/@id/image/logo/sameAs (only check internal)
+  JSONLD_URL_RE.lastIndex = 0;
+  while ((m = JSONLD_URL_RE.exec(html))) {
+    const url = m[1];
+    if (!looksLikeInternal(url)) continue;
+    const fsPath = toFsPath(url);
+    if (!fsPath) {
+      errors.push(`${file}: broken JSON-LD URL '${url}'`);
     }
   }
 }
@@ -71,9 +116,11 @@ walk(SITE_ROOT);
 htmlFiles.forEach(check);
 
 if (errors.length) {
-  console.error('Built-link verification failed:\n');
-  for (const err of errors.slice(0, 120)) console.error(`- ${err}`);
+  const shown = Math.min(errors.length, 120);
+  console.error(`Built-link verification failed (${errors.length} issues, showing first ${shown}):\n`);
+  for (const err of errors.slice(0, shown)) console.error(`- ${err}`);
+  if (errors.length > 120) console.error(`... and ${errors.length - 120} more`);
   process.exit(1);
 }
 
-console.log('Built-link verification passed.');
+console.log(`Built-link verification passed (${htmlFiles.length} HTML files scanned).`);

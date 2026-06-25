@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ז: הומיליה 20"
+description: "ובאמרו את הדברים האלה מראש אמרתי ומה התועלת אשר אתה מקוה עתה מן התחבולה הזאת ויאמר שמעון ראשונה כי אלה המבקשים אותי בתפשם אותו יחדלו מלבקש אותי ואם יומת ביד הקיסר יהיה יגון גדול..."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

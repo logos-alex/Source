@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "דף כ״א ע״א — עמוד 40"
+description: "מְבֹרָכִים הֵם אֲשֶׁר נִלְחָמִים עַל אֱמוּנָתָם וְנֶאֱמָנוּתָם בִּשְׁפִיכוּת דְּמֵיהֶם מִן הַחֲנֵפִים ― אֲחַשֵּׁב לָהֶם בִּרְכוֹתַי הַטּוֹבוֹת."
 book: chazon-kifa-laklemis
 source: arabic
 figure: talmidei-yeshua

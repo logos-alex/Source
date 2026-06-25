@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "פסוקים 1–12"
+description: 'בשנה השלישית למלכות הכשדי אשר מלך בבבל, נגלה דבר לדניאל אשר בלטשאצר, והדבר אמת.'
 book: chazon-daniel-aravi
 source: arabic
 figure: daniel

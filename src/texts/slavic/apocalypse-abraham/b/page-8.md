@@ -1,7 +1,8 @@
 ---
 layout: text-page
 title: "פרק ח --- מראה המלאך; תענית ארבעים יום; הר האלוהים"
-book: apocalypse-abraham-b
+description: "(39) וקמת וחזית ית דא דתפש ית ידי ימיני וקמין יתי על עקבי."
+book: apocalypse-abraham
 source: slavic
 figure: abraham
 pageNumber: 8

@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ד: הומיליות 3--9"
+description: "כי מן הרוחות השוכנים בשמים המלאכים היושבים בארץ התחתונה נקצפו על כפיון הטובה של בני האדם כלפי האלהים וישאלו לבוא אל חיי בני אדם למען בהיותם אנשים באמת יוכיחו את הכופרים בו במדינ..."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

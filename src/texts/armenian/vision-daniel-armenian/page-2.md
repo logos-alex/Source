@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "פסוקים 8–14"
+description: 'וְעוֹד מַטֶּה אֶחָד וְגָבֹהַּ, יִתְחַזֵּק לְהַפְלִיא, וַיִּתְנַשֵּׂא בְּשֵׁם וּבְהִתְגַּלּוּת יְיָ, כִּי חֶרֶב אֱלֹהִים בְּיָדוֹ.'
 book: vision-daniel-armenian
 source: armenian
 figure: daniel

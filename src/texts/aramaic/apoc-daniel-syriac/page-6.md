@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "פרק ו'"
+description: "ואחד הו לתרונוסא דכורש מܲלכא ומית גומתא."
 book: apoc-daniel-syriac
 source: aramaic
 figure: daniel

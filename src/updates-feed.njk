@@ -19,7 +19,7 @@ eleventyExcludeFromCollections: true
       <guid isPermaLink="false">logia-update-{{ item.id }}</guid>
       <description>{{ item.summary }}</description>
       <category>{{ item.category }}</category>
-      {% if item.pubDateRFC822 %}<pubDate>{{ item.pubDateRFC822 }}</pubDate>{% elif item.dateLabel %}<pubDate>{{ item.dateLabel }}</pubDate>{% endif %}
+      {% if item.pubDateRFC822 %}<pubDate>{{ item.pubDateRFC822 }}</pubDate>{% endif %}
     </item>
     {% endfor %}
   </channel>

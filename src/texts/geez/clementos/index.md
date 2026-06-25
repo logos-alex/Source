@@ -2,6 +2,7 @@
 layout: category-page.njk
 title: "קלמנטוס (געז)"
 book: clementos
+version: main
 source: geez
 figure: talmidei-yeshua
 draft: false

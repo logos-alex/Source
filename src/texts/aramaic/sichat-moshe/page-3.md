@@ -1,14 +1,15 @@
 ---
 layout: text-page
 title: "חטיבה ב --- הימנעויות נוספות וגמול מעשי חסד"
+description: 'אמר מושא מרי ואלהי מנו דלא אכל חנגא דסיטנא.'
 book: sichat-moshe
 source: aramaic
-figure: abraham
+figure: moshe
 pageNumber: 3
 version: main
 tags:
   - aramaic
-  - abraham
+  - moshe
   - texts
 permalink: /texts/aramaic/sichat-moshe/page-3/
 ---

@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ב: הומיליה 1"
+description: "רצון האלהים היה בלתי-נודע בדרכים רבים."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

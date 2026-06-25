@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "קללת שבט שמעון"
+description: "אלו הם, אשר מסמרו את המשיח בצלב, ועליהם הקללה הזאת: בחמשה עשר במרס יהיו להם המכות האלו בידים וברגלים, אשר ישפכו דם מן המחזור אל הראש."
 book: klalot-hashvatim
 source: latin
 figure: talmidei-yeshua

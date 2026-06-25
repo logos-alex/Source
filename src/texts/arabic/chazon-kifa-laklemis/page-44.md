@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "דף כ״ב ע״א — עמוד 42"
+description: "כָּל הַמַּאֲמִינִים בִּשְׁמִי עַד אַחֲרִית הַדּוֹר."
 book: chazon-kifa-laklemis
 source: arabic
 figure: talmidei-yeshua

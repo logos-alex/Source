@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "סעיף ה --- הקרן הגדולה, הנשר והאפעה"
+description: "[1] וחזית חדא קרנא רבתא דפתע סלקת בדונבה דחויא, ותרתין קרנן זעורן ברישה."
 book: chazon-ezra-suri
 source: aramaic
 figure: ezra

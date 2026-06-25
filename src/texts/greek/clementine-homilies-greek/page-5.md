@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק א: האיגרות המקדימות"
+description: "האחים בעלי דינים לא ידונו לפני השלטונות, אלא יושלמו לפני זקני הכנסת בכל אופן, וישמעו להם בנכונות."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ה: מבחר קטעים מהומיליות 10--14"
+description: "וככלות הזקן לדבר, ידעתי מדבריו כי הזקן אשר אמר כי מת, איננו אלא אביכם."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

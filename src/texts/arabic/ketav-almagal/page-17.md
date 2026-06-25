@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "נמרוד והכתר הראשון"
+description: 'ותהי תחילת ממלכתו מבבל. הוא אשר ראה בשמים רקמה שחורה ועטרה, ויקרא לסאסן האורג ויצווהו לעשות לו עטרה כמוה, וישבחה באבן יקרה וילבשנה.'
 book: ketav-almagal
 source: arabic
 figure: talmidei-yeshua

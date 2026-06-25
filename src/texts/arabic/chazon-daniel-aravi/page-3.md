@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "פסוקים 25–36"
+description: 'ואראה ותעמוד תחת הצפעוני עדה, ותאמר: הן על המקום הזה אלפי אלפים מבני ברית.'
 book: chazon-daniel-aravi
 source: arabic
 figure: daniel

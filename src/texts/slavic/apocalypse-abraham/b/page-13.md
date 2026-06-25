@@ -1,7 +1,8 @@
 ---
 layout: text-page
 title: "פרק יג --- המזמור לעליון: \"קדוש, קדוש, קדוש\""
-book: apocalypse-abraham-b
+description: "(72) וסליק יתי מלאכא כברוחא תקיפא לאתרא רמא טב."
+book: apocalypse-abraham
 source: slavic
 figure: abraham
 pageNumber: 13

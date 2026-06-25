@@ -1,7 +1,8 @@
 ---
 layout: text-page
 title: "פרק ב --- מכירת הצלמים לתגרין סורים; השלכת השבורים לנהר גור"
-book: apocalypse-abraham-b
+description: '(7) ונפקת לאושפיזקניא. והא תגרין פנדלא דארם, אתין עם גמלי למהך למצרים למזבן מנהון בכל נילוס.'
+book: apocalypse-abraham
 source: slavic
 figure: abraham
 pageNumber: 2

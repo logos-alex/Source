@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "נספח ב: מקורות וביבליוגרפיה"
+description: "נספח ב: מקורות וביבליוגרפיה המהדורות ששימשו את המתרגם Albert Schwegler, Die Clementinen nach den Wiener, Venediger, Amsterdamer und Oxforder Handschriften, Tübingen 1847."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

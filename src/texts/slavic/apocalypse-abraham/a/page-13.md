@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חזון אברהם – נוסח א' – פרק יג"
+description: '''אֵל, נִצְחִי, קָדוֹשׁ, אֱלֹהֵי שָׂרְרִים.'
 book: apocalypse-abraham
 version: a
 pageNumber: 13

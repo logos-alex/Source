@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "פרק ז — מות ישעיהו במסור־העץ"
+description: "א אז חרה אפו של מנשה המלך מאד בדברים המרים אשר שמע, ויצו מיד לנסר את ישעיהו הקדוש במסור־ברזל."
 book: maale-yeshayahu
 source: greek
 figure: isaiah

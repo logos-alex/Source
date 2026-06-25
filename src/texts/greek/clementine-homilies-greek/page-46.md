@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ד: הומיליות 3--9"
+description: "אפוא לא היו אלהים כי אם חידות עריצים כי קבר קרונוס בהרי הקווקז לא בשמים כי אם בארץ נראה קבר איש פרא ואוכל בנים וגם קבר זאוס הזימן המתולוגי אשר בלע את בתו מטיס כמוהו נראה בכריתי ..."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

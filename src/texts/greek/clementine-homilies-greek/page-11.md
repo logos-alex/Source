@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ב: הומיליה 1"
+description: "באמרו זאת, כאיש אחד פרצו כולם בצחוק בלתי-סדור, מנסים להשתיקו ולביישו כברברי משוגע."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

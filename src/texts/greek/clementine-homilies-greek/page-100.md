@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ז: הומיליה 20"
+description: "ובאמר פטרוס את הדברים האלה אמר לעזר גם הוא מן התלמידים הסבר לנו את ההרמוניה כיצד יתכן שהרשע יוסמך ביד האלהים הצדיק להיות מענש הרשעים ואחרי כן ישלח הוא עצמו עם מלאכיו והחוטאים אש..."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

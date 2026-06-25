@@ -75,7 +75,7 @@ function walk(dir) {
 }
 
 function frontmatter(content) {
-  const m = content.match(/^---\n([\s\S]*?)\n---\n/);
+  const m = content.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n/);
   return m ? m[1] : null;
 }
 

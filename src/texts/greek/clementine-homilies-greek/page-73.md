@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ה: מבחר קטעים מהומיליות 10--14"
+description: "ויהי כאשר שתקו שניהם, ואמר: כיון שאני יודע את המלאכה בדקדוק, ואדני ואבי אינם במדרגתי, חפצתי אילו אנוביון היה כאן, כי אדון עמו פנים אל פנים בנוכח אבי."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

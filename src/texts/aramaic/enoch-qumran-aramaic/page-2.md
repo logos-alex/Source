@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "4Q202 · 4QEnʾb"
+description: 'תרגום עברי: הַחֲטִיבָה הַשְּׁנִיָּה — מַעֲשֵׂה הַמַּלְאָכִים וְהָעֲנָקִים > > מקביל לפרקים ה–י''ב בחנוך > מקביל ל: חנוך א'' ה–י''ב --- [כו]ל [י]ומי … — והוו כד[י … — שפירן ו[טבן … ...'
 book: enoch-qumran-aramaic
 source: aramaic
 figure: enoch

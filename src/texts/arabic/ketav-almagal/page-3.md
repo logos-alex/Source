@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "בריאת אדם ונפילת השטן"
+description: "והייתה בריאת אלוהים את אדם בשעה השלישית מיום שישי, השישי לימים."
 book: ketav-almagal
 source: arabic
 figure: talmidei-yeshua

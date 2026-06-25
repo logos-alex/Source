@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק א: האיגרות המקדימות"
+description: "ויאמר כך: עדים לי השמים, הארץ, המים, אשר בהם נכלל הכל, ועל אלה כולם גם האויר החודר בכל, שבלעדיו איני נושם, כי תמיד אהיה צייתן לנותן לי את ספרי דרשותי, ואת ספרי אלה שיתן לי לא אמ..."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: פרק א (עמוד א)
+description: '<p><strong>ביאורי הפרק:</strong> ההפניות בגוף הטקסט מסומנות במספר עילי (לדוגמה: <sup><a href=''#note-1''>1</a></sup>) ומובילות לקטע <a href=''#note-1''>הערות וביאורים</a> שבתחתית הע...'
 book: clementos
 source: geez
 figure: talmidei-yeshua

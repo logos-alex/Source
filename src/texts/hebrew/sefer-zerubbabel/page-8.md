@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "נספח: מגלת אנטיוכוס --- נוסח ארמי"
+description: '[\[כרוך בנוסח אהרן. טקסט עצמאי --- עוסק בגזרות אנטיוכוס ובניסי חנוכה.'
 book: sefer-zerubbabel
 source: hebrew
 figure: zerubbabel

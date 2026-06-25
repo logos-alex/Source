@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "עקדת יצחק ובניין ירושלים"
+description: "ובהגיע ליצחק שתים עשרה שנה העלהו אברהם קרבן לאלוהים על הר מנוס, הוא המקום אשר בו נצלב המשיח, והוא הנודע בגולגלתא."
 book: ketav-almagal
 source: arabic
 figure: talmidei-yeshua

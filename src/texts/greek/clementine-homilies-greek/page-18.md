@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ג: הומיליה 2"
+description: "יוסטה אשה אחת בקרבנו, שומרונית צפנית, מזרע כנענית, אשר בתה הקטנה נאחזת בחלי קשה, והיא באה אל־אדוננו צועקת ומתחננת שירפא את־בתה."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

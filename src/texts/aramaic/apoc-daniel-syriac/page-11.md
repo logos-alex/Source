@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "פרק יא"
+description: 'וחילא במדנחא. נעבד לבישתא ונשלט. ועמ̈מא דבא̈ידיהון נהוון בישין.'
 book: apoc-daniel-syriac
 source: aramaic
 figure: daniel

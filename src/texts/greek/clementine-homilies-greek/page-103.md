@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ז: הומיליה 20"
+description: "וביעץ פטרוס את הדברים האלה אמר אבי ידעתי את אשר בלבך על כן אל תטרח כי בודאי אדאג מאד בבואי אל המקום ההוא לומר את הדברים הראוים עליך ויסף פטרוס ליעץ ובראותך כי העיר שבה משנאתי ומ..."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

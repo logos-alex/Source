@@ -8,16 +8,7 @@ const FIGURES = JSON.parse(readFileSync('src/_data/figures.json', 'utf8'));
 const FIGURE_CATALOG_KEYS = JSON.parse(readFileSync('src/_data/figureCatalogKeys.json', 'utf8'));
 
 const KNOWN_BOOK_IDS = new Set(CATALOG.map((entry) => entry.id));
-const VERSIONED_BOOK_IDS = new Map();
-for (const entry of CATALOG) {
-  const versions = entry?.versions ?? {};
-  for (const versionKey of Object.keys(versions)) {
-    VERSIONED_BOOK_IDS.set(`${entry.id}-${versionKey}`, {
-      baseId: entry.id,
-      versionKey
-    });
-  }
-}
+const BOOK_BY_ID = new Map(CATALOG.map((entry) => [entry.id, entry]));
 const ACTIVE_FIGURE_KEYS = new Set(FIGURE_CATALOG_KEYS);
 const usedFigures = new Map();
 const errors = [];
@@ -32,13 +23,14 @@ function walk(dir) {
 }
 
 function getFrontmatter(content) {
-  const m = content.match(/^---\n([\s\S]*?)\n---\n/);
+  // CRLF-safe: accept both \n and \r\n line endings.
+  const m = content.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n/);
   return m ? m[1] : null;
 }
 
 function readKey(frontmatter, key) {
-  const m = frontmatter.match(new RegExp(`^${key}:\\s*(.+)$`, 'm'));
-  return m ? m[1].trim().replace(/^['"]|['"]$/g, '') : '';
+  const m = frontmatter.match(new RegExp(`^${key}:\\s*(.+?)\\s*$`, 'm'));
+  return m ? m[1].replace(/^['"]|['"]$/g, '') : '';
 }
 
 function noteUsedFigure(figure, file) {
@@ -59,16 +51,15 @@ function check(file) {
 
   noteUsedFigure(figure, file);
 
-  if (book && !KNOWN_BOOK_IDS.has(book) && !VERSIONED_BOOK_IDS.has(book)) {
+  if (book && !KNOWN_BOOK_IDS.has(book)) {
     errors.push(`${file}: unknown book '${book}' (not found in sources-catalog.json)`);
   }
 
-  if (book && VERSIONED_BOOK_IDS.has(book)) {
-    const { versionKey } = VERSIONED_BOOK_IDS.get(book);
-    if (version && version !== versionKey) {
-      errors.push(
-        `${file}: book '${book}' implies version '${versionKey}', but frontmatter has version '${version}'`
-      );
+  // Verify that the catalog figure matches the frontmatter figure (if catalog declares one).
+  if (book && BOOK_BY_ID.has(book)) {
+    const entry = BOOK_BY_ID.get(book);
+    if (entry.figure && figure && entry.figure !== figure) {
+      errors.push(`${file}: figure mismatch — frontmatter has '${figure}' but catalog declares '${entry.figure}' for book '${book}'`);
     }
   }
 }

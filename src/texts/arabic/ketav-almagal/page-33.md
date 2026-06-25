@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "תחילת היחסים --- הרשימה הראשונה"
+description: 'תחילת היחסים: אדם ילד את שת. שת נשא את אקלימא אחות הבל, ותלד לו את אנוש.'
 book: ketav-almagal
 source: arabic
 figure: talmidei-yeshua

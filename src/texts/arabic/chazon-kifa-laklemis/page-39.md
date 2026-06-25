@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "דף י״ט ע״ב — עמוד 37"
+description: "מִצְּלִיבָתִי ― אוֹרִישֵׁם הָאֵשׁ אֲשֶׁר לֹא תִכְבֶּה שַׁלְהֲבוֹתֶיהָ."
 book: chazon-kifa-laklemis
 source: arabic
 figure: talmidei-yeshua

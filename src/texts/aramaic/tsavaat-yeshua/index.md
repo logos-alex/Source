@@ -2,6 +2,7 @@
 layout: category-page.njk
 title: "צוואת ישוע"
 book: tsavaat-yeshua
+version: main
 source: aramaic
 figure: talmidei-yeshua
 draft: false
@@ -9,7 +10,7 @@ comingSoon: true
 tags:
   - texts
   - aramaic
-  - clement
+  - talmidei-yeshua
 permalink: /texts/aramaic/tsavaat-yeshua/
 pageNumber: 0
 description: "מבוא לחלק השלישי בסדרת שמונת הספרים של קלמנטוס: המקור הסורי של צוואת ישוע והחזון האפוקליפטי על קץ הימים. טקסט החיבור עצמו יתווסף בהמשך."

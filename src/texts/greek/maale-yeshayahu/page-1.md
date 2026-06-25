@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "פרק א — חזקיהו, מנשה ונבואת ישעיהו על מותו"
+description: "א ויהי בשנת העשרים וחמש למלכות חזקיהו בירושלים, קרא למנשה בנו — בן אחת־עשרה שנה — לפני ישעיהו הנביא ולפני יאסום בנו."
 book: maale-yeshayahu
 source: greek
 figure: isaiah

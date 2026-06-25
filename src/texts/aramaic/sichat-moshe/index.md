@@ -4,15 +4,15 @@ title: "שיחת משה (תשיעיתא דמשה גביא בנביאותא)"
 book: sichat-moshe
 version: main
 source: aramaic
-figure: abraham
+figure: moshe
 pageNumber: 0
 draft: false
 tags:
   - aramaic
-  - abraham
+  - moshe
   - texts
 permalink: /texts/aramaic/sichat-moshe/
-description: "חיבור חיצוני קצר הבנוי כשיחה בין משה רבנו לקב\"ה. נשתמר בסורית. נוסח עברי משוחזר מילה-במילה מתוך המקור הארמי."
+description: 'חיבור חיצוני קצר הבנוי כשיחה בין משה רבנו לקב''ה. נשתמר בסורית. נוסח עברי משוחזר מילה-במילה מתוך המקור הארמי.'
 ---
 
 ## שיחת משה — תשיעיתא דמשה גביא בנביאותא

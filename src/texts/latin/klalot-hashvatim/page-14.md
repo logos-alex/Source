@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "סיום והערות"
+description: "מכל השבטים, כל יהודי אשר יעשה נוצרי — נפטר מן הקללה הזאת."
 book: klalot-hashvatim
 source: latin
 figure: talmidei-yeshua

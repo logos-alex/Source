@@ -1,7 +1,8 @@
 ---
 layout: text-page
 title: "פרק ז --- שליחות המלאך יָאוֹאֵל וחיזוק אברהם"
-book: apocalypse-abraham-b
+description: "(32) והוה כי עדיין הוה קיימא על ארעא, ואפי על ארעא --- שמעת ית קלא דקודשא דאמר: זיל יָאוֹאֵל, בשמא דלא מתמלל דילי, וחזק ית גוברא הדין דסריך, וחזק יתיה מן דחלתיה."
+book: apocalypse-abraham
 source: slavic
 figure: abraham
 pageNumber: 7

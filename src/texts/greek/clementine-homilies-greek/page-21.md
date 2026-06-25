@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ג: הומיליה 2"
+description: "ואחרי אמרם את אלה, פטרוס הטוב גם הוא החליל לדבר: ראוי לכם, אחי, לראות את אמת כלל הזוגות, אשר ממנו לא יסור ולא יתעה."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

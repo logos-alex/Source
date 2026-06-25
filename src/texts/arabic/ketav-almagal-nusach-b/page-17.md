@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "עמוד יט — הֶמְשֵׁךְ שְׁעוֹת הַלַּיְלָה"
+description: "וּבַשָּׁעָה הַשְּׁמִינִית — בִּרְשׁוּת הָאֵל יִתְבָּרַךְ עוֹלֶה הָעֵשֶׂב מִן הָאָרֶץ."
 book: ketav-almagal-nusach-b
 source: arabic
 figure: talmidei-yeshua

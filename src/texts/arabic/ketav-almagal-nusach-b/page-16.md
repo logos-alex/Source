@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "עמוד יח"
+description: "…וְהַהִלּוּל וְהַתִּשְׁבָּחָה לַיָּחִיד הַיָּחִיד הַמְדַבֵּר בִּבְנוֹ הַיָּפֶה."
 book: ketav-almagal-nusach-b
 source: arabic
 figure: talmidei-yeshua

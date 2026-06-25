@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "קללת שבט ראובן"
+description: "אלו הם, אשר פצעו את המשיח בעינו, ועליהם שלוש קללות."
 book: klalot-hashvatim
 source: latin
 figure: talmidei-yeshua

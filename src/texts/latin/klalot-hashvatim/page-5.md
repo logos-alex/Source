@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "קללת שבט אשר"
+description: "אלו הם, אשר נתנו את המרה למשיח, ועליהם הקללה הזאת: כי יד ימין קצרה מן השנייה, והיד נחרבה."
 book: klalot-hashvatim
 source: latin
 figure: talmidei-yeshua

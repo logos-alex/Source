@@ -15,7 +15,12 @@ const ALLOWED_PATTERNS = [
   /⚠️\s*תרגום עברי לעמוד זה יתווסף לאחר אימות הנוסח\./
 ];
 
-const NEEDLES = ['TODO', 'FIXME', 'TBD', 'XXX', 'placeholder'];
+const NEEDLES = [
+  'TODO', 'FIXME', 'TBD', 'XXX', 'placeholder',
+  'HACK', 'WIP', 'REVIEW', 'OPTIMIZE', 'REFACTOR'
+];
+// NOTE: 'NOTE' and Hebrew markers ('לעשות', 'לבדוק', 'טיוטה', 'זמני', 'כלה')
+// are intentionally excluded — they appear in legitimate content (Rambam citations, etc.).
 const errors = [];
 
 function walk(dir) {

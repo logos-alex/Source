@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ד: הומיליות 3--9"
+description: "ואחרי כן נפשות הנפילים המתים היו גדולות מנפשות בני האדם כאשר גם גברו בגופם ויקראו להם שם חדש כמין חדש שדים."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

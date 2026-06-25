@@ -1,4 +1,4 @@
-modules = ["web", "nodejs-20"]
+modules = ["web", "nodejs-22"]
 [agent]
 expertMode = true
 
@@ -40,4 +40,4 @@ externalPort = 3001
 [deployment]
 deploymentTarget = "static"
 build = ["npm", "run", "build"]
-publicDir = "dist"
+publicDir = "_site"

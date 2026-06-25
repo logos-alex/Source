@@ -16,7 +16,7 @@ function walk(dir) {
 }
 
 function getFrontmatter(content) {
-  const m = content.match(/^---\n([\s\S]*?)\n---\n/);
+  const m = content.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n/);
   return m ? m[1] : null;
 }
 
@@ -36,28 +36,32 @@ function checkFile(file, base) {
   if (!/^page-\d+\.md$/.test(base)) return;
 
   const book = readValue(fm, 'book');
+  const version = readValue(fm, 'version') || 'main';
   const n = Number(readValue(fm, 'pageNumber'));
   if (!book || !Number.isInteger(n) || n <= 0) return;
 
-  if (!books.has(book)) books.set(book, []);
-  books.get(book).push({ n, file, dir: dirname(file) });
+  // For books with multiple versions (e.g. apocalypse-abraham), key by book+version+dir
+  // so duplicate page numbers across versions are not flagged as duplicates.
+  const key = `${book}__${version}__${dirname(file)}`;
+  if (!books.has(key)) books.set(key, { book, version, pages: [] });
+  books.get(key).pages.push({ n, file });
 }
 
 walk(ROOT);
 
-for (const [book, pages] of books.entries()) {
+for (const [key, { book, version, pages }] of books.entries()) {
   pages.sort((a, b) => a.n - b.n);
   const seen = new Set();
   for (const p of pages) {
     if (seen.has(p.n)) {
-      errors.push(`${book}: duplicate pageNumber ${p.n} (${p.file})`);
+      errors.push(`${book} (version=${version}): duplicate pageNumber ${p.n} (${p.file})`);
     }
     seen.add(p.n);
   }
 
   for (let expected = 1; expected <= pages[pages.length - 1].n; expected++) {
     if (!seen.has(expected)) {
-      errors.push(`${book}: missing pageNumber ${expected}`);
+      errors.push(`${book} (version=${version}): missing pageNumber ${expected}`);
     }
   }
 

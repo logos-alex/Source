@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "קללת שבט יששכר"
+description: "אלו הם, אשר הכו את המשיח אצל העמוד, ועשו לו ששת אלפים שש מאות ושבעים ושתים מכות, ועליהם הקללה הזאת."
 book: klalot-hashvatim
 source: latin
 figure: talmidei-yeshua

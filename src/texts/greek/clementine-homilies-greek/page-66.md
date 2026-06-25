@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ה: מבחר קטעים מהומיליות 10--14"
+description: "ויהי כבואנו ויאכלנו לחם ונודה לאלהים כמשפטנו, ועוד היתה שעה, ואמר לפטרוס: אדני פטרוס, אמי עשתה מעשה חסד אנושי בזכרה את מארחתה."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

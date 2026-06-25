@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "4Q201 · 4QEnʾa"
+description: "תרגום עברי: הַחֲטִיבָה הָאַחַת — מְשַׁלֵּי חֲנוֹךְ וְרֵאשִׁית סֵפֶר הַמַּלְאָכִים > > המקור החשוב ביותר; מכסה פרקים א–ח בחנוך הגעזי/יווני > מקביל ל: חנוך א' א–ח (היווני) --- [… ..."
 book: enoch-qumran-aramaic
 source: aramaic
 figure: enoch

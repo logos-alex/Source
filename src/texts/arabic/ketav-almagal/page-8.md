@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "שעות הלילה והיום"
+description: "והבן בני את מצב שעות הלילה והיום ושמותיהן, ואשר ישבח בהן אלוהים, ואשר יש לקרוא לאלוהים בבואן, ובאיזו שעה חובה התחינה והתחנון בהן."
 book: ketav-almagal
 source: arabic
 figure: talmidei-yeshua

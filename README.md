@@ -2,92 +2,240 @@
 
 מיזם ארכיון דיגיטלי פתוח של כתבים חיצוניים, גנוזים ואפוקריפיים בעברית — שחזורים, תרגומים וביאורים של טקסטים שנדחקו אל שולי המסורת ועתה שבים אל שפת המוצא.
 
-## זהות המותג
+## מצב המאגר (יוני 2026)
 
-- **שם:** LOGIA — אוצר הכתבים הגנוזים
-- **מקור השם:** ΛΟΓΙΑ — מיוונית, "דברים, אמרות, דברי חזיון"
-- **סמל:** חותם מעגלי ובתוכו האות Λ (למדא) — מזכיר ספר פתוח, גמלון מקדש, והר-הדעת
-- **רישיון:** נחלת הכלל (CC0 1.0) — ויתור מלא על זכויות יוצרים
+המאגר מכיל כעת:
 
-## מפת האתר
+| מדד | ערך |
+|---|---:|
+| חיבורים בקטלוג | 29 |
+| פרקי תוכן | 661 |
+| מילים (בערך) | 537,000 |
+| הערות שוליים וביאורים | 374 |
+| שפות מקור | 8 |
+| דמויות מקראיות | 8 |
+| חיבורים עם תצוגה מקבילית (מקור + תרגום) | 9 |
+| חיבורים בסטטוס "בקרוב" | 2 (`tsavaat-yeshua`, `klalot-hashvatim`) |
 
-| עמוד | תיאור |
-|---|---|
-| `/` | דף הבית עם הירו, אפיגרפים, ניווט מהיר |
-| `/texts/` | כתבים לפי שפת מקור (7 שפות) |
-| `/by-figure/` | כתבים לפי דמות מקראית |
-| `/search/` | חיפוש באוצר (Pagefind) |
-| `/updates/` | מה חדש — עדכוני תוכן ומערכת |
-| `/updates/feed.xml` | פיד RSS |
-| `/about/` | אודות המיזם, חזון, מתודולוגיה, תודות |
-| `/license/` | רישיון CC0 והסבר שימוש |
-| `/privacy/` | מדיניות פרטיות (GDPR) |
-| `/contact/` | צור קשר |
+### דירוג מוכנות תוכן
+
+#### 🟢 מוכן לפרסום — תוכן עשיר (4 חיבורים, ~380,000 מילים)
+
+חיבורים עם תוכן מלא, ביאורים עשירים, ותצוגה מקבילית:
+
+- **clementine-r2** (76 פרקים, 123,000 מילים, 26 הערות) — הכרעות קלימנטיניות ספר ב'
+- **clementine-r1** (61 פרקים, 106,000 מילים, 40 הערות) — הכרעות קלימנטיניות ספר א'
+- **clementine-homilies** (23 פרקים, 88,000 מילים, 21 הערות) — הומיליות קלימנטיניות
+- **clementine-r3** (55 פרקים, 63,000 מילים, 34 הערות) — הכרעות קלימנטיניות ספר ג'
+
+#### 🟡 מוכן לפרסום — תוכן מוצק (17 חיבורים)
+
+חיבורים עם תוכן מלא אך ללא ביאורים מקיפים:
+
+- **young-daniel-syriac** (7 פרקים, 17,000 מילים) — חזון דניאל הצעיר
+- **clementine-homilies-greek** (105 פרקים, 52,000 מילים, 22 הערות)
+- **ketav-almagal** (34 פרקים, 13,500 מילים, 33 הערות)
+- **apoc-daniel-syriac** (32 פרקים, 11,000 מילים, 32 הערות) — parallel
+- **chazon-kifa-laklemis** (57 פרקים, 9,700 מילים)
+- **apocalypse-abraham** (46 פרקים, 7,700 מילים, 115 הערות בנוסח א')
+- **ketav-almagal-nusach-b** (24 פרקים, 6,500 מילים)
+- **enoch-qumran-aramaic** (8 פרקים, 5,600 מילים)
+- **glia-de-klemis** (16 פרקים, 4,300 מילים)
+- **sefer-zerubbabel** (8 פרקים, 2,900 מילים, 7 הערות) — parallel
+- **sichat-moshe** (8 פרקים, 3,000 מילים) — parallel
+- **vision-daniel-armenian** (5 פרקים, 2,500 מילים, 12 הערות)
+- **chazon-ezra-suri** (10 פרקים, 2,300 מילים) — parallel
+- **clementos** (9 פרקים, 2,400 מילים, 9 הערות)
+- **chazon-ezra-sofer** (8 פרקים, 2,100 מילים, 8 הערות)
+- **apokalypsis-esdras** (7 פרקים, 2,100 מילים)
+- **chazon-daniel-aravi** (7 פרקים, 2,000 מילים)
+
+#### 🟠 דק — מתאים לפרסום כ"טיוטה ראשונית" (5 חיבורים)
+
+חיבורים עם תוכן חלקי שמציגים את הנוסח אך ללא ביאורים:
+
+- **chazon-daniel-kopti** (8 פרקים, 1,400 מילים)
+- **vision-enoch-righteous-armenian** (8 פרקים, 1,600 מילים, 8 הערות)
+- **sefer-hanoch-a** (10 פרקים, 2,000 מילים)
+- **maale-yeshayahu** (7 פרקים, 2,500 מילים)
+- **maasei-timotheos** (5 פרקים, 750 מילים, 5 הערות)
+
+#### 🔴 סטטוס "בקרוב" — לא מוכן (2 חיבורים)
+
+- **tsavaat-yeshua** — מבוא מלא ללא פרקים (מקור סורי זמין, התרגום ממתין)
+- **klalot-hashvatim** — 14 פרקים אך ממוצע 48 מילים לפרק (קללות קצרות — מתאים להרחבה פרשנית)
+
+---
+
+## כיצד לתרום תוכן
+
+### הוספת פרק חדש לחיבור קיים
+
+```bash
+npm run new:chapter -- <lang>/<book> <pageNumber> "<title>" <source> <figure> [version]
+# Example:
+npm run new:chapter -- aramaic/sichat-moshe 9 "פרק ט" aramaic moshe main
+```
+
+הסקריפט יוצר קובץ עם frontmatter תקין (`layout`, `title`, `book`, `source`, `figure`, `pageNumber`, `version`, `permalink`, `tags`).
+
+### עריכת פרק קיים
+
+1. פתח את הקובץ הרלוונטי ב־`src/texts/<lang>/<book>/page-N.md`
+2. ערוך את הטקסט (markdown)
+3. הוסף הערות שוליים ב־frontmatter תחת `notes:`
+4. הרץ `npm run ci:verify` לפני commit
+5. הרץ `npm run dev` לתצוגה מקומית
+
+### מבנה frontmatter נדרש
+
+```yaml
+---
+layout: text-page
+title: "פרק א"
+book: sichat-moshe
+source: aramaic
+figure: moshe
+pageNumber: 1
+version: main
+permalink: /texts/aramaic/sichat-moshe/page-1/
+tags:
+  - texts
+  - aramaic
+  - moshe
+description: "תיאור קצר של תוכן הפרק (מופיע ב־meta description ובתצוגת חיפוש)."
+notes:
+  - "**הערה 1** — ביאור מילולי."
+  - "**הערה 2** — הקבלה לחז\"ל."
+---
+```
+
+### הוספת חיבור חדש
+
+1. צור תיקייה: `src/texts/<lang>/<book-id>/`
+2. צור `index.md` עם מבוא מלא (300+ מילים)
+3. צור קבצי `page-1.md`, `page-2.md`, … עם הפרקים
+4. צור `main.json` עם `{"version": "main"}`
+5. הוסף רשומה ל־`src/_data/sources-catalog.json`:
+   ```json
+   {
+     "id": "new-book-id",
+     "title": "שם החיבור בעברית",
+     "lang": "aramaic",
+     "description": "תיאור קצר.",
+     "figure": "moshe",
+     "parallelLayout": false
+   }
+   ```
+6. הרץ `npm run ci:verify` — אם עבר, החיבור מוכן.
+
+### תצוגה מקבילית (מקור + תרגום)
+
+חיבורים עם `parallelLayout: true` בקטלוג מציגים שתי עמודות. בכל פרק:
+
+```markdown
+#### מקור סורי
+
+[טקסט המקור בתעתיק עברי]
+
+### תרגום עברי
+
+[תרגום עברי]
+```
+
+התבנית מפצלת אוטומטית על `### תרגום עברי` ומציגה את המקור מימין והתרגום משמאל.
+
+---
+
+## סטנדרטי תוכן
+
+### מבוא (index.md)
+
+מבוא איכותי כולל:
+
+- **רקע היסטורי** — מתי, היכן, על־ידי מי נכתב החיבור (לפי המסורת או המחקר)
+- **מקורות הנוסח** — כתבי־יד, מהדורות, תרגומים קודמים
+- **מבנה החיבור** — חלוקה לפרקים, חלקים, נושאים מרכזיים
+- **מעמד במסורת** — יחס חז"ל, הכנסייה, הקאנון
+- **עקרונות התרגום** — מתי מילולי, מתי משוחרר, החלטות עריכה מרכזיות
+- **מראי מקום** — לפחות 3־5 מקורות אקדמיים מרכזיים
+
+אורך יעד: **300–600 מילים**.
+
+### פרק (page-N.md)
+
+פרק איכותי כולל:
+
+- **נוסח המקור** (בחיבורי parallel) — בתעתיק עברי מדויק
+- **תרגום עברי** — בלשון קלאסית מתונה, מילולי ככל האפשר
+- **הערות שוליים** (`notes:` בפרונטמטר) — לפחות הערה אחת לכל פסוק/פסקה עם:
+  - ביאור מילולי (מונחים זרים)
+  - הקבלה למקרא
+  - הקבלה לחז"ל / רמב"ם / רמב"ן
+  - הקבלה בין־דתית (נצרות, אסלאם)
+  - רקע היסטורי
+
+אורך יעד: **300+ מילים לפרק** (למעט פרקים קצרים מטבעם, כמו קללות).
+
+### תיאור (`description` בפרונטמטר)
+
+תיאור קצר (עד 180 תווים) של תוכן הפרק. מופיע ב־meta description, בתצוגת חיפוש Pagefind, ובשיתוף חברתי. אם חסר — המערכת תשתמש בתיאור ברירת מחדל גנרי.
+
+---
 
 ## טכנולוגיות
 
 - **מנוע אתר:** Eleventy 3.x (Nunjucks templates)
 - **עיצוב:** CSS עם CSS variables — RTL, מצב כהה/בהיר, מערכת מרחבית
-- **פונטים:** Frank Ruhl Libre (עברית) + Noto Serif Hebrew (גיבוי) + EB Garamond (לטינית)
-- **חיפוש:** Pagefind
+- **פונטים:** Frank Ruhl Libre (עברית, WOFF2 מצומצם) + Noto Serif Hebrew (גיבוי) + EB Garamond (לוגו לטיני)
+- **חיפוש:** Pagefind (סטטי, 661 עמודים מאונדקסים)
 - **פריסה:** GitHub Pages דרך GitHub Actions
-- **תגובות:** Disqus (opt-in)
-- **אנליטיקס:** Google Analytics + Microsoft Clarity (opt-in)
-- **PWA:** manifest.json + apple-touch-icon + theme-color
-
-## תכונות UX
-
-- ✅ חיפוש תמידי בכותרת
-- ✅ פוטר עשיר עם ניווט מהיר
-- ✅ כפתור "חזרה לראש" צף
-- ✅ פקדי גודל גופן (A-/A/A+/A++) בדפי טקסט
-- ✅ מצב קריאה (הסתרת כל הסחות)
-- ✅ מצב כהה/בהיר + זיהוי העדפת מערכת
-- ✅ רספונסיביות מלאה (mobile/tablet/desktop)
-- ✅ נגישות (ARIA, skip-link, keyboard nav)
-- ✅ RSS feed לעדכונים
-- ✅ Sitemap.xml + robots.txt + JSON-LD structured data
+- **תגובות:** Disqus (lazy-loaded)
+- **רישיון:** CC0 1.0 (נחלת הכלל)
 
 ## הרצה מקומית
 
 ```bash
 npm install
 npm run dev      # שרת פיתוח ב-port 5000
-npm run build    # בנייה מלאה + Pagefind
+npm run build    # בנייה מלאה + מיניפיקציה + Pagefind
+npm run ci:verify  # כל 16 בדיקות האימות
 ```
 
 ## מבנה הפרויקט
 
 ```
 src/
-├── _data/              # נתוני מקור (catalogs, languages, figures, site, updates)
+├── _data/              # קטלוגים (sources-catalog, figures, languages, updates)
 ├── _includes/          # תבניות Nunjucks
-│   ├── base.njk        # תבנית ראשית (header, footer, SEO, PWA)
-│   ├── text-page.njk   # דף טקסט (כולל פקדי גופן)
-│   ├── book-index.njk  # דף ספר
-│   ├── category-page.njk
-│   ├── breadcrumbs.njk
-│   └── logo-mark.njk   # סמל SVG לשימוש חוזר
-├── assets/
-│   ├── style.css       # מערכת עיצוב מלאה
-│   ├── js/site.js      # לוגיקת UI (theme, nav, search, font-size, back-to-top)
-│   ├── fonts/          # פונטים self-hosted
-│   ├── img/logo.svg
-│   ├── favicon.svg / .ico / .png (192/512)
-│   ├── apple-touch-icon.png
-│   └── og-image.png    # תמונת שיתוף חברתי 1200×630
-├── texts/              # כתבים לפי שפת מקור
-├── by-figure/          # כתבים לפי דמות
-├── about.md, license.md, privacy.md, contact.md  # דפי מערכת
-├── manifest.json       # PWA manifest
+├── assets/             # פונטים, CSS, JS, תמונות
+├── texts/              # כתבים לפי שפת מקור (8 שפות, 29 חיבורים)
+├── by-figure/          # כתבים לפי דמות (8 דמויות)
+├── about.md, methodology.md, contact.md, license.md, privacy.md
 ├── index.njk           # דף הבית
-├── search.njk
-├── updates.njk
-├── updates-feed.njk    # RSS feed
-├── sitemap.njk
-├── robots.txt
-└── 404.md
+└── search.njk, updates.njk, sitemap.njk
 ```
 
-## עדכון אחרון
-2026 — מהפך זהות חזותית + UX/UI מלא + תשתית אקדמית-משפטית לפרסום.
+## בדיקות איכות (CI)
+
+הפרויקט כולל 16 בדיקות אימות אוטומטיות שרצות בכל PR ובכל push:
+
+```bash
+npm run ci:verify
+```
+
+בדיקות עיקריות:
+- `verify-frontmatter` — סכמת פרונטמטר מלאה
+- `verify-catalog-consistency` — התאמה בין קטלוג לפרונטמטר
+- `verify-text-structure` — רצף מספור פרקים
+- `verify-built-links` — קישורים פנימיים תקינים
+- `verify-intro-navigation` — ניווט מבוא→פרק ראשון
+- `verify-placeholders` — סמני TODO/FIXME
+
+## רישיון
+
+התכנים באתר מופצים בנחלת הכלל (**CC0 1.0**) — ניתן להשתמש, לצטט ולשנות בחופשיות.
+
+## יצירת קשר
+
+לשאלות, הצעות או תרומות תוכן — ראה עמוד [צור קשר](src/contact.njk) באתר, או פתח Issue ב־GitHub.

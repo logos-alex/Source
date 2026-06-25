@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "נספח א: הערות תרגום"
+description: 'נספח א: הערות תרגום הערה 1: ''פילוסופיה'' בהומיליה 1, פרק א המקור היווני: ἐν φιλοσοφίᾳ διάγων (''חי בפילוסופיה'').'
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "פסוקים 50–62"
+description: 'וירד אל מצרים עם האוצרות, ויעלה במצרים העליונה, בקרבו לבוא אל מדינת הכושים עם שארית האוצרות.'
 book: chazon-daniel-kopti
 source: arabic
 figure: daniel

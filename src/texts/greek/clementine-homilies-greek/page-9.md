@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ב: הומיליה 1"
+description: 'ומה עלי לעשות, אם לא זאת? אלכה מצרימה, ואתידד עם מגלי הסוד והנביאים של המקדשים, ואדרוש חכמת-מגיא ואמצאנה, ואפתה אותה בממון רב למען תעשה השבת נפש, הנקראת נקרומנטיא, כאלו הריני שואל...'
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: פרק ו (עמוד ו)
+description: 'וּבָרָד. וּבְנֵי אָדָם — קֹצֶר רוּחַ וְחֻלְשָׁה וְקִצּוּר יָמִים, וְחֶסְרוֹן בְּכָל דָּבָר.'
 book: vision-enoch-righteous-armenian
 source: armenian
 figure: enoch

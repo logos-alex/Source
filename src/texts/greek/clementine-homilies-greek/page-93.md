@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ו: הומיליות 15--19"
+description: "ויאמר פטרוס נראה לי כי אם ימצא כי מאת אלהים נהיה עדיין אין לשים טנא ביוצר אותו פן ימצא תועלתו הכרחית מכל ואם גם יוכח כי לא נהיה כי אם היה תמיד גם בזה הבורא איננו ראוי לטנא או שא..."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

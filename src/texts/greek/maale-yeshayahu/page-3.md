@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "פרק ג — מות מנשה ומנוסת ישעיהו להרים"
+description: "א וימת חזקיהו המלך וייאסף אל אבותיו, ומנשה בנו מלך תחתיו."
 book: maale-yeshayahu
 source: greek
 figure: isaiah

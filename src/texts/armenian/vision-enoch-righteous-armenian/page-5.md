@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: פרק ה (עמוד ה)
+description: "כְּאֵפֶר מִן הָאֵשׁ, כְּאֵפֶר מִן רוּחַ צָפוֹן."
 book: vision-enoch-righteous-armenian
 source: armenian
 figure: enoch

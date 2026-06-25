@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "דף טו — שֵׁמוֹת המלכים ופעלם"
+description: "…וְיִהְיֶה מִתְבּוֹדֵד בַּעֲצָתוֹ, לֹא יְקַבֵּל מֵאִישׁ עֵצָה, וִיבַצַּע אֶת הַמִּלְחָמוֹת בְּעַצְמוֹ."
 book: glia-de-klemis
 source: arabic
 figure: talmidei-yeshua

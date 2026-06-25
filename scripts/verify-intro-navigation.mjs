@@ -32,7 +32,7 @@ function walk(dir) {
 }
 
 function getFrontmatter(content) {
-  const match = content.match(/^---\n([\s\S]*?)\n---\n/);
+  const match = content.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n/);
   return match ? match[1] : '';
 }
 

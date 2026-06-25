@@ -1,7 +1,7 @@
 ---
 layout: category-page.njk
 title: "חזון אברהם: נוסח ב' — שחזור מלא"
-book: apocalypse-abraham-b
+book: apocalypse-abraham
 version: b
 source: slavic
 figure: abraham

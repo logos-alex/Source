@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "דף כ״ז ע״ב — עמוד 51"
+description: "דֶּרֶךְ לְהַדֹּף אֶת הַשָּׂטָן בַּצּוֹם וּבַתְּפִלָּה וּבַשְּׁקִידָה בַּלַּיְלָה וּבַצְּדָקָה."
 book: chazon-kifa-laklemis
 source: arabic
 figure: talmidei-yeshua

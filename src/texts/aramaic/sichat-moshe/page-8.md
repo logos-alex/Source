@@ -1,14 +1,15 @@
 ---
 layout: text-page
 title: "נספח ב: מקבילות במקרא ובספרות חזל"
+description: 'דפוס שאלה-תשובה הדפוס של ''מנו ד...'
 book: sichat-moshe
 source: aramaic
-figure: abraham
+figure: moshe
 pageNumber: 8
 version: main
 tags:
   - aramaic
-  - abraham
+  - moshe
   - texts
 permalink: /texts/aramaic/sichat-moshe/page-8/
 ---

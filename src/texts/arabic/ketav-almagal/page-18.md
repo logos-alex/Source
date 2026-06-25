@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "עבודת אלילים והתפשטות הפולחן המזויף"
+description: "ובהגיע לשרוג שלושים שנה ילד את נחור בנו."
 book: ketav-almagal
 source: arabic
 figure: talmidei-yeshua

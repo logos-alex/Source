@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "פרק ב — עליית ישעיהו לשמים"
+description: "א ואחרי זאת קרא חזקיהו המלך לישעיהו הנביא הקדוש ויבוא אליו הארמון."
 book: maale-yeshayahu
 source: greek
 figure: isaiah

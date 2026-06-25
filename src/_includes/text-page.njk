@@ -1,7 +1,22 @@
 {% extends "base.njk" %}
 
+{% set bodyClass = "text-page" %}
+
+{% block head_extras %}
+  {% set pagesInBook = collections.all | bookPages(page.url, book) %}
+  {% set currentPageIndex = pagesInBook | findIndexByUrl(page.url) %}
+  {% if currentPageIndex > 0 %}
+    {% set prevPage = pagesInBook[currentPageIndex - 1] %}
+    <link rel="prev" href="{{ prevPage.url | url }}">
+  {% endif %}
+  {% if currentPageIndex >= 0 and currentPageIndex < pagesInBook.length - 1 %}
+    {% set nextPage = pagesInBook[currentPageIndex + 1] %}
+    <link rel="next" href="{{ nextPage.url | url }}">
+  {% endif %}
+{% endblock %}
+
 {% block content %}
-  <div class="reading-progress" aria-hidden="true">
+  <div class="reading-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="התקדמות הקריאה">
     <div class="reading-progress-bar" id="readingProgress"></div>
   </div>
 
@@ -15,7 +30,8 @@
       {% endif %}
 
       {% if source or figure %}
-        {% set sourceHebrew = languages[source] or source %}
+        {% set langEntry = languages[source] %}
+        {% set sourceHebrew = (langEntry.label if langEntry else source) %}
         {% set figureHebrew = figures[figure] or figure %}
         <p class="text-meta">
           {% if sourceHebrew %}<span class="text-meta__item"><span class="text-meta__label">מקור:</span> {{ sourceHebrew }}</span>{% endif %}
@@ -28,12 +44,13 @@
     <div class="text-content">
       <div class="text-controls" role="group" aria-label="גודל גופן">
         <span class="text-controls__label">גודל טקסט</span>
-        <button class="text-controls__btn" type="button" data-scale="sm" aria-label="טקסט קטן">א-</button>
-        <button class="text-controls__btn is-active" type="button" data-scale="md" aria-label="טקסט רגיל">א</button>
-        <button class="text-controls__btn" type="button" data-scale="lg" aria-label="טקסט גדול">א+</button>
-        <button class="text-controls__btn" type="button" data-scale="xl" aria-label="טקסט גדול מאוד">א++</button>
+        <button class="text-controls__btn is-active" type="button" data-scale="md" aria-pressed="true" aria-label="טקסט רגיל">א</button>
+        <button class="text-controls__btn" type="button" data-scale="sm" aria-pressed="false" aria-label="טקסט קטן">א-</button>
+        <button class="text-controls__btn" type="button" data-scale="lg" aria-pressed="false" aria-label="טקסט גדול">א+</button>
+        <button class="text-controls__btn" type="button" data-scale="xl" aria-pressed="false" aria-label="טקסט גדול מאוד">א++</button>
       </div>
       {% if book | usesHebrewChapterTitles and pageNumber != 0 %}
+        {# Parallel layout: try to split on "### תרגום עברי" header or `<hr>` separator. #}
         {% set contentParts = content.split("<h3>תרגום עברי</h3>") %}
         {% if contentParts.length < 2 %}
           {% set contentParts = content.split("<hr>") %}
@@ -50,14 +67,18 @@
             </button>
           </div>
           <div class="parallel-layout" data-parallel-container>
-            {% set sourceLangCode = { "aramaic": "syr", "greek": "el", "arabic": "ar", "slavic": "cu", "armenian": "hy", "geez": "gez", "latin": "la", "hebrew": "he" } %}
-            {% set colLang = sourceLangCode[source] or source %}
-            <div class="column-source" data-parallel-source lang="{{ colLang }}">
-              {{ (contentParts[0] or "") | replace("<h3>מקור ארמי</h3>", "") | renderNoteRefs | safe }}
-            </div>
-            <div class="column-translation" data-parallel-translation>
+            {% set langEntry = languages[source] %}
+            {% set colLang = (langEntry.iso if langEntry else source) %}
+            <section class="column-source" data-parallel-source lang="{{ colLang }}" aria-label="מקור בשפת המקור">
+              {# Strip leading source-side H3 (e.g. "מקור ארמי", "מקור סורי", "מקור יווני") — they are decorative. #}
+              {% set sourceHtml = contentParts[0] or "" %}
+              {% set sourceHtml = sourceHtml | replace("<h3>מקור ארמי</h3>", "") | replace("<h3>מקור סורי</h3>", "") | replace("<h3>מקור יווני</h3>", "") | replace("<h3>מקור ערבי</h3>", "") | replace("<h3>מקור לטיני</h3>", "") | replace("<h3>מקור סלאבי</h3>", "") | replace("<h3>מקור ארמני</h3>", "") | replace("<h3>מקור געז</h3>", "") | replace("<h3>מקור עברי</h3>", "") %}
+              {{ sourceHtml | renderNoteRefs | safe }}
+            </section>
+            <section class="column-translation" data-parallel-translation aria-label="תרגום עברי">
+              <h2 class="column-translation__heading visually-hidden">תרגום עברי</h2>
               {{ (contentParts[1] or "") | renderNoteRefs | safe }}
-            </div>
+            </section>
           </div>
         {% else %}
           {{ content | renderNoteRefs | safe }}
@@ -68,12 +89,12 @@
     </div>
   </article>
 
-  {% if pageNumber != 0 and notes %}
+  {% if pageNumber and pageNumber != 0 and notes %}
     <div class="footnotes">
-      <h3>הערות וביאורים</h3>
+      <h2 class="footnotes__heading">הערות וביאורים</h2>
       <ul>
         {% for note in notes %}
-          <li id="note-{{ loop.index }}">{{ note | renderMarkdownInline | safe }} <a href="#ref-{{ loop.index }}" class="note-backlink" aria-label="חזרה למיקום ההפניה בגוף הטקסט">↩</a></li>
+          <li id="note-{{ loop.index }}">{{ note | renderMarkdownInline | safe }} <a href="#ref-{{ loop.index }}" class="note-backlink" aria-label="חזרה להערה {{ loop.index }}">↩</a></li>
         {% endfor %}
       </ul>
     </div>
@@ -81,21 +102,20 @@
 
   {# --- ניווט בין עמודים --- #}
   {% set pagesInBook = collections.all | bookPages(page.url, book) %}
-  {% set chapterPages = collections.all | bookPages(page.url, book, false) %}
+  {% set chapterPages = pagesInBook | rejectattr("data.pageNumber", "equalto", 0) | list %}
   {% set currentPageIndex = pagesInBook | findIndexByUrl(page.url) %}
-  {% set tocPage = (pagesInBook | selectattr("data.pageNumber", "equalto", 0) | list | first) or pagesInBook[0] %}
 
   <nav class="pagination" aria-label="ניווט בין פרקים">
-    {% if currentPageIndex > 0 %}
+    {% if currentPageIndex >= 0 and currentPageIndex > 0 %}
       {% set prevPage = pagesInBook[currentPageIndex - 1] %}
-      <a href="{{ prevPage.url | url }}" class="prev">→ {{ prevPage | chapterDisplayTitle(book) }}</a>
+      <a href="{{ prevPage.url | url }}" class="prev" rel="prev">→ {{ prevPage | chapterDisplayTitle(book) }}</a>
     {% else %}
-      <span></span>
+      <span aria-hidden="true"></span>
     {% endif %}
 
     {% if book %}
     <div class="toc-dropdown">
-      <a href="{{ tocPage.url | url }}" class="home-link">תוכן העניינים</a>
+      <a href="{{ page.url | url }}" class="home-link" aria-haspopup="true" aria-expanded="false">תוכן העניינים</a>
       <div class="toc-dropdown-content">
         <div class="toc-dropdown-header">פרקים בטקסט</div>
         <ul>
@@ -107,11 +127,11 @@
     </div>
     {% endif %}
 
-    {% if currentPageIndex < pagesInBook.length - 1 %}
+    {% if currentPageIndex >= 0 and currentPageIndex < pagesInBook.length - 1 %}
       {% set nextPage = pagesInBook[currentPageIndex + 1] %}
-      <a href="{{ nextPage.url | url }}" class="next">{{ nextPage | chapterDisplayTitle(book) }} ←</a>
+      <a href="{{ nextPage.url | url }}" class="next" rel="next">{{ nextPage | chapterDisplayTitle(book) }} ←</a>
     {% else %}
-      <span></span>
+      <span aria-hidden="true"></span>
     {% endif %}
   </nav>
 

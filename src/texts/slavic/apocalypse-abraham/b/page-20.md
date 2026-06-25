@@ -1,7 +1,8 @@
 ---
 layout: text-page
 title: "פרק כ --- זמן הצדק; המלך אוהבי; חשבון הזמנים"
-book: apocalypse-abraham-b
+description: "(108) ואמר לי תקיפא דקודשא: תעברון השתא קללותא בישתא ועובדין בישין דאתעבידו למעבד ההוא דצדיקא."
+book: apocalypse-abraham
 source: slavic
 figure: abraham
 pageNumber: 20

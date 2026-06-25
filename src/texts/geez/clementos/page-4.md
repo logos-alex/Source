@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: פרק ד (עמוד ד)
+description: "[יא] וּלְרוּחַ הַקֹּדֶשׁ — לִבְרוֹא אֶת הָאֵשׁ וְאֶת הַמַּיִם וְאֶת הָרוּחוֹת וְאֶת הַבְּרִיּוֹת."
 book: clementos
 source: geez
 figure: talmidei-yeshua

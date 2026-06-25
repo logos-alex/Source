@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ו: הומיליות 15--19"
+description: "וביום האחר קם פטרוס לשכם וירא את שמעון עם רבים אחרים המיחלים לו ויקרא לעם ויחל לדבר ויהי כאשר החל לדבר ושמעון קטע דבריו ויאמר הנח נא את הפתיחות הארוכות האלה וענני אל הענין המונח..."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

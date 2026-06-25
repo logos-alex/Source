@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: פרק ד (עמוד ד)
+description: "אֶת רֹאשׁ הַוִּישַׁאפ, כִּי עֹמֵד הוּא עַל גַּל הָאֵפֶר בֵּין הַגַּלִּים וְהָרוּחַ."
 book: vision-enoch-righteous-armenian
 source: armenian
 figure: enoch

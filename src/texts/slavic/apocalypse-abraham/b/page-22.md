@@ -1,7 +1,8 @@
 ---
 layout: text-page
 title: "פרק כב --- המשיח; העם הנבחר; תחיית הצדיקים"
-book: apocalypse-abraham-b
+description: "(116) ואמר לי: וגוברא דחזית דנפיק מן רישי אנשין מן סטרא שמאלא, ומשתחוין קדמיה --- יהון סגיאין דיסברון ליה."
+book: apocalypse-abraham
 source: slavic
 figure: abraham
 pageNumber: 22

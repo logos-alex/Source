@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "עמוד ג — פתח הספר"
+description: "בְּשֵׁם הָאֵל הַחַי, הַקַּיָּם, הַקַּדְמוֹן אֲשֶׁר אֵין לוֹ רֵאשִׁית."
 book: ketav-almagal-nusach-b
 source: arabic
 figure: talmidei-yeshua

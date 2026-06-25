@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "פרק טו"
+description: "דעתיד הܿו דנאתא מן כנפיה דארעא דמדנחא."
 book: apoc-daniel-syriac
 source: aramaic
 figure: daniel

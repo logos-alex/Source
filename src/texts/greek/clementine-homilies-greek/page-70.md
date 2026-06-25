@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ה: מבחר קטעים מהומיליות 10--14"
+description: "וישכם פטרוס מאד ויבוא אלינו ויעירנו ויאמר: יצאו נא פאוסטינוס ופאוסטיניאנוס עם קלימנטוס ואנשי הבית ולכו אחרי אל מקום מסתור על שפת הים, ושם נוכל להטבילה בלי עיני רואים."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

@@ -1,7 +1,8 @@
 ---
 layout: text-page
 title: "פרק כד --- עשר המכות ועונש עזאזל"
-book: apocalypse-abraham-b
+description: 'כ''ה) (124) ואמר עלאה: ובתר כל חלקין אלין דזמנא הדין דשדרת --- בואו ומנו --- שתים-עשרה שעין דענשא דעממיא תתי.'
+book: apocalypse-abraham
 source: slavic
 figure: abraham
 pageNumber: 24

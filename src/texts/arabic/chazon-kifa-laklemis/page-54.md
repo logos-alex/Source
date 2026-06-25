@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "דף כ״ח ע״א — עמוד 52"
+description: "הִתְכַּחֵשׁ נִכְנַס בְּטִבְעוֹ, וְהוּא הָיָה דּוֹמֶה לְהִלָּלוֹ."
 book: chazon-kifa-laklemis
 source: arabic
 figure: talmidei-yeshua

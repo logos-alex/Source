@@ -1,14 +1,15 @@
 ---
 layout: text-page
 title: "פתיחה"
+description: '[תשעיתא דמושא גביא בנביותא] תוב מצטמח בחילא דאיתיא מצטבא עבדא מלא חטיתא למכתב הדא תשעיתא דמושא גביא בנביותא.'
 book: sichat-moshe
 source: aramaic
-figure: abraham
+figure: moshe
 pageNumber: 1
 version: main
 tags:
   - aramaic
-  - abraham
+  - moshe
   - texts
 permalink: /texts/aramaic/sichat-moshe/page-1/
 ---

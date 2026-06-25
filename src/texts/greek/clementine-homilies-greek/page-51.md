@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ד: הומיליות 3--9"
+description: "על כן אל תחשוב את השדים האלה לחכמים, אשר הציעו יסודות רעים למעשים טובים, למען החפצים להיות מתחקים אחרי הטובים יקנאו במעשי האלהים הנקראים, אשר בהתוכחי ביום שלפני זה לא הסתרתי, וא..."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

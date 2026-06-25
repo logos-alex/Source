@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ז: הומיליה 20"
+description: 'חלק ז: הומיליה 20 > [[מקור: הומיליות הקלמנטינה, מהדורת J.-P.'
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

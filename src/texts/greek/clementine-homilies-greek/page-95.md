@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ו: הומיליות 15--19"
+description: "ויאמר שמעון ועל כן אם אלהים הוא סבת הטובות לבדם מה נשאר לחשוב כי אם שהרע נולד מראשית אחרת או שמא אינו נולד ויאמר פטרוס לא שום עצמה אחרת ילדה את הרע ולא הרע בלתי נולד כאשר אראה ב..."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

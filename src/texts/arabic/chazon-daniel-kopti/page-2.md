@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "פסוקים 13–24"
+description: 'ואשמע קול אומר לי: דניאל, איש חמדות, דע מה ראית.'
 book: chazon-daniel-kopti
 source: arabic
 figure: daniel

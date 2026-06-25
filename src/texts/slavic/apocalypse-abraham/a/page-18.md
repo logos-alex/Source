@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חזון אברהם – נוסח א' – פרק יח"
+description: 'וָאֹמַר: מַהוּ הָאֵלִיל הַזֶּה? מַהִּי הַמִּזְבֵּחַ?'
 book: apocalypse-abraham
 version: a
 pageNumber: 18

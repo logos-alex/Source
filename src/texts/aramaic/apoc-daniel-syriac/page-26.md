@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "[עמוד 58]"
+description: "אז חדוה בארץ תהיה ופציחה ברקיע השמים; וקרן ראשונה מרום השמים תקרא, ושופר גדול מירושלים יידבר; ויישמע קולה מקצות הארץ עד התהום התחתון."
 book: apoc-daniel-syriac
 source: aramaic
 figure: daniel

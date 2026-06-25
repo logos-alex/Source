@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ו: הומיליות 15--19"
+description: "זאת פטרוס יבטיח לכם להשכיל כי בתואנת אלהים אחד הוא נראה כמציל אתכם מאלילים רבים נפשות אשר לא ירעו הרבה לסוגדיהם בראות העין כי אבן הם או נחשת או זהב או מחומר בלתי נפשי אחר על כן ..."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

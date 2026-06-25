@@ -2,6 +2,7 @@
 layout: category-page.njk
 title: "חזון אברהם: הקדמה"
 book: apocalypse-abraham
+version: main
 source: slavic
 figure: abraham
 draft: false

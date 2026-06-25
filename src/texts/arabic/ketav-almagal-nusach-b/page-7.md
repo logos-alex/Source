@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "עמוד ט"
+description: '…מַזְהִירוֹת מַקְרִינוֹת הַשּׁווֹת אֶת זִיו הַשֶּׁמֶשׁ, וְהָיָה גַּם גּוּפוֹ מַזְהִיר כְּ''כּוֹכַב הַ''אַכְּרַאוְסְטוֹס'''' (= הַכּוֹכָב הַזּוֹרֵחַ).'
 book: ketav-almagal-nusach-b
 source: arabic
 figure: talmidei-yeshua

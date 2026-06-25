@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלוקת הממלכות ומלכי קדם"
+description: "ותהי הארץ לחלקה בין שני ראשים לשבטים, ויהיה לכל שבט ולשון מלך וראש."
 book: ketav-almagal
 source: arabic
 figure: talmidei-yeshua

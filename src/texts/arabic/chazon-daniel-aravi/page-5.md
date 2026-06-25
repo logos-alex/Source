@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "פסוקים 49–60"
+description: 'וישליכו המדינה לאש, וישרפו את אות ה\''.'
 book: chazon-daniel-aravi
 source: arabic
 figure: daniel

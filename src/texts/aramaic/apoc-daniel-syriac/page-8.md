@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "פרק ח'"
+description: 'אנא דניאיל נביא חזא הוית חזונא. בשנתא דתרתין.'
 book: apoc-daniel-syriac
 source: aramaic
 figure: daniel

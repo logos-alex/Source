@@ -1,13 +1,18 @@
 {
-  "name": "source",
+  "name": "logia",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "LOGIA — אוצר הכתבים הגנוזים. Hebrew digital archive of apocryphal and pseudepigraphical texts.",
+  "private": true,
+  "main": ".eleventy.js",
   "scripts": {
     "dev": "eleventy --serve --port=5000 --pathprefix=/Source/",
-    "build": "eleventy --pathprefix=/Source/ && pagefind --site _site --output-path _site/pagefind",
-    "deploy": "gh-pages -d _site -r https://github.com/logos-alex/Source.git",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm run build:eleventy && npm run build:assets && npm run build:search",
+    "build:eleventy": "eleventy --pathprefix=/Source/",
+    "build:assets": "npm run build:css && npm run build:js",
+    "build:css": "csso src/assets/style.css --output _site/assets/style.css",
+    "build:js": "terser src/assets/js/site.js -c -m -o _site/assets/js/site.js",
+    "build:search": "pagefind --site _site --output-path _site/pagefind",
+    "test": "npm run ci:verify",
     "check:frontmatter": "node scripts/verify-frontmatter.mjs",
     "check:pathprefix": "node scripts/verify-path-prefix.mjs",
     "ci:verify": "node scripts/ci-verify.mjs",
@@ -24,21 +29,35 @@
     "check:release-content": "node scripts/verify-release-content.mjs",
     "check:intro-revisions": "node scripts/verify-intro-revisions.mjs",
     "check:display-book-titles": "node scripts/verify-display-book-titles.mjs",
-    "check:third-party": "node scripts/verify-third-party-controls.mjs"
+    "check:third-party": "node scripts/verify-third-party-controls.mjs",
+    "audit": "npm audit --audit-level=high --omit=dev || true",
+    "lint": "prettier --check \"**/*.{js,mjs,cjs,json,njk,css,md,yml}\" --ignore-path .gitignore",
+    "format": "prettier --write \"**/*.{js,mjs,cjs,json,njk,css,md,yml}\" --ignore-path .gitignore"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "eleventy",
+    "apocrypha",
+    "pseudepigrapha",
+    "hebrew",
+    "static-site",
+    "archive"
+  ],
+  "author": "LOGIA Project",
+  "license": "CC0-1.0",
   "engines": {
-    "node": ">=18"
+    "node": ">=22"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.5",
+    "csso-cli": "^4.0.2",
     "gh-pages": "^6.3.0",
-    "pagefind": "^1.4.0"
+    "js-yaml": "^4.1.0",
+    "pagefind": "^1.4.0",
+    "prettier": "^3.4.2",
+    "terser": "^5.37.0"
   },
   "overrides": {
     "@11ty/recursive-copy": "4.0.3"
   },
-  "packageManager": "npm@10"
+  "packageManager": "npm@10.9.0"
 }

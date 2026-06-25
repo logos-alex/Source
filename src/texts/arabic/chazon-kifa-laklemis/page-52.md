@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "דף כ״ז ע״א — עמוד 50"
+description: "כֵּן, וְרוּחַ הַקֹּדֶשׁ מְעִידָה עֵדוּת צֶדֶק שֶׁהַמָּשִׁיחַ בֶּן הָאֱלֹהִים הַחַי הָעוֹלָמִי, וְהוּא בֶּן מִרְיָם הַבְּתוּלָה הַטְּהוֹרָה."
 book: chazon-kifa-laklemis
 source: arabic
 figure: talmidei-yeshua

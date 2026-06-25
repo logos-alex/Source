@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "פסוקים 13–24"
+description: 'ומשלה בעיניה כי היא אדונת הרים וגויים, אשר להם עצים גבוהים וכל הגבעות, ושמה בלבנון.'
 book: chazon-daniel-aravi
 source: arabic
 figure: daniel

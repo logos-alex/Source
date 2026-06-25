@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ד: הומיליות 3--9"
+description: "על כן אינני חושבת כי יוכל איש לכבות אש גדולה כזאת."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

@@ -7,6 +7,7 @@ source: latin
 figure: talmidei-yeshua
 pageNumber: 0
 draft: false
+comingSoon: false
 tags:
   - latin
   - talmidei-yeshua

@@ -1,14 +1,15 @@
 ---
 layout: text-page
 title: "חטיבה ג --- גמול מי שרואה צער חברו ועוזר"
+description: 'אמר מושא מרי ואלהי מנו דחזא אכסניא ולא גחכ בה מנא אגרה.'
 book: sichat-moshe
 source: aramaic
-figure: abraham
+figure: moshe
 pageNumber: 4
 version: main
 tags:
   - aramaic
-  - abraham
+  - moshe
   - texts
 permalink: /texts/aramaic/sichat-moshe/page-4/
 ---

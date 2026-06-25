@@ -1,7 +1,8 @@
 ---
 layout: text-page
 title: "פרק ג --- שובו הביתה; בריסת נשרף באש; ברכת תרח למרומת"
-book: apocalypse-abraham-b
+description: "(12) והוה כי אזלת באורחא, אתעצב לבי בגו מטרי ואשתבשת דעתי."
+book: apocalypse-abraham
 source: slavic
 figure: abraham
 pageNumber: 3

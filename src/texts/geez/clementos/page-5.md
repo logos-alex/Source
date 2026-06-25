@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: פרק ה (עמוד ה)
+description: '<p><strong>ביאורי הפרק:</strong> ההפניות בגוף הטקסט מסומנות בסוגריים מרובעים (לדוגמה: [1], [2], [3]) ומובילות לקטע <a href=''#note-1''>הערות וביאורים</a> שבתחתית העמוד.</p> [יד] ו...'
 book: clementos
 source: geez
 figure: talmidei-yeshua

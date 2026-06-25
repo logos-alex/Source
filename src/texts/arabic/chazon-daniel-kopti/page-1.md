@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "פסוקים 1–12"
+description: 'בשנה השלישית לכורש הפרסי אשר מלך על בבל, נגלה דבר אל דניאל אשר שמו בלטשאצר, והדבר אמת.'
 book: chazon-daniel-kopti
 source: arabic
 figure: daniel

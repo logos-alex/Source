@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: פרק ח (עמוד ח)
+description: 'וְהַמֶּלֶךְ הַשִּׁשִּׁי, הַיּוֹשֵׁב אָבֵל עַל נָשִׁים וּבָנִים — עָלָיו נֶאֱמַר: ''אֵשׁ יוֹצֵאת מִן הַוִּישַׁאפ וְשָׂרְפָה אֶת כָּל הָאָרֶץ''.'
 book: vision-enoch-righteous-armenian
 source: armenian
 figure: enoch

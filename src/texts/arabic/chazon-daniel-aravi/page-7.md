@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "פסוקים 73–80"
+description: 'וישים מולו אלילים, וישחק את עצמות בני האדם.'
 book: chazon-daniel-aravi
 source: arabic
 figure: daniel

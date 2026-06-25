@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "ששת ימי הבריאה"
+description: "ואלה הן הראשית ביום הראשון, אשר הוא יום ראשון הקדוש, ראש הימים ובכורם."
 book: ketav-almagal
 source: arabic
 figure: talmidei-yeshua

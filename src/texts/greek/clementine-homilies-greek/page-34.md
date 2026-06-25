@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "חלק ד: הומיליות 3--9"
+description: "אך גם מן השמים נשמע קול עד אומר: זה בני אהובי אשר רציתי בו, אליו תשמעון."
 book: clementine-homilies-greek
 source: greek
 figure: talmidei-yeshua

@@ -244,6 +244,10 @@ blockquote {
   padding: var(--s-7) var(--s-4) var(--s-9);
 }
 
+.text-main--narrow {
+  max-width: 760px;
+}
+
 .category-listing { max-width: var(--max-w); }
 
 /* --------------------------- Skip Link ----------------------------- */
@@ -425,6 +429,7 @@ nav#mainNav > a[aria-current="page"]::after {
   z-index: 50;
 }
 .nav-dropdown:hover .dropdown-content,
+.nav-dropdown:focus-within .dropdown-content,
 .nav-dropdown.desktop-open .dropdown-content,
 .nav-dropdown.mobile-expanded .dropdown-content {
   opacity: 1;
@@ -1164,7 +1169,8 @@ main {
   transition: opacity var(--transition), visibility var(--transition);
 }
 .toc-dropdown:hover .toc-dropdown-content,
-.toc-dropdown:focus-within .toc-dropdown-content {
+.toc-dropdown:focus-within .toc-dropdown-content,
+.toc-dropdown.toc-open .toc-dropdown-content {
   opacity: 1;
   visibility: visible;
 }
@@ -1487,13 +1493,18 @@ body.reading-mode .text-main {
   margin: var(--s-9) auto;
   padding: var(--s-5) var(--s-4);
 }
-body.reading-mode .reading-mode-toggle { display: inline-flex !important; }
-
 .reading-mode-toggle {
   position: fixed;
   inset-block-end: var(--s-5);
   inset-inline-end: var(--s-5);
   z-index: 90;
+  /* Hidden by default; only shown on text pages via body.text-page class
+     or when reading-mode is active on a text page. */
+  display: none;
+}
+body.text-page .reading-mode-toggle,
+body.reading-mode .reading-mode-toggle {
+  display: inline-flex;
 }
 
 /* --------------------------- 404 Page ------------------------------ */
@@ -1811,14 +1822,40 @@ body[data-font-scale="xl"] .text-content { font-size: var(--fs-xl); line-height:
 @media print {
   header, footer, .breadcrumbs, .pagination, .reading-progress,
   .reading-mode-toggle, .theme-toggle, .main-nav-toggle, .back-to-top,
-  .header-search, .text-controls,
+  .header-search, .text-controls, .parallel-controls,
   #comments-section, .toc-dropdown, .beta-notice, .skip-link {
     display: none !important;
   }
   body { background: white; color: black; font-size: 12pt; }
   .text-main { max-width: none; padding: 0; }
+  .parallel-layout { display: block; }
+  .column-source, .column-translation { max-width: none; width: 100%; }
   a { color: black; text-decoration: underline; }
   a::after { content: ""; }
+}
+
+/* Visually-hidden helper (semantic but invisible) — for headings we want screen readers to announce */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Footer action button — visual feedback when translate is active */
+.footer-action:disabled,
+.footer-action[aria-disabled="true"] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.footer-action.is-active {
+  background: var(--c-accent);
+  color: var(--c-bg);
 }
 
 
@@ -1859,7 +1896,13 @@ a:focus-visible,
 .text-controls__btn:focus-visible,
 .header-search__btn:focus-visible,
 .header-search__input:focus-visible,
-.mobile-submenu-toggle:focus-visible {
+.mobile-submenu-toggle:focus-visible,
+.main-nav-toggle:focus-visible,
+.back-to-top:focus-visible,
+.site-brand:focus-visible,
+.reading-mode-toggle:focus-visible,
+.theme-toggle:focus-visible,
+.icon-btn:focus-visible {
   outline: 2px solid var(--c-accent);
   outline-offset: 2px;
   border-radius: var(--r-sm);

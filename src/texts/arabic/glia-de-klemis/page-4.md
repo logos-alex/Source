@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "דף ד"
+description: '…עָשׂוּ. וְאָמְנָם כֹּהֲנַי — הִנֵּה אוֹשִׁיבֵם בְּאוֹרֵי הָאוֹר וְהָאֱלֹהוּת, וְאֶתֵּן לְכָל אֶחָד מֵהֶם מָקוֹם מְפֹאָר כְּפִי מַעֲלוֹתָם וְחַסְדָּם וְחַסְדִּי.'
 book: glia-de-klemis
 source: arabic
 figure: talmidei-yeshua

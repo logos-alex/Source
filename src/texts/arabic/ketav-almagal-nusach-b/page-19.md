@@ -1,6 +1,7 @@
 ---
 layout: text-page
 title: "עמוד כא — סִיּוּם צַוָּאַת אָדָם וּמוֹתוֹ"
+description: "…אֶת כָּל בְּנֵי קַיִן וְכָל הַהוֹלֵךְ בְּדַרְכּוֹ הָרָעָה."
 book: ketav-almagal-nusach-b
 source: arabic
 figure: talmidei-yeshua

@@ -1,3 +1,21 @@
+// =====================================================================
+// safeStorage — wraps localStorage with try/catch for private mode / blocked storage
+// =====================================================================
+const safeStorage = {
+  get(k) {
+    try { return localStorage.getItem(k); } catch (e) { return null; }
+  },
+  set(k, v) {
+    try { localStorage.setItem(k, v); return true; } catch (e) { return false; }
+  },
+  remove(k) {
+    try { localStorage.removeItem(k); } catch (e) { /* no-op */ }
+  }
+};
+
+// =====================================================================
+// Main UI initialization
+// =====================================================================
 (() => {
   const htmlRoot = document.getElementById('htmlRoot');
   const themeToggle = document.getElementById('themeToggle');
@@ -29,6 +47,11 @@
     }
     if (themeToggle) {
       themeToggle.setAttribute('aria-pressed', String(isDark));
+      // Dynamic aria-label reflecting current state
+      const label = isDark
+        ? 'מצב כהה פעיל. לחץ למעבר למצב בהיר'
+        : 'מצב בהיר פעיל. לחץ למעבר למצב כהה';
+      themeToggle.setAttribute('aria-label', label);
       const moonIcon = themeToggle.querySelector('.icon-moon');
       const sunIcon = themeToggle.querySelector('.icon-sun');
       if (moonIcon && sunIcon) {
@@ -36,11 +59,11 @@
         sunIcon.style.display = isDark ? '' : 'none';
       }
     }
-    localStorage.setItem('theme', theme);
+    safeStorage.set('theme', theme);
   }
 
   function initTheme() {
-    const stored = localStorage.getItem('theme');
+    const stored = safeStorage.get('theme');
     const prefer = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     const theme = stored || prefer;
     applyTheme(theme);
@@ -51,16 +74,29 @@
     const navToggle = document.getElementById('mainNavToggle');
     if (!nav || !navToggle) return;
 
+    const closeMobileNav = () => {
+      nav.classList.remove('mobile-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      // Restore hamburger icon
+      navToggle.innerHTML = '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+    };
+
     navToggle.addEventListener('click', () => {
       const isOpen = nav.classList.toggle('mobile-open');
       navToggle.setAttribute('aria-expanded', String(isOpen));
-      // Toggle icon between hamburger and close
       navToggle.innerHTML = isOpen
         ? '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>'
         : '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
     });
 
-    /* Desktop: toggle dropdown on click, close on outside click */
+    // Close mobile nav when a regular link is clicked
+    nav.querySelectorAll('a:not(.dropbtn)').forEach((a) => {
+      a.addEventListener('click', () => {
+        if (nav.classList.contains('mobile-open')) closeMobileNav();
+      });
+    });
+
+    // Desktop: toggle dropdown on click, close on outside click
     nav.querySelectorAll('.nav-dropdown').forEach((dropdown, index) => {
       const dropLink = dropdown.querySelector('.dropbtn');
       const menu = dropdown.querySelector('.dropdown-content');
@@ -71,19 +107,17 @@
         event.preventDefault();
         const wasOpen = dropdown.classList.contains('desktop-open');
         if (wasOpen) {
-          // Close: remove desktop-open, add forced-closed to override :hover
           dropdown.classList.remove('desktop-open');
           dropdown.classList.add('forced-closed');
           dropLink.setAttribute('aria-expanded', 'false');
         } else {
-          // Open: add desktop-open, remove forced-closed
           dropdown.classList.add('desktop-open');
           dropdown.classList.remove('forced-closed');
           dropLink.setAttribute('aria-expanded', 'true');
         }
       });
 
-      /* Mobile: create submenu toggle button */
+      // Mobile: create submenu toggle button (progressive enhancement)
       const toggle = document.createElement('button');
       const menuId = `nav-submenu-${index + 1}`;
       menu.id = menuId;
@@ -101,7 +135,7 @@
       });
     });
 
-    /* Close any open desktop dropdown when clicking outside */
+    // Close any open desktop dropdown when clicking outside
     document.addEventListener('click', (event) => {
       nav.querySelectorAll('.nav-dropdown.desktop-open').forEach((dropdown) => {
         if (!dropdown.contains(event.target)) {
@@ -113,10 +147,27 @@
       });
     });
 
-    /* Remove forced-closed when mouse leaves dropdown, so :hover works again next time */
+    // Remove forced-closed when mouse leaves dropdown, so :hover works again next time
     nav.querySelectorAll('.nav-dropdown').forEach((dropdown) => {
       dropdown.addEventListener('mouseleave', () => {
         dropdown.classList.remove('forced-closed');
+      });
+    });
+
+    // Global Escape key handler — closes mobile nav and desktop dropdowns
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape') return;
+      if (nav.classList.contains('mobile-open')) closeMobileNav();
+      nav.querySelectorAll('.nav-dropdown.desktop-open').forEach((dropdown) => {
+        dropdown.classList.remove('desktop-open');
+        dropdown.classList.add('forced-closed');
+        const dropLink = dropdown.querySelector('.dropbtn');
+        if (dropLink) dropLink.setAttribute('aria-expanded', 'false');
+      });
+      document.querySelectorAll('.toc-dropdown.toc-open').forEach((d) => {
+        d.classList.remove('toc-open');
+        const trigger = d.querySelector('.home-link');
+        if (trigger) trigger.setAttribute('aria-expanded', 'false');
       });
     });
   }
@@ -150,19 +201,15 @@
     if (!readingToggle) return;
 
     const nextActionLabel = isReading
-      ? readingToggle.dataset.readingLabelOn || 'כיבוי מצב קריאה'
-      : readingToggle.dataset.readingLabelOff || 'הפעלת מצב קריאה';
-    const stateDescription = isReading
-      ? readingToggle.dataset.readingDescriptionOn || 'מצב קריאה פעיל. לחיצה תכבה את מצב הקריאה.'
-      : readingToggle.dataset.readingDescriptionOff || 'מצב קריאה כבוי. לחיצה תפעיל את מצב הקריאה.';
+      ? (readingToggle.dataset.readingLabelOn || 'כיבוי מצב קריאה')
+      : (readingToggle.dataset.readingLabelOff || 'הפעלת מצב קריאה');
 
     readingToggle.setAttribute('aria-pressed', String(isReading));
     readingToggle.setAttribute('aria-label', nextActionLabel);
-    readingToggle.setAttribute('aria-description', stateDescription);
   }
 
   function initReadingMode() {
-    const storedReadingMode = localStorage.getItem('readingMode') === 'true';
+    const storedReadingMode = safeStorage.get('readingMode') === 'true';
     if (storedReadingMode) {
       document.body.classList.add('reading-mode');
     }
@@ -172,7 +219,7 @@
       readingToggle.addEventListener('click', () => {
         document.body.classList.toggle('reading-mode');
         const isReading = document.body.classList.contains('reading-mode');
-        localStorage.setItem('readingMode', isReading);
+        safeStorage.set('readingMode', String(isReading));
         updateReadingModeAccessibility(isReading);
       });
     }
@@ -180,6 +227,7 @@
 
   function initReadingProgress() {
     const progressEl = document.getElementById('readingProgress');
+    const progressContainer = document.querySelector('.reading-progress');
     if (!progressEl) return;
 
     let ticking = false;
@@ -187,21 +235,27 @@
     const updateProgress = () => {
       ticking = false;
 
+      // Skip updates in reading mode (progress bar is hidden)
+      if (document.body.classList.contains('reading-mode')) return;
+
       if (prefersReducedMotion()) {
         progressEl.style.width = '0%';
-        progressEl.setAttribute('aria-hidden', 'true');
+        if (progressContainer) progressContainer.setAttribute('aria-hidden', 'true');
         return;
       }
 
       const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       const scrolled = windowHeight > 0 ? (window.scrollY / windowHeight) * 100 : 0;
-      progressEl.style.width = `${Math.min(100, Math.max(0, scrolled))}%`;
-      progressEl.removeAttribute('aria-hidden');
+      const pct = Math.min(100, Math.max(0, scrolled));
+      progressEl.style.width = `${pct}%`;
+      if (progressContainer) {
+        progressContainer.setAttribute('aria-valuenow', String(Math.round(pct)));
+        progressContainer.removeAttribute('aria-hidden');
+      }
     };
 
     const queueProgressUpdate = () => {
       if (prefersReducedMotion() || ticking) return;
-
       ticking = true;
       window.requestAnimationFrame(updateProgress);
     };
@@ -221,8 +275,7 @@
 
     const STORAGE_KEY = 'parallelSourceVisible';
 
-    // Load preference (default: show source)
-    const showSource = localStorage.getItem(STORAGE_KEY) !== 'false';
+    const showSource = safeStorage.get(STORAGE_KEY) !== 'false';
 
     function applyState(visible) {
       document.querySelectorAll('[data-parallel-container]').forEach(container => {
@@ -240,14 +293,13 @@
       });
     }
 
-    // Apply initial state
     applyState(showSource);
 
     toggles.forEach(btn => {
       btn.addEventListener('click', () => {
         const mode = btn.dataset.parallelToggle;
         const visible = mode === 'show';
-        localStorage.setItem(STORAGE_KEY, String(visible));
+        safeStorage.set(STORAGE_KEY, String(visible));
         applyState(visible);
       });
     });
@@ -270,12 +322,16 @@
   initParallelToggle();
 })();
 
+// =====================================================================
+// Third-party services (analytics, clarity, translate) — opt-in only
+// =====================================================================
 window.__externalScriptRegistry = window.__externalScriptRegistry || new Set();
 
 const runtimeThirdParty = (window.siteRuntimeConfig && window.siteRuntimeConfig.thirdParty) || {};
 const runtimeAnalytics = runtimeThirdParty.analytics || {};
 const runtimeClarity = runtimeThirdParty.clarity || {};
 const runtimeTranslate = runtimeThirdParty.translate || {};
+const runtimeDisqus = (window.siteRuntimeConfig && window.siteRuntimeConfig.thirdParty && window.siteRuntimeConfig.thirdParty.disqus) || {};
 
 function ensureExternalScript({ service, src, onload, id }) {
   if (!src || !service) return;
@@ -301,18 +357,21 @@ function ensureExternalScript({ service, src, onload, id }) {
   window.__externalScriptRegistry.add(scriptKey);
 }
 
+function isServiceLoaded(service) {
+  return window.__externalScriptRegistry.has(`${service}:loaded`);
+}
+function markServiceLoaded(service) {
+  window.__externalScriptRegistry.add(`${service}:loaded`);
+}
+
 function loadAnalytics() {
   if (!runtimeAnalytics.enabled || isServiceLoaded('analytics') || !runtimeAnalytics.measurementId) return;
-
   ensureExternalScript({
     service: 'analytics',
     src: `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(runtimeAnalytics.measurementId)}`
   });
-
   window.dataLayer = window.dataLayer || [];
-  window.gtag = window.gtag || function gtag() {
-    window.dataLayer.push(arguments);
-  };
+  window.gtag = window.gtag || function gtag() { window.dataLayer.push(arguments); };
   window.gtag('js', new Date());
   window.gtag('config', runtimeAnalytics.measurementId);
   markServiceLoaded('analytics');
@@ -320,35 +379,28 @@ function loadAnalytics() {
 
 function loadClarity() {
   if (!runtimeClarity.enabled || isServiceLoaded('clarity') || !runtimeClarity.projectId) return;
-
   window.clarity = window.clarity || function clarity() {
     (window.clarity.q = window.clarity.q || []).push(arguments);
   };
-
   ensureExternalScript({
     service: 'clarity',
     src: `https://www.clarity.ms/tag/${encodeURIComponent(runtimeClarity.projectId)}`
   });
-
   markServiceLoaded('clarity');
 }
 
 function loadTranslate() {
   if (!runtimeTranslate.enabled || isServiceLoaded('translate')) return;
   const translateContainer = document.getElementById('google_translate_element');
-  if (translateContainer) {
-    translateContainer.hidden = false;
-  }
-
+  if (translateContainer) translateContainer.hidden = false;
   ensureExternalScript({
     service: 'translate',
     src: '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'
   });
-
   markServiceLoaded('translate');
 }
 
-// Eager-load analytics + clarity on every page (no consent needed)
+// Eager-load analytics + clarity on every page (no consent needed — user has explicitly opted in via site config)
 loadAnalytics();
 loadClarity();
 
@@ -357,14 +409,14 @@ const translateLauncher = document.querySelector('[data-third-party-trigger="tra
 if (translateLauncher) {
   translateLauncher.addEventListener('click', () => {
     loadTranslate();
-    translateLauncher.setAttribute('aria-disabled', 'true');
+    translateLauncher.textContent = 'תרגום פעיל';
+    translateLauncher.classList.add('is-active');
     translateLauncher.disabled = true;
   });
 }
 
 window.googleTranslateElementInit = function googleTranslateElementInit() {
   if (!window.google || !google.translate) return;
-
   new google.translate.TranslateElement({
     pageLanguage: 'he',
     includedLanguages: runtimeTranslate.includedLanguages || 'en,fr,de,es,ru,ar,it',
@@ -372,14 +424,13 @@ window.googleTranslateElementInit = function googleTranslateElementInit() {
   }, 'google_translate_element');
 };
 
-
-
-/* ====================================================================
-   Back-to-Top button — appears after scrolling past viewport
-   ==================================================================== */
+// =====================================================================
+// Back-to-Top button — appears after scrolling past viewport
+// =====================================================================
 (function initBackToTop() {
   const btn = document.getElementById('backToTop');
   if (!btn) return;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const toggle = () => {
     if (window.scrollY > window.innerHeight * 0.6) {
@@ -391,37 +442,48 @@ window.googleTranslateElementInit = function googleTranslateElementInit() {
 
   window.addEventListener('scroll', toggle, { passive: true });
   btn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
+    window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
   });
   toggle();
 })();
 
-/* ====================================================================
-   Font-size controls (text pages) — A- / A+ buttons
-   Persisted in localStorage
-   ==================================================================== */
+// =====================================================================
+// Font-size controls (text pages) — A- / A+ buttons
+// Persisted in localStorage; manages aria-pressed for screen readers
+// =====================================================================
 (function initFontControls() {
   const controls = document.querySelector('.text-controls');
   if (!controls) return;
 
   const buttons = controls.querySelectorAll('.text-controls__btn');
-  const stored = localStorage.getItem('fontScale') || 'md';
+  const stored = safeStorage.get('fontScale') || 'md';
   document.body.setAttribute('data-font-scale', stored);
+
+  const updateAria = (activeBtn) => {
+    buttons.forEach((b) => {
+      const isActive = b === activeBtn;
+      b.classList.toggle('is-active', isActive);
+      b.setAttribute('aria-pressed', String(isActive));
+    });
+  };
+
+  // Initialize aria-pressed based on stored scale
+  const initialActive = Array.from(buttons).find((b) => b.dataset.scale === stored) || buttons[0];
+  if (initialActive) updateAria(initialActive);
+
   buttons.forEach((b) => {
-    if (b.dataset.scale === stored) b.classList.add('is-active');
     b.addEventListener('click', () => {
       const scale = b.dataset.scale;
       document.body.setAttribute('data-font-scale', scale);
-      localStorage.setItem('fontScale', scale);
-      buttons.forEach((bb) => bb.classList.remove('is-active'));
-      b.classList.add('is-active');
+      safeStorage.set('fontScale', scale);
+      updateAria(b);
     });
   });
 })();
 
-/* ====================================================================
-   Search page — read ?q= from URL and inject into Pagefind input
-   ==================================================================== */
+// =====================================================================
+// Search page — read ?q= from URL and inject into Pagefind input
+// =====================================================================
 (function initSearchQuery() {
   if (!window.location.pathname.endsWith('/search/')) return;
 
@@ -429,8 +491,9 @@ window.googleTranslateElementInit = function googleTranslateElementInit() {
   const q = params.get('q');
   if (!q) return;
 
-  // Pagefind UI is initialized asynchronously; poll until ready
+  // Pagefind UI is initialized asynchronously; poll until ready (max ~6s)
   let attempts = 0;
+  const maxAttempts = 40;
   const tryFill = () => {
     attempts++;
     const input = document.querySelector('#search .pagefind-ui__search-input');
@@ -439,7 +502,44 @@ window.googleTranslateElementInit = function googleTranslateElementInit() {
       input.dispatchEvent(new Event('input', { bubbles: true }));
       return;
     }
-    if (attempts < 20) setTimeout(tryFill, 150);
+    if (attempts < maxAttempts) setTimeout(tryFill, 150);
   };
   setTimeout(tryFill, 300);
+})();
+
+// =====================================================================
+// Lazy-load Disqus when comments section approaches viewport
+// =====================================================================
+(function initLazyDisqus() {
+  if (!runtimeDisqus.enabled || !runtimeDisqus.shortname) return;
+  const commentsSection = document.getElementById('disqus_thread') || document.querySelector('.comments-section');
+  if (!commentsSection) return;
+  if (!('IntersectionObserver' in window)) {
+    // Fallback: load after a short delay
+    setTimeout(loadDisqus, 2000);
+    return;
+  }
+  const io = new IntersectionObserver((entries) => {
+    if (entries.some((e) => e.isIntersecting)) {
+      loadDisqus();
+      io.disconnect();
+    }
+  }, { rootMargin: '200px' });
+  io.observe(commentsSection);
+
+  function loadDisqus() {
+    if (isServiceLoaded('disqus')) return;
+    const shortname = runtimeDisqus.shortname;
+    window.disqus_config = function disqus_config() {
+      this.page.url = window.location.href;
+      this.page.identifier = window.location.pathname;
+    };
+    const d = document;
+    const s = d.createElement('script');
+    s.src = `https://${shortname}.disqus.com/embed.js`;
+    s.setAttribute('data-timestamp', String(+new Date()));
+    s.setAttribute('data-external-service', 'disqus');
+    (d.head || d.body).appendChild(s);
+    markServiceLoaded('disqus');
+  }
 })();
