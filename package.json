@@ -51,7 +51,7 @@
     "@11ty/eleventy": "^3.1.5",
     "csso-cli": "^4.0.2",
     "gh-pages": "^6.3.0",
-    "js-yaml": "^4.1.0",
+    "js-yaml": "^5.1.0",
     "pagefind": "^1.4.0",
     "prettier": "^3.4.2",
     "terser": "^5.37.0"
