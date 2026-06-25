@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 32
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-32/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 ושמעון אמר: נכח הוא כי אתה בורח משמוע ההוכחה נגד אלהיך מן הכתובים.

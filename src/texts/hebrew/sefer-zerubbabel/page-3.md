@@ -7,6 +7,10 @@ figure: zerubbabel
 pageNumber: 3
 version: main
 permalink: /texts/hebrew/sefer-zerubbabel/page-3/
+tags:
+  - hebrew
+  - zerubbabel
+  - texts
 notes:
   - >
     [\"ויחריב עם ובלשון עברית\" --- ייחוד מובהק של נוסח אוקספורד, מיד אחרי \"ויצא ממנה בן ושמו ארמילוס.\" משמעות הביטוי אינה לגמרי ברורה; ייתכן שהכוונה: \"\[ושמו\] ארמילוס --- ובלשון עברית \[משמעו\] ויחריב עם\", כלומר פירוש אטימולוגי של השם ארמילוס.

@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 42
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-42/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 ואני ראיתי מראש את אשר על אפיון ובשאלו אותי את סבת חלי עניתיו במרמה כי

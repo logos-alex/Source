@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 9
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-9/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 ומה עלי לעשות, אם לא זאת? אלכה מצרימה, ואתידד עם מגלי הסוד והנביאים של

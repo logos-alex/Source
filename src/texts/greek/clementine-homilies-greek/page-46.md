@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 46
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-46/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 אפוא לא היו אלהים כי אם חידות עריצים כי קבר קרונוס בהרי הקווקז לא בשמים

@@ -6,6 +6,10 @@ source: geez
 figure: talmidei-yeshua
 pageNumber: 8
 permalink: /texts/geez/clementos/page-8/
+tags:
+  - geez
+  - talmidei-yeshua
+  - texts
 version: main
 notes:
   - >

@@ -7,6 +7,10 @@ figure: ezra
 pageNumber: 2
 version: main
 permalink: /texts/aramaic/chazon-ezra-suri/page-2/
+tags:
+  - aramaic
+  - ezra
+  - texts
 ---
 
 ### סעיף ב --- תפילת עזרא והתגלות המלאך

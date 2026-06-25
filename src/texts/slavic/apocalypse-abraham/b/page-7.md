@@ -7,6 +7,10 @@ figure: abraham
 pageNumber: 7
 version: b
 permalink: /texts/slavic/apocalypse-abraham/b/page-7/
+tags:
+  - slavic
+  - abraham
+  - texts
 ---
 
 ### פרק ז --- שליחות המלאך יָאוֹאֵל וחיזוק אברהם

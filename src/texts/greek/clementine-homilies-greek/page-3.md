@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 3
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-3/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 קלמנס ליעקב האדון וממונה הממונים, המנהיג את כנסת העברים הקדושה בירושלים

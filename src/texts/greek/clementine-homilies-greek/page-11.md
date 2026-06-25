@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 11
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-11/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 באמרו זאת, כאיש אחד פרצו כולם בצחוק בלתי-סדור, מנסים להשתיקו ולביישו

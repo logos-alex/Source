@@ -11,6 +11,7 @@ tags:
   - aramaic
   - clement
 permalink: /texts/aramaic/tsavaat-yeshua/
+pageNumber: 0
 description: "מבוא לחלק השלישי בסדרת שמונת הספרים של קלמנטוס: המקור הסורי של צוואת ישוע והחזון האפוקליפטי על קץ הימים. טקסט החיבור עצמו יתווסף בהמשך."
 ---
 

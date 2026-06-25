@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 40
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-40/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 notes:
   - >
     <strong>פרק ו: הטבילה — תחיה רוחנית והקבלה למקווה</strong>

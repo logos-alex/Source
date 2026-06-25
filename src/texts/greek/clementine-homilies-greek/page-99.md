@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 99
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-99/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 אך אולי יחשוב אחד מכם כי יוכל אחד להיות למשהו בהשפעת אחר ואחר בהשפעת

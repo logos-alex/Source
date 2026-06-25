@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 35
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-35/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 notes:
   - >
     <strong>פרק ה: כלל הזוגות — התיאולוגיה הדואלית</strong>

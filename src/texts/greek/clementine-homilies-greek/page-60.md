@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 60
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-60/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 notes:
   - >
     <strong>פרק י: יסורים ותיאודיציאה — "כור הזיכוך"</strong>

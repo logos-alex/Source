@@ -7,6 +7,10 @@ figure: abraham
 pageNumber: 19
 version: b
 permalink: /texts/slavic/apocalypse-abraham/b/page-19/
+tags:
+  - slavic
+  - abraham
+  - texts
 ---
 
 ### פרק יט --- תרח לא שמע; חזון חורבן המקדש

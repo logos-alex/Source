@@ -14,7 +14,7 @@
 | עמוד | תיאור |
 |---|---|
 | `/` | דף הבית עם הירו, אפיגרפים, ניווט מהיר |
-| `/texts/` | כתבים לפי שפת מקור (8 שפות) |
+| `/texts/` | כתבים לפי שפת מקור (7 שפות) |
 | `/by-figure/` | כתבים לפי דמות מקראית |
 | `/search/` | חיפוש באוצר (Pagefind) |
 | `/updates/` | מה חדש — עדכוני תוכן ומערכת |
@@ -31,8 +31,8 @@
 - **פונטים:** Frank Ruhl Libre (עברית) + Noto Serif Hebrew (גיבוי) + EB Garamond (לטינית)
 - **חיפוש:** Pagefind
 - **פריסה:** GitHub Pages דרך GitHub Actions
-- **תגובות:** Disqus
-- **אנליטיקס:** Google Analytics + Microsoft Clarity
+- **תגובות:** Disqus (opt-in)
+- **אנליטיקס:** Google Analytics + Microsoft Clarity (opt-in)
 - **PWA:** manifest.json + apple-touch-icon + theme-color
 
 ## תכונות UX

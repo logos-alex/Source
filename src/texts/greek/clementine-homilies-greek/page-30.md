@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 30
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-30/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 notes:
   - >
     <strong>פרק ד: מצוות הקורבנות — הפרשנות הרוחנית</strong>

@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 48
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-48/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 היה זמן אשר לא היה מאומה כי אם תוהו ותערובת יסודות בלתי-מסודרים עדיין

@@ -7,6 +7,10 @@ figure: abraham
 pageNumber: 16
 version: b
 permalink: /texts/slavic/apocalypse-abraham/b/page-16/
+tags:
+  - slavic
+  - abraham
+  - texts
 ---
 
 ### פרק טז --- אברהם נופל ונחזק; גילוי המקום והבריאה

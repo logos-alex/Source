@@ -7,6 +7,10 @@ figure: daniel
 pageNumber: 2
 version: main
 permalink: /texts/armenian/vision-daniel-armenian/page-2/
+tags:
+  - armenian
+  - daniel
+  - texts
 notes:
   - >
     פסוק 9: [הערה: \"תיאודוסיוס\" --- הקיסר תיאודוסיוס השני (408--450), שמלך

@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 87
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-87/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 ויהי בבקר בצאת פטרוס לדבר ושמעון הקדימו ויאמר אמש בלכתי הבטחתי לשוב

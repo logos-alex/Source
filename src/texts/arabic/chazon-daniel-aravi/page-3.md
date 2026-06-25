@@ -7,6 +7,10 @@ figure: daniel
 pageNumber: 3
 version: main
 permalink: /texts/arabic/chazon-daniel-aravi/page-3/
+tags:
+  - arabic
+  - daniel
+  - texts
 ---
 
 ### פרק ג --- מלחמות הקרניים ומלכות הישמעאל

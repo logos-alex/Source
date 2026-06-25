@@ -7,6 +7,10 @@ figure: abraham
 pageNumber: 24
 version: b
 permalink: /texts/slavic/apocalypse-abraham/b/page-24/
+tags:
+  - slavic
+  - abraham
+  - texts
 ---
 
 ### פרק כד --- עשר המכות ועונש עזאזל (סיומת זהה לנוסח א\' פרק

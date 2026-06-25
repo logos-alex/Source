@@ -7,6 +7,10 @@ figure: abraham
 pageNumber: 20
 version: b
 permalink: /texts/slavic/apocalypse-abraham/b/page-20/
+tags:
+  - slavic
+  - abraham
+  - texts
 ---
 
 ### פרק כ --- זמן הצדק; המלך אוהבי; חשבון הזמנים

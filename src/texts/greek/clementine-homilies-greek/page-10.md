@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 10
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-10/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 ואנכי בדבר אלה על אחרים, הוכחתי גם את עצמי לומר: מדוע אתרעם באחרים,

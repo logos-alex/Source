@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 84
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-84/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 אחד הוא אפוא אלהים באמת היושב בצורה נשגבה והוא לב למעלה ולמטה פעמים

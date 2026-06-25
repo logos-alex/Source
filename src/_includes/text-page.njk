@@ -50,7 +50,9 @@
             </button>
           </div>
           <div class="parallel-layout" data-parallel-container>
-            <div class="column-source" data-parallel-source>
+            {% set sourceLangCode = { "aramaic": "syr", "greek": "el", "arabic": "ar", "slavic": "cu", "armenian": "hy", "geez": "gez", "latin": "la", "hebrew": "he" } %}
+            {% set colLang = sourceLangCode[source] or source %}
+            <div class="column-source" data-parallel-source lang="{{ colLang }}">
               {{ (contentParts[0] or "") | replace("<h3>מקור ארמי</h3>", "") | renderNoteRefs | safe }}
             </div>
             <div class="column-translation" data-parallel-translation>
@@ -113,7 +115,7 @@
     {% endif %}
   </nav>
 
-  {# --- אזור התגובות --- #}
+    {# --- אזור התגובות --- #}
   {% include "disqus.njk" %}
 
 {% endblock %}

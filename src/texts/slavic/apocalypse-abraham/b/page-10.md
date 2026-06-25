@@ -7,6 +7,10 @@ figure: abraham
 pageNumber: 10
 version: b
 permalink: /texts/slavic/apocalypse-abraham/b/page-10/
+tags:
+  - slavic
+  - abraham
+  - texts
 ---
 
 ### פרק י --- תחילת העלייה; קצה האש; רקיע ששי

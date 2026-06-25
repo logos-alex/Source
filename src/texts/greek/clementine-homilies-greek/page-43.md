@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 43
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-43/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 ויאמר אפיון בזה יותר תקוה לי כי אוכל לשכנע אותה כאשר אתה חפץ אם רק נוכל

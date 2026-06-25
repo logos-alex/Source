@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 101
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-101/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 ובדבר פטרוס כן בא אחד מן המקדמים אשר הלכו לאנטיוכיה וישב מאנטיוכיה

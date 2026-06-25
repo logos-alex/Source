@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 23
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-23/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 על כן רחוק מלהאמין, כי אדון הכל, אשר ברא שמים וארץ ואת כל אשר בהם, מושל

@@ -7,6 +7,10 @@ figure: ezra
 pageNumber: 9
 version: main
 permalink: /texts/aramaic/chazon-ezra-suri/page-9/
+tags:
+  - aramaic
+  - ezra
+  - texts
 ---
 
 ### סעיף ט --- האיש מהדרום והסוף הגדול

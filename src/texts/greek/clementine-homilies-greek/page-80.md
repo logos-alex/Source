@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 80
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-80/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 notes:
   - >
     <strong>פרק טו: תורת הנפש — אלמוות ושכר ועונש</strong>

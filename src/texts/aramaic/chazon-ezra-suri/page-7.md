@@ -7,6 +7,10 @@ figure: ezra
 pageNumber: 7
 version: main
 permalink: /texts/aramaic/chazon-ezra-suri/page-7/
+tags:
+  - aramaic
+  - ezra
+  - texts
 ---
 
 ### סעיף ז --- מלחמות ושפיכות דמים

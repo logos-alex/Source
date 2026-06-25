@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 102
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-102/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 ובאמרו את הדברים האלה מראש אמרתי ומה התועלת אשר אתה מקוה עתה מן התחבולה

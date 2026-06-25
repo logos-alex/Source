@@ -7,6 +7,7 @@ figure: enoch
 draft: false
 tags: ["texts", "armenian", "enoch"]
 permalink: /texts/armenian/vision-enoch-righteous-armenian/
+pageNumber: 0
 description: "חיבור אפוקליפטי המיוחס לחנוך ומקורו בארמנית, המתאר עימות בין מלכויות, חורבן, שיקום ודין אחרית הימים."
 ---
 

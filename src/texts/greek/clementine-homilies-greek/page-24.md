@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 24
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-24/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 ואבין כבר את הפרוש ואחיה במעט ואמר: כי נביא היה. ופטרוס אמר: ואם נביא,

@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 33
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-33/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 כן קולות השטנה של האלהים אשר ברא את השמים מבוטלים הם על ידי הקולות

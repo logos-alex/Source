@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 85
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-85/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 notes:
   - >
     <strong>פרק טז: השכינה והמקדש — סוד הנוכחות האלהית</strong>

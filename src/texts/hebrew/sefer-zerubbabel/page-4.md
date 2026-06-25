@@ -7,6 +7,10 @@ figure: zerubbabel
 pageNumber: 4
 version: main
 permalink: /texts/hebrew/sefer-zerubbabel/page-4/
+tags:
+  - hebrew
+  - zerubbabel
+  - texts
 notes:
   - >
     [\"אשר ליהושע בן שרף\" --- אהרן ויעלניק.

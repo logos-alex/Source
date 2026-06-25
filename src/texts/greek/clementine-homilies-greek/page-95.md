@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 95
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-95/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 notes:
   - >
     <strong>פרק יח: יום הדין והעולם הבא</strong>

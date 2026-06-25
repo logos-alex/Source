@@ -7,6 +7,10 @@ figure: abraham
 pageNumber: 23
 version: b
 permalink: /texts/slavic/apocalypse-abraham/b/page-23/
+tags:
+  - slavic
+  - abraham
+  - texts
 ---
 
 ### פרק כג --- חלוקת הזמנים; חלקי הקץ

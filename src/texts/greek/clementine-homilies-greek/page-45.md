@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 45
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-45/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 notes:
   - >
     <strong>פרק ז: ההשגחה נגד גזרת הכוכבים — חירות הרצון</strong>

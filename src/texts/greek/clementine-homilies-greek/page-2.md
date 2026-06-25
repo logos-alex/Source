@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 2
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-2/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 ויאמר כך: עדים לי השמים, הארץ, המים, אשר בהם נכלל הכל, ועל אלה כולם גם

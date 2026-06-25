@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 67
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-67/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 ויאמר פטרוס: ויש עוד טעם לכך שלא ישפוט אדם את רעהו. כי קצת החטאים הם של

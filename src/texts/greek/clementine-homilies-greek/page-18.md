@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 18
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-18/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 יוסטה אשה אחת בקרבנו, שומרונית צפנית, מזרע כנענית, אשר בתה הקטנה נאחזת

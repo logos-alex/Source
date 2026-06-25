@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 97
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-97/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 ומשני אלה האחד פועל בגבורה כלפי השני במצות האלהים וגם לכל איש יש רשות

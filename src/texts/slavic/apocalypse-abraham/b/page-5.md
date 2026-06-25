@@ -7,6 +7,10 @@ figure: abraham
 pageNumber: 5
 version: b
 permalink: /texts/slavic/apocalypse-abraham/b/page-5/
+tags:
+  - slavic
+  - abraham
+  - texts
 ---
 
 ### פרק ה --- חיפוש האל האמיתי: אש, מים, ארץ, שמש, ירח, כוכבים

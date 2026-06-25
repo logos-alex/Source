@@ -7,6 +7,10 @@ figure: ezra
 pageNumber: 6
 version: main
 permalink: /texts/aramaic/chazon-ezra-suri/page-6/
+tags:
+  - aramaic
+  - ezra
+  - texts
 ---
 
 ### סעיף ו --- העורבים והאפעה

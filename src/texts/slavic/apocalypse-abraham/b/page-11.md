@@ -7,6 +7,10 @@ figure: abraham
 pageNumber: 11
 version: b
 permalink: /texts/slavic/apocalypse-abraham/b/page-11/
+tags:
+  - slavic
+  - abraham
+  - texts
 ---
 
 ### פרק יא --- המרכבה; ארבע החיות; אופני האש

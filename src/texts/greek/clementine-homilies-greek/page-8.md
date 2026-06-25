@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 8
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-8/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 חלק ב: הומיליה 1

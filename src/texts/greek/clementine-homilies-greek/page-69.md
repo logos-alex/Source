@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 69
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-69/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 האשה הצנועה היא מופת לבריאה הראשונה; כי בראשית ברא אלהים אדם אחד ואשה

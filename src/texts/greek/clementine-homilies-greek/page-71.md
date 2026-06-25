@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 71
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-71/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 ובדברנו כן נקבצו המונים רבים סביבנו. ואפן אל ההמון ואמר: לי ולעמי נמסרה

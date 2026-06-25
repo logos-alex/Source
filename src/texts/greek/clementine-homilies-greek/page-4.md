@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 4
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-4/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 אך בקצרה על הכל ולכל אני רוצה להזכיר את דברי הניהול. אתה צריך לחיות בלי

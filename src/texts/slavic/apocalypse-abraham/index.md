@@ -11,6 +11,7 @@ tags:
   - slavic
   - abraham
 permalink: /texts/slavic/apocalypse-abraham/
+pageNumber: 0
 description: "הקדמה ל'חזון אברהם', ספר חיצוני מרתק שנשתמר בלשון סלאבית, המגלה פרטים נוספים על מאבקו של אברהם אבינו בעבודת האלילים ועל עלייתו לחזות בסודות הבריאה."
 ---
 

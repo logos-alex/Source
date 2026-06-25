@@ -7,6 +7,10 @@ figure: abraham
 pageNumber: 21
 version: b
 permalink: /texts/slavic/apocalypse-abraham/b/page-21/
+tags:
+  - slavic
+  - abraham
+  - texts
 ---
 
 ### פרק כא --- האיש מן השמאל ועבודת האומות

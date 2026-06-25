@@ -55,6 +55,17 @@ function assertKnownValue(frontmatter, file, key, allowed) {
 function checkPage(file, frontmatter) {
   assertKeys(frontmatter, file, ['layout', 'title', 'book', 'source', 'figure', 'pageNumber']);
 
+  // Tags are required — they drive sitemap inclusion
+  if (!hasKey(frontmatter, 'tags')) {
+    errors.push(`${file}: missing required key 'tags' (needed for sitemap inclusion)`);
+  } else {
+    // Verify tags include 'texts'
+    const tagsLine = frontmatter.match(/^tags:\s*\n((?:\s+-\s.+\n?)*)/m);
+    if (tagsLine && !tagsLine[1].includes('texts')) {
+      errors.push(`${file}: tags must include 'texts'`);
+    }
+  }
+
   if (hasKey(frontmatter, 'pageNumber')) {
     const raw = readValue(frontmatter, 'pageNumber');
     const numeric = Number(raw);

@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 12
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-12/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 ונגלה היה לי כי נבוך היה. כי באמרי אליו: רק ספר לי את דברי האיש הנגלה

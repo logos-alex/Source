@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 59
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-59/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 ואם תחפצו להיות לבגד רוח אלהים מהרו לפשוט תחלה את משאכם הטמא והוא רוח

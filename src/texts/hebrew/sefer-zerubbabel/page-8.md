@@ -7,6 +7,10 @@ figure: zerubbabel
 pageNumber: 8
 version: main
 permalink: /texts/hebrew/sefer-zerubbabel/page-8/
+tags:
+  - hebrew
+  - zerubbabel
+  - texts
 ---
 
 ### נספח: מגלת אנטיוכוס --- נוסח ארמי

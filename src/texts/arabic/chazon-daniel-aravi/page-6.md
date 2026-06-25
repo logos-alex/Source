@@ -7,6 +7,10 @@ figure: daniel
 pageNumber: 6
 version: main
 permalink: /texts/arabic/chazon-daniel-aravi/page-6/
+tags:
+  - arabic
+  - daniel
+  - texts
 ---
 
 ### פרק ח --- מלכות רומי האחרונה, המרד והגלות

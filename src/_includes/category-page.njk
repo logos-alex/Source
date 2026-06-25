@@ -55,7 +55,7 @@
   </div>
 
   {% if chapterPages.length > 0 %}
-    <nav class="pagination pagination--top" aria-label="ניווט תחתית">
+    <nav class="pagination" aria-label="ניווט">
       <span></span>
       <div class="toc-dropdown">
         <a href="{{ page.url | url }}" class="home-link">תוכן העניינים</a>
@@ -72,7 +72,7 @@
     </nav>
   {% endif %}
 
-  {# --- אזור התגובות --- #}
+    {# --- אזור התגובות --- #}
   {% include "disqus.njk" %}
 
 {% endblock %}

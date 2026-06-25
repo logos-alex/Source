@@ -7,6 +7,10 @@ figure: zerubbabel
 pageNumber: 1
 version: main
 permalink: /texts/hebrew/sefer-zerubbabel/page-1/
+tags:
+  - hebrew
+  - zerubbabel
+  - texts
 notes:
   - >
     [שם \"מנחם בן חזקיה\" לא הומצא בספר זרובבל; הוא מושרש בתלמוד ובמדרש.

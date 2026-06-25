@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 103
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-103/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 notes:
   - >
     <strong>פרק כא: סוד המלאכים — שליחי האלהים</strong>

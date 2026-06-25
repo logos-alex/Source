@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 6
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-6/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 ותתיצבו הנוסעים ביציבות יושבים איש על מקומו, כדי שלא יגרמו באי סדר רעד

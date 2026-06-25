@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 86
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-86/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 אבל כי גם רשעים יראו מראות וחלומות אמת נגלה הוא ומן הכתוב אוכל להוכיח

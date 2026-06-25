@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 91
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-91/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 ואל החושבים אותו כזה יכול איש בצדק לומר כי נאמר אין מכיר את האב זולתי

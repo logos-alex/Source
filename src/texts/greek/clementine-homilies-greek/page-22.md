@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 22
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-22/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 כי רבות שקרים נוספו בכתבים כנגד האלהים בדבר הזה. בעת אשר משה הנביא,

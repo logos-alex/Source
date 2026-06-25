@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 65
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-65/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 notes:
   - >
     <strong>פרק יב: הרמוניה של שתי מלכויות — הטוב והרע</strong>

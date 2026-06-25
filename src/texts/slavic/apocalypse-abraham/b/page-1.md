@@ -7,6 +7,10 @@ figure: abraham
 pageNumber: 1
 version: b
 permalink: /texts/slavic/apocalypse-abraham/b/page-1/
+tags:
+  - slavic
+  - abraham
+  - texts
 ---
 
 ### פרק א --- נעורי אברהם; אלילי תרח ונפילת מרומת

@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 7
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-7/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 על כן אני, אדוני יעקב, באמרו את הדברים האלה, הבטחתי ולא התעצלתי, כפי

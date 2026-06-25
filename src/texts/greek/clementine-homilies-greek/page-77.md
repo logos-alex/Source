@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 77
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-77/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 ויאמר אבי יפה היית מבקש עדות ממני שמעון אם פטרוס היה מכחיש תחלה. אך עתה

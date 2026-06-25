@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 52
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-52/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 אבל גם במצרים עד היום הזה איש נעבד כאל לפני מותו. וזה פחות חמור, כי

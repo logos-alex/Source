@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 92
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-92/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 וביום האחר קם פטרוס לשכם וירא את שמעון עם רבים אחרים המיחלים לו ויקרא

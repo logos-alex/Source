@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 16
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-16/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 כל אשר בקשו את־האמת, בטוחים שיוכלו למצא מכח עצמם, נפלו במארב. וזה אשר

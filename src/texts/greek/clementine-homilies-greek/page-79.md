@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 79
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-79/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 ויאמר פטרוס אינם מתעים אלא מוכיחים ומוציאים לאור את הכוונה הרעה הצפונה

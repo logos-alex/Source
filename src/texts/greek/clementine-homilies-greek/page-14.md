@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 14
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-14/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 באמרו זאת, עניתי: כבר מודה אני לאלהים; כי כאשר חפצתי להאמן, כן נתן לי.

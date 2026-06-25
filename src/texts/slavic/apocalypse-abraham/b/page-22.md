@@ -7,6 +7,10 @@ figure: abraham
 pageNumber: 22
 version: b
 permalink: /texts/slavic/apocalypse-abraham/b/page-22/
+tags:
+  - slavic
+  - abraham
+  - texts
 ---
 
 ### פרק כב --- המשיח; העם הנבחר; תחיית הצדיקים

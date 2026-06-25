@@ -7,6 +7,10 @@ figure: ezra
 pageNumber: 3
 version: main
 permalink: /texts/aramaic/chazon-ezra-suri/page-3/
+tags:
+  - aramaic
+  - ezra
+  - texts
 ---
 
 ### סעיף ג --- חזון הנחש והקרניים

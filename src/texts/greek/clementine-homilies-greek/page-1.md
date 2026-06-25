@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 1
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-1/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 notes:
   - >
     <strong>מבוא היסטורי ומתודולוגי</strong>

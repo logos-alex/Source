@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 93
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-93/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 ויאמר פטרוס נראה לי כי אם ימצא כי מאת אלהים נהיה עדיין אין לשים טנא

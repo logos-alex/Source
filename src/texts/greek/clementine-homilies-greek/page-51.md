@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 51
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-51/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 על כן אל תחשוב את השדים האלה לחכמים, אשר הציעו יסודות רעים למעשים

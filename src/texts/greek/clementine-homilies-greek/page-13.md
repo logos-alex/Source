@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 13
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-13/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 רצון האלהים היה בלתי-נודע בדרכים רבים. ראשית, הוראה רעה, חברה רעה, הרגל

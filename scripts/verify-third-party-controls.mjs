@@ -54,13 +54,11 @@ try {
   const baseTemplate = readFileSync(baseTemplatePath, 'utf8');
   const siteJs = readFileSync(siteJsPath, 'utf8');
 
-  // Static checks — site.js should keep deduplication machinery.
   assert(siteJs.includes('window.__externalScriptRegistry'), 'site.js should keep a registry for deduplicating external scripts');
   assert(siteJs.includes('data-external-service'), 'site.js should mark injected external scripts for duplicate prevention');
   assert(siteJs.includes('loadAnalytics'), 'site.js should expose loadAnalytics');
   assert(siteJs.includes('loadClarity'), 'site.js should expose loadClarity');
 
-  // Build with all third-party services disabled — verify they disappear from output
   const disabledConfig = structuredClone(originalConfig);
   disabledConfig.thirdParty.analytics.enabled = false;
   disabledConfig.thirdParty.clarity.enabled = false;
@@ -78,7 +76,6 @@ try {
     assert(!disabledHtml.includes('fonts.googleapis.com'), 'External font stylesheet should disappear when external fonts are disabled');
   }
 
-  // Build with all services enabled — verify single injection per page
   const enabledConfig = structuredClone(originalConfig);
   enabledConfig.thirdParty.analytics.enabled = true;
   enabledConfig.thirdParty.clarity.enabled = true;

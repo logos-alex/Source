@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 63
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-63/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 כי כאשר החילים הכפופים לאלף הקיסר יודעים לכבד את מקבל השלטון מאת הנותן,

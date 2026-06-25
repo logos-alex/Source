@@ -7,6 +7,10 @@ figure: abraham
 pageNumber: 3
 version: b
 permalink: /texts/slavic/apocalypse-abraham/b/page-3/
+tags:
+  - slavic
+  - abraham
+  - texts
 ---
 
 ### פרק ג --- שובו הביתה; בריסת נשרף באש; ברכת תרח למרומת

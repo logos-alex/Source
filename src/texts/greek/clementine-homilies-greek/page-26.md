@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 26
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-26/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 טבעו של האלהים האחד והיחיד עושה העולם ובוראנו ונותן הכל כזה הוא, להביא

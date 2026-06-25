@@ -8,7 +8,7 @@ permalink: /by-figure/
 
 <div class="text-main category-listing">
   <header class="text-header">
-    <p class="text-header__eyebrow">Figures</p>
+    <p class="text-header__eyebrow">דמויות</p>
     <h1>כתבים לפי ייחוס</h1>
     <p>חלק מן החיבורים נכתבו בשם דמויות מקראיות מרכזיות. כאן תוכלו לנווט לפי הדמות המשויכת לטקסט.</p>
   </header>

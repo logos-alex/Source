@@ -7,6 +7,10 @@ figure: daniel
 pageNumber: 2
 version: main
 permalink: /texts/arabic/chazon-daniel-kopti/page-2/
+tags:
+  - arabic
+  - daniel
+  - texts
 ---
 
 **13.** ואשמע קול אומר לי: דניאל, איש חמדות, דע מה ראית! ואני אמרתי: אדני, איך אוכל לדעת, אם לא יורני מלאך אחר?[9]

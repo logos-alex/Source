@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 15
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-15/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 notes:
   - >
     <strong>פרק ב: הנביא האמיתי — תורת הנבואה מול הפילוסופיה</strong>

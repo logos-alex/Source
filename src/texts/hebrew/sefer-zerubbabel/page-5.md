@@ -7,6 +7,10 @@ figure: zerubbabel
 pageNumber: 5
 version: main
 permalink: /texts/hebrew/sefer-zerubbabel/page-5/
+tags:
+  - hebrew
+  - zerubbabel
+  - texts
 notes:
   - >
     [קולציה של שמות עשרת המלכים מארבעת הנוסחאות (יעלניק/אהרן/אוקספורד/ישראל): (א) סליקוס/סילקוס/מלווקו/סלקום --- בחרנו \"סליקוס.\" (ב) ארטימוס/ארטימום/הרמוס/הרטומוס --- \"ארטימוס.\" (ג) טלים/קילוס/פוליאוס/פליאוס --- \"טלים\" (אהרן).

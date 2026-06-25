@@ -7,6 +7,10 @@ figure: abraham
 pageNumber: 2
 version: b
 permalink: /texts/slavic/apocalypse-abraham/b/page-2/
+tags:
+  - slavic
+  - abraham
+  - texts
 ---
 
 ### פרק ב --- מכירת הצלמים לתגרין סורים; השלכת השבורים לנהר גור

@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 49
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-49/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 את העצם הראשון והרב הזה, הטמא והקשה, אומרים שנבלע בקרונוס, הוא הזמן,

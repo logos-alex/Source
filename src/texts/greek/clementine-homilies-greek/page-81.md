@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 81
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-81/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 ראה לאיזה אלהים שמעון אתה חפץ לשכנענו לכפור בטובו. והארץ נושאת אותך

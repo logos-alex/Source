@@ -6,6 +6,10 @@ source: armenian
 figure: enoch
 pageNumber: 4
 permalink: /texts/armenian/vision-enoch-righteous-armenian/page-4/
+tags:
+  - armenian
+  - enoch
+  - texts
 version: main
 notes:
   - >

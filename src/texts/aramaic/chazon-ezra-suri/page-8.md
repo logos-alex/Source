@@ -7,6 +7,10 @@ figure: ezra
 pageNumber: 8
 version: main
 permalink: /texts/aramaic/chazon-ezra-suri/page-8/
+tags:
+  - aramaic
+  - ezra
+  - texts
 ---
 
 ### סעיף ח --- גור האריה והמלחמה הגדולה

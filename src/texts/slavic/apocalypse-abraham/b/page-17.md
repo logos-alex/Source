@@ -7,6 +7,10 @@ figure: abraham
 pageNumber: 17
 version: b
 permalink: /texts/slavic/apocalypse-abraham/b/page-17/
+tags:
+  - slavic
+  - abraham
+  - texts
 ---
 
 ### פרק יז --- גן עדן; אדם וחוה; עזאזל ועץ הדעת

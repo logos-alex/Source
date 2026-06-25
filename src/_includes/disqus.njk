@@ -1,6 +1,6 @@
 {#
   Disqus comments section — embedded directly on book/text pages.
-  Toggle via site.json -> thirdParty.disqus.enabled (and legacy site.disqusShortname).
+  Toggle via site.json -> thirdParty.disqus.enabled
 #}
 {% set disqusConfig = site.thirdParty.disqus or {} %}
 {% set disqusShortname = disqusConfig.shortname or site.disqusShortname %}

@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 54
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-54/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 את המעשים הטובים והרעים האלה יודע אני ומקדים להגיד לכם כשתי דרכים,

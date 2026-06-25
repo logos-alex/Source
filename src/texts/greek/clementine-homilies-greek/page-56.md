@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 56
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-56/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 על כן מן העברים אשר קבלו את משה למורה נסתר ישוע ומן המאמינים בישוע נעלם

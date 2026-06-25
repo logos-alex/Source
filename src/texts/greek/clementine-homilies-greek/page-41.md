@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 41
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-41/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 כאשר אמרתי זאת, ענה אפיון ואמר: ומדוע, הלא גם חוקי היוונים, אמר, אוסרים

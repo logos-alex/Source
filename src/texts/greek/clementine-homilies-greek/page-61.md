@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 61
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-61/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 ובתפלות יש לפנות אל האלהים ולהודות ולהעיד כי אין יציאת השד מחוסר רגש,

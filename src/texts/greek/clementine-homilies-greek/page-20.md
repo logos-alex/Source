@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 20
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-20/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 notes:
   - >
     <strong>פרק יא: שמעון מגוס — האנטי־גיבור</strong>

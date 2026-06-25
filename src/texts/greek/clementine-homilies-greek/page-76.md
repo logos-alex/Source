@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 76
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-76/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 אך עוד העבירני נא בדבר הזה. זכור אני את קלמנס אומר לי כי בעוולות

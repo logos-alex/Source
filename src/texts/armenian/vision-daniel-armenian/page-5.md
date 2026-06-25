@@ -7,6 +7,10 @@ figure: daniel
 pageNumber: 5
 version: main
 permalink: /texts/armenian/vision-daniel-armenian/page-5/
+tags:
+  - armenian
+  - daniel
+  - texts
 ---
 
 **1.** מסורת כתבי־היד: החיבור נשתמר בחמישה כתבי־יד ארמניים: (A) לונדון, Lambeth Palace Library, armen. 1209; (B) וינה, Mechitaristenkongregation, armen. 39; (C) וינה, Mechitaristenkongregation, armen. 14 (בתוך ספר דניאל המקראי); ועוד שני כתבי־יד בוונציה (סן לאצארו 1635 --- העתק של A; וסן לאצארו 935 --- בתוך ביבליה).

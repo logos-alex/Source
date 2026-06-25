@@ -7,6 +7,10 @@ figure: daniel
 pageNumber: 7
 version: main
 permalink: /texts/arabic/chazon-daniel-kopti/page-7/
+tags:
+  - arabic
+  - daniel
+  - texts
 ---
 
 **75.** והתורכי יהרוג את סרבידוס ויקח את מלכותו. ולא יהיה מי שיעמוד אחריו מזרע ישמעאל. כי זהו כלות מלכותם.

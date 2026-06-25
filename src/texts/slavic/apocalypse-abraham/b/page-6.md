@@ -7,6 +7,10 @@ figure: abraham
 pageNumber: 6
 version: b
 permalink: /texts/slavic/apocalypse-abraham/b/page-6/
+tags:
+  - slavic
+  - abraham
+  - texts
 ---
 
 ### פרק ו --- הקול מן השמים; ציווי הזבח ותענית ארבעים יום

@@ -16,20 +16,20 @@
   --c-text:         #1C1813;
   --c-text-2:       #4A4138;
   --c-text-muted:   #5F564B;
-  --c-text-faint:   #897D6B;
+  --c-text-faint:   #736656;
 
   --c-border:       #D8C9A8;
   --c-border-soft:  #E5D9BD;
   --c-border-strong:#B89E6B;
 
-  --c-accent:       #8B6F3A;  /* antique bronze */
+  --c-accent:       #7C6233;  /* antique bronze — darkened for WCAG AA */
   --c-accent-2:     #A85C3C;  /* faded terracotta */
   --c-accent-ink:   #5C4626;
   --c-gold:         #B89E6B;
   --c-gold-soft:    #D4BB87;
 
-  --c-beta:         #C97A2A;
-  --c-beta-bg:      rgba(201, 122, 42, 0.10);
+  --c-beta:         #A85F1F;
+  --c-beta-bg:      rgba(168, 95, 31, 0.10);
 
   /* Typography */
   --font-hebrew:    'Frank Ruhl Libre', 'Noto Serif Hebrew', 'David', 'Times New Roman', serif;
@@ -1083,7 +1083,7 @@ main {
   }
 }
 
-/* Reading progress bar — at very top of viewport, above header */
+/* Reading progress bar */
 .reading-progress {
   position: fixed;
   top: 0;
@@ -1415,33 +1415,12 @@ footer {
 .c-footer-meta a { color: inherit; text-decoration: none; }
 
 /* --------------------------- Comments ------------------------------ */
-#comments-section,
-.comments-section {
+#comments-section {
   max-width: var(--max-w-read);
   margin: var(--s-7) auto;
   padding: var(--s-5) var(--s-4);
 }
-#comments-section h3,
-.comments-section h3 { color: var(--c-accent-ink); }
-
-/* Coming-soon badge for book cards (texts awaiting chapter upload) */
-.book-card--coming-soon {
-  border-style: dashed;
-  background: var(--c-surface-2);
-}
-.book-card__badge {
-  display: inline-block;
-  vertical-align: middle;
-  margin-inline-start: var(--s-2);
-  padding: 0.1em 0.6em;
-  font-size: var(--fs-xs);
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  color: var(--c-bg);
-  background: var(--c-beta);
-  border-radius: var(--r-pill);
-  text-transform: none;
-}
+#comments-section h3 { color: var(--c-accent-ink); }
 
 /* ----------------------------- Misc -------------------------------- */
 .c-muted { color: var(--c-text-muted); }
@@ -1842,11 +1821,10 @@ body[data-font-scale="xl"] .text-content { font-size: var(--fs-xl); line-height:
   a::after { content: ""; }
 }
 
+
 /* ====================================================================
    Accessibility additions — sr-only, focus-visible, surface-accent
    ==================================================================== */
-
-/* Screen-reader-only utility — visually hidden but available to AT */
 .sr-only {
   position: absolute !important;
   width: 1px !important;
@@ -1859,7 +1837,6 @@ body[data-font-scale="xl"] .text-content { font-size: var(--fs-xl); line-height:
   border: 0 !important;
 }
 
-/* Surface accent token — used for focus rings on search and similar */
 :root {
   --c-surface-accent: rgba(139, 111, 58, 0.15);
 }
@@ -1867,7 +1844,6 @@ html[data-theme="dark"] {
   --c-surface-accent: rgba(201, 163, 93, 0.20);
 }
 
-/* Global focus-visible styles for keyboard accessibility */
 a:focus-visible,
 .btn:focus-visible,
 .book-card__primary-link:focus-visible,
@@ -1889,19 +1865,48 @@ a:focus-visible,
   border-radius: var(--r-sm);
 }
 
-/* Header search focus — visible ring using surface-accent */
-.header-search:focus-within {
-  box-shadow: 0 0 0 3px var(--c-surface-accent);
-}
 .header-search__input:focus {
   outline: none;
 }
 
 /* ====================================================================
+   Table styling — for philological appendix tables
+   ==================================================================== */
+.text-content table,
+article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--s-5) 0;
+  font-size: var(--fs-sm);
+  overflow-x: auto;
+  display: block;
+}
+.text-content thead,
+article thead {
+  background: var(--c-surface-ink);
+}
+.text-content th,
+article th,
+.text-content td,
+article td {
+  padding: var(--s-2) var(--s-3);
+  border: 1px solid var(--c-border-soft);
+  text-align: start;
+  vertical-align: top;
+}
+.text-content th,
+article th {
+  font-weight: 700;
+  color: var(--c-accent-ink);
+}
+.text-content tbody tr:nth-child(even),
+article tbody tr:nth-child(even) {
+  background: var(--c-surface-2);
+}
+
+/* ====================================================================
    Mobile search link + Start reading CTA
    ==================================================================== */
-
-/* Mobile search link — visible only in mobile nav */
 .mobile-search-link {
   display: none;
 }
@@ -1916,7 +1921,6 @@ a:focus-visible,
   }
 }
 
-/* Start reading CTA — at top of book intro pages */
 .start-reading-cta {
   text-align: center;
   margin: var(--s-5) 0;
@@ -1925,4 +1929,34 @@ a:focus-visible,
 .start-reading-cta .btn {
   font-size: var(--fs-md);
   padding: var(--s-3) var(--s-6);
+}
+
+
+/* Coming-soon badge for book cards */
+.book-card--coming-soon {
+  border-style: dashed;
+  background: var(--c-surface-2);
+}
+.book-card__badge {
+  display: inline-block;
+  vertical-align: middle;
+  margin-inline-start: var(--s-2);
+  padding: 0.1em 0.6em;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--c-bg);
+  background: var(--c-beta);
+  border-radius: var(--r-pill);
+  text-transform: none;
+}
+
+/* Footer heading — h2 styled as small label */
+.footer-nav__heading {
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--c-text-faint);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0 0 var(--s-3);
 }

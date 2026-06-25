@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 17
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-17/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 ואם איש, כאשר נראה לשמעון השומרוני, לא ירצה לתת כי צדיק האלהים --- למי

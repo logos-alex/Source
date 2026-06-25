@@ -7,6 +7,10 @@ figure: daniel
 pageNumber: 5
 version: main
 permalink: /texts/arabic/chazon-daniel-kopti/page-5/
+tags:
+  - arabic
+  - daniel
+  - texts
 ---
 
 **50.** וירד אל מצרים עם האוצרות, ויעלה במצרים העליונה, בקרבו לבוא אל מדינת הכושים עם שארית האוצרות.

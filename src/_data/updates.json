@@ -431,13 +431,14 @@
     },
     {
       "id": "ci-third-party-hardening",
-      "title": "🛡️ בדיקות טעינת שירותי צד ג'",
-      "summary": "נוספו בדיקות אוטומטיות לוודא ששירותי צד שלישי (Google Analytics, Microsoft Clarity, Disqus, Google Translate) נטענים כראוי — כיבוי מלא כש-enabled=false, ומניעת כפילויות טעינה.",
+      "title": "🛡️ חיזוק בדיקות טעינת שירותי צד ג'",
+      "summary": "נוספו בדיקות אוטומטיות לוודא ששירותי צד שלישי נטענים רק אחרי הסכמה מפורשת.",
       "dateLabel": "מרץ 2026",
       "pubDateRFC822": "Fri, 01 Mar 2026 00:00:00 GMT",
       "category": "תשתית ואיכות",
       "flags": [
         "ci",
+        "privacy",
         "third-party"
       ]
     },

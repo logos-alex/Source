@@ -7,6 +7,10 @@ figure: daniel
 pageNumber: 3
 version: main
 permalink: /texts/armenian/vision-daniel-armenian/page-3/
+tags:
+  - armenian
+  - daniel
+  - texts
 notes:
   - >
     פסוק 15: [הערה: \"בבל השביעית כאשר תמלוך אלמנה\" --- \"אלמנה\" מסמלת עיר בירה

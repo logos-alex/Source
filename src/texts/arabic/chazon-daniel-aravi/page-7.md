@@ -7,6 +7,10 @@ figure: daniel
 pageNumber: 7
 version: main
 permalink: /texts/arabic/chazon-daniel-aravi/page-7/
+tags:
+  - arabic
+  - daniel
+  - texts
 ---
 
 ### פרק י --- השקרן (ארמילוס), בוא מלך המשיח ואליהו וחנוך

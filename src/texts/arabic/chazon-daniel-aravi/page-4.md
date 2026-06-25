@@ -7,6 +7,10 @@ figure: daniel
 pageNumber: 4
 version: main
 permalink: /texts/arabic/chazon-daniel-aravi/page-4/
+tags:
+  - arabic
+  - daniel
+  - texts
 ---
 
 ### פרק ה --- גור אריה, נצחון וישועה

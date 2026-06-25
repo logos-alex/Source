@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 82
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-82/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 זאת פטרוס יבטיח לכם להשכיל כי בתואנת אלהים אחד הוא נראה כמציל אתכם

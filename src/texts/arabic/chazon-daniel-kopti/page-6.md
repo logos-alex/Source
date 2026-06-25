@@ -7,6 +7,10 @@ figure: daniel
 pageNumber: 6
 version: main
 permalink: /texts/arabic/chazon-daniel-kopti/page-6/
+tags:
+  - arabic
+  - daniel
+  - texts
 ---
 
 **63.** ויפקוד פקידים בסביבות אפריקי וחילות גדולים. ותפרוץ מלחמה בינם ובין חיל המערב.[20]

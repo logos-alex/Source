@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 58
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-58/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 ואחרי כן נפשות הנפילים המתים היו גדולות מנפשות בני האדם כאשר גם גברו

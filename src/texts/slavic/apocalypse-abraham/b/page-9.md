@@ -7,6 +7,10 @@ figure: abraham
 pageNumber: 9
 version: b
 permalink: /texts/slavic/apocalypse-abraham/b/page-9/
+tags:
+  - slavic
+  - abraham
+  - texts
 ---
 
 ### פרק ט --- הציפור הטמאה (עזאזל); אזהרת המלאך והוראותיו

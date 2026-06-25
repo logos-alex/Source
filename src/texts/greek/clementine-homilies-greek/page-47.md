@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 47
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-47/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 והאחרים שמעו קודם את דברי ויחפצו לדעת את הבא אחרי כן ויבאו אלי לפקד את

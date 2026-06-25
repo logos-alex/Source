@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 53
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-53/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 לאלהים אשר ברא את השמים ואת הכל אין חסרה תואנה לישועת החפצים להיוושע.

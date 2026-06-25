@@ -7,6 +7,10 @@ figure: abraham
 pageNumber: 18
 version: b
 permalink: /texts/slavic/apocalypse-abraham/b/page-18/
+tags:
+  - slavic
+  - abraham
+  - texts
 ---
 
 ### פרק יח --- חזון החמס ועבודה-זרה; המקדש והמזבח

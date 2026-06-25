@@ -7,6 +7,10 @@ figure: abraham
 pageNumber: 14
 version: b
 permalink: /texts/slavic/apocalypse-abraham/b/page-14/
+tags:
+  - slavic
+  - abraham
+  - texts
 ---
 
 ### פרק יד --- הכרובים שש-כנפים; ברכת אברהם בן-תרח

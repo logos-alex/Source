@@ -270,16 +270,11 @@
   initParallelToggle();
 })();
 
-/* ====================================================================
-   Third-party services — loaded directly (no consent gating).
-   Toggle each service on/off via site.json -> thirdParty.<service>.enabled
-   ==================================================================== */
 window.__externalScriptRegistry = window.__externalScriptRegistry || new Set();
 
 const runtimeThirdParty = (window.siteRuntimeConfig && window.siteRuntimeConfig.thirdParty) || {};
 const runtimeAnalytics = runtimeThirdParty.analytics || {};
 const runtimeClarity = runtimeThirdParty.clarity || {};
-const runtimeDisqus = runtimeThirdParty.disqus || {};
 const runtimeTranslate = runtimeThirdParty.translate || {};
 
 function ensureExternalScript({ service, src, onload, id }) {
@@ -307,7 +302,7 @@ function ensureExternalScript({ service, src, onload, id }) {
 }
 
 function loadAnalytics() {
-  if (!runtimeAnalytics.enabled || !runtimeAnalytics.measurementId) return;
+  if (!runtimeAnalytics.enabled || isServiceLoaded('analytics') || !runtimeAnalytics.measurementId) return;
 
   ensureExternalScript({
     service: 'analytics',
@@ -320,10 +315,11 @@ function loadAnalytics() {
   };
   window.gtag('js', new Date());
   window.gtag('config', runtimeAnalytics.measurementId);
+  markServiceLoaded('analytics');
 }
 
 function loadClarity() {
-  if (!runtimeClarity.enabled || !runtimeClarity.projectId) return;
+  if (!runtimeClarity.enabled || isServiceLoaded('clarity') || !runtimeClarity.projectId) return;
 
   window.clarity = window.clarity || function clarity() {
     (window.clarity.q = window.clarity.q || []).push(arguments);
@@ -333,10 +329,12 @@ function loadClarity() {
     service: 'clarity',
     src: `https://www.clarity.ms/tag/${encodeURIComponent(runtimeClarity.projectId)}`
   });
+
+  markServiceLoaded('clarity');
 }
 
 function loadTranslate() {
-  if (!runtimeTranslate.enabled) return;
+  if (!runtimeTranslate.enabled || isServiceLoaded('translate')) return;
   const translateContainer = document.getElementById('google_translate_element');
   if (translateContainer) {
     translateContainer.hidden = false;
@@ -345,6 +343,22 @@ function loadTranslate() {
   ensureExternalScript({
     service: 'translate',
     src: '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'
+  });
+
+  markServiceLoaded('translate');
+}
+
+// Eager-load analytics + clarity on every page (no consent needed)
+loadAnalytics();
+loadClarity();
+
+// Translate launcher — kept as a button click (UX, not consent)
+const translateLauncher = document.querySelector('[data-third-party-trigger="translate"]');
+if (translateLauncher) {
+  translateLauncher.addEventListener('click', () => {
+    loadTranslate();
+    translateLauncher.setAttribute('aria-disabled', 'true');
+    translateLauncher.disabled = true;
   });
 }
 
@@ -358,20 +372,7 @@ window.googleTranslateElementInit = function googleTranslateElementInit() {
   }, 'google_translate_element');
 };
 
-// Eager-load analytics + clarity on every page (no consent needed)
-loadAnalytics();
-loadClarity();
 
-// Translate launcher — kept as a button click (UX, not consent)
-// so we don't load Google Translate for every visitor
-const translateLauncher = document.querySelector('[data-third-party-trigger="translate"]');
-if (translateLauncher) {
-  translateLauncher.addEventListener('click', () => {
-    loadTranslate();
-    translateLauncher.setAttribute('aria-disabled', 'true');
-    translateLauncher.disabled = true;
-  });
-}
 
 /* ====================================================================
    Back-to-Top button — appears after scrolling past viewport

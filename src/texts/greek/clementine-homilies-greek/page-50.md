@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 50
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-50/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 notes:
   - >
     <strong>פרק ח: פילנתרופיה — "חסד אנושי"</strong>

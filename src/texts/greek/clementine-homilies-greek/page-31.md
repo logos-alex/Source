@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 31
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-31/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 ובכל זאת, אם יראה איש את הכל בדיוק בשכלו, ימצא כי בעד האדם עשה האלהים.

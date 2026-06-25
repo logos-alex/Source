@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 70
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-70/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 notes:
   - >
     <strong>פרק יג: איחוד המשפחה — סוד ההשגחה</strong>

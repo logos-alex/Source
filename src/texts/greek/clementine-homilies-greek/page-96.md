@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 96
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-96/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 notes:
   - >
     <strong>פרק יט: תורת הבריאה — מאין ולמה</strong>

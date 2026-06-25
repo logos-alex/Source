@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 94
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-94/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 אך כאשר אמרת הרע אם נברא הוא או כיצור חי נולד או בעצמותו הוצא על ידו או

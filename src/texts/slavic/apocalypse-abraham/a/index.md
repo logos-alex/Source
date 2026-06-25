@@ -12,6 +12,7 @@ tags:
   - texts
   - sub-intro
 permalink: /texts/slavic/apocalypse-abraham/a/
+pageNumber: 0
 description: "הקדמה לנוסח א' של 'חזון אברהם'. נוסח זה מציג את מסעו השלם של אברהם, החל מהתעוררותו הרוחנית בבית אביו ועד לחזון המרכבה המפורט שנגלה לו בשמיים."
 ---
 

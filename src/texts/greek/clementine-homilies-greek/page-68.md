@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 68
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-68/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 ויש אשר יתענה אדם שלא מרצונו, מפני עניו או מפני חליו, ולא יהיה לו פרי.

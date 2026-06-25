@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 55
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-55/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 notes:
   - >
     <strong>פרק ט: הצניעות — מוסר מיני וקדושת הנישואין</strong>

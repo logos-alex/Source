@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 21
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-21/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 ואחרי אמרם את אלה, פטרוס הטוב גם הוא החליל לדבר: ראוי לכם, אחי, לראות

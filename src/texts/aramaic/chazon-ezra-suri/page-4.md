@@ -7,6 +7,10 @@ figure: ezra
 pageNumber: 4
 version: main
 permalink: /texts/aramaic/chazon-ezra-suri/page-4/
+tags:
+  - aramaic
+  - ezra
+  - texts
 ---
 
 ### סעיף ד --- הנבואה על בני ישמעאל

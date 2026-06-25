@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 37
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-37/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 ויאמר את הדברים האלה ויסמוך את ידו על זכי ויאמר: אדון ומושל הכל, האב

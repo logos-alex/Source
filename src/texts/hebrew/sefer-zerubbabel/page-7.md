@@ -7,6 +7,10 @@ figure: zerubbabel
 pageNumber: 7
 version: main
 permalink: /texts/hebrew/sefer-zerubbabel/page-7/
+tags:
+  - hebrew
+  - zerubbabel
+  - texts
 notes:
   - >
     [\"כל ישראל הקרובים והרחוקים והחיים אשר יחיים ה\' יעלו לירושלים\" --- ניסוח ייחודי לנוסחות אהרן וישראל, בפרק שמחת הגאולה.

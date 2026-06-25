@@ -7,6 +7,10 @@ figure: abraham
 pageNumber: 8
 version: b
 permalink: /texts/slavic/apocalypse-abraham/b/page-8/
+tags:
+  - slavic
+  - abraham
+  - texts
 ---
 
 ### פרק ח --- מראה המלאך; תענית ארבעים יום; הר האלוהים

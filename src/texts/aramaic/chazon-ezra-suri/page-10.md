@@ -7,6 +7,10 @@ figure: ezra
 pageNumber: 10
 version: main
 permalink: /texts/aramaic/chazon-ezra-suri/page-10/
+tags:
+  - aramaic
+  - ezra
+  - texts
 ---
 notes:
   - >

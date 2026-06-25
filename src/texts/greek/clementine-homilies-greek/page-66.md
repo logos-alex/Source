@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 66
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-66/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 ויהי כבואנו ויאכלנו לחם ונודה לאלהים כמשפטנו, ועוד היתה שעה, ואמר

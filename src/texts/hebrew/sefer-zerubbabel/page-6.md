@@ -7,6 +7,10 @@ figure: zerubbabel
 pageNumber: 6
 version: main
 permalink: /texts/hebrew/sefer-zerubbabel/page-6/
+tags:
+  - hebrew
+  - zerubbabel
+  - texts
 notes:
   - >
     [\"גמרי בגי ישם\" --- ביטוי אפל בנוסח אהרן (פרשת הצנעני).

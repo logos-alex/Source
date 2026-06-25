@@ -7,6 +7,10 @@ figure: daniel
 pageNumber: 2
 version: main
 permalink: /texts/arabic/chazon-daniel-aravi/page-2/
+tags:
+  - arabic
+  - daniel
+  - texts
 ---
 
 ### פרק א --- ההקדמה וראיית המלאך

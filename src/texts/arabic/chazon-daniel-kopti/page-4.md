@@ -7,6 +7,10 @@ figure: daniel
 pageNumber: 4
 version: main
 permalink: /texts/arabic/chazon-daniel-kopti/page-4/
+tags:
+  - arabic
+  - daniel
+  - texts
 ---
 
 **38.** ואחרי זאת ישמע מלך ארם (סוריא) באחרית, כי אויב קרוב אליו.

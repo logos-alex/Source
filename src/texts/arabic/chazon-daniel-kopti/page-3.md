@@ -7,6 +7,10 @@ figure: daniel
 pageNumber: 3
 version: main
 permalink: /texts/arabic/chazon-daniel-kopti/page-3/
+tags:
+  - arabic
+  - daniel
+  - texts
 ---
 
 **25.** והמלך האחד-עשר אשר יהיה מהם --- יעשה עול בכל הארץ, וישחית את כל מעשה ידי הראשונים.

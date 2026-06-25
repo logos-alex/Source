@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 39
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-39/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 רב ההבדל, אנשי יון, בין האמת ובין המנהג. כי האמת, בבקשה אותה באמת,

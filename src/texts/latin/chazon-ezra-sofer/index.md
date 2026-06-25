@@ -111,19 +111,47 @@ v52, v65--68, v84, v88, v101--104) --- פערים הנובעים מהשמטת ת
 הכלל.
 
 ---
+
 ### מקור הטקסט הלטיני וביבליוגרפיה
 
-המקור הלטיני של חזון עזרא נשתמר בשמונה כתבי־יד. המהדורה המדעית המונחת יסוד לעבודה זו היא זו של Bogaert (1984), המבוססת על כתב־היד Vat. Barberini lat. 2318 (ms B) — הנוסח המלא ביותר של החיבור. כתב־יד זה מן המאות ה־14–15, אך החיבור עצמו קדום בהרבה — כנראה מן המאות ה־4–7 לספירה.
+**[מקור הטקסט הלטיני וביבליוגרפיה]**
 
-**לקריאה נוספת:**
+המקור הלטיני של חזון עזרא נשתמר בשמונה כתבי־יד. המהדורה המדעית המונחת
+יסוד לעבודה זו היא זו של Bogaert (1984), המבוססת על כתב־היד Vat.
+Barberini lat. 2318 (ms B) --- הנוסח המלא ביותר של החיבור, הכולל חומר
+שאינו מצוי בכתבי־היד האחרים. כתב־יד זה מן המאות ה־14--15, אך החיבור עצמו
+קדום בהרבה --- כנראה מן המאות ה־4--7 לספירה.
 
-- P.-M. Bogaert, "Une vision longue inédite de la 'Visio Beati Esdrae' dans la légendier de Teano (Barberini lat. 2318)", *Revue Bénédictine* 94 (1984): 50–70.
-- O. Wahl, *Apocalypsis Esdrae, Apocalypsis Sedrach, Visio beati Esdrae* (PVTG 4; Leiden: Brill, 1977), 49–61.
-- A.-M. Denis, *Concordance latine*, 617–619.
-- Scott, Ian W., and David M. Miller, eds. "Vision of Ezra." Edition 1.0. In *The Online Critical Pseudepigrapha* (OCP). Atlanta: Society of Biblical Literature, 2007.
-- M. E. Stone, "Ezra, Vision of," *ABD* 2.730–731.
-- R. Bauckham, "The Latin Vision of Ezra," in *Old Testament Pseudepigrapha*.
-- L. DiTommaso, *Bibliography of Old Testament Pseudepigrapha*, 519–521.
+החיבור «Visio Beati Esdrae» («חזון עזרא המבורך») הוא אפוקליפסה
+נוצרית־לטינית. הוא קרוב למסורות אזראיות אחרות --- ספר עזרא הרביעי (4
+Ezra), חזון עזרא היווני, וחזון סדרך. החוקרים סבורים כי הלטינית עצמה היא
+תרגום מיוונית שאבדה.
+
+**[לקריאה נוספת:]**
+
+> [• P.-M. Bogaert, \"Une vision longue inédite de la \'Visio Beati
+> Esdrae\' dans la légendier de Teano (Barberini lat. 2318)\", Revue
+> Bénédictine 94 (1984): 50--70.
+>
+> [• O. Wahl, Apocalypsis Esdrae, Apocalypsis Sedrach, Visio beati
+> Esdrae (PVTG 4; Leiden: Brill, 1977), 49--61.
+>
+> [• A.-M. Denis, Concordance latine, 617--619.
+>
+> [• Scott, Ian W., and David M. Miller, eds. \"Vision of Ezra.\"
+> Edition 1.0. In The Online Critical Pseudepigrapha (OCP). Atlanta:
+> Society of Biblical Literature, 2007.
+>
+> [• M. E. Stone, \"Ezra, Vision of,\" ABD 2.730--731.
+>
+> [• R. Bauckham, \"The Latin Vision of Ezra,\" in Old Testament
+> Pseudepigrapha.
+>
+> [• L. DiTommaso, Bibliography of Old Testament Pseudepigrapha,
+> 519--521.
+
+*[--- סוף ---]*
+
 
 ---
 

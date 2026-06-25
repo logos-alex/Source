@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 75
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-75/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 notes:
   - >
     <strong>פרק יד: יראת שמים, אמונה ומעשה</strong>

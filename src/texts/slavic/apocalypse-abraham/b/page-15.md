@@ -7,6 +7,10 @@ figure: abraham
 pageNumber: 15
 version: b
 permalink: /texts/slavic/apocalypse-abraham/b/page-15/
+tags:
+  - slavic
+  - abraham
+  - texts
 ---
 
 ### פרק טו --- הקול קורא אברהם והבטחת האהבה

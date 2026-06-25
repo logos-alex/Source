@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 34
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-34/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 אך גם מן השמים נשמע קול עד אומר: זה בני אהובי אשר רציתי בו, אליו

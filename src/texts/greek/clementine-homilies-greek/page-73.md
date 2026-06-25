@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 73
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-73/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 ויהי כאשר שתקו שניהם, ואמר: כיון שאני יודע את המלאכה בדקדוק, ואדני ואבי

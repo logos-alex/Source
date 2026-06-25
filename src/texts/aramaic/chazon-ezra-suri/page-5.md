@@ -7,6 +7,10 @@ figure: ezra
 pageNumber: 5
 version: main
 permalink: /texts/aramaic/chazon-ezra-suri/page-5/
+tags:
+  - aramaic
+  - ezra
+  - texts
 ---
 
 ### סעיף ה --- הקרן הגדולה, הנשר והאפעה

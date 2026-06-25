@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 5
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-5/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 האחים בעלי דינים לא ידונו לפני השלטונות, אלא יושלמו לפני זקני הכנסת בכל

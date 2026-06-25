@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 100
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-100/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 notes:
   - >
     <strong>פרק כ: היחס לגוים — ישראל ואומות העולם</strong>

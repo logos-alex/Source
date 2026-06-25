@@ -7,6 +7,10 @@ figure: abraham
 pageNumber: 25
 version: b
 permalink: /texts/slavic/apocalypse-abraham/b/page-25/
+tags:
+  - slavic
+  - abraham
+  - texts
 ---
 
 ### פרק כה --- שנים-עשר המזבחות; המקדש העתיד; סיום החיבור

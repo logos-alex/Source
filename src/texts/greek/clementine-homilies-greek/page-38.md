@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 38
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-38/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 על כן אינני חושבת כי יוכל איש לכבות אש גדולה כזאת. כי אין איש מסתפק

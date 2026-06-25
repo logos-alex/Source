@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 62
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-62/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 כי נפש כל אחד מציירת צורות שדים לפי קדמוניותיה, ולא האלהים הנקראים

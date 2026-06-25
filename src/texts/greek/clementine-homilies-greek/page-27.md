@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 27
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-27/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 ואם יחפוץ איש לומר כי הנבואות על-ידי דברים כאלה דומות להכרה המוקדמת

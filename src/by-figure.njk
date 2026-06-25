@@ -11,7 +11,7 @@ eleventyComputed:
 
 <div class="text-main category-listing">
   <header class="text-header">
-    <p class="text-header__eyebrow">Figure</p>
+    <p class="text-header__eyebrow">דמות</p>
     <h1>{{ title }}</h1>
     <p>הכתבים בעמוד זה מקובצים לפי הייחוס המסורתי לדמות המקראית. בחרו חיבור כדי לקרוא את ההקדמה והטקסט.</p>
   </header>
@@ -22,10 +22,7 @@ eleventyComputed:
       {% if item.data.figure == figureKey and item.data.book and not item.data.draft and (item.data.pageNumber == 0 or not item.data.pageNumber) and "sub-intro" not in item.data.tags %}
         {% set hasFigureItems = true %}
         <article class="book-card{% if item.data.comingSoon %} book-card--coming-soon{% endif %}">
-          <h3>
-            <a class="book-card__primary-link" href="{{ item.url | url }}">{{ item | displayBookTitle }}</a>
-            {% if item.data.comingSoon %}<span class="book-card__badge" aria-label="חיבור בהכנה">בקרוב</span>{% endif %}
-          </h3>
+          <h2><a class="book-card__primary-link" href="{{ item.url | url }}">{{ item | displayBookTitle }}</a></h2>
           <p class="book-card__description">{{ item.data.description or "גילויים נסתרים ומסעות שמימיים המיוחסים לדמותו של " + figures[figureKey] }}</p>
           {% if item.data.source %}
             <p><small>מקור: <a class="book-card__meta-link" href="{{ ('/texts/' + item.data.source + '/') | url }}">{{ languages[item.data.source] }}</a></small></p>

@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 36
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-36/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 ושלך המלאכה לצוות את אשר צריך, ושל האחים לשמוע ולא למרות. והשומעים

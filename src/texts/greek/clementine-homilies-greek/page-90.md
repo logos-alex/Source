@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 90
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-90/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 notes:
   - >
     <strong>פרק יז: המשיח ומלכות השמים</strong>

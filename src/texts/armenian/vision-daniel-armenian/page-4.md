@@ -7,6 +7,10 @@ figure: daniel
 pageNumber: 4
 version: main
 permalink: /texts/armenian/vision-daniel-armenian/page-4/
+tags:
+  - armenian
+  - daniel
+  - texts
 notes:
   - >
     פסוק 22: [הערה: \"וכהנייך בזריקה יספדו\" --- תיקון מ\"ביללה יספדו\" שבגרסה

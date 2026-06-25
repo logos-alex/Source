@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 25
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-25/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 notes:
   - >
     <strong>פרק א: מלכות היחיד — המונותאיזם הקנאי</strong>

@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 105
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-105/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 notes:
   - >
     <strong>נספח: מפתח מקורות והקבלות</strong>

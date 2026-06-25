@@ -47,7 +47,6 @@ function check(file) {
 
     // Ignore false-positive hrefs from markdown mangling (Hebrew/Aramaic text
     // containing […] patterns that markdown-it misinterprets as [text](url) links).
-    // Real internal URLs start with / and contain no spaces or Hebrew characters.
     if (!url.startsWith('/') && /[\u0590-\u05FF\u0600-\u06FF\s]/.test(url)) continue;
 
     let fsPath = null;

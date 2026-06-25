@@ -7,6 +7,10 @@ figure: abraham
 pageNumber: 13
 version: b
 permalink: /texts/slavic/apocalypse-abraham/b/page-13/
+tags:
+  - slavic
+  - abraham
+  - texts
 ---
 
 ### פרק יג --- המזמור לעליון: \"קדוש, קדוש, קדוש\"

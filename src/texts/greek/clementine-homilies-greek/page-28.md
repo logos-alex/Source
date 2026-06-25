@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 28
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-28/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 אל תתעו. אבינו לא העלים דבר. ומזה שהתורה המונחת ברבים, מכסה עליו באשמת

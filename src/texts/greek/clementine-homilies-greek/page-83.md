@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 83
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-83/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 אלה וכיוצא באלה פטרוס שמעון עומד בחוץ ומדבר אל ההמון נראה לי כי מטלטל

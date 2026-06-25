@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 44
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-44/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 עוד נלוה אל אחותו הנולדת לו מן השמים והים מכריתת קרונוס אהבה וקפריס אשר

@@ -7,6 +7,10 @@ figure: daniel
 pageNumber: 5
 version: main
 permalink: /texts/arabic/chazon-daniel-aravi/page-5/
+tags:
+  - arabic
+  - daniel
+  - texts
 ---
 
 ### פרק ו --- הנשר והעורב, מלחמות האחרית

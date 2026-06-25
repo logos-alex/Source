@@ -7,6 +7,10 @@ figure: zerubbabel
 pageNumber: 2
 version: main
 permalink: /texts/hebrew/sefer-zerubbabel/page-2/
+tags:
+  - hebrew
+  - zerubbabel
+  - texts
 notes:
   - >
     [שם המלך השני: יעלניק: \"אטרס מאנטוכיא.\" אהרן: \"אטרם מלך אנטוכיא.\" אוקספורד: \"אור המלך אנטיוכיא.\" ישראל: \"איסרינן מלך אנטוכיא / אסרוגן.\" בחרנו \"אטרם\" כנוסח אהרן המפורט.

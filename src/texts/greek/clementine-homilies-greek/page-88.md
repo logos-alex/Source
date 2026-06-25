@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 88
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-88/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 ויהי ככלות שמעון לדבר ויאמר פטרוס אליו תוכל להעיד בו כי כן אתה מאמין לא

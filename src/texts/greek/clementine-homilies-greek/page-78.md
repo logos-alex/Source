@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 78
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-78/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 ויאמר פטרוס שמע קצר יותר על אשר אמרת. התורה עצמה האומרת פעמים רבות

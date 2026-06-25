@@ -7,6 +7,10 @@ figure: abraham
 pageNumber: 12
 version: b
 permalink: /texts/slavic/apocalypse-abraham/b/page-12/
+tags:
+  - slavic
+  - abraham
+  - texts
 ---
 
 ### פרק יב --- רקיע שביעי; כסא הכבוד ושירת האש

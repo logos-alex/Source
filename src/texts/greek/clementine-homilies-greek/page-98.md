@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 98
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-98/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 ויאמר ספוניהס עוד סבלך הרבה אדני פטרוס נותן בנו חירות לשאלך שאלות רבות

@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 19
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-19/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 כי בנסעו אל מצרים להעמיק בכשפים, ויוחנן נהרג, ודוסתיוס חפץ בראשית,

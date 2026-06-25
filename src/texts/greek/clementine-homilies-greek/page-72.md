@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 72
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-72/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 וככלות הזקן לדבר, ידעתי מדבריו כי הזקן אשר אמר כי מת, איננו אלא אביכם.

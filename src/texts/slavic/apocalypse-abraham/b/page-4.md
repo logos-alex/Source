@@ -7,6 +7,10 @@ figure: abraham
 pageNumber: 4
 version: b
 permalink: /texts/slavic/apocalypse-abraham/b/page-4/
+tags:
+  - slavic
+  - abraham
+  - texts
 ---
 
 ### פרק ד --- אברהם מכהה את אביו על חולשת האליל

@@ -7,6 +7,10 @@ figure: talmidei-yeshua
 pageNumber: 29
 version: main
 permalink: /texts/greek/clementine-homilies-greek/page-29/
+tags:
+  - greek
+  - talmidei-yeshua
+  - texts
 ---
 
 לא רק מעזה לומר ולשמוע על אלהים רבים, כי אם גם מאמינה להיות אלהים
