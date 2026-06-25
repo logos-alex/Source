@@ -45,12 +45,6 @@ eleventyExcludeFromCollections: true
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>{{ site.origin }}{{ '/methodology/' | url }}</loc>
-    <lastmod>{{ buildInfo.getGitLastModified('src/methodology.njk') or buildInfo.builtAtUTC }}</lastmod>
-    <priority>0.6</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
     <loc>{{ site.origin }}{{ '/license/' | url }}</loc>
     <lastmod>{{ buildInfo.getGitLastModified('src/license.njk') or buildInfo.builtAtUTC }}</lastmod>
     <priority>0.4</priority>

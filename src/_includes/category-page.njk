@@ -3,8 +3,11 @@
 {% block content %}
   <article class="text-main">
     <header class="text-header">
-      <h1>{{ title }}</h1>
-      {% if source or figure %}
+      <h1>{{ title }}
+        {% if rarity == "unpublished" %}<span class="book-card__badge book-card__badge--unpublished" title="פרסום ראשון מתוך כתב־יד — לא הודפס מעולם">פרסום ראשון מכתב־יד</span>{% endif %}
+        {% if comingSoon %}<span class="book-card__badge book-card__badge--coming-soon" title="החיבור בהכנה — הטקסט יתווסף בהמשך">בקרוב</span>{% endif %}
+      </h1>
+      {% if source or figure or manuscript %}
         {% set langEntry = languages[source] %}
         {% set sourceHebrew = (langEntry.label if langEntry else source) %}
         {% set figureHebrew = figures[figure] or figure %}
@@ -12,6 +15,8 @@
           {% if sourceHebrew %}<span class="text-meta__item"><span class="text-meta__label">מקור:</span> {{ sourceHebrew }}</span>{% endif %}
           {% if sourceHebrew and figureHebrew %}<span class="text-meta__sep" aria-hidden="true">·</span>{% endif %}
           {% if figureHebrew %}<span class="text-meta__item"><span class="text-meta__label">ייחוס:</span> {{ figureHebrew }}</span>{% endif %}
+          {% if figureHebrew and manuscript %}<span class="text-meta__sep" aria-hidden="true">·</span>{% endif %}
+          {% if manuscript %}<span class="text-meta__item"><span class="text-meta__label">כתב־יד:</span> {{ manuscript }}</span>{% endif %}
         </p>
       {% endif %}
     </header>

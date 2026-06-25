@@ -1994,6 +1994,25 @@ article tbody tr:nth-child(even) {
   text-transform: none;
 }
 
+/* Badge for "פרסום ראשון מכתב־יד" — unpublished manuscript */
+.book-card__badge--unpublished {
+  background: var(--c-accent);
+  color: var(--c-bg);
+}
+
+/* Badge for "בקרוב" — coming soon */
+.book-card__badge--coming-soon {
+  background: var(--c-text-muted);
+  color: var(--c-bg);
+}
+
+/* Badge in chapter/page h1 (text-header) */
+.text-header h1 .book-card__badge {
+  font-size: 0.5em;
+  vertical-align: middle;
+  margin-inline-start: var(--s-2);
+}
+
 /* Footer heading — h2 styled as small label */
 .footer-nav__heading {
   font-size: var(--fs-sm);

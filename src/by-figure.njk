@@ -23,7 +23,11 @@ eleventyComputed:
       {% if item.data.figure == figureKey and item.data.book and not item.data.draft and (item.data.pageNumber == 0 or not item.data.pageNumber) and "sub-intro" not in item.data.tags %}
         {% set hasFigureItems = true %}
         <article class="book-card{% if item.data.comingSoon %} book-card--coming-soon{% endif %}">
-          <h2><a class="book-card__primary-link" href="{{ item.url | url }}">{{ item | displayBookTitle }}</a></h2>
+          <h2>
+            <a class="book-card__primary-link" href="{{ item.url | url }}">{{ item | displayBookTitle }}</a>
+            {% if item.data.rarity == "unpublished" %}<span class="book-card__badge book-card__badge--unpublished" title="פרסום ראשון מתוך כתב־יד — לא הודפס מעולם">פרסום ראשון</span>{% endif %}
+            {% if item.data.comingSoon %}<span class="book-card__badge book-card__badge--coming-soon" title="החיבור בהכנה">בקרוב</span>{% endif %}
+          </h2>
           <p class="book-card__description">{{ item.data.description or "גילויים נסתרים ומסעות שמימיים המיוחסים לדמותו של " + figures[figureKey] }}</p>
           {% if item.data.source %}
             {% set langEntry = languages[item.data.source] %}
