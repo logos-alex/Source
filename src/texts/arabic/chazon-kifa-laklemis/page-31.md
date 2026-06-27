@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "דף ט״ו ע״ב — עמוד 29"
+title: "דף לא"
 description: "בְּנֵי הָאֲבַדּוֹן ― אֲנִי אֶמְנַע מֵהֶם רַחֲמַי וְחֶמְלָתִי וּסְלִיחָתִי."
 book: chazon-kifa-laklemis
 source: arabic

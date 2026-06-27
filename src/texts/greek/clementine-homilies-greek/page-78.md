@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "חלק ו: הומיליות 15--19"
+title: "חלק ו: הומיליות 15--19 — קטע ה"
 description: "ויאמר פטרוס שמע קצר יותר על אשר אמרת."
 book: clementine-homilies-greek
 source: greek

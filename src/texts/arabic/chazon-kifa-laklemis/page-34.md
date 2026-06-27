@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "דף י״ז ע״א — עמוד 32"
+title: "דף לד"
 description: "וְהָאוֹר אֲשֶׁר מַקְדִּים לִפְנֵי עֲלוֹתָהּ אֵין לוֹ דָּמוּי בָּעוֹלָם הַזֶּה, וְלֹא יָכוֹל בְּרוּא לְתָאֲרוֹ."
 book: chazon-kifa-laklemis
 source: arabic

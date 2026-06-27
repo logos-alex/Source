@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "חלק ד: הומיליות 3--9"
+title: "חלק ד: הומיליות 3--9 — קטע לח"
 description: "כי נפש כל אחד מציירת צורות שדים לפי קדמוניותיה, ולא האלהים הנקראים נראים, ברור הדבר מזה שאינם נראים ליהודים."
 book: clementine-homilies-greek
 source: greek

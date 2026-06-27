@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "יעקב, רחל ולאה --- דמויות העמים"
+title: "פרק כב — יעקב, רחל ולאה --- דמויות העמים"
 description: "ובהגיע ליצחק שישים שנה --- הרתה אשתו רבקה את יעקב ואת עשו."
 book: ketav-almagal
 source: arabic

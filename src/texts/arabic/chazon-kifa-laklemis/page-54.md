@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "דף כ״ח ע״א — עמוד 52"
+title: "דף נד"
 description: "הִתְכַּחֵשׁ נִכְנַס בְּטִבְעוֹ, וְהוּא הָיָה דּוֹמֶה לְהִלָּלוֹ."
 book: chazon-kifa-laklemis
 source: arabic

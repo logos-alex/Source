@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "סעיף ד --- הנבואה על בני ישמעאל"
+title: "פרק ד — הנבואה על בני ישמעאל"
 description: "[1] ואמרת מהימן אנא לך מריא מטל דאשתלמת יומנא נביותה דמושא."
 book: chazon-ezra-suri
 source: aramaic

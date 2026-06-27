@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פטירת אדם"
+title: "פרק י — פטירת אדם"
 description: "ויכתוב שת את הצוואה הזאת וחתמה בחותם אביו אדם אשר היה עמו מן הגן, וחותם חוה, וחותמו."
 book: ketav-almagal
 source: arabic

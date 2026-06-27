@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "חטיבה ד --- תוספות: אמונה, צדקה, העמדת תלמידים"
+title: "פרק ה"
 description: 'ואמר מושא. מרי ואלהי מנו דמהימנ בשררא ומשלמנותא בדחלתכ] מנא אגרה.'
 book: sichat-moshe
 source: aramaic

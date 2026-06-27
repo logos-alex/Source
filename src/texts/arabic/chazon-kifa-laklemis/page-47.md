@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "דף כ״ג ע״ב — עמוד 45"
+title: "דף מז"
 description: "אֲשֶׁר תֵּאַרְתִּי, וְהַנֹּעַם יִהְיֶה לוֹ."
 book: chazon-kifa-laklemis
 source: arabic

@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "שת וצוואת אדם"
+title: "פרק ז — שת וצוואת אדם"
 description: "ויגש אדם אל חוה ותהר וייתם ההריון, ותלד את שת, האיש היפה הגיבור השלם התמים."
 book: ketav-almagal
 source: arabic

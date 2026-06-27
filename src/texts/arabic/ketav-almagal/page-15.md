@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "מגדל בבל ובלבול הלשונות"
+title: "פרק טו — מגדל בבל ובלבול הלשונות"
 description: 'ובימי פלג בנו האומות את מגדל בבל. ועליו השתנו לשונותיהן ונבלבלו ונפרדו.'
 book: ketav-almagal
 source: arabic

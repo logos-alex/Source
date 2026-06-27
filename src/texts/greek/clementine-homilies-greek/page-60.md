@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "חלק ד: הומיליות 3--9"
+title: "חלק ד: הומיליות 3--9 — קטע לו"
 description: "מן הברק הזה אשר נפל מן השמים ארצה נהרג הקוסם נברוד, ומן המאורע נקרא זורואסטרס, בעבור זרימת הכוכב החיה אשר זרמה עליו."
 book: clementine-homilies-greek
 source: greek

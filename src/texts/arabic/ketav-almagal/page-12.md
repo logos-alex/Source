@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "חנוך וירידת בני שת"
+title: "פרק יב — חנוך וירידת בני שת"
 description: "וינהל אנוש אחרי מות אביו את עמו בטהרה וביראה, וקיים את אשר ציווהו אביו בהם."
 book: ketav-almagal
 source: arabic

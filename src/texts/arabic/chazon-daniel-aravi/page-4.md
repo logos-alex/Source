@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פסוקים 37–48"
+title: "פרק ד — פסוקים 37–48"
 description: 'גור האריה יקיץ מתוך שנתו, ויאסוף את נדיבי עמו ואת הראשים ואת הטהורים.'
 book: chazon-daniel-aravi
 source: arabic

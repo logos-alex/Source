@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "דף י״ט ע״ב — עמוד 37"
+title: "דף לט"
 description: "מִצְּלִיבָתִי ― אוֹרִישֵׁם הָאֵשׁ אֲשֶׁר לֹא תִכְבֶּה שַׁלְהֲבוֹתֶיהָ."
 book: chazon-kifa-laklemis
 source: arabic

@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "חזון אברהם – נוסח א' – פרק ח"
+title: "פרק ח"
 description: 'אָז בָּא הַקּוֹל, קוֹרֵא לִי פַּעֲמַיִם: ''אַבְרָם.'
 book: apocalypse-abraham
 version: a

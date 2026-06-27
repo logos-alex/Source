@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "חלק ב: הומיליה 1"
+title: "חלק ב: הומיליה 1 — קטע ד"
 description: "באמרו זאת, כאיש אחד פרצו כולם בצחוק בלתי-סדור, מנסים להשתיקו ולביישו כברברי משוגע."
 book: clementine-homilies-greek
 source: greek

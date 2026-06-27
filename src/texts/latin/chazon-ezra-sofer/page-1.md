@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פסוקים 1–15"
+title: "פרק א — פסוקים 1–15"
 description: 'הלטינית «Domine, miserere». - > <strong>פסוק 9</strong> — נוסחת שאלה חוזרת.'
 book: chazon-ezra-sofer
 source: latin

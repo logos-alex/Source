@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "יהודה עד דוד"
+title: "פרק כג — יהודה עד דוד"
 description: "ויולד פרץ בן יהודה את חצרון, וחצרון ילד את רם, ורם ילד את עמינדב, ועמינדב ילד את נחשון, והוא ראש בני יהודה."
 book: ketav-almagal
 source: arabic

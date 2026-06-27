@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "חזון אברהם – נוסח א' – פרק יב"
+title: "פרק יב"
 description: "וְהַמַּלְאָךְ לָקַח אוֹתִי בִּימִינוֹ, וְהֶעֱלָה אוֹתִי עַל־כְּנַף הַיּוֹנָה הַיְמָנִית."
 book: apocalypse-abraham
 version: a

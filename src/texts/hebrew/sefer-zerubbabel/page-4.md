@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "ז. בוא מנחם בן עמיאל ותחיית נחמיה"
+title: "פרק ד — בוא מנחם בן עמיאל ותחיית נחמיה"
 description: "[ויאמר אלי: מנחם בן עמיאל יבוא פתאום בחדש הראשון הוא חדש ניסן, בארבעה עשר בו."
 book: sefer-zerubbabel
 source: hebrew

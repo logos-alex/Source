@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "דף ח ע״א — עמוד 14"
+title: "דף טז"
 description: "יֹאבְדוּ, וְיִשָּׁאֲרוּ אַלְמָנוֹת."
 book: chazon-kifa-laklemis
 source: arabic

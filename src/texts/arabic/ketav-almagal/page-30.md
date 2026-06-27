@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "יאשיהו וגלות בבל"
+title: "פרק ל — יאשיהו וגלות בבל"
 description: "וימלוך אחריו בנו יאשיהו, והוא בן שמונה שנה, ושם אמו אדיה בת עזריה בן ירפיה."
 book: ketav-almagal
 source: arabic

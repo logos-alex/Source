@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פֶּרֶק יג"
+title: "פרק י"
 description: "❦ סֵפֶר הַתְּחִנָּה שֶׁל הַמַּלְאָכִים ❦ ^א^ וְחָנוֹךְ אָמַר לַעֲזָאזֵיל: לֵךְ; לֹא יִהְיֶה לְךָ שָׁלוֹם."
 book: sefer-hanoch-a
 source: greek

@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "חלק ה: מבחר קטעים מהומיליות 10--14"
+title: "חלק ה: מבחר קטעים מהומיליות 10--14 — קטע ד"
 description: "ויאמר פטרוס: ויש עוד טעם לכך שלא ישפוט אדם את רעהו."
 book: clementine-homilies-greek
 source: greek

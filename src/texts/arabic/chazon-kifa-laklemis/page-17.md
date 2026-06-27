@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "דף ח ע״ב — עמוד 15"
+title: "דף יז"
 description: "הָרָעִים מִן הָאָרֶץ, וְיֹאבְדוּ בְּנֵי הַזְּאֵב."
 book: chazon-kifa-laklemis
 source: arabic

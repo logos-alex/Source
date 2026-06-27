@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "חלק ד: הומיליות 3--9"
+title: "חלק ד: הומיליות 3--9 — קטע לה"
 description: "ואם תחפצו להיות לבגד רוח אלהים מהרו לפשוט תחלה את משאכם הטמא והוא רוח טמא ולבוש מטומאה."
 book: clementine-homilies-greek
 source: greek

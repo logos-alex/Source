@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "המגוסים, הסוס, האש והשר ארדשיר"
+title: "פרק יט — המגוסים, הסוס, האש והשר ארדשיר"
 description: "ובימי נמרוד הגיבור ראה אש מן השמים ואש עולה מן הארץ."
 book: ketav-almagal
 source: arabic

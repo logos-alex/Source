@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "חלק ב: הומיליה 1"
+title: "חלק ב: הומיליה 1 — קטע ו"
 description: "רצון האלהים היה בלתי-נודע בדרכים רבים."
 book: clementine-homilies-greek
 source: greek

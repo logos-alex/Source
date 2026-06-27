@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "סעיף י --- סיום ושבח"
+title: "פרק י — סיום ושבח"
 description: "notes: - > (1) תעתיק עברי קריא ומלא של הסורית, יחד עם תרגום עברי מודרני וביאורים מפורטים (EzraApoc.txt); - > (2) ה-OCR המקורי של כתב-היד הסורי (ezra.rar)."
 book: chazon-ezra-suri
 source: aramaic

@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "חלק ו: הומיליות 15--19"
+title: "חלק ו: הומיליות 15--19 — קטע ב"
 description: "ויען פטרוס ויאמר אך חשבת עוול את אשר צדקו מכל."
 book: clementine-homilies-greek
 source: greek

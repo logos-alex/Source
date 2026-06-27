@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "א. פתיחה --- חזון זרובבל"
+title: "פרק א — פתיחה — חזון זרובבל"
 description: "[הדבר אשר היה אל זרובבל בן שאלתיאל פחת יהודה, בעשרים וארבעה לחדש השביעי."
 book: sefer-zerubbabel
 source: hebrew

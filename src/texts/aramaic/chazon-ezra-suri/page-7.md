@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "סעיף ז --- מלחמות ושפיכות דמים"
+title: "פרק ז — מלחמות ושפיכות דמים"
 description: "[1] ופרוגה דאפעא נסב חילא רבא מן תרקיא ומן רישא דמערבא, ועאל בדמא."
 book: chazon-ezra-suri
 source: aramaic

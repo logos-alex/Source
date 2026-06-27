@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "[עמוד 59]"
+title: "פרק כז — [עמוד 59]"
 description: "אז קרן שנייה מן השמים תקרא, ושופר גדול מירושלים יידבר."
 book: apoc-daniel-syriac
 source: aramaic

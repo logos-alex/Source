@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "דף ט ע״ב — עמוד 17"
+title: "דף יט"
 description: "וְהוּא יִפְתַּח אֶת שַׁעֲרֵי יְרוּשָׁלַיִם בְּיוֹם הַשִּׁשִּׁי, וְיִכָּנֵס בָּהּ בְּשָׁלֹשׁ שָׁעוֹת מִיּוֹם הַשַּׁבָּת."
 book: chazon-kifa-laklemis
 source: arabic

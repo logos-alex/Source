@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "חלק ג: הומיליה 2"
+title: "חלק ג: הומיליה 2 — קטע ח"
 description: "כי רבות שקרים נוספו בכתבים כנגד האלהים בדבר הזה."
 book: clementine-homilies-greek
 source: greek

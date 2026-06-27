@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פסוקים 65–79"
+title: "פרק ה — פסוקים 65–79"
 description: "65 --- כִּי־אַתָּה צַדִּיק, כִּי־אַתָּה כֹּל יָכוֹל, כִּי־אַתָּה מְרַחֵם בְּיֹפִי."
 book: chazon-ezra-sofer
 source: latin

@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "סעיף ג --- חזון הנחש והקרניים"
+title: "פרק ג — חזון הנחש והקרניים"
 description: "[1] פתחת למגלתא וקרית על זבנא ואיומתא דעתידן למהוא."
 book: chazon-ezra-suri
 source: aramaic

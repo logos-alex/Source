@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "חלק ד: הומיליות 3--9"
+title: "חלק ד: הומיליות 3--9 — קטע יב"
 description: "ושלך המלאכה לצוות את אשר צריך, ושל האחים לשמוע ולא למרות."
 book: clementine-homilies-greek
 source: greek

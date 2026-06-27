@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק מ״ד — קיפא רב כהנא שולח אל השליחים"
+title: "פרק מח — קיפא רב כהנא שולח אל השליחים"
 description: "- > <strong>פרקים מד–מו — משיחות האמת ושתי הביאות (החומר החדש)</strong> ⁴⁰ משיחות-האמת — ארבע-משיחות."
 book: clementine-r1
 source: aramaic

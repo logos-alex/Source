@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "חזון אברהם – נוסח א' – פרק י"
+title: "פרק י"
 description: 'וָאֹמַר אֶל־הַמַּלְאָךְ: ''שִׁיר הַנִּצְחִי [מַנְהִיג הָעוֹלָם].'
 book: apocalypse-abraham
 version: a

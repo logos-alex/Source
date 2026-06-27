@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק מ״ז — יהודים ועממא, שתי הביאות"
+title: "פרק נא — יהודים ועממא, שתי הביאות"
 description: "הביאור לפרקים הנותרים של R1 יופיע בהמשך."
 book: clementine-r1
 source: aramaic

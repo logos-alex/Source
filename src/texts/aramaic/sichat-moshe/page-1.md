@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פתיחה"
+title: "פרק א — פתיחה"
 description: '[תשעיתא דמושא גביא בנביותא] תוב מצטמח בחילא דאיתיא מצטבא עבדא מלא חטיתא למכתב הדא תשעיתא דמושא גביא בנביותא.'
 book: sichat-moshe
 source: aramaic

@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "חלק ו: הומיליות 15--19"
+title: "חלק ו: הומיליות 15--19 — קטע ד"
 description: "ויאמר אבי יפה היית מבקש עדות ממני שמעון אם פטרוס היה מכחיש תחלה."
 book: clementine-homilies-greek
 source: greek

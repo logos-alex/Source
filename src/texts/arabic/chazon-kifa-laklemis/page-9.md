@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "דף ב ע״ב — עמוד 3"
+title: "דף ט"
 description: 'יָשָׁר מִדְּבָרַי. וְהָיָה אַחֲרֵי כֵן בַּאֲשֶׁר עָשׂוּ זֹאת ― אוֹי לָהֶם וּלְכָל אֲשֶׁר הָלַךְ אַחֲרֵיהֶם.'
 book: chazon-kifa-laklemis
 source: arabic

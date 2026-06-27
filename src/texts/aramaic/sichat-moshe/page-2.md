@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "חטיבה א --- מצוות עשה ומידות טובות"
+title: "פרק ב"
 description: 'אמר מושא. אלהי מנו דיהב לחמא ליתמא בית אבא לא מדינא מנא אגרה.'
 book: sichat-moshe
 source: aramaic

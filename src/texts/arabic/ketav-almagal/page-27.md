@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "שלמה, חירם מלך צור וצבע הארגמן"
+title: "פרק כז — שלמה, חירם מלך צור וצבע הארגמן"
 description: "ואחרי דוד מלך אחריו שלמה, ויעש פלאות רבות."
 book: ketav-almagal
 source: arabic

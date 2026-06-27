@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פסוקים 22–28"
+title: "פרק ד — פסוקים 22–28"
 description: '- > פסוק 28: ציטוט ישיר מתפילת ''אבינו שבשמים'' (הפטרנוסטר) הנוצרית (מתי ו:יג), - > פסוק 28: רכיב נוצרי מובהק המאשר את סיומת החיבור.'
 book: vision-daniel-armenian
 source: armenian

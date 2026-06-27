@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "דף כ״ב ע״א — עמוד 42"
+title: "דף מד"
 description: "כָּל הַמַּאֲמִינִים בִּשְׁמִי עַד אַחֲרִית הַדּוֹר."
 book: chazon-kifa-laklemis
 source: arabic

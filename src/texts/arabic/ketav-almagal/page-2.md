@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "ששת ימי הבריאה"
+title: "פרק ב — ששת ימי הבריאה"
 description: "ואלה הן הראשית ביום הראשון, אשר הוא יום ראשון הקדוש, ראש הימים ובכורם."
 book: ketav-almagal
 source: arabic

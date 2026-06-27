@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "חזון אברהם – נוסח א' – פרק ז"
+title: "פרק ז"
 description: 'וְקוֹל הַחָזָק נָפַל מִן־הַשָּׁמַיִם בְּלַהַב אֵשׁ, וְקוֹרֵא: ''אַבְרָם.'
 book: apocalypse-abraham
 version: a

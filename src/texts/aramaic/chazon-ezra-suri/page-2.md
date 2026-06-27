@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "סעיף ב --- תפילת עזרא והתגלות המלאך"
+title: "פרק ב — תפילת עזרא והתגלות המלאך"
 description: "[1] שאל מן אלהא דנגלא לה על עתידתא דבאחרית זבנא."
 book: chazon-ezra-suri
 source: aramaic

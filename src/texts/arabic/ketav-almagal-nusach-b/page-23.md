@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "עמוד כה — יְרִידַת בְּנֵי שֵׁת"
+title: "דף כג — יְרִידַת בְּנֵי שֵׁת"
 description: "…וְזִכְרוּ אֶת הַיָּמִים אֲשֶׁר הוֹרִישׁוּ אֶתְכֶם אֲבוֹתֵיכֶם אָדָם וְשֵׁת."
 book: ketav-almagal-nusach-b
 source: arabic

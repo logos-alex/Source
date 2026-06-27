@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "קין והבל"
+title: "פרק ו — קין והבל"
 description: "וכאשר באו לו לאחר יציאתו מן הגן מאה שנה, והוא וחוה עצבים ובוכים, ירדו מן ההר הקדוש אל תחתיתו."
 book: ketav-almagal
 source: arabic

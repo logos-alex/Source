@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "סעיף א --- כותרת הספר"
+title: "פרק א — כותרת הספר"
 description: "[1] שאלתא דשאל עזרא ספרא כד הו במדברא עם קרפוס תלמידה."
 book: chazon-ezra-suri
 source: aramaic

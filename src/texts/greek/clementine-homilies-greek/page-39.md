@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "חלק ד: הומיליות 3--9"
+title: "חלק ד: הומיליות 3--9 — קטע טו"
 description: "רב ההבדל, אנשי יון, בין האמת ובין המנהג."
 book: clementine-homilies-greek
 source: greek

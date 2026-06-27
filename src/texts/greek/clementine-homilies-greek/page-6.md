@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "חלק א: האיגרות המקדימות"
+title: "חלק א: האיגרות המקדימות — קטע ו"
 description: "ותתיצבו הנוסעים ביציבות יושבים איש על מקומו, כדי שלא יגרמו באי סדר רעד או נטיה."
 book: clementine-homilies-greek
 source: greek

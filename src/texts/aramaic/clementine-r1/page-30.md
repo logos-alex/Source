@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק כז — תְּחִלַּת בְּרִיאַת הָעוֹלָם"
+title: "פרק ל — תְּחִלַּת בְּרִיאַת הָעוֹלָם"
 description: "- > <strong>פרקים כז–כט — הַבְּרִיאָה (הרחבה)</strong> ¹¹⁹ יֵשׁ מֵאַיִן — creatio ex nihilo."
 book: clementine-r1
 source: aramaic

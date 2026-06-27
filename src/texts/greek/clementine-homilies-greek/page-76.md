@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "חלק ו: הומיליות 15--19"
+title: "חלק ו: הומיליות 15--19 — קטע ג"
 description: 'אך עוד העבירני נא בדבר הזה. זכור אני את קלמנס אומר לי כי בעוולות וביסורין אנו סובלים למחילת חטאים.'
 book: clementine-homilies-greek
 source: greek

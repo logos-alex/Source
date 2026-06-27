@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "שאול, דוד וגוליית"
+title: "פרק כו — שאול, דוד וגוליית"
 description: 'ושאול הוא ראשון המלכים בבני ישראל. וינהל ארבעים שנה.'
 book: ketav-almagal
 source: arabic

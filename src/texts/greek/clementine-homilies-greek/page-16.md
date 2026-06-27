@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "חלק ג: הומיליה 2"
+title: "חלק ג: הומיליה 2 — קטע ב"
 description: "כל אשר בקשו את־האמת, בטוחים שיוכלו למצא מכח עצמם, נפלו במארב."
 book: clementine-homilies-greek
 source: greek

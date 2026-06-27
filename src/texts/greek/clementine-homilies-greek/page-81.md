@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "חלק ו: הומיליות 15--19"
+title: "חלק ו: הומיליות 15--19 — קטע ח"
 description: "ראה לאיזה אלהים שמעון אתה חפץ לשכנענו לכפור בטובו."
 book: clementine-homilies-greek
 source: greek

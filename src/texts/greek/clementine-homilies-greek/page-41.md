@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "חלק ד: הומיליות 3--9"
+title: "חלק ד: הומיליות 3--9 — קטע יז"
 description: "כאשר אמרתי זאת, ענה אפיון ואמר: ומדוע, הלא גם חוקי היוונים, אמר, אוסרים את הרע, ומענישים את הנואפים."
 book: clementine-homilies-greek
 source: greek

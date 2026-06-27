@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "דף ט״ז ע״א — עמוד 30"
+title: "דף לב"
 description: "מִן הַמַּעֲרָב לִשְׁלֹשָׁה שְׁעָרִים."
 book: chazon-kifa-laklemis
 source: arabic
