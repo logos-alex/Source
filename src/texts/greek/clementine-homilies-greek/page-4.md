@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "חלק א: האיגרות המקדימות — קטע ד"
+title: "חלק א: האיגרות המקדימות"
 description: "אך בקצרה על הכל ולכל אני רוצה להזכיר את דברי הניהול."
 book: clementine-homilies-greek
 source: greek

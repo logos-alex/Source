@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "דף ז"
+title: "דף ד ע״א — עמוד 6"
 description: "שְׁלֹשָׁה, וְיֵעָשֶׂה מִן הַשְּׁלֹשָׁה הָרִאשׁוֹן מִתֵּימָן, וְהַשֵּׁנִי מִן הַמִּזְרָח, וְהַשְּׁלִישִׁי מִן הַמַּעֲרָב."
 book: chazon-kifa-laklemis
 source: arabic

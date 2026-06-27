@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק ג — בריאת אדם ונפילת השטן"
+title: "בריאת אדם ונפילת השטן"
 description: "והייתה בריאת אלוהים את אדם בשעה השלישית מיום שישי, השישי לימים."
 book: ketav-almagal
 source: arabic

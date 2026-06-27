@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "חלק ה: מבחר קטעים מהומיליות 10--14 — קטע ב"
+title: "חלק ה: מבחר קטעים מהומיליות 10--14"
 description: "הגרסה הסורית העתיקה פרקים אלה מהומיליה 10 להומיליה 11."
 book: clementine-homilies-greek
 source: greek

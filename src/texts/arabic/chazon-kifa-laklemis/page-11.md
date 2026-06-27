@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "דף יא"
+title: "דף ג ע״ב — עמוד 5"
 description: "וּבֶאֱמֶת אֲנִי, פֶּטְרוֹס, אֵין נֶאֱבָד אֶלָּא בֶּן הָאֲבַדּוֹן."
 book: chazon-kifa-laklemis
 source: arabic

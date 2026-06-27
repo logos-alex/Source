@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק ב — פסוקים 13–24"
+title: "פסוקים 13–24"
 description: 'ואשמע קול אומר לי: דניאל, איש חמדות, דע מה ראית.'
 book: chazon-daniel-kopti
 source: arabic

@@ -13,7 +13,7 @@
     {% set ogImageUrl = site.origin ~ site.pathPrefix ~ 'assets/og-image.png' %}
     {% set canonicalUrl = site.origin ~ site.pathPrefix %}
     {% if page.url and page.url != '/' %}
-      {% set canonicalUrl = canonicalUrl ~ (page.url | slice(1)) %}
+      {% set canonicalUrl = canonicalUrl ~ (page.url | stripLeadingSlash) %}
     {% endif %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -252,7 +252,6 @@
           },
           translate: {
             enabled: {{ "true" if translate.enabled else "false" }},
-            loadStrategy: "{{ translate.loadStrategy or 'disabled' }}",
             includedLanguages: "{{ translate.includedLanguages or 'en' }}"
           }
         }
@@ -374,7 +373,6 @@
             <h2 class="footer-nav__heading">המיזם</h2>
             <ul>
               <li><a href="{{ '/about/' | url }}">אודות LOGIA</a></li>
-              <li></li>
               <li><a href="{{ '/license/' | url }}">רישיון ושימוש</a></li>
               <li><a href="{{ '/privacy/' | url }}">מדיניות פרטיות</a></li>
               <li><a href="{{ '/contact/' | url }}">צור קשר</a></li>

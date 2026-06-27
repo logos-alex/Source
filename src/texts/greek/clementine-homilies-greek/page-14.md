@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "חלק ב: הומיליה 1 — קטע ז"
+title: "חלק ב: הומיליה 1"
 description: "באמרו זאת, עניתי: כבר מודה אני לאלהים; כי כאשר חפצתי להאמן, כן נתן לי."
 book: clementine-homilies-greek
 source: greek

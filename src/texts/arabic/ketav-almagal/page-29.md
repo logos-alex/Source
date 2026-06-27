@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק כט — חזקיה, מנשה ומות ישעיהו"
+title: "חזקיה, מנשה ומות ישעיהו"
 description: "והיה חזקיה בן חמש ועשרים שנה במלכו, ושם אמו חפצי בת זכריה."
 book: ketav-almagal
 source: arabic

@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק ה — פסוקים 49–60"
+title: "פסוקים 49–60"
 description: 'וישליכו המדינה לאש, וישרפו את אות ה\''.'
 book: chazon-daniel-aravi
 source: arabic

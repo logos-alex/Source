@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק כד — [עמוד 56]"
+title: "[עמוד 56]"
 description: "אז תיכּון הארץ ולא תזוע, ותשקוט רוח ולא תסער, ותשתפה הים ולא תיירא; ותיראה כבוד המשיח."
 book: apoc-daniel-syriac
 source: aramaic

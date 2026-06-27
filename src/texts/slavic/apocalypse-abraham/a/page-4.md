@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק ד"
+title: "חזון אברהם – נוסח א' – פרק ד"
 description: "וַאֲנִי, בָּהֵן חֲרוֹן אָבִי, יָצָאתִי הַחוּצָה."
 book: apocalypse-abraham
 version: a

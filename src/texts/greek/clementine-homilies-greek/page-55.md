@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "חלק ד: הומיליות 3--9 — קטע לא"
+title: "חלק ד: הומיליות 3--9"
 description: "בדברו אלה כרעו כולם על ברכיהם ונפלו לפני רגליו."
 book: clementine-homilies-greek
 source: greek

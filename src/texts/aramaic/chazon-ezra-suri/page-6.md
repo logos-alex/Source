@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק ו — העורבים והאפעה"
+title: "סעיף ו --- העורבים והאפעה"
 description: "[1] ומן חשוכא נפקו עיטא מן מדנחא ונקרין לה לאפעא."
 book: chazon-ezra-suri
 source: aramaic

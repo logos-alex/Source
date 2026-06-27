@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "דף כד"
+title: "דף י״ב ע״א — עמוד 22"
 description: "הָעֵת ― יִשְׂאוּ הָעֵצִים פֵּרוֹתֵיהֶם מֵאֲשֶׁר לֹא יֻצְמְחוּ, וְיִשָּׁפְכוּ אַתִּיק וּבְרָכָתִי תָּבוֹא אַחֲרֵיהֶם."
 book: chazon-kifa-laklemis
 source: arabic

@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק ד"
+title: "חזיון ד"
 description: "א וַיֹּאמֶר הַנָּבִיא: אֲדֹנָי, לֹא אֶחְדַּל מִשָּׁפְטֶךָ."
 book: apokalypsis-esdras
 source: greek

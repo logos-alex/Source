@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק ד"
+title: "חטיבה ג --- גמול מי שרואה צער חברו ועוזר"
 description: 'אמר מושא מרי ואלהי מנו דחזא אכסניא ולא גחכ בה מנא אגרה.'
 book: sichat-moshe
 source: aramaic

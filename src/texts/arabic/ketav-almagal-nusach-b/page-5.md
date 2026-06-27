@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "דף ה"
+title: "עמוד ז"
 description: "…רְטִיבוּתָהּ אֲשֶׁר רָכְשָׁה מִן הַמַּיִם אֲשֶׁר הָיוּ עָלֶיהָ מִלְמַעְלָה."
 book: ketav-almagal-nusach-b
 source: arabic

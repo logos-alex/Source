@@ -51,12 +51,6 @@ eleventyExcludeFromCollections: true
     <changefreq>yearly</changefreq>
   </url>
   <url>
-    <loc>{{ site.origin }}{{ '/privacy/' | url }}</loc>
-    <lastmod>{{ buildInfo.getGitLastModified('src/privacy.njk') or buildInfo.builtAtUTC }}</lastmod>
-    <priority>0.4</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-  <url>
     <loc>{{ site.origin }}{{ '/contact/' | url }}</loc>
     <lastmod>{{ buildInfo.getGitLastModified('src/contact.njk') or buildInfo.builtAtUTC }}</lastmod>
     <priority>0.5</priority>

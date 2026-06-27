@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק ח — פסוקים 110–117"
+title: "פסוקים 110–117"
 description: "110 וַיֹּאמֶר עֶזְרָא: אֲדֹנִי, אֲנִי יָרֵא מִן־הַמָּוֶת."
 book: chazon-ezra-sofer
 source: latin

@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "חלק ה: מבחר קטעים מהומיליות 10--14 — קטע ה"
+title: "חלק ה: מבחר קטעים מהומיליות 10--14"
 description: "ויש אשר יתענה אדם שלא מרצונו, מפני עניו או מפני חליו, ולא יהיה לו פרי."
 book: clementine-homilies-greek
 source: greek

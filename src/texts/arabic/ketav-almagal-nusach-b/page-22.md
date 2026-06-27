@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "דף כב — הַשְׁחָתַת בְּנֵי קַיִן"
+title: "עמוד כד — הַשְׁחָתַת בְּנֵי קַיִן"
 description: "לֹא צֶמַח וְלֹא דֹּפִי, כְּדוּגְמַת הַבְּהֵמוֹת הָיָה מַעֲשֵׂיהֶם."
 book: ketav-almagal-nusach-b
 source: arabic

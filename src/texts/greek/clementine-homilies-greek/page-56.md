@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "חלק ד: הומיליות 3--9 — קטע לב"
+title: "חלק ד: הומיליות 3--9"
 description: "על כן מן העברים אשר קבלו את משה למורה נסתר ישוע ומן המאמינים בישוע נעלם משה."
 book: clementine-homilies-greek
 source: greek

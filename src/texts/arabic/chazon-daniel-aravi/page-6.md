@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק ו — פסוקים 61–72"
+title: "פסוקים 61–72"
 description: 'ואראה כי רומי תגבר על כל הארץ ותמלוך.'
 book: chazon-daniel-aravi
 source: arabic

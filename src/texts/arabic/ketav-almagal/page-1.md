@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק א — על האלוהים והבריאה"
+title: "על האלוהים והבריאה"
 description: "כתב אלמגאל אחד ספרי קלימיס בשם האב והבן ורוח הקודש, אלוהים אחד, האדון הרחומי."
 book: ketav-almagal
 source: arabic

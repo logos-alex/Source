@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק ב — פסוקים 16–31"
+title: "פסוקים 16–31"
 description: 'מוטיב מקובל בחזונות שאול נוצריים. - > <strong>פסוק 26</strong> — תיאור עוצמת האש --- הגוף נעלם באש, רק הקול נשמע.'
 book: chazon-ezra-sofer
 source: latin

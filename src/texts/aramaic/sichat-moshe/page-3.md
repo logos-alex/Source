@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק ג"
+title: "חטיבה ב --- הימנעויות נוספות וגמול מעשי חסד"
 description: 'אמר מושא מרי ואלהי מנו דלא אכל חנגא דסיטנא.'
 book: sichat-moshe
 source: aramaic

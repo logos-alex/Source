@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק כ"
+title: "חזון אברהם – נוסח א' – פרק כ"
 description: 'וָאִסְתַּכֵּל וָאֵרֶא. וְהִנֵּה הַתְּמוּנָה נִרְעֶשֶׁת.'
 book: apocalypse-abraham
 version: a

@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק יא — דורות שת וירידת בניו"
+title: "דורות שת וירידת בניו"
 description: "ונמשך האבל על אדם מבניו ובני בניו מאה וארבעים יום, כי הוא ראשון מת בארץ."
 book: ketav-almagal
 source: arabic

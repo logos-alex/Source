@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "דף כו"
+title: "דף י״ג ע״א — עמוד 24"
 description: "עַל הָאֱמֶת הַבְּהִירָה, פֶּטְרוֹס."
 book: chazon-kifa-laklemis
 source: arabic

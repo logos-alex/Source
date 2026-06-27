@@ -225,6 +225,11 @@ module.exports = function(eleventyConfig) {
     return JSON.stringify(value || "");
   });
 
+  // Strip leading slash for URL construction
+  eleventyConfig.addFilter("stripLeadingSlash", (url) =>
+    url ? String(url).replace(/^\//, "") : ""
+  );
+
   // Passthrough copy for assets and static files
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/robots.txt");

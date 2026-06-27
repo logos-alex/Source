@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "חלק ד: הומיליות 3--9 — קטע ח"
+title: "חלק ד: הומיליות 3--9"
 description: "ושמעון אמר: נכח הוא כי אתה בורח משמוע ההוכחה נגד אלהיך מן הכתובים."
 book: clementine-homilies-greek
 source: greek

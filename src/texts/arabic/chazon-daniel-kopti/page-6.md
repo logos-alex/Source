@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק ו — פסוקים 63–74"
+title: "פסוקים 63–74"
 description: 'ויפקוד פקידים בסביבות אפריקי וחילות גדולים.'
 book: chazon-daniel-kopti
 source: arabic

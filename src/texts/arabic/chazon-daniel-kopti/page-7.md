@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק ז — פסוקים 75–86"
+title: "פסוקים 75–86"
 description: 'והתורכי יהרוג את סרבידוס ויקח את מלכותו.'
 book: chazon-daniel-kopti
 source: arabic

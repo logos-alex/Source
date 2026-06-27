@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק ה — חזון ירושלים הבנויה"
+title: "ט. חזון ירושלים הבנויה"
 description: "[ויוסף מטטרון ויאמר אלי: למלאות לחרבות ירושלים תשע מאות ותשעים שנה פקדתי תשועה לישראל."
 book: sefer-zerubbabel
 source: hebrew

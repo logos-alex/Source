@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "דף מג"
+title: "דף כ״א ע״ב — עמוד 41"
 description: "לְכֹהֲנַי אֶל מִשְׁכְּנוֹתֵיהֶם לִסְלִיחַת עֲוֹנוֹתֵיהֶם."
 book: chazon-kifa-laklemis
 source: arabic

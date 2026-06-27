@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק יז — [עמוד 49]"
+title: "[עמוד 49]"
 description: "ואותות ומופתים רבים נעשה: מתים לא ימצאו מקום לעמוד."
 book: apoc-daniel-syriac
 source: aramaic

@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק ה — פסוקים 1–6"
+title: "פסוקים 1–6"
 description: 'מסורת כתבי־היד: החיבור נשתמר בחמישה כתבי־יד ארמניים: (A) לונדון, Lambeth Palace Library, armen.'
 book: vision-daniel-armenian
 source: armenian

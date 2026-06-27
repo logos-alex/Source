@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק כ — אברהם ומלכיצדק"
+title: "אברהם ומלכיצדק"
 description: "ובהגיע לאברהם שמונים שנה נלחם באומות ויכם וייצל את לוט מהן, ולא היה לו בעת ההיא ולד, כי שרה הייתה עקרה."
 book: ketav-almagal
 source: arabic

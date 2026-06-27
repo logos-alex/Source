@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "דף לו"
+title: "דף י״ח ע״א — עמוד 34"
 description: "עַצְמוֹתֵיהֶם זֶה מִזֶּה, וְיֻגְלוּ מִמִּשְׁכְּנוֹתָם, וְלֹא אֶעְזֹב אֶתְכֶם."
 book: chazon-kifa-laklemis
 source: arabic

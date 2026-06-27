@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק ו — פסוקים 80–94"
+title: "פסוקים 80–94"
 description: '80 וַיֹּאמֶר ה'': מִי יִשְׁמָעֵנוּ.'
 book: chazon-ezra-sofer
 source: latin

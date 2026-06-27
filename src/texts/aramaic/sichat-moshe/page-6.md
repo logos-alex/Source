@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק ו"
+title: "חתימה"
 description: 'הויא דמושא: אידינ בחילא דאיתיא: ותשעיתא דמושא גביא בנביותא משלמא.'
 book: sichat-moshe
 source: aramaic

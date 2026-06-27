@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק ג — פסוקים 25–37"
+title: "פסוקים 25–37"
 description: 'והמלך האחד-עשר אשר יהיה מהם --- יעשה עול בכל הארץ, וישחית את כל מעשה ידי הראשונים.'
 book: chazon-daniel-kopti
 source: arabic

@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "דף יח"
+title: "דף ט ע״א — עמוד 16"
 description: "הַיּוֹנָה ― בְּרוּאָה כְּמוֹ הָרֵעַ."
 book: chazon-kifa-laklemis
 source: arabic

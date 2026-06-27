@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק ה"
+title: "חזיון ה"
 description: "א וַיֹּאמֶר הַנָּבִיא: רַחֵם, אֲדֹנָי, אֶת דּוֹר הַנּוֹצְרִים."
 book: apokalypsis-esdras
 source: greek

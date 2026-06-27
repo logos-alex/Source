@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "חלק ג: הומיליה 2 — קטע י"
+title: "חלק ג: הומיליה 2"
 description: "ואבין כבר את הפרוש ואחיה במעט ואמר: כי נביא היה."
 book: clementine-homilies-greek
 source: greek

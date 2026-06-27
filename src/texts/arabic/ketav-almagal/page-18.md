@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק יח — עבודת אלילים והתפשטות הפולחן המזויף"
+title: "עבודת אלילים והתפשטות הפולחן המזויף"
 description: "ובהגיע לשרוג שלושים שנה ילד את נחור בנו."
 book: ketav-almagal
 source: arabic

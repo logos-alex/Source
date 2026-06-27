@@ -7,7 +7,7 @@
 | סה"כ ספרים | 29 |
 | סה"כ פרקים | 661 |
 | סה"כ הערות שוליים | 374 |
-| סה"כ מילים (בערך) | 539,313 |
+| סה"כ מילים (בערך) | 265,829 |
 | ספרים עם תצוגה מקבילית | 9 |
 | ספרים בהכנה (comingSoon) | 1 |
 
@@ -23,12 +23,12 @@
 | chazon-ezra-sofer | latin | ezra | 8 | 8 | 2,724 |  | 0 |
 | chazon-ezra-suri | aramaic | ezra | 10 | 0 | 2,259 | ✓ | 0 |
 | chazon-kifa-laklemis | arabic | talmidei-yeshua | 57 | 0 | 9,687 |  | 0 |
-| clementine-homilies | aramaic | talmidei-yeshua | 23 | 21 | 88,095 | ✓ | 0 |
+| clementine-homilies | aramaic | talmidei-yeshua | 23 | 21 | 14,265 | ✓ | 0 |
 | clementine-homilies-greek | greek | talmidei-yeshua | 105 | 22 | 52,080 |  | 0 |
-| clementine-r1 | aramaic | talmidei-yeshua | 61 | 40 | 107,673 | ✓ | 0 |
-| clementine-r2 | aramaic | talmidei-yeshua | 76 | 26 | 123,123 | ✓ | 0 |
+| clementine-r1 | aramaic | talmidei-yeshua | 61 | 40 | 17,179 | ✓ | 0 |
+| clementine-r2 | aramaic | talmidei-yeshua | 76 | 26 | 14,118 | ✓ | 0 |
 | clementine-r3 | aramaic | talmidei-yeshua | 55 | 34 | 63,433 | ✓ | 0 |
-| clementine-r4 | aramaic | talmidei-yeshua | 3 | 2 | 618 | ✓ | 0 |
+| clementine-r4 | aramaic | talmidei-yeshua | 3 | 2 | 463 | ✓ | 0 |
 | clementos | geez | talmidei-yeshua | 9 | 9 | 2,389 |  | 0 |
 | enoch-qumran-aramaic | aramaic | enoch | 8 | 0 | 5,623 |  | 0 |
 | glia-de-klemis | arabic | talmidei-yeshua | 16 | 0 | 4,296 |  | 0 |

@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "חלק ד: הומיליות 3--9 — קטע ט"
+title: "חלק ד: הומיליות 3--9"
 description: "כן קולות השטנה של האלהים אשר ברא את השמים מבוטלים הם על ידי הקולות הנגדיים אשר עמם, ומוכחים הם מן הבריאה."
 book: clementine-homilies-greek
 source: greek

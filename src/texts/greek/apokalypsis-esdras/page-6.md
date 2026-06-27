@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק ו"
+title: "חזיון ו"
 description: "א אָז אָמַר לִי הָאֱלֹהִים: הֲיָדַעְתָּ, אֶסְדְרָס, אֶת שְׁמוֹת הַמַּלְאָכִים אֲשֶׁר עַל הַקֵּץ."
 book: apokalypsis-esdras
 source: greek

@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "חלק ג: הומיליה 2 — קטע ט"
+title: "חלק ג: הומיליה 2"
 description: "על כן רחוק מלהאמין, כי אדון הכל, אשר ברא שמים וארץ ואת כל אשר בהם, מושל עם אחרים; או כי משקר --- ומי יאמן."
 book: clementine-homilies-greek
 source: greek

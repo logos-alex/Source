@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "חלק ג: הומיליה 2 — קטע ה"
+title: "חלק ג: הומיליה 2"
 description: "כי בנסעו אל מצרים להעמיק בכשפים, ויוחנן נהרג, ודוסתיוס חפץ בראשית, הכריז מותו שקר ויירש את־הכפירה."
 book: clementine-homilies-greek
 source: greek

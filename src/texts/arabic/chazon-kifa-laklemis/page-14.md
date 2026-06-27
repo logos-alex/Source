@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "דף יד"
+title: "דף ז ע״א — עמוד 12"
 description: "שָׁאוּל מֶלֶךְ בְּנֵי יִשְׂרָאֵל, וַהֲשִׂימוֹתִי שַׂר־מַעַמִּדוֹ הַשָּׂטָן."
 book: chazon-kifa-laklemis
 source: arabic

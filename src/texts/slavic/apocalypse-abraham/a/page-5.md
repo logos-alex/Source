@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק ה"
+title: "חזון אברהם – נוסח א' – פרק ה"
 description: 'וָאֹמַר אֵלָיו: ''אָבִי תֵּרַח, אַל־תְּבָרֵךְ אֶת־מָרוּמָתָא אֱלֹהֶיךָ, אַל־תְהַלְלֵהוּ.'
 book: apocalypse-abraham
 version: a

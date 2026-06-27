@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק ד — פסוקים 38–49"
+title: "פסוקים 38–49"
 description: 'ואחרי זאת ישמע מלך ארם (סוריא) באחרית, כי אויב קרוב אליו.'
 book: chazon-daniel-kopti
 source: arabic
