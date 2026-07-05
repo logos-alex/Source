@@ -1,6 +1,10 @@
 {% extends "base.njk" %}
 
 {% block content %}
+  {% if book | hasMultipleVersions %}
+    {% include "version-tabs.njk" %}
+  {% endif %}
+
   <article class="text-main">
     <header class="text-header">
       <h1>{{ title }}
@@ -25,8 +29,7 @@
       {{ content | renderNoteRefs | safe }}
     </div>
 
-    {% set pagesInBook = collections.all | bookPages(page.url, book) %}
-    {% set chapterPages = pagesInBook | rejectattr("data.pageNumber", "equalto", 0) | list %}
+    {% set chapterPages = collections.all | bookPages(page.url, book, false) | list %}
     {% if chapterPages.length > 0 %}
       <div class="start-reading-cta">
         <a href="{{ chapterPages[0].url | url }}" class="btn btn--primary">התחל קריאה ←</a>

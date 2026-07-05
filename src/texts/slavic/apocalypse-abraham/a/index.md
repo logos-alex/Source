@@ -12,6 +12,7 @@ tags:
   - slavic
   - abraham
   - texts
+  - sub-intro
 permalink: /texts/slavic/apocalypse-abraham/a/
 description: "שחזור פילולוגי (retroversion) של הנוסח העברי-שמי המשוער שעמד בבסיס התרגום הסלאבי. רגיסטר: עברית של ימי בית שני/קומראנית, מעורבת ארמית קלה במקומות מוצדקים פילולוגית בלבד. 23 פרקים + נספח 'צמתים טעוני דיון'."
 ---

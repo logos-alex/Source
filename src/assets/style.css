@@ -2022,3 +2022,59 @@ article tbody tr:nth-child(even) {
   text-transform: uppercase;
   margin: 0 0 var(--s-3);
 }
+
+/* ====================================================================
+   Version tabs — for multi-version books (e.g. apocalypse-abraham a/b/c)
+   ==================================================================== */
+.version-tabs {
+  max-width: var(--max-w-read);
+  margin: var(--s-5) auto var(--s-4);
+  padding: 0 var(--s-4);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-1);
+  border-bottom: 1px solid var(--c-border-soft);
+}
+.version-tabs__tab {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--s-2) var(--s-4);
+  font-size: var(--fs-sm);
+  font-weight: 400;
+  color: var(--c-text-muted);
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-bottom: 2px solid transparent;
+  border-radius: var(--r-md) var(--r-md) 0 0;
+  transition: color var(--transition), background var(--transition), border-color var(--transition);
+  position: relative;
+  bottom: -1px;
+}
+.version-tabs__tab:hover {
+  color: var(--c-accent);
+  background: var(--c-surface-ink);
+  text-decoration: none;
+}
+.version-tabs__tab.is-active {
+  color: var(--c-accent);
+  font-weight: 700;
+  border-bottom-color: var(--c-accent);
+  background: var(--c-bg);
+}
+.version-tabs__tab:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 2px;
+}
+
+@media (max-width: 540px) {
+  .version-tabs {
+    margin: var(--s-4) auto var(--s-3);
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+  .version-tabs__tab {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+}

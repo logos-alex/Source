@@ -627,3 +627,47 @@ Stage Summary:
 - **מבואות:** 4 מבואות מלאים (ראשי + 3 נוסחים) עם מראי מקום אקדמיים
 - **מצב המאגר:** 1 חיבור מלא מתוך 29 (apocalypse-abraham), 28 עדיין ב-comingSoon
 - **סה"כ 5 סבבים:** 59 בעיות תשתית תוקנו + 1 חיבור מלא שולב, 0 רגרסיות
+
+---
+Task ID: 25
+Agent: Super Z (main) — תיקון בלאגן מבני + טאבי נוסחים
+Task: תיקון 5 בעיות מבניות בחזון אברהם + הוספת טאבים למעבר בין נוסחים
+
+Work Log:
+- [A] תיקון 1 — כרטיסים כפולים בקטגוריות:
+  · הוספת תג `sub-intro` ל-frontmatter של a/index.md, b/index.md, c/index.md
+  · התבניות slavic/index.njk ו-by-figure.njk כבר מסננות `sub-intro` — לא היה צריך לשנות אותן
+  · תוצאה: בקטגוריה slavic וב-by-figure/abraham יש עכשיו רק כרטיס אחד "חזון אברהם" (המבוא הראשי)
+- [B] תיקון 2 — פילטר bookPages לכבד version:
+  · זיהוי version מתוך URL: `/{book}/([^/]+)/` → currentVersion
+  · byVersion: אם יש currentVersion, כולל רק items שה-URL שלהם מכיל `/{book}/{currentVersion}/`
+  · אם אין currentVersion (מבוא ראשי), כולל רק items בלי version segment ב-URL
+  · תוצאה: אין יותר דליפה בין נוסחים ב-TOC ובניווט
+- [C] תיקון 3 — "התחל קריאה" שבור:
+  · גיליתי ש-`rejectattr("data.pageNumber", "equalto", 0)` לא עובד ב-Nunjucks (באג ידוע עם integer comparison)
+  · פתרון: החלפת `rejectattr` בקריאה ל-`bookPages(..., false)` שכבר מסנן pageNumber:0 דרך includeIndex=false
+  · תוצאה: "התחל קריאה" במבוא של נוסח a מצביע עכשיו ל-page-1 של נוסח a (לא לעצמו)
+- [D] תיקון 4 — TOC בעמודי הנוסחים:
+  · אותו תיקון כמו [C] — שימוש ב-`bookPages(..., false)` במקום `rejectattr`
+  · תוצאה: TOC של נוסח a מציג רק את page-1..page-24 של נוסח a (לא את המבוא הראשי או פרקים מנוסחים אחרים)
+- [E] תיקון 5 — דף נחיתה עם 3 כרטיסי כניסה:
+  · החלפת `layout: category-page.njk` ב-`layout: base.njk` עבור המבוא הראשי
+  · בניית 3 כרטיסי כניסה ויזואליים (version-card) עם hover effects
+  · כל כרטיס מכיל: שם הנוסח, תיאור קצר, מספר פרקים, קישור למבוא הנוסח
+  · תוצאה: דף נחיתה נקי עם 3 אפשרויות כניסה ברורות
+- [F] תצוגה מקבילית — טאבי נוסחים:
+  · יצירת `_includes/version-tabs.njk` — רצועת טאבים עם 4 כניסות: "מבוא כללי" + "נוסח a/b/c"
+  · הטאבים מופיעים בראש כל עמוד פרק (text-page.njk) ובראש כל מבוא נוסח (category-page.njk)
+  · אלגוריתם fallback: אם העמוד הנוכחי הוא page-N, הטאב מנסה לקשר ל-page-N באותו נוסח; אם לא קיים, נופל למבוא הנוסח
+  · הוספת 4 פילטרים חדשים ב-.eleventy.js: bookCatalogEntry, hasMultipleVersions, keys, length, regexMatch, push
+  · CSS מלא ל-version-tabs עם hover, active, focus-visible, mobile scroll
+  · תוצאה: מכל עמוד פרק אפשר לקפוץ ישירות לפרק המקביל בנוסח אחר (או למבוא הנוסח אם אין פרק מקביל)
+- [G] CI: כל 16 בדיקות עוברות (13.56s)
+
+Stage Summary:
+- **5 בעיות מבניות תוקנו:** כרטיסים כפולים, ניווט שבור, TOC שגוי, דף נחיתה חסר
+- **תצוגה מקבילית מוגשמת:** טאבי נוסחים בראש כל עמוד פרק ומבוא נוסח
+- **באג Nunjucks שזוהה:** `rejectattr` עם `equalto 0` (integer) לא עובד — נעקף על ידי שימוש ב-`bookPages(..., false)`
+- **6 פילטרים חדשים:** bookCatalogEntry, hasMultipleVersions, keys, length, regexMatch, push — לשימוש עתידי
+- **חוויית משתמש משופרת:** מכל פרק אפשר לקפוץ לפרק המקביל בנוסח אחר בלחיצה אחת
+- סה"כ 6 סבבים: 64 בעיות תוקנו, 1 חיבור מלא עם 3 נוסחים + טאבים, 0 רגרסיות

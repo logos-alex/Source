@@ -28,7 +28,7 @@ jobs:
         uses: actions/checkout@v5
 
       - name: Setup Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v5
         with:
           node-version: '22.11.0'
           cache: 'npm'
@@ -52,7 +52,7 @@ jobs:
 
       - name: Upload _site artifact
         if: always()
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@v5
         with:
           name: site-preview
           path: _site
@@ -61,7 +61,7 @@ jobs:
 
       - name: Upload Pagefind artifact
         if: always()
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@v5
         with:
           name: pagefind-index
           path: _site/pagefind

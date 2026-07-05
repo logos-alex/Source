@@ -12,6 +12,7 @@ tags:
   - slavic
   - abraham
   - texts
+  - sub-intro
 permalink: /texts/slavic/apocalypse-abraham/c/
 description: "שחזור עברי על פי שיטת פורפירייב (Porfiriev), המשלב ניתוח פילולוגי עצמאי ומסורת נוסח שונה. 28 פרקים (א–כח, עם 'הצהרת-האל השנייה' ופרק סיום) + נספח 'הבדלי נוסח מול נוסח א ו-ב'."
 ---

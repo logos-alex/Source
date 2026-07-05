@@ -12,6 +12,7 @@ tags:
   - slavic
   - abraham
   - texts
+  - sub-intro
 permalink: /texts/slavic/apocalypse-abraham/b/
 description: "שחזור מילה-במילה מן הסלאבית הכנסייתית לרובד הארמי-העברי האפוקליפטי, מילולי יותר מנוסח א'. 24 פרקים (א–כד) + נספח 'הבדלי נוסח מול נוסח א'."
 ---

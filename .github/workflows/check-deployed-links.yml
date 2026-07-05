@@ -33,17 +33,12 @@ jobs:
 
       - name: Open issue on failure
         if: failure()
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ISSUE_TITLE: '[Link-Check] Broken links detected on deployed site'
-          ISSUE_BODY: |
+        uses: dbuzanski/create-issue-action@v1
+        with:
+          title: '[Link-Check] Broken links detected on deployed site'
+          body: |
             The scheduled link-check workflow detected broken links on the deployed site.
 
             See: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-        run: |
-          gh issue create \
-            --title "$ISSUE_TITLE" \
-            --body "$ISSUE_BODY" \
-            --label bug \
-            --label links \
-            --assignee logos-alex || true
+          labels: bug,links
+          assignees: logos-alex
