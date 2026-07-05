@@ -1,0 +1,84 @@
+{% extends "base.njk" %}
+
+{% block content %}
+  <article class="text-main">
+    <header class="text-header">
+      <h1>{{ title }}
+        {% if rarity == "unpublished" %}<span class="book-card__badge book-card__badge--unpublished" title="פרסום ראשון מתוך כתב־יד — לא הודפס מעולם">פרסום ראשון מכתב־יד</span>{% endif %}
+        {% if comingSoon %}<span class="book-card__badge book-card__badge--coming-soon" title="החיבור בהכנה — הטקסט יתווסף בהמשך">בקרוב</span>{% endif %}
+      </h1>
+      {% if source or figure or manuscript %}
+        {% set langEntry = languages[source] %}
+        {% set sourceHebrew = (langEntry.label if langEntry else source) %}
+        {% set figureHebrew = figures[figure] or figure %}
+        <p class="text-meta">
+          {% if sourceHebrew %}<span class="text-meta__item"><span class="text-meta__label">מקור:</span> {{ sourceHebrew }}</span>{% endif %}
+          {% if sourceHebrew and figureHebrew %}<span class="text-meta__sep" aria-hidden="true">·</span>{% endif %}
+          {% if figureHebrew %}<span class="text-meta__item"><span class="text-meta__label">ייחוס:</span> {{ figureHebrew }}</span>{% endif %}
+          {% if figureHebrew and manuscript %}<span class="text-meta__sep" aria-hidden="true">·</span>{% endif %}
+          {% if manuscript %}<span class="text-meta__item"><span class="text-meta__label">כתב־יד:</span> {{ manuscript }}</span>{% endif %}
+        </p>
+      {% endif %}
+    </header>
+
+    <div class="text-content">
+      {{ content | renderNoteRefs | safe }}
+    </div>
+
+    {% set pagesInBook = collections.all | bookPages(page.url, book) %}
+    {% set chapterPages = pagesInBook | rejectattr("data.pageNumber", "equalto", 0) | list %}
+    {% if chapterPages.length > 0 %}
+      <div class="start-reading-cta">
+        <a href="{{ chapterPages[0].url | url }}" class="btn btn--primary">התחל קריאה ←</a>
+      </div>
+    {% endif %}
+  </article>
+
+  {% if pageNumber and pageNumber != 0 and notes %}
+    <div class="footnotes">
+      <h2 class="footnotes__heading">הערות וביאורים</h2>
+      <ul>
+        {% for note in notes %}
+          <li id="note-{{ loop.index }}">{{ note | renderMarkdownInline | safe }} <a href="#ref-{{ loop.index }}" class="note-backlink" aria-label="חזרה להערה {{ loop.index }}">↩</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+
+  <div class="table-of-contents c-section-divider">
+    <h2>תוכן העניינים</h2>
+    <ul>
+      {% for item in chapterPages %}
+        {% if item.url != page.url %}
+          <li><a href="{{ item.url | url }}">{{ item | chapterDisplayTitle(book) }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+
+    {% if chapterPages.length == 0 %}
+      <p class="c-muted--italic">פרקי החיבור יתווספו בהמשך.</p>
+    {% endif %}
+  </div>
+
+  {% if chapterPages.length > 0 %}
+    <nav class="pagination" aria-label="ניווט">
+      <span></span>
+      <div class="toc-dropdown">
+        <a href="{{ page.url | url }}" class="home-link">תוכן העניינים</a>
+        <div class="toc-dropdown-content">
+          <div class="toc-dropdown-header">פרקים בטקסט</div>
+          <ul>
+            {% for item in chapterPages %}
+              <li><a href="{{ item.url | url }}">{{ item | chapterDisplayTitle(book) }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <a href="{{ chapterPages[0].url | url }}" class="next">התחל קריאה ←</a>
+    </nav>
+  {% endif %}
+
+    {# --- אזור התגובות --- #}
+  {% include "disqus.njk" %}
+
+{% endblock %}

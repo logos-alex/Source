@@ -1,0 +1,54 @@
+{# Breadcrumbs Navigation Component #}
+{# Uses frontmatter fields (source, book, figure) when available; falls back to URL parsing. #}
+{% if page.url and page.url != '/' %}
+<nav class="breadcrumbs" aria-label="פירורי לחם">
+  <ol>
+    <li><a href="{{ '/' | url }}">דף הבית</a></li>
+
+    {% set urlParts = page.url.split('/') %}
+    {% set section = urlParts[1] %}
+
+    {% if section == 'texts' %}
+      {# Texts path: /texts/[source]/[book]/page-N/ #}
+      <li><a href="{{ '/texts/' | url }}">לפי מקור</a></li>
+
+      {% set sourceKey = source or urlParts[2] %}
+      {% if sourceKey and sourceKey != '' %}
+        {% set langEntry = languages[sourceKey] %}
+        {% set sourceHebrew = (langEntry.label if langEntry else sourceKey) %}
+        <li><a href="{{ ('/texts/' + sourceKey + '/') | url }}">{{ sourceHebrew }}</a></li>
+      {% endif %}
+
+      {% if book or (urlParts[3] and urlParts[3] != '') %}
+        {% set bookSlug = book or urlParts[3] %}
+        {% set bookUrl = '/texts/' + sourceKey + '/' + bookSlug + '/' %}
+        {% set bookIntro = collections.all | findCollectionItemByUrl(bookUrl) %}
+        {% set bookTitle = (bookIntro.data.title if bookIntro and bookIntro.data and bookIntro.data.title else bookSlug) | normalizeBookTitle %}
+        {% if urlParts[4] and urlParts[4].startsWith('page-') %}
+          <li><a href="{{ bookUrl | url }}">{{ bookTitle }}</a></li>
+          <li class="breadcrumb-current">{{ title }}</li>
+        {% else %}
+          <li><a href="{{ page.url | url }}">{{ title }}</a></li>
+        {% endif %}
+      {% endif %}
+
+    {% elif section == 'by-figure' %}
+      {# By-figure path: /by-figure/[figure]/ #}
+      <li><a href="{{ '/by-figure/' | url }}">לפי ייחוס</a></li>
+
+      {% set figureKey = figure or urlParts[2] %}
+      {% if figureKey and figureKey != '' %}
+        {% set figureHebrew = figures[figureKey] or figureKey %}
+        <li><a href="{{ ('/by-figure/' + figureKey + '/') | url }}">{{ figureHebrew }}</a></li>
+        {% if urlParts[3] and urlParts[3] != '' %}
+          <li class="breadcrumb-current">{{ title }}</li>
+        {% endif %}
+      {% endif %}
+
+    {% else %}
+      {# Other pages (about, contact, etc.) #}
+      <li class="breadcrumb-current">{{ title }}</li>
+    {% endif %}
+  </ol>
+</nav>
+{% endif %}

@@ -1,0 +1,22 @@
+---
+layout: base.njk
+title: "כתבים לפי מקור"
+permalink: /texts/
+---
+
+<div class="text-main category-listing">
+  <header class="text-header">
+    <p class="text-header__eyebrow">ספרייה</p>
+    <h1>{{ title }}</h1>
+    <p>הספרייה מסודרת לפי שפת המקור שבה השתמרו הכתבים. בחרו מקור כדי לצפות בהקדמות, תרגומים וביאורים.</p>
+  </header>
+
+  <div class="book-list">
+    {% for langSlug, langEntry in languages %}
+    <article class="book-card">
+      <h2><a class="book-card__primary-link" href="{{ ('/texts/' + langSlug + '/') | url }}">{{ langEntry.label }}</a></h2>
+      <p class="book-card__description">{{ langEntry.description }}</p>
+    </article>
+    {% endfor %}
+  </div>
+</div>

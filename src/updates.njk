@@ -1,0 +1,37 @@
+---
+layout: base.njk
+title: מה חדש
+bodyClass: updates-page
+---
+<div class="text-main updates-main">
+  <header class="text-header">
+    <p class="text-header__eyebrow">עדכונים</p>
+    <h1>מה חדש במיזם</h1>
+    <p>כאן נפרסם עדכונים שרלוונטיים בעיקר לחוויית הקריאה, החיפוש והניווט באתר.</p>
+  </header>
+
+  <div
+    class="updates-grid"
+    aria-label="רשימת עדכונים"
+    data-release-series="{{ updates.release.series }}"
+    data-release-id="{{ updates.release.id }}"
+    data-min-cards="{{ updates.release.minimumCardCount }}"
+  >
+    {% for item in updates.items %}
+    <article class="update-card" data-update-id="{{ item.id }}" data-update-flags="{{ item.flags | join(' ') }}">
+      <h3>{{ item.title }}</h3>
+      <p>{{ item.summary }}</p>
+      {% if item.links and item.links.length %}
+      <ul class="update-links" data-critical-links="true">
+        {% for link in item.links %}
+        <li>
+          <a href="{{ link.href | url }}" data-critical-link="{{ link.id }}">{{ link.label }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+      <p class="update-meta">תאריך: {{ item.dateLabel }} · קטגוריה: {{ item.category }}</p>
+    </article>
+    {% endfor %}
+  </div>
+</div>
