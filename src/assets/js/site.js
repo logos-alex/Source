@@ -265,12 +265,122 @@ const safeStorage = {
   }
 
 // ============================================================
-  // תצוגה מקבילית של נוסחים — טוען את הפרק המקביל בצד
+  // תצוגה מקבילית של נוסחים — טוען את הקטע המקביל בצד (לפי טבלת התאמה)
+  // + טוגל "הדגש הבדלים" עם diff מילולי (LCS) ונרמול ניקוד
   // ============================================================
+
+  // --- Hebrew normalization: strip niqqud/diacritics for comparison ---
+  function normalizeHebrew(text) {
+    if (!text) return '';
+    // Remove Hebrew diacritics (U+0591–U+05BD, U+05BF, U+05C1–U+05C5, U+05C7)
+    // Keep: letters (U+05D0–U+05EA), punctuation (U+05F0–U+05F4), maqaf (U+05BE)
+    return text.replace(/[\u0591-\u05BD\u05BF\u05C1-\u05C5\u05C7]/g, '');
+  }
+
+  // --- Word-level LCS diff ---
+  // Returns array of {text, type} where type is 'common' | 'add' | 'remove'
+  function diffWords(textA, textB) {
+    const normA = normalizeHebrew(textA);
+    const normB = normalizeHebrew(textB);
+    // Split into words, keeping original text for display
+    const wordsAorig = (textA || '').match(/\S+/g) || [];
+    const wordsBorig = (textB || '').match(/\S+/g) || [];
+    const wordsAnorm = (normA || '').match(/\S+/g) || [];
+    const wordsBnorm = (normB || '').match(/\S+/g) || [];
+
+    const n = wordsAnorm.length;
+    const m = wordsBnorm.length;
+
+    // Build LCS table
+    // dp[i][j] = length of LCS of wordsAnorm[i..] and wordsBnorm[j..]
+    const dp = Array.from({length: n + 1}, () => new Array(m + 1).fill(0));
+    for (let i = n - 1; i >= 0; i--) {
+      for (let j = m - 1; j >= 0; j--) {
+        if (wordsAnorm[i] === wordsBnorm[j]) {
+          dp[i][j] = dp[i+1][j+1] + 1;
+        } else {
+          dp[i][j] = Math.max(dp[i+1][j], dp[i][j+1]);
+        }
+      }
+    }
+
+    // Backtrack to produce diff
+    const result = [];
+    let i = 0, j = 0;
+    while (i < n && j < m) {
+      if (wordsAnorm[i] === wordsBnorm[j]) {
+        result.push({text: wordsAorig[i], type: 'common'});
+        i++; j++;
+      } else if (dp[i+1][j] >= dp[i][j+1]) {
+        result.push({text: wordsAorig[i], type: 'remove'});
+        i++;
+      } else {
+        result.push({text: wordsBorig[j], type: 'add'});
+        j++;
+      }
+    }
+    while (i < n) {
+      result.push({text: wordsAorig[i], type: 'remove'});
+      i++;
+    }
+    while (j < m) {
+      result.push({text: wordsBorig[j], type: 'add'});
+      j++;
+    }
+    return result;
+  }
+
+  // --- Render diff into a DOM element ---
+  function renderDiff(container, textA, textB, side) {
+    // side = 'left' (current page) or 'right' (parallel page)
+    // For 'left': show 'remove' words in red, 'add' words faded/hidden
+    // For 'right': show 'add' words in green, 'remove' words faded/hidden
+    const diff = diffWords(textA, textB);
+    container.innerHTML = '';
+    const frag = document.createDocumentFragment();
+    for (const item of diff) {
+      const span = document.createElement('span');
+      span.textContent = item.text + ' ';
+      if (side === 'left') {
+        if (item.type === 'remove') {
+          span.className = 'diff-remove';
+        } else if (item.type === 'add') {
+          // On the left side, additions from right are not shown (they belong to the other column)
+          // But we keep them faded so the reader sees where text was added
+          span.className = 'diff-add-faded';
+        } else {
+          span.className = 'diff-common';
+        }
+      } else { // right
+        if (item.type === 'add') {
+          span.className = 'diff-add';
+        } else if (item.type === 'remove') {
+          span.className = 'diff-remove-faded';
+        } else {
+          span.className = 'diff-common';
+        }
+      }
+      frag.appendChild(span);
+    }
+    container.appendChild(frag);
+  }
+
+  // --- Extract plain text from a DOM element (for diffing) ---
+  function extractText(el) {
+    if (!el) return '';
+    // Clone to avoid modifying original
+    const clone = el.cloneNode(true);
+    // Remove script, style, controls
+    clone.querySelectorAll('script, style, .text-controls, .parallel-controls, .version-parallel-controls, .version-parallel-panel, .reading-progress, .footnotes').forEach(e => e.remove());
+    return clone.textContent || '';
+  }
+
   function initVersionParallel() {
     const toggle = document.querySelector('[data-version-parallel="off"]');
     const select = document.querySelector('[data-version-parallel-select]');
     const panel = document.querySelector('[data-version-parallel-panel]');
+    const diffToggle = document.querySelector('[data-version-diff="off"]');
+    const sectionLabel = document.querySelector('[data-version-parallel-section]');
     if (!toggle || !select || !panel) return;
 
     const body = document.querySelector('[data-version-parallel-body]');
@@ -282,12 +392,35 @@ const safeStorage = {
 
     const STORAGE_KEY = 'versionParallelEnabled';
     const STORAGE_VERSION_KEY = 'versionParallelTarget';
+    const STORAGE_DIFF_KEY = 'versionDiffEnabled';
 
     // Extract book, source, current version, page number from the page URL
-    // Expected URL: /Source/texts/<source>/<book>/<version>/page-<N>/
     const urlMatch = window.location.pathname.match(/\/texts\/([^/]+)\/([^/]+)\/([^/]+)\/page-(\d+)\//);
     if (!urlMatch) return;
     const [, source, book, currentVersion, pageNum] = urlMatch;
+
+    // Load alignment data (embedded as <script type="application/json" data-alignment="...">)
+    let alignment = null;
+    const alignmentScript = document.querySelector('script[data-alignment="' + book + '"]');
+    if (alignmentScript) {
+      try {
+        alignment = JSON.parse(alignmentScript.textContent);
+      } catch (e) {
+        // ignore parse errors
+      }
+    }
+
+    // Find which section the current page belongs to
+    function findCurrentSection(ver, pgNum) {
+      if (!alignment || !alignment.sections) return null;
+      const n = parseInt(pgNum, 10);
+      for (const [sectionKey, section] of Object.entries(alignment.sections)) {
+        if (section[ver] === n) {
+          return {key: sectionKey, section: section};
+        }
+      }
+      return null;
+    }
 
     // Restore saved state
     const savedEnabled = safeStorage.get(STORAGE_KEY) === 'true';
@@ -295,10 +428,25 @@ const safeStorage = {
     if (savedTarget && select.querySelector('option[value="' + savedTarget + '"]')) {
       select.value = savedTarget;
     }
+    const savedDiff = safeStorage.get(STORAGE_DIFF_KEY) === 'true';
 
     function setLoading(isLoading) {
       if (loadingEl) loadingEl.style.display = isLoading ? '' : 'none';
     }
+
+    // Update the section label (shows which logical section we're viewing)
+    function updateSectionLabel() {
+      const current = findCurrentSection(currentVersion, pageNum);
+      if (sectionLabel) {
+        if (current) {
+          sectionLabel.textContent = 'קטע: ' + current.section.title;
+          sectionLabel.hidden = false;
+        } else {
+          sectionLabel.hidden = true;
+        }
+      }
+    }
+    updateSectionLabel();
 
     function applyState(enabled) {
       if (enabled) {
@@ -312,17 +460,101 @@ const safeStorage = {
         panel.hidden = true;
         toggle.setAttribute('aria-pressed', 'false');
         toggle.querySelector('span').textContent = 'כבויה';
+        // Also turn off diff when parallel is off
+        if (diffToggle && diffToggle.getAttribute('aria-pressed') === 'true') {
+          applyDiffState(false);
+        }
       }
       safeStorage.set(STORAGE_KEY, String(enabled));
+    }
+
+    function applyDiffState(enabled) {
+      if (diffToggle) {
+        diffToggle.setAttribute('aria-pressed', String(enabled));
+        diffToggle.querySelector('span').textContent = enabled ? 'הדגש הבדלים פעיל' : 'הדגש הבדלים';
+      }
+      if (enabled) {
+        article.classList.add('diff-active');
+        // Re-render with diff highlighting
+        renderParallelWithDiff();
+      } else {
+        article.classList.remove('diff-active');
+        // Restore normal content
+        restoreNormalContent();
+      }
+      safeStorage.set(STORAGE_DIFF_KEY, String(enabled));
+    }
+
+    function restoreNormalContent() {
+      // The parallel panel content was modified by diff; reload it normally
+      if (toggle.getAttribute('aria-pressed') === 'true') {
+        loadParallelContent();
+      }
+    }
+
+    function renderParallelWithDiff() {
+      // Get the current page's text content
+      const localContent = document.querySelector('article.text-main .text-content');
+      if (!localContent) return;
+      const textA = extractText(localContent);
+      const textB = extractText(body);
+      if (!textA || !textB) return;
+
+      // Render diff on both sides
+      const localDiffContainer = document.createElement('div');
+      localDiffContainer.className = 'diff-rendered diff-rendered--left';
+      localContent.parentNode.insertBefore(localDiffContainer, localContent);
+      localContent.style.display = 'none';
+      renderDiff(localDiffContainer, textA, textB, 'left');
+
+      // Replace panel body with diff version
+      const panelDiffContainer = document.createElement('div');
+      panelDiffContainer.className = 'diff-rendered diff-rendered--right';
+      body.style.display = 'none';
+      body.parentNode.insertBefore(panelDiffContainer, body);
+      renderDiff(panelDiffContainer, textA, textB, 'right');
     }
 
     function loadParallelContent() {
       const targetVersion = select.value;
       if (!targetVersion) return;
-      const targetUrl = `/Source/texts/${source}/${book}/${targetVersion}/page-${pageNum}/`;
-      titleEl.textContent = `נוסח ${targetVersion.toUpperCase()}' — פרק ${pageNum}`;
+
+      // Use alignment table to find the parallel page
+      const current = findCurrentSection(currentVersion, pageNum);
+      let targetPageNum = null;
+      let sectionTitle = '';
+      let sectionNote = '';
+
+      if (current && alignment) {
+        const targetPage = current.section[targetVersion];
+        sectionTitle = current.section.title;
+        sectionNote = current.section.note || '';
+        if (targetPage === null || targetPage === undefined) {
+          // Section is missing in target version
+          titleEl.textContent = `נוסח ${targetVersion.toUpperCase()}' — ${sectionTitle}`;
+          body.innerHTML = `<div class="version-parallel-missing">
+            <p><strong>קטע זה חסר בנוסח ${targetVersion.toUpperCase()}'.</strong></p>
+            <p class="version-parallel-missing__note">${sectionNote}</p>
+          </div>`;
+          setLoading(false);
+          return;
+        }
+        targetPageNum = targetPage;
+      } else {
+        // No alignment — fall back to same page number
+        targetPageNum = parseInt(pageNum, 10);
+      }
+
+      const targetUrl = `/Source/texts/${source}/${book}/${targetVersion}/page-${targetPageNum}/`;
+      const label = sectionTitle ? `${sectionTitle} — נוסח ${targetVersion.toUpperCase()}'` : `נוסח ${targetVersion.toUpperCase()}' — פרק ${targetPageNum}`;
+      titleEl.textContent = label;
       setLoading(true);
       body.innerHTML = '';
+
+      // Clean up any previous diff rendering
+      document.querySelectorAll('.diff-rendered').forEach(el => el.remove());
+      const localContent = document.querySelector('article.text-main .text-content');
+      if (localContent) localContent.style.display = '';
 
       fetch(targetUrl)
         .then(r => {
@@ -330,19 +562,23 @@ const safeStorage = {
           return r.text();
         })
         .then(html => {
-          // Parse the fetched HTML and extract the article content
           const parser = new DOMParser();
           const doc = parser.parseFromString(html, 'text/html');
           const remoteArticle = doc.querySelector('article.text-main .text-content') || doc.querySelector('article.text-main');
           if (remoteArticle) {
-            // Strip controls, footnotes from the cloned content
-            remoteArticle.querySelectorAll('.text-controls, .parallel-controls, .version-parallel-controls, .footnotes, .reading-progress').forEach(el => el.remove());
+            remoteArticle.querySelectorAll('.text-controls, .parallel-controls, .version-parallel-controls, .version-parallel-panel, .footnotes, .reading-progress, script').forEach(el => el.remove());
             body.innerHTML = '';
             body.appendChild(remoteArticle);
+            body.style.display = '';
           } else {
             body.innerHTML = '<p>לא נמצא תוכן מקביל בנוסח זה.</p>';
           }
           setLoading(false);
+
+          // If diff was previously enabled, re-apply
+          if (diffToggle && diffToggle.getAttribute('aria-pressed') === 'true') {
+            renderParallelWithDiff();
+          }
         })
         .catch(err => {
           body.innerHTML = `<p>שגיאה בטעינת התוכן המקביל: ${err.message}.<br>ייתכן שאין פרק מקביל בנוסח זה.</p>`;
@@ -366,8 +602,28 @@ const safeStorage = {
       closeBtn.addEventListener('click', () => applyState(false));
     }
 
+    if (diffToggle) {
+      diffToggle.addEventListener('click', () => {
+        // Diff can only be enabled if parallel is on
+        if (toggle.getAttribute('aria-pressed') !== 'true') {
+          // Auto-enable parallel first
+          applyState(true);
+          // Wait for content to load, then enable diff
+          setTimeout(() => applyDiffState(true), 500);
+        } else {
+          const isDiffOn = diffToggle.getAttribute('aria-pressed') === 'true';
+          applyDiffState(!isDiffOn);
+        }
+      });
+    }
+
     // Auto-enable if previously enabled
-    if (savedEnabled) applyState(true);
+    if (savedEnabled) {
+      applyState(true);
+      if (savedDiff && diffToggle) {
+        setTimeout(() => applyDiffState(true), 600);
+      }
+    }
   }
 
   function initParallelToggle() {

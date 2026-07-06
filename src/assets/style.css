@@ -2309,3 +2309,112 @@ article tbody tr:nth-child(even) {
   font-size: var(--fs-xs);
   color: var(--c-text-muted);
 }
+
+/* ============================================================
+   הדגשת הבדלים בין נוסחים (diff)
+   ============================================================ */
+.version-diff-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: var(--s-2) var(--s-3);
+  font-size: var(--fs-sm);
+  font-weight: 400;
+  color: var(--c-text-2);
+  background: var(--c-bg);
+  border: 1px solid var(--c-border-soft);
+  border-radius: var(--r-md);
+  cursor: pointer;
+  transition: all var(--transition);
+  margin-inline-start: var(--s-2);
+}
+.version-diff-toggle:hover {
+  color: var(--c-accent);
+  border-color: var(--c-accent);
+}
+.version-diff-toggle[aria-pressed="true"] {
+  color: var(--c-bg);
+  background: var(--c-accent);
+  border-color: var(--c-accent);
+  font-weight: 700;
+}
+
+/* Diff highlighting — words */
+.diff-rendered {
+  line-height: 1.9;
+  font-size: var(--fs-base);
+}
+.diff-rendered span {
+  display: inline;
+  padding: 0 1px;
+  border-radius: 2px;
+  transition: background 0.15s;
+}
+.diff-common {
+  background: transparent;
+}
+/* Words only in the CURRENT (left) version — removed from right */
+.diff-remove {
+  background: #fdd;
+  text-decoration: line-through;
+  text-decoration-color: #c33;
+}
+/* Words only in the PARALLEL (right) version — added vs left */
+.diff-add {
+  background: #dfd;
+  font-weight: 600;
+}
+/* Faded versions (shown on the opposite side, dimmed) */
+.diff-add-faded {
+  background: transparent;
+  color: var(--c-text-muted);
+  font-size: 0.85em;
+  opacity: 0.4;
+}
+.diff-remove-faded {
+  background: transparent;
+  color: var(--c-text-muted);
+  font-size: 0.85em;
+  opacity: 0.4;
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .diff-remove {
+  background: #4a2222;
+  color: #ffcccc;
+}
+[data-theme="dark"] .diff-add {
+  background: #224a22;
+  color: #ccffcc;
+}
+
+/* Missing-section notice in parallel panel */
+.version-parallel-missing {
+  padding: var(--s-5);
+  background: var(--c-bg);
+  border: 1px dashed var(--c-border);
+  border-radius: var(--r-md);
+  text-align: center;
+}
+.version-parallel-missing p {
+  margin-bottom: var(--s-3);
+}
+.version-parallel-missing__note {
+  font-size: var(--fs-sm);
+  color: var(--c-text-2);
+  line-height: 1.7;
+}
+
+/* Section label in the controls bar */
+.version-parallel-controls__section {
+  font-size: var(--fs-xs);
+  color: var(--c-accent);
+  font-weight: 700;
+  padding: var(--s-1) var(--s-3);
+  background: var(--c-bg);
+  border-radius: var(--r-sm);
+  margin-inline-start: var(--s-2);
+}
+.version-parallel-controls__section[hidden] {
+  display: none !important;
+}

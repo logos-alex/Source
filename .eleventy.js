@@ -319,6 +319,34 @@ module.exports = function(eleventyConfig) {
     url ? String(url).replace(/^\//, "") : ""
   );
 
+  // Get a global data file by key (e.g. "abraham-alignment" → src/_data/abraham-alignment.json)
+  // Returns the data object or null if not found.
+  eleventyConfig.addFilter("getGlobalData", (key) => {
+    if (!key) return null;
+    try {
+      const fs = require("fs");
+      const path = require("path");
+      // Try multiple base paths — __dirname and process.cwd()
+      const candidates = [
+        path.join(__dirname, "src", "_data", key + ".json"),
+        path.join(process.cwd(), "src", "_data", key + ".json"),
+      ];
+      for (const dataPath of candidates) {
+        if (fs.existsSync(dataPath)) {
+          return JSON.parse(fs.readFileSync(dataPath, "utf8"));
+        }
+      }
+    } catch (e) {
+      console.error("getGlobalData error for key '" + key + "':", e.message);
+    }
+    return null;
+  });
+
+  // Dump object as JSON string (for embedding in <script> tags)
+  eleventyConfig.addFilter("dump", (value) => {
+    return JSON.stringify(value || null);
+  });
+
   // Passthrough copy for assets and static files
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/robots.txt");

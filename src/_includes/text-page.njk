@@ -21,8 +21,17 @@
   </div>
 
   {% if book | hasMultipleVersions %}
-    {% include "version-tabs.njk" %}{# --- תצוגה מקבילית בין נוסחים (client-side, טוען את הפרק המקביל בצד) --- #}
+    {% include "version-tabs.njk" %}
+
+    {# --- תצוגה מקבילית בין נוסחים (client-side, טוען את הפרק המקביל בצד) --- #}
     {% if book | hasMultipleVersions and version and version != "main" and pageNumber != 0 %}
+      {# טען את טבלת ההתאמה אם קיימת לחיבור זה #}
+      {% set alignmentKey = book ~ "-alignment" %}
+      {% set alignmentData = alignmentKey | getGlobalData %}
+      {% if alignmentData %}
+        <script type="application/json" data-alignment="{{ book }}">{{ alignmentData | dump | safe }}</script>
+      {% endif %}
+
       <div class="version-parallel-controls" role="group" aria-label="תצוגה מקבילית של נוסחים">
         <span class="version-parallel-controls__label">תצוגה מקבילית:</span>
         <button class="version-parallel-toggle" type="button" data-version-parallel="off" aria-pressed="false">
@@ -40,6 +49,11 @@
             {% endfor %}
           </select>
         {% endif %}
+        <button class="version-diff-toggle" type="button" data-version-diff="off" aria-pressed="false" title="הדגש הבדלים מילוליים בין הנוסחים">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"/></svg>
+          <span>הדגש הבדלים</span>
+        </button>
+        <span class="version-parallel-controls__section" data-version-parallel-section hidden></span>
       </div>
     {% endif %}
   {% endif %}
