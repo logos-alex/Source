@@ -2138,7 +2138,7 @@ article tbody tr:nth-child(even) {
 
 /* Side panel — hidden by default, slides in when enabled */
 .version-parallel-panel {
-  display: block;  /* show by default; [hidden] attribute hides via !important below */
+  display: none;  /* hidden by default; shown when parent article has .text-main--with-parallel */
   margin-top: var(--s-5);
   padding: var(--s-5);
   background: var(--c-surface);
@@ -2146,8 +2146,8 @@ article tbody tr:nth-child(even) {
   border-radius: var(--r-md);
   border-block-start: 3px solid var(--c-accent);
 }
-.version-parallel-panel[hidden] {
-  display: none !important;
+.text-main--with-parallel > .version-parallel-panel {
+  display: block;  /* show when parallel mode is active */
 }
 .version-parallel-panel__header {
   display: flex;
