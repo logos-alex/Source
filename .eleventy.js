@@ -75,20 +75,109 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addFilter("displayBookTitle", displayBookTitle);
 
+  // Returns the catalog entry for a book id, or null.
+  // Usage: {{ book | bookCatalogEntry }}
+  eleventyConfig.addFilter("bookCatalogEntry", (bookId) => {
+    if (!bookId) return null;
+    try {
+      const catalog = require("./src/_data/sources-catalog.json");
+      return catalog.find((entry) => entry.id === bookId) || null;
+    } catch (_) {
+      return null;
+    }
+  });
+
+  // Returns true if a book has more than one declared version (multi-version book).
+  // Usage: {% if book | hasMultipleVersions %}...show version tabs...{% endif %}
+  eleventyConfig.addFilter("hasMultipleVersions", (bookId) => {
+    if (!bookId) return false;
+    try {
+      const catalog = require("./src/_data/sources-catalog.json");
+      const entry = catalog.find((e) => e.id === bookId);
+      if (!entry || !entry.versions) return false;
+      return Object.keys(entry.versions).length > 1;
+    } catch (_) {
+      return false;
+    }
+  });
+
+  // Returns the keys of an object as an array.
+  // Usage: {{ myObject | keys }}
+  eleventyConfig.addFilter("keys", (obj) => {
+    if (!obj || typeof obj !== "object") return [];
+    return Object.keys(obj);
+  });
+
+  // Returns the length of an array or number of keys in an object.
+  // Usage: {{ myArray | length }}
+  eleventyConfig.addFilter("length", (val) => {
+    if (Array.isArray(val)) return val.length;
+    if (val && typeof val === "object") return Object.keys(val).length;
+    if (typeof val === "string") return val.length;
+    return 0;
+  });
+
+  // Matches a regex against a string and returns the match array (or null).
+  // Usage: {% set m = someString | regexMatch("/page-(\\d+)/") %}
+  eleventyConfig.addFilter("regexMatch", (str, pattern, flags = "") => {
+    if (!str || !pattern) return null;
+    try {
+      // Strip surrounding /.../  if user wrapped the pattern
+      let p = pattern;
+      let f = flags;
+      if (p.startsWith("/") && p.lastIndexOf("/") > 0) {
+        const lastSlash = p.lastIndexOf("/");
+        f = p.slice(lastSlash + 1) || f;
+        p = p.slice(1, lastSlash);
+      }
+      const re = new RegExp(p, f);
+      return str.match(re);
+    } catch (_) {
+      return null;
+    }
+  });
+
+  // Push a value to an array and return the new array (immutable).
+  // Usage: {% set arr = arr | push(item) %}
+  eleventyConfig.addFilter("push", (arr, value) => {
+    if (!Array.isArray(arr)) return [value];
+    return arr.concat([value]);
+  });
+
   // Book pages with memoization to avoid O(n²) behavior across repeated calls.
+  // Respects `version` frontmatter: when a page declares `version: a` (or b/c/main),
+  // it only appears in navigation for the same version. This prevents cross-version
+  // leakage in multi-version books like apocalypse-abraham (a/b/c).
   const _bookPagesCache = new Map();
   eleventyConfig.addFilter("bookPages", (items, currentUrl, book, includeIndex = true) => {
     if (!items || !currentUrl) return [];
     const cacheKey = `${currentUrl}|${book}|${includeIndex ? 1 : 0}`;
     if (_bookPagesCache.has(cacheKey)) return _bookPagesCache.get(cacheKey);
 
+    // Detect version from URL: /texts/<source>/<book>/<version>/page-N/ → version=<version>
+    // For /texts/<source>/<book>/page-N/ (no version segment), version is "main" or "".
+    const versionMatch = currentUrl.match(new RegExp(`/${book}/([^/]+)/`));
+    const currentVersion = versionMatch ? versionMatch[1] : null;
+
     const prefix = currentUrl.replace(/[^/]+\/?$/, "");
     const byBook = (item) => book && item.data?.book === book;
     const byPrefix = (item) => item.url && item.url.startsWith(prefix);
+    const byVersion = (item) => {
+      // If current page has a version segment (e.g. /a/), only include items
+      // whose frontmatter version matches OR whose URL is within the same version subpath.
+      if (currentVersion) {
+        const itemVersion = item.data?.version || "main";
+        const itemUrlHasVersion = item.url && item.url.includes(`/${book}/${currentVersion}/`);
+        return itemUrlHasVersion && (itemVersion === currentVersion || itemVersion === "main");
+      }
+      // No version segment in current URL — only include items without a version segment
+      // (i.e. items directly under /<book>/, not under /<book>/<version>/).
+      return !(item.url && item.url.match(new RegExp(`/${book}/[^/]+/page-`)));
+    };
     // When both book and currentUrl are provided, filter by BOTH book AND prefix.
     // This allows multi-version books (e.g. apocalypse-abraham with a/ and b/)
     // to share the same book id while still being navigated separately.
-    const matches = (item) => book ? (byBook(item) && byPrefix(item)) : byPrefix(item);
+    const matches = (item) => book ? (byBook(item) && byPrefix(item) && byVersion(item)) : byPrefix(item);
 
     const result = items
       .filter(item => !item.data?.draft)
@@ -224,6 +313,11 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addFilter("jsonify", (value) => {
     return JSON.stringify(value || "");
   });
+
+  // Strip leading slash for URL construction
+  eleventyConfig.addFilter("stripLeadingSlash", (url) =>
+    url ? String(url).replace(/^\//, "") : ""
+  );
 
   // Passthrough copy for assets and static files
   eleventyConfig.addPassthroughCopy("src/assets");

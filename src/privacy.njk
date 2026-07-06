@@ -1,89 +1,421 @@
----
-layout: content-page.njk
-title: "מדיניות פרטיות"
-description: "מדיניות הפרטיות של אתר LOGIA — אילו נתונים נאספים, כיצד ולמה."
-permalink: /privacy/
-bodyClass: privacy-page
-eyebrow: "פרטיות"
-subtitle: '<span class="text-meta__item">עדכון אחרון: יוני 2026</span>'
----
+<!DOCTYPE html>
+<html lang="he" dir="rtl" id="htmlRoot">
+<head>
+    {% set sitePrefix = (site.pathPrefix or '/Source/') %}
+    {% set fonts = site.fonts or {} %}
+    {% set thirdParty = site.thirdParty or {} %}
+    {% set analytics = thirdParty.analytics or {} %}
+    {% set clarity = thirdParty.clarity or {} %}
+    {% set disqusConfig = thirdParty.disqus or {} %}
+    {% set translate = thirdParty.translate or {} %}
+    {% set defaultDescription = "מסע אל הכתבים הגנוזים והאבודים של המסורת היהדותית. תרגומים, ביאורים ועיון בטקסטים שנדחקו אל השוליים." %}
+    {% set pageDescription = description or defaultDescription %}
+    {% set ogImageUrl = site.origin ~ site.pathPrefix ~ 'assets/og-image.png' %}
+    {% set canonicalUrl = site.origin ~ site.pathPrefix %}
+    {% if page.url and page.url != '/' %}
+      {% set canonicalUrl = canonicalUrl ~ (page.url | stripLeadingSlash) %}
+    {% endif %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.url == '/' %}LOGIA — אוצר הכתבים הגנוזים | ספרות חיצונית ואפוקריפה בעברית{% else %}{{ title }} | LOGIA — אוצר הכתבים הגנוזים{% endif %}</title>
 
-<div class="c-info-box" style="margin-top: 0;">
-<p class="c-info-box__title">סיכום בשורה אחת</p>
-<p>LOGIA מכבדת את פרטיות מבקריה. האתר אינו אוסף נתונים אישיים מזהים בעצמו. שירותי צד-שלישי (Google Analytics, Microsoft Clarity) פועלים באתר אך ורק בהסכמת המשתמש, ואינם נטענים כברירת מחדל.</p>
-</div>
+    {# Pre-paint theme script — prevents flash-of-wrong-theme (FOUC) #}
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('theme');
+          if (!t) {
+            t = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          }
+          if (t === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+          }
+        } catch (e) {
+          try {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+              document.documentElement.setAttribute('data-theme', 'dark');
+            }
+          } catch (_) { /* no-op */ }
+        }
+      })();
+    </script>
 
-<h2>1. עקרונות יסוד</h2>
+    <!-- Accessibility -->
+    <meta name="color-scheme" content="light dark">
 
-<p>האתר פועל על-פי עקרון <strong>opt-in</strong> (הסכמה מפורשת): שירותי מדידה חיצוניים אינם פעילים כברירת מחדל, ואינם נטענים אלא אם-כן המשתמש אישר זאת מפורשות. מצב זה מכונה "הסכמה מפורשת" והוא תקנן ה-RTB (GDPR) האירופי ואת חוק הגנת הפרטיות הישראלי.</p>
+    <!-- PWA / Mobile -->
+    <meta name="theme-color" content="#1C1813" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#FAF6EE" media="(prefers-color-scheme: light)">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="LOGIA">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="manifest" href="{{ '/manifest.json' | url }}">
 
-<p>האתר אינו דורש הרשמה, אינו מבקש מידע אישי, ואינו משתמש בעוגיות מעקב משלו. כל התכנים פתוחים לקריאה ללא צורך בזיהוי.</p>
+    <!-- SEO & Meta Tags -->
+    <meta name="description" content="{{ pageDescription }}">
+    <meta name="author" content="LOGIA — אוצר הכתבים הגנוזים">
+    <meta name="robots" content="{% if robots %}{{ robots }}{% else %}index, follow{% endif %}">
+    <link rel="canonical" href="{{ canonicalUrl }}">
 
-<h2>2. שירותי צד-שלישי הפועלים באתר</h2>
+    {# Chapter prev/next links for serial navigation (Bing/Yandex/RSS readers) #}
+    {% block head_extras %}{% endblock %}
 
-<p>האתר עושה שימוש בשלושה שירותי צד-שלישי. פרטי כל אחד מופיעים להלן:</p>
+    {# preconnect to third-party origins used by Disqus/Analytics (when enabled) #}
+    {% if disqusConfig.enabled %}
+    <link rel="preconnect" href="https://{{ disqusConfig.shortname }}.disqus.com" crossorigin>
+    {% endif %}
+    {% if analytics.enabled %}
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    {% endif %}
+    {% if clarity.enabled %}
+    <link rel="preconnect" href="https://www.clarity.ms">
+    {% endif %}
 
-<h3>2.1 Google Analytics</h3>
-<p>שירות מדידת תנועה של חברת Google. מספק נתונים מצטברים על מספר מבקרים, דפים פופולריים, מקורות תנועה, וזמן שהייה. הנתונים מועברים לשרתי Google ומעובדים על-פי <a href="https://policies.google.com/privacy" rel="noopener">מדיניות הפרטיות של Google</a>. מזהה: <code>G-M3NHG4MWVR</code>.</p>
-<p><strong>מצב ברירת מחדל:</strong> כבוי. נטען רק לאחר הסכמה מפורשת של המשתמש + אינטראקציה עם האתר.</p>
+    <!-- Open Graph Tags for Social Media -->
+    {% if page.url == '/' %}
+      {% set ogType = "website" %}
+      {% set jsonLdType = "WebSite" %}
+    {% elif pageNumber == 0 %}
+      {% set ogType = "book" %}
+      {% set jsonLdType = "Book" %}
+    {% else %}
+      {% set ogType = "article" %}
+      {% set jsonLdType = "Article" %}
+    {% endif %}
+    <meta property="og:type" content="{{ ogType }}">
+    <meta property="og:title" content="{{ title }} | LOGIA — אוצר הכתבים הגנוזים">
+    <meta property="og:description" content="{{ pageDescription }}">
+    <meta property="og:url" content="{{ canonicalUrl }}">
+    <meta property="og:site_name" content="LOGIA — אוצר הכתבים הגנוזים">
+    <meta property="og:locale" content="he_IL">
+    <meta property="og:image" content="{{ ogImageUrl }}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="לוגו LOGIA — אוצר הכתבים הגנוזים, חותם מעגלי עם האות למדא על רקע שנהב-ברונזה">
 
-<h3>2.2 Microsoft Clarity</h3>
-<p>שירות הקלטת חום וניתוח התנהגות מבקרים של מיקרוסופט. מספק הקלטות אנונימיות של מסלולי גלילה וקליקים, לשם שיפור חוויית המשתמש. הנתונים מועברים לשרתי Microsoft ומעובדים על-פי <a href="https://privacy.microsoft.com/en-us/privacystatement" rel="noopener">מדיניות הפרטיות של Microsoft</a>. מזהה פרויקט: <code>ucq1c77qd5</code>.</p>
-<p><strong>מצב ברירת מחדל:</strong> כבוי. נטען רק לאחר הסכמה מפורשת + אינטראקציה.</p>
+    <!-- Twitter/X Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ title }} | LOGIA — אוצר הכתבים הגנוזים">
+    <meta name="twitter:description" content="{{ pageDescription }}">
+    <meta name="twitter:url" content="{{ canonicalUrl }}">
+    <meta name="twitter:image" content="{{ ogImageUrl }}">
+    <meta name="twitter:image:alt" content="לוגו LOGIA — אוצר הכתבים הגנוזים">
 
-<h3>2.3 Disqus (תגובות)</h3>
-<p>מערכת תגובות חיצונית המוטמעת בתחתית כל דף חיבור. המערכת משתמשת בעוגיות משלה ועשויה לאסוף נתוני גלישה לצורך תצוגת תגובות מותאמת אישית. ניתן לקרוא את <a href="https://help.disqus.com/en/articles/1717103-disqus-privacy-policy" rel="noopener">מדיניות הפרטיות של Disqus</a>. מזהה: <code>hebrew-aramaic-sources</code>.</p>
-<p><strong>מצב ברירת מחדל:</strong> פעיל — אך אינו נטען אלא בדפי חיבור עצמם, ולא בדף הבית או בדפי ניווט.</p>
+    {# JSON-LD Structured Data — Article/Book/WebSite #}
+    {% if page.url != '/' %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "{{ jsonLdType }}",
+      "name": "{% if book %}{{ book }} — {% endif %}{{ title }}",
+      "headline": {{ title | jsonify }},
+      "description": {{ pageDescription | jsonify }},
+      "url": "{{ canonicalUrl }}",
+      "inLanguage": "he",
+      "image": "{{ ogImageUrl }}",
+      {% if page.date %}"datePublished": "{{ page.date | toISOString }}",
+      "dateModified": "{{ page.date | toISOString }}",
+      {% endif %}
+      "mainEntityOfPage": "{{ canonicalUrl }}",
+      {% if book %}"articleSection": "{{ book }}",
+      "isPartOf": {
+        "@type": "Book",
+        "name": "{{ book }}"
+      },
+      {% endif %}
+      "author": {
+        "@type": "Organization",
+        "name": "LOGIA — אוצר הכתבים הגנוזים"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "LOGIA — אוצר הכתבים הגנוזים",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "{{ site.origin }}{{ site.pathPrefix }}assets/favicon-512.png"
+        }
+      }
+    }
+    </script>
+    {% endif %}
 
-<h3>2.4 Google Translate</h3>
-<p>שירות תרגום אוטומטי המופעל על-ידי לחיצה על כפתור "הפעל תרגום אוטומטי" בתחתית האתר. השירות אינו נטען כברירת מחדל ומופעל רק על-ידי פעולה מפורשת של המשתמש. <a href="https://policies.google.com/privacy" rel="noopener">מדיניות Google</a>.</p>
+    {% if page.url == '/' %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "LOGIA — אוצר הכתבים הגנוזים",
+      "url": "{{ site.origin }}{{ site.pathPrefix }}",
+      "inLanguage": "he",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "{{ site.origin }}{{ site.pathPrefix }}search/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "LOGIA — אוצר הכתבים הגנוזים",
+      "alternateName": "LOGIA",
+      "url": "{{ site.origin }}{{ site.pathPrefix }}",
+      "logo": "{{ site.origin }}{{ site.pathPrefix }}assets/favicon-512.png",
+      "description": {{ defaultDescription | jsonify }},
+      "sameAs": [
+        "https://github.com/logos-alex/Source"
+      ]
+    }
+    </script>
+    {% endif %}
 
-<h2>3. עוגיות (Cookies)</h2>
+    {# BreadcrumbList JSON-LD — built from frontmatter when available #}
+    {% if page.url and page.url != '/' and page.url != '/search/' and page.url != '/updates/' %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "דף הבית", "item": "{{ site.origin }}{{ site.pathPrefix }}" }
+        {% if source %}
+        ,{ "@type": "ListItem", "position": 2, "name": "{{ languages[source].label or source }}", "item": "{{ site.origin }}{{ site.pathPrefix }}texts/{{ source }}/" }
+          {% if book %}
+          ,{ "@type": "ListItem", "position": 3, "name": "{{ title }}", "item": "{{ canonicalUrl }}" }
+          {% else %}
+          ,{ "@type": "ListItem", "position": 3, "name": "{{ title }}", "item": "{{ canonicalUrl }}" }
+          {% endif %}
+        {% elif figure %}
+        ,{ "@type": "ListItem", "position": 2, "name": "לפי ייחוס", "item": "{{ site.origin }}{{ site.pathPrefix }}by-figure/" }
+        ,{ "@type": "ListItem", "position": 3, "name": "{{ figures[figure] or figure }}", "item": "{{ canonicalUrl }}" }
+        {% else %}
+        ,{ "@type": "ListItem", "position": 2, "name": "{{ title }}", "item": "{{ canonicalUrl }}" }
+        {% endif %}
+      ]
+    }
+    </script>
+    {% endif %}
 
-<p>האתר עצמו אינו משתמש בעוגיות מעקב. עם זאת, השירותים החיצוניים המפורטים לעיל עשויים להציב עוגיות משלהם ברגע שמופעלים. המשתמש יכול:</p>
+    {# Fonts: self-hosted Frank Ruhl Libre + Noto Serif Hebrew + EB Garamond (Latin display) #}
+    {% if fonts.useSelfHosted and fonts.selfHostedStylesheet %}
+    <link rel="stylesheet" href="{{ fonts.selfHostedStylesheet | url }}">
+    {% elif fonts.loadExternal %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;700&family=Noto+Serif+Hebrew:wght@300;400;700&family=EB+Garamond:wght@400;500;700&display=swap" rel="stylesheet">
+    {% endif %}
+    <link rel="stylesheet" href="{{ '/assets/style.css' | url }}">
+    <link rel="icon" type="image/svg+xml" href="{{ '/assets/favicon.svg' | url }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ '/assets/favicon-192.png' | url }}">
+    <link rel="icon" type="image/png" sizes="512x512" href="{{ '/assets/favicon-512.png' | url }}">
+    <link rel="icon" type="image/x-icon" href="{{ '/assets/favicon.ico' | url }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/apple-touch-icon.png' | url }}">
+    <link rel="mask-icon" href="{{ '/assets/favicon.svg' | url }}" color="#8B6F3A">
+</head>
+<body class="{{ bodyClass }}">
+    <a class="skip-link" href="#main-content">דלג לתוכן</a>
 
-<ul>
-<li>לסרב להפעלת Google Analytics ו-Microsoft Clarity — פשוט לא ללחוץ על כפתורי ההסכמה בתחתית האתר</li>
-<li>לנקות את העוגיות שהוצבו על-ידי שירותים אלו דרך הגדרות הדפדפן</li>
-<li>להשתמש בתוספי חסימת עוגיות/כתבנים (uBlock Origin, Privacy Badger, וכו')</li>
-</ul>
+    {% if bodyClass == "text-page" %}
+    <button id="readingModeToggle" class="reading-mode-toggle icon-btn" type="button" aria-pressed="false" aria-label="הפעלת מצב קריאה" title="מצב קריאה" data-reading-label-on="כיבוי מצב קריאה" data-reading-label-off="הפעלת מצב קריאה">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+      </svg>
+    </button>
+    {% endif %}
 
-<p>הגדרות העדפת נושא (מצב כהה/בהיר) נשמרות ב-<code>localStorage</code> של הדפדפן — זיכרון מקומי שאינו מועבר לשרת.</p>
+    <script>
+      window.siteRuntimeConfig = {
+        fonts: {
+          provider: "{{ fonts.provider or 'system' }}",
+          loadExternal: {{ "true" if fonts.loadExternal else "false" }},
+          useSelfHosted: {{ "true" if fonts.useSelfHosted else "false" }},
+          selfHostedStylesheet: "{{ fonts.selfHostedStylesheet or '' }}",
+          fallbackStack: "{{ fonts.fallbackStack or '' }}"
+        },
+        thirdParty: {
+          analytics: {
+            enabled: {{ "true" if analytics.enabled else "false" }},
+            measurementId: "{{ analytics.measurementId or '' }}",
+            loadStrategy: "{{ analytics.loadStrategy or 'disabled' }}"
+          },
+          clarity: {
+            enabled: {{ "true" if clarity.enabled else "false" }},
+            projectId: "{{ clarity.projectId or '' }}",
+            loadStrategy: "{{ clarity.loadStrategy or 'disabled' }}"
+          },
+          disqus: {
+            enabled: {{ "true" if disqusConfig.enabled else "false" }},
+            shortname: "{{ disqusConfig.shortname or '' }}",
+            loadStrategy: "{{ disqusConfig.loadStrategy or 'lazy' }}"
+          },
+          translate: {
+            enabled: {{ "true" if translate.enabled else "false" }},
+            includedLanguages: "{{ translate.includedLanguages or 'en' }}"
+          }
+        }
+      };
+    </script>
 
-<h2>4. נתונים שאינם נאספים</h2>
+    <header>
+        <div class="header-top">
+            <a href="{{ '/' | url }}" class="site-brand">
+              <span class="site-brand__mark" aria-hidden="true">{% include "logo-mark.njk" %}</span>
+              <span class="site-brand__text">
+                <span class="site-brand__name">LOGIA</span>
+                <span class="site-brand__tagline">אוצר הכתבים הגנוזים</span>
+              </span>
+            </a>
 
-<p>האתר אינו אוסף ואינו מעבד:</p>
-<ul>
-<li>שמות, כתובות דוא"ל, מספרי טלפון או כל פרט מזהה אישי אחר (למעט פניות יזומות לכתובת הקשר)</li>
-<li>כתובות IP כשלעצמן (Google Analytics ו-Clarity עשויים לקבל כתובת IP מקוצרת כחלק מהפרוטוקול, אך אינם מאחסנים אותה במלואה)</li>
-<li>נתוני מיקום מדויקים (נכללים רק נתוני מדינה/עיר ברמת דיוק נמוכה)</li>
-<li>מידע רגיש (השתייכות דתית, פוליטית, רפואית וכו')</li>
-</ul>
+            <div class="header-controls">
+              <form class="header-search" role="search" action="{{ '/search/' | url }}" method="get">
+                <label for="headerSearchInput" class="sr-only">חיפוש באוצר</label>
+                <input
+                  id="headerSearchInput"
+                  class="header-search__input"
+                  type="search"
+                  name="q"
+                  placeholder="חיפוש בכתבים…"
+                  autocomplete="off"
+                  enterkeyhint="search"
+                  aria-label="חיפוש בכתבים">
+                <button class="header-search__btn" type="submit" aria-label="חיפוש">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="11" cy="11" r="8"/>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                  </svg>
+                </button>
+              </form>
+              <button id="themeToggle" class="icon-btn theme-toggle" aria-label="מצב אור/חושך" aria-pressed="false" title="מצב אור/חושך">
+                <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+                <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none;">
+                  <circle cx="12" cy="12" r="5"/>
+                  <line x1="12" y1="1" x2="12" y2="3"/>
+                  <line x1="12" y1="21" x2="12" y2="23"/>
+                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                  <line x1="1" y1="12" x2="3" y2="12"/>
+                  <line x1="21" y1="12" x2="23" y2="12"/>
+                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+              </button>
+              <button id="mainNavToggle" class="main-nav-toggle" type="button" aria-controls="mainNav" aria-expanded="false" aria-label="פתיחה וסגירה של תפריט הניווט">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                  <line x1="3" y1="6" x2="21" y2="6"/>
+                  <line x1="3" y1="12" x2="21" y2="12"/>
+                  <line x1="3" y1="18" x2="21" y2="18"/>
+                </svg>
+              </button>
+            </div>
+        </div>
 
-<h2>5. אבטחת מידע</h2>
+        <nav id="mainNav" role="navigation" aria-label="ניווט ראשי">
+            <a href="{{ '/' | url }}" {% if page.url == "/" %}aria-current="page"{% endif %}>דף הבית</a>
+            <a href="{{ '/updates/' | url }}" {% if page.url == "/updates/" %}aria-current="page"{% endif %}>מה חדש</a>
+            <div class="nav-dropdown">
+                <a href="{{ '/texts/' | url }}" class="dropbtn" aria-haspopup="true" aria-expanded="false" {% if page.url == "/texts/" %}aria-current="page"{% endif %}>לפי מקור</a>
+                <div class="dropdown-content">
+                    {% for langSlug, langEntry in languages %}
+                    <a href="{{ ('/texts/' + langSlug + '/') | url }}" {% if page.url == '/texts/' + langSlug + '/' %}aria-current="page"{% endif %}>{{ langEntry.label }}</a>
+                    {% endfor %}
+                </div>
+            </div>
 
-<p>האתר מאוחסן על-גבי GitHub Pages המספק חיבור מוצפן (HTTPS). האתר עצמו אינו מכיל טפסים להזנת מידע אישי (למעט מערכת התגובות של Disqus, שהינה אופציונלית).</p>
+            <div class="nav-dropdown">
+                <a href="{{ '/by-figure/' | url }}" class="dropbtn" aria-haspopup="true" aria-expanded="false" {% if page.url == "/by-figure/" %}aria-current="page"{% endif %}>לפי ייחוס</a>
+                <div class="dropdown-content">
+                    {% for figureKey in figureCatalogKeys %}
+                    <a href="{{ ('/by-figure/' + figureKey + '/') | url }}" {% if page.url == '/by-figure/' + figureKey + '/' %}aria-current="page"{% endif %}>{{ figures[figureKey] or figureKey }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+            <a href="{{ '/about/' | url }}" {% if page.url == "/about/" %}aria-current="page"{% endif %}>אודות</a>
+            <a href="{{ '/contact/' | url }}" {% if page.url == "/contact/" %}aria-current="page"{% endif %}>צור קשר</a>
+            <a href="{{ '/search/' | url }}" class="mobile-search-link" {% if page.url == "/search/" %}aria-current="page"{% endif %}>חיפוש באוצר</a>
+        </nav>
+        {% include "breadcrumbs.njk" %}
+    </header>
 
-<h2>6. זכויות המשתמש</h2>
+    <main id="main-content" role="main" tabindex="-1">
+        {% block content %}
+            {{ content | safe }}
+        {% endblock %}
+    </main>
 
-<p>על-פי חוק הגנת הפרטיות הישראלי וה-GDPR האירופי, למשתמש זכויות אלה:</p>
-<ul>
-<li><strong>זכות גישה</strong> — לדעת אילו נתונים נאספו עליו</li>
-<li><strong>זכות מחיקה</strong> — לבקש מחיקת נתונים</li>
-<li><strong>זכות תיקון</strong> — לתקן נתונים שגויים</li>
-<li><strong>זכות התנגדות</strong> — להתנגד לעיבוד נתונים</li>
-<li><strong>זכות ניידות</strong> — לקבל את הנתונים בפורמט ניתן-העברה</li>
-</ul>
+    <footer>
+      <div class="footer-inner">
 
-<p>מכיוון שהאתר אינו אוסף נתונים אישיים בעצמו, רוב הזכויות הללו מתייחסות לשירותי הצד-השלישי. להפעלת זכויות אלה מול Google או Microsoft, יש לפנות ישירות אליהן דרך דפי הפרטיות שלהן.</p>
+        <div class="footer-brand">
+          <span class="footer-brand__mark" aria-hidden="true">{% include "logo-mark.njk" %}</span>
+          <div class="footer-brand__text">
+            <span class="footer-brand__name">LOGIA</span>
+            <span class="footer-brand__tagline">אוצר הכתבים הגנוזים</span>
+          </div>
+        </div>
+        <p class="footer-tagline">השבת קולות עתיקים אל שפת המוצא — שחזורים, תרגומים וביאורים של טקסטים שנדחקו אל שולי המסורת.</p>
 
-<h2>7. שינויים במדיניות</h2>
+        <nav class="footer-nav" aria-label="ניווט בפוטר">
+          <div class="footer-nav__col">
+            <h2 class="footer-nav__heading">תוכן</h2>
+            <ul>
+              <li><a href="{{ '/texts/' | url }}">לפי מקור</a></li>
+              <li><a href="{{ '/by-figure/' | url }}">לפי ייחוס</a></li>
+              <li><a href="{{ '/search/' | url }}">חיפוש באוצר</a></li>
+              <li><a href="{{ '/updates/' | url }}">מה חדש</a></li>
+              <li><a href="{{ '/updates/feed.xml' | url }}">פיד RSS</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav__col">
+            <h2 class="footer-nav__heading">המיזם</h2>
+            <ul>
+              <li><a href="{{ '/about/' | url }}">אודות LOGIA</a></li>
+              <li><a href="{{ '/license/' | url }}">רישיון ושימוש</a></li>
+              <li><a href="{{ '/contact/' | url }}">צור קשר</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav__col">
+            <h2 class="footer-nav__heading">מקורות מובילים</h2>
+            <ul>
+              {% for langSlug, langEntry in languages %}
+              <li><a href="{{ ('/texts/' + langSlug + '/') | url }}">{{ langEntry.label }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        </nav>
 
-<p>מדיניות זו עשויה להתעדכן מעת לעת. תאריך העדכון האחרון מופיע בראש הדף. שינויים מהותיים יפורסמו בדף <a href="{{ '/updates/' | url }}">"מה חדש"</a>.</p>
+        {% if translate.enabled %}
+        <div class="footer-tool-group">
+            <p class="footer-tool-copy">תרגום מכונה נטען רק אם בוחרים בכך, כדי לחסוך בקשות חיצוניות מיותרות.</p>
+            <button id="translateLauncher" class="footer-action" type="button" data-third-party-trigger="translate">
+              הפעל תרגום אוטומטי
+            </button>
+            <div id="google_translate_element" hidden></div>
+        </div>
+        {% endif %}
 
-<h2>8. יצירת קשר</h2>
+        <div class="footer-meta">
+          <p>התכנים באתר מופצים בנחלת הכלל (<a href="{{ '/license/' | url }}">CC0 1.0</a>) — ניתן להשתמש, לצטט ולשנות בחופשיות.</p>
+          <p class="c-footer-meta">
+            &copy; LOGIA — 2025–{{ buildInfo.buildYear }} ·
+            <a href="{{ '/sitemap.xml' | url }}">Sitemap</a> ·
+            <a href="{{ '/robots.txt' | url }}">Robots</a> ·
+            <a href="{{ '/manifest.json' | url }}">Manifest</a>
+          </p>
+        </div>
+      </div>
+    </footer>
 
-<p>לשאלות בנוגע למדיניות פרטיות זו, ניתן לפנות לכתובת המצוינת בדף <a href="{{ '/contact/' | url }}">צור קשר</a>.</p>
+    <button id="backToTop" class="back-to-top" type="button" aria-label="חזרה לראש העמוד" title="חזרה לראש העמוד">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="12" y1="19" x2="12" y2="5"/>
+        <polyline points="5 12 12 5 19 12"/>
+      </svg>
+    </button>
 
-</div>
-
+    <script src="{{ '/assets/js/site.js' | url }}" defer></script>
+</body>
+</html>

@@ -18,8 +18,9 @@ function withSitePrefix(pathname) {
 }
 
 function readBuiltFile(file) {
+  if (!fs.existsSync(file)) return null;
   if (!fs.existsSync(file)) {
-    return null;
+    throw new Error(`Missing built file: ${file}`);
   }
 
   return fs.readFileSync(file, 'utf8');

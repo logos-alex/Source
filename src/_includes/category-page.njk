@@ -1,6 +1,10 @@
 {% extends "base.njk" %}
 
 {% block content %}
+  {% if book | hasMultipleVersions %}
+    {% include "version-tabs.njk" %}
+  {% endif %}
+
   <article class="text-main">
     <header class="text-header">
       <h1>{{ title }}
@@ -25,16 +29,10 @@
       {{ content | renderNoteRefs | safe }}
     </div>
 
-    {% set pagesInBook = collections.all | bookPages(page.url, book) %}
-    {% set firstChapterUrl = "" %}
-    {% for item in pagesInBook %}
-      {% if item.data.pageNumber and item.data.pageNumber > 0 and firstChapterUrl == "" %}
-        {% set firstChapterUrl = item.url %}
-      {% endif %}
-    {% endfor %}
-    {% if firstChapterUrl %}
+    {% set chapterPages = collections.all | bookPages(page.url, book, false) | list %}
+    {% if chapterPages.length > 0 %}
       <div class="start-reading-cta">
-        <a href="{{ firstChapterUrl | url }}" class="btn btn--primary">התחל קריאה ←</a>
+        <a href="{{ chapterPages[0].url | url }}" class="btn btn--primary">התחל קריאה ←</a>
       </div>
     {% endif %}
   </article>
@@ -52,7 +50,6 @@
 
   <div class="table-of-contents c-section-divider">
     <h2>תוכן העניינים</h2>
-    {% set chapterPages = collections.all | bookPages(page.url, book, false) %}
     <ul>
       {% for item in chapterPages %}
         {% if item.url != page.url %}
@@ -80,7 +77,7 @@
           </ul>
         </div>
       </div>
-      <a href="{{ firstChapterUrl | url }}" class="next">התחל קריאה ←</a>
+      <a href="{{ chapterPages[0].url | url }}" class="next">התחל קריאה ←</a>
     </nav>
   {% endif %}
 

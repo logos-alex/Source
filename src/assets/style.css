@@ -8,7 +8,6 @@
   /* Palette — Light (warm ivory + deep ink + antique bronze) */
   --c-bg:           #FAF6EE;
   --c-bg-soft:      #F2EBDC;
-  --c-bg-sunken:    #EFE6D2;
   --c-surface:      rgba(255, 252, 244, 0.72);
   --c-surface-2:    rgba(255, 252, 244, 0.45);
   --c-surface-ink:  rgba(28, 24, 19, 0.04);
@@ -20,16 +19,16 @@
 
   --c-border:       #D8C9A8;
   --c-border-soft:  #E5D9BD;
-  --c-border-strong:#B89E6B;
 
   --c-accent:       #7C6233;  /* antique bronze — darkened for WCAG AA */
   --c-accent-2:     #A85C3C;  /* faded terracotta */
   --c-accent-ink:   #5C4626;
   --c-gold:         #B89E6B;
-  --c-gold-soft:    #D4BB87;
 
   --c-beta:         #A85F1F;
   --c-beta-bg:      rgba(168, 95, 31, 0.10);
+
+  --c-surface-accent: rgba(139, 111, 58, 0.15);
 
   /* Typography */
   --font-hebrew:    'Frank Ruhl Libre', 'Noto Serif Hebrew', 'David', 'Times New Roman', serif;
@@ -44,7 +43,6 @@
   --fs-xl:   1.55rem;
   --fs-2xl:  1.9rem;
   --fs-3xl:  2.4rem;
-  --fs-4xl:  3.2rem;
   --fs-5xl:  4.5rem;
 
   /* Spacing scale */
@@ -57,19 +55,25 @@
   --s-7: 2.75rem;
   --s-8: 3.5rem;
   --s-9: 5rem;
-  --s-10: 7rem;
 
   /* Radii */
   --r-sm: 3px;
   --r-md: 6px;
   --r-lg: 10px;
-  --r-xl: 16px;
   --r-pill: 999px;
 
   /* Layout */
   --max-w:       1180px;
   --max-w-read:  760px;
   --max-w-wide:  1320px;
+
+  /* z-index scale — keep ordered to avoid magic numbers */
+  --z-base:       1;     /* default stacking, no need to set */
+  --z-dropdown:   50;    /* nav dropdown menus */
+  --z-overlay:    90;    /* floating buttons (back-to-top, mobile sheets) */
+  --z-sticky:     100;   /* sticky header */
+  --z-toast:      200;   /* transient toasts / banners (future) */
+  --z-skip-link:  1000;  /* accessibility skip-link (always on top) */
 
   /* Effects */
   --shadow-sm: 0 1px 2px rgba(28, 24, 19, 0.06);
@@ -86,7 +90,6 @@
 html[data-theme="dark"] {
   --c-bg:           #100D09;
   --c-bg-soft:      #18140F;
-  --c-bg-sunken:    #0B0907;
   --c-surface:      rgba(36, 28, 20, 0.7);
   --c-surface-2:    rgba(36, 28, 20, 0.4);
   --c-surface-ink:  rgba(239, 231, 213, 0.04);
@@ -98,16 +101,16 @@ html[data-theme="dark"] {
 
   --c-border:       #3A3024;
   --c-border-soft:  #2A241B;
-  --c-border-strong:#6E5A38;
 
   --c-accent:       #C9A35D;
   --c-accent-2:     #D88B5F;
   --c-accent-ink:   #E5C78A;
   --c-gold:         #C9A35D;
-  --c-gold-soft:    #8E7244;
 
   --c-beta:         #E89A47;
   --c-beta-bg:      rgba(232, 154, 71, 0.12);
+
+  --c-surface-accent: rgba(201, 163, 93, 0.20);
 
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
   --shadow-md: 0 4px 18px -6px rgba(0, 0, 0, 0.5);
@@ -255,7 +258,7 @@ blockquote {
   position: absolute;
   top: -100px;
   inset-inline-start: var(--s-3);
-  z-index: 1000;
+  z-index: var(--z-skip-link);
   padding: var(--s-2) var(--s-4);
   background: var(--c-accent);
   color: var(--c-bg);
@@ -270,7 +273,7 @@ blockquote {
 header {
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: var(--z-sticky);
   background: var(--c-surface);
   backdrop-filter: blur(18px) saturate(140%);
   -webkit-backdrop-filter: blur(18px) saturate(140%);
@@ -359,6 +362,12 @@ header {
   outline-offset: 2px;
 }
 
+/* Theme toggle icon visibility — driven by data-theme on <html>.
+   .icon-moon shown in light mode (default), .icon-sun in dark mode. */
+.icon-sun { display: none; }
+html[data-theme="dark"] .icon-moon { display: none; }
+html[data-theme="dark"] .icon-sun { display: block; }
+
 .main-nav-toggle { display: none; }
 
 /* ----------------------------- Nav --------------------------------- */
@@ -426,7 +435,7 @@ nav#mainNav > a[aria-current="page"]::after {
   visibility: hidden;
   transform: translateY(-6px);
   transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
-  z-index: 50;
+  z-index: var(--z-dropdown);
 }
 .nav-dropdown:hover .dropdown-content,
 .nav-dropdown:focus-within .dropdown-content,
@@ -1065,6 +1074,7 @@ main {
 }
 .parallel-layout .column-source,
 .parallel-layout .column-translation {
+  font-size: var(--fs-base);
   line-height: 1.9;
 }
 .parallel-layout .column-source {
@@ -1095,7 +1105,7 @@ main {
   right: 0;
   height: 3px;
   background: transparent;
-  z-index: 200;
+  z-index: var(--z-toast);
   pointer-events: none;
 }
 .reading-progress-bar {
@@ -1496,7 +1506,7 @@ body.reading-mode .text-main {
   position: fixed;
   inset-block-end: var(--s-5);
   inset-inline-end: var(--s-5);
-  z-index: 90;
+  z-index: var(--z-overlay);
   /* Hidden by default; only shown on text pages via body.text-page class
      or when reading-mode is active on a text page. */
   display: none;
@@ -1622,6 +1632,16 @@ body.reading-mode .reading-mode-toggle {
   .epigraph-card { padding: var(--s-5); font-size: var(--fs-base); }
   .book-list { grid-template-columns: 1fr; }
   .header-search { display: none; }
+
+  /* Mobile-only nav entry to /search/ — shown when header search input is hidden */
+  .mobile-search-link {
+    display: block;
+    padding: var(--s-3) var(--s-4);
+    border-top: 1px solid var(--c-border-soft);
+    margin-top: var(--s-3);
+    font-weight: 700;
+    color: var(--c-accent);
+  }
 }
 
 @media (max-width: 540px) {
@@ -1740,7 +1760,7 @@ body.reading-mode .reading-mode-toggle {
   position: fixed;
   inset-block-end: var(--s-5);
   inset-inline-start: var(--s-5);
-  z-index: 90;
+  z-index: var(--z-overlay);
   width: 44px;
   height: 44px;
   display: inline-flex;
@@ -1873,13 +1893,6 @@ body[data-font-scale="xl"] .text-content { font-size: var(--fs-xl); line-height:
   border: 0 !important;
 }
 
-:root {
-  --c-surface-accent: rgba(139, 111, 58, 0.15);
-}
-html[data-theme="dark"] {
-  --c-surface-accent: rgba(201, 163, 93, 0.20);
-}
-
 a:focus-visible,
 .btn:focus-visible,
 .book-card__primary-link:focus-visible,
@@ -1947,21 +1960,9 @@ article tbody tr:nth-child(even) {
 }
 
 /* ====================================================================
-   Mobile search link + Start reading CTA
+   Start reading CTA
    ==================================================================== */
-.mobile-search-link {
-  display: none;
-}
-@media (max-width: 880px) {
-  .mobile-search-link {
-    display: block;
-    padding: var(--s-3) var(--s-4);
-    border-top: 1px solid var(--c-border-soft);
-    margin-top: var(--s-3);
-    font-weight: 700;
-    color: var(--c-accent);
-  }
-}
+.mobile-search-link { display: none; } /* hidden by default; revealed in 880px breakpoint */
 
 .start-reading-cta {
   text-align: center;
@@ -2020,4 +2021,60 @@ article tbody tr:nth-child(even) {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   margin: 0 0 var(--s-3);
+}
+
+/* ====================================================================
+   Version tabs — for multi-version books (e.g. apocalypse-abraham a/b/c)
+   ==================================================================== */
+.version-tabs {
+  max-width: var(--max-w-read);
+  margin: var(--s-5) auto var(--s-4);
+  padding: 0 var(--s-4);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-1);
+  border-bottom: 1px solid var(--c-border-soft);
+}
+.version-tabs__tab {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--s-2) var(--s-4);
+  font-size: var(--fs-sm);
+  font-weight: 400;
+  color: var(--c-text-muted);
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-bottom: 2px solid transparent;
+  border-radius: var(--r-md) var(--r-md) 0 0;
+  transition: color var(--transition), background var(--transition), border-color var(--transition);
+  position: relative;
+  bottom: -1px;
+}
+.version-tabs__tab:hover {
+  color: var(--c-accent);
+  background: var(--c-surface-ink);
+  text-decoration: none;
+}
+.version-tabs__tab.is-active {
+  color: var(--c-accent);
+  font-weight: 700;
+  border-bottom-color: var(--c-accent);
+  background: var(--c-bg);
+}
+.version-tabs__tab:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 2px;
+}
+
+@media (max-width: 540px) {
+  .version-tabs {
+    margin: var(--s-4) auto var(--s-3);
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+  .version-tabs__tab {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
 }
