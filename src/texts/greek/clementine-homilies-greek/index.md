@@ -13,7 +13,7 @@ tags:
   - talmidei-yeshua
   - texts
 permalink: /texts/greek/clementine-homilies-greek/
-description: "הומיליות הקלמנטינה ה (-Clementine Homilies) — תרגום מיוונית לעברית. מהדורה מתוקנת ומאוחדת: איגרות + הומיליות א–כ. מבוסס על מהדורות Schwegler 1847, Lagarde 1865, Migne PG 1–2. משלים את הקורפוס הקלימנטיני הארמי."
+description: "הומיליות הקלמנטינה — איגרות והומיליות א–כ. הועתק ללשון עברי מלשון יוונית."
 ---
 
 ## הומיליות הקלמנטינה ה — מהדורה מאוחדת (מיוונית)

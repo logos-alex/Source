@@ -104,13 +104,15 @@
 
     {# JSON-LD Structured Data — Article/Book/WebSite #}
     {% if page.url != '/' %}
+    {% set catalogEntry = book | bookCatalogEntry %}
+    {% set bookTitle = catalogEntry.title if catalogEntry and catalogEntry.title else book %}
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "{{ jsonLdType }}",
-      "name": "{% if book %}{{ book }} — {% endif %}{{ title }}",
-      "headline": {{ title | jsonify }},
-      "description": {{ pageDescription | jsonify }},
+      "name": "{% if bookTitle %}{{ bookTitle }} — {% endif %}{{ title }}",
+      "headline": {{ title | jsonify | safe }},
+      "description": {{ pageDescription | jsonify | safe }},
       "url": "{{ canonicalUrl }}",
       "inLanguage": "he",
       "image": "{{ ogImageUrl }}",
@@ -118,10 +120,10 @@
       "dateModified": "{{ page.date | toISOString }}",
       {% endif %}
       "mainEntityOfPage": "{{ canonicalUrl }}",
-      {% if book %}"articleSection": "{{ book }}",
+      {% if bookTitle %}"articleSection": {{ bookTitle | jsonify | safe }},
       "isPartOf": {
         "@type": "Book",
-        "name": "{{ book }}"
+        "name": {{ bookTitle | jsonify | safe }}
       },
       {% endif %}
       "author": {
@@ -163,7 +165,7 @@
       "alternateName": "LOGIA",
       "url": "{{ site.origin }}{{ site.pathPrefix }}",
       "logo": "{{ site.origin }}{{ site.pathPrefix }}assets/favicon-512.png",
-      "description": {{ defaultDescription | jsonify }},
+      "description": {{ defaultDescription | jsonify | safe }},
       "sameAs": [
         "https://github.com/logos-alex/Source"
       ]
