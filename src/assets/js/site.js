@@ -387,6 +387,9 @@ const safeStorage = {
     const titleEl = document.querySelector('[data-version-parallel-title]');
     const loadingEl = document.querySelector('[data-version-parallel-loading]');
     const closeBtn = document.querySelector('[data-version-parallel-close]');
+    const footerEl = document.querySelector('[data-version-parallel-footer]');
+    const statsEl = document.querySelector('[data-version-parallel-stats]');
+    const noteEl = document.querySelector('[data-version-parallel-note]');
     const article = document.querySelector('article.text-main');
     if (!article || !body || !titleEl) return;
 
@@ -515,6 +518,73 @@ const safeStorage = {
       renderDiff(panelDiffContainer, textA, textB, 'right');
     }
 
+    function updateStatsAndNote() {
+      // Calculate word-level diff statistics
+      const localContent = document.querySelector('article.text-main .text-content');
+      if (!localContent || !body) {
+        if (footerEl) footerEl.hidden = true;
+        return;
+      }
+
+      // Hide footer if section is missing
+      const current = findCurrentSection(currentVersion, pageNum);
+      if (!current) {
+        if (footerEl) footerEl.hidden = true;
+        return;
+      }
+
+      const targetVersion = select.value;
+      const targetPage = current.section[targetVersion];
+      if (targetPage === null || targetPage === undefined) {
+        if (footerEl) footerEl.hidden = true;
+        return;
+      }
+
+      const textA = extractText(localContent);
+      const textB = extractText(body);
+      if (!textA || !textB) {
+        if (footerEl) footerEl.hidden = true;
+        return;
+      }
+
+      // Count differences
+      const diff = diffWords(textA, textB);
+      let removeCount = 0;
+      let addCount = 0;
+      let commonCount = 0;
+      for (const item of diff) {
+        if (item.type === 'remove') removeCount++;
+        else if (item.type === 'add') addCount++;
+        else commonCount++;
+      }
+      const totalA = commonCount + removeCount;
+      const totalB = commonCount + addCount;
+      const pctDiff = totalA > 0 ? Math.round(((removeCount + addCount) / (totalA + totalB)) * 100) : 0;
+
+      // Display stats
+      if (statsEl) {
+        statsEl.innerHTML = `<span class="version-parallel-stats__label">הבדלים בקטע זה:</span> `
+          + `<span class="version-parallel-stats__num version-parallel-stats__num--remove">${removeCount} מילים ייחודיות לנוסח ${currentVersion.toUpperCase()}'</span>`
+          + `<span class="version-parallel-stats__sep">·</span>`
+          + `<span class="version-parallel-stats__num version-parallel-stats__num--add">${addCount} מילים ייחודיות לנוסח ${targetVersion.toUpperCase()}'</span>`
+          + `<span class="version-parallel-stats__sep">·</span>`
+          + `<span class="version-parallel-stats__pct">${pctDiff}% שונים</span>`;
+      }
+
+      // Display comparison note
+      if (noteEl) {
+        const note = current.section.comparison_note || '';
+        if (note) {
+          noteEl.innerHTML = '<span class="version-parallel-note__label">הערת השוואה:</span> ' + note;
+          noteEl.hidden = false;
+        } else {
+          noteEl.hidden = true;
+        }
+      }
+
+      if (footerEl) footerEl.hidden = false;
+    }
+
     function loadParallelContent() {
       const targetVersion = select.value;
       if (!targetVersion) return;
@@ -574,6 +644,9 @@ const safeStorage = {
             body.innerHTML = '<p>לא נמצא תוכן מקביל בנוסח זה.</p>';
           }
           setLoading(false);
+
+          // Update stats and comparison note
+          updateStatsAndNote();
 
           // If diff was previously enabled, re-apply
           if (diffToggle && diffToggle.getAttribute('aria-pressed') === 'true') {

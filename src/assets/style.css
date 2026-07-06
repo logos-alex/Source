@@ -2418,3 +2418,81 @@ article tbody tr:nth-child(even) {
 .version-parallel-controls__section[hidden] {
   display: none !important;
 }
+
+/* ============================================================
+   סטטיסטיקה והערת השוואה בפאנל המקבילי
+   ============================================================ */
+.version-parallel-panel__footer {
+  margin-top: var(--s-4);
+  padding-top: var(--s-4);
+  border-top: 1px solid var(--c-border-soft);
+}
+.version-parallel-panel__footer[hidden] {
+  display: none !important;
+}
+
+.version-parallel-stats {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2);
+  font-size: var(--fs-xs);
+  margin-bottom: var(--s-3);
+}
+.version-parallel-stats__label {
+  font-weight: 700;
+  color: var(--c-text);
+}
+.version-parallel-stats__num {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px var(--s-2);
+  border-radius: var(--r-sm);
+  font-weight: 600;
+}
+.version-parallel-stats__num--remove {
+  background: #fdd;
+  color: #900;
+}
+.version-parallel-stats__num--add {
+  background: #dfd;
+  color: #060;
+}
+.version-parallel-stats__sep {
+  color: var(--c-text-muted);
+}
+.version-parallel-stats__pct {
+  font-weight: 700;
+  color: var(--c-accent);
+  padding: 2px var(--s-2);
+  background: var(--c-bg);
+  border-radius: var(--r-sm);
+}
+
+[data-theme="dark"] .version-parallel-stats__num--remove {
+  background: #4a2222;
+  color: #ffcccc;
+}
+[data-theme="dark"] .version-parallel-stats__num--add {
+  background: #224a22;
+  color: #ccffcc;
+}
+
+.version-parallel-note {
+  font-size: var(--fs-sm);
+  line-height: 1.7;
+  color: var(--c-text-2);
+  padding: var(--s-3) var(--s-4);
+  background: var(--c-bg);
+  border-right: 3px solid var(--c-accent);
+  border-radius: var(--r-sm);
+}
+.version-parallel-note[hidden] {
+  display: none !important;
+}
+.version-parallel-note__label {
+  font-weight: 700;
+  color: var(--c-accent);
+  display: block;
+  margin-bottom: var(--s-1);
+}
