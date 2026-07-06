@@ -2138,7 +2138,7 @@ article tbody tr:nth-child(even) {
 
 /* Side panel — hidden by default, slides in when enabled */
 .version-parallel-panel {
-  display: none;
+  display: block;  /* show by default; [hidden] attribute hides via !important below */
   margin-top: var(--s-5);
   padding: var(--s-5);
   background: var(--c-surface);
@@ -2195,6 +2195,58 @@ article tbody tr:nth-child(even) {
   padding: var(--s-5);
 }
 
+
+/* ============================================================
+   תצוגה מקבילית — פריסת גריד כשהפאנל גלוי
+   ============================================================ */
+.text-main--with-parallel {
+  display: grid;
+  grid-template-areas:
+    "header  header"
+    "content panel";
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--s-6);
+  align-items: start;
+}
+.text-main--with-parallel > .text-header {
+  grid-area: header;
+}
+.text-main--with-parallel > .text-content {
+  grid-area: content;
+}
+.text-main--with-parallel > .version-parallel-controls,
+.text-main--with-parallel > .version-parallel-panel {
+  grid-column: 1 / -1;  /* full width by default */
+}
+.text-main--with-parallel > .version-parallel-panel {
+  grid-area: panel;
+  margin-top: 0;  /* override default margin since grid handles spacing */
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
+  position: sticky;
+  top: var(--s-4);
+}
+.text-main--with-parallel > .pagination,
+.text-main--with-parallel > .footnotes,
+.text-main--with-parallel > .comments-section {
+  grid-column: 1 / -1;  /* pagination, footnotes, comments span full width */
+}
+
+/* On narrow screens, stack vertically */
+@media (max-width: 960px) {
+  .text-main--with-parallel {
+    grid-template-areas:
+      "header"
+      "content"
+      "panel";
+    grid-template-columns: 1fr;
+  }
+  .text-main--with-parallel > .version-parallel-panel {
+    position: static;
+    max-height: none;
+  }
+}
+
 /* Mobile — stack panel below */
 @media (max-width: 760px) {
   .version-parallel-controls {
@@ -2204,4 +2256,56 @@ article tbody tr:nth-child(even) {
   .version-parallel-panel__body {
     max-height: 50vh;
   }
+}
+
+/* ============================================================
+   כרטיסי נוסחים בעמוד הראשי של חיבור מרובה־נוסחים
+   ============================================================ */
+.version-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--s-5);
+  margin: var(--s-7) 0;
+}
+.version-card {
+  display: block;
+  padding: var(--s-6);
+  background: var(--c-surface);
+  border: 1px solid var(--c-border-soft);
+  border-radius: var(--r-lg);
+  border-top: 3px solid var(--c-accent);
+  text-decoration: none;
+  color: var(--c-text);
+  transition: all var(--transition);
+}
+.version-card:hover {
+  border-color: var(--c-accent);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+.version-card:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 4px;
+}
+.version-card__title {
+  margin: 0 0 var(--s-2);
+  font-size: var(--fs-lg);
+  color: var(--c-text);
+}
+.version-card__subtitle {
+  margin: 0 0 var(--s-3);
+  font-size: var(--fs-sm);
+  color: var(--c-accent);
+  font-weight: 700;
+}
+.version-card__desc {
+  margin: 0;
+  font-size: var(--fs-sm);
+  color: var(--c-text-2);
+  line-height: 1.7;
+}
+.version-card__meta {
+  margin: var(--s-4) 0 0;
+  font-size: var(--fs-xs);
+  color: var(--c-text-muted);
 }
