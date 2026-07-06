@@ -21,7 +21,27 @@
   </div>
 
   {% if book | hasMultipleVersions %}
-    {% include "version-tabs.njk" %}
+    {% include "version-tabs.njk" %}{# --- תצוגה מקבילית בין נוסחים (client-side, טוען את הפרק המקביל בצד) --- #}
+    {% if book | hasMultipleVersions and version and version != "main" and pageNumber != 0 %}
+      <div class="version-parallel-controls" role="group" aria-label="תצוגה מקבילית של נוסחים">
+        <span class="version-parallel-controls__label">תצוגה מקבילית:</span>
+        <button class="version-parallel-toggle" type="button" data-version-parallel="off" aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+          <span>כבויה</span>
+        </button>
+        {% set catalogEntry = book | bookCatalogEntry %}
+        {% if catalogEntry and catalogEntry.versions %}
+          {% set versionKeys = catalogEntry.versions | keys | sort %}
+          <select class="version-parallel-select" data-version-parallel-select aria-label="נוסח להשוואה">
+            {% for vk in versionKeys %}
+              {% if vk != version %}
+                <option value="{{ vk }}">מול נוסח {{ vk | upper }}'</option>
+              {% endif %}
+            {% endfor %}
+          </select>
+        {% endif %}
+      </div>
+    {% endif %}
   {% endif %}
 
   <article class="text-main" data-pagefind-body>
@@ -91,6 +111,18 @@
         {{ content | renderNoteRefs | safe }}
       {% endif %}
     </div>
+{# --- תוכן הפרק המקביל מוזרק לכאן דרך JavaScript --- #}
+    {% if book | hasMultipleVersions and version and version != "main" and pageNumber != 0 %}
+      <aside class="version-parallel-panel" data-version-parallel-panel hidden aria-live="polite">
+        <header class="version-parallel-panel__header">
+          <span class="version-parallel-panel__title" data-version-parallel-title>—</span>
+          <button class="version-parallel-panel__close" type="button" data-version-parallel-close aria-label="סגור תצוגה מקבילית">×</button>
+        </header>
+        <div class="version-parallel-panel__body" data-version-parallel-body>
+          <p class="version-parallel-panel__loading" data-version-parallel-loading>טוען...</p>
+        </div>
+      </aside>
+    {% endif %}
   </article>
 
   {% if pageNumber and pageNumber != 0 and notes %}

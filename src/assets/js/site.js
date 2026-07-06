@@ -264,6 +264,112 @@ const safeStorage = {
     });
   }
 
+// ============================================================
+  // תצוגה מקבילית של נוסחים — טוען את הפרק המקביל בצד
+  // ============================================================
+  function initVersionParallel() {
+    const toggle = document.querySelector('[data-version-parallel="off"]');
+    const select = document.querySelector('[data-version-parallel-select]');
+    const panel = document.querySelector('[data-version-parallel-panel]');
+    if (!toggle || !select || !panel) return;
+
+    const body = document.querySelector('[data-version-parallel-body]');
+    const titleEl = document.querySelector('[data-version-parallel-title]');
+    const loadingEl = document.querySelector('[data-version-parallel-loading]');
+    const closeBtn = document.querySelector('[data-version-parallel-close]');
+    const article = document.querySelector('article.text-main');
+    if (!article || !body || !titleEl) return;
+
+    const STORAGE_KEY = 'versionParallelEnabled';
+    const STORAGE_VERSION_KEY = 'versionParallelTarget';
+
+    // Extract book, source, current version, page number from the page URL
+    // Expected URL: /Source/texts/<source>/<book>/<version>/page-<N>/
+    const urlMatch = window.location.pathname.match(/\/texts\/([^/]+)\/([^/]+)\/([^/]+)\/page-(\d+)\//);
+    if (!urlMatch) return;
+    const [, source, book, currentVersion, pageNum] = urlMatch;
+
+    // Restore saved state
+    const savedEnabled = safeStorage.get(STORAGE_KEY) === 'true';
+    const savedTarget = safeStorage.get(STORAGE_VERSION_KEY);
+    if (savedTarget && select.querySelector('option[value="' + savedTarget + '"]')) {
+      select.value = savedTarget;
+    }
+
+    function setLoading(isLoading) {
+      if (loadingEl) loadingEl.style.display = isLoading ? '' : 'none';
+    }
+
+    function applyState(enabled) {
+      if (enabled) {
+        article.classList.add('text-main--with-parallel');
+        panel.hidden = false;
+        toggle.setAttribute('aria-pressed', 'true');
+        toggle.querySelector('span').textContent = 'מופעלת';
+        loadParallelContent();
+      } else {
+        article.classList.remove('text-main--with-parallel');
+        panel.hidden = true;
+        toggle.setAttribute('aria-pressed', 'false');
+        toggle.querySelector('span').textContent = 'כבויה';
+      }
+      safeStorage.set(STORAGE_KEY, String(enabled));
+    }
+
+    function loadParallelContent() {
+      const targetVersion = select.value;
+      if (!targetVersion) return;
+      const targetUrl = `/Source/texts/${source}/${book}/${targetVersion}/page-${pageNum}/`;
+      titleEl.textContent = `נוסח ${targetVersion.toUpperCase()}' — פרק ${pageNum}`;
+      setLoading(true);
+      body.innerHTML = '';
+
+      fetch(targetUrl)
+        .then(r => {
+          if (!r.ok) throw new Error('HTTP ' + r.status);
+          return r.text();
+        })
+        .then(html => {
+          // Parse the fetched HTML and extract the article content
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(html, 'text/html');
+          const remoteArticle = doc.querySelector('article.text-main .text-content') || doc.querySelector('article.text-main');
+          if (remoteArticle) {
+            // Strip controls, footnotes from the cloned content
+            remoteArticle.querySelectorAll('.text-controls, .parallel-controls, .version-parallel-controls, .footnotes, .reading-progress').forEach(el => el.remove());
+            body.innerHTML = '';
+            body.appendChild(remoteArticle);
+          } else {
+            body.innerHTML = '<p>לא נמצא תוכן מקביל בנוסח זה.</p>';
+          }
+          setLoading(false);
+        })
+        .catch(err => {
+          body.innerHTML = `<p>שגיאה בטעינת התוכן המקביל: ${err.message}.<br>ייתכן שאין פרק מקביל בנוסח זה.</p>`;
+          setLoading(false);
+        });
+    }
+
+    toggle.addEventListener('click', () => {
+      const isEnabled = toggle.getAttribute('aria-pressed') === 'true';
+      applyState(!isEnabled);
+    });
+
+    select.addEventListener('change', () => {
+      safeStorage.set(STORAGE_VERSION_KEY, select.value);
+      if (toggle.getAttribute('aria-pressed') === 'true') {
+        loadParallelContent();
+      }
+    });
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => applyState(false));
+    }
+
+    // Auto-enable if previously enabled
+    if (savedEnabled) applyState(true);
+  }
+
   function initParallelToggle() {
     const toggles = document.querySelectorAll('.parallel-toggle');
     if (!toggles.length) return;
@@ -315,6 +421,7 @@ const safeStorage = {
   initTocDropdowns();
   initReadingProgress();
   initParallelToggle();
+    initVersionParallel();
 })();
 
 // =====================================================================
