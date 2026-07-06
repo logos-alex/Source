@@ -20,10 +20,6 @@
     <div class="reading-progress-bar" id="readingProgress"></div>
   </div>
 
-  {% if book | hasMultipleVersions %}
-    {% include "version-tabs.njk" %}
-  {% endif %}
-
   <article class="text-main" data-pagefind-body>
     <header class="text-header">
       {% if book | usesHebrewChapterTitles and pageNumber != 0 %}
@@ -106,7 +102,7 @@
 
   {# --- ניווט בין עמודים --- #}
   {% set pagesInBook = collections.all | bookPages(page.url, book) %}
-  {% set chapterPages = collections.all | bookPages(page.url, book, false) | list %}
+  {% set chapterPages = pagesInBook | rejectattr("data.pageNumber", "equalto", 0) | list %}
   {% set currentPageIndex = pagesInBook | findIndexByUrl(page.url) %}
 
   <nav class="pagination" aria-label="ניווט בין פרקים">

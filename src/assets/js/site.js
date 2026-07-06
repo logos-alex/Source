@@ -52,7 +52,12 @@ const safeStorage = {
         ? 'מצב כהה פעיל. לחץ למעבר למצב בהיר'
         : 'מצב בהיר פעיל. לחץ למעבר למצב כהה';
       themeToggle.setAttribute('aria-label', label);
-      // Icon visibility is handled purely via CSS (html[data-theme="dark"] selectors)
+      const moonIcon = themeToggle.querySelector('.icon-moon');
+      const sunIcon = themeToggle.querySelector('.icon-sun');
+      if (moonIcon && sunIcon) {
+        moonIcon.style.display = isDark ? 'none' : '';
+        sunIcon.style.display = isDark ? '' : 'none';
+      }
     }
     safeStorage.set('theme', theme);
   }
@@ -399,16 +404,8 @@ function loadTranslate() {
 loadAnalytics();
 loadClarity();
 
-// Translate launcher — kept as a button click (UX, not consent)
-const translateLauncher = document.querySelector('[data-third-party-trigger="translate"]');
-if (translateLauncher) {
-  translateLauncher.addEventListener('click', () => {
-    loadTranslate();
-    translateLauncher.textContent = 'תרגום פעיל';
-    translateLauncher.classList.add('is-active');
-    translateLauncher.disabled = true;
-  });
-}
+// Auto-load Google Translate for maximum accessibility
+loadTranslate();
 
 window.googleTranslateElementInit = function googleTranslateElementInit() {
   if (!window.google || !google.translate) return;
