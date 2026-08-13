@@ -2687,3 +2687,150 @@ article tbody tr:nth-child(even) {
 .upcoming-group__list li:last-child {
   border-bottom: none;
 }
+
+/* ============================================================
+   כרטיסי חלקי התנ"ך — המבנה הראשי בעמוד הבית
+   ============================================================ */
+.bible-sections {
+  margin: var(--s-8) 0;
+  padding: var(--s-7) 0;
+  border-top: 1px solid var(--c-border-soft);
+  border-bottom: 1px solid var(--c-border-soft);
+}
+.bible-sections__title {
+  font-size: var(--fs-2xl);
+  text-align: center;
+  margin-bottom: var(--s-3);
+  color: var(--c-text);
+}
+.bible-sections__intro {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto var(--s-7);
+  color: var(--c-text-2);
+  font-size: var(--fs-base);
+  line-height: 1.8;
+}
+.bible-sections__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--s-5);
+  margin-top: var(--s-6);
+}
+.bible-section-card {
+  background: var(--c-surface);
+  border: 1px solid var(--c-border-soft);
+  border-radius: var(--r-lg);
+  border-top: 3px solid var(--c-accent);
+  transition: all var(--transition);
+  overflow: hidden;
+}
+.bible-section-card:hover {
+  border-color: var(--c-accent);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+.bible-section-card__link {
+  display: block;
+  padding: var(--s-6);
+  text-decoration: none;
+  color: var(--c-text);
+  height: 100%;
+}
+.bible-section-card__icon {
+  font-size: 2rem;
+  margin-bottom: var(--s-3);
+  line-height: 1;
+}
+.bible-section-card__title {
+  font-size: var(--fs-lg);
+  margin: 0 0 var(--s-3);
+  color: var(--c-text);
+}
+.bible-section-card__desc {
+  font-size: var(--fs-sm);
+  color: var(--c-text-2);
+  line-height: 1.7;
+  margin: 0 0 var(--s-4);
+}
+.bible-section-card__figures {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+}
+.bible-section-card__figure {
+  display: inline-block;
+  padding: 2px var(--s-2);
+  font-size: var(--fs-xs);
+  color: var(--c-accent);
+  background: var(--c-bg);
+  border-radius: var(--r-sm);
+  border: 1px solid var(--c-border-soft);
+}
+
+/* ============================================================
+   עמוד חלק התנ"ך — קיבוץ דמויות וחיבורים
+   ============================================================ */
+.figure-group {
+  margin-bottom: var(--s-7);
+  padding-bottom: var(--s-6);
+  border-bottom: 1px solid var(--c-border-soft);
+}
+.figure-group:last-of-type {
+  border-bottom: none;
+}
+.figure-group__title {
+  font-size: var(--fs-xl);
+  color: var(--c-accent-ink);
+  margin-bottom: var(--s-4);
+}
+
+/* Navigation between bible sections */
+.bible-sections-nav {
+  margin-top: var(--s-7);
+  padding-top: var(--s-5);
+  border-top: 1px solid var(--c-border-soft);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--s-4);
+}
+.bible-sections-nav__back {
+  font-size: var(--fs-sm);
+  color: var(--c-accent);
+  text-decoration: none;
+  font-weight: 700;
+}
+.bible-sections-nav__back:hover {
+  text-decoration: underline;
+}
+.bible-sections-nav__sections {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+}
+.bible-sections-nav__link {
+  font-size: var(--fs-sm);
+  color: var(--c-text-2);
+  text-decoration: none;
+  padding: var(--s-1) var(--s-3);
+  border-radius: var(--r-sm);
+  border: 1px solid var(--c-border-soft);
+  transition: all var(--transition);
+}
+.bible-sections-nav__link:hover {
+  color: var(--c-accent);
+  border-color: var(--c-accent);
+}
+
+/* Mobile — stack bible section cards */
+@media (max-width: 760px) {
+  .bible-sections__grid {
+    grid-template-columns: 1fr;
+  }
+  .bible-sections-nav {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

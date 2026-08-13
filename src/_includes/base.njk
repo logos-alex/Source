@@ -319,19 +319,10 @@
             <a href="{{ '/' | url }}" {% if page.url == "/" %}aria-current="page"{% endif %}>דף הבית</a>
             <a href="{{ '/updates/' | url }}" {% if page.url == "/updates/" %}aria-current="page"{% endif %}>מה חדש</a>
             <div class="nav-dropdown">
-                <a href="{{ '/texts/' | url }}" class="dropbtn" aria-haspopup="true" aria-expanded="false" {% if page.url == "/texts/" %}aria-current="page"{% endif %}>לפי מקור</a>
+                <a href="{{ '/#bible-sections' | url }}" class="dropbtn" aria-haspopup="true" aria-expanded="false">התנ"ך האפוקריפי</a>
                 <div class="dropdown-content">
-                    {% for langSlug, langEntry in languages %}
-                    <a href="{{ ('/texts/' + langSlug + '/') | url }}" {% if page.url == '/texts/' + langSlug + '/' %}aria-current="page"{% endif %}>{{ langEntry.label }}</a>
-                    {% endfor %}
-                </div>
-            </div>
-
-            <div class="nav-dropdown">
-                <a href="{{ '/by-figure/' | url }}" class="dropbtn" aria-haspopup="true" aria-expanded="false" {% if page.url == "/by-figure/" %}aria-current="page"{% endif %}>לפי ייחוס</a>
-                <div class="dropdown-content">
-                    {% for figureKey in figureCatalogKeys %}
-                    <a href="{{ ('/by-figure/' + figureKey + '/') | url }}" {% if page.url == '/by-figure/' + figureKey + '/' %}aria-current="page"{% endif %}>{{ figures[figureKey] or figureKey }}</a>
+                    {% for sectionKey in bibleSectionOrder %}
+                    <a href="{{ ('/by-figure/' + sectionKey + '/') | url }}" {% if page.url == '/by-figure/' + sectionKey + '/' %}aria-current="page"{% endif %}>{{ bibleSections.sections[sectionKey].title }}</a>
                     {% endfor %}
                 </div>
             </div>
@@ -364,8 +355,9 @@
           <div class="footer-nav__col">
             <h2 class="footer-nav__heading">תוכן</h2>
             <ul>
-              <li><a href="{{ '/texts/' | url }}">לפי מקור</a></li>
-              <li><a href="{{ '/by-figure/' | url }}">לפי ייחוס</a></li>
+              {% for sectionKey in bibleSectionOrder %}
+              <li><a href="{{ ('/by-figure/' + sectionKey + '/') | url }}">{{ bibleSections.sections[sectionKey].title }}</a></li>
+              {% endfor %}
               <li><a href="{{ '/search/' | url }}">חיפוש באוצר</a></li>
               <li><a href="{{ '/updates/' | url }}">מה חדש</a></li>
               <li><a href="{{ '/updates/feed.xml' | url }}">פיד RSS</a></li>
@@ -381,7 +373,7 @@
             </ul>
           </div>
           <div class="footer-nav__col">
-            <h2 class="footer-nav__heading">מקורות מובילים</h2>
+            <h2 class="footer-nav__heading">לפי שפת מקור</h2>
             <ul>
               {% for langSlug, langEntry in languages %}
               <li><a href="{{ ('/texts/' + langSlug + '/') | url }}">{{ langEntry.label }}</a></li>

@@ -1,0 +1,65 @@
+---
+pagination:
+  data: bibleSectionOrder
+  size: 1
+  alias: sectionKey
+layout: base.njk
+permalink: "/by-figure/{{ sectionKey }}/index.html"
+eleventyComputed:
+  title: "{{ bibleSections.sections[sectionKey].title }}"
+  description: "{{ bibleSections.sections[sectionKey].subtitle }}"
+---
+
+<div class="text-main category-listing">
+  <header class="text-header">
+    <p class="text-header__eyebrow">התנ"ך האפוקריפי</p>
+    <h1>{{ bibleSections.sections[sectionKey].title }}</h1>
+    <p>{{ bibleSections.sections[sectionKey].subtitle }}</p>
+  </header>
+
+  {% set sectionFigures = bibleSections.sections[sectionKey].figures %}
+
+  {# Display figures in this section, with their books #}
+  {% for figureKey in sectionFigures %}
+    {% set figureName = figures[figureKey] or figureKey %}
+    <section class="figure-group">
+      <h2 class="figure-group__title">{{ figureName }}</h2>
+      <div class="book-list">
+        {% set hasFigureItems = false %}
+        {% for item in collections.texts %}
+          {% if item.data.figure == figureKey and item.data.book and not item.data.draft and (item.data.pageNumber == 0 or not item.data.pageNumber) and "sub-intro" not in item.data.tags %}
+            {% set hasFigureItems = true %}
+            <article class="book-card{% if item.data.comingSoon %} book-card--coming-soon{% endif %}">
+              <h3>
+                <a class="book-card__primary-link" href="{{ item.url | url }}">{{ item | displayBookTitle }}</a>
+                {% if item.data.rarity == "unpublished" %}<span class="book-card__badge book-card__badge--unpublished" title="פרסום ראשון מתוך כתב־יד — לא הודפס מעולם">פרסום ראשון</span>{% endif %}
+                {% if item.data.comingSoon %}<span class="book-card__badge book-card__badge--coming-soon" title="החיבור בהכנה">בקרוב</span>{% endif %}
+              </h3>
+              <p class="book-card__description">{{ item.data.description or "חיבור המיוחס ל" + figureName }}</p>
+              {% if item.data.source %}
+                {% set langEntry = languages[item.data.source] %}
+                {% set langLabel = (langEntry.label if langEntry else item.data.source) %}
+                <p><small>מקור: <a class="book-card__meta-link" href="{{ ('/texts/' + item.data.source + '/') | url }}">{{ langLabel }}</a></small></p>
+              {% endif %}
+            </article>
+          {% endif %}
+        {% endfor %}
+        {% if not hasFigureItems %}
+          <p class="c-muted--italic">כרגע אין חיבורים זמינים לדמות זו. חזרו בהמשך לעדכונים.</p>
+        {% endif %}
+      </div>
+    </section>
+  {% endfor %}
+
+  {# Navigation back to main bible sections #}
+  <nav class="bible-sections-nav" aria-label="ניווט בין חלקי התנך">
+    <a href="{{ '/#bible-sections' | url }}" class="bible-sections-nav__back">← חזרה לתנ"ך האפוקריפי</a>
+    <div class="bible-sections-nav__sections">
+      {% for otherKey in bibleSectionOrder %}
+        {% if otherKey != sectionKey %}
+          <a href="{{ ('/by-figure/' + otherKey + '/') | url }}" class="bible-sections-nav__link">{{ bibleSections.sections[otherKey].title }}</a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </nav>
+</div>
