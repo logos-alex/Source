@@ -6,7 +6,16 @@
     <atom:link href="https://logos-alex.github.io/Source/updates/feed.xml" rel="self" type="application/rss+xml" />
     <description>עדכונים וחידושים במאגר אפוקריפה — התנ"ך האפוקריפי.</description>
     <language>he</language>
-    <lastBuildDate>2026-08-13T02:26:03.028Z</lastBuildDate>
+    <lastBuildDate>2026-08-13T05:17:20.294Z</lastBuildDate>
+    
+    <item>
+      <title>📜 טקסט חדש: מעשה יצחק (ערבית)</title>
+      <link>https://logos-alex.github.io/Source/updates/#maase-yitzchak-2026-08</link>
+      <guid isPermaLink="false">logia-update-maase-yitzchak-2026-08</guid>
+      <description>מעשה אבינו יצחק — סיפור עקידת יצחק בנוסח ערבי־נוצרי מורחב, הועתק ללשון עברי. כולל דיאלוגים ארוכים בין אברהם ליצחק, קינת העופות וההר, תפילות המלאכים, והאיל בשלושת הצבעים.</description>
+      <category>טקסט חדש</category>
+      <pubDate>Thu, 13 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
     
     <item>
       <title>✨ מיתוג המאגר: אפוקריפה — התנ״ך האפוקריפי</title>
@@ -39,7 +48,7 @@
       <title>🔄 תצוגה מקבילה חכמה — לפי קטעים, לא לפי עמודים</title>
       <link>https://logos-alex.github.io/Source/updates/#abraham-parallel-sections</link>
       <guid isPermaLink="false">logia-update-abraham-parallel-sections</guid>
-      <description>התצוגה המקבילה בין נוסחי חזון אברהם (א׳ ב׳ ג׳) שודרגה: במקום להציג עמוד שלם מהנוסח המקביל, היא חותכת בדיוק את הקטע התואם ברמת משפט — כולל מעברי עמודים. מפת 31 הקטעים מיושרת ברמת משפטים ואומתה.</description>
+      <description>התצוגה המקבילה בין נוסחי חזון אברהם (א׳ ב׳ ג׳) שודרגה: שלושת הנוסחים אוחדו ל-17 פרקים מיושרים — פרק N בכל נוסח מקביל לפרק N בשני האחרים. התצוגה המקבילה טוענת את הפרק התואם במלואו.</description>
       <category>חווית משתמש</category>
       <pubDate>Wed, 13 Aug 2026 00:00:00 GMT</pubDate>
     </item>
@@ -57,7 +66,7 @@
       <title>📜 חזון אברהם נוסח ב׳ — שחזור מלא מילה-במילה</title>
       <link>https://logos-alex.github.io/Source/updates/#abraham-b-full-reconstruction</link>
       <guid isPermaLink="false">logia-update-abraham-b-full-reconstruction</guid>
-      <description>נוסח ב׳ הוחלף בשחזור מלא מילה-במילה בדרך הנדסה לאחור מן הסלאבית הכנסייתית לרובד הארמי-העברי האפוקליפטי. 25 פרקים (א–כה).</description>
+      <description>נוסח ב׳ הוחלף בשחזור מלא מילה-במילה בדרך הנדסה לאחור מן הסלאבית הכנסייתית לרובד הארמי-העברי האפוקליפטי. 17 פרקים (א–יז).</description>
       <category>תוכן ועדכוני נוסח</category>
       <pubDate>Mon, 01 Jun 2026 00:00:00 GMT</pubDate>
     </item>
