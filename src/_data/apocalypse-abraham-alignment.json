@@ -5,250 +5,476 @@
       "section_num": 1,
       "a": 1,
       "b": 1,
-      "c": 1
+      "c": 1,
+      "a_spans": [
+        {
+          "page": 1,
+          "from": null,
+          "to": null
+        }
+      ],
+      "b_spans": [
+        {
+          "page": 1,
+          "from": null,
+          "to": null
+        }
+      ],
+      "c_spans": [
+        {
+          "page": 1,
+          "from": null,
+          "to": null
+        }
+      ]
     },
     "section_2": {
-      "title": "מציאת האליל הנופל (מרומת)",
+      "title": "הסוחרים מפדן ארם",
       "section_num": 2,
       "a": 2,
       "b": 2,
-      "c": null
+      "c": 2,
+      "a_spans": [
+        {
+          "page": 2,
+          "from": null,
+          "to": null
+        }
+      ],
+      "b_spans": [
+        {
+          "page": 2,
+          "from": null,
+          "to": null
+        }
+      ],
+      "c_spans": [
+        {
+          "page": 2,
+          "from": null,
+          "to": null
+        }
+      ]
     },
     "section_3": {
       "title": "אברהם הולך בדרך ומהרהר",
       "section_num": 3,
       "a": 3,
       "b": 3,
-      "c": 2
+      "c": 3,
+      "a_spans": [
+        {
+          "page": 3,
+          "from": null,
+          "to": null
+        }
+      ],
+      "b_spans": [
+        {
+          "page": 3,
+          "from": null,
+          "to": null
+        }
+      ],
+      "c_spans": [
+        {
+          "page": 3,
+          "from": null,
+          "to": null
+        }
+      ]
     },
     "section_4": {
-      "title": "סוחרים מפדן ארם",
+      "title": "שוב הביתה — הכסף לתרח",
       "section_num": 4,
-      "a": null,
+      "a": 4,
       "b": 4,
-      "c": null
+      "c": 4,
+      "a_spans": [
+        {
+          "page": 4,
+          "from": null,
+          "to": null
+        }
+      ],
+      "b_spans": [
+        {
+          "page": 4,
+          "from": null,
+          "to": null
+        }
+      ],
+      "c_spans": [
+        {
+          "page": 4,
+          "from": null,
+          "to": null
+        }
+      ]
     },
     "section_5": {
-      "title": "אברהם מביא כסף לתרח",
+      "title": "מציאת אליל בריסת בסל העצים",
       "section_num": 5,
-      "a": 4,
+      "a": 5,
       "b": 5,
-      "c": 3
+      "c": 5,
+      "a_spans": [
+        {
+          "page": 5,
+          "from": null,
+          "to": null
+        }
+      ],
+      "b_spans": [
+        {
+          "page": 5,
+          "from": null,
+          "to": null
+        }
+      ],
+      "c_spans": [
+        {
+          "page": 5,
+          "from": null,
+          "to": null
+        }
+      ]
     },
     "section_6": {
-      "title": "מציאת אליל בריסת בסל העצים",
+      "title": "הוויכוח עם תרח — אש, מים, שמש",
       "section_num": 6,
-      "a": 5,
+      "a": 6,
       "b": 6,
-      "c": 4
+      "c": 6,
+      "a_spans": [
+        {
+          "page": 6,
+          "from": null,
+          "to": null
+        }
+      ],
+      "b_spans": [
+        {
+          "page": 6,
+          "from": null,
+          "to": null
+        }
+      ],
+      "c_spans": [
+        {
+          "page": 6,
+          "from": null,
+          "to": null
+        }
+      ]
     },
     "section_7": {
-      "title": "הוויכוח עם תרח על האלילים",
+      "title": "הקול מן השמים וחזון האש",
       "section_num": 7,
-      "a": 6,
+      "a": 7,
       "b": 7,
-      "c": 6
+      "c": 7,
+      "a_spans": [
+        {
+          "page": 7,
+          "from": null,
+          "to": null
+        }
+      ],
+      "b_spans": [
+        {
+          "page": 7,
+          "from": null,
+          "to": null
+        }
+      ],
+      "c_spans": [
+        {
+          "page": 7,
+          "from": null,
+          "to": null
+        }
+      ]
     },
     "section_8": {
-      "title": "הסקת מסקנות: אש, מים, שמש",
+      "title": "המלאך יהואל והעלייה למרומים",
       "section_num": 8,
-      "a": 7,
+      "a": 8,
       "b": 8,
-      "c": null
+      "c": 8,
+      "a_spans": [
+        {
+          "page": 8,
+          "from": null,
+          "to": null
+        }
+      ],
+      "b_spans": [
+        {
+          "page": 8,
+          "from": null,
+          "to": null
+        }
+      ],
+      "c_spans": [
+        {
+          "page": 8,
+          "from": null,
+          "to": null
+        }
+      ]
     },
     "section_9": {
-      "title": "התגלות הקול מן השמים",
+      "title": "במרומים הקדושים — עזאזל והאזהרה",
       "section_num": 9,
-      "a": 8,
+      "a": 9,
       "b": 9,
-      "c": 7
+      "c": 9,
+      "a_spans": [
+        {
+          "page": 9,
+          "from": null,
+          "to": null
+        }
+      ],
+      "b_spans": [
+        {
+          "page": 9,
+          "from": null,
+          "to": null
+        }
+      ],
+      "c_spans": [
+        {
+          "page": 9,
+          "from": null,
+          "to": null
+        }
+      ]
     },
     "section_10": {
-      "title": "הציווי על הקרבן",
+      "title": "תחילת העלייה ושירת קדמון",
       "section_num": 10,
-      "a": 9,
+      "a": 10,
       "b": 10,
-      "c": 8
+      "c": 10,
+      "a_spans": [
+        {
+          "page": 10,
+          "from": null,
+          "to": null
+        }
+      ],
+      "b_spans": [
+        {
+          "page": 10,
+          "from": null,
+          "to": null
+        }
+      ],
+      "c_spans": [
+        {
+          "page": 10,
+          "from": null,
+          "to": null
+        }
+      ]
     },
     "section_11": {
-      "title": "המלאך יהואל מופיע",
+      "title": "שירת קדמון וגיבור וחזון הרקיע",
       "section_num": 11,
-      "a": 10,
+      "a": 11,
       "b": 11,
-      "c": 9
+      "c": 11,
+      "a_spans": [
+        {
+          "page": 11,
+          "from": null,
+          "to": null
+        }
+      ],
+      "b_spans": [
+        {
+          "page": 11,
+          "from": null,
+          "to": null
+        }
+      ],
+      "c_spans": [
+        {
+          "page": 11,
+          "from": null,
+          "to": null
+        }
+      ]
     },
     "section_12": {
-      "title": "המלאך מצווה ומזהיר מפני עזאזל",
+      "title": "חזון גן עדן וחטאי האדם",
       "section_num": 12,
-      "a": 11,
+      "a": 12,
       "b": 12,
-      "c": 10
+      "c": 12,
+      "a_spans": [
+        {
+          "page": 12,
+          "from": null,
+          "to": null
+        }
+      ],
+      "b_spans": [
+        {
+          "page": 12,
+          "from": null,
+          "to": null
+        }
+      ],
+      "c_spans": [
+        {
+          "page": 12,
+          "from": null,
+          "to": null
+        }
+      ]
     },
     "section_13": {
-      "title": "הציפור מדברת (עזאזל מנסה להטעות)",
+      "title": "חזון פסל הקנאה והמזבח",
       "section_num": 13,
-      "a": 12,
+      "a": 13,
       "b": 13,
-      "c": 11
+      "c": 13,
+      "a_spans": [
+        {
+          "page": 13,
+          "from": null,
+          "to": null
+        }
+      ],
+      "b_spans": [
+        {
+          "page": 13,
+          "from": null,
+          "to": null
+        }
+      ],
+      "c_spans": [
+        {
+          "page": 13,
+          "from": null,
+          "to": null
+        }
+      ]
     },
     "section_14": {
-      "title": "המלאך אוסר על אברהם לענות",
+      "title": "שאלת אברהם — למה יצרת כך",
       "section_num": 14,
-      "a": null,
+      "a": 14,
       "b": 14,
-      "c": 12
+      "c": 14,
+      "a_spans": [
+        {
+          "page": 14,
+          "from": null,
+          "to": null
+        }
+      ],
+      "b_spans": [
+        {
+          "page": 14,
+          "from": null,
+          "to": null
+        }
+      ],
+      "c_spans": [
+        {
+          "page": 14,
+          "from": null,
+          "to": null
+        }
+      ]
     },
     "section_15": {
-      "title": "תחילת העלייה השמימה",
+      "title": "חזון האומות וארבעת המורדות",
       "section_num": 15,
-      "a": 13,
+      "a": 15,
       "b": 15,
-      "c": 13
+      "c": 15,
+      "a_spans": [
+        {
+          "page": 15,
+          "from": null,
+          "to": null
+        }
+      ],
+      "b_spans": [
+        {
+          "page": 15,
+          "from": null,
+          "to": null
+        }
+      ],
+      "c_spans": [
+        {
+          "page": 15,
+          "from": null,
+          "to": null
+        }
+      ]
     },
     "section_16": {
-      "title": "הפיוט — 'קדמון וגיבור'",
+      "title": "משך המשפט וחזון עשר המכות",
       "section_num": 16,
-      "a": 14,
+      "a": 16,
       "b": 16,
-      "c": 14
+      "c": 16,
+      "a_spans": [
+        {
+          "page": 16,
+          "from": null,
+          "to": null
+        }
+      ],
+      "b_spans": [
+        {
+          "page": 16,
+          "from": null,
+          "to": null
+        }
+      ],
+      "c_spans": [
+        {
+          "page": 16,
+          "from": null,
+          "to": null
+        }
+      ]
     },
     "section_17": {
-      "title": "כיסא האש ורבי העיניים",
+      "title": "חזון הגאולה והסיום",
       "section_num": 17,
-      "a": 15,
-      "b": 17,
-      "c": 15
-    },
-    "section_18": {
-      "title": "פתיחת הרקיע השביעי — חזון הבריאה",
-      "section_num": 18,
-      "a": 16,
-      "b": 18,
-      "c": 16
-    },
-    "section_19": {
-      "title": "חזון הארץ, הים, הלוויתן והשאול",
-      "section_num": 19,
       "a": 17,
-      "b": 19,
-      "c": 17
-    },
-    "section_20": {
-      "title": "חזון גן עדן — אדם וחוה",
-      "section_num": 20,
-      "a": 18,
-      "b": 20,
-      "c": 18
-    },
-    "section_21": {
-      "title": "חזון העברות — קין, זנות, גניבה",
-      "section_num": 21,
-      "a": 19,
-      "b": 21,
-      "c": 19
-    },
-    "section_22": {
-      "title": "חזון פסל הקנאה והמזבח",
-      "section_num": 22,
-      "a": 20,
-      "b": 22,
-      "c": 20
-    },
-    "section_23": {
-      "title": "פירוש החזון — היכל, כהונה, זבח",
-      "section_num": 23,
-      "a": 21,
-      "b": 23,
-      "c": 21
-    },
-    "section_24": {
-      "title": "שאלת אברהם על זרעו",
-      "section_num": 24,
-      "a": 22,
-      "b": 24,
-      "c": 22
-    },
-    "section_25": {
-      "title": "הסבר על עשו וישמעאל",
-      "section_num": 25,
-      "a": 23,
-      "b": 25,
-      "c": null
-    },
-    "section_26": {
-      "title": "חזון ארבעת המורדות",
-      "section_num": 26,
-      "a": null,
-      "b": 26,
-      "c": 23
-    },
-    "section_27": {
-      "title": "חזון המשיח והגאולה",
-      "section_num": 27,
-      "a": null,
-      "b": 27,
-      "c": null
-    },
-    "section_28": {
-      "title": "חזון עשר המכות",
-      "section_num": 28,
-      "a": 24,
-      "b": 28,
-      "c": 25
-    },
-    "section_29": {
-      "title": "הצהרת־האל השנייה",
-      "section_num": 29,
-      "a": null,
-      "b": null,
-      "c": 26
-    },
-    "section_30": {
-      "title": "גורל הרשעים והדור השביעי",
-      "section_num": 30,
-      "a": null,
-      "b": 29,
-      "c": 27
-    },
-    "section_31": {
-      "title": "הסיום האמיתי של החיבור",
-      "section_num": 31,
-      "a": 25,
-      "b": 30,
-      "c": 28
+      "b": 17,
+      "c": 17,
+      "a_spans": [
+        {
+          "page": 17,
+          "from": null,
+          "to": null
+        }
+      ],
+      "b_spans": [
+        {
+          "page": 17,
+          "from": null,
+          "to": null
+        }
+      ],
+      "c_spans": [
+        {
+          "page": 17,
+          "from": null,
+          "to": null
+        }
+      ]
     }
-  },
-  "_order": [
-    "section_1",
-    "section_2",
-    "section_3",
-    "section_4",
-    "section_5",
-    "section_6",
-    "section_7",
-    "section_8",
-    "section_9",
-    "section_10",
-    "section_11",
-    "section_12",
-    "section_13",
-    "section_14",
-    "section_15",
-    "section_16",
-    "section_17",
-    "section_18",
-    "section_19",
-    "section_20",
-    "section_21",
-    "section_22",
-    "section_23",
-    "section_24",
-    "section_25",
-    "section_26",
-    "section_27",
-    "section_28",
-    "section_29",
-    "section_30",
-    "section_31"
-  ]
+  }
 }
