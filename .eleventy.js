@@ -178,7 +178,11 @@ module.exports = function(eleventyConfig) {
     // Detect version from URL: /texts/<source>/<book>/<version>/page-N/ → version=<version>
     // For /texts/<source>/<book>/page-N/ (no version segment), version is "main" or "".
     const versionMatch = currentUrl.match(new RegExp(`/${book}/([^/]+)/`));
-    const currentVersion = versionMatch ? versionMatch[1] : null;
+    let currentVersion = versionMatch ? versionMatch[1] : null;
+    // A segment like "page-N" is a page number, NOT a version segment — treat as no version.
+    if (currentVersion && /^page-\d+$/.test(currentVersion)) {
+      currentVersion = null;
+    }
 
     const prefix = currentUrl.replace(/[^/]+\/?$/, "");
     const byBook = (item) => book && item.data?.book === book;
