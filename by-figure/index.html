@@ -8,9 +8,37 @@
     
     
     
+    
+    
+    
+    
+    
+      
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>כתבים לפי ייחוס | LOGIA — אוצר הכתבים הגנוזים</title>
+    <title>התנ&quot;ך האפוקריפי — כתבים לפי ייחוס | אפוקריפה — התנ"ך האפוקריפי</title>
+
+    
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('theme');
+          if (!t) {
+            t = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          }
+          if (t === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+          }
+        } catch (e) {
+          try {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+              document.documentElement.setAttribute('data-theme', 'dark');
+            }
+          } catch (_) { /* no-op */ }
+        }
+      })();
+    </script>
 
     <!-- Accessibility -->
     <meta name="color-scheme" content="light dark">
@@ -20,63 +48,117 @@
     <meta name="theme-color" content="#FAF6EE" media="(prefers-color-scheme: light)">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="LOGIA">
+    <meta name="apple-mobile-web-app-title" content="אפוקריפה">
     <meta name="mobile-web-app-capable" content="yes">
     <link rel="manifest" href="/Source/manifest.json">
 
     <!-- SEO & Meta Tags -->
-    <meta name="description" content="ניווט בכתבים הגנוזים לפי דמויות מקראיות — אברהם, דניאל, זרובבל, חנוך ועוד.">
-    <meta name="keywords" content="LOGIA, כתבים גנוזים, אפוקריפה, ספרים חיצוניים, יהדות, בית שני, מינות, גנוסטיקה, קבלה, מיסטיקה, דניאל, אברהם, זרובבל, עזרא, ישעיהו, אליהו">
-    <meta name="author" content="LOGIA — אוצר הכתבים הגנוזים">
+    <meta name="description" content="התנ&quot;ך האפוקריפי — ספריית בית המדרש: חיבורים חיצוניים לתורה, לנביאים ולכתובים, וכתבי תלמידי ישוע, לפי ייחוסם לדמויות המקרא.">
+    <meta name="author" content="אפוקריפה — התנ&quot;ך האפוקריפי">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://logos-alex.github.io/Source/by-figure/">
 
+    
+    
+
+    
+    
+    <link rel="preconnect" href="https://hebrew-aramaic-sources.disqus.com" crossorigin>
+    
+    
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    
+    
+    <link rel="preconnect" href="https://www.clarity.ms">
+    
+
     <!-- Open Graph Tags for Social Media -->
     
+      
+      
+    
     <meta property="og:type" content="article">
-    <meta property="og:title" content="כתבים לפי ייחוס | LOGIA — אוצר הכתבים הגנוזים">
-    <meta property="og:description" content="ניווט בכתבים הגנוזים לפי דמויות מקראיות — אברהם, דניאל, זרובבל, חנוך ועוד.">
+    <meta property="og:title" content="התנ&quot;ך האפוקריפי — כתבים לפי ייחוס | אפוקריפה — התנ&quot;ך האפוקריפי">
+    <meta property="og:description" content="התנ&quot;ך האפוקריפי — ספריית בית המדרש: חיבורים חיצוניים לתורה, לנביאים ולכתובים, וכתבי תלמידי ישוע, לפי ייחוסם לדמויות המקרא.">
     <meta property="og:url" content="https://logos-alex.github.io/Source/by-figure/">
-    <meta property="og:site_name" content="LOGIA — אוצר הכתבים הגנוזים">
+    <meta property="og:site_name" content="אפוקריפה — התנ&quot;ך האפוקריפי">
     <meta property="og:locale" content="he_IL">
     <meta property="og:image" content="https://logos-alex.github.io/Source/assets/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="לוגו LOGIA — אוצר הכתבים הגנוזים, חותם מעגלי עם האות למדא על רקע שנהב-ברונזה">
+    <meta property="og:image:alt" content="לוגו אפוקריפה — חותם מעגלי עם האות למדא על רקע שנהב-ברונזה">
 
     <!-- Twitter/X Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="כתבים לפי ייחוס | LOGIA — אוצר הכתבים הגנוזים">
-    <meta name="twitter:description" content="ניווט בכתבים הגנוזים לפי דמויות מקראיות — אברהם, דניאל, זרובבל, חנוך ועוד.">
+    <meta name="twitter:title" content="התנ&quot;ך האפוקריפי — כתבים לפי ייחוס | אפוקריפה — התנ&quot;ך האפוקריפי">
+    <meta name="twitter:description" content="התנ&quot;ך האפוקריפי — ספריית בית המדרש: חיבורים חיצוניים לתורה, לנביאים ולכתובים, וכתבי תלמידי ישוע, לפי ייחוסם לדמויות המקרא.">
     <meta name="twitter:url" content="https://logos-alex.github.io/Source/by-figure/">
     <meta name="twitter:image" content="https://logos-alex.github.io/Source/assets/og-image.png">
-    <meta name="twitter:image:alt" content="לוגו LOGIA — אוצר הכתבים הגנוזים">
+    <meta name="twitter:image:alt" content="לוגו אפוקריפה — חותם מעגלי עם האות למדא על רקע שנהב-ברונזה">
 
-    <!-- JSON-LD Structured Data -->
+    
+    
+    
+    
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Article",
-      "name": "כתבים לפי ייחוס",
-      "description": "ניווט בכתבים הגנוזים לפי דמויות מקראיות — אברהם, דניאל, זרובבל, חנוך ועוד.",
+      "name": "התנ&quot;ך האפוקריפי — כתבים לפי ייחוס",
+      "headline": "התנ\"ך האפוקריפי — כתבים לפי ייחוס",
+      "description": "התנ\"ך האפוקריפי — ספריית בית המדרש: חיבורים חיצוניים לתורה, לנביאים ולכתובים, וכתבי תלמידי ישוע, לפי ייחוסם לדמויות המקרא.",
       "url": "https://logos-alex.github.io/Source/by-figure/",
       "inLanguage": "he",
+      "image": "https://logos-alex.github.io/Source/assets/og-image.png",
+      "datePublished": "2026-08-12T20:37:55.588Z",
+      "dateModified": "2026-08-12T20:37:55.588Z",
+      
+      "mainEntityOfPage": "https://logos-alex.github.io/Source/by-figure/",
+      
       "author": {
         "@type": "Organization",
-        "name": "LOGIA — אוצר הכתבים הגנוזים"
+        "name": "אפוקריפה — התנ\"ך האפוקריפי"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "אפוקריפה — התנ\"ך האפוקריפי",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://logos-alex.github.io/Source/assets/favicon-512.png"
+        }
       }
     }
     </script>
     
 
     
+
     
-    <link rel="stylesheet" href="/Source/assets/fonts/fonts.css">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "דף הבית", "item": "https://logos-alex.github.io/Source/" }
+        
+        ,{ "@type": "ListItem", "position": 2, "name": "התנ&quot;ך האפוקריפי — כתבים לפי ייחוס", "item": "https://logos-alex.github.io/Source/by-figure/" }
+        
+      ]
+    }
+    </script>
+    
+
+    
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;700&family=Noto+Serif+Hebrew:wght@300;400;700&family=EB+Garamond:wght@400;500;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="/Source/assets/style.css">
     <link rel="icon" type="image/svg+xml" href="/Source/assets/favicon.svg">
-    <link rel="icon" type="image/png" sizes="192x192" href="/Source/assets/favicon-192.png" loading="lazy">
-    <link rel="icon" type="image/png" sizes="512x512" href="/Source/assets/favicon-512.png" loading="lazy">
+    <link rel="icon" type="image/png" sizes="192x192" href="/Source/assets/favicon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/Source/assets/favicon-512.png">
     <link rel="icon" type="image/x-icon" href="/Source/assets/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="/Source/assets/apple-touch-icon.png">
     <link rel="mask-icon" href="/Source/assets/favicon.svg" color="#8B6F3A">
@@ -84,35 +166,32 @@
 <body class="">
     <a class="skip-link" href="#main-content">דלג לתוכן</a>
 
-    <button id="readingModeToggle" class="reading-mode-toggle icon-btn" type="button" aria-pressed="false" aria-label="הפעלת מצב קריאה" aria-description="מצב קריאה כבוי. לחיצה תפעיל מצב קריאה להצגת התוכן ללא הסחות." title="מצב קריאה" data-reading-label-on="כיבוי מצב קריאה" data-reading-label-off="הפעלת מצב קריאה" data-reading-description-on="מצב קריאה פעיל. לחיצה תכבה את מצב הקריאה ותחזיר את כל רכיבי הממשק." data-reading-description-off="מצב קריאה כבוי. לחיצה תפעיל מצב קריאה להצגת התוכן ללא הסחות.">
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
-      </svg>
-      <span class="sr-only" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">הפעלת או כיבוי מצב קריאה</span>
-    </button>
+    
 
     <script>
       window.siteRuntimeConfig = {
         fonts: {
           provider: "self-hosted",
-          loadExternal: false,
-          useSelfHosted: true,
+          loadExternal: true,
+          useSelfHosted: false,
           selfHostedStylesheet: "/assets/fonts/fonts.css",
           fallbackStack: "&#39;Frank Ruhl Libre&#39;, &#39;Noto Serif Hebrew&#39;, &#39;Times New Roman&#39;, &#39;David&#39;, &#39;Georgia&#39;, serif"
         },
         thirdParty: {
           analytics: {
             enabled: true,
-            measurementId: "G-M3NHG4MWVR"
+            measurementId: "G-M3NHG4MWVR",
+            loadStrategy: "disabled"
           },
           clarity: {
             enabled: true,
-            projectId: "ucq1c77qd5"
+            projectId: "ucq1c77qd5",
+            loadStrategy: "disabled"
           },
           disqus: {
             enabled: true,
-            shortname: "hebrew-aramaic-sources"
+            shortname: "hebrew-aramaic-sources",
+            loadStrategy: "lazy"
           },
           translate: {
             enabled: true,
@@ -126,21 +205,13 @@
         <div class="header-top">
             <a href="/Source/" class="site-brand">
               <span class="site-brand__mark" aria-hidden="true">
-<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" style="width:100%;height:100%;">
-  <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="1.1"/>
-  <circle cx="50" cy="50" r="41.5" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.55"/>
-  <g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M 50 30 L 22 73"/>
-    <path d="M 50 30 L 78 73"/>
-    <path d="M 36 73 L 64 73"/>
-  </g>
-  <circle cx="50" cy="19" r="2.1" fill="currentColor"/>
-  <line x1="28" y1="82" x2="72" y2="82" stroke="currentColor" stroke-width="0.7" opacity="0.6"/>
+<svg class="logo-mark__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+  <use href="/Source/assets/img/logo.svg#logo-mark"></use>
 </svg>
 </span>
               <span class="site-brand__text">
-                <span class="site-brand__name">LOGIA</span>
-                <span class="site-brand__tagline">אוצר הכתבים הגנוזים</span>
+                <span class="site-brand__name">אפוקריפה</span>
+                <span class="site-brand__tagline">התנ"ך האפוקריפי</span>
               </span>
             </a>
 
@@ -154,6 +225,7 @@
                   name="q"
                   placeholder="חיפוש בכתבים…"
                   autocomplete="off"
+                  enterkeyhint="search"
                   aria-label="חיפוש בכתבים">
                 <button class="header-search__btn" type="submit" aria-label="חיפוש">
                   <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -162,11 +234,11 @@
                   </svg>
                 </button>
               </form>
-              <button id="themeToggle" class="icon-btn theme-toggle" aria-label="בחר מצב אור/חושך" aria-pressed="false" title="מצב אור/חושך">
+              <button id="themeToggle" class="icon-btn theme-toggle" aria-label="מצב אור/חושך" aria-pressed="false" title="מצב אור/חושך">
                 <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
                 </svg>
-                <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none;">
+                <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <circle cx="12" cy="12" r="5"/>
                   <line x1="12" y1="1" x2="12" y2="3"/>
                   <line x1="12" y1="21" x2="12" y2="23"/>
@@ -194,57 +266,69 @@
             <div class="nav-dropdown">
                 <a href="/Source/texts/" class="dropbtn" aria-haspopup="true" aria-expanded="false" >לפי מקור</a>
                 <div class="dropdown-content">
+                    
                     <a href="/Source/texts/hebrew/" >עברית</a>
+                    
                     <a href="/Source/texts/slavic/" >סלאבית</a>
+                    
                     <a href="/Source/texts/aramaic/" >ארמית</a>
-                    <a href="/Source/texts/armenian/" >ארמנית</a>
+                    
                     <a href="/Source/texts/arabic/" >ערבית</a>
-                    <a href="/Source/texts/greek/" >יוונית</a>
+                    
                     <a href="/Source/texts/geez/" >געז</a>
+                    
                     <a href="/Source/texts/latin/" >לטינית</a>
+                    
+                    <a href="/Source/texts/armenian/" >ארמנית</a>
+                    
+                    <a href="/Source/texts/greek/" >יוונית</a>
+                    
                 </div>
             </div>
 
             <div class="nav-dropdown">
                 <a href="/Source/by-figure/" class="dropbtn" aria-haspopup="true" aria-expanded="false" aria-current="page">לפי ייחוס</a>
                 <div class="dropdown-content">
+                    
                     <a href="/Source/by-figure/abraham/" >אברהם</a>
+                    
                     <a href="/Source/by-figure/daniel/" >דניאל</a>
+                    
                     <a href="/Source/by-figure/enoch/" >חנוך</a>
+                    
                     <a href="/Source/by-figure/ezra/" >עזרא</a>
+                    
                     <a href="/Source/by-figure/isaiah/" >ישעיהו</a>
+                    
+                    <a href="/Source/by-figure/moshe/" >משה</a>
+                    
                     <a href="/Source/by-figure/zerubbabel/" >זרובבל</a>
+                    
                     <a href="/Source/by-figure/talmidei-yeshua/" >מתלמידי ישוע הנוצרי</a>
+                    
                 </div>
             </div>
             <a href="/Source/about/" >אודות</a>
-            <a href="/Source/methodology/" >מתודולוגיה</a>
             <a href="/Source/contact/" >צור קשר</a>
             <a href="/Source/search/" class="mobile-search-link" >חיפוש באוצר</a>
         </nav>
         
 
-<nav class="breadcrumbs" aria-label="ניווט מקום">
+
+<nav class="breadcrumbs" aria-label="פירורי לחם">
   <ol>
     <li><a href="/Source/">דף הבית</a></li>
 
     
     
-    
-    
-    
 
     
-    
-
-    
-    
+      
       <li><a href="/Source/by-figure/">לפי ייחוס</a></li>
 
       
-    
+      
 
-    
     
   </ol>
 </nav>
@@ -252,47 +336,84 @@
 
     </header>
 
-    <main id="main-content" role="main">
+    <main id="main-content" role="main" tabindex="-1">
         
             <div class="text-main category-listing">
   <header class="text-header">
-    <p class="text-header__eyebrow">Figures</p>
+    <p class="text-header__eyebrow">התנ"ך האפוקריפי</p>
     <h1>כתבים לפי ייחוס</h1>
-    <p>חלק מן החיבורים נכתבו בשם דמויות מקראיות מרכזיות. כאן תוכלו לנווט לפי הדמות המשויכת לטקסט.</p>
+    <p>החיבורים מסודרים כאן לפי ייחוסם לדמויות המקרא, בקבוצות המקבילות לשלושת חלקי התנ"ך — ולצדם כתבי תלמידי ישוע הנוצרי.</p>
   </header>
-  <div class="book-list" data-figure-list="primary">
-    <article class="book-card" data-figure-key="abraham">
-      <h3><a class="book-card__primary-link" href="/Source/by-figure/abraham/" data-figure-link="abraham">אברהם</a></h3>
-      <p class="book-card__description">כתבים המיוחסים לאברהם אבינו, סביב נושאי התגלות, ברית וראשית האמונה.</p>
-    </article>
-    <article class="book-card" data-figure-key="daniel">
-      <h3><a class="book-card__primary-link" href="/Source/by-figure/daniel/" data-figure-link="daniel">דניאל</a></h3>
-      <p class="book-card__description">חזיונות אפוקליפטיים ופרשנות היסטורית־מיסטית המיוחסים לדניאל.</p>
-    </article>
-    <article class="book-card" data-figure-key="ezra">
-      <h3><a class="book-card__primary-link" href="/Source/by-figure/ezra/" data-figure-link="ezra">עזרא</a></h3>
-      <p class="book-card__description">חזיונות אסכטולוגיים ומסעות שמימיים המיוחסים לעזרא הסופר, ממסורות יהודיות ונוצריות קדומות.</p>
-    </article>
-    <article class="book-card" data-figure-key="isaiah">
-      <h3><a class="book-card__primary-link" href="/Source/by-figure/isaiah/" data-figure-link="isaiah">ישעיהו</a></h3>
-      <p class="book-card__description">חזיונות עלייה לשמים ומסירות-נפש המיוחסים לישעיהו הנביא, ממסורות יהודיות ונוצריות קדומות.</p>
-    </article>
-    <article class="book-card" data-figure-key="zerubbabel">
-      <h3><a class="book-card__primary-link" href="/Source/by-figure/zerubbabel/" data-figure-link="zerubbabel">זרובבל</a></h3>
-      <p class="book-card__description">חזון גאולה ושיבה לציון המיוחס לזרובבל, עם נגיעות משיחיות ותיאורי עתיד.</p>
-    </article>
-  </div>
+  <section class="shelf-group" data-shelf="torah">
+    <h2 class="shelf-group__title">📜 חיצוניים לתורה</h2>
+    <p class="shelf-group__desc">חיבורים המיוחסים לאבות ולמשה — ראשית האמונה, ברית, חזיונות ומסורות אחרית הימים.</p>
+    <div class="book-list">
+      <article class="book-card" data-figure-key="abraham">
+        <h3><a class="book-card__primary-link" href="/Source/by-figure/abraham/" data-figure-link="abraham">אברהם</a></h3>
+        <p class="book-card__description">כתבים המיוחסים לאברהם אבינו, סביב נושאי התגלות, ברית וראשית האמונה.</p>
+      </article>
+      <article class="book-card" data-figure-key="enoch">
+        <h3><a class="book-card__primary-link" href="/Source/by-figure/enoch/" data-figure-link="enoch">חנוך</a></h3>
+        <p class="book-card__description">חזיונות נבואיים ומסורות אחרית הימים המיוחסים לחנוך הצדיק.</p>
+      </article>
+      <article class="book-card" data-figure-key="moshe">
+        <h3><a class="book-card__primary-link" href="/Source/by-figure/moshe/" data-figure-link="moshe">משה</a></h3>
+        <p class="book-card__description">מסורות שיח והתגלות המיוחסות למשה רבנו.</p>
+      </article>
+    </div>
+  </section>
+  <section class="shelf-group" data-shelf="neviim">
+    <h2 class="shelf-group__title">🔥 חיצוניים לנביאים</h2>
+    <p class="shelf-group__desc">חיבורים המיוחסים לנביאי ישראל — עליות שמיים, מסירות נפש וחזיונות אחרית הימים.</p>
+    <div class="book-list">
+      <article class="book-card" data-figure-key="isaiah">
+        <h3><a class="book-card__primary-link" href="/Source/by-figure/isaiah/" data-figure-link="isaiah">ישעיהו</a></h3>
+        <p class="book-card__description">חזיונות עלייה לשמים ומסירות-נפש המיוחסים לישעיהו הנביא, ממסורות יהודיות ונוצריות קדומות.</p>
+      </article>
+    </div>
+  </section>
+  <section class="shelf-group" data-shelf="ketuvim">
+    <h2 class="shelf-group__title">📖 חיצוניים לכתובים</h2>
+    <p class="shelf-group__desc">חיבורים המיוחסים לדמויות הכתובים — דניאל, עזרא וזרובבל — חזיונות גאולה ואחרית הימים.</p>
+    <div class="book-list">
+      <article class="book-card" data-figure-key="daniel">
+        <h3><a class="book-card__primary-link" href="/Source/by-figure/daniel/" data-figure-link="daniel">דניאל</a></h3>
+        <p class="book-card__description">חזיונות אפוקליפטיים ופרשנות היסטורית־מיסטית המיוחסים לדניאל.</p>
+      </article>
+      <article class="book-card" data-figure-key="ezra">
+        <h3><a class="book-card__primary-link" href="/Source/by-figure/ezra/" data-figure-link="ezra">עזרא</a></h3>
+        <p class="book-card__description">חזיונות אסכטולוגיים ומסעות שמימיים המיוחסים לעזרא הסופר, ממסורות יהודיות ונוצריות קדומות.</p>
+      </article>
+      <article class="book-card" data-figure-key="zerubbabel">
+        <h3><a class="book-card__primary-link" href="/Source/by-figure/zerubbabel/" data-figure-link="zerubbabel">זרובבל</a></h3>
+        <p class="book-card__description">חזון גאולה ושיבה לציון המיוחס לזרובבל, עם נגיעות משיחיות ותיאורי עתיד.</p>
+      </article>
+    </div>
+  </section>
+  <section class="shelf-group" data-shelf="talmidei-yeshua">
+    <h2 class="shelf-group__title">✝️ מתלמידי ישוע הנוצרי</h2>
+    <p class="shelf-group__desc">חיבורים מן המסורת הנוצרית הקדומה, ובכללם מסורות המיוחסות לקלמנס ותלמידים מוקדמים.</p>
+    <div class="book-list">
+      <article class="book-card" data-figure-key="talmidei-yeshua">
+        <h3><a class="book-card__primary-link" href="/Source/by-figure/talmidei-yeshua/" data-figure-link="talmidei-yeshua">מתלמידי ישוע הנוצרי</a></h3>
+        <p class="book-card__description">חיבורים מן המסורת הנוצרית הקדומה, ובכללם מסורות המיוחסות לקלמנס ותלמידים מוקדמים, מרוכזים תחת קטגוריה זו.</p>
+      </article>
+    </div>
+  </section>
   <hr>
-  <div class="book-list" data-figure-list="extended">
-    <article class="book-card" data-figure-key="enoch">
-      <h3><a class="book-card__primary-link" href="/Source/by-figure/enoch/" data-figure-link="enoch">חנוך</a></h3>
-      <p class="book-card__description">חזיונות נבואיים ומסורות אחרית הימים המיוחסים לחנוך הצדיק.</p>
-    </article>
-    <article class="book-card" data-figure-key="talmidei-yeshua">
-      <h3><a class="book-card__primary-link" href="/Source/by-figure/talmidei-yeshua/" data-figure-link="talmidei-yeshua">מתלמידי ישוע הנוצרי</a></h3>
-      <p class="book-card__description">חיבורים מן המסורת הנוצרית הקדומה, ובכללם מסורות המיוחסות לקלמנס ותלמידים מוקדמים, מרוכזים תחת קטגוריה זו.</p>
-    </article>
-  </div>
+  <details class="shelf-flatlist">
+    <summary>למצוא ספר במיידי — רשימה אלפביתית</summary>
+    <div class="book-list">
+      <article class="book-card" data-figure-key="abraham"><h3><a href="/Source/by-figure/abraham/">אברהם</a></h3></article>
+      <article class="book-card" data-figure-key="daniel"><h3><a href="/Source/by-figure/daniel/">דניאל</a></h3></article>
+      <article class="book-card" data-figure-key="ezra"><h3><a href="/Source/by-figure/ezra/">עזרא</a></h3></article>
+      <article class="book-card" data-figure-key="zerubbabel"><h3><a href="/Source/by-figure/zerubbabel/">זרובבל</a></h3></article>
+      <article class="book-card" data-figure-key="isaiah"><h3><a href="/Source/by-figure/isaiah/">ישעיהו</a></h3></article>
+      <article class="book-card" data-figure-key="moshe"><h3><a href="/Source/by-figure/moshe/">משה</a></h3></article>
+      <article class="book-card" data-figure-key="enoch"><h3><a href="/Source/by-figure/enoch/">חנוך</a></h3></article>
+      <article class="book-card" data-figure-key="talmidei-yeshua"><h3><a href="/Source/by-figure/talmidei-yeshua/">מתלמידי ישוע הנוצרי</a></h3></article>
+    </div>
+  </details>
 </div>
 
         
@@ -303,28 +424,20 @@
 
         <div class="footer-brand">
           <span class="footer-brand__mark" aria-hidden="true">
-<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" style="width:100%;height:100%;">
-  <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="1.1"/>
-  <circle cx="50" cy="50" r="41.5" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.55"/>
-  <g fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M 50 30 L 22 73"/>
-    <path d="M 50 30 L 78 73"/>
-    <path d="M 36 73 L 64 73"/>
-  </g>
-  <circle cx="50" cy="19" r="2.1" fill="currentColor"/>
-  <line x1="28" y1="82" x2="72" y2="82" stroke="currentColor" stroke-width="0.7" opacity="0.6"/>
+<svg class="logo-mark__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+  <use href="/Source/assets/img/logo.svg#logo-mark"></use>
 </svg>
 </span>
           <div class="footer-brand__text">
-            <span class="footer-brand__name">LOGIA</span>
-            <span class="footer-brand__tagline">אוצר הכתבים הגנוזים</span>
+            <span class="footer-brand__name">אפוקריפה</span>
+            <span class="footer-brand__tagline">התנ"ך האפוקריפי</span>
           </div>
         </div>
         <p class="footer-tagline">השבת קולות עתיקים אל שפת המוצא — שחזורים, תרגומים וביאורים של טקסטים שנדחקו אל שולי המסורת.</p>
 
         <nav class="footer-nav" aria-label="ניווט בפוטר">
           <div class="footer-nav__col">
-            <h4>תוכן</h4>
+            <h2 class="footer-nav__heading">תוכן</h2>
             <ul>
               <li><a href="/Source/texts/">לפי מקור</a></li>
               <li><a href="/Source/by-figure/">לפי ייחוס</a></li>
@@ -334,24 +447,34 @@
             </ul>
           </div>
           <div class="footer-nav__col">
-            <h4>המיזם</h4>
+            <h2 class="footer-nav__heading">המיזם</h2>
             <ul>
-              <li><a href="/Source/about/">אודות LOGIA</a></li>
-              <li><a href="/Source/methodology/">מתודולוגיה</a></li>
+              <li><a href="/Source/about/">אודות אפוקריפה</a></li>
               <li><a href="/Source/license/">רישיון ושימוש</a></li>
               <li><a href="/Source/privacy/">מדיניות פרטיות</a></li>
               <li><a href="/Source/contact/">צור קשר</a></li>
             </ul>
           </div>
           <div class="footer-nav__col">
-            <h4>מקורות מובילים</h4>
+            <h2 class="footer-nav__heading">מקורות מובילים</h2>
             <ul>
+              
               <li><a href="/Source/texts/hebrew/">עברית</a></li>
+              
               <li><a href="/Source/texts/slavic/">סלאבית</a></li>
+              
               <li><a href="/Source/texts/aramaic/">ארמית</a></li>
-              <li><a href="/Source/texts/armenian/">ארמנית</a></li>
+              
               <li><a href="/Source/texts/arabic/">ערבית</a></li>
+              
+              <li><a href="/Source/texts/geez/">געז</a></li>
+              
+              <li><a href="/Source/texts/latin/">לטינית</a></li>
+              
+              <li><a href="/Source/texts/armenian/">ארמנית</a></li>
+              
               <li><a href="/Source/texts/greek/">יוונית</a></li>
+              
             </ul>
           </div>
         </nav>
@@ -369,7 +492,7 @@
         <div class="footer-meta">
           <p>התכנים באתר מופצים בנחלת הכלל (<a href="/Source/license/">CC0 1.0</a>) — ניתן להשתמש, לצטט ולשנות בחופשיות.</p>
           <p class="c-footer-meta">
-            &copy; LOGIA — 2025–2026 ·
+            &copy; אפוקריפה — 2025–2026 ·
             <a href="/Source/sitemap.xml">Sitemap</a> ·
             <a href="/Source/robots.txt">Robots</a> ·
             <a href="/Source/manifest.json">Manifest</a>
