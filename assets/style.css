@@ -1859,6 +1859,12 @@ body[data-font-scale="md"] .text-content { font-size: var(--fs-md); }
 body[data-font-scale="lg"] .text-content { font-size: var(--fs-lg); }
 body[data-font-scale="xl"] .text-content { font-size: var(--fs-xl); line-height: 1.85; }
 
+/* Parallel panel body — same font-scale as main content */
+body[data-font-scale="sm"] .version-parallel-panel__body { font-size: var(--fs-base); }
+body[data-font-scale="md"] .version-parallel-panel__body { font-size: var(--fs-md); }
+body[data-font-scale="lg"] .version-parallel-panel__body { font-size: var(--fs-lg); }
+body[data-font-scale="xl"] .version-parallel-panel__body { font-size: var(--fs-xl); line-height: 1.85; }
+
 /* ----------------------------- Print ------------------------------- */
 @media print {
   header, footer, .breadcrumbs, .pagination, .reading-progress,
@@ -2161,12 +2167,11 @@ article tbody tr:nth-child(even) {
 /* Side panel — hidden by default, slides in when enabled */
 .version-parallel-panel {
   display: none;  /* hidden by default; shown when parent article has .text-main--with-parallel */
-  margin-top: var(--s-5);
-  padding: var(--s-5);
-  background: var(--c-surface);
-  border: 1px solid var(--c-border-soft);
-  border-radius: var(--r-md);
-  border-block-start: 3px solid var(--c-accent);
+  margin-top: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
 }
 .text-main--with-parallel > .version-parallel-panel {
   display: block;  /* show when parallel mode is active */
@@ -2201,14 +2206,13 @@ article tbody tr:nth-child(even) {
   background: var(--c-bg);
 }
 .version-parallel-panel__body {
-  font-size: var(--fs-sm);
-  line-height: 1.9;
-  color: var(--c-text-2);
-  max-height: 70vh;
-  overflow-y: auto;
+  font-size: var(--fs-md);
+  line-height: 2;
+  color: var(--c-text);
+  /* No max-height or overflow — let it grow naturally with the content */
 }
 .version-parallel-panel__body p {
-  margin-bottom: var(--s-3);
+  margin: 0 0 var(--s-4);
 }
 .version-parallel-panel__loading {
   color: var(--c-text-muted);
@@ -2242,11 +2246,8 @@ article tbody tr:nth-child(even) {
 }
 .text-main--with-parallel > .version-parallel-panel {
   grid-area: panel;
-  margin-top: 0;  /* override default margin since grid handles spacing */
-  max-height: calc(100vh - 200px);
-  overflow-y: auto;
-  position: sticky;
-  top: var(--s-4);
+  margin-top: 0;
+  /* No max-height, no overflow, no sticky — let it grow naturally */
 }
 .text-main--with-parallel > .pagination,
 .text-main--with-parallel > .footnotes,
@@ -2275,9 +2276,7 @@ article tbody tr:nth-child(even) {
     flex-direction: column;
     align-items: stretch;
   }
-  .version-parallel-panel__body {
-    max-height: 50vh;
-  }
+  /* No max-height on mobile either — let it grow naturally */
 }
 
 /* ============================================================
