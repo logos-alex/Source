@@ -5,21 +5,18 @@ pagination:
   alias: sectionKey
 layout: base.njk
 permalink: "/by-figure/{{ sectionKey }}/index.html"
-eleventyComputed:
-  title: "{{ bibleSections.sections[sectionKey].title }}"
-  description: "{{ bibleSections.sections[sectionKey].subtitle }}"
 ---
+
+{% set section = bibleSections.sections[sectionKey] %}
+{% set sectionFigures = section.figures %}
 
 <div class="text-main category-listing">
   <header class="text-header">
     <p class="text-header__eyebrow">התנ"ך האפוקריפי</p>
-    <h1>{{ bibleSections.sections[sectionKey].title }}</h1>
-    <p>{{ bibleSections.sections[sectionKey].subtitle }}</p>
+    <h1>{{ section.title }}</h1>
+    <p>{{ section.subtitle }}</p>
   </header>
 
-  {% set sectionFigures = bibleSections.sections[sectionKey].figures %}
-
-  {# Display figures in this section, with their books #}
   {% for figureKey in sectionFigures %}
     {% set figureName = figures[figureKey] or figureKey %}
     <section class="figure-group">
@@ -27,7 +24,7 @@ eleventyComputed:
       <div class="book-list">
         {% set hasFigureItems = false %}
         {% for item in collections.texts %}
-          {% if item.data.figure == figureKey and item.data.book and not item.data.draft and (item.data.pageNumber == 0 or not item.data.pageNumber) and "sub-intro" not in item.data.tags %}
+          {% if item.data.figure == figureKey and item.data.book and item.data.pageNumber == 0 and not (item.data.tags | hasTag("sub-intro")) %}
             {% set hasFigureItems = true %}
             <article class="book-card{% if item.data.comingSoon %} book-card--coming-soon{% endif %}">
               <h3>
@@ -39,19 +36,18 @@ eleventyComputed:
               {% if item.data.source %}
                 {% set langEntry = languages[item.data.source] %}
                 {% set langLabel = (langEntry.label if langEntry else item.data.source) %}
-                <p><small>מקור: <a class="book-card__meta-link" href="{{ ('/texts/' + item.data.source + '/') | url }}">{{ langLabel }}</a></small></p>
+                <p><small>מקור: {{ langLabel }}</small></p>
               {% endif %}
             </article>
           {% endif %}
         {% endfor %}
         {% if not hasFigureItems %}
-          <p class="c-muted--italic">כרגע אין חיבורים זמינים לדמות זו. חזרו בהמשך לעדכונים.</p>
+          <p class="c-muted--italic">כרגע אין חיבורים רשומים לדמות זו.</p>
         {% endif %}
       </div>
     </section>
   {% endfor %}
 
-  {# Navigation back to main bible sections #}
   <nav class="bible-sections-nav" aria-label="ניווט בין חלקי התנך">
     <a href="{{ '/#bible-sections' | url }}" class="bible-sections-nav__back">← חזרה לתנ"ך האפוקריפי</a>
     <div class="bible-sections-nav__sections">

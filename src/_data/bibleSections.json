@@ -1,30 +1,40 @@
 {
-  "_comment": "חלוקת החיבורים לפי חלקי התנ\"ך — המבנה הראשי של האתר",
   "sections": {
     "torah": {
       "title": "חיצוניים לתורה",
       "subtitle": "חיבורים המיוחסים לאבות ולמשה — ראשית האמונה, ברית, חזיונות ומסורות אחרית הימים",
       "icon": "📜",
-      "figures": ["abraham", "enoch", "moshe"]
+      "figures": [
+        "abraham",
+        "enoch",
+        "moshe"
+      ]
     },
     "neviim": {
       "title": "חיצוניים לנביאים",
       "subtitle": "חיבורים המיוחסים לנביאי ישראל — עליות שמים, מסירות נפש וחזיונות אחרית הימים",
       "icon": "🔥",
-      "figures": ["isaiah"]
+      "figures": [
+        "isaiah"
+      ]
     },
     "ketuvim": {
       "title": "חיצוניים לכתובים",
       "subtitle": "חיבורים המיוחסים לדמויות הכתובים — דניאל, עזרא וזרובבל — חזיונות גאולה ואחרית הימים",
       "icon": "📖",
-      "figures": ["daniel", "ezra", "zerubbabel"]
+      "figures": [
+        "daniel",
+        "ezra",
+        "zerubbabel"
+      ]
     },
     "talmidei-yeshua": {
       "title": "מתלמידי ישוע הנוצרי",
       "subtitle": "חיבורים מן המסורת הנוצרית הקדומה, ובכללן מסורות המיוחסות לקלמנס ותלמידים מוקדמים",
       "icon": "✝️",
-      "figures": ["talmidei-yeshua"]
+      "figures": [
+        "talmidei-yeshua"
+      ]
     }
-  },
-  "_order": ["torah", "neviim", "ketuvim", "talmidei-yeshua"]
+  }
 }
