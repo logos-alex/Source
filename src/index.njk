@@ -1,18 +1,21 @@
 ---
 layout: base.njk
 title: "דף הבית"
-description: אוצר הכתבים הגנוזים — איסוף, תרגום והנגשה של ספרות יהודית ויהודו-נוצרית קדומה. חיבורים נדירים, כתבי-יד נשכחים, ונוסחים שאינם מצויים ברשת או בעברית.
+description: "אפוקריפה — התנ\"ך האפוקריפי: איסוף, תרגום והנגשה של ספרות יהודית ויהודו-נוצרית קדומה. חיבורים נדירים, כתבי-יד נשכחים, ונוסחים שאינם מצויים ברשת או בעברית."
 bodyClass: home-page
 ---
 <div class="text-main" style="max-width: var(--max-w);">
 
   <section class="home-hero" aria-label="פתיחה">
-    <div class="home-hero__seal" aria-hidden="true">{% include "logo-mark.njk" %}</div>
-    <p class="home-hero__eyebrow">ΛΟΓΙΑ</p>
-    <h1 class="home-hero__title">LOGIA</h1>
-    <p class="home-hero__subtitle">אוצר הכתבים הגנוזים</p>
+    <div class="home-hero__sigil" aria-label="חותם המהדורה">
+      <div class="home-hero__seal" aria-hidden="true">{% include "logo-mark.njk" %}</div>
+      <p class="home-hero__eyebrow">ΛΟΓΙΑ</p>
+    </div>
+    <h1 class="home-hero__title">אפוקריפה</h1>
+    <p class="home-hero__subtitle">התנ"ך האפוקריפי</p>
+    <p class="home-hero__sub-subtitle">בית המדרש לספרים חיצוניים</p>
     <p class="home-hero__lead">
-      ספרים רבים שנכתבו בעברית לא שרדו בלשון מקורם. ניצולו — אם ניצולו — רק בזכות תרגומים: יוונית, סורית, אתיופית, סלאבית, ארמנית. אוצר הכתבים הגנוזים הוא ניסיון להשיב, ולו בחלקם, קולות אלה אל לשון מוצאם.
+      ספרים רבים שנכתבו בעברית לא שרדו בלשון מקורם. ניצולו — אם ניצולו — רק בזכות תרגומים: יוונית, סורית, אתיופית, סלאבית, ארמנית. אפוקריפה הוא ניסיון להשיב, ולו בחלקם, קולות אלה אל לשון מוצאם.
     </p>
     <div class="home-hero__actions">
       <a href="{{ '/texts/' | url }}" class="btn btn--primary">כניסה לאוסף</a>

@@ -17,7 +17,7 @@
     {% endif %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% if page.url == '/' %}LOGIA — אוצר הכתבים הגנוזים | ספרות חיצונית ואפוקריפה בעברית{% else %}{{ title }} | LOGIA — אוצר הכתבים הגנוזים{% endif %}</title>
+    <title>{% if page.url == '/' %}אפוקריפה — התנ"ך האפוקריפי | ספרות חיצונית ואפוקריפה בעברית{% else %}{{ title }} | אפוקריפה — התנ"ך האפוקריפי{% endif %}</title>
 
     {# Pre-paint theme script — prevents flash-of-wrong-theme (FOUC) #}
     <script>
@@ -48,13 +48,13 @@
     <meta name="theme-color" content="#FAF6EE" media="(prefers-color-scheme: light)">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="LOGIA">
+    <meta name="apple-mobile-web-app-title" content="אפוקריפה">
     <meta name="mobile-web-app-capable" content="yes">
     <link rel="manifest" href="{{ '/manifest.json' | url }}">
 
     <!-- SEO & Meta Tags -->
     <meta name="description" content="{{ pageDescription }}">
-    <meta name="author" content="LOGIA — אוצר הכתבים הגנוזים">
+    <meta name="author" content="אפוקריפה — התנ&quot;ך האפוקריפי">
     <meta name="robots" content="{% if robots %}{{ robots }}{% else %}index, follow{% endif %}">
     <link rel="canonical" href="{{ canonicalUrl }}">
 
@@ -84,23 +84,23 @@
       {% set jsonLdType = "Article" %}
     {% endif %}
     <meta property="og:type" content="{{ ogType }}">
-    <meta property="og:title" content="{{ title }} | LOGIA — אוצר הכתבים הגנוזים">
+    <meta property="og:title" content="{{ title }} | אפוקריפה — התנ&quot;ך האפוקריפי">
     <meta property="og:description" content="{{ pageDescription }}">
     <meta property="og:url" content="{{ canonicalUrl }}">
-    <meta property="og:site_name" content="LOGIA — אוצר הכתבים הגנוזים">
+    <meta property="og:site_name" content="אפוקריפה — התנ&quot;ך האפוקריפי">
     <meta property="og:locale" content="he_IL">
     <meta property="og:image" content="{{ ogImageUrl }}">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="לוגו LOGIA — אוצר הכתבים הגנוזים, חותם מעגלי עם האות למדא על רקע שנהב-ברונזה">
+    <meta property="og:image:alt" content="לוגו אפוקריפה — חותם מעגלי עם האות למדא על רקע שנהב-ברונזה">
 
     <!-- Twitter/X Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{ title }} | LOGIA — אוצר הכתבים הגנוזים">
+    <meta name="twitter:title" content="{{ title }} | אפוקריפה — התנ&quot;ך האפוקריפי">
     <meta name="twitter:description" content="{{ pageDescription }}">
     <meta name="twitter:url" content="{{ canonicalUrl }}">
     <meta name="twitter:image" content="{{ ogImageUrl }}">
-    <meta name="twitter:image:alt" content="לוגו LOGIA — אוצר הכתבים הגנוזים">
+    <meta name="twitter:image:alt" content="לוגו אפוקריפה — חותם מעגלי עם האות למדא על רקע שנהב-ברונזה">
 
     {# JSON-LD Structured Data — Article/Book/WebSite #}
     {% if page.url != '/' %}
@@ -128,11 +128,11 @@
       {% endif %}
       "author": {
         "@type": "Organization",
-        "name": "LOGIA — אוצר הכתבים הגנוזים"
+        "name": "אפוקריפה — התנ\"ך האפוקריפי"
       },
       "publisher": {
         "@type": "Organization",
-        "name": "LOGIA — אוצר הכתבים הגנוזים",
+        "name": "אפוקריפה — התנ\"ך האפוקריפי",
         "logo": {
           "@type": "ImageObject",
           "url": "{{ site.origin }}{{ site.pathPrefix }}assets/favicon-512.png"
@@ -147,7 +147,7 @@
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      "name": "LOGIA — אוצר הכתבים הגנוזים",
+      "name": "אפוקריפה — התנ\"ך האפוקריפי",
       "url": "{{ site.origin }}{{ site.pathPrefix }}",
       "inLanguage": "he",
       "potentialAction": {
@@ -161,8 +161,8 @@
     {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "LOGIA — אוצר הכתבים הגנוזים",
-      "alternateName": "LOGIA",
+      "name": "אפוקריפה — התנ\"ך האפוקריפי",
+      "alternateName": "אפוקריפה",
       "url": "{{ site.origin }}{{ site.pathPrefix }}",
       "logo": "{{ site.origin }}{{ site.pathPrefix }}assets/favicon-512.png",
       "description": {{ defaultDescription | jsonify | safe }},
@@ -265,8 +265,8 @@
             <a href="{{ '/' | url }}" class="site-brand">
               <span class="site-brand__mark" aria-hidden="true">{% include "logo-mark.njk" %}</span>
               <span class="site-brand__text">
-                <span class="site-brand__name">LOGIA</span>
-                <span class="site-brand__tagline">אוצר הכתבים הגנוזים</span>
+                <span class="site-brand__name">אפוקריפה</span>
+                <span class="site-brand__tagline">התנ"ך האפוקריפי</span>
               </span>
             </a>
 
@@ -354,8 +354,8 @@
         <div class="footer-brand">
           <span class="footer-brand__mark" aria-hidden="true">{% include "logo-mark.njk" %}</span>
           <div class="footer-brand__text">
-            <span class="footer-brand__name">LOGIA</span>
-            <span class="footer-brand__tagline">אוצר הכתבים הגנוזים</span>
+            <span class="footer-brand__name">אפוקריפה</span>
+            <span class="footer-brand__tagline">התנ"ך האפוקריפי</span>
           </div>
         </div>
         <p class="footer-tagline">השבת קולות עתיקים אל שפת המוצא — שחזורים, תרגומים וביאורים של טקסטים שנדחקו אל שולי המסורת.</p>
@@ -374,7 +374,7 @@
           <div class="footer-nav__col">
             <h2 class="footer-nav__heading">המיזם</h2>
             <ul>
-              <li><a href="{{ '/about/' | url }}">אודות LOGIA</a></li>
+              <li><a href="{{ '/about/' | url }}">אודות אפוקריפה</a></li>
               <li><a href="{{ '/license/' | url }}">רישיון ושימוש</a></li>
               <li><a href="{{ '/privacy/' | url }}">מדיניות פרטיות</a></li>
               <li><a href="{{ '/contact/' | url }}">צור קשר</a></li>
@@ -403,7 +403,7 @@
         <div class="footer-meta">
           <p>התכנים באתר מופצים בנחלת הכלל (<a href="{{ '/license/' | url }}">CC0 1.0</a>) — ניתן להשתמש, לצטט ולשנות בחופשיות.</p>
           <p class="c-footer-meta">
-            &copy; LOGIA — 2025–{{ buildInfo.buildYear }} ·
+            &copy; אפוקריפה — 2025–{{ buildInfo.buildYear }} ·
             <a href="{{ '/sitemap.xml' | url }}">Sitemap</a> ·
             <a href="{{ '/robots.txt' | url }}">Robots</a> ·
             <a href="{{ '/manifest.json' | url }}">Manifest</a>

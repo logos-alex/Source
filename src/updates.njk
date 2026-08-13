@@ -34,4 +34,26 @@ bodyClass: updates-page
     </article>
     {% endfor %}
   </div>
+
+  {% if updates.upcoming %}
+  <section class="upcoming-section" aria-labelledby="upcoming-heading">
+    <header class="upcoming-header">
+      <h2 id="upcoming-heading">{{ updates.upcoming.title }}</h2>
+      <p>{{ updates.upcoming.intro }}</p>
+    </header>
+    <div class="upcoming-groups">
+      {% for group in updates.upcoming.groups %}
+      <div class="upcoming-group">
+        <h3 class="upcoming-group__title">{{ group.source }}</h3>
+        <ul class="upcoming-group__list">
+          {% for text in group.texts %}
+          <li>{{ text }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
 </div>
+

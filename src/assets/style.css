@@ -1,5 +1,5 @@
 /* =====================================================================
-   LOGIA — אוצר הכתבים הגנוזים
+   אפוקריפה — התנ"ך האפוקריפי
    Design System v2.0 — "Editorial Sacred Modern"
    ===================================================================== */
 
@@ -522,48 +522,69 @@ main {
   position: relative;
 }
 
-.home-hero__seal {
-  width: 84px;
-  height: 84px;
-  color: var(--c-accent);
-  margin: 0 auto var(--s-5);
+.home-hero__sigil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s-1);
+  margin: 0 0 var(--s-7);
   opacity: 0;
   transform: translateY(8px);
-  animation: fadeUp 700ms 100ms cubic-bezier(0.2, 0.6, 0.2, 1) forwards;
+  animation: fadeUpSigil 800ms 150ms cubic-bezier(0.2, 0.6, 0.2, 1) forwards;
+}
+
+@keyframes fadeUpSigil {
+  to { opacity: 0.65; transform: translateY(0); }
+}
+
+.home-hero__seal {
+  width: 56px;
+  height: 56px;
+  color: var(--c-gold);
+  margin: 0;
 }
 
 .home-hero__eyebrow {
   font-family: var(--font-display);
-  font-size: var(--fs-sm);
+  font-size: 0.7rem;
   font-weight: 500;
-  letter-spacing: 0.4em;
+  letter-spacing: 0.55em;
   text-transform: uppercase;
-  color: var(--c-accent);
-  margin: 0 0 var(--s-3);
-  opacity: 0;
-  animation: fadeUp 700ms 200ms cubic-bezier(0.2, 0.6, 0.2, 1) forwards;
+  color: var(--c-gold);
+  margin: 0;
+  padding-inline-start: 0.55em;
 }
 
 .home-hero__title {
-  font-family: var(--font-display);
-  font-size: clamp(3.5rem, 10vw, 6rem);
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  line-height: 1;
-  margin: 0 0 var(--s-3);
-  color: var(--c-text);
+  font-family: var(--font-hebrew-display);
+  font-size: clamp(3.1rem, 8.5vw, 5.2rem);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  line-height: 1.15;
+  margin: 0 0 var(--s-5);
+  color: var(--c-gold);
   opacity: 0;
   animation: fadeUp 800ms 300ms cubic-bezier(0.2, 0.6, 0.2, 1) forwards;
 }
 
 .home-hero__subtitle {
   font-family: var(--font-hebrew-display);
-  font-size: clamp(1.4rem, 4vw, 2rem);
-  font-weight: 700;
-  color: var(--c-accent);
-  margin: 0 0 var(--s-5);
+  font-size: clamp(1.35rem, 3.5vw, 1.75rem);
+  font-weight: 500;
+  color: var(--c-text);
+  margin: 0 0 var(--s-3);
   opacity: 0;
   animation: fadeUp 800ms 400ms cubic-bezier(0.2, 0.6, 0.2, 1) forwards;
+}
+
+.home-hero__sub-subtitle {
+  font-family: var(--font-hebrew-display);
+  font-size: var(--fs-md);
+  font-weight: 400;
+  color: var(--c-text-2);
+  margin: var(--s-5) 0 var(--s-6);
+  opacity: 0;
+  animation: fadeUp 800ms 450ms cubic-bezier(0.2, 0.6, 0.2, 1) forwards;
 }
 
 .home-hero__lead {
@@ -1652,8 +1673,9 @@ body.reading-mode .reading-mode-toggle {
   body { font-size: var(--fs-base); line-height: 1.8; }
   h1 { font-size: var(--fs-2xl); }
   h2 { font-size: var(--fs-xl); }
-  .home-hero__title { font-size: clamp(2.8rem, 14vw, 4rem); }
+  .home-hero__title { font-size: clamp(2.6rem, 13vw, 3.6rem); }
   .home-hero__subtitle { font-size: var(--fs-lg); }
+  .home-hero__sub-subtitle { font-size: var(--fs-base); }
   .home-intro-grid { grid-template-columns: 1fr; }
   .home-hero__actions { flex-direction: column; align-items: stretch; }
   .btn { justify-content: center; }
@@ -2339,6 +2361,25 @@ article tbody tr:nth-child(even) {
   font-weight: 700;
 }
 
+/* Parallel section slices (sentence-range extraction) */
+.version-parallel-section {
+  padding: var(--s-2) 0;
+}
+.version-parallel-section__title {
+  font-size: var(--fs-sm);
+  color: var(--c-accent);
+  margin: var(--s-2) 0 var(--s-1);
+  padding-bottom: var(--s-1);
+  border-bottom: 1px dashed var(--c-border-soft);
+}
+.version-parallel-section p {
+  margin: var(--s-2) 0;
+  line-height: 1.9;
+}
+.version-parallel-section p:first-of-type {
+  margin-top: var(--s-1);
+}
+
 /* Diff highlighting — words */
 .diff-rendered {
   line-height: 1.9;
@@ -2495,4 +2536,155 @@ article tbody tr:nth-child(even) {
   color: var(--c-accent);
   display: block;
   margin-bottom: var(--s-1);
+}
+
+
+/* ===== Alignment table (התאמת פרקים בין נוסחים) ===== */
+.align-table-wrap {
+  overflow-x: auto;
+  margin: 1.2rem 0;
+  border: 1px solid var(--border, #ddd);
+  border-radius: 10px;
+}
+.align-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  min-width: 480px;
+}
+.align-table th,
+.align-table td {
+  padding: 0.5rem 0.75rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border, #eee);
+  vertical-align: middle;
+}
+.align-table thead th {
+  background: var(--bg-soft, #f6f6f4);
+  font-weight: 700;
+  position: sticky;
+  top: 0;
+}
+.align-table tbody tr:nth-child(even) {
+  background: var(--bg-soft, #fafaf8);
+}
+.align-table tbody tr:hover {
+  background: var(--accent-soft, #eef2f7);
+}
+.align-name {
+  text-align: right !important;
+  font-weight: 500;
+}
+.align-page {
+  display: inline-block;
+  min-width: 1.6em;
+  padding: 0.15em 0.4em;
+  border-radius: 6px;
+  background: var(--accent-soft, #eef2f7);
+  font-weight: 600;
+}
+.align-missing {
+  color: #b00;
+  font-weight: 700;
+}
+.align-legend {
+  font-size: 0.88rem;
+  opacity: 0.85;
+}
+
+/* -------------------- Shelf groups (by-figure nadavim) -------------------- */
+.shelf-group {
+  margin: 0 0 var(--s-8);
+  padding: var(--s-5);
+  border: 1px solid var(--c-border-soft);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--c-bg-soft) 40%, transparent);
+}
+.shelf-group__title {
+  font-family: var(--font-hebrew-display);
+  font-size: var(--fs-xl);
+  font-weight: 700;
+  color: var(--c-accent);
+  margin: 0 0 var(--s-2);
+}
+.shelf-group__desc {
+  color: var(--c-text-2);
+  margin: 0 0 var(--s-4);
+  font-size: var(--fs-base);
+}
+.shelf-group .book-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--s-4);
+}
+.shelf-flatlist {
+  margin-top: var(--s-6);
+  border: 1px dashed var(--c-border);
+  border-radius: 8px;
+  padding: var(--s-3) var(--s-4);
+}
+.shelf-flatlist summary {
+  cursor: pointer;
+  color: var(--c-accent);
+  font-weight: 600;
+  padding: var(--s-2) 0;
+}
+.shelf-flatlist .book-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--s-3);
+  margin-top: var(--s-3);
+}
+.shelf-flatlist .book-card {
+  padding: var(--s-2) var(--s-3);
+}
+
+/* ------------------- Updates: upcoming section ------------------- */
+.upcoming-section {
+  margin-top: var(--s-8);
+  padding-top: var(--s-6);
+  border-top: 1px solid var(--c-border-soft);
+}
+.upcoming-header h2 {
+  font-size: var(--fs-xl);
+  color: var(--c-text-strong);
+  margin-bottom: var(--s-2);
+}
+.upcoming-header p {
+  color: var(--c-text-muted);
+  max-width: 60ch;
+}
+.upcoming-groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--s-5);
+  margin-top: var(--s-5);
+}
+.upcoming-group {
+  padding: var(--s-4) var(--s-5);
+  background: var(--c-surface);
+  border: 1px solid var(--c-border-soft);
+  border-radius: var(--r-lg);
+}
+.upcoming-group__title {
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--c-accent);
+  margin-bottom: var(--s-3);
+  padding-bottom: var(--s-2);
+  border-bottom: 1px solid var(--c-border-soft);
+}
+.upcoming-group__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.upcoming-group__list li {
+  font-size: var(--fs-sm);
+  color: var(--c-text);
+  padding: var(--s-1) 0;
+  border-bottom: 1px dotted var(--c-border-soft);
+}
+.upcoming-group__list li:last-child {
+  border-bottom: none;
 }

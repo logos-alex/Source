@@ -6,10 +6,10 @@ eleventyExcludeFromCollections: true
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>LOGIA — מה חדש</title>
+    <title>אפוקריפה — מה חדש</title>
     <link>{{ site.origin }}{{ site.pathPrefix }}updates/</link>
     <atom:link href="{{ site.origin }}{{ site.pathPrefix }}updates/feed.xml" rel="self" type="application/rss+xml" />
-    <description>עדכונים וחידושים במאגר LOGIA — אוצר הכתבים הגנוזים.</description>
+    <description>עדכונים וחידושים במאגר אפוקריפה — התנ"ך האפוקריפי.</description>
     <language>he</language>
     <lastBuildDate>{{ buildInfo.builtAtUTC }}</lastBuildDate>
     {% for item in updates.items.slice(0, 10) %}

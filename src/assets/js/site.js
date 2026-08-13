@@ -425,6 +425,24 @@ const safeStorage = {
       return null;
     }
 
+    // Returns ALL logical sections mapped to this page (a page may contain several).
+    function findCurrentSections(ver, pgNum) {
+      if (!alignment || !alignment.sections) return null;
+      const n = parseInt(pgNum, 10);
+      const out = [];
+      for (const [sectionKey, section] of Object.entries(alignment.sections)) {
+        if (section[ver] === n) {
+          out.push({key: sectionKey, section: section});
+        } else {
+          const spans = section[ver + '_spans'];
+          if (spans && spans.some(sp => sp.page === n)) {
+            out.push({key: sectionKey, section: section});
+          }
+        }
+      }
+      return out.length ? out : null;
+    }
+
     // Restore saved state
     const savedEnabled = safeStorage.get(STORAGE_KEY) === 'true';
     const savedTarget = safeStorage.get(STORAGE_VERSION_KEY);
@@ -439,10 +457,11 @@ const safeStorage = {
 
     // Update the section label (shows which logical section we're viewing)
     function updateSectionLabel() {
-      const current = findCurrentSection(currentVersion, pageNum);
+      const currents = findCurrentSections(currentVersion, pageNum);
       if (sectionLabel) {
-        if (current) {
-          sectionLabel.textContent = 'קטע: ' + current.section.title;
+        if (currents && currents.length) {
+          const names = currents.map(c => c.section.title);
+          sectionLabel.textContent = 'קטע' + (names.length > 1 ? 'ים' : '') + ': ' + names.join(' · ');
           sectionLabel.hidden = false;
         } else {
           sectionLabel.hidden = true;
@@ -585,22 +604,46 @@ const safeStorage = {
       if (footerEl) footerEl.hidden = false;
     }
 
-    function loadParallelContent() {
+        function loadParallelContent() {
       const targetVersion = select.value;
       if (!targetVersion) return;
 
-      // Use alignment table to find the parallel page
-      const current = findCurrentSection(currentVersion, pageNum);
-      let targetPageNum = null;
+      // Use alignment table to find ALL parallel sections for this page.
+      // Each section now carries exact sentence spans (*_spans) per version,
+      // so we can slice the fetched page by sentence range instead of
+      // showing the whole page.
+      const currents = findCurrentSections(currentVersion, pageNum);
+      let targetSpans = null;   // [{page, from, to, sectionTitle, sectionKey}]
       let sectionTitle = '';
       let sectionNote = '';
 
-      if (current && alignment) {
-        const targetPage = current.section[targetVersion];
-        sectionTitle = current.section.title;
-        sectionNote = current.section.note || '';
-        if (targetPage === null || targetPage === undefined) {
-          // Section is missing in target version
+      if (currents && alignment) {
+        const titles = [];
+        const notes = [];
+        const missing = [];
+        const spansAll = [];
+        currents.forEach(c => {
+          const spans = c.section[targetVersion + '_spans'];
+          titles.push(c.section.title);
+          if (c.section.note) notes.push(c.section.note);
+          if (!spans || !spans.length) {
+            missing.push(c.section.title);
+          } else {
+            spans.forEach(sp => {
+              spansAll.push({
+                page: sp.page,
+                from: sp.from,
+                to: sp.to,
+                sectionTitle: c.section.title,
+                sectionKey: c.key
+              });
+            });
+          }
+        });
+        sectionTitle = titles.join(' · ');
+        sectionNote = notes.join(' ');
+        if (!spansAll.length) {
+          // All mapped sections are missing in the target version
           titleEl.textContent = `נוסח ${targetVersion.toUpperCase()}' — ${sectionTitle}`;
           body.innerHTML = `<div class="version-parallel-missing">
             <p><strong>קטע זה חסר בנוסח ${targetVersion.toUpperCase()}'.</strong></p>
@@ -609,14 +652,24 @@ const safeStorage = {
           setLoading(false);
           return;
         }
-        targetPageNum = targetPage;
-      } else {
-        // No alignment — fall back to same page number
-        targetPageNum = parseInt(pageNum, 10);
+        targetSpans = spansAll;
       }
 
-      const targetUrl = `/Source/texts/${source}/${book}/${targetVersion}/page-${targetPageNum}/`;
-      const label = sectionTitle ? `${sectionTitle} — נוסח ${targetVersion.toUpperCase()}'` : `נוסח ${targetVersion.toUpperCase()}' — פרק ${targetPageNum}`;
+      // Collect unique target pages from spans (or fall back to same page)
+      let pages;
+      if (targetSpans) {
+        pages = [...new Set(targetSpans.map(s => s.page))].sort((a, b) => a - b);
+      } else {
+        pages = [parseInt(pageNum, 10)];
+      }
+      const minPage = Math.min(...pages);
+      const maxPage = Math.max(...pages);
+      const rangeLabel = minPage === maxPage
+        ? `פרק ${minPage}`
+        : `פרקים ${minPage}–${maxPage}`;
+      const label = sectionTitle
+        ? `${sectionTitle} — נוסח ${targetVersion.toUpperCase()}' (${rangeLabel})`
+        : `נוסח ${targetVersion.toUpperCase()}' — ${rangeLabel}`;
       titleEl.textContent = label;
       setLoading(true);
       body.innerHTML = '';
@@ -626,19 +679,88 @@ const safeStorage = {
       const localContent = document.querySelector('article.text-main .text-content');
       if (localContent) localContent.style.display = '';
 
-      fetch(targetUrl)
-        .then(r => {
-          if (!r.ok) throw new Error('HTTP ' + r.status);
-          return r.text();
-        })
-        .then(html => {
+      const urls = pages.map(p => `/Source/texts/${source}/${book}/${targetVersion}/page-${p}/`);
+
+      Promise.all(urls.map(u => fetch(u).then(r => (r.ok ? r.text() : null))))
+        .then(htmls => {
           const parser = new DOMParser();
-          const doc = parser.parseFromString(html, 'text/html');
-          const remoteArticle = doc.querySelector('article.text-main .text-content') || doc.querySelector('article.text-main');
-          if (remoteArticle) {
+          const fragment = document.createDocumentFragment();
+          let any = false;
+          // Collect slices per page first, then group across pages by section.
+          const pageSlices = []; // {pageNo, sents|null, remoteArticle|null}
+          htmls.forEach((html, idx) => {
+            if (!html) return;
+            const doc = parser.parseFromString(html, 'text/html');
+            const remoteArticle = doc.querySelector('article.text-main .text-content') || doc.querySelector('article.text-main');
+            if (!remoteArticle) return;
             remoteArticle.querySelectorAll('.text-controls, .parallel-controls, .version-parallel-controls, .version-parallel-panel, .footnotes, .reading-progress, script').forEach(el => el.remove());
+            const pageNo = pages[idx];
+            const spansForPage = targetSpans ? targetSpans.filter(s => s.page === pageNo) : [];
+            const hasExactSpans = spansForPage.length > 0 &&
+              spansForPage.every(s => s.from !== null && s.to !== null && s.to >= s.from);
+            let sents = null;
+            if (hasExactSpans) {
+              const raw = remoteArticle.textContent.replace(/\n{2,}/g, '\n').trim();
+              sents = raw.split(/(?<=[\.\?\!\"\u05C3])\s+/).map(s => s.trim()).filter(s => s && s !== '---');
+            }
+            pageSlices.push({ pageNo, sents, remoteArticle, spansForPage, hasExactSpans });
+            any = true;
+          });
+
+          if (any) {
+            // Build output. Sections that have exact spans are grouped across
+            // pages (one title per section); pages without spans fall back to
+            // showing the whole page.
+            const sectionGroups = new Map(); // sectionKey -> {title, spans:[], order}
+            const fallbackPages = [];
+            let order = 0;
+            pageSlices.forEach(slice => {
+              if (slice.hasExactSpans) {
+                slice.spansForPage.forEach(sp => {
+                  if (!sectionGroups.has(sp.sectionKey)) {
+                    sectionGroups.set(sp.sectionKey, { title: sp.sectionTitle, spans: [], order: order++ });
+                  }
+                  sectionGroups.get(sp.sectionKey).spans.push({ span: sp, sents: slice.sents });
+                });
+              } else {
+                fallbackPages.push(slice.remoteArticle);
+              }
+            });
+
+            const sortedGroups = [...sectionGroups.values()].sort((a, b) => a.order - b.order);
+            let emittedAny = false;
+            sortedGroups.forEach(group => {
+              const wrap = document.createElement('div');
+              wrap.className = 'version-parallel-section';
+              const head = document.createElement('h4');
+              head.className = 'version-parallel-section__title';
+              head.textContent = group.title;
+              wrap.appendChild(head);
+              group.spans.forEach(({ span, sents }) => {
+                if (span.from < sents.length) {
+                  for (let i = span.from; i <= span.to && i < sents.length; i++) {
+                    const p = document.createElement('p');
+                    p.textContent = sents[i];
+                    wrap.appendChild(p);
+                  }
+                }
+              });
+              fragment.appendChild(wrap);
+              emittedAny = true;
+            });
+
+            fallbackPages.forEach((el, i) => {
+              if (emittedAny || i > 0) {
+                const sep = document.createElement('hr');
+                sep.className = 'version-parallel-sep';
+                fragment.appendChild(sep);
+              }
+              fragment.appendChild(el);
+              emittedAny = true;
+            });
+
             body.innerHTML = '';
-            body.appendChild(remoteArticle);
+            body.appendChild(fragment);
             body.style.display = '';
           } else {
             body.innerHTML = '<p>לא נמצא תוכן מקביל בנוסח זה.</p>';
@@ -658,7 +780,6 @@ const safeStorage = {
           setLoading(false);
         });
     }
-
     toggle.addEventListener('click', () => {
       const isEnabled = toggle.getAttribute('aria-pressed') === 'true';
       applyState(!isEnabled);

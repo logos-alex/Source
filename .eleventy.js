@@ -46,6 +46,27 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addFilter("renderMarkdownInline", renderInlineMarkdown);
 
+  // Wrap each Hebrew sentence in <span class="sent" data-si="N"> so the
+  // client-side parallel view can slice exact sentence ranges. The split regex
+  // MUST stay in sync with tools used to build apocalypse-abraham-alignment.json.
+  eleventyConfig.addFilter("sentenceMarks", (text) => {
+    if (!text) return "";
+    let body = String(text).replace(/\n{2,}/g, "\n");
+    const parts = body.split(/(?<=[\.\?\!\"\u05C3])\s+/);
+    let out = "";
+    let si = 0;
+    for (const p of parts) {
+      const s = p.trim();
+      if (!s || s === "---") { out += (s === "---" ? s + "\n" : ""); continue; }
+      // Skip block-level markdown openers (quotes, lists, headings, hr) so we
+      // don't break rendering; they are also excluded from the sentence map.
+      if (/^(>|#|[-*] |\||\d\.)/.test(s)) { out += s + " "; continue; }
+      out += `\n\n<div class="sent" data-si="${si}">${s}</div>\n`;
+      si++;
+    }
+    return out.trim();
+  });
+
   eleventyConfig.addFilter("renderNoteRefs", (text) => {
     if (!text) return "";
     // Apply renderInlineMarkdown on raw markdown text (not yet rendered to HTML).
