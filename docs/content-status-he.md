@@ -5,9 +5,9 @@
 | מדד | ערך |
 |---|---:|
 | סה"כ ספרים | 29 |
-| סה"כ פרקים | 86 |
+| סה"כ פרקים | 54 |
 | סה"כ הערות שוליים | 0 |
-| סה"כ מילים (בערך) | 15,802 |
+| סה"כ מילים (בערך) | 12,805 |
 | ספרים עם תצוגה מקבילית | 9 |
 | ספרים בהכנה (comingSoon) | 28 |
 
@@ -16,7 +16,7 @@
 | ספר | מקור | דמות | פרקים | הערות | מילים | מקבילית | ללא תרגום מאומת |
 |---|---|---|---:|---:|---:|:---:|---:|
 | apoc-daniel-syriac | aramaic | daniel | 0 | 0 | 0 | ✓ | 0 |
-| apocalypse-abraham | slavic | abraham | 86 | 0 | 15,802 |  | 0 |
+| apocalypse-abraham | slavic | abraham | 54 | 0 | 12,805 |  | 0 |
 | apokalypsis-esdras | greek | ezra | 0 | 0 | 0 |  | 0 |
 | chazon-daniel-aravi | arabic | daniel | 0 | 0 | 0 |  | 0 |
 | chazon-daniel-kopti | arabic | daniel | 0 | 0 | 0 |  | 0 |
