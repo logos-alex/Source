@@ -104,13 +104,15 @@
 
     {# JSON-LD Structured Data — Article/Book/WebSite #}
     {% if page.url != '/' %}
+    {% set catalogEntry = book | bookCatalogEntry %}
+    {% set bookTitle = catalogEntry.title if catalogEntry and catalogEntry.title else book %}
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "{{ jsonLdType }}",
-      "name": "{% if book %}{{ book }} — {% endif %}{{ title }}",
-      "headline": {{ title | jsonify }},
-      "description": {{ pageDescription | jsonify }},
+      "name": "{% if bookTitle %}{{ bookTitle }} — {% endif %}{{ title }}",
+      "headline": {{ title | jsonify | safe }},
+      "description": {{ pageDescription | jsonify | safe }},
       "url": "{{ canonicalUrl }}",
       "inLanguage": "he",
       "image": "{{ ogImageUrl }}",
@@ -118,19 +120,19 @@
       "dateModified": "{{ page.date | toISOString }}",
       {% endif %}
       "mainEntityOfPage": "{{ canonicalUrl }}",
-      {% if book %}"articleSection": "{{ book }}",
+      {% if bookTitle %}"articleSection": {{ bookTitle | jsonify | safe }},
       "isPartOf": {
         "@type": "Book",
-        "name": "{{ book }}"
+        "name": {{ bookTitle | jsonify | safe }}
       },
       {% endif %}
       "author": {
         "@type": "Organization",
-        "name": "אפוקריפה — התנ"ך האפוקריפי"
+        "name": "אפוקריפה — התנ״ך האפוקריפי"
       },
       "publisher": {
         "@type": "Organization",
-        "name": "אפוקריפה — התנ"ך האפוקריפי",
+        "name": "אפוקריפה — התנ״ך האפוקריפי",
         "logo": {
           "@type": "ImageObject",
           "url": "{{ site.origin }}{{ site.pathPrefix }}assets/favicon-512.png"
@@ -145,7 +147,7 @@
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      "name": "אפוקריפה — התנ"ך האפוקריפי",
+      "name": "אפוקריפה — התנ״ך האפוקריפי",
       "url": "{{ site.origin }}{{ site.pathPrefix }}",
       "inLanguage": "he",
       "potentialAction": {
@@ -159,11 +161,11 @@
     {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "אפוקריפה — התנ"ך האפוקריפי",
+      "name": "אפוקריפה — התנ״ך האפוקריפי",
       "alternateName": "אפוקריפה",
       "url": "{{ site.origin }}{{ site.pathPrefix }}",
       "logo": "{{ site.origin }}{{ site.pathPrefix }}assets/favicon-512.png",
-      "description": {{ defaultDescription | jsonify }},
+      "description": {{ defaultDescription | jsonify | safe }},
       "sameAs": [
         "https://github.com/logos-alex/Source"
       ]
@@ -264,7 +266,7 @@
               <span class="site-brand__mark" aria-hidden="true">{% include "logo-mark.njk" %}</span>
               <span class="site-brand__text">
                 <span class="site-brand__name">אפוקריפה</span>
-                <span class="site-brand__tagline">אוצר הכתבים הגנוזים</span>
+                <span class="site-brand__tagline">התנ"ך האפוקריפי</span>
               </span>
             </a>
 
@@ -353,7 +355,7 @@
           <span class="footer-brand__mark" aria-hidden="true">{% include "logo-mark.njk" %}</span>
           <div class="footer-brand__text">
             <span class="footer-brand__name">אפוקריפה</span>
-            <span class="footer-brand__tagline">אוצר הכתבים הגנוזים</span>
+            <span class="footer-brand__tagline">התנ"ך האפוקריפי</span>
           </div>
         </div>
         <p class="footer-tagline">השבת קולות עתיקים אל שפת המוצא — שחזורים, תרגומים וביאורים של טקסטים שנדחקו אל שולי המסורת.</p>
