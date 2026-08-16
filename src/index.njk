@@ -89,7 +89,7 @@ bodyClass: home-page
   {# ===== BIBLE SECTIONS — המבנה הראשי ===== #}
   <section id="bible-sections" class="bible-sections" aria-label="התנך האפוקריפי — חלוקה לפי חלקי התנך">
     <h2 class="bible-sections__title">התנ"ך האפוקריפי</h2>
-    <p class="bible-sections__intro">החיבורים באתר מסודרים לפי חלקי התנ"ך — תורה, נביאים וכתובים — ולצדם כתבי תלמידי ישוע הנוצרי. בחרו חלק כדי לעיין בחיבורים המיוחסים לדמויותיו.</p>
+    <p class="bible-sections__intro">החיבורים באתר מסודרים לפי חלקי התנ"ך — תורה, נביאים וכתובים — ולצדם כתבי תלמידי ישוע הנוצרי. בחרו חלק כדי לעיין בחיבורים שבתוכו.</p>
 
     <div class="bible-sections__grid">
       {% for sectionKey in bibleSectionOrder %}
@@ -104,6 +104,9 @@ bodyClass: home-page
             <span class="bible-section-card__figure">{{ figures[figureKey] or figureKey }}</span>
             {% endfor %}
           </div>
+          {% if section.books %}
+          <p class="bible-section-card__count">{{ section.books | length }} חיבורים</p>
+          {% endif %}
         </a>
       </article>
       {% endfor %}

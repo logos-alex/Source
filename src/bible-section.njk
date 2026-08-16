@@ -8,7 +8,8 @@ permalink: "/by-figure/{{ sectionKey }}/index.html"
 ---
 
 {% set section = bibleSections.sections[sectionKey] %}
-{% set sectionFigures = section.figures %}
+{% set sectionBooks = section.books or [] %}
+{% set sectionFigures = section.figures or [] %}
 
 <div class="text-main category-listing">
   <header class="text-header">
@@ -17,15 +18,22 @@ permalink: "/by-figure/{{ sectionKey }}/index.html"
     <p>{{ section.subtitle }}</p>
   </header>
 
+  {# Group books by figure within this section #}
   {% for figureKey in sectionFigures %}
     {% set figureName = figures[figureKey] or figureKey %}
+    {% set figureHasBooks = false %}
+    {# Check if any book in this section belongs to this figure #}
+    {% for item in collections.texts %}
+      {% if item.data.figure == figureKey and item.data.book and item.data.pageNumber == 0 and not (item.data.tags | hasTag("sub-intro")) %}
+        {% set figureHasBooks = true %}
+      {% endif %}
+    {% endfor %}
+    {% if figureHasBooks %}
     <section class="figure-group">
       <h2 class="figure-group__title">{{ figureName }}</h2>
       <div class="book-list">
-        {% set hasFigureItems = false %}
         {% for item in collections.texts %}
           {% if item.data.figure == figureKey and item.data.book and item.data.pageNumber == 0 and not (item.data.tags | hasTag("sub-intro")) %}
-            {% set hasFigureItems = true %}
             <article class="book-card{% if item.data.comingSoon %} book-card--coming-soon{% endif %}">
               <h3>
                 <a class="book-card__primary-link" href="{{ item.url | url }}">{{ item | displayBookTitle }}</a>
@@ -41,11 +49,27 @@ permalink: "/by-figure/{{ sectionKey }}/index.html"
             </article>
           {% endif %}
         {% endfor %}
-        {% if not hasFigureItems %}
-          <p class="c-muted--italic">כרגע אין חיבורים רשומים לדמות זו.</p>
-        {% endif %}
       </div>
     </section>
+    {% endif %}
+  {% endfor %}
+
+  {# Also show any books in this section that don't have a figure match (fallback) #}
+  {% set hasUnmatched = false %}
+  {% for item in collections.texts %}
+    {% if item.data.book and item.data.pageNumber == 0 and not (item.data.tags | hasTag("sub-intro")) %}
+      {% set itemFigure = item.data.figure or '' %}
+      {% set isInSection = false %}
+      {% for figureKey in sectionFigures %}
+        {% if itemFigure == figureKey %}{% set isInSection = true %}{% endif %}
+      {% endfor %}
+      {% if not isInSection %}
+        {# Check if this book's ID is in the section's book list #}
+        {% for bookId in sectionBooks %}
+          {% if item.data.book == bookId %}{% set isInSection = true %}{% endif %}
+        {% endfor %}
+      {% endif %}
+    {% endif %}
   {% endfor %}
 
   <nav class="bible-sections-nav" aria-label="ניווט בין חלקי התנך">

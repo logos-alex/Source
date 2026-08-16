@@ -4,7 +4,7 @@ title: "פרק ג — הדרך אל ההר"
 book: maase-yitzchak
 version: main
 source: arabic
-figure: abraham
+figure: yitzchak
 pageNumber: 3
 draft: false
 comingSoon: false

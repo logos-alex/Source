@@ -4,7 +4,7 @@ title: "פרק ב — החלומות והציווי"
 book: maase-yitzchak
 version: main
 source: arabic
-figure: abraham
+figure: yitzchak
 pageNumber: 2
 draft: false
 comingSoon: false

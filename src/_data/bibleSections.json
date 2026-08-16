@@ -6,8 +6,17 @@
       "icon": "📜",
       "figures": [
         "abraham",
+        "yitzchak",
         "enoch",
         "moshe"
+      ],
+      "books": [
+        "apocalypse-abraham",
+        "maase-yitzchak",
+        "sefer-hanoch-a",
+        "enoch-qumran-aramaic",
+        "vision-enoch-righteous-armenian",
+        "sichat-moshe"
       ]
     },
     "neviim": {
@@ -16,6 +25,9 @@
       "icon": "🔥",
       "figures": [
         "isaiah"
+      ],
+      "books": [
+        "maale-yeshayahu"
       ]
     },
     "ketuvim": {
@@ -26,6 +38,17 @@
         "daniel",
         "ezra",
         "zerubbabel"
+      ],
+      "books": [
+        "apoc-daniel-syriac",
+        "young-daniel-syriac",
+        "vision-daniel-armenian",
+        "chazon-daniel-aravi",
+        "chazon-daniel-kopti",
+        "chazon-ezra-sofer",
+        "apokalypsis-esdras",
+        "chazon-ezra-suri",
+        "sefer-zerubbabel"
       ]
     },
     "talmidei-yeshua": {
@@ -34,6 +57,22 @@
       "icon": "✝️",
       "figures": [
         "talmidei-yeshua"
+      ],
+      "books": [
+        "clementos",
+        "tsavaat-yeshua",
+        "ketav-almagal",
+        "clementine-r1",
+        "clementine-r2",
+        "clementine-r3",
+        "clementine-r4",
+        "clementine-homilies",
+        "clementine-homilies-greek",
+        "maasei-timotheos",
+        "ketav-almagal-nusach-b",
+        "chazon-kifa-laklemis",
+        "glia-de-klemis",
+        "klalot-hashvatim"
       ]
     }
   }

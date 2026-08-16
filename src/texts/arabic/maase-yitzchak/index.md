@@ -4,7 +4,7 @@ title: "מעשה יצחק"
 book: maase-yitzchak
 version: main
 source: arabic
-figure: abraham
+figure: yitzchak
 pageNumber: 0
 draft: false
 comingSoon: false

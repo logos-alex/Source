@@ -4,7 +4,7 @@ title: "פרק ד — העקידה והגאולה"
 book: maase-yitzchak
 version: main
 source: arabic
-figure: abraham
+figure: yitzchak
 pageNumber: 4
 draft: false
 comingSoon: false
