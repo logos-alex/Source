@@ -99,11 +99,6 @@ bodyClass: home-page
           <div class="bible-section-card__icon" aria-hidden="true">{{ section.icon }}</div>
           <h3 class="bible-section-card__title">{{ section.title }}</h3>
           <p class="bible-section-card__desc">{{ section.subtitle }}</p>
-          <div class="bible-section-card__figures">
-            {% for figureKey in section.figures %}
-            <span class="bible-section-card__figure">{{ figures[figureKey] or figureKey }}</span>
-            {% endfor %}
-          </div>
           {% if section.books %}
           <p class="bible-section-card__count">{{ section.books | length }} חיבורים</p>
           {% endif %}
