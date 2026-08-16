@@ -3,7 +3,7 @@
   
   <url>
     <loc>https://logos-alex.github.io/Source/</loc>
-    <lastmod>2026-08-13T06:33:46.268Z</lastmod>
+    <lastmod>2026-08-16T22:56:14.771Z</lastmod>
     <priority>1.0</priority>
     <changefreq>monthly</changefreq>
   </url>
@@ -11,43 +11,43 @@
   
   <url>
     <loc>https://logos-alex.github.io/Source/texts/</loc>
-    <lastmod>2026-08-13T06:33:46.271Z</lastmod>
+    <lastmod>2026-08-16T22:52:01.660Z</lastmod>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://logos-alex.github.io/Source/by-figure/</loc>
-    <lastmod>2026-08-13T06:33:46.267Z</lastmod>
+    <lastmod>2026-08-16T22:52:01.652Z</lastmod>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://logos-alex.github.io/Source/search/</loc>
-    <lastmod>2026-08-13T06:42:53.987Z</lastmod>
+    <lastmod>2026-08-16T22:57:12.707Z</lastmod>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://logos-alex.github.io/Source/updates/</loc>
-    <lastmod>2026-08-13T06:33:46.232Z</lastmod>
+    <lastmod>2026-08-16T22:52:01.629Z</lastmod>
     <priority>0.7</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://logos-alex.github.io/Source/about/</loc>
-    <lastmod>2026-08-13T06:33:46.236Z</lastmod>
+    <lastmod>2026-08-16T22:52:01.637Z</lastmod>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://logos-alex.github.io/Source/license/</loc>
-    <lastmod>2026-08-13T06:33:46.268Z</lastmod>
+    <lastmod>2026-08-16T22:52:01.656Z</lastmod>
     <priority>0.4</priority>
     <changefreq>yearly</changefreq>
   </url>
   <url>
     <loc>https://logos-alex.github.io/Source/contact/</loc>
-    <lastmod>2026-08-13T06:33:46.268Z</lastmod>
+    <lastmod>2026-08-16T22:52:01.653Z</lastmod>
     <priority>0.5</priority>
     <changefreq>yearly</changefreq>
   </url>
@@ -56,56 +56,56 @@
   
   <url>
     <loc>https://logos-alex.github.io/Source/texts/hebrew/</loc>
-    <lastmod>2026-08-13T06:42:53.987Z</lastmod>
+    <lastmod>2026-08-16T22:57:12.707Z</lastmod>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
   </url>
   
   <url>
     <loc>https://logos-alex.github.io/Source/texts/slavic/</loc>
-    <lastmod>2026-08-13T06:42:53.987Z</lastmod>
+    <lastmod>2026-08-16T22:57:12.707Z</lastmod>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
   </url>
   
   <url>
     <loc>https://logos-alex.github.io/Source/texts/aramaic/</loc>
-    <lastmod>2026-08-13T06:42:53.987Z</lastmod>
+    <lastmod>2026-08-16T22:57:12.707Z</lastmod>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
   </url>
   
   <url>
     <loc>https://logos-alex.github.io/Source/texts/arabic/</loc>
-    <lastmod>2026-08-13T06:42:53.987Z</lastmod>
+    <lastmod>2026-08-16T22:57:12.707Z</lastmod>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
   </url>
   
   <url>
     <loc>https://logos-alex.github.io/Source/texts/geez/</loc>
-    <lastmod>2026-08-13T06:42:53.987Z</lastmod>
+    <lastmod>2026-08-16T22:57:12.707Z</lastmod>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
   </url>
   
   <url>
     <loc>https://logos-alex.github.io/Source/texts/latin/</loc>
-    <lastmod>2026-08-13T06:42:53.987Z</lastmod>
+    <lastmod>2026-08-16T22:57:12.707Z</lastmod>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
   </url>
   
   <url>
     <loc>https://logos-alex.github.io/Source/texts/armenian/</loc>
-    <lastmod>2026-08-13T06:42:53.987Z</lastmod>
+    <lastmod>2026-08-16T22:57:12.707Z</lastmod>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
   </url>
   
   <url>
     <loc>https://logos-alex.github.io/Source/texts/greek/</loc>
-    <lastmod>2026-08-13T06:42:53.987Z</lastmod>
+    <lastmod>2026-08-16T22:57:12.707Z</lastmod>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
   </url>
@@ -115,49 +115,63 @@
   
   <url>
     <loc>https://logos-alex.github.io/Source/by-figure/abraham/</loc>
-    <lastmod>2026-08-13T06:42:53.987Z</lastmod>
+    <lastmod>2026-08-16T22:57:12.707Z</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://logos-alex.github.io/Source/by-figure/yitzchak/</loc>
+    <lastmod>2026-08-16T22:57:12.707Z</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  
+  <url>
+    <loc>https://logos-alex.github.io/Source/by-figure/yaakov/</loc>
+    <lastmod>2026-08-16T22:57:12.707Z</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   
   <url>
     <loc>https://logos-alex.github.io/Source/by-figure/daniel/</loc>
-    <lastmod>2026-08-13T06:42:53.987Z</lastmod>
+    <lastmod>2026-08-16T22:57:12.707Z</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   
   <url>
     <loc>https://logos-alex.github.io/Source/by-figure/enoch/</loc>
-    <lastmod>2026-08-13T06:42:53.987Z</lastmod>
+    <lastmod>2026-08-16T22:57:12.707Z</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   
   <url>
     <loc>https://logos-alex.github.io/Source/by-figure/ezra/</loc>
-    <lastmod>2026-08-13T06:42:53.987Z</lastmod>
+    <lastmod>2026-08-16T22:57:12.707Z</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   
   <url>
     <loc>https://logos-alex.github.io/Source/by-figure/isaiah/</loc>
-    <lastmod>2026-08-13T06:42:53.987Z</lastmod>
+    <lastmod>2026-08-16T22:57:12.707Z</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   
   <url>
     <loc>https://logos-alex.github.io/Source/by-figure/moshe/</loc>
-    <lastmod>2026-08-13T06:42:53.987Z</lastmod>
+    <lastmod>2026-08-16T22:57:12.707Z</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   
   <url>
     <loc>https://logos-alex.github.io/Source/by-figure/zerubbabel/</loc>
-    <lastmod>2026-08-13T06:42:53.987Z</lastmod>
+    <lastmod>2026-08-16T22:57:12.707Z</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
@@ -190,7 +204,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/arabic/chazon-daniel-aravi/</loc>
-      <lastmod>2026-08-13T06:33:46.272Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.662Z</lastmod>
       <priority>0.8</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -199,7 +213,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/arabic/chazon-daniel-kopti/</loc>
-      <lastmod>2026-08-13T06:33:46.272Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.663Z</lastmod>
       <priority>0.8</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -208,7 +222,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/arabic/chazon-kifa-laklemis/</loc>
-      <lastmod>2026-08-13T06:33:46.273Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.664Z</lastmod>
       <priority>0.8</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -217,7 +231,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/arabic/glia-de-klemis/</loc>
-      <lastmod>2026-08-13T06:33:46.274Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.666Z</lastmod>
       <priority>0.8</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -228,7 +242,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/arabic/ketav-almagal-nusach-b/</loc>
-      <lastmod>2026-08-13T06:33:46.276Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.668Z</lastmod>
       <priority>0.8</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -237,7 +251,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/arabic/ketav-almagal/</loc>
-      <lastmod>2026-08-13T06:33:46.277Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.670Z</lastmod>
       <priority>0.8</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -246,7 +260,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/arabic/maase-yitzchak/</loc>
-      <lastmod>2026-08-13T06:35:29.865Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.674Z</lastmod>
       <priority>0.8</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -254,8 +268,44 @@
   
     
     <url>
+      <loc>https://logos-alex.github.io/Source/texts/arabic/maase-yitzchak/page-1/</loc>
+      <lastmod>2026-08-16T22:52:01.676Z</lastmod>
+      <priority>0.7</priority>
+      <changefreq>monthly</changefreq>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://logos-alex.github.io/Source/texts/arabic/maase-yitzchak/page-2/</loc>
+      <lastmod>2026-08-16T22:52:01.677Z</lastmod>
+      <priority>0.7</priority>
+      <changefreq>monthly</changefreq>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://logos-alex.github.io/Source/texts/arabic/maase-yitzchak/page-3/</loc>
+      <lastmod>2026-08-16T22:52:01.678Z</lastmod>
+      <priority>0.7</priority>
+      <changefreq>monthly</changefreq>
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://logos-alex.github.io/Source/texts/arabic/maase-yitzchak/page-4/</loc>
+      <lastmod>2026-08-16T22:52:01.682Z</lastmod>
+      <priority>0.7</priority>
+      <changefreq>monthly</changefreq>
+    </url>
+    
+  
+    
+    <url>
       <loc>https://logos-alex.github.io/Source/texts/aramaic/apoc-daniel-syriac/</loc>
-      <lastmod>2026-08-13T06:33:46.306Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.687Z</lastmod>
       <priority>0.8</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -264,7 +314,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/aramaic/chazon-ezra-suri/</loc>
-      <lastmod>2026-08-13T06:33:46.306Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.688Z</lastmod>
       <priority>0.8</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -273,7 +323,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/aramaic/clementine-homilies/</loc>
-      <lastmod>2026-08-13T06:33:46.307Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.692Z</lastmod>
       <priority>0.8</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -282,7 +332,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/aramaic/clementine-r1/</loc>
-      <lastmod>2026-08-13T06:33:46.308Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.695Z</lastmod>
       <priority>0.8</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -291,7 +341,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/aramaic/clementine-r2/</loc>
-      <lastmod>2026-08-13T06:33:46.310Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.699Z</lastmod>
       <priority>0.8</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -300,7 +350,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/aramaic/clementine-r3/</loc>
-      <lastmod>2026-08-13T06:33:46.310Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.700Z</lastmod>
       <priority>0.8</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -309,7 +359,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/aramaic/clementine-r4/</loc>
-      <lastmod>2026-08-13T06:33:46.311Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.702Z</lastmod>
       <priority>0.8</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -318,7 +368,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/aramaic/enoch-qumran-aramaic/</loc>
-      <lastmod>2026-08-13T06:33:46.312Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.704Z</lastmod>
       <priority>0.8</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -329,7 +379,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/aramaic/sichat-moshe/</loc>
-      <lastmod>2026-08-13T06:33:46.313Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.706Z</lastmod>
       <priority>0.8</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -338,7 +388,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/aramaic/tsavaat-yeshua/</loc>
-      <lastmod>2026-08-13T06:33:46.314Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.708Z</lastmod>
       <priority>0.8</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -347,7 +397,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/aramaic/young-daniel-syriac/</loc>
-      <lastmod>2026-08-13T06:33:46.315Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.713Z</lastmod>
       <priority>0.8</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -358,7 +408,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/armenian/vision-daniel-armenian/</loc>
-      <lastmod>2026-08-13T06:33:46.316Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.718Z</lastmod>
       <priority>0.8</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -367,7 +417,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/armenian/vision-enoch-righteous-armenian/</loc>
-      <lastmod>2026-08-13T06:33:46.317Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.720Z</lastmod>
       <priority>0.8</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -376,7 +426,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/geez/clementos/</loc>
-      <lastmod>2026-08-13T06:33:46.318Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.722Z</lastmod>
       <priority>0.8</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -387,7 +437,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/greek/apokalypsis-esdras/</loc>
-      <lastmod>2026-08-13T06:33:46.319Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.725Z</lastmod>
       <priority>0.8</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -396,7 +446,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/greek/clementine-homilies-greek/</loc>
-      <lastmod>2026-08-13T06:33:46.320Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.726Z</lastmod>
       <priority>0.8</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -407,7 +457,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/greek/maale-yeshayahu/</loc>
-      <lastmod>2026-08-13T06:33:46.321Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.728Z</lastmod>
       <priority>0.8</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -416,7 +466,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/greek/sefer-hanoch-a/</loc>
-      <lastmod>2026-08-13T06:33:46.321Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.729Z</lastmod>
       <priority>0.8</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -427,7 +477,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/hebrew/sefer-zerubbabel/</loc>
-      <lastmod>2026-08-13T06:33:46.323Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.733Z</lastmod>
       <priority>0.8</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -436,7 +486,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/latin/chazon-ezra-sofer/</loc>
-      <lastmod>2026-08-13T06:33:46.324Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.734Z</lastmod>
       <priority>0.8</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -447,7 +497,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/latin/klalot-hashvatim/</loc>
-      <lastmod>2026-08-13T06:33:46.324Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.736Z</lastmod>
       <priority>0.8</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -456,7 +506,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/latin/maasei-timotheos/</loc>
-      <lastmod>2026-08-13T06:33:46.325Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.737Z</lastmod>
       <priority>0.8</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -465,7 +515,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/a/</loc>
-      <lastmod>2026-08-13T06:33:46.327Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.741Z</lastmod>
       <priority>0.8</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -474,7 +524,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/a/page-1/</loc>
-      <lastmod>2026-08-13T06:33:46.327Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.742Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -483,7 +533,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/a/page-10/</loc>
-      <lastmod>2026-08-13T06:33:46.327Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.744Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -492,7 +542,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/a/page-11/</loc>
-      <lastmod>2026-08-13T06:33:46.328Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.745Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -501,7 +551,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/a/page-12/</loc>
-      <lastmod>2026-08-13T06:33:46.329Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.746Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -510,7 +560,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/a/page-13/</loc>
-      <lastmod>2026-08-13T06:33:46.329Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.746Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -519,7 +569,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/a/page-14/</loc>
-      <lastmod>2026-08-13T06:33:46.330Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.748Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -528,7 +578,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/a/page-15/</loc>
-      <lastmod>2026-08-13T06:33:46.330Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.748Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -537,7 +587,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/a/page-16/</loc>
-      <lastmod>2026-08-13T06:33:46.330Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.749Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -546,7 +596,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/a/page-17/</loc>
-      <lastmod>2026-08-13T06:33:46.331Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.750Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -555,7 +605,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/a/page-18/</loc>
-      <lastmod>2026-08-13T06:33:46.332Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.751Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -564,7 +614,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/a/page-2/</loc>
-      <lastmod>2026-08-13T06:33:46.332Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.752Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -573,7 +623,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/a/page-3/</loc>
-      <lastmod>2026-08-13T06:33:46.333Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.753Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -582,7 +632,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/a/page-4/</loc>
-      <lastmod>2026-08-13T06:33:46.333Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.754Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -591,7 +641,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/a/page-5/</loc>
-      <lastmod>2026-08-13T06:33:46.333Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.754Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -600,7 +650,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/a/page-6/</loc>
-      <lastmod>2026-08-13T06:33:46.334Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.755Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -609,7 +659,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/a/page-7/</loc>
-      <lastmod>2026-08-13T06:33:46.334Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.756Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -618,7 +668,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/a/page-8/</loc>
-      <lastmod>2026-08-13T06:33:46.335Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.757Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -627,7 +677,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/a/page-9/</loc>
-      <lastmod>2026-08-13T06:33:46.336Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.758Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -636,7 +686,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/b/</loc>
-      <lastmod>2026-08-13T06:33:46.336Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.760Z</lastmod>
       <priority>0.8</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -645,7 +695,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/b/page-1/</loc>
-      <lastmod>2026-08-13T06:33:46.337Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.760Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -654,7 +704,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/b/page-10/</loc>
-      <lastmod>2026-08-13T06:33:46.337Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.760Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -663,7 +713,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/b/page-11/</loc>
-      <lastmod>2026-08-13T06:33:46.338Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.762Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -672,7 +722,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/b/page-12/</loc>
-      <lastmod>2026-08-13T06:33:46.365Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.763Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -681,7 +731,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/b/page-13/</loc>
-      <lastmod>2026-08-13T06:33:46.366Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.765Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -690,7 +740,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/b/page-14/</loc>
-      <lastmod>2026-08-13T06:33:46.367Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.766Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -699,7 +749,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/b/page-15/</loc>
-      <lastmod>2026-08-13T06:33:46.367Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.769Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -708,7 +758,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/b/page-16/</loc>
-      <lastmod>2026-08-13T06:33:46.367Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.769Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -717,7 +767,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/b/page-17/</loc>
-      <lastmod>2026-08-13T06:33:46.368Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.770Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -726,7 +776,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/b/page-18/</loc>
-      <lastmod>2026-08-13T06:33:46.368Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.771Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -735,7 +785,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/b/page-2/</loc>
-      <lastmod>2026-08-13T06:33:46.369Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.773Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -744,7 +794,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/b/page-3/</loc>
-      <lastmod>2026-08-13T06:33:46.369Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.775Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -753,7 +803,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/b/page-4/</loc>
-      <lastmod>2026-08-13T06:33:46.369Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.777Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -762,7 +812,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/b/page-5/</loc>
-      <lastmod>2026-08-13T06:33:46.370Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.778Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -771,7 +821,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/b/page-6/</loc>
-      <lastmod>2026-08-13T06:33:46.370Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.781Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -780,7 +830,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/b/page-7/</loc>
-      <lastmod>2026-08-13T06:33:46.371Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.784Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -789,7 +839,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/b/page-8/</loc>
-      <lastmod>2026-08-13T06:33:46.371Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.785Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -798,7 +848,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/b/page-9/</loc>
-      <lastmod>2026-08-13T06:33:46.371Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.786Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -807,7 +857,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/c/</loc>
-      <lastmod>2026-08-13T06:33:46.372Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.791Z</lastmod>
       <priority>0.8</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -816,7 +866,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/c/page-1/</loc>
-      <lastmod>2026-08-13T06:33:46.372Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.793Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -825,7 +875,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/c/page-10/</loc>
-      <lastmod>2026-08-13T06:33:46.373Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.794Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -834,7 +884,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/c/page-11/</loc>
-      <lastmod>2026-08-13T06:33:46.373Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.795Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -843,7 +893,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/c/page-12/</loc>
-      <lastmod>2026-08-13T06:33:46.374Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.796Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -852,7 +902,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/c/page-13/</loc>
-      <lastmod>2026-08-13T06:33:46.374Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.797Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -861,7 +911,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/c/page-14/</loc>
-      <lastmod>2026-08-13T06:33:46.375Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.799Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -870,7 +920,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/c/page-15/</loc>
-      <lastmod>2026-08-13T06:33:46.375Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.801Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -879,7 +929,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/c/page-16/</loc>
-      <lastmod>2026-08-13T06:33:46.376Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.802Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -888,7 +938,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/c/page-17/</loc>
-      <lastmod>2026-08-13T06:33:46.376Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.807Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -897,7 +947,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/c/page-18/</loc>
-      <lastmod>2026-08-13T06:33:46.377Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.809Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -906,7 +956,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/c/page-2/</loc>
-      <lastmod>2026-08-13T06:33:46.377Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.811Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -915,7 +965,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/c/page-3/</loc>
-      <lastmod>2026-08-13T06:33:46.377Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.813Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -924,7 +974,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/c/page-4/</loc>
-      <lastmod>2026-08-13T06:33:46.378Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.815Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -933,7 +983,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/c/page-5/</loc>
-      <lastmod>2026-08-13T06:33:46.378Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.816Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -942,7 +992,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/c/page-6/</loc>
-      <lastmod>2026-08-13T06:33:46.379Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.817Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -951,7 +1001,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/c/page-7/</loc>
-      <lastmod>2026-08-13T06:33:46.379Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.818Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -960,7 +1010,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/c/page-8/</loc>
-      <lastmod>2026-08-13T06:33:46.380Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.818Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -969,7 +1019,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/c/page-9/</loc>
-      <lastmod>2026-08-13T06:33:46.380Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.819Z</lastmod>
       <priority>0.7</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -978,7 +1028,7 @@
     
     <url>
       <loc>https://logos-alex.github.io/Source/texts/slavic/apocalypse-abraham/</loc>
-      <lastmod>2026-08-13T06:33:46.381Z</lastmod>
+      <lastmod>2026-08-16T22:52:01.823Z</lastmod>
       <priority>0.8</priority>
       <changefreq>monthly</changefreq>
     </url>
@@ -986,42 +1036,6 @@
   
     
   
-    
-  
-    
-    <url>
-      <loc>https://logos-alex.github.io/Source/texts/arabic/maase-yitzchak/page-2/</loc>
-      <lastmod>2026-08-13T06:36:13.834Z</lastmod>
-      <priority>0.7</priority>
-      <changefreq>monthly</changefreq>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://logos-alex.github.io/Source/texts/arabic/maase-yitzchak/page-3/</loc>
-      <lastmod>2026-08-13T06:36:13.834Z</lastmod>
-      <priority>0.7</priority>
-      <changefreq>monthly</changefreq>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://logos-alex.github.io/Source/texts/arabic/maase-yitzchak/page-4/</loc>
-      <lastmod>2026-08-13T06:36:13.835Z</lastmod>
-      <priority>0.7</priority>
-      <changefreq>monthly</changefreq>
-    </url>
-    
-  
-    
-    <url>
-      <loc>https://logos-alex.github.io/Source/texts/arabic/maase-yitzchak/page-1/</loc>
-      <lastmod>2026-08-13T06:36:13.834Z</lastmod>
-      <priority>0.7</priority>
-      <changefreq>monthly</changefreq>
-    </url>
     
   
 </urlset>
