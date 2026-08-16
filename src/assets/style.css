@@ -2007,6 +2007,19 @@ article tbody tr:nth-child(even) {
 .book-card--coming-soon {
   border-style: dashed;
   background: var(--c-surface-2);
+  opacity: 0.75;
+}
+.coming-soon-section {
+  margin-top: var(--s-8);
+  padding-top: var(--s-6);
+  border-top: 1px solid var(--c-border);
+}
+.coming-soon-section__title {
+  font-size: var(--fs-sm);
+  color: var(--c-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--s-4);
 }
 .book-card__badge {
   display: inline-block;
