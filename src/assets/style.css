@@ -682,6 +682,29 @@ main {
   letter-spacing: 0.02em;
 }
 
+/* Verse numbers — visually subtle but present */
+.home-hero__quote .verse-num {
+  display: inline-block;
+  min-width: 3.2em;
+  font-size: 0.72em;
+  color: var(--c-text-faint);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: 0.01em;
+  vertical-align: baseline;
+  opacity: 0.82;
+  margin-inline-end: 0.3em;
+}
+
+/* Intro line — "אֲדַבֵּר לְפָנֶיךָ, אֲדֹנָי." */
+.home-hero__quote .quote-intro {
+  display: block;
+  font-style: italic;
+  color: var(--c-text-2);
+  font-size: var(--fs-base);
+  margin-bottom: var(--s-3);
+}
+
 @keyframes fadeUp {
   to { opacity: 1; transform: translateY(0); }
 }
