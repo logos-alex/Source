@@ -88,7 +88,7 @@ description: "חיבור המיוחס לאברהם אבינו, המספר את �
       <tr><td class="align-name">מציאת אליל בריסת בסל העצים</td><td><span class="align-page">5</span></td><td><span class="align-page">5</span></td><td><span class="align-page">5</span></td></tr>
       <tr><td class="align-name">הוויכוח עם תרח — אש, מים, שמש</td><td><span class="align-page">6</span></td><td><span class="align-page">6</span></td><td><span class="align-page">6</span></td></tr>
       <tr><td class="align-name">הקול מן השמים וחזון האש</td><td><span class="align-page">7</span></td><td><span class="align-page">7</span></td><td><span class="align-page">7</span></td></tr>
-      <tr><td class="align-name">המלאך יהואל והעלייה למרומים</td><td><span class="align-page">8</span></td><td><span class="align-page">8</span></td><td><span class="align-page">8</span></td></tr>
+      <tr><td class="align-name">המלאך המלווה והעלייה למרומים</td><td><span class="align-page">8</span></td><td><span class="align-page">8</span></td><td><span class="align-page">8</span></td></tr>
       <tr><td class="align-name">במרומים הקדושים — עזאזל והאזהרה</td><td><span class="align-page">9</span></td><td><span class="align-page">9</span></td><td><span class="align-page">9</span></td></tr>
       <tr><td class="align-name">תחילת העלייה ושירת קדמון</td><td><span class="align-page">10</span></td><td><span class="align-page">10</span></td><td><span class="align-page">10</span></td></tr>
       <tr><td class="align-name">שירת קדמון וגיבור וחזון הרקיע</td><td><span class="align-page">11</span></td><td><span class="align-page">11</span></td><td><span class="align-page">11</span></td></tr>
