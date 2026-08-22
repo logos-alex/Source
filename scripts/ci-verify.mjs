@@ -26,7 +26,8 @@ for (const command of steps) {
   const printable = command.join(" ");
   console.log(`\n▶ ${printable}`);
   const t0 = Date.now();
-  const r = spawnSync(command[0], command.slice(1), { stdio: "inherit" });
+  const isWin = process.platform === "win32";
+  const r = spawnSync(command[0] === "npx" && isWin ? "npx.cmd" : command[0], command.slice(1), { stdio: "inherit", shell: command[0] === "npx" && isWin });
   const ms = Date.now() - t0;
   const ok = r.status === 0;
   results.push({ cmd: command[0] === "npx" ? command.slice(2).join(" ") : command.slice(1).join(" "), ok, ms });

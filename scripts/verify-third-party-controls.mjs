@@ -33,7 +33,7 @@ process.on('beforeExit', restoreConfig);
 // Cross-platform eleventy invocation: prefer npx --no-install (works on Windows + Unix).
 function runEleventy(pathPrefix) {
   const args = ['--no-install', 'eleventy', `--pathprefix=${pathPrefix || '/'}`];
-  execFileSync('npx', args, { cwd: repoRoot, stdio: 'pipe' });
+  execFileSync(process.platform === 'win32' ? 'npx.cmd' : 'npx', args, { cwd: repoRoot, stdio: 'pipe', shell: process.platform === 'win32' });
 }
 
 const build = (config) => {

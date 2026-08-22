@@ -7,7 +7,7 @@
 | סה"כ ספרים | 30 |
 | סה"כ פרקים | 58 |
 | סה"כ הערות שוליים | 0 |
-| סה"כ מילים (בערך) | 15,213 |
+| סה"כ מילים (בערך) | 15,001 |
 | ספרים עם תצוגה מקבילית | 9 |
 | ספרים בהכנה (comingSoon) | 28 |
 
@@ -36,7 +36,7 @@
 | ketav-almagal-nusach-b | arabic | talmidei-yeshua | 0 | 0 | 0 |  | 0 |
 | klalot-hashvatim | latin | talmidei-yeshua | 0 | 0 | 0 |  | 0 |
 | maale-yeshayahu | greek | isaiah | 0 | 0 | 0 |  | 0 |
-| maase-yitzchak | arabic | yitzchak | 4 | 0 | 2,312 |  | 0 |
+| maase-yitzchak | arabic | yitzchak | 4 | 0 | 2,100 |  | 0 |
 | maasei-timotheos | latin | talmidei-yeshua | 0 | 0 | 0 |  | 0 |
 | sefer-hanoch-a | greek | enoch | 0 | 0 | 0 |  | 0 |
 | sefer-zerubbabel | hebrew | zerubbabel | 0 | 0 | 0 |  | 0 |
