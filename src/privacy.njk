@@ -1,423 +1,51 @@
-<!DOCTYPE html>
-<html lang="he" dir="rtl" id="htmlRoot">
-<head>
-    {% set sitePrefix = (site.pathPrefix or '/Source/') %}
-    {% set fonts = site.fonts or {} %}
-    {% set thirdParty = site.thirdParty or {} %}
-    {% set analytics = thirdParty.analytics or {} %}
-    {% set clarity = thirdParty.clarity or {} %}
-    {% set disqusConfig = thirdParty.disqus or {} %}
-    {% set translate = thirdParty.translate or {} %}
-    {% set defaultDescription = "מסע אל הכתבים הגנוזים והאבודים של המסורת היהדותית. תרגומים, ביאורים ועיון בטקסטים שנדחקו אל השוליים." %}
-    {% set pageDescription = description or defaultDescription %}
-    {% set ogImageUrl = site.origin ~ site.pathPrefix ~ 'assets/og-image.png' %}
-    {% set canonicalUrl = site.origin ~ site.pathPrefix %}
-    {% if page.url and page.url != '/' %}
-      {% set canonicalUrl = canonicalUrl ~ (page.url | stripLeadingSlash) %}
-    {% endif %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% if page.url == '/' %}אפוקריפה — התנ"ך האפוקריפי | ספרות חיצונית ואפוקריפה בעברית{% else %}{{ title }} | אפוקריפה — התנ"ך האפוקריפי{% endif %}</title>
+---
+layout: content-page.njk
+title: "מדיניות פרטיות"
+description: "מדיניות הפרטיות של אתר אפוקריפה — אילו נתונים נאספים, אילו שירותי צד שלישי פועלים באתר, וכיצד ניתן לבחור שלא להשתמש בהם."
+permalink: /privacy/
+bodyClass: privacy-page
+eyebrow: "מדיניות פרטיות"
+---
 
-    {# Pre-paint theme script — prevents flash-of-wrong-theme (FOUC) #}
-    <script>
-      (function () {
-        try {
-          var t = localStorage.getItem('theme');
-          if (!t) {
-            t = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-          }
-          if (t === 'dark') {
-            document.documentElement.setAttribute('data-theme', 'dark');
-          }
-        } catch (e) {
-          try {
-            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-              document.documentElement.setAttribute('data-theme', 'dark');
-            }
-          } catch (_) { /* no-op */ }
-        }
-      })();
-    </script>
+<div class="c-info-box" style="margin-top: 0;">
+<p class="c-info-box__title">עיקרי הדברים</p>
+<p>האתר הוא אתר סטטי ללא הרשמה וללא איסוף נתונים אישיים מטעמנו. פועלים בו שירותי צד שלישי — ניתוב סטטיסטי, מפות חום, תגובות ותרגום מכונה — המופעלים בטעינה חכמה ומצומצמת ככל האפשר. פרטים מלאים בהמשך.</p>
+</div>
 
-    <!-- Accessibility -->
-    <meta name="color-scheme" content="light dark">
+<h2>העקרונות שלנו</h2>
 
-    <!-- PWA / Mobile -->
-    <meta name="theme-color" content="#1C1813" media="(prefers-color-scheme: dark)">
-    <meta name="theme-color" content="#FAF6EE" media="(prefers-color-scheme: light)">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="אפוקריפה">
-    <meta name="mobile-web-app-capable" content="yes">
-    <link rel="manifest" href="{{ '/manifest.json' | url }}">
+<p>אפוקריפה הוא אתר תוכן סטטי: אין בו חשבונות משתמשים, אין טפסי הרשמה ואין מסדי נתונים המקושרים לגולשים. אנו לא אוספים, לא מאחסנים ולא מעבירים נתונים מזהים-אישית בעצמנו. עם זאת, כדי לשפר את חוויית הקריאה ואת איכות האתר, פועלים בו מספר שירותי צד שלישי המתוארים להלן בפירוט — לרבות מה כל אחד מהם אוסף וכיצד ניתן להימנע ממנו.</p>
 
-    <!-- SEO & Meta Tags -->
-    <meta name="description" content="{{ pageDescription }}">
-    <meta name="author" content="אפוקריפה — התנ&quot;ך האפוקריפי">
-    <meta name="robots" content="{% if robots %}{{ robots }}{% else %}index, follow{% endif %}">
-    <link rel="canonical" href="{{ canonicalUrl }}">
+<h2>שירותי צד שלישי הפועלים באתר</h2>
 
-    {# Chapter prev/next links for serial navigation (Bing/Yandex/RSS readers) #}
-    {% block head_extras %}{% endblock %}
+<h3>ניתוב סטטיסטי — Google Tag Manager (Google Analytics)</h3>
 
-    {# preconnect to third-party origins used by Disqus/Analytics (when enabled) #}
-    {% if disqusConfig.enabled %}
-    <link rel="preconnect" href="https://{{ disqusConfig.shortname }}.disqus.com" crossorigin>
-    {% endif %}
-    {% if analytics.enabled %}
-    <link rel="preconnect" href="https://www.googletagmanager.com">
-    {% endif %}
-    {% if clarity.enabled %}
-    <link rel="preconnect" href="https://www.clarity.ms">
-    {% endif %}
+<p>האתר עושה שימוש ב-Google Tag Manager לטעינת מדידת סטטיסטיקת ביקורים (Google Analytics). המדידה כוללת נתונים מצטברים על שימוש באתר — עמודים נצפים, משך שהייה, סוג דפדפן ומוצא גלישה כללי — במטרה להבין אילו חיבורים נקראים וכיצד לשפר את האתר. אלו נתונים סטטיסטיים בלבד, ואינם משמשים לפרסום מכוון מטעמנו. אם ברצונכם שלא להיכלל במדידה, ניתן להשתמש בהרחבת דפדפן לחסימת סקריפטים או לבטל את ההסכמה בכלי <a href="https://tools.google.com/dlpage/gaoptout" rel="noopener">Google Analytics Opt-out</a>. מדיניות הפרטיות של Google זמינה <a href="https://policies.google.com/privacy" rel="noopener">כאן</a>.</p>
 
-    <!-- Open Graph Tags for Social Media -->
-    {% if page.url == '/' %}
-      {% set ogType = "website" %}
-      {% set jsonLdType = "WebSite" %}
-    {% elif pageNumber == 0 %}
-      {% set ogType = "book" %}
-      {% set jsonLdType = "Book" %}
-    {% else %}
-      {% set ogType = "article" %}
-      {% set jsonLdType = "Article" %}
-    {% endif %}
-    <meta property="og:type" content="{{ ogType }}">
-    <meta property="og:title" content="{{ title }} | אפוקריפה — התנ&quot;ך האפוקריפי">
-    <meta property="og:description" content="{{ pageDescription }}">
-    <meta property="og:url" content="{{ canonicalUrl }}">
-    <meta property="og:site_name" content="אפוקריפה — התנ&quot;ך האפוקריפי">
-    <meta property="og:locale" content="he_IL">
-    <meta property="og:image" content="{{ ogImageUrl }}">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="לוגו אפוקריפה — חותם מעגלי עם האות למדא על רקע שנהב-ברונזה">
+<h3>מפות חום והקלטות — Microsoft Clarity</h3>
 
-    <!-- Twitter/X Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{ title }} | אפוקריפה — התנ&quot;ך האפוקריפי">
-    <meta name="twitter:description" content="{{ pageDescription }}">
-    <meta name="twitter:url" content="{{ canonicalUrl }}">
-    <meta name="twitter:image" content="{{ ogImageUrl }}">
-    <meta name="twitter:image:alt" content="לוגו אפוקריפה — חותם מעגלי עם האות למדא על רקע שנהב-ברונזה">
+<p>אנו משתמשים ב-Microsoft Clarity להבנת דפוסי שימוש באתר: גלילה, לחיצות, זמני עצירה ומסלולי ניווט, באמצעות מפות חום והקלטות התנהגות. Clarity מעבד את הנתונים בצורה מצטברת וחסויה, ואינו מיועד לזהות גולשים בודדים. אם ברצונכם להימנע מההקלטות, ניתן לחסום את הדומיין clarity.ms בהרחבת דפדפן, או לעיין ב<a href="https://clarity.microsoft.com/privacy" rel="noopener">מדיניות הפרטיות של Clarity</a>.</p>
 
-    {# JSON-LD Structured Data — Article/Book/WebSite #}
-    {% if page.url != '/' %}
-    {% set catalogEntry = book | bookCatalogEntry %}
-    {% set bookTitle = catalogEntry.title if catalogEntry and catalogEntry.title else book %}
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "{{ jsonLdType }}",
-      "name": "{% if bookTitle %}{{ bookTitle }} — {% endif %}{{ title }}",
-      "headline": {{ title | jsonify | safe }},
-      "description": {{ pageDescription | jsonify | safe }},
-      "url": "{{ canonicalUrl }}",
-      "inLanguage": "he",
-      "image": "{{ ogImageUrl }}",
-      {% if page.date %}"datePublished": "{{ page.date | toISOString }}",
-      "dateModified": "{{ page.date | toISOString }}",
-      {% endif %}
-      "mainEntityOfPage": "{{ canonicalUrl }}",
-      {% if bookTitle %}"articleSection": {{ bookTitle | jsonify | safe }},
-      "isPartOf": {
-        "@type": "Book",
-        "name": {{ bookTitle | jsonify | safe }}
-      },
-      {% endif %}
-      "author": {
-        "@type": "Organization",
-        "name": "אפוקריפה — התנ״ך האפוקריפי"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "אפוקריפה — התנ״ך האפוקריפי",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "{{ site.origin }}{{ site.pathPrefix }}assets/favicon-512.png"
-        }
-      }
-    }
-    </script>
-    {% endif %}
+<h3>תגובות — Disqus</h3>
 
-    {% if page.url == '/' %}
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "אפוקריפה — התנ״ך האפוקריפי",
-      "url": "{{ site.origin }}{{ site.pathPrefix }}",
-      "inLanguage": "he",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "{{ site.origin }}{{ site.pathPrefix }}search/?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "אפוקריפה — התנ״ך האפוקריפי",
-      "alternateName": "אפוקריפה",
-      "url": "{{ site.origin }}{{ site.pathPrefix }}",
-      "logo": "{{ site.origin }}{{ site.pathPrefix }}assets/favicon-512.png",
-      "description": {{ defaultDescription | jsonify | safe }},
-      "sameAs": [
-        "https://github.com/logos-alex/Source"
-      ]
-    }
-    </script>
-    {% endif %}
+<p>בתחתית עמודי החיבורים קיים אזור תגובות הפועל באמצעות Disqus. אזור התגובות נטען בטעינה עצלה (lazy) — רק כאשר מגיעים אליו בגלילה — כדי לצמצם טעינת רכיבים חיצוניים שאינם נחוצים. אם תבחרו לכתוב תגובה, היא תישמר במערכת Disqus וכפופה ל<a href="https://disqus.com/legal/privacy-policy/" rel="noopener">מדיניות הפרטיות של Disqus</a>; איננו שולטים בנתונים הנאספים שם. קריאת החיבורים עצמם אינה דורשת כל אינטראקציה עם Disqus.</p>
 
-    {# BreadcrumbList JSON-LD — built from frontmatter when available #}
-    {% if page.url and page.url != '/' and page.url != '/search/' and page.url != '/updates/' %}
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "דף הבית", "item": "{{ site.origin }}{{ site.pathPrefix }}" }
-        {% if source %}
-        ,{ "@type": "ListItem", "position": 2, "name": "{{ languages[source].label or source }}", "item": "{{ site.origin }}{{ site.pathPrefix }}texts/{{ source }}/" }
-          {% if book %}
-          ,{ "@type": "ListItem", "position": 3, "name": "{{ title }}", "item": "{{ canonicalUrl }}" }
-          {% else %}
-          ,{ "@type": "ListItem", "position": 3, "name": "{{ title }}", "item": "{{ canonicalUrl }}" }
-          {% endif %}
-        {% elif figure %}
-        ,{ "@type": "ListItem", "position": 2, "name": "לפי ייחוס", "item": "{{ site.origin }}{{ site.pathPrefix }}by-figure/" }
-        ,{ "@type": "ListItem", "position": 3, "name": "{{ figures[figure] or figure }}", "item": "{{ canonicalUrl }}" }
-        {% else %}
-        ,{ "@type": "ListItem", "position": 2, "name": "{{ title }}", "item": "{{ canonicalUrl }}" }
-        {% endif %}
-      ]
-    }
-    </script>
-    {% endif %}
+<h3>תרגום מכונה — Google Translate</h3>
 
-    {# Fonts: self-hosted Frank Ruhl Libre + Noto Serif Hebrew + EB Garamond (Latin display) #}
-    {% if fonts.useSelfHosted and fonts.selfHostedStylesheet %}
-    <link rel="stylesheet" href="{{ fonts.selfHostedStylesheet | url }}">
-    {% elif fonts.loadExternal %}
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;700&family=Noto+Serif+Hebrew:wght@300;400;700&family=EB+Garamond:wght@400;500;700&display=swap" rel="stylesheet">
-    {% endif %}
-    <link rel="stylesheet" href="{{ '/assets/style.css' | url }}">
-    <link rel="icon" type="image/svg+xml" href="{{ '/assets/favicon.svg' | url }}">
-    <link rel="icon" type="image/png" sizes="192x192" href="{{ '/assets/favicon-192.png' | url }}">
-    <link rel="icon" type="image/png" sizes="512x512" href="{{ '/assets/favicon-512.png' | url }}">
-    <link rel="icon" type="image/x-icon" href="{{ '/assets/favicon.ico' | url }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/apple-touch-icon.png' | url }}">
-    <link rel="mask-icon" href="{{ '/assets/favicon.svg' | url }}" color="#8B6F3A">
-</head>
-<body class="{{ bodyClass }}">
-    <a class="skip-link" href="#main-content">דלג לתוכן</a>
+<p>בפוטר האתר קיים כפתור "הפעל תרגום אוטומטי" לגולשים שאינם קוראים עברית. הכלי נטען רק אם בוחרים בו במפורש, ואינו פועל אוטומטית. הפעלתו טוענת את שירות Google Translate וכפופה למדיניות הפרטיות של Google המקושרת לעיל.</p>
 
-    {% if bodyClass == "text-page" %}
-    <button id="readingModeToggle" class="reading-mode-toggle icon-btn" type="button" aria-pressed="false" aria-label="הפעלת מצב קריאה" title="מצב קריאה" data-reading-label-on="כיבוי מצב קריאה" data-reading-label-off="הפעלת מצב קריאה">
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
-      </svg>
-    </button>
-    {% endif %}
+<h2>אחסון מקומי בדפדפן</h2>
 
-    <script>
-      window.siteRuntimeConfig = {
-        fonts: {
-          provider: "{{ fonts.provider or 'system' }}",
-          loadExternal: {{ "true" if fonts.loadExternal else "false" }},
-          useSelfHosted: {{ "true" if fonts.useSelfHosted else "false" }},
-          selfHostedStylesheet: "{{ fonts.selfHostedStylesheet or '' }}",
-          fallbackStack: "{{ fonts.fallbackStack or '' }}"
-        },
-        thirdParty: {
-          analytics: {
-            enabled: {{ "true" if analytics.enabled else "false" }},
-            measurementId: "{{ analytics.measurementId or '' }}",
-            loadStrategy: "{{ analytics.loadStrategy or 'disabled' }}"
-          },
-          clarity: {
-            enabled: {{ "true" if clarity.enabled else "false" }},
-            projectId: "{{ clarity.projectId or '' }}",
-            loadStrategy: "{{ clarity.loadStrategy or 'disabled' }}"
-          },
-          disqus: {
-            enabled: {{ "true" if disqusConfig.enabled else "false" }},
-            shortname: "{{ disqusConfig.shortname or '' }}",
-            loadStrategy: "{{ disqusConfig.loadStrategy or 'lazy' }}"
-          },
-          translate: {
-            enabled: {{ "true" if translate.enabled else "false" }},
-            includedLanguages: "{{ translate.includedLanguages or 'en' }}"
-          }
-        }
-      };
-    </script>
+<p>האתר שומר בדפדפן שלכם (באמצעות localStorage) את העדפות התצוגה בלבד: מצב כהה/בהיר וגודל גופן. מדובר בנתונים מקומיים על המכשיר שלכם, שאינם נשלחים אלינו ואינם נגישים לנו, וניתן למחוק אותם בכל עת בניקוי נתוני הדפדפן. אנו לא מציבים עוגיות מעקב מטעמנו.</p>
 
-    <header>
-        <div class="header-top">
-            <a href="{{ '/' | url }}" class="site-brand">
-              <span class="site-brand__mark" aria-hidden="true">{% include "logo-mark.njk" %}</span>
-              <span class="site-brand__text">
-                <span class="site-brand__name">אפוקריפה</span>
-                <span class="site-brand__tagline">התנ"ך האפוקריפי</span>
-              </span>
-            </a>
+<h2>פיד RSS וספריית החיפוש</h2>
 
-            <div class="header-controls">
-              <form class="header-search" role="search" action="{{ '/search/' | url }}" method="get">
-                <label for="headerSearchInput" class="sr-only">חיפוש באוצר</label>
-                <input
-                  id="headerSearchInput"
-                  class="header-search__input"
-                  type="search"
-                  name="q"
-                  placeholder="חיפוש בכתבים…"
-                  autocomplete="off"
-                  enterkeyhint="search"
-                  aria-label="חיפוש בכתבים">
-                <button class="header-search__btn" type="submit" aria-label="חיפוש">
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <circle cx="11" cy="11" r="8"/>
-                    <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-                  </svg>
-                </button>
-              </form>
-              <button id="themeToggle" class="icon-btn theme-toggle" aria-label="מצב אור/חושך" aria-pressed="false" title="מצב אור/חושך">
-                <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-                </svg>
-                <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none;">
-                  <circle cx="12" cy="12" r="5"/>
-                  <line x1="12" y1="1" x2="12" y2="3"/>
-                  <line x1="12" y1="21" x2="12" y2="23"/>
-                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-                  <line x1="1" y1="12" x2="3" y2="12"/>
-                  <line x1="21" y1="12" x2="23" y2="12"/>
-                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-                </svg>
-              </button>
-              <button id="mainNavToggle" class="main-nav-toggle" type="button" aria-controls="mainNav" aria-expanded="false" aria-label="פתיחה וסגירה של תפריט הניווט">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-                  <line x1="3" y1="6" x2="21" y2="6"/>
-                  <line x1="3" y1="12" x2="21" y2="12"/>
-                  <line x1="3" y1="18" x2="21" y2="18"/>
-                </svg>
-              </button>
-            </div>
-        </div>
+<p>פיד ה-RSS, מפת האתר ומנוע החיפוש (Pagefind) פועלים כולם בצד השרת הסטטי או בדפדפן שלכם, ללא שירות חיצוני וללא איסוף נתונים.</p>
 
-        <nav id="mainNav" role="navigation" aria-label="ניווט ראשי">
-            <a href="{{ '/' | url }}" {% if page.url == "/" %}aria-current="page"{% endif %}>דף הבית</a>
-            <a href="{{ '/updates/' | url }}" {% if page.url == "/updates/" %}aria-current="page"{% endif %}>מה חדש</a>
-            <div class="nav-dropdown">
-                <a href="{{ '/texts/' | url }}" class="dropbtn" aria-haspopup="true" aria-expanded="false" {% if page.url == "/texts/" %}aria-current="page"{% endif %}>לפי מקור</a>
-                <div class="dropdown-content">
-                    {% for langSlug, langEntry in languages %}
-                    <a href="{{ ('/texts/' + langSlug + '/') | url }}" {% if page.url == '/texts/' + langSlug + '/' %}aria-current="page"{% endif %}>{{ langEntry.label }}</a>
-                    {% endfor %}
-                </div>
-            </div>
+<h2>זכויותיכם</h2>
 
-            <div class="nav-dropdown">
-                <a href="{{ '/by-figure/' | url }}" class="dropbtn" aria-haspopup="true" aria-expanded="false" {% if page.url == "/by-figure/" %}aria-current="page"{% endif %}>לפי ייחוס</a>
-                <div class="dropdown-content">
-                    {% for figureKey in figureCatalogKeys %}
-                    <a href="{{ ('/by-figure/' + figureKey + '/') | url }}" {% if page.url == '/by-figure/' + figureKey + '/' %}aria-current="page"{% endif %}>{{ figures[figureKey] or figureKey }}</a>
-                    {% endfor %}
-                </div>
-            </div>
-            <a href="{{ '/about/' | url }}" {% if page.url == "/about/" %}aria-current="page"{% endif %}>אודות</a>
-            <a href="{{ '/contact/' | url }}" {% if page.url == "/contact/" %}aria-current="page"{% endif %}>צור קשר</a>
-            <a href="{{ '/search/' | url }}" class="mobile-search-link" {% if page.url == "/search/" %}aria-current="page"{% endif %}>חיפוש באוצר</a>
-        </nav>
-        {% include "breadcrumbs.njk" %}
-    </header>
+<p>מכיוון שאיננו אוספים נתונים אישיים בעצמנו, אין אצלנו נתונים להשיב או למחוק. לגבי הנתונים הנאספים על ידי שירותי צד שלישי — ניתן לפנות ישירות אליהם לפי הקישורים לעיל, או להשתמש בחסימת סקריפטים בדפדפן לצמצום מרבי של החשיפה.</p>
 
-    <main id="main-content" role="main" tabindex="-1">
-        {% block content %}
-            {{ content | safe }}
-        {% endblock %}
-    </main>
+<h2>עדכונים למדיניות</h2>
 
-    <footer>
-      <div class="footer-inner">
-
-        <div class="footer-brand">
-          <span class="footer-brand__mark" aria-hidden="true">{% include "logo-mark.njk" %}</span>
-          <div class="footer-brand__text">
-            <span class="footer-brand__name">אפוקריפה</span>
-            <span class="footer-brand__tagline">התנ"ך האפוקריפי</span>
-          </div>
-        </div>
-        <p class="footer-tagline">השבת קולות עתיקים אל שפת המוצא — שחזורים, תרגומים וביאורים של טקסטים שנדחקו אל שולי המסורת.</p>
-
-        <nav class="footer-nav" aria-label="ניווט בפוטר">
-          <div class="footer-nav__col">
-            <h2 class="footer-nav__heading">תוכן</h2>
-            <ul>
-              <li><a href="{{ '/texts/' | url }}">לפי מקור</a></li>
-              <li><a href="{{ '/by-figure/' | url }}">לפי ייחוס</a></li>
-              <li><a href="{{ '/search/' | url }}">חיפוש באוצר</a></li>
-              <li><a href="{{ '/updates/' | url }}">מה חדש</a></li>
-              <li><a href="{{ '/updates/feed.xml' | url }}">פיד RSS</a></li>
-            </ul>
-          </div>
-          <div class="footer-nav__col">
-            <h2 class="footer-nav__heading">המיזם</h2>
-            <ul>
-              <li><a href="{{ '/about/' | url }}">אודות אפוקריפה</a></li>
-              <li><a href="{{ '/license/' | url }}">רישיון ושימוש</a></li>
-              <li><a href="{{ '/contact/' | url }}">צור קשר</a></li>
-            </ul>
-          </div>
-          <div class="footer-nav__col">
-            <h2 class="footer-nav__heading">מקורות מובילים</h2>
-            <ul>
-              {% for langSlug, langEntry in languages %}
-              <li><a href="{{ ('/texts/' + langSlug + '/') | url }}">{{ langEntry.label }}</a></li>
-              {% endfor %}
-            </ul>
-          </div>
-        </nav>
-
-        {% if translate.enabled %}
-        <div class="footer-tool-group">
-            <p class="footer-tool-copy">תרגום מכונה נטען רק אם בוחרים בכך, כדי לחסוך בקשות חיצוניות מיותרות.</p>
-            <button id="translateLauncher" class="footer-action" type="button" data-third-party-trigger="translate">
-              הפעל תרגום אוטומטי
-            </button>
-            <div id="google_translate_element" hidden></div>
-        </div>
-        {% endif %}
-
-        <div class="footer-meta">
-          <p>התכנים באתר מופצים בנחלת הכלל (<a href="{{ '/license/' | url }}">CC0 1.0</a>) — ניתן להשתמש, לצטט ולשנות בחופשיות.</p>
-          <p class="c-footer-meta">
-            &copy; אפוקריפה — 2025–{{ buildInfo.buildYear }} ·
-            <a href="{{ '/sitemap.xml' | url }}">Sitemap</a> ·
-            <a href="{{ '/robots.txt' | url }}">Robots</a> ·
-            <a href="{{ '/manifest.json' | url }}">Manifest</a>
-          </p>
-        </div>
-      </div>
-    </footer>
-
-    <button id="backToTop" class="back-to-top" type="button" aria-label="חזרה לראש העמוד" title="חזרה לראש העמוד">
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <line x1="12" y1="19" x2="12" y2="5"/>
-        <polyline points="5 12 12 5 19 12"/>
-      </svg>
-    </button>
-
-    <script src="{{ '/assets/js/site.js' | url }}" defer></script>
-</body>
-</html>
+<p>ייתכן שנעדכן מדיניות זו מעת לעת, למשל בהפעלת שירות חדש או בשינוי אופן הטעינה של שירות קיים. הגרסה העדכנית תמיד תתפרסם בעמוד זה. לשאלות בנושא פרטיות ניתן לפנות אלינו דרך עמוד <a href="{{ '/contact/' | url }}">צור קשר</a>.</p>

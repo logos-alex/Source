@@ -7,7 +7,7 @@
 | סה"כ ספרים | 30 |
 | סה"כ פרקים | 66 |
 | סה"כ הערות שוליים | 0 |
-| סה"כ מילים (בערך) | 17,924 |
+| סה"כ מילים (בערך) | 17,922 |
 | ספרים עם תצוגה מקבילית | 9 |
 | ספרים בהכנה (comingSoon) | 27 |
 
@@ -36,11 +36,11 @@
 | ketav-almagal-nusach-b | arabic | talmidei-yeshua | 0 | 0 | 0 |  | 0 |
 | klalot-hashvatim | latin | talmidei-yeshua | 0 | 0 | 0 |  | 0 |
 | maale-yeshayahu | greek | isaiah | 0 | 0 | 0 |  | 0 |
-| maase-yitzchak | arabic | yitzchak | 4 | 0 | 2,100 |  | 0 |
+| maase-yitzchak | arabic | yitzchak | 4 | 0 | 2,107 |  | 0 |
 | maasei-timotheos | latin | talmidei-yeshua | 0 | 0 | 0 |  | 0 |
 | sefer-hanoch-a | greek | enoch | 0 | 0 | 0 |  | 0 |
 | sefer-zerubbabel | hebrew | zerubbabel | 0 | 0 | 0 |  | 0 |
-| sichat-moshe | aramaic | moshe | 8 | 0 | 2,923 | ✓ | 0 |
+| sichat-moshe | aramaic | moshe | 8 | 0 | 2,914 | ✓ | 0 |
 | tsavaat-yeshua | aramaic | talmidei-yeshua | 0 | 0 | 0 |  | 0 |
 | vision-daniel-armenian | armenian | daniel | 0 | 0 | 0 |  | 0 |
 | vision-enoch-righteous-armenian | armenian | enoch | 0 | 0 | 0 |  | 0 |

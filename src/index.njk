@@ -74,6 +74,28 @@ bodyClass: home-page
     <p>אין כל החיבורים שווים זה לזה. יש בהם קדומים ומאוחרים, יש בהם מסורות יהודיות ויש בהם מסורות שעברו עיבוד בידי בני אומות העולם; יש שנשתמרו היטב ויש שנשתבשו, ויש שחלקים מהם חסרים. לפיכך יש לבחון כל חיבור בפני עצמו, מתוך עיון בעדיו, בלשונו, בנוסחיו ובמסורת שנתגלגלה עמו.</p>
   </section>
 
+  {# ===== FEATURED ACTIVE BOOKS ===== #}
+  <section class="bible-sections" aria-label="חיבורים באוסף">
+    <h2 class="bible-sections__title">מן האוסף</h2>
+    <p class="bible-sections__intro">חיבורים הזמינים כעת במלואם — הועתקו ללשון עברי מתוך שפת המקור.</p>
+    <div class="book-list">
+      {% for item in collections.texts %}
+        {% if item.data.book and item.data.pageNumber == 0 and not (item.data.tags | hasTag("sub-intro")) and not item.data.comingSoon %}
+        <article class="book-card">
+          <h2>
+            <a class="book-card__primary-link" href="{{ item.url | url }}">{{ item | displayBookTitle }}</a>
+          </h2>
+          <p class="book-card__description">{{ item.data.description }}</p>
+          {% if item.data.source %}
+          {% set langEntry = languages[item.data.source] %}
+          <p><small>מקור: <a class="book-card__meta-link" href="{{ ('/texts/' + item.data.source + '/') | url }}">{{ langEntry.label if langEntry else item.data.source }}</a></small></p>
+          {% endif %}
+        </article>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+
   {# ===== BIBLE SECTIONS — המבנה הראשי ===== #}
   <section id="bible-sections" class="bible-sections" aria-label="התנך האפוקריפי — חלוקה לפי חלקי התנך">
     <h2 class="bible-sections__title">התנ"ך האפוקריפי</h2>
@@ -115,9 +137,9 @@ bodyClass: home-page
   {# ===== STATUS ===== #}
   <section class="coming-soon" aria-label="סטטוס המאגר">
     <h2>מצב המאגר וכיווני התפתחות</h2>
-    <p class="coming-soon__lead">המאגר מכיל כעת 29 חיבורים רשומים בקטלוג, הפרוסים על־פני 8 שפות מקור ו־8 דמויות מקראיות. הטקסטים עצמם נמצאים בהכנה — התבנית, הקטלוג ומערכת התצוגה המקבילית מוכנים, והחומרים יתווספו בהדרגה. בכוונתנו להוסיף בעתיד:</p>
+    <p class="coming-soon__lead">במאגר כעת שלושה חיבורים פעילים בטקסט מלא — חזון אברהם בשלושה נוסחים סלאביים, מעשה יצחק מן המקור הערבי, ושיחת משה מן המקור הסורי — לצד 27 חיבורים נוספים הרשומים בקטלוג ומצויים בהכנה, הפרושים על־פני 8 שפות מקור. התבנית, הקטלוג ומערכת התצוגה המקבילית מוכנים, והחומרים מתווספים בהדרגה. בכוונתנו להוסיף:</p>
     <ul>
-      <li>שילוב הטקסטים המלאים של 29 החיבורים הרשומים בקטלוג — מתוך מהדורות כתב־יד ותרגומים מדעיים</li>
+      <li>שילוב הטקסטים המלאים של יתר החיבורים הרשומים בקטלוג — מתוך מהדורות כתב־יד ותרגומים מדעיים</li>
       <li>הוספת ביאורים והערות שוליים לכל פרק, עם הקבלות למקרא, חז״ל ומקורות בין־דתיים</li>
       <li>כתבים קבליים ואפוקריפיים שטרם נדפסו — ישירות מתוך כתבי־יד</li>
       <li>סולם יעקב (הסלאבי), עליית ישעיהו (הסלאבי), ספר אליהו (העברי)</li>
