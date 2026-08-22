@@ -5,11 +5,11 @@
 | מדד | ערך |
 |---|---:|
 | סה"כ ספרים | 30 |
-| סה"כ פרקים | 58 |
+| סה"כ פרקים | 66 |
 | סה"כ הערות שוליים | 0 |
-| סה"כ מילים (בערך) | 15,001 |
+| סה"כ מילים (בערך) | 17,924 |
 | ספרים עם תצוגה מקבילית | 9 |
-| ספרים בהכנה (comingSoon) | 28 |
+| ספרים בהכנה (comingSoon) | 27 |
 
 ## פירוט לפי ספר
 
@@ -40,7 +40,7 @@
 | maasei-timotheos | latin | talmidei-yeshua | 0 | 0 | 0 |  | 0 |
 | sefer-hanoch-a | greek | enoch | 0 | 0 | 0 |  | 0 |
 | sefer-zerubbabel | hebrew | zerubbabel | 0 | 0 | 0 |  | 0 |
-| sichat-moshe | aramaic | moshe | 0 | 0 | 0 | ✓ | 0 |
+| sichat-moshe | aramaic | moshe | 8 | 0 | 2,923 | ✓ | 0 |
 | tsavaat-yeshua | aramaic | talmidei-yeshua | 0 | 0 | 0 |  | 0 |
 | vision-daniel-armenian | armenian | daniel | 0 | 0 | 0 |  | 0 |
 | vision-enoch-righteous-armenian | armenian | enoch | 0 | 0 | 0 |  | 0 |
