@@ -644,6 +644,11 @@ main {
   transform: translateY(8px);
   animation: fadeUpSigil 800ms 150ms cubic-bezier(0.2, 0.6, 0.2, 1) forwards;
 }
+.home-hero__sigil svg {
+  width: 52px;
+  height: 52px;
+  color: var(--c-gold);
+}
 
 @keyframes fadeUpSigil {
   to {
@@ -967,7 +972,144 @@ main {
   letter-spacing: 0.02em;
 }
 
+/* --------------------------- Home Opening (חזון עזרא) ---------------------------- */
+.home-opening {
+  max-width: 760px;
+  margin: 0 auto var(--s-8);
+  padding: var(--s-6) var(--s-4) 0;
+}
+
+.home-opening__head {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  margin: 0 0 var(--s-6);
+}
+.home-opening__rule {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to left, var(--c-border), transparent);
+}
+.home-opening__rule:last-of-type {
+  background: linear-gradient(to right, var(--c-border), transparent);
+}
+.home-opening__label {
+  font-family: var(--font-hebrew-display);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: var(--c-gold);
+  white-space: nowrap;
+}
+
+.opening-part {
+  margin: 0 0 var(--s-7);
+}
+.opening-part__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-3);
+  border-bottom: 1px solid var(--c-border-soft);
+  padding-bottom: var(--s-2);
+  margin-bottom: var(--s-4);
+}
+.opening-part__title {
+  font-family: var(--font-hebrew-display);
+  font-size: var(--fs-base);
+  font-weight: 700;
+  color: var(--c-text);
+  margin: 0;
+}
+.opening-part__title--source {
+  font-weight: 500;
+  color: var(--c-text-2);
+}
+.opening-part__ref {
+  font-size: var(--fs-xs);
+  color: var(--c-text-muted);
+  white-space: nowrap;
+  margin: 0;
+}
+
+.opening-text {
+  margin: 0;
+}
+.opening-text--source {
+  font-size: var(--fs-sm);
+  line-height: 2.05;
+  color: var(--c-text-faint);
+  text-align: justify;
+}
+.opening-text p {
+  margin: 0 0 var(--s-1);
+  line-height: 1.95;
+}
+.opening-text .verse-num {
+  display: inline-block;
+  min-width: 2.2em;
+  font-size: 0.78em;
+  color: var(--c-gold);
+  opacity: 0.75;
+  font-weight: 500;
+  margin-inline-end: 0.4em;
+}
+.opening-text .quote-intro {
+  display: block;
+  font-style: italic;
+  color: var(--c-text-2);
+  margin-bottom: var(--s-2);
+}
+
+.home-opening__cite {
+  display: block;
+  text-align: center;
+  margin-top: calc(-1 * var(--s-4));
+  font-size: var(--fs-xs);
+  color: var(--c-text-muted);
+  letter-spacing: 0.02em;
+}
+
 /* --------------------------- Home Intro ---------------------------- */
+/* Zohar quote in the intro — quiet, no gold box */
+.intro-quote {
+  max-width: 640px;
+  margin: var(--s-5) auto;
+  padding: 0 var(--s-4);
+  border-inline-start: 2px solid var(--c-accent);
+}
+.intro-quote p:first-child {
+  font-size: var(--fs-base);
+  line-height: 1.95;
+  color: var(--c-text-2);
+  font-style: italic;
+  margin: 0;
+}
+.intro-quote__translation {
+  font-size: var(--fs-sm);
+  color: var(--c-text-muted);
+  margin: var(--s-3) 0 0;
+}
+.intro-quote cite {
+  display: block;
+  margin-top: var(--s-3);
+  font-size: var(--fs-xs);
+  color: var(--c-text-muted);
+  font-style: normal;
+}
+
+/* Four-section grid — balanced 2x2 on desktop, no orphan card */
+.bible-sections__grid--four {
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  max-width: 980px;
+  margin-inline: auto;
+}
+@media (max-width: 720px) {
+  .bible-sections__grid--four {
+    grid-template-columns: 1fr;
+  }
+}
+
 .home-intro {
   max-width: var(--max-w);
   margin: 0 auto var(--s-8);
