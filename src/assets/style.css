@@ -717,8 +717,9 @@ main {
   gap: var(--s-3);
   justify-content: center;
   flex-wrap: wrap;
+  margin-bottom: var(--s-7);
   opacity: 0;
-  animation: fadeUp 800ms 600ms cubic-bezier(0.2, 0.6, 0.2, 1) forwards;
+  animation: fadeUp 800ms 500ms cubic-bezier(0.2, 0.6, 0.2, 1) forwards;
 }
 
 .home-hero__divider {
@@ -746,53 +747,116 @@ main {
   height: 18px;
 }
 
-/* ---- Hero quote: visual hierarchy between source (atmosphere) and translation (content) ----
-   The Aramaic/Syriac source serves as ambience — smaller, muted, italic.
+/* ---- Hero quote: a structured 'tiqun' — two numbered passages, verse-aligned source + translation ----
+   The Syriac source (in Hebrew letters) serves as ambience — smaller, muted, italic.
    The Hebrew translation serves as content — larger, full color, primary.
-   This inverts the default .epigraph-card--primary p:first-child rule, which
-   would otherwise give the source paragraph the prominent treatment. */
+   Each passage is marked: letter (א/ב) + title + verse range, between hairlines. */
 .home-hero__quote {
-  max-width: 720px;
-  margin: var(--s-6) auto var(--s-7);
-  text-align: justify;
-  text-align-last: center;
+  max-width: 760px;
+  margin: 0 auto var(--s-7);
+  text-align: center;
   opacity: 0;
-  animation: fadeUp 800ms 550ms cubic-bezier(0.2, 0.6, 0.2, 1) forwards;
+  animation: fadeUp 800ms 650ms cubic-bezier(0.2, 0.6, 0.2, 1) forwards;
 }
 
-/* Override .epigraph-card--primary p:first-child so the source does not get prominence */
-.home-hero__quote.epigraph-card--primary p:first-child {
+/* Running head — book + chapter */
+.home-hero__quote.epigraph-card--primary .quote-head {
+  font-family: var(--font-hebrew-display);
   font-size: var(--fs-sm);
-  line-height: 1.85;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: var(--c-accent);
+  text-align: center;
+  margin: 0 0 var(--s-5);
+  font-style: normal;
+}
+
+/* Passage block */
+.home-hero__quote .quote-passage {
+  margin: 0 0 var(--s-6);
+}
+.home-hero__quote .quote-passage:last-of-type {
+  margin-bottom: 0;
+}
+
+/* Passage header — letter badge + title + verses, centered between hairlines */
+.home-hero__quote .quote-passage__head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-3);
+  margin: 0 0 var(--s-4);
+  font-style: normal;
+}
+.home-hero__quote .quote-passage__head::before,
+.home-hero__quote .quote-passage__head::after {
+  content: "";
+  flex: 1;
+  max-width: 120px;
+  height: 1px;
+  background: linear-gradient(to left, transparent, var(--c-border));
+}
+.home-hero__quote .quote-passage__head::after {
+  background: linear-gradient(to right, transparent, var(--c-border));
+}
+.home-hero__quote .quote-passage__head b {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75em;
+  height: 1.75em;
+  border: 1px solid var(--c-accent);
+  border-radius: 50%;
+  color: var(--c-accent);
+  font-family: var(--font-hebrew-display);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  line-height: 1;
+  flex: none;
+}
+.home-hero__quote .quote-passage__title {
+  font-family: var(--font-hebrew-display);
+  font-size: var(--fs-base);
+  letter-spacing: 0.06em;
+  color: var(--c-text-2);
+  white-space: nowrap;
+}
+.home-hero__quote .quote-passage__verses {
+  font-size: var(--fs-xs);
   color: var(--c-text-faint);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
 }
 
-/* Aramaic/Syriac source — atmosphere: smaller, muted, italic */
-.home-hero__quote .quote-source {
+/* Syriac source — atmosphere: smaller, muted, italic, verse-per-line */
+.home-hero__quote.epigraph-card .quote-source {
   font-size: var(--fs-sm);
-  line-height: 1.85;
+  line-height: 2.05;
   color: var(--c-text-faint);
   font-style: italic;
-  opacity: 0.88;
+  opacity: 0.9;
   margin: 0 0 var(--s-4);
   text-align: center;
   direction: rtl;
+  max-width: 620px;
+  margin-inline: auto;
 }
 
-/* Hebrew translation — content: larger, full color, primary */
-.home-hero__quote .quote-translation {
+/* Hebrew translation — content: larger, full color, verse-per-line */
+.home-hero__quote.epigraph-card .quote-translation {
   font-size: var(--fs-md);
   line-height: 1.95;
   color: var(--c-text);
   font-style: normal;
   font-weight: 400;
-  margin: 0 0 var(--s-5);
-  text-align: justify;
-  text-align-last: center;
+  margin: 0;
+  text-align: center;
+  max-width: 640px;
+  margin-inline: auto;
 }
 
 /* Cite stays subtle in the hero quote */
-.home-hero__quote cite {
+.home-hero__quote.epigraph-card cite {
   display: block;
   margin-top: var(--s-5);
   font-size: var(--fs-xs);
@@ -801,7 +865,7 @@ main {
 }
 
 /* Verse numbers — visually subtle but present */
-.home-hero__quote .verse-num {
+.home-hero__quote.epigraph-card .verse-num {
   display: inline-block;
   min-width: 3.2em;
   font-size: 0.72em;
@@ -815,12 +879,45 @@ main {
 }
 
 /* Intro line — "אֲדַבֵּר לְפָנֶיךָ, אֲדֹנָי." */
-.home-hero__quote .quote-intro {
+.home-hero__quote.epigraph-card .quote-intro {
   display: block;
   font-style: italic;
   color: var(--c-text-2);
   font-size: var(--fs-base);
-  margin-bottom: var(--s-3);
+  margin: 0 0 var(--s-3);
+  font-weight: 400;
+}
+
+/* ---- Light quote — flows inside the intro, not a heavy card ---- */
+.intro-quote {
+  max-width: 640px;
+  margin: var(--s-7) auto;
+  padding: var(--s-5) var(--s-2);
+  border-block: 1px solid var(--c-border-soft);
+  text-align: center;
+  font-style: normal;
+}
+.intro-quote .quote-source {
+  font-size: var(--fs-sm);
+  font-style: italic;
+  color: var(--c-text-muted);
+  line-height: 1.9;
+  margin: 0 0 var(--s-3);
+}
+.intro-quote .quote-translation {
+  font-size: var(--fs-sm);
+  color: var(--c-text-2);
+  font-style: normal;
+  line-height: 1.85;
+  margin: 0 0 var(--s-3);
+}
+.intro-quote cite {
+  display: block;
+  font-size: var(--fs-xs);
+  color: var(--c-accent);
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
 @keyframes fadeUp {
@@ -851,14 +948,15 @@ main {
 }
 
 .btn--primary {
-  background: var(--c-accent);
-  color: var(--c-bg);
-  border-color: var(--c-accent);
-}
-.btn--primary:hover {
   background: var(--c-accent-ink);
   color: var(--c-bg);
   border-color: var(--c-accent-ink);
+  padding: var(--s-3) var(--s-6);
+}
+.btn--primary:hover {
+  background: var(--c-accent);
+  color: var(--c-bg);
+  border-color: var(--c-accent);
   transform: translateY(-1px);
   box-shadow: var(--shadow-md);
 }
