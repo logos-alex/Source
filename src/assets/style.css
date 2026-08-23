@@ -1197,9 +1197,10 @@ main {
   font-size: var(--fs-md);
 }
 .quick-jump__item-meta {
-  font-size: var(--fs-xs);
+  font-size: var(--fs-sm);
   color: var(--c-text-muted);
   margin-top: 2px;
+  line-height: 1.5;
 }
 
 /* --------------------------- Coming Soon --------------------------- */
