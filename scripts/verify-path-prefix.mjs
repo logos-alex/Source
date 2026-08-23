@@ -1,8 +1,10 @@
-import { readFileSync, readdirSync, statSync } from 'node:fs';
-import { join } from 'node:path';
+import { readFileSync, readdirSync, statSync } from "node:fs";
+import { join } from "node:path";
 
-const ROOT = '_site';
-const requiredPrefix = JSON.parse(readFileSync('src/_data/site.json', 'utf8')).pathPrefix;
+const ROOT = "_site";
+const requiredPrefix = JSON.parse(
+  readFileSync("src/_data/site.json", "utf8"),
+).pathPrefix;
 const bad = [];
 
 function walk(dir) {
@@ -10,22 +12,22 @@ function walk(dir) {
     const full = join(dir, name);
     const st = statSync(full);
     if (st.isDirectory()) walk(full);
-    else if (full.endsWith('.html')) check(full);
+    else if (full.endsWith(".html")) check(full);
   }
 }
 
 function check(file) {
-  const text = readFileSync(file, 'utf8');
+  const text = readFileSync(file, "utf8");
   const re = /(?:href|src)="(\/[^"#?]*)"/g;
   let m;
   while ((m = re.exec(text))) {
     const url = m[1];
     if (
       url.startsWith(requiredPrefix) ||
-      url.startsWith('//') ||
-      url === '/' ||
-      url.startsWith('/#') ||
-      url === '/favicon.ico'
+      url.startsWith("//") ||
+      url === "/" ||
+      url.startsWith("/#") ||
+      url === "/favicon.ico"
     ) {
       continue;
     }
@@ -36,11 +38,13 @@ function check(file) {
 walk(ROOT);
 
 if (bad.length) {
-  console.error('Found non-prefixed internal URLs in built output:');
+  console.error("Found non-prefixed internal URLs in built output:");
   for (const item of bad.slice(0, 50)) {
     console.error(`- ${item.file}: ${item.url}`);
   }
   process.exit(1);
 }
 
-console.log(`Prefix check passed: all built internal URLs use ${requiredPrefix}`);
+console.log(
+  `Prefix check passed: all built internal URLs use ${requiredPrefix}`,
+);

@@ -1,26 +1,26 @@
-import { readFileSync } from 'node:fs';
+import { readFileSync } from "node:fs";
 
 const checks = [
   {
-    file: 'src/texts/geez/clementos/index.md',
+    file: "src/texts/geez/clementos/index.md",
     mustInclude: [
-      '### המשך המסירה בנוסח הגעז',
-      '### מקומו של החיבור במסורת האתיופית'
+      "### המשך המסירה בנוסח הגעז",
+      "### מקומו של החיבור במסורת האתיופית",
     ],
     mustNotInclude: [
       'תרגום עברי נאמן · החלק השני בסדרת "שמונת הספרים של קלמנטוס"',
-      '### מיקום החיבור בסדרה',
-      'כּיתאב אל־מג׳אל',
-      'לתחילת הסדרה: [כּיתאב אל-מג\'אל — הנוסח הערבי (חלק ראשון)]'
-    ]
-  }
+      "### מיקום החיבור בסדרה",
+      "כּיתאב אל־מג׳אל",
+      "לתחילת הסדרה: [כּיתאב אל-מג'אל — הנוסח הערבי (חלק ראשון)]",
+    ],
+  },
 ];
 
 let hasError = false;
 
 for (const check of checks) {
-  const text = readFileSync(check.file, 'utf8');
-  if (text.includes('comingSoon: true')) continue;
+  const text = readFileSync(check.file, "utf8");
+  if (text.includes("comingSoon: true")) continue;
 
   for (const needle of check.mustInclude) {
     if (!text.includes(needle)) {
@@ -41,4 +41,4 @@ if (hasError) {
   process.exit(1);
 }
 
-console.log('Intro revision verification passed.');
+console.log("Intro revision verification passed.");

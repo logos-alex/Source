@@ -2,7 +2,7 @@ name: Check deployed links
 
 on:
   schedule:
-    - cron: '0 4 * * *'
+    - cron: "0 4 * * *"
   workflow_dispatch:
 
 permissions:
@@ -35,7 +35,7 @@ jobs:
         if: failure()
         uses: dbuzanski/create-issue-action@v1
         with:
-          title: '[Link-Check] Broken links detected on deployed site'
+          title: "[Link-Check] Broken links detected on deployed site"
           body: |
             The scheduled link-check workflow detected broken links on the deployed site.
 

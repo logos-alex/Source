@@ -11,8 +11,8 @@
 //
 // To filter by extension, check inside the callback — keeps this helper agnostic.
 
-import { readdirSync, statSync } from 'node:fs';
-import { join } from 'node:path';
+import { readdirSync, statSync } from "node:fs";
+import { join } from "node:path";
 
 /**
  * Recursively walk `root` and call `cb(absoluteFilePath)` for each regular file.

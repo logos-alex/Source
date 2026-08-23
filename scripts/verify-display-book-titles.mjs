@@ -3,14 +3,18 @@ import { join } from "node:path";
 
 const SITE_ROOT = "_site";
 const site = JSON.parse(readFileSync("src/_data/site.json", "utf8"));
-const figureCatalogKeys = JSON.parse(readFileSync("src/_data/figureCatalogKeys.json", "utf8"));
+const figureCatalogKeys = JSON.parse(
+  readFileSync("src/_data/figureCatalogKeys.json", "utf8"),
+);
 const PATH_PREFIX = site.pathPrefix || "/";
 const errors = [];
 const seenPages = [];
 const displayedTitlesByBookUrl = new Map();
 
 function listDirectories(dir) {
-  return readdirSync(dir).filter((name) => statSync(join(dir, name)).isDirectory());
+  return readdirSync(dir).filter((name) =>
+    statSync(join(dir, name)).isDirectory(),
+  );
 }
 
 function collectListingPages() {
@@ -89,8 +93,12 @@ for (const [bookUrl, entries] of displayedTitlesByBookUrl.entries()) {
   const uniqueTitles = [...new Set(entries.map((entry) => entry.title))];
   if (uniqueTitles.length <= 1) continue;
 
-  const details = entries.map((entry) => `${entry.page}='${entry.title}'`).join(", ");
-  errors.push(`${bookUrl} appears with inconsistent display titles across listing pages: ${details}`);
+  const details = entries
+    .map((entry) => `${entry.page}='${entry.title}'`)
+    .join(", ");
+  errors.push(
+    `${bookUrl} appears with inconsistent display titles across listing pages: ${details}`,
+  );
 }
 
 if (errors.length) {
@@ -100,5 +108,5 @@ if (errors.length) {
 }
 
 console.log(
-  `Display-book-title verification passed across ${seenPages.length} listing pages and ${displayedTitlesByBookUrl.size} book links.`
+  `Display-book-title verification passed across ${seenPages.length} listing pages and ${displayedTitlesByBookUrl.size} book links.`,
 );

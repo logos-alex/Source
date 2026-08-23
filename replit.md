@@ -112,18 +112,18 @@ src/
 
 ## ⚙️ Custom Filters in .eleventy.js
 
-| Filter | Purpose |
-|---|---|
-| `renderMarkdownInline(text)` | Processes `**bold**`, `*italic*`, `` `code` ``, `---`→`<hr>`, `[text](url)` for YAML note fields |
-| `renderNoteRefs(html)` | Renders inline markdown + converts `[N]` → `<sup>` footnote refs |
-| `findIndexByUrl(items, url)` | Finds index of current page in array |
-| `findCollectionItemByUrl(items, url)` | Finds collection item by URL |
-| `displayBookTitle(item)` | Human-readable book title |
-| `bookPages(items, url, book, includeIndex=true)` | Pages in same book, sorted by pageNumber |
-| `toHebrewNumeral(num)` | Converts number to Hebrew letters (א, ב, ...) |
-| `usesHebrewChapterTitles(book)` | Whether book uses parallel layout (from catalog) |
-| `chapterDisplayTitle(item, book)` | Human-readable chapter title for nav |
-| `normalizeBookTitle(value)` | Cleans up book titles for display |
+| Filter                                           | Purpose                                                                                          |
+| ------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `renderMarkdownInline(text)`                     | Processes `**bold**`, `*italic*`, `` `code` ``, `---`→`<hr>`, `[text](url)` for YAML note fields |
+| `renderNoteRefs(html)`                           | Renders inline markdown + converts `[N]` → `<sup>` footnote refs                                 |
+| `findIndexByUrl(items, url)`                     | Finds index of current page in array                                                             |
+| `findCollectionItemByUrl(items, url)`            | Finds collection item by URL                                                                     |
+| `displayBookTitle(item)`                         | Human-readable book title                                                                        |
+| `bookPages(items, url, book, includeIndex=true)` | Pages in same book, sorted by pageNumber                                                         |
+| `toHebrewNumeral(num)`                           | Converts number to Hebrew letters (א, ב, ...)                                                    |
+| `usesHebrewChapterTitles(book)`                  | Whether book uses parallel layout (from catalog)                                                 |
+| `chapterDisplayTitle(item, book)`                | Human-readable chapter title for nav                                                             |
+| `normalizeBookTitle(value)`                      | Cleans up book titles for display                                                                |
 
 ---
 
@@ -145,6 +145,7 @@ src/
 ## 🎨 Color Scheme
 
 ### Light Mode (Default)
+
 - Background: `#FAF6EE` (Warm ivory)
 - Text: `#1C1813` (Deep ink)
 - Accent: `#7C6233` (Antique bronze — WCAG AA compliant)
@@ -152,6 +153,7 @@ src/
 - Border: `#D8C9A8` (Soft gold)
 
 ### Dark Mode
+
 - Background: `#100D09` (Deep midnight)
 - Text: `#EFE7D5` (Warm cream)
 - Accent: `#C9A35D` (Antique gold)
@@ -162,6 +164,7 @@ src/
 ## 🚀 Deployment
 
 **GitHub Actions auto-deploy on push to main:**
+
 ```bash
 git add .
 git commit -m "..."
@@ -191,18 +194,18 @@ Output dir: `_site/`
 
 ## 🔍 npm Scripts
 
-| Script | Purpose |
-|---|---|
-| `npm run dev` | Dev server on port 5000 |
-| `npm run build` | Full build (Eleventy + Pagefind) |
-| `npm run ci:verify` | Run all 16 verify scripts + build + Pagefind |
-| `npm run check:frontmatter` | Verify frontmatter completeness (including tags) |
-| `npm run check:pathprefix` | Verify path prefix in built HTML |
-| `npm run check:catalog` | Verify catalog consistency |
-| `npm run check:built-links` | Verify all internal links resolve |
-| `npm run check:third-party` | Verify third-party service controls |
-| `npm run new:chapter` | Helper to create a new chapter file |
-| `npm run report:content` | Content status report → docs/content-status-he.md |
+| Script                      | Purpose                                           |
+| --------------------------- | ------------------------------------------------- |
+| `npm run dev`               | Dev server on port 5000                           |
+| `npm run build`             | Full build (Eleventy + Pagefind)                  |
+| `npm run ci:verify`         | Run all 16 verify scripts + build + Pagefind      |
+| `npm run check:frontmatter` | Verify frontmatter completeness (including tags)  |
+| `npm run check:pathprefix`  | Verify path prefix in built HTML                  |
+| `npm run check:catalog`     | Verify catalog consistency                        |
+| `npm run check:built-links` | Verify all internal links resolve                 |
+| `npm run check:third-party` | Verify third-party service controls               |
+| `npm run new:chapter`       | Helper to create a new chapter file               |
+| `npm run report:content`    | Content status report → docs/content-status-he.md |
 
 ---
 

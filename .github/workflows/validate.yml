@@ -30,8 +30,8 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v7
         with:
-          node-version: '22.11.0'
-          cache: 'npm'
+          node-version: "22.11.0"
+          cache: "npm"
           cache-dependency-path: package-lock.json
 
       - name: Normalize npm proxy config

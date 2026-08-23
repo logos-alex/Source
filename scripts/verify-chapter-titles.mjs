@@ -27,11 +27,11 @@ const TITLE_EXCEPTIONS = new Set([
 
 // Title patterns that are legitimate alternatives to "פרק N" in Hebrew-chapter-title books.
 const LEGITIMATE_TITLE_PATTERNS = [
-  /^\[עמוד/,        // [עמוד 48] — part II page references in apoc-daniel-syriac
-  /^נספח/,          // נספח פילולוגי
-  /^פתיחה/,         // פתיחה
-  /^חטיבה/,         // חטיבה א
-  /^חתימה/,         // חתימה
+  /^\[עמוד/, // [עמוד 48] — part II page references in apoc-daniel-syriac
+  /^נספח/, // נספח פילולוגי
+  /^פתיחה/, // פתיחה
+  /^חטיבה/, // חטיבה א
+  /^חתימה/, // חתימה
 ];
 
 function toHebrewNumeral(num) {
@@ -58,7 +58,10 @@ function normalizedChapterDisplayTitle({ title, pageNumber, book }) {
   const rawTitle = title || "";
   if (!usesHebrewChapterTitles(book)) return rawTitle;
   // Match "פרק" with or without niqqud
-  const stripped = rawTitle.replace(/[\u0591-\u05BD\u05BF\u05C1-\u05C2\u05C4-\u05C5\u05C7]/g, "");
+  const stripped = rawTitle.replace(
+    /[\u0591-\u05BD\u05BF\u05C1-\u05C2\u05C4-\u05C5\u05C7]/g,
+    "",
+  );
   if (!stripped.includes("פרק")) return rawTitle;
   const page = Number(pageNumber || 0);
   if (page > 0) return `פרק ${toHebrewNumeral(page)}`;
@@ -102,21 +105,32 @@ function check(file) {
   if (TITLE_EXCEPTIONS.has(relPath)) return;
 
   // Also skip pages whose titles match a known legitimate pattern
-  if (LEGITIMATE_TITLE_PATTERNS.some(re => re.test(title))) return;
+  if (LEGITIMATE_TITLE_PATTERNS.some((re) => re.test(title))) return;
 
   // For Hebrew-chapter-title books, validate the title contains "פרק" and
   // that the chapterDisplayTitle filter would normalize it correctly.
-  const stripped = (title || "").replace(/[\u0591-\u05BD\u05BF\u05C1-\u05C2\u05C4-\u05C5\u05C7]/g, "");
+  const stripped = (title || "").replace(
+    /[\u0591-\u05BD\u05BF\u05C1-\u05C2\u05C4-\u05C5\u05C7]/g,
+    "",
+  );
   if (!stripped.includes("פרק")) {
-    errors.push(`${file}: chapter title should include 'פרק' for book '${book}' (got '${title}')`);
+    errors.push(
+      `${file}: chapter title should include 'פרק' for book '${book}' (got '${title}')`,
+    );
     return;
   }
 
-  const normalizedTitle = normalizedChapterDisplayTitle({ title, pageNumber, book });
+  const normalizedTitle = normalizedChapterDisplayTitle({
+    title,
+    pageNumber,
+    book,
+  });
   const expectedTitle = `פרק ${toHebrewNumeral(pageNumber)}`;
 
   if (normalizedTitle !== expectedTitle) {
-    errors.push(`${file}: normalized chapter title should be '${expectedTitle}' (got '${normalizedTitle}')`);
+    errors.push(
+      `${file}: normalized chapter title should be '${expectedTitle}' (got '${normalizedTitle}')`,
+    );
   }
 }
 

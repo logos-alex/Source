@@ -10,9 +10,7 @@
     "groups": [
       {
         "source": "מהמקור העברי",
-        "texts": [
-          "ספרא דזרובבל — הנוסח הגדול המתוקן"
-        ]
+        "texts": ["ספרא דזרובבל — הנוסח הגדול המתוקן"]
       },
       {
         "source": "מהמקור הארמי־סורי",
@@ -72,9 +70,7 @@
       "dateLabel": "אוגוסט 2026",
       "pubDateRFC822": "Sat, 22 Aug 2026 00:00:00 GMT",
       "category": "טקסט חדש",
-      "flags": [
-        "new-text"
-      ],
+      "flags": ["new-text"],
       "links": [
         {
           "id": "sichat-moshe-text",
@@ -90,9 +86,7 @@
       "dateLabel": "אוגוסט 2026",
       "pubDateRFC822": "Thu, 13 Aug 2026 00:00:00 GMT",
       "category": "טקסט חדש",
-      "flags": [
-        "new-text"
-      ]
+      "flags": ["new-text"]
     },
     {
       "id": "abraham-rebrand-apocrypha",
@@ -101,12 +95,7 @@
       "dateLabel": "אוגוסט 2026",
       "pubDateRFC822": "Wed, 13 Aug 2026 00:00:00 GMT",
       "category": "מיתוג ועיצוב",
-      "flags": [
-        "ux",
-        "branding",
-        "slavic",
-        "abraham"
-      ]
+      "flags": ["ux", "branding", "slavic", "abraham"]
     },
     {
       "id": "abraham-c-completed",
@@ -115,12 +104,7 @@
       "dateLabel": "אוגוסט 2026",
       "pubDateRFC822": "Wed, 13 Aug 2026 00:00:00 GMT",
       "category": "תוכן ועדכוני נוסח",
-      "flags": [
-        "content",
-        "slavic",
-        "abraham",
-        "new-text"
-      ],
+      "flags": ["content", "slavic", "abraham", "new-text"],
       "links": [
         {
           "id": "abraham-c-index",
@@ -136,12 +120,7 @@
       "dateLabel": "אוגוסט 2026",
       "pubDateRFC822": "Wed, 13 Aug 2026 00:00:00 GMT",
       "category": "תוכן ועדכוני נוסח",
-      "flags": [
-        "content",
-        "slavic",
-        "abraham",
-        "fix"
-      ],
+      "flags": ["content", "slavic", "abraham", "fix"],
       "links": [
         {
           "id": "abraham-b-page15",
@@ -157,12 +136,7 @@
       "dateLabel": "אוגוסט 2026",
       "pubDateRFC822": "Wed, 13 Aug 2026 00:00:00 GMT",
       "category": "חווית משתמש",
-      "flags": [
-        "ux",
-        "slavic",
-        "abraham",
-        "parallel"
-      ],
+      "flags": ["ux", "slavic", "abraham", "parallel"],
       "links": [
         {
           "id": "abraham-index",
@@ -178,12 +152,7 @@
       "dateLabel": "אוגוסט 2026",
       "pubDateRFC822": "Wed, 13 Aug 2026 00:00:00 GMT",
       "category": "קטלוג ותיעוד",
-      "flags": [
-        "content",
-        "slavic",
-        "abraham",
-        "catalog"
-      ]
+      "flags": ["content", "slavic", "abraham", "catalog"]
     },
     {
       "id": "abraham-b-full-reconstruction",
@@ -192,11 +161,7 @@
       "dateLabel": "יוני 2026",
       "pubDateRFC822": "Mon, 01 Jun 2026 00:00:00 GMT",
       "category": "תוכן ועדכוני נוסח",
-      "flags": [
-        "content",
-        "slavic",
-        "abraham"
-      ],
+      "flags": ["content", "slavic", "abraham"],
       "links": [
         {
           "id": "abraham-b-index",

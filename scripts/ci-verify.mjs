@@ -12,11 +12,19 @@ const steps = [
   ["node", "scripts/report-content-status.mjs", "--check"],
   ["npx", "--no-install", "eleventy", "--pathprefix=/Source/"],
   ["node", "scripts/verify-display-book-titles.mjs"],
-  ["npx", "--no-install", "pagefind", "--site", "_site", "--output-path", "_site/pagefind"],
+  [
+    "npx",
+    "--no-install",
+    "pagefind",
+    "--site",
+    "_site",
+    "--output-path",
+    "_site/pagefind",
+  ],
   ["node", "scripts/verify-release-content.mjs"],
   ["node", "scripts/verify-intro-navigation.mjs"],
   ["node", "scripts/verify-path-prefix.mjs"],
-  ["node", "scripts/verify-built-links.mjs"]
+  ["node", "scripts/verify-built-links.mjs"],
 ];
 
 const results = [];
@@ -27,10 +35,21 @@ for (const command of steps) {
   console.log(`\n▶ ${printable}`);
   const t0 = Date.now();
   const isWin = process.platform === "win32";
-  const r = spawnSync(command[0] === "npx" && isWin ? "npx.cmd" : command[0], command.slice(1), { stdio: "inherit", shell: command[0] === "npx" && isWin });
+  const r = spawnSync(
+    command[0] === "npx" && isWin ? "npx.cmd" : command[0],
+    command.slice(1),
+    { stdio: "inherit", shell: command[0] === "npx" && isWin },
+  );
   const ms = Date.now() - t0;
   const ok = r.status === 0;
-  results.push({ cmd: command[0] === "npx" ? command.slice(2).join(" ") : command.slice(1).join(" "), ok, ms });
+  results.push({
+    cmd:
+      command[0] === "npx"
+        ? command.slice(2).join(" ")
+        : command.slice(1).join(" "),
+    ok,
+    ms,
+  });
   if (!ok) {
     failed = true;
     // Continue to next steps so we can show a full summary, but remember failure.
@@ -46,9 +65,11 @@ for (const r of results) {
   console.log(`  ${mark} ${r.cmd.padEnd(50)} ${time.padStart(8)}`);
 }
 console.log("──────────────────────────────────────────────");
-const passed = results.filter(r => r.ok).length;
+const passed = results.filter((r) => r.ok).length;
 const total = results.length;
-console.log(`  ${passed}/${total} steps passed, total ${(results.reduce((s, r) => s + r.ms, 0) / 1000).toFixed(2)}s`);
+console.log(
+  `  ${passed}/${total} steps passed, total ${(results.reduce((s, r) => s + r.ms, 0) / 1000).toFixed(2)}s`,
+);
 
 if (failed) {
   console.error("\n❌ ci:verify failed — see errors above.");

@@ -13,7 +13,7 @@
 //   beyond the flat key: value form used by this project's frontmatter schema.
 //   For full YAML, use `js-yaml` (already a devDependency).
 
-import { readFileSync } from 'node:fs';
+import { readFileSync } from "node:fs";
 
 const FRONTMATTER_RE = /^---\r?\n([\s\S]*?)\r?\n---\r?\n/;
 
@@ -36,7 +36,7 @@ export function getFrontmatter(content) {
  * @returns {string|null}
  */
 export function readFrontmatter(file) {
-  const content = readFileSync(file, 'utf8');
+  const content = readFileSync(file, "utf8");
   return getFrontmatter(content);
 }
 
@@ -50,7 +50,7 @@ export function readFrontmatter(file) {
  */
 export function hasKey(frontmatter, key) {
   if (!frontmatter) return false;
-  return new RegExp(`^${key}:`, 'm').test(frontmatter);
+  return new RegExp(`^${key}:`, "m").test(frontmatter);
 }
 
 /**
@@ -64,9 +64,9 @@ export function hasKey(frontmatter, key) {
  * @returns {string}
  */
 export function readValue(frontmatter, key) {
-  if (!frontmatter) return '';
-  const m = frontmatter.match(new RegExp(`^${key}:\\s*(.+?)\\s*$`, 'm'));
-  return m ? m[1].replace(/^[\'"]|[\'"]$/g, '') : '';
+  if (!frontmatter) return "";
+  const m = frontmatter.match(new RegExp(`^${key}:\\s*(.+?)\\s*$`, "m"));
+  return m ? m[1].replace(/^[\'"]|[\'"]$/g, "") : "";
 }
 
 /**
@@ -87,17 +87,17 @@ export function parseTags(frontmatter) {
   const blockMatch = frontmatter.match(/^tags:\s*\n((?:\s+-\s.+\n?)+)/m);
   if (blockMatch) {
     return blockMatch[1]
-      .split('\n')
+      .split("\n")
       .map((line) => line.match(/^\s+-\s+(.+?)\s*$/))
       .filter(Boolean)
-      .map((m) => m[1].replace(/^[\'"]|[\'"]$/g, ''));
+      .map((m) => m[1].replace(/^[\'"]|[\'"]$/g, ""));
   }
   // Inline flow form: tags: [a, b, c]
   const inlineMatch = frontmatter.match(/^tags:\s*\[([^\]]*)\]/m);
   if (inlineMatch) {
     return inlineMatch[1]
-      .split(',')
-      .map((s) => s.trim().replace(/^[\'"]|[\'"]$/g, ''))
+      .split(",")
+      .map((s) => s.trim().replace(/^[\'"]|[\'"]$/g, ""))
       .filter(Boolean);
   }
   return [];

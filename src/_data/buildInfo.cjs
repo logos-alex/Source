@@ -1,12 +1,12 @@
-const { execSync } = require('node:child_process');
-const { existsSync, statSync } = require('node:fs');
-const { extname } = require('node:path');
+const { execSync } = require("node:child_process");
+const { existsSync, statSync } = require("node:fs");
+const { extname } = require("node:path");
 
 function safeExec(command) {
   try {
-    return execSync(command, { encoding: 'utf8', timeout: 2000 }).trim();
+    return execSync(command, { encoding: "utf8", timeout: 2000 }).trim();
   } catch (_) {
-    return 'unknown';
+    return "unknown";
   }
 }
 
@@ -19,9 +19,9 @@ function getGitLastModified(filePath) {
   let result = null;
   try {
     const iso = execSync(`git log -1 --format=%cI -- "${filePath}"`, {
-      encoding: 'utf8',
+      encoding: "utf8",
       timeout: 2000,
-      stdio: ['pipe', 'pipe', 'ignore']
+      stdio: ["pipe", "pipe", "ignore"],
     }).trim();
     if (iso && /^\d{4}-\d{2}-\d{2}/.test(iso)) {
       result = iso;
@@ -40,9 +40,9 @@ function getGitLastModified(filePath) {
 }
 
 module.exports = {
-  commitShort: safeExec('git rev-parse --short HEAD'),
-  branch: safeExec('git rev-parse --abbrev-ref HEAD'),
+  commitShort: safeExec("git rev-parse --short HEAD"),
+  branch: safeExec("git rev-parse --abbrev-ref HEAD"),
   builtAtUTC: new Date().toISOString(),
   buildYear: new Date().getFullYear(),
-  getGitLastModified
+  getGitLastModified,
 };

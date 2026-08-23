@@ -29,13 +29,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v5
         with:
-          fetch-depth: 0  # needed for git-based lastmod in sitemap
+          fetch-depth: 0 # needed for git-based lastmod in sitemap
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
         with:
-          node-version: '22.11.0'
-          cache: 'npm'
+          node-version: "22.11.0"
+          cache: "npm"
           cache-dependency-path: package-lock.json
 
       - name: Configure GitHub Pages

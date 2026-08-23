@@ -4,12 +4,7 @@
       "title": "חיצוניים לתורה",
       "subtitle": "חיבורים המיוחסים לאבות ולמשה — ראשית האמונה, ברית, חזיונות ומסורות אחרית הימים",
       "icon": "📜",
-      "figures": [
-        "abraham",
-        "yitzchak",
-        "enoch",
-        "moshe"
-      ],
+      "figures": ["abraham", "yitzchak", "enoch", "moshe"],
       "books": [
         "apocalypse-abraham",
         "maase-yitzchak",
@@ -23,22 +18,14 @@
       "title": "חיצוניים לנביאים",
       "subtitle": "חיבורים המיוחסים לנביאי ישראל — עליות שמים, מסירות נפש וחזיונות אחרית הימים",
       "icon": "🔥",
-      "figures": [
-        "isaiah"
-      ],
-      "books": [
-        "maale-yeshayahu"
-      ]
+      "figures": ["isaiah"],
+      "books": ["maale-yeshayahu"]
     },
     "ketuvim": {
       "title": "חיצוניים לכתובים",
       "subtitle": "חיבורים המיוחסים לדמויות הכתובים — דניאל, עזרא וזרובבל — חזיונות גאולה ואחרית הימים",
       "icon": "📖",
-      "figures": [
-        "daniel",
-        "ezra",
-        "zerubbabel"
-      ],
+      "figures": ["daniel", "ezra", "zerubbabel"],
       "books": [
         "apoc-daniel-syriac",
         "young-daniel-syriac",
@@ -55,9 +42,7 @@
       "title": "מתלמידי ישוע הנוצרי",
       "subtitle": "חיבורים מן המסורת הנוצרית הקדומה, ובכללן מסורות המיוחסות לקלמנס ותלמידים מוקדמים",
       "icon": "✝️",
-      "figures": [
-        "talmidei-yeshua"
-      ],
+      "figures": ["talmidei-yeshua"],
       "books": [
         "clementos",
         "tsavaat-yeshua",

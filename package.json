@@ -31,8 +31,8 @@
     "check:display-book-titles": "node scripts/verify-display-book-titles.mjs",
     "check:third-party": "node scripts/verify-third-party-controls.mjs",
     "audit": "npm audit --audit-level=high --omit=dev || true",
-    "lint": "prettier --check \"**/*.{js,mjs,cjs,json,njk,css,md,yml}\" --ignore-path .gitignore",
-    "format": "prettier --write \"**/*.{js,mjs,cjs,json,njk,css,md,yml}\" --ignore-path .gitignore"
+    "lint": "prettier --check \"**/*.{js,mjs,cjs,json,css,md,yml}\" --ignore-path .gitignore --ignore-path .prettierignore",
+    "format": "prettier --write \"**/*.{js,mjs,cjs,json,css,md,yml}\" --ignore-path .gitignore --ignore-path .prettierignore"
   },
   "keywords": [
     "eleventy",

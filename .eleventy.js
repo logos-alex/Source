@@ -11,11 +11,17 @@ function renderInlineMarkdown(text) {
   // Horizontal rule: --- on its own line → <hr>
   result = result.replace(/^---$/gm, "<hr>");
   // Italic: *text* → <em>text</em>
-  result = result.replace(/(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)/g, "<em>$1</em>");
+  result = result.replace(
+    /(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)/g,
+    "<em>$1</em>",
+  );
   // Inline code: `text` → <code>text</code>
   result = result.replace(/`(.+?)`/g, "<code>$1</code>");
   // Links: [text](url) → <a href="url">text</a> (but not [N] footnote refs)
-  result = result.replace(/\[([^\]\d][^\]]*)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+  result = result.replace(
+    /\[([^\]\d][^\]]*)\]\(([^)]+)\)/g,
+    '<a href="$2">$1</a>',
+  );
   return result;
 }
 
@@ -24,7 +30,7 @@ function normalizeUrlForCompare(value = "") {
   return String(value).replace(/\/+$/, "");
 }
 
-module.exports = function(eleventyConfig) {
+module.exports = function (eleventyConfig) {
   const getPageNumber = (item, { prefix = "", book } = {}) => {
     const explicitPageNumber = Number(item?.data?.pageNumber);
     if (Number.isInteger(explicitPageNumber) && explicitPageNumber >= 0) {
@@ -32,14 +38,16 @@ module.exports = function(eleventyConfig) {
     }
 
     const itemUrl = item?.url || "";
-    const inCurrentBook = book ? item?.data?.book === book : itemUrl.startsWith(prefix);
+    const inCurrentBook = book
+      ? item?.data?.book === book
+      : itemUrl.startsWith(prefix);
     const normalizedPrefix = normalizeUrlForCompare(prefix);
     const isIntroPage =
       inCurrentBook &&
-      (
-        item?.inputPath?.endsWith("/index.md") ||
-        (itemUrl && !itemUrl.includes("/page-") && normalizeUrlForCompare(itemUrl) === normalizedPrefix)
-      );
+      (item?.inputPath?.endsWith("/index.md") ||
+        (itemUrl &&
+          !itemUrl.includes("/page-") &&
+          normalizeUrlForCompare(itemUrl) === normalizedPrefix));
 
     return isIntroPage ? 0 : null;
   };
@@ -57,10 +65,16 @@ module.exports = function(eleventyConfig) {
     let si = 0;
     for (const p of parts) {
       const s = p.trim();
-      if (!s || s === "---") { out += (s === "---" ? s + "\n" : ""); continue; }
+      if (!s || s === "---") {
+        out += s === "---" ? s + "\n" : "";
+        continue;
+      }
       // Skip block-level markdown openers (quotes, lists, headings, hr) so we
       // don't break rendering; they are also excluded from the sentence map.
-      if (/^(>|#|[-*] |\||\d\.)/.test(s)) { out += s + " "; continue; }
+      if (/^(>|#|[-*] |\||\d\.)/.test(s)) {
+        out += s + " ";
+        continue;
+      }
       out += `\n\n<div class="sent" data-si="${si}">${s}</div>\n`;
       si++;
     }
@@ -85,13 +99,19 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addFilter("findIndexByUrl", (items, url) => {
     if (!items || !url) return -1;
     const normalizedUrl = normalizeUrlForCompare(url);
-    return items.findIndex(item => normalizeUrlForCompare(item.url || "") === normalizedUrl);
+    return items.findIndex(
+      (item) => normalizeUrlForCompare(item.url || "") === normalizedUrl,
+    );
   });
 
   eleventyConfig.addFilter("findCollectionItemByUrl", (items, url) => {
     if (!items || !url) return null;
     const normalizedUrl = normalizeUrlForCompare(url);
-    return items.find(item => normalizeUrlForCompare(item.url || "") === normalizedUrl) || null;
+    return (
+      items.find(
+        (item) => normalizeUrlForCompare(item.url || "") === normalizedUrl,
+      ) || null
+    );
   });
 
   eleventyConfig.addFilter("displayBookTitle", displayBookTitle);
@@ -170,67 +190,86 @@ module.exports = function(eleventyConfig) {
   // it only appears in navigation for the same version. This prevents cross-version
   // leakage in multi-version books like apocalypse-abraham (a/b/c).
   const _bookPagesCache = new Map();
-  eleventyConfig.addFilter("bookPages", (items, currentUrl, book, includeIndex = true) => {
-    if (!items || !currentUrl) return [];
-    const cacheKey = `${currentUrl}|${book}|${includeIndex ? 1 : 0}`;
-    if (_bookPagesCache.has(cacheKey)) return _bookPagesCache.get(cacheKey);
+  eleventyConfig.addFilter(
+    "bookPages",
+    (items, currentUrl, book, includeIndex = true) => {
+      if (!items || !currentUrl) return [];
+      const cacheKey = `${currentUrl}|${book}|${includeIndex ? 1 : 0}`;
+      if (_bookPagesCache.has(cacheKey)) return _bookPagesCache.get(cacheKey);
 
-    // Detect version from URL: /texts/<source>/<book>/<version>/page-N/ → version=<version>
-    // For /texts/<source>/<book>/page-N/ (no version segment), version is "main" or "".
-    const versionMatch = currentUrl.match(new RegExp(`/${book}/([^/]+)/`));
-    let currentVersion = versionMatch ? versionMatch[1] : null;
-    // A segment like "page-N" is a page number, NOT a version segment — treat as no version.
-    if (currentVersion && /^page-\d+$/.test(currentVersion)) {
-      currentVersion = null;
-    }
-
-    const prefix = currentUrl.replace(/[^/]+\/?$/, "");
-    const byBook = (item) => book && item.data?.book === book;
-    const byPrefix = (item) => item.url && item.url.startsWith(prefix);
-    const byVersion = (item) => {
-      // If current page has a version segment (e.g. /a/), only include items
-      // whose frontmatter version matches OR whose URL is within the same version subpath.
-      if (currentVersion) {
-        const itemVersion = item.data?.version || "main";
-        const itemUrlHasVersion = item.url && item.url.includes(`/${book}/${currentVersion}/`);
-        return itemUrlHasVersion && (itemVersion === currentVersion || itemVersion === "main");
+      // Detect version from URL: /texts/<source>/<book>/<version>/page-N/ → version=<version>
+      // For /texts/<source>/<book>/page-N/ (no version segment), version is "main" or "".
+      const versionMatch = currentUrl.match(new RegExp(`/${book}/([^/]+)/`));
+      let currentVersion = versionMatch ? versionMatch[1] : null;
+      // A segment like "page-N" is a page number, NOT a version segment — treat as no version.
+      if (currentVersion && /^page-\d+$/.test(currentVersion)) {
+        currentVersion = null;
       }
-      // No version segment in current URL — only include items without a version segment
-      // (i.e. items directly under /<book>/, not under /<book>/<version>/).
-      return !(item.url && item.url.match(new RegExp(`/${book}/[^/]+/page-`)));
-    };
-    // When both book and currentUrl are provided, filter by BOTH book AND prefix.
-    // This allows multi-version books (e.g. apocalypse-abraham with a/ and b/)
-    // to share the same book id while still being navigated separately.
-    const matches = (item) => book ? (byBook(item) && byPrefix(item) && byVersion(item)) : byPrefix(item);
 
-    const result = items
-      .filter(item => !item.data?.draft)
-      .filter(item => matches(item))
-      .map(item => ({ item, pageNumber: getPageNumber(item, { prefix, book }) }))
-      .filter(({ pageNumber, item }) => {
-        // Warn about items that look like book chapters but have no resolvable pageNumber.
-        if (pageNumber === null) {
-          const looksLikeBookItem = (book && item?.data?.book === book) || (item?.url || "").startsWith(prefix);
-          if (looksLikeBookItem && !item?.inputPath?.endsWith("/index.md")) {
-            console.warn(`[bookPages] Item without pageNumber in book="${book}": ${item?.inputPath} (url=${item?.url})`);
-          }
-          return false;
+      const prefix = currentUrl.replace(/[^/]+\/?$/, "");
+      const byBook = (item) => book && item.data?.book === book;
+      const byPrefix = (item) => item.url && item.url.startsWith(prefix);
+      const byVersion = (item) => {
+        // If current page has a version segment (e.g. /a/), only include items
+        // whose frontmatter version matches OR whose URL is within the same version subpath.
+        if (currentVersion) {
+          const itemVersion = item.data?.version || "main";
+          const itemUrlHasVersion =
+            item.url && item.url.includes(`/${book}/${currentVersion}/`);
+          return (
+            itemUrlHasVersion &&
+            (itemVersion === currentVersion || itemVersion === "main")
+          );
         }
-        return true;
-      })
-      .filter(({ pageNumber }) => includeIndex ? true : pageNumber > 0)
-      .sort((a, b) => {
-        const ap = a.pageNumber;
-        const bp = b.pageNumber;
-        if (ap !== bp) return ap - bp;
-        return (a.item.url || '').localeCompare(b.item.url || '');
-      })
-      .map(({ item }) => item);
+        // No version segment in current URL — only include items without a version segment
+        // (i.e. items directly under /<book>/, not under /<book>/<version>/).
+        return !(
+          item.url && item.url.match(new RegExp(`/${book}/[^/]+/page-`))
+        );
+      };
+      // When both book and currentUrl are provided, filter by BOTH book AND prefix.
+      // This allows multi-version books (e.g. apocalypse-abraham with a/ and b/)
+      // to share the same book id while still being navigated separately.
+      const matches = (item) =>
+        book
+          ? byBook(item) && byPrefix(item) && byVersion(item)
+          : byPrefix(item);
 
-    _bookPagesCache.set(cacheKey, result);
-    return result;
-  });
+      const result = items
+        .filter((item) => !item.data?.draft)
+        .filter((item) => matches(item))
+        .map((item) => ({
+          item,
+          pageNumber: getPageNumber(item, { prefix, book }),
+        }))
+        .filter(({ pageNumber, item }) => {
+          // Warn about items that look like book chapters but have no resolvable pageNumber.
+          if (pageNumber === null) {
+            const looksLikeBookItem =
+              (book && item?.data?.book === book) ||
+              (item?.url || "").startsWith(prefix);
+            if (looksLikeBookItem && !item?.inputPath?.endsWith("/index.md")) {
+              console.warn(
+                `[bookPages] Item without pageNumber in book="${book}": ${item?.inputPath} (url=${item?.url})`,
+              );
+            }
+            return false;
+          }
+          return true;
+        })
+        .filter(({ pageNumber }) => (includeIndex ? true : pageNumber > 0))
+        .sort((a, b) => {
+          const ap = a.pageNumber;
+          const bp = b.pageNumber;
+          if (ap !== bp) return ap - bp;
+          return (a.item.url || "").localeCompare(b.item.url || "");
+        })
+        .map(({ item }) => item);
+
+      _bookPagesCache.set(cacheKey, result);
+      return result;
+    },
+  );
 
   const toHebrewNumeral = (num) => {
     const n = Number(num);
@@ -281,7 +320,9 @@ module.exports = function(eleventyConfig) {
         }
       }
     } catch (err) {
-      throw new Error(`sources-catalog.json is required for parallelLayout resolution: ${err.message}`);
+      throw new Error(
+        `sources-catalog.json is required for parallelLayout resolution: ${err.message}`,
+      );
     }
     return _parallelBooksCache;
   }
@@ -341,7 +382,7 @@ module.exports = function(eleventyConfig) {
 
   // Strip leading slash for URL construction
   eleventyConfig.addFilter("stripLeadingSlash", (url) =>
-    url ? String(url).replace(/^\//, "") : ""
+    url ? String(url).replace(/^\//, "") : "",
   );
 
   // Get a global data file by key (e.g. "abraham-alignment" → src/_data/abraham-alignment.json)
@@ -386,7 +427,7 @@ module.exports = function(eleventyConfig) {
       input: "src",
       includes: "_includes",
       data: "_data",
-      output: "_site"
-    }
+      output: "_site",
+    },
   };
 };

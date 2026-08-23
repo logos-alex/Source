@@ -1,7 +1,7 @@
-import { readdirSync, readFileSync, statSync } from 'node:fs';
-import { join } from 'node:path';
+import { readdirSync, readFileSync, statSync } from "node:fs";
+import { join } from "node:path";
 
-const ROOT = 'src';
+const ROOT = "src";
 const ALLOWED_PATTERNS = [
   // pagefind search input placeholder (Hebrew) — accepts both "חפש" and "חיפוש" forms
   /placeholder=["']חיפוש?\s+בכתבים/i,
@@ -12,12 +12,20 @@ const ALLOWED_PATTERNS = [
   /\.header-search__input::placeholder/,
   /placeholder\s*:/i, // CSS property declarations (e.g. placeholder color)
   // explicit editorial marker
-  /⚠️\s*תרגום עברי לעמוד זה יתווסף לאחר אימות הנוסח\./
+  /⚠️\s*תרגום עברי לעמוד זה יתווסף לאחר אימות הנוסח\./,
 ];
 
 const NEEDLES = [
-  'TODO', 'FIXME', 'TBD', 'XXX', 'placeholder',
-  'HACK', 'WIP', 'REVIEW', 'OPTIMIZE', 'REFACTOR'
+  "TODO",
+  "FIXME",
+  "TBD",
+  "XXX",
+  "placeholder",
+  "HACK",
+  "WIP",
+  "REVIEW",
+  "OPTIMIZE",
+  "REFACTOR",
 ];
 // NOTE: 'NOTE' and Hebrew markers ('לעשות', 'לבדוק', 'טיוטה', 'זמני', 'כלה')
 // are intentionally excluded — they appear in legitimate content (Rambam citations, etc.).
@@ -33,8 +41,8 @@ function walk(dir) {
 }
 
 function check(file) {
-  const content = readFileSync(file, 'utf8');
-  const lines = content.split('\n');
+  const content = readFileSync(file, "utf8");
+  const lines = content.split("\n");
 
   lines.forEach((line, idx) => {
     const hasNeedle = NEEDLES.some((needle) => line.includes(needle));
@@ -50,9 +58,9 @@ function check(file) {
 walk(ROOT);
 
 if (errors.length) {
-  console.error('Placeholder marker verification failed:\n');
+  console.error("Placeholder marker verification failed:\n");
   for (const err of errors) console.error(`- ${err}`);
   process.exit(1);
 }
 
-console.log('Placeholder marker verification passed.');
+console.log("Placeholder marker verification passed.");

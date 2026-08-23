@@ -2,6 +2,6 @@
 // Usage:
 //   import { walkFiles, getFrontmatter, getCatalog } from './_lib/index.mjs';
 
-export * from './walk.mjs';
-export * from './frontmatter.mjs';
-export * from './catalog.mjs';
+export * from "./walk.mjs";
+export * from "./frontmatter.mjs";
+export * from "./catalog.mjs";

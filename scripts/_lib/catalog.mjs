@@ -8,12 +8,12 @@
 // Legacy scripts are NOT refactored in this round — they keep working. New
 // scripts should import from here to avoid drift.
 
-import { readFileSync } from 'node:fs';
+import { readFileSync } from "node:fs";
 
-const CATALOG_PATH = 'src/_data/sources-catalog.json';
-const FIGURES_PATH = 'src/_data/figures.json';
-const LANGUAGES_PATH = 'src/_data/languages.json';
-const FIGURE_CATALOG_KEYS_PATH = 'src/_data/figureCatalogKeys.json';
+const CATALOG_PATH = "src/_data/sources-catalog.json";
+const FIGURES_PATH = "src/_data/figures.json";
+const LANGUAGES_PATH = "src/_data/languages.json";
+const FIGURE_CATALOG_KEYS_PATH = "src/_data/figureCatalogKeys.json";
 
 let _catalog = null;
 let _figures = null;
@@ -21,7 +21,7 @@ let _languages = null;
 let _figureCatalogKeys = null;
 
 function loadJson(path) {
-  return JSON.parse(readFileSync(path, 'utf8'));
+  return JSON.parse(readFileSync(path, "utf8"));
 }
 
 /**
@@ -58,7 +58,8 @@ export function getLanguages() {
  * @returns {string[]}
  */
 export function getFigureCatalogKeys() {
-  if (_figureCatalogKeys === null) _figureCatalogKeys = loadJson(FIGURE_CATALOG_KEYS_PATH);
+  if (_figureCatalogKeys === null)
+    _figureCatalogKeys = loadJson(FIGURE_CATALOG_KEYS_PATH);
   return _figureCatalogKeys;
 }
 
@@ -79,7 +80,11 @@ export function getFigureKeys() {
 
 /** Set of book ids with `parallelLayout: true`. */
 export function getParallelBookIds() {
-  return new Set(getCatalog().filter((b) => b.parallelLayout === true).map((b) => b.id));
+  return new Set(
+    getCatalog()
+      .filter((b) => b.parallelLayout === true)
+      .map((b) => b.id),
+  );
 }
 
 /** Lookup a book entry by id. Returns `undefined` if not found. */
