@@ -1,0 +1,33 @@
+{# --- ספרי שפה — כרטיסים בשפת הספרייה (לפני include: הגדירו langSlug) --- #}
+<div class="library-shelves">
+  <section class="library-shelf">
+    <div class="library-shelf__active">
+      {% for item in collections.texts %}
+        {% if item.data.source == langSlug and item.data.book and item.data.pageNumber == 0 and not (item.data.tags | hasTag("sub-intro")) and not item.data.comingSoon %}
+          <article class="library-book">
+            <a href="{{ item.url | url }}" class="library-book__link">{{ item | displayBookTitle }}</a>
+            <p class="library-book__desc">{{ item.data.description }}</p>
+            <p class="library-book__meta">ייחוס: {{ figures[item.data.figure] or item.data.figure }} · טקסט מלא</p>
+          </article>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    {% set comingBooks = [] %}
+    {% for item in collections.texts %}
+      {% if item.data.source == langSlug and item.data.book and item.data.pageNumber == 0 and not (item.data.tags | hasTag("sub-intro")) and item.data.comingSoon %}
+        {% set _ = comingBooks.push(item | displayBookTitle) %}
+      {% endif %}
+    {% endfor %}
+    {% if comingBooks.length %}
+      <details class="library-shelf__coming">
+        <summary>בהכנה · {{ comingBooks.length }} חיבורים</summary>
+        <ul class="library-coming-list">
+          {% for title in comingBooks %}
+            <li>{{ title }}</li>
+          {% endfor %}
+        </ul>
+      </details>
+    {% endif %}
+  </section>
+</div>

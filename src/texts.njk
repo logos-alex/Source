@@ -30,14 +30,12 @@ permalink: /texts/
             {% for item in collections.texts %}
               {% if item.data.book == bookId and item.data.pageNumber == 0 and not (item.data.tags | hasTag("sub-intro")) and not item.data.comingSoon %}
                 <article class="library-book">
-                  <a href="{{ item.url | url }}" class="library-book__link">
-                    <span class="library-book__title">{{ item | displayBookTitle }}</span>
-                    <span class="library-book__desc">{{ item.data.description }}</span>
-                    <span class="library-book__meta">
+                  <a href="{{ item.url | url }}" class="library-book__link">{{ item | displayBookTitle }}</a>
+                    <p class="library-book__desc">{{ item.data.description }}</p>
+                    <p class="library-book__meta">
                       {% set langEntry = languages[item.data.source] %}
                       {{ langEntry.label if langEntry else item.data.source }} · טקסט מלא
-                    </span>
-                  </a>
+                    </p>
                 </article>
               {% endif %}
             {% endfor %}

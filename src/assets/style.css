@@ -3575,21 +3575,43 @@ html[data-theme="dark"] #disqus_thread iframe {
 }
 .library-book {
   position: relative;
-}
-.library-book__link {
   display: flex;
   flex-direction: column;
-  height: 100%;
   padding: var(--s-5) var(--s-5) var(--s-4);
   background: var(--c-surface);
   border: 1px solid var(--c-border-soft);
   border-top: 2px solid var(--c-gold);
   border-radius: var(--r-md);
-  text-decoration: none;
   transition:
     transform var(--transition),
     box-shadow var(--transition),
     border-color var(--transition);
+}
+.library-book:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--c-gold);
+}
+.library-book__link {
+  font-family: var(--font-hebrew-display);
+  font-size: var(--fs-lg);
+  font-weight: 500;
+  color: var(--c-text);
+  text-decoration: none;
+  line-height: 1.3;
+  margin: 0 0 var(--s-2);
+  position: relative;
+}
+.library-book__link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+.library-book__link:hover,
+.library-book__link:focus-visible {
+  color: var(--c-accent-ink);
+  text-decoration: none;
 }
 .library-book__link:hover {
   transform: translateY(-3px);
@@ -3727,4 +3749,16 @@ html[data-theme="dark"] #disqus_thread iframe {
   color: var(--c-gold);
   opacity: 0.6;
   font-size: var(--fs-sm);
+}
+
+/* Mobile header fix — these overrides MUST come after the base header-search
+   rules (source order): at equal specificity the later rule wins, and the
+   earlier copy inside the 880px block was being overridden. */
+@media (max-width: 880px) {
+  .header-search {
+    display: none;
+  }
+  .mobile-search-link {
+    display: block;
+  }
 }

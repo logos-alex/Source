@@ -5,121 +5,68 @@ pagination:
   alias: sectionKey
 layout: base.njk
 permalink: "/by-figure/{{ sectionKey }}/index.html"
+eleventyComputed:
+  title: "{{ bibleSections.sections[sectionKey].title }}"
 ---
 
 {% set section = bibleSections.sections[sectionKey] %}
 {% set sectionBooks = section.books or [] %}
 
-<div class="text-main category-listing">
+<div class="text-main library-page">
   <header class="text-header">
+    <div class="library-shelf__icon" aria-hidden="true">{% set iconKey = sectionKey %}{% include "section-icon.njk" %}</div>
     <p class="text-header__eyebrow">התנ"ך האפוקריפי</p>
     <h1>{{ section.title }}</h1>
     <p>{{ section.subtitle }}</p>
   </header>
 
-  {# Active books — have actual page content #}
-  <div class="book-list">
-    {% set hasActive = false %}
-    {% for item in collections.texts %}
-      {% if item.data.book and item.data.pageNumber == 0 and not (item.data.tags | hasTag("sub-intro")) %}
-        {% set isInSection = false %}
+  {# --- חיבורים פעילים — בסדר הקטלוג, בשפת הספרייה --- #}
+  <div class="library-shelves">
+    <section class="library-shelf">
+      <div class="library-shelf__active">
         {% for bookId in sectionBooks %}
-          {% if item.data.book == bookId %}{% set isInSection = true %}{% endif %}
-        {% endfor %}
-        {% if not isInSection and section.figures %}
-          {% for figureKey in section.figures %}
-            {% if item.data.figure == figureKey %}{% set isInSection = true %}{% endif %}
-          {% endfor %}
-        {% endif %}
-
-        {% if isInSection and not item.data.comingSoon %}
-          {% set hasActive = true %}
-          <article class="book-card">
-            <h2>
-              <a class="book-card__primary-link" href="{{ item.url | url }}">{{ item | displayBookTitle }}</a>
-              {% if item.data.rarity == "unpublished" %}<span class="book-card__badge book-card__badge--unpublished" title="פרסום ראשון מתוך כתב־יד — לא הודפס מעולם">פרסום ראשון</span>{% endif %}
-            </h2>
-            <p class="book-card__description">{{ item.data.description }}</p>
-            {% if item.data.source %}
-              {% set langEntry = languages[item.data.source] %}
-              {% set langLabel = (langEntry.label if langEntry else item.data.source) %}
-              <p><small>מקור: <a class="book-card__meta-link" href="{{ ('/texts/' + item.data.source + '/') | url }}">{{ langLabel }}</a></small></p>
+          {% for item in collections.texts %}
+            {% if item.data.book == bookId and item.data.pageNumber == 0 and not (item.data.tags | hasTag("sub-intro")) and not item.data.comingSoon %}
+              <article class="library-book">
+                <a href="{{ item.url | url }}" class="library-book__link">{{ item | displayBookTitle }}</a>
+                <p class="library-book__desc">{{ item.data.description }}</p>
+                <p class="library-book__meta">
+                  {% set langEntry = languages[item.data.source] %}
+                  {{ langEntry.label if langEntry else item.data.source }} · טקסט מלא
+                </p>
+              </article>
             {% endif %}
-          </article>
+          {% endfor %}
+        {% endfor %}
+      </div>
+
+      {# --- חיבורים בהכנה --- #}
+      {% set comingBooks = [] %}
+      {% for bookId in sectionBooks %}
+        {% set catEntry = bookId | bookCatalogEntry %}
+        {% if catEntry and catEntry.comingSoon %}
+          {% set _ = comingBooks.push(catEntry.title) %}
         {% endif %}
+      {% endfor %}
+      {% if comingBooks.length %}
+        <details class="library-shelf__coming">
+          <summary>בהכנה · {{ comingBooks.length }} חיבורים</summary>
+          <ul class="library-coming-list">
+            {% for title in comingBooks %}
+              <li>{{ title }}</li>
+            {% endfor %}
+          </ul>
+        </details>
       {% endif %}
-    {% endfor %}
+    </section>
   </div>
 
-  {# Coming soon books — in catalog but not yet active #}
-  {% set comingBooks = [] %}
-  {% for item in collections.texts %}
-    {% if item.data.book and item.data.pageNumber == 0 and not (item.data.tags | hasTag("sub-intro")) and item.data.comingSoon %}
-      {% set isInSection = false %}
-      {% for bookId in sectionBooks %}
-        {% if item.data.book == bookId %}{% set isInSection = true %}{% endif %}
-      {% endfor %}
-      {% if not isInSection and section.figures %}
-        {% for figureKey in section.figures %}
-          {% if item.data.figure == figureKey %}{% set isInSection = true %}{% endif %}
-        {% endfor %}
-      {% endif %}
-      {% if isInSection %}
-        {# Nunjucks doesn't support array.push, so we use a different approach #}
-      {% endif %}
-    {% endif %}
-  {% endfor %}
-
-  {# Second pass: collect and display coming-soon items #}
-  {% set hasComing = false %}
-  {% for item in collections.texts %}
-    {% if item.data.book and item.data.pageNumber == 0 and not (item.data.tags | hasTag("sub-intro")) and item.data.comingSoon %}
-      {% set isInSection = false %}
-      {% for bookId in sectionBooks %}
-        {% if item.data.book == bookId %}{% set isInSection = true %}{% endif %}
-      {% endfor %}
-      {% if not isInSection and section.figures %}
-        {% for figureKey in section.figures %}
-          {% if item.data.figure == figureKey %}{% set isInSection = true %}{% endif %}
-        {% endfor %}
-      {% endif %}
-      {% if isInSection %}
-        {% if not hasComing %}
-          {% set hasComing = true %}
-          </div>
-          <div class="coming-soon-section">
-          <h2 class="coming-soon-section__title">בהכנה</h2>
-          <div class="book-list">
-        {% endif %}
-          <article class="book-card book-card--coming-soon">
-            <h2>
-              {{ item | displayBookTitle }}
-              <span class="book-card__badge book-card__badge--coming-soon" title="החיבור בהכנה">בקרוב</span>
-            </h2>
-            <p class="book-card__description">{{ item.data.description }}</p>
-            {% if item.data.source %}
-              {% set langEntry = languages[item.data.source] %}
-              {% set langLabel = (langEntry.label if langEntry else item.data.source) %}
-              <p><small>מקור: {{ langLabel }}</small></p>
-            {% endif %}
-          </article>
-      {% endif %}
-    {% endif %}
-  {% endfor %}
-  {% if hasComing %}
-    </div>
-  {% endif %}
-
-  {% if not hasActive and not hasComing %}
-    <p class="c-muted--italic">החיבורים בחלק זה בהכנה.</p>
-  {% endif %}
-
   <nav class="bible-sections-nav" aria-label="ניווט בין חלקי התנך">
-    <a href="{{ '/#bible-sections' | url }}" class="bible-sections-nav__back">← חזרה לתנ"ך האפוקריפי</a>
+    <a href="{{ '/texts/' | url }}" class="bible-sections-nav__back">← אל הספרייה</a>
     <div class="bible-sections-nav__sections">
       {% for otherKey in bibleSectionOrder %}
         {% if otherKey != sectionKey %}
-          <a href="{{ ('/by-figure/' + otherKey + '/') | url }}" class="bible-sections-nav__link">{{ bibleSections.sections[otherKey].title }}</a>
+          <a href="{{ ('/texts/#' + otherKey) | url }}" class="bible-sections-nav__link">{{ bibleSections.sections[otherKey].title }}</a>
         {% endif %}
       {% endfor %}
     </div>
