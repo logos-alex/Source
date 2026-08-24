@@ -7,7 +7,7 @@
 | סה"כ ספרים | 31 |
 | סה"כ פרקים | 72 |
 | סה"כ הערות שוליים | 0 |
-| סה"כ מילים (בערך) | 21,885 |
+| סה"כ מילים (בערך) | 21,917 |
 | ספרים עם תצוגה מקבילית | 9 |
 | ספרים בהכנה (comingSoon) | 27 |
 
@@ -40,7 +40,7 @@
 | maasei-timotheos | latin | talmidei-yeshua | 0 | 0 | 0 |  | 0 |
 | sefer-hanoch-a | greek | enoch | 0 | 0 | 0 |  | 0 |
 | sefer-zerubbabel | hebrew | zerubbabel | 0 | 0 | 0 |  | 0 |
-| sichat-moshe | aramaic | moshe | 8 | 0 | 2,914 | ✓ | 0 |
+| sichat-moshe | aramaic | moshe | 8 | 0 | 2,946 | ✓ | 0 |
 | tsavaat-yeshua | aramaic | talmidei-yeshua | 0 | 0 | 0 |  | 0 |
 | tsavaat-yitzchak | arabic | yitzchak | 6 | 0 | 2,838 |  | 0 |
 | vision-daniel-armenian | armenian | daniel | 0 | 0 | 0 |  | 0 |
