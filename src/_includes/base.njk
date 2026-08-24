@@ -319,10 +319,10 @@
             <a href="{{ '/' | url }}" {% if page.url == "/" %}aria-current="page"{% endif %}>דף הבית</a>
             <a href="{{ '/updates/' | url }}" {% if page.url == "/updates/" %}aria-current="page"{% endif %}>מה חדש</a>
             <div class="nav-dropdown">
-                <a href="{{ '/#bible-sections' | url }}" class="dropbtn" aria-haspopup="true" aria-expanded="false">התנ"ך האפוקריפי</a>
+                <a href="{{ '/texts/' | url }}" class="dropbtn" aria-haspopup="true" aria-expanded="false">התנ"ך האפוקריפי</a>
                 <div class="dropdown-content">
                     {% for sectionKey in bibleSectionOrder %}
-                    <a href="{{ ('/by-figure/' + sectionKey + '/') | url }}" {% if page.url == '/by-figure/' + sectionKey + '/' %}aria-current="page"{% endif %}>{{ bibleSections.sections[sectionKey].title }}</a>
+                    <a href="{{ ('/texts/#' + sectionKey) | url }}">{{ bibleSections.sections[sectionKey].title }}</a>
                     {% endfor %}
                 </div>
             </div>

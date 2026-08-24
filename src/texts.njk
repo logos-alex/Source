@@ -1,22 +1,92 @@
 ---
 layout: base.njk
-title: "כתבים לפי מקור"
+title: "התנך האפוקריפי — הספרייה"
 permalink: /texts/
 ---
 
-<div class="text-main category-listing">
+<div class="text-main library-page">
   <header class="text-header">
-    <p class="text-header__eyebrow">ספרייה</p>
-    <h1>{{ title }}</h1>
-    <p>הספרייה מסודרת לפי שפת המקור שבה השתמרו הכתבים. בחרו מקור כדי לצפות בהקדמות, תרגומים וביאורים.</p>
+    <p class="text-header__eyebrow">הספרייה</p>
+    <h1>התנ"ך האפוקריפי</h1>
+    <p>חיבורים חיצוניים, גנוזים ונשכחים — מסודרים על פי חלקי התנ"ך שאליהם נתייחסו: תורה, נביאים וכתובים; ולצדם כתבי תלמידי ישוע הנוצרי.</p>
   </header>
 
-  <div class="book-list">
-    {% for langSlug, langEntry in languages %}
-    <article class="book-card">
-      <h2><a class="book-card__primary-link" href="{{ ('/texts/' + langSlug + '/') | url }}">{{ langEntry.label }}</a></h2>
-      <p class="book-card__description">{{ langEntry.description }}</p>
-    </article>
+  {# --- המדפים: תורה / נביאים / כתובים / תלמידי ישוע --- #}
+  <div class="library-shelves">
+    {% for sectionKey in bibleSectionOrder %}
+      {% set section = bibleSections.sections[sectionKey] %}
+      {% set sectionBooks = section.books or [] %}
+
+      <section class="library-shelf" id="{{ sectionKey }}">
+        <header class="library-shelf__head">
+          <div class="library-shelf__icon" aria-hidden="true">{% set iconKey = sectionKey %}{% include "section-icon.njk" %}</div>
+          <h2 class="library-shelf__title">{{ section.title }}</h2>
+          <p class="library-shelf__sub">{{ section.subtitle }}</p>
+        </header>
+
+        {# --- חיבורים פעילים (טקסט מלא) --- #}
+        <div class="library-shelf__active">
+          {% for bookId in sectionBooks %}
+            {% for item in collections.texts %}
+              {% if item.data.book == bookId and item.data.pageNumber == 0 and not (item.data.tags | hasTag("sub-intro")) and not item.data.comingSoon %}
+                <article class="library-book">
+                  <a href="{{ item.url | url }}" class="library-book__link">
+                    <span class="library-book__title">{{ item | displayBookTitle }}</span>
+                    <span class="library-book__desc">{{ item.data.description }}</span>
+                    <span class="library-book__meta">
+                      {% set langEntry = languages[item.data.source] %}
+                      {{ langEntry.label if langEntry else item.data.source }} · טקסט מלא
+                    </span>
+                  </a>
+                </article>
+              {% endif %}
+            {% endfor %}
+          {% endfor %}
+        </div>
+
+        {# --- חיבורים בהכנה --- #}
+        {% set comingBooks = [] %}
+        {% for bookId in sectionBooks %}
+          {% set catEntry = bookId | bookCatalogEntry %}
+          {% if catEntry and catEntry.comingSoon %}
+            {% set _ = comingBooks.push(bookId) %}
+          {% endif %}
+        {% endfor %}
+        {% if comingBooks.length %}
+          <details class="library-shelf__coming">
+            <summary>בהכנה · {{ comingBooks.length }} חיבורים</summary>
+            <ul class="library-coming-list">
+              {% for bookId in comingBooks %}
+                {% set catEntry = bookId | bookCatalogEntry %}
+                <li>{{ catEntry.title }}</li>
+              {% endfor %}
+            </ul>
+          </details>
+        {% endif %}
+      </section>
     {% endfor %}
   </div>
+
+  {# --- דרכי סידור נוספות (משניות) --- #}
+  <section class="library-alt">
+    <h2 class="library-alt__title">מיונים נוספים</h2>
+    <div class="library-alt__row">
+      <div class="library-alt__group">
+        <h3>לפי שפת מקור</h3>
+        <p class="lang-strip">
+          {% for langSlug, langEntry in languages %}
+          <a href="{{ ('/texts/' + langSlug + '/') | url }}" class="lang-strip__link">{{ langEntry.label }}</a>{% if not loop.last %}<span class="lang-strip__sep" aria-hidden="true">·</span>{% endif %}
+          {% endfor %}
+        </p>
+      </div>
+      <div class="library-alt__group">
+        <h3>לפי ייחוס</h3>
+        <p class="lang-strip">
+          {% for figureKey in figureCatalogKeys %}
+          <a href="{{ ('/by-figure/' + figureKey + '/') | url }}" class="lang-strip__link">{{ figures[figureKey] or figureKey }}</a>{% if not loop.last %}<span class="lang-strip__sep" aria-hidden="true">·</span>{% endif %}
+          {% endfor %}
+        </p>
+      </div>
+    </div>
+  </section>
 </div>

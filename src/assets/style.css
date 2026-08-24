@@ -3365,9 +3365,19 @@ article tbody tr:nth-child(even) {
   height: 100%;
 }
 .bible-section-card__icon {
-  font-size: 2rem;
-  margin-bottom: var(--s-3);
-  line-height: 1;
+  width: 34px;
+  height: 34px;
+  margin: 0 auto var(--s-3);
+  color: var(--c-accent);
+  transition: color var(--transition);
+}
+.bible-section-card__icon svg {
+  width: 100%;
+  height: 100%;
+  opacity: 0.85;
+}
+.bible-section-card__link:hover .bible-section-card__icon {
+  color: var(--c-accent-ink);
 }
 .bible-section-card__title {
   font-size: var(--fs-lg);
@@ -3496,4 +3506,192 @@ html[data-theme="dark"] #disqus_thread img,
 html[data-theme="dark"] #disqus_thread video,
 html[data-theme="dark"] #disqus_thread iframe {
   filter: invert(1) hue-rotate(180deg);
+}
+
+/* --------------------------- Library page --------------------------- */
+/* The central catalog — shelves of the Apocryphal Bible */
+.library-page .text-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto var(--s-7);
+}
+
+.library-shelves {
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+.library-shelf {
+  margin: 0 0 var(--s-8);
+  padding: 0 var(--s-4);
+}
+
+.library-shelf__head {
+  text-align: center;
+  margin-bottom: var(--s-5);
+  position: relative;
+  padding-bottom: var(--s-3);
+}
+.library-shelf__head::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 96px;
+  height: 1px;
+  background: var(--c-gold-leaf);
+  opacity: 0.75;
+}
+.library-shelf__icon {
+  width: 30px;
+  height: 30px;
+  margin: 0 auto var(--s-2);
+  color: var(--c-accent);
+  opacity: 0.8;
+}
+.library-shelf__icon svg {
+  width: 100%;
+  height: 100%;
+}
+.library-shelf__title {
+  font-family: var(--font-hebrew-display);
+  font-size: var(--fs-xl);
+  font-weight: 500;
+  color: var(--c-text);
+  margin: 0 0 var(--s-1);
+}
+.library-shelf__sub {
+  font-size: var(--fs-sm);
+  color: var(--c-text-muted);
+  margin: 0;
+}
+
+/* Active books — full cards */
+.library-shelf__active {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--s-4);
+}
+.library-book {
+  position: relative;
+}
+.library-book__link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: var(--s-5) var(--s-5) var(--s-4);
+  background: var(--c-surface);
+  border: 1px solid var(--c-border-soft);
+  border-top: 2px solid var(--c-gold);
+  border-radius: var(--r-md);
+  text-decoration: none;
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    border-color var(--transition);
+}
+.library-book__link:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--c-gold);
+  text-decoration: none;
+}
+.library-book__title {
+  font-family: var(--font-hebrew-display);
+  font-size: var(--fs-lg);
+  font-weight: 500;
+  color: var(--c-text);
+  line-height: 1.3;
+  margin-bottom: var(--s-2);
+}
+.library-book__link:hover .library-book__title {
+  color: var(--c-accent-ink);
+}
+.library-book__desc {
+  font-size: var(--fs-sm);
+  line-height: 1.7;
+  color: var(--c-text-2);
+  flex: 1;
+  margin-bottom: var(--s-3);
+}
+.library-book__meta {
+  font-size: var(--fs-xs);
+  color: var(--c-text-faint);
+  letter-spacing: 0.03em;
+}
+
+/* In-preparation — collapsed quiet list */
+.library-shelf__coming {
+  margin-top: var(--s-4);
+  border-top: 1px dashed var(--c-border-soft);
+  padding-top: var(--s-3);
+}
+.library-shelf__coming summary {
+  cursor: pointer;
+  font-size: var(--fs-sm);
+  color: var(--c-text-muted);
+  text-align: center;
+  padding: var(--s-2) 0;
+  letter-spacing: 0.04em;
+  transition: color var(--transition);
+}
+.library-shelf__coming summary:hover {
+  color: var(--c-accent-ink);
+}
+.library-shelf__coming[open] summary {
+  color: var(--c-accent-ink);
+  margin-bottom: var(--s-3);
+}
+.library-coming-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--s-2) var(--s-5);
+  max-width: 720px;
+  margin-inline: auto;
+}
+.library-coming-list li {
+  font-size: var(--fs-sm);
+  color: var(--c-text-faint);
+}
+.library-coming-list li::before {
+  content: "· ";
+  color: var(--c-gold);
+}
+
+/* Alternative orderings — secondary, quiet */
+.library-alt {
+  max-width: var(--max-w);
+  margin: var(--s-7) auto var(--s-8);
+  padding: var(--s-6) var(--s-4) 0;
+  border-top: 1px solid var(--c-border-soft);
+}
+.library-alt__title {
+  text-align: center;
+  font-size: var(--fs-base);
+  font-weight: 500;
+  color: var(--c-text-muted);
+  letter-spacing: 0.08em;
+  margin: 0 0 var(--s-5);
+}
+.library-alt__row {
+  display: grid;
+  gap: var(--s-5);
+}
+.library-alt__group h3 {
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--c-text-2);
+  text-align: center;
+  margin: 0 0 var(--s-2);
+}
+
+@media (max-width: 760px) {
+  .library-shelf__active {
+    grid-template-columns: 1fr;
+  }
 }

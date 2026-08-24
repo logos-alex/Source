@@ -15,7 +15,7 @@ bodyClass: home-page
     <p class="home-hero__sub-subtitle">בית המדרש לספרים חיצוניים</p>
 
     <div class="home-hero__actions">
-      <a href="{{ '/texts/' | url }}" class="btn btn--primary">כניסה לאוסף</a>
+      <a href="{{ '/texts/' | url }}" class="btn btn--primary">כניסה לספרייה</a>
       <a href="{{ '/about/' | url }}" class="btn btn--ghost">על המיזם</a>
     </div>
   </section>
@@ -141,8 +141,8 @@ bodyClass: home-page
       {% for sectionKey in bibleSectionOrder %}
       {% set section = bibleSections.sections[sectionKey] %}
       <article class="bible-section-card">
-        <a href="{{ ('/by-figure/' + sectionKey + '/') | url }}" class="bible-section-card__link">
-          <div class="bible-section-card__icon" aria-hidden="true">{{ section.icon }}</div>
+        <a href="{{ ('/texts/#' + sectionKey) | url }}" class="bible-section-card__link">
+          <div class="bible-section-card__icon" aria-hidden="true">{% set iconKey = sectionKey %}{% include "section-icon.njk" %}</div>
           <h3 class="bible-section-card__title">{{ section.title }}</h3>
           <p class="bible-section-card__desc">{{ section.subtitle }}</p>
           {% if section.books %}
