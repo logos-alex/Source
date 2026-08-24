@@ -81,6 +81,16 @@ module.exports = function (eleventyConfig) {
     return out.trim();
   });
 
+  // Wraps «...» and ‹‹...›› witness-marks in a quiet gold span (scribe marks).
+  eleventyConfig.addFilter("scribeMarks", (text) => {
+    if (!text) return "";
+    return text
+      .replace(/«/g, '<span class="scribe-mark">«</span>')
+      .replace(/»/g, '<span class="scribe-mark">»</span>')
+      .replace(/‹‹/g, '<span class="scribe-mark">‹‹</span>')
+      .replace(/››/g, '<span class="scribe-mark">››</span>');
+  });
+
   eleventyConfig.addFilter("renderNoteRefs", (text) => {
     if (!text) return "";
     // Apply renderInlineMarkdown on raw markdown text (not yet rendered to HTML).

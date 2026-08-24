@@ -24,6 +24,9 @@
   --c-accent-2: #a85c3c; /* faded terracotta */
   --c-accent-ink: #5c4626;
   --c-gold: #b89e6b;
+  /* Illuminated gold — subtle top-light gradient for 'metallic leaf' feel */
+  --c-gold-leaf: linear-gradient(180deg, #c9ae7c 0%, #b89e6b 55%, #a8895a 100%);
+  --c-gold-glow: rgba(184, 158, 107, 0.26);
 
   --c-beta: #a85f1f;
   --c-beta-bg: rgba(168, 95, 31, 0.1);
@@ -66,7 +69,7 @@
 
   /* Layout */
   --max-w: 1180px;
-  --max-w-read: 760px;
+  --max-w-read: 680px; /* 60–66 Hebrew chars per line — book measure */
   --max-w-wide: 1320px;
 
   /* z-index scale — keep ordered to avoid magic numbers */
@@ -85,7 +88,20 @@
   --transition: 180ms cubic-bezier(0.2, 0.6, 0.2, 1);
   --transition-slow: 360ms cubic-bezier(0.2, 0.6, 0.2, 1);
 
+  /* Paper grain — vellum noise, barely visible; adds materiality without noise */
+  --paper-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+
   color-scheme: light;
+}
+
+/* Vellum paper — the page itself carries materiality (film-grain technique) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: var(--paper-grain);
+  pointer-events: none;
+  z-index: 2000;
 }
 
 /* Dark Mode — deep midnight + warm cream + antique gold */
@@ -108,6 +124,8 @@ html[data-theme="dark"] {
   --c-accent-2: #d88b5f;
   --c-accent-ink: #e5c78a;
   --c-gold: #c9a35d;
+  --c-gold-leaf: linear-gradient(180deg, #e8cf9a 0%, #c9a35d 55%, #b8944e 100%);
+  --c-gold-glow: rgba(201, 163, 93, 0.22);
 
   --c-beta: #e89a47;
   --c-beta-bg: rgba(232, 154, 71, 0.12);
@@ -581,7 +599,8 @@ nav#mainNav > a[aria-current="page"]::after {
   margin: 0 auto;
   padding: var(--s-2) var(--s-5) var(--s-3);
   font-size: var(--fs-xs);
-  color: var(--c-text-muted);
+  color: var(--c-text-faint);
+  opacity: 0.85;
 }
 .breadcrumbs ol {
   list-style: none;
@@ -671,6 +690,7 @@ main {
   letter-spacing: 0.55em;
   text-transform: uppercase;
   color: var(--c-gold);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
   margin: 0;
   padding-inline-start: 0.55em;
 }
@@ -678,10 +698,14 @@ main {
 .home-hero__title {
   font-family: var(--font-hebrew-display);
   font-size: clamp(3.1rem, 8.5vw, 5.2rem);
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  line-height: 1.15;
-  margin: 0 0 var(--s-5);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.12;
+  margin: 0 0 var(--s-4);
+  background: var(--c-gold-leaf);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   color: var(--c-gold);
   opacity: 0;
   animation: fadeUp 800ms 300ms cubic-bezier(0.2, 0.6, 0.2, 1) forwards;
@@ -689,12 +713,24 @@ main {
 
 .home-hero__subtitle {
   font-family: var(--font-hebrew-display);
-  font-size: clamp(1.35rem, 3.5vw, 1.75rem);
-  font-weight: 500;
-  color: var(--c-text);
-  margin: 0 0 var(--s-3);
-  opacity: 0;
-  animation: fadeUp 800ms 400ms cubic-bezier(0.2, 0.6, 0.2, 1) forwards;
+  font-size: clamp(1.15rem, 2.8vw, 1.45rem);
+  font-weight: 400;
+  color: var(--c-text-2);
+  letter-spacing: 0.02em;
+  margin: 0 0 var(--s-4);
+  padding-bottom: var(--s-4);
+  position: relative;
+}
+.home-hero__subtitle::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 72px;
+  height: 1px;
+  background: var(--c-gold-leaf);
+  opacity: 0.8;
 }
 
 .home-hero__sub-subtitle {
@@ -814,9 +850,13 @@ main {
   font-weight: 500;
   font-style: normal;
   letter-spacing: 0.01em;
-  vertical-align: baseline;
-  opacity: 0.82;
-  margin-inline-end: 0.3em;
+  vertical-align: super;
+  position: relative;
+  top: -0.15em;
+  opacity: 0.9;
+  color: var(--c-gold);
+  margin-inline-end: 0.45em;
+  font-weight: 600;
 }
 
 /* Intro line — "אֲדַבֵּר לְפָנֶיךָ, אֲדֹנָי." */
@@ -840,12 +880,12 @@ main {
   display: inline-flex;
   align-items: center;
   gap: var(--s-2);
-  padding: var(--s-3) var(--s-5);
-  font-family: var(--font-hebrew);
-  font-size: var(--fs-sm);
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  border-radius: var(--r-pill);
+  padding: var(--s-3) var(--s-6);
+  font-family: var(--font-hebrew-display);
+  font-size: var(--fs-base);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  border-radius: var(--r-sm);
   text-decoration: none;
   border: 1px solid transparent;
   transition: all var(--transition);
@@ -1530,37 +1570,64 @@ main {
   border-bottom: 1px solid var(--c-border-soft);
   flex-wrap: wrap;
 }
-.pagination a {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--s-2);
-  padding: var(--s-2) var(--s-4);
-  border-radius: var(--r-md);
-  font-size: var(--fs-sm);
-  color: var(--c-text-2);
-  background: var(--c-surface);
-  border: 1px solid var(--c-border-soft);
-  text-decoration: none;
-  transition: all var(--transition);
+/* Typographic pagination — page turns, not buttons */
+.pagination__position {
+  width: 100%;
+  text-align: center;
+  font-size: var(--fs-xs);
+  color: var(--c-text-faint);
+  letter-spacing: 0.14em;
+  margin-bottom: var(--s-2);
 }
-.pagination a:hover {
-  color: var(--c-accent);
-  border-color: var(--c-accent);
-  background: var(--c-surface);
+.pagination a.prev,
+.pagination a.next {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--s-2);
+  padding: var(--s-1) 0;
+  font-size: var(--fs-md);
+  font-family: var(--font-hebrew-display);
+  color: var(--c-text-2);
+  background: none;
+  border: none;
+  border-bottom: 1px solid transparent;
+  text-decoration: none;
+  transition:
+    color var(--transition),
+    border-color var(--transition);
+}
+.pagination a.prev:hover,
+.pagination a.next:hover {
+  color: var(--c-accent-ink);
+  border-bottom-color: var(--c-gold);
+  background: none;
   text-decoration: none;
 }
 .pagination .toc-dropdown {
   position: relative;
 }
 .pagination .home-link {
-  background: var(--c-accent);
-  color: var(--c-bg);
-  border-color: var(--c-accent);
+  background: none;
+  color: var(--c-accent-ink);
+  border: none;
+  font-family: var(--font-hebrew-display);
+  font-size: var(--fs-md);
+  padding: var(--s-1) var(--s-3);
+  position: relative;
+}
+.pagination .home-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  inset-inline: var(--s-3);
+  height: 1px;
+  background: var(--c-gold-leaf);
+  opacity: 0.75;
 }
 .pagination .home-link:hover {
-  background: var(--c-accent-ink);
-  color: var(--c-bg);
-  border-color: var(--c-accent-ink);
+  background: var(--c-surface-accent);
+  color: var(--c-accent-ink);
+  border: none;
 }
 
 .toc-dropdown-content {
@@ -3393,4 +3460,40 @@ article tbody tr:nth-child(even) {
     flex-direction: column;
     align-items: stretch;
   }
+}
+
+/* Scribe marks «» ‹‹›› — variant witnesses in quiet gold */
+.scribe-mark {
+  color: var(--c-gold);
+  font-weight: 500;
+  opacity: 0.85;
+  padding-inline: 0.05em;
+}
+html[data-theme="dark"] .scribe-mark {
+  color: var(--c-gold);
+  opacity: 0.9;
+}
+
+/* Mobile — floating buttons inset from screen bezel (gesture-safe) */
+@media (max-width: 540px) {
+  .back-to-top,
+  .reading-mode-toggle {
+    inset-inline-end: var(--s-4);
+    bottom: var(--s-5);
+  }
+  /* Updates grid — breathing room at the bottom edge */
+  .updates-grid {
+    padding-bottom: var(--s-6);
+  }
+}
+
+/* Disqus in dark mode — standard community inversion so the embed
+   doesn't break the midnight-manuscript immersion */
+html[data-theme="dark"] #disqus_thread {
+  filter: invert(0.92) hue-rotate(180deg);
+}
+html[data-theme="dark"] #disqus_thread img,
+html[data-theme="dark"] #disqus_thread video,
+html[data-theme="dark"] #disqus_thread iframe {
+  filter: invert(1) hue-rotate(180deg);
 }

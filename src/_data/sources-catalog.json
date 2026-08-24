@@ -443,9 +443,7 @@
     },
     "figure": "yitzchak",
     "comingSoon": false,
-    "sources": [
-      "סיפור יצחק (ערבית)"
-    ]
+    "sources": ["סיפור יצחק (ערבית)"]
   },
   {
     "id": "tsavaat-yitzchak",
@@ -460,8 +458,6 @@
     },
     "figure": "yitzchak",
     "comingSoon": false,
-    "sources": [
-      "הנוסח הערבי — על פי כתב-יד פאריס 132 ועדים נוספים"
-    ]
+    "sources": ["הנוסח הערבי — על פי כתב-יד פאריס 132 ועדים נוספים"]
   }
 ]

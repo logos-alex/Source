@@ -26,7 +26,7 @@
     </header>
 
     <div class="text-content">
-      {{ content | renderNoteRefs | safe }}
+      {{ content | renderNoteRefs | scribeMarks | safe }}
     </div>
 
     {% set chapterPages = collections.all | bookPages(page.url, book, false) | list %}

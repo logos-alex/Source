@@ -119,10 +119,10 @@
             </section>
           </div>
         {% else %}
-          {{ content | renderNoteRefs | safe }}
+          {{ content | renderNoteRefs | scribeMarks | safe }}
         {% endif %}
       {% else %}
-        {{ content | renderNoteRefs | safe }}
+        {{ content | renderNoteRefs | scribeMarks | safe }}
       {% endif %}
     </div>
 {# --- תוכן הפרק המקביל מוזרק לכאן דרך JavaScript --- #}
@@ -160,6 +160,7 @@
   {% set currentPageIndex = pagesInBook | findIndexByUrl(page.url) %}
 
   <nav class="pagination" aria-label="ניווט בין פרקים">
+    <div class="pagination__position">פרק {{ currentPageIndex + 1 }} מתוך {{ pagesInBook.length }}</div>
     {% if currentPageIndex >= 0 and currentPageIndex > 0 %}
       {% set prevPage = pagesInBook[currentPageIndex - 1] %}
       <a href="{{ prevPage.url | url }}" class="prev" rel="prev">→ {{ prevPage | chapterDisplayTitle(book) }}</a>
