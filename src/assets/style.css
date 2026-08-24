@@ -3695,3 +3695,36 @@ html[data-theme="dark"] #disqus_thread iframe {
     grid-template-columns: 1fr;
   }
 }
+
+/* Language/figure strips — one quiet centered line (shared: home + library) */
+.lang-strip {
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  gap: var(--s-2) var(--s-1);
+  max-width: 760px;
+  margin: 0 auto;
+}
+.lang-strip__link {
+  color: var(--c-text-2);
+  text-decoration: none;
+  font-size: var(--fs-md);
+  font-family: var(--font-hebrew-display);
+  padding: var(--s-1) var(--s-2);
+  border-radius: var(--r-md);
+  transition:
+    color var(--transition),
+    background var(--transition);
+}
+.lang-strip__link:hover {
+  color: var(--c-accent-ink);
+  background: var(--c-surface-accent);
+  text-decoration: none;
+}
+.lang-strip__sep {
+  color: var(--c-gold);
+  opacity: 0.6;
+  font-size: var(--fs-sm);
+}

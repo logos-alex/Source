@@ -67,26 +67,5 @@ permalink: /texts/
     {% endfor %}
   </div>
 
-  {# --- דרכי סידור נוספות (משניות) --- #}
-  <section class="library-alt">
-    <h2 class="library-alt__title">מיונים נוספים</h2>
-    <div class="library-alt__row">
-      <div class="library-alt__group">
-        <h3>לפי שפת מקור</h3>
-        <p class="lang-strip">
-          {% for langSlug, langEntry in languages %}
-          <a href="{{ ('/texts/' + langSlug + '/') | url }}" class="lang-strip__link">{{ langEntry.label }}</a>{% if not loop.last %}<span class="lang-strip__sep" aria-hidden="true">·</span>{% endif %}
-          {% endfor %}
-        </p>
-      </div>
-      <div class="library-alt__group">
-        <h3>לפי ייחוס</h3>
-        <p class="lang-strip">
-          {% for figureKey in figureCatalogKeys %}
-          <a href="{{ ('/by-figure/' + figureKey + '/') | url }}" class="lang-strip__link">{{ figures[figureKey] or figureKey }}</a>{% if not loop.last %}<span class="lang-strip__sep" aria-hidden="true">·</span>{% endif %}
-          {% endfor %}
-        </p>
-      </div>
-    </div>
-  </section>
+  {% include "orderings-strip.njk" %}
 </div>

@@ -154,21 +154,7 @@ bodyClass: home-page
     </div>
   </section>
 
-  {# ===== QUICK JUMP BY LANGUAGE (secondary) ===== #}
-  <section class="quick-jump" aria-label="חיפוש לפי שפת מקור">
-    <h2 class="quick-jump__title">חיפוש לפי שפת מקור</h2>
-    <p class="quick-jump__intro">החיבורים מסודרים גם לפי שפת התרגום שבה נשתמרו.</p>
-    <div class="quick-jump__grid">
-      {% for langSlug, langEntry in languages %}
-      <a href="{{ ('/texts/' + langSlug + '/') | url }}" class="quick-jump__item">
-        <span>
-          <span class="quick-jump__item-label">{{ langEntry.label }}</span>
-          <span class="quick-jump__item-meta">{{ langEntry.description }}</span>
-        </span>
-      </a>
-      {% endfor %}
-    </div>
-  </section>
+  {% include "orderings-strip.njk" %}
 
   {# ===== STATUS ===== #}
   <section class="coming-soon" aria-label="סטטוס המאגר">
