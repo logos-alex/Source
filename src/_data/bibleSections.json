@@ -4,11 +4,12 @@
       "title": "חיצוניים לתורה",
       "subtitle": "חיבורים המיוחסים לאבות ולמשה — ראשית האמונה, ברית, חזיונות ומסורות אחרית הימים",
       "icon": "📜",
-      "figures": ["abraham", "yitzchak", "enoch", "moshe"],
+      "figures": ["abraham", "yitzchak", "yaakov", "enoch", "moshe"],
       "books": [
         "apocalypse-abraham",
         "maase-yitzchak",
         "tsavaat-yitzchak",
+        "tsavaat-yaakov",
         "sefer-hanoch-a",
         "enoch-qumran-aramaic",
         "vision-enoch-righteous-armenian",
