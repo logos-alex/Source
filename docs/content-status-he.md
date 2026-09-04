@@ -4,17 +4,10 @@
 
 | מדד | ערך |
 |---|---:|
-<<<<<<< HEAD
 | סה"כ ספרים | 32 |
 | סה"כ פרקים | 73 |
-| סה"כ הערות שוליים | 10 |
-| סה"כ מילים (בערך) | 22,552 |
-=======
-| סה"כ ספרים | 31 |
-| סה"כ פרקים | 72 |
 | סה"כ הערות שוליים | 12 |
-| סה"כ מילים (בערך) | 23,517 |
->>>>>>> 3e8e8b67 (שיחת משה: השבת המקור הסורי לנוסח הדפוס המקורי (האל 1891) — מהדורה מחודשת)
+| סה"כ מילים (בערך) | 24,007 |
 | ספרים עם תצוגה מקבילית | 9 |
 | ספרים בהכנה (comingSoon) | 27 |
 
@@ -47,12 +40,8 @@
 | maasei-timotheos | latin | talmidei-yeshua | 0 | 0 | 0 |  | 0 |
 | sefer-hanoch-a | greek | enoch | 0 | 0 | 0 |  | 0 |
 | sefer-zerubbabel | hebrew | zerubbabel | 0 | 0 | 0 |  | 0 |
-<<<<<<< HEAD
-| sichat-moshe | aramaic | moshe | 8 | 6 | 3,005 | ✓ | 0 |
-| tsavaat-yaakov | arabic | yaakov | 1 | 0 | 550 |  | 0 |
-=======
 | sichat-moshe | aramaic | moshe | 8 | 8 | 4,520 | ✓ | 0 |
->>>>>>> 3e8e8b67 (שיחת משה: השבת המקור הסורי לנוסח הדפוס המקורי (האל 1891) — מהדורה מחודשת)
+| tsavaat-yaakov | arabic | yaakov | 1 | 0 | 490 |  | 0 |
 | tsavaat-yeshua | aramaic | talmidei-yeshua | 0 | 0 | 0 |  | 0 |
 | tsavaat-yitzchak | arabic | yitzchak | 6 | 0 | 2,838 |  | 0 |
 | vision-daniel-armenian | armenian | daniel | 0 | 0 | 0 |  | 0 |
