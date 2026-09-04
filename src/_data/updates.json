@@ -10,7 +10,9 @@
     "groups": [
       {
         "source": "מהמקור העברי",
-        "texts": ["ספרא דזרובבל — הנוסח הגדול המתוקן"]
+        "texts": [
+          "ספרא דזרובבל — הנוסח הגדול המתוקן"
+        ]
       },
       {
         "source": "מהמקור הארמי־סורי",
@@ -70,7 +72,9 @@
       "dateLabel": "אוגוסט 2026",
       "pubDateRFC822": "Sun, 23 Aug 2026 00:00:00 GMT",
       "category": "טקסט חדש",
-      "flags": ["new-text"],
+      "flags": [
+        "new-text"
+      ],
       "links": [
         {
           "id": "tsavaat-yitzchak-text",
@@ -80,13 +84,33 @@
       ]
     },
     {
+      "id": "sichat-moshe-source-2026-09",
+      "title": "✒️ שיחת משה: המקור הסורי הושב לנוסח הדפוס",
+      "summary": "הנוסח הסורי של החיבור הושב כולו על פי הדפוס המקורי: תיקון השיבושים שנפלו בו, השלמת היחידות שחסרו (עונש מי שאינו נותן לעני, שבירת לב עני, תפילות השעות), והוספת חזון הכסא והחתימה שנשמטו — עם תרגום נאמן חדש ופירוש כהערות.",
+      "dateLabel": "ספטמבר 2026",
+      "pubDateRFC822": "Sat, 05 Sep 2026 00:00:00 GMT",
+      "category": "תיקון נוסח",
+      "flags": [
+        "text-update"
+      ],
+      "links": [
+        {
+          "id": "sichat-moshe-read",
+          "href": "/texts/aramaic/sichat-moshe/",
+          "label": "קריאה בחיבור"
+        }
+      ]
+    },
+    {
       "id": "sichat-moshe-2026-08",
       "title": "📜 טקסט חדש: שיחת משה (ארמית־סורית)",
-      "summary": "תשיעיתא דמשה גביא בנביאותא — שיחה בין משה רבנו לקב\"ה: מי שעושה מצווה — מה שכרו. שישה פרקים ושני נספחים בתצוגה מקבילה סורית־עברית, הועתק ללשון עברי מלשון סורית.",
+      "summary": "תשעיתא דמשה גביא בנביותא — שיחה בין משה רבנו לקב\"ה: מי שעושה מעשה — מה שכרו, ובסופו חזון הכסא. שמונה פרקים בתצוגה מקבילה סורית־עברית, הועתק ללשון עברי מלשון סורית.",
       "dateLabel": "אוגוסט 2026",
       "pubDateRFC822": "Sat, 22 Aug 2026 00:00:00 GMT",
       "category": "טקסט חדש",
-      "flags": ["new-text"],
+      "flags": [
+        "new-text"
+      ],
       "links": [
         {
           "id": "sichat-moshe-text",
@@ -102,7 +126,9 @@
       "dateLabel": "אוגוסט 2026",
       "pubDateRFC822": "Thu, 13 Aug 2026 00:00:00 GMT",
       "category": "טקסט חדש",
-      "flags": ["new-text"]
+      "flags": [
+        "new-text"
+      ]
     },
     {
       "id": "abraham-rebrand-apocrypha",
@@ -111,7 +137,12 @@
       "dateLabel": "אוגוסט 2026",
       "pubDateRFC822": "Wed, 13 Aug 2026 00:00:00 GMT",
       "category": "מיתוג ועיצוב",
-      "flags": ["ux", "branding", "slavic", "abraham"]
+      "flags": [
+        "ux",
+        "branding",
+        "slavic",
+        "abraham"
+      ]
     },
     {
       "id": "abraham-c-completed",
@@ -120,7 +151,12 @@
       "dateLabel": "אוגוסט 2026",
       "pubDateRFC822": "Wed, 13 Aug 2026 00:00:00 GMT",
       "category": "תוכן ועדכוני נוסח",
-      "flags": ["content", "slavic", "abraham", "new-text"],
+      "flags": [
+        "content",
+        "slavic",
+        "abraham",
+        "new-text"
+      ],
       "links": [
         {
           "id": "abraham-c-index",
@@ -136,7 +172,12 @@
       "dateLabel": "אוגוסט 2026",
       "pubDateRFC822": "Wed, 13 Aug 2026 00:00:00 GMT",
       "category": "תוכן ועדכוני נוסח",
-      "flags": ["content", "slavic", "abraham", "fix"],
+      "flags": [
+        "content",
+        "slavic",
+        "abraham",
+        "fix"
+      ],
       "links": [
         {
           "id": "abraham-b-page15",
@@ -152,7 +193,12 @@
       "dateLabel": "אוגוסט 2026",
       "pubDateRFC822": "Wed, 13 Aug 2026 00:00:00 GMT",
       "category": "חווית משתמש",
-      "flags": ["ux", "slavic", "abraham", "parallel"],
+      "flags": [
+        "ux",
+        "slavic",
+        "abraham",
+        "parallel"
+      ],
       "links": [
         {
           "id": "abraham-index",
@@ -168,7 +214,12 @@
       "dateLabel": "אוגוסט 2026",
       "pubDateRFC822": "Wed, 13 Aug 2026 00:00:00 GMT",
       "category": "קטלוג ותיעוד",
-      "flags": ["content", "slavic", "abraham", "catalog"]
+      "flags": [
+        "content",
+        "slavic",
+        "abraham",
+        "catalog"
+      ]
     },
     {
       "id": "abraham-b-full-reconstruction",
@@ -177,7 +228,11 @@
       "dateLabel": "יוני 2026",
       "pubDateRFC822": "Mon, 01 Jun 2026 00:00:00 GMT",
       "category": "תוכן ועדכוני נוסח",
-      "flags": ["content", "slavic", "abraham"],
+      "flags": [
+        "content",
+        "slavic",
+        "abraham"
+      ],
       "links": [
         {
           "id": "abraham-b-index",
