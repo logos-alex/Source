@@ -105,6 +105,91 @@ module.exports = function (eleventyConfig) {
     return result;
   });
 
+  // ---------------------------------------------------------------------------
+  // Verse-by-verse parallel alignment.
+  //
+  // `parallelVerseRows` receives the RENDERED source-column HTML and the
+  // RENDERED translation-column HTML (both already piped through
+  // renderNoteRefs) and pairs them verse-by-verse, so that every verse pair
+  // occupies its own grid row ("absolute parallelism": verse N on one side
+  // always sits exactly opposite verse N on the other side, regardless of how
+  // many lines each side wraps to).
+  //
+  // Returns an array of { n, source, translation } rows, or `null` when the
+  // two sides cannot be paired safely — in which case the template falls back
+  // to the classic two-column flow (zero-regression guarantee for any book
+  // whose source/translation paragraphs are not numbered in lockstep).
+  // ---------------------------------------------------------------------------
+  const tokenizeTopLevelBlocks = (html) => {
+    if (typeof html !== "string" || !html.trim()) return null;
+    const tokens = [];
+    const blockRe =
+      /<p>([\s\S]*?)<\/p>|<h([1-6])(?:\s[^>]*)?>([\s\S]*?)<\/h\2>|<hr\s*\/?>/g;
+    let lastIndex = 0;
+    let m;
+    while ((m = blockRe.exec(html)) !== null) {
+      const between = html.slice(lastIndex, m.index);
+      if (between.replace(/\s/g, "")) return null; // unknown structure → bail
+      if (m[1] !== undefined) {
+        tokens.push({ type: "p", inner: m[1] });
+      } else if (m[3] !== undefined) {
+        tokens.push({ type: "h", level: Number(m[2]), inner: m[3] });
+      } else {
+        tokens.push({ type: "hr" });
+      }
+      lastIndex = blockRe.lastIndex;
+    }
+    if (html.slice(lastIndex).replace(/\s/g, "")) return null;
+    return tokens;
+  };
+
+  const VERSE_NUM_RE = /^<strong>(\d+)[.:]\s*<\/strong>/;
+
+  const extractNumberedVerses = (tokens) => {
+    if (!tokens) return null;
+    const verses = [];
+    for (const tok of tokens) {
+      if (tok.type === "p") {
+        const vm = tok.inner.match(VERSE_NUM_RE);
+        if (!vm) return null; // non-verse paragraph → conservative fallback
+        verses.push({ n: Number(vm[1]), inner: tok.inner });
+      } else if (verses.length > 0) {
+        return null; // heading/hr in mid-column → conservative fallback
+      }
+      // Headings BEFORE the first verse (e.g. chapter title, "מקור סורי") are
+      // decorative labels — the chapter title already appears in the page
+      // header, so they are intentionally dropped in the aligned layout.
+    }
+    return verses;
+  };
+
+  eleventyConfig.addFilter("parallelVerseRows", (sourceHtml, translationHtml) => {
+    try {
+      const srcVerses = extractNumberedVerses(
+        tokenizeTopLevelBlocks(String(sourceHtml || "")),
+      );
+      const trVerses = extractNumberedVerses(
+        tokenizeTopLevelBlocks(String(translationHtml || "")),
+      );
+      if (!srcVerses || !trVerses) return null;
+      if (srcVerses.length === 0 || srcVerses.length !== trVerses.length) {
+        return null;
+      }
+      const rows = [];
+      for (let i = 0; i < srcVerses.length; i++) {
+        if (srcVerses[i].n !== trVerses[i].n) return null;
+        rows.push({
+          n: srcVerses[i].n,
+          source: srcVerses[i].inner,
+          translation: trVerses[i].inner,
+        });
+      }
+      return rows;
+    } catch {
+      return null;
+    }
+  });
+
   // Custom filter to find an index by URL (with URL normalization for robustness)
   eleventyConfig.addFilter("findIndexByUrl", (items, url) => {
     if (!items || !url) return -1;

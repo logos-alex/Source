@@ -104,19 +104,36 @@
               <span>תרגום בלבד</span>
             </button>
           </div>
-          <div class="parallel-layout" data-parallel-container>
+          {# Compute verse-paired rows: both sides are first rendered exactly as in
+             the classic layout (renderNoteRefs over the whole column, so the
+             first-occurrence id logic for double-verse notes is preserved), then
+             paired verse-by-verse. Falls back to null → classic two-column flow. #}
+          {% set sourceHtml = contentParts[0] or "" %}
+          {% set sourceHtml = sourceHtml | replace("<h3>מקור ארמי</h3>", "") | replace("<h3>מקור סורי</h3>", "") | replace("<h3>מקור יווני</h3>", "") | replace("<h3>מקור ערבי</h3>", "") | replace("<h3>מקור לטיני</h3>", "") | replace("<h3>מקור סלאבי</h3>", "") | replace("<h3>מקור ארמני</h3>", "") | replace("<h3>מקור געז</h3>", "") | replace("<h3>מקור עברי</h3>", "") | replace("<h4>מקור ארמי</h4>", "") | replace("<h4>מקור סורי</h4>", "") | replace("<h4>מקור יווני</h4>", "") | replace("<h4>מקור ערבי</h4>", "") | replace("<h4>מקור לטיני</h4>", "") | replace("<h4>מקור סלאבי</h4>", "") | replace("<h4>מקור ארמני</h4>", "") | replace("<h4>מקור געז</h4>", "") | replace("<h4>מקור עברי</h4>", "") %}
+          {% set sourceRendered = sourceHtml | renderNoteRefs %}
+          {% set translationRendered = (contentParts[1] or "") | renderNoteRefs %}
+          {% set verseRows = sourceRendered | parallelVerseRows(translationRendered) %}
+          <div class="parallel-layout{% if verseRows %} parallel-verse-aligned{% endif %}" data-parallel-container>
             {% set langEntry = languages[source] %}
             {% set colLang = (langEntry.iso if langEntry else source) %}
-            <section class="column-source" data-parallel-source lang="{{ colLang }}" aria-label="מקור בשפת המקור">
-              {# Strip leading source-side H3 (e.g. "מקור ארמי", "מקור סורי", "מקור יווני") — they are decorative. #}
-              {% set sourceHtml = contentParts[0] or "" %}
-              {% set sourceHtml = sourceHtml | replace("<h3>מקור ארמי</h3>", "") | replace("<h3>מקור סורי</h3>", "") | replace("<h3>מקור יווני</h3>", "") | replace("<h3>מקור ערבי</h3>", "") | replace("<h3>מקור לטיני</h3>", "") | replace("<h3>מקור סלאבי</h3>", "") | replace("<h3>מקור ארמני</h3>", "") | replace("<h3>מקור געז</h3>", "") | replace("<h3>מקור עברי</h3>", "") %}
-              {{ sourceHtml | renderNoteRefs | safe }}
-            </section>
-            <section class="column-translation" data-parallel-translation aria-label="תרגום עברי">
-              <h2 class="column-translation__heading visually-hidden">תרגום עברי</h2>
-              {{ (contentParts[1] or "") | renderNoteRefs | safe }}
-            </section>
+            {% if verseRows %}
+              {# Verse-by-verse alignment: each verse pair gets its own grid row,
+                 so verse N always sits exactly opposite verse N ("הקבלה מוחלטת"). #}
+              {% for row in verseRows %}
+                <div class="verse-pair">
+                  <p class="verse-pair__source" lang="{{ colLang }}">{{ row.source | safe }}</p>
+                  <p class="verse-pair__translation">{{ row.translation | safe }}</p>
+                </div>
+              {% endfor %}
+            {% else %}
+              <section class="column-source" data-parallel-source lang="{{ colLang }}" aria-label="מקור בשפת המקור">
+                {{ sourceRendered | safe }}
+              </section>
+              <section class="column-translation" data-parallel-translation aria-label="תרגום עברי">
+                <h2 class="column-translation__heading visually-hidden">תרגום עברי</h2>
+                {{ translationRendered | safe }}
+              </section>
+            {% endif %}
           </div>
         {% else %}
           {{ content | renderNoteRefs | scribeMarks | safe }}

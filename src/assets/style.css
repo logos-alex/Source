@@ -1508,6 +1508,57 @@ main {
   display: none;
 }
 
+/* ---- Verse-by-verse alignment ("הקבלה מוחלטת") ----
+   Each .verse-pair is its own 2-column grid row: the source verse and its
+   translation share the same row height, so verse N always sits exactly
+   opposite verse N regardless of how many lines each side wraps to. */
+.parallel-layout.parallel-verse-aligned {
+  display: block;
+  gap: 0;
+}
+.parallel-layout.parallel-verse-aligned .verse-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: var(--s-6);
+  align-items: start;
+  padding-block: var(--s-2);
+  border-block-end: 1px solid var(--c-border-soft);
+}
+.parallel-layout.parallel-verse-aligned .verse-pair:last-child {
+  border-block-end: none;
+}
+.parallel-layout.parallel-verse-aligned .verse-pair__source,
+.parallel-layout.parallel-verse-aligned .verse-pair__translation {
+  font-size: var(--fs-base);
+  line-height: 1.9;
+  margin: 0;
+}
+.parallel-layout.parallel-verse-aligned .verse-pair__source {
+  color: var(--c-text-2);
+  font-style: italic;
+  padding-inline-start: var(--s-4);
+  border-inline-start: 1px solid var(--c-border);
+}
+/* "תרגום בלבד" mode for verse-aligned rows */
+.parallel-layout.parallel-source-hidden.parallel-verse-aligned .verse-pair {
+  grid-template-columns: 1fr;
+}
+.parallel-layout.parallel-source-hidden.parallel-verse-aligned .verse-pair__source {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .parallel-layout.parallel-verse-aligned .verse-pair {
+    grid-template-columns: 1fr;
+    row-gap: var(--s-1);
+    padding-block: var(--s-3);
+  }
+  .parallel-layout.parallel-verse-aligned .verse-pair__source {
+    border-inline-start: none;
+    padding-inline-start: 0;
+  }
+}
+
 .parallel-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -2479,6 +2530,11 @@ body[data-font-scale="xl"] .version-parallel-panel__body {
   }
   .parallel-layout {
     display: block;
+  }
+  .parallel-layout .verse-pair {
+    display: block;
+    border-block-end: none;
+    padding-block: var(--s-2);
   }
   .column-source,
   .column-translation {
