@@ -52,13 +52,53 @@
       {% set isActive = (version == versionKey) %}
 
       {# Determine the target URL for this version tab.
-         If we're on a page-N, try to link to the same page-N in the target version.
-         If that page doesn't exist (version has fewer chapters), fall back to the version index. #}
+         Chapters are NOT numbered identically across versions (each version is
+         divided by its own witness structure). Use the alignment map (soft
+         cross-references) to link to the PARALLEL chapter in the target
+         version. If no mapping exists, fall back to the same page-N, and
+         finally to the version index. #}
       {% set targetUrl = basePath ~ versionKey ~ "/" %}
       {% if currentPageNum %}
-        {% set candidateUrl = basePath ~ versionKey ~ "/page-" ~ currentPageNum ~ "/" %}
-        {% if candidateUrl in allBookUrls %}
-          {% set targetUrl = candidateUrl %}
+        {% if versionKey == version %}
+          {# The current version's own tab always links to the current page #}
+          {% set candidateUrl = basePath ~ versionKey ~ "/page-" ~ currentPageNum ~ "/" %}
+          {% if candidateUrl in allBookUrls %}
+            {% set targetUrl = candidateUrl %}
+          {% endif %}
+        {% else %}
+        {# Soft mapping: first section whose spans include this page #}
+        {% set alignmentKey = book ~ "-alignment" %}
+        {% set alignmentData = alignmentKey | getGlobalData %}
+        {% set softTarget = 0 %}
+        {% if alignmentData and alignmentData.sections %}
+          {% set n = currentPageNum | int %}
+          {% for sKey, section in alignmentData.sections %}
+            {% if not softTarget %}
+              {% set inSpans = false %}
+              {% if section[version ~ "_spans"] %}
+                {% for sp in section[version ~ "_spans"] %}
+                  {% if sp.page == n %}{% set inSpans = true %}{% endif %}
+                {% endfor %}
+              {% endif %}
+              {% if section[version] == n or inSpans %}
+                {% if section[versionKey] %}
+                  {% set softTarget = section[versionKey] %}
+                {% endif %}
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+        {% if softTarget %}
+          {% set candidateUrl = basePath ~ versionKey ~ "/page-" ~ softTarget ~ "/" %}
+          {% if candidateUrl in allBookUrls %}
+            {% set targetUrl = candidateUrl %}
+          {% endif %}
+        {% else %}
+          {% set candidateUrl = basePath ~ versionKey ~ "/page-" ~ currentPageNum ~ "/" %}
+          {% if candidateUrl in allBookUrls %}
+            {% set targetUrl = candidateUrl %}
+          {% endif %}
+        {% endif %}
         {% endif %}
       {% endif %}
 
