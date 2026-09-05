@@ -10,7 +10,9 @@
     "groups": [
       {
         "source": "מהמקור העברי",
-        "texts": ["ספרא דזרובבל — הנוסח הגדול המתוקן"]
+        "texts": [
+          "ספרא דזרובבל — הנוסח הגדול המתוקן"
+        ]
       },
       {
         "source": "מהמקור הארמי־סורי",
@@ -70,7 +72,12 @@
       "dateLabel": "ספטמבר 2026",
       "pubDateRFC822": "Sat, 05 Sep 2026 00:00:00 GMT",
       "category": "ביאור חדש",
-      "flags": ["content", "slavic", "abraham", "new-commentary"],
+      "flags": [
+        "content",
+        "slavic",
+        "abraham",
+        "new-commentary"
+      ],
       "links": [
         {
           "id": "avraham-notes-a1",
@@ -86,12 +93,14 @@
     },
     {
       "id": "sichat-moshe-edition2-2026-09",
-      "title": "📖 מהדורה מתוקנת: שיחת משה (על פי הדפוס המקורי)",
-      "summary": "הנוסח הסורי-ארמי כולו הושב על פי תעתיק בדוק מן הדפוס המקורי (Hebraica ז, 162–171): שבעים פסוקים בתשעה פרקים לצד תרגום עברי נאמן ופירוש כהערות. תוקנו קריאות שנשתבשו, הושלמו יחידות שנשמטו מן ההפקה הקודמת, ונוסף פרק החתימה המלא — הבטחת הפדיון לאדם, הפולמוס על היהודים, ירידת משה אל בני ישראל וקולופון המעתיק.",
+      "title": "📖 מהדורה מתוקנת: שיחת משה (על פי הנוסח השלם והמתוקן)",
+      "summary": "החיבור כולו הושב על פי הנוסח השלם והמתוקן מן הדפוס המקורי (Hebraica ז, 162–171): שבעים ושלושה פסוקים בתשעה פרקים לפי חלוקת חלקי החיבור כבדפוס, תעתיק אות-באות לצד תרגום עברי נאמן ופירוש כהערות שוליים. תוקנה קריאת הכותרת — תשעיתא דמשה גביא בנביותא, 'סיפורו של משה הנבחר בנבואה' — הושלמו קריאות שנשמטו, והתרגום הושווה מילה במילה אל הנוסח שבידינו.",
       "dateLabel": "ספטמבר 2026",
-      "pubDateRFC822": "Sat, 05 Sep 2026 00:00:00 GMT",
+      "pubDateRFC822": "Sun, 06 Sep 2026 00:00:00 GMT",
       "category": "עדכון נוסח",
-      "flags": ["text-fix"],
+      "flags": [
+        "text-fix"
+      ],
       "links": [
         {
           "id": "sichat-moshe-text",
@@ -107,7 +116,9 @@
       "dateLabel": "אוגוסט 2026",
       "pubDateRFC822": "Sun, 23 Aug 2026 00:00:00 GMT",
       "category": "טקסט חדש",
-      "flags": ["new-text"],
+      "flags": [
+        "new-text"
+      ],
       "links": [
         {
           "id": "tsavaat-yitzchak-text",
@@ -123,7 +134,9 @@
       "dateLabel": "ספטמבר 2026",
       "pubDateRFC822": "Sat, 05 Sep 2026 00:00:00 GMT",
       "category": "תיקון נוסח",
-      "flags": ["text-update"],
+      "flags": [
+        "text-update"
+      ],
       "links": [
         {
           "id": "sichat-moshe-read",
@@ -139,7 +152,9 @@
       "dateLabel": "אוגוסט 2026",
       "pubDateRFC822": "Sat, 22 Aug 2026 00:00:00 GMT",
       "category": "טקסט חדש",
-      "flags": ["new-text"],
+      "flags": [
+        "new-text"
+      ],
       "links": [
         {
           "id": "sichat-moshe-text",
@@ -155,7 +170,9 @@
       "dateLabel": "אוגוסט 2026",
       "pubDateRFC822": "Thu, 13 Aug 2026 00:00:00 GMT",
       "category": "טקסט חדש",
-      "flags": ["new-text"]
+      "flags": [
+        "new-text"
+      ]
     },
     {
       "id": "abraham-rebrand-apocrypha",
@@ -164,7 +181,12 @@
       "dateLabel": "אוגוסט 2026",
       "pubDateRFC822": "Wed, 13 Aug 2026 00:00:00 GMT",
       "category": "מיתוג ועיצוב",
-      "flags": ["ux", "branding", "slavic", "abraham"]
+      "flags": [
+        "ux",
+        "branding",
+        "slavic",
+        "abraham"
+      ]
     },
     {
       "id": "abraham-c-completed",
@@ -173,7 +195,12 @@
       "dateLabel": "אוגוסט 2026",
       "pubDateRFC822": "Wed, 13 Aug 2026 00:00:00 GMT",
       "category": "תוכן ועדכוני נוסח",
-      "flags": ["content", "slavic", "abraham", "new-text"],
+      "flags": [
+        "content",
+        "slavic",
+        "abraham",
+        "new-text"
+      ],
       "links": [
         {
           "id": "abraham-c-index",
@@ -189,7 +216,12 @@
       "dateLabel": "אוגוסט 2026",
       "pubDateRFC822": "Wed, 13 Aug 2026 00:00:00 GMT",
       "category": "תוכן ועדכוני נוסח",
-      "flags": ["content", "slavic", "abraham", "fix"],
+      "flags": [
+        "content",
+        "slavic",
+        "abraham",
+        "fix"
+      ],
       "links": [
         {
           "id": "abraham-b-page15",
@@ -205,7 +237,12 @@
       "dateLabel": "אוגוסט 2026",
       "pubDateRFC822": "Wed, 13 Aug 2026 00:00:00 GMT",
       "category": "חווית משתמש",
-      "flags": ["ux", "slavic", "abraham", "parallel"],
+      "flags": [
+        "ux",
+        "slavic",
+        "abraham",
+        "parallel"
+      ],
       "links": [
         {
           "id": "abraham-index",
@@ -221,7 +258,12 @@
       "dateLabel": "אוגוסט 2026",
       "pubDateRFC822": "Wed, 13 Aug 2026 00:00:00 GMT",
       "category": "קטלוג ותיעוד",
-      "flags": ["content", "slavic", "abraham", "catalog"]
+      "flags": [
+        "content",
+        "slavic",
+        "abraham",
+        "catalog"
+      ]
     }
   ]
 }
