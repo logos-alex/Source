@@ -3221,59 +3221,6 @@ article tbody tr:nth-child(even) {
   margin-bottom: var(--s-1);
 }
 
-/* ===== Alignment table (התאמת פרקים בין נוסחים) ===== */
-.align-table-wrap {
-  overflow-x: auto;
-  margin: 1.2rem 0;
-  border: 1px solid var(--border, #ddd);
-  border-radius: 10px;
-}
-.align-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.95rem;
-  min-width: 480px;
-}
-.align-table th,
-.align-table td {
-  padding: 0.5rem 0.75rem;
-  text-align: center;
-  border-bottom: 1px solid var(--border, #eee);
-  vertical-align: middle;
-}
-.align-table thead th {
-  background: var(--bg-soft, #f6f6f4);
-  font-weight: 700;
-  position: sticky;
-  top: 0;
-}
-.align-table tbody tr:nth-child(even) {
-  background: var(--bg-soft, #fafaf8);
-}
-.align-table tbody tr:hover {
-  background: var(--accent-soft, #eef2f7);
-}
-.align-name {
-  text-align: right !important;
-  font-weight: 500;
-}
-.align-page {
-  display: inline-block;
-  min-width: 1.6em;
-  padding: 0.15em 0.4em;
-  border-radius: 6px;
-  background: var(--accent-soft, #eef2f7);
-  font-weight: 600;
-}
-.align-missing {
-  color: #b00;
-  font-weight: 700;
-}
-.align-legend {
-  font-size: 0.88rem;
-  opacity: 0.85;
-}
-
 /* -------------------- Shelf groups (by-figure nadavim) -------------------- */
 .shelf-group {
   margin: 0 0 var(--s-8);
