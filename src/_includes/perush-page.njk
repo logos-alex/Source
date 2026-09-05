@@ -1,0 +1,143 @@
+{% extends "base.njk" %}
+
+{% set bodyClass = "text-page perush-page" %}
+
+{# דף בנדבך הפרשנות — שכבת ביאור משותפת לשלושת נוסחי חזון אברהם.
+   בניגוד לדפי הנוסחים, אין כאן טקסט מתורגם אלא פרשנות, עדים וחילופי נוסח;
+   לכן אין תצוגה מקבילית, אך יש פאנל קישורים רכים אל הפרקים המקבילים
+   בכל נוסח, על פי מפת היישור (apocalypse-abraham-alignment.json). #}
+
+{% block head_extras %}
+  {% set pagesInBook = collections.all | bookPages(page.url, book) %}
+  {% set currentPageIndex = pagesInBook | findIndexByUrl(page.url) %}
+  {% if currentPageIndex > 0 %}
+    {% set prevPage = pagesInBook[currentPageIndex - 1] %}
+    <link rel="prev" href="{{ prevPage.url | url }}">
+  {% endif %}
+  {% if currentPageIndex >= 0 and currentPageIndex < pagesInBook.length - 1 %}
+    {% set nextPage = pagesInBook[currentPageIndex + 1] %}
+    <link rel="next" href="{{ nextPage.url | url }}">
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  <div class="reading-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="התקדמות הקריאה">
+    <div class="reading-progress-bar" id="readingProgress"></div>
+  </div>
+
+  {% if book | hasMultipleVersions %}
+    {% include "version-tabs.njk" %}
+  {% endif %}
+
+  <article class="text-main" data-pagefind-body>
+    <header class="text-header">
+      <p class="text-header__eyebrow">חזון אברהם · נדבך הפרשנות · קטע {{ pageNumber | toHebrewNumeral }}</p>
+      <h1 data-pagefind-meta="title">{{ title }}</h1>
+      {% if source or figure %}
+        {% set langEntry = languages[source] %}
+        {% set sourceHebrew = (langEntry.label if langEntry else source) %}
+        {% set figureHebrew = figures[figure] or figure %}
+        <p class="text-meta">
+          {% if sourceHebrew %}<span class="text-meta__item"><span class="text-meta__label">מקור:</span> {{ sourceHebrew }}</span>{% endif %}
+          {% if sourceHebrew and figureHebrew %}<span class="text-meta__sep" aria-hidden="true">·</span>{% endif %}
+          {% if figureHebrew %}<span class="text-meta__item"><span class="text-meta__label">ייחוס:</span> {{ figureHebrew }}</span>{% endif %}
+        </p>
+      {% endif %}
+    </header>
+
+    <div class="text-content">
+      <div class="text-controls" role="group" aria-label="גודל גופן">
+        <span class="text-controls__label">גודל טקסט</span>
+        <button class="text-controls__btn is-active" type="button" data-scale="md" aria-pressed="true" aria-label="טקסט רגיל">א</button>
+        <button class="text-controls__btn" type="button" data-scale="sm" aria-pressed="false" aria-label="טקסט קטן">א-</button>
+        <button class="text-controls__btn" type="button" data-scale="lg" aria-pressed="false" aria-label="טקסט גדול">א+</button>
+        <button class="text-controls__btn" type="button" data-scale="xl" aria-pressed="false" aria-label="טקסט גדול מאוד">א++</button>
+      </div>
+
+      {# --- פאנל קישורים רכים: הקטע בנוסחים --- #}
+      {% set alignmentKey = book ~ "-alignment" %}
+      {% set alignmentData = alignmentKey | getGlobalData %}
+      {% if alignmentData and alignmentData.sections %}
+        {% set sectionKey = "section_" ~ pageNumber %}
+        {% set section = alignmentData.sections[sectionKey] %}
+        {% if section %}
+          {% set basePath = "/texts/" ~ source ~ "/" ~ book ~ "/" %}
+          <nav class="perush-witness-links" aria-label="הקטע בנוסחים">
+            <span class="perush-witness-links__label">הקטע בנוסחים:</span>
+            {% for v in ["a", "b", "c"] %}
+              {% set spans = section[v ~ "_spans"] %}
+              {% if spans %}
+                {% set pages = [] %}
+                {% for sp in spans %}
+                  {% set pages = pages | push(sp.page) %}
+                {% endfor %}
+                <span class="perush-witness-links__item">
+                  <a class="perush-witness-links__version" href="{{ (basePath ~ v ~ "/") | url }}">נוסח {{ v }}'</a>
+                  <span class="perush-witness-links__chapters">
+                    {%- for p in pages -%}
+                      <a href="{{ (basePath ~ v ~ "/page-" ~ p ~ "/") | url }}">פרק {{ p | toHebrewNumeral }}</a>
+                      {%- if not loop.last -%}<span class="perush-witness-links__sep" aria-hidden="true">·</span>{%- endif -%}
+                    {%- endfor -%}
+                  </span>
+                </span>
+              {% endif %}
+            {% endfor %}
+          </nav>
+        {% endif %}
+      {% endif %}
+
+      {{ content | renderNoteRefs | scribeMarks | safe }}
+    </div>
+  </article>
+
+  {% if pageNumber and pageNumber != 0 and notes %}
+    <div class="footnotes">
+      <h2 class="footnotes__heading">הערות וביאורים</h2>
+      <ul>
+        {% for note in notes %}
+          <li id="note-{{ loop.index }}">{{ note | renderMarkdownInline | safe }} <a href="#ref-{{ loop.index }}" class="note-backlink" aria-label="חזרה להערה {{ loop.index }}">↩</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+
+  {# --- ניווט בין עמודי הנדבך --- #}
+  {% set pagesInBook = collections.all | bookPages(page.url, book) %}
+  {% set chapterPages = collections.all | bookPages(page.url, book, false) | list %}
+  {% set currentPageIndex = pagesInBook | findIndexByUrl(page.url) %}
+
+  <nav class="pagination" aria-label="ניווט בין קטעי הפרשנות">
+    <div class="pagination__position">קטע {{ currentPageIndex + 1 }} מתוך {{ pagesInBook.length }}</div>
+    {% if currentPageIndex >= 0 and currentPageIndex > 0 %}
+      {% set prevPage = pagesInBook[currentPageIndex - 1] %}
+      <a href="{{ prevPage.url | url }}" class="prev" rel="prev">→ {{ prevPage | chapterDisplayTitle(book) }}</a>
+    {% else %}
+      <span aria-hidden="true"></span>
+    {% endif %}
+
+    {% if book %}
+    <div class="toc-dropdown">
+      <a href="{{ page.url | url }}" class="home-link" aria-haspopup="true" aria-expanded="false">תוכן העניינים</a>
+      <div class="toc-dropdown-content">
+        <div class="toc-dropdown-header">קטעי הפרשנות</div>
+        <ul>
+          {% for item in chapterPages %}
+            <li><a href="{{ item.url | url }}">{{ item | chapterDisplayTitle(book) }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    {% endif %}
+
+    {% if currentPageIndex >= 0 and currentPageIndex < pagesInBook.length - 1 %}
+      {% set nextPage = pagesInBook[currentPageIndex + 1] %}
+      <a href="{{ nextPage.url | url }}" class="next" rel="next">{{ nextPage | chapterDisplayTitle(book) }} ←</a>
+    {% else %}
+      <span aria-hidden="true"></span>
+    {% endif %}
+  </nav>
+
+    {# --- אזור התגובות --- #}
+    {% include "disqus.njk" %}
+
+{% endblock %}

@@ -2779,6 +2779,77 @@ article tbody tr:nth-child(even) {
   outline-offset: 2px;
 }
 
+/* לשונית הפרשנות — מובחנת קלות מלשוניות הנוסחים */
+.version-tabs__tab--perush {
+  border-right: 1px solid var(--c-border-soft);
+  border-bottom: 2px dashed transparent;
+  margin-right: auto;
+  padding-right: var(--s-3);
+  color: var(--c-accent-2);
+}
+.version-tabs__tab--perush:hover {
+  color: var(--c-accent-ink);
+}
+.version-tabs__tab--perush.is-active {
+  border-bottom-color: var(--c-accent-2);
+  border-bottom-style: dashed;
+}
+
+/* ============================================================
+   נדבך הפרשנות — פאנל קישורים רכים אל הנוסחים
+   ============================================================ */
+.perush-witness-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-1) var(--s-4);
+  align-items: baseline;
+  padding: var(--s-3) var(--s-4);
+  margin: 0 0 var(--s-5);
+  background: var(--c-surface);
+  border: 1px solid var(--c-border-soft);
+  border-radius: var(--r-md);
+  font-size: var(--fs-sm);
+}
+.perush-witness-links__label {
+  color: var(--c-text-faint);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.02em;
+}
+.perush-witness-links__item {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--s-2);
+}
+.perush-witness-links__version {
+  font-weight: 700;
+  color: var(--c-accent-ink);
+  text-decoration: none;
+}
+.perush-witness-links__version:hover {
+  text-decoration: underline;
+}
+.perush-witness-links__chapters a {
+  color: var(--c-accent);
+  text-decoration: none;
+}
+.perush-witness-links__chapters a:hover {
+  text-decoration: underline;
+}
+.perush-witness-links__sep {
+  color: var(--c-text-faint);
+  padding: 0 var(--s-1);
+}
+
+@media (max-width: 540px) {
+  .version-tabs__tab--perush {
+    margin-right: 0;
+    border-right: 0;
+  }
+  .perush-witness-links {
+    gap: var(--s-1) var(--s-3);
+  }
+}
+
 @media (max-width: 540px) {
   .version-tabs {
     margin: var(--s-4) auto var(--s-3);
