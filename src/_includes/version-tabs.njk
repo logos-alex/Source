@@ -116,43 +116,5 @@
       </a>
     {% endfor %}
 
-    {# Commentary layer (perush) tab — soft link to the commentary section
-       covering the current chapter. Only when the alignment map declares a
-       perushBase (e.g. apocalypse-abraham). Falls back to the layer intro
-       (appendix pages, version indexes and unmapped chapters). #}
-    {% if alignmentData and alignmentData.sections and alignmentData.perushBase %}
-      {% set perushBase = alignmentData.perushBase %}
-      {% set perushTarget = 0 %}
-      {% if currentPageNum %}
-        {% set n = currentPageNum | int %}
-        {% for sKey, section in alignmentData.sections %}
-          {% if not perushTarget %}
-            {% set inSpans = false %}
-            {% if section[version ~ "_spans"] %}
-              {% for sp in section[version ~ "_spans"] %}
-                {% if sp.page == n %}{% set inSpans = true %}{% endif %}
-              {% endfor %}
-            {% endif %}
-            {% if section[version] == n or inSpans %}
-              {% if section.perush %}{% set perushTarget = section.perush %}{% endif %}
-            {% endif %}
-          {% endif %}
-        {% endfor %}
-      {% endif %}
-      {% set perushUrl = perushBase %}
-      {% if perushTarget %}
-        {% set perushCandidate = perushBase ~ "page-" ~ perushTarget ~ "/" %}
-        {% if perushCandidate in allBookUrls %}
-          {% set perushUrl = perushCandidate %}
-        {% endif %}
-      {% endif %}
-      <a href="{{ perushUrl | url }}"
-         class="version-tabs__tab version-tabs__tab--perush{% if version == 'perush' %} is-active{% endif %}"
-         role="tab"
-         {% if version == 'perush' %}aria-selected="true" aria-current="page"{% endif %}
-         title="נדבך הפרשנות — ביאור הכתוב, עדי הנוסח וחילופיו, לפי קטעי העלילה">
-        פרשנות
-      </a>
-    {% endif %}
-  </nav>
+</nav>
 {% endif %}

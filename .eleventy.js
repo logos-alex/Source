@@ -163,32 +163,35 @@ module.exports = function (eleventyConfig) {
     return verses;
   };
 
-  eleventyConfig.addFilter("parallelVerseRows", (sourceHtml, translationHtml) => {
-    try {
-      const srcVerses = extractNumberedVerses(
-        tokenizeTopLevelBlocks(String(sourceHtml || "")),
-      );
-      const trVerses = extractNumberedVerses(
-        tokenizeTopLevelBlocks(String(translationHtml || "")),
-      );
-      if (!srcVerses || !trVerses) return null;
-      if (srcVerses.length === 0 || srcVerses.length !== trVerses.length) {
+  eleventyConfig.addFilter(
+    "parallelVerseRows",
+    (sourceHtml, translationHtml) => {
+      try {
+        const srcVerses = extractNumberedVerses(
+          tokenizeTopLevelBlocks(String(sourceHtml || "")),
+        );
+        const trVerses = extractNumberedVerses(
+          tokenizeTopLevelBlocks(String(translationHtml || "")),
+        );
+        if (!srcVerses || !trVerses) return null;
+        if (srcVerses.length === 0 || srcVerses.length !== trVerses.length) {
+          return null;
+        }
+        const rows = [];
+        for (let i = 0; i < srcVerses.length; i++) {
+          if (srcVerses[i].n !== trVerses[i].n) return null;
+          rows.push({
+            n: srcVerses[i].n,
+            source: srcVerses[i].inner,
+            translation: trVerses[i].inner,
+          });
+        }
+        return rows;
+      } catch {
         return null;
       }
-      const rows = [];
-      for (let i = 0; i < srcVerses.length; i++) {
-        if (srcVerses[i].n !== trVerses[i].n) return null;
-        rows.push({
-          n: srcVerses[i].n,
-          source: srcVerses[i].inner,
-          translation: trVerses[i].inner,
-        });
-      }
-      return rows;
-    } catch {
-      return null;
-    }
-  });
+    },
+  );
 
   // Custom filter to find an index by URL (with URL normalization for robustness)
   eleventyConfig.addFilter("findIndexByUrl", (items, url) => {

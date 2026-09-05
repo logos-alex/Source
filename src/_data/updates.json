@@ -10,9 +10,7 @@
     "groups": [
       {
         "source": "מהמקור העברי",
-        "texts": [
-          "ספרא דזרובבל — הנוסח הגדול המתוקן"
-        ]
+        "texts": ["ספרא דזרובבל — הנוסח הגדול המתוקן"]
       },
       {
         "source": "מהמקור הארמי־סורי",
@@ -66,28 +64,23 @@
   },
   "items": [
     {
-      "id": "avraham-perush-2026-09",
-      "title": "🕯️ נדבך הפרשנות לחזון אברהם — מדור פרוש והערות בכל פרק",
-      "summary": "שתי שכבות פרשנות לחיבור כולו: מדור פרוש של שבעה־עשר קטעי עלילה — ביאור, חילופי נוסח והערות עד בקישורים רכים אל שלושת הנוסחים — והערות וביאורים בתוף כל פרק ופרק בכל עד (167 הערות): מקבילות מן המקרא ומדרשי חז\"ל — ברית בין הבתרים כשלד החזון, מעשה המרכבה, עזאזל של יום הכפורים, מעשה המשואה, הרן ואור כשדים — לצד ההכרעות הפילולוגיות בגוף הטקסט. הנספחים נותרו עדות מלאה לצד כל נוסח.",
+      "id": "avraham-notes-2026-09",
+      "title": "🕯️ הערות וביאורים בכל פרקי חזון אברהם — כדרך מפרשי התנ\"ך",
+      "summary": "הפרשנות כולה לחיבור נסדרה כהערות שוליים בכל פרק ופרק בכל אחד משלושת הנוסחים — 172 הערות: מקבילות מן המקרא ומדברי חז\"ל — ברית בין הבתרים כשלד החזון, מעשה המרכבה, עזאזל של יום הכפורים, מעשה המשואה והבירה הבוערת, הרן ואור כשדים, גפן העץ של רבי מאיר — לצד חילופי הנוסח בין העדים והערות המהדורה, כל אחת במקומו של הפסוק. הנספחים שבסוף כל נוסח נותרו עדות מלאה.",
       "dateLabel": "ספטמבר 2026",
       "pubDateRFC822": "Sat, 05 Sep 2026 00:00:00 GMT",
       "category": "ביאור חדש",
-      "flags": [
-        "content",
-        "slavic",
-        "abraham",
-        "new-commentary"
-      ],
+      "flags": ["content", "slavic", "abraham", "new-commentary"],
       "links": [
         {
-          "id": "avraham-perush-intro",
-          "href": "/texts/slavic/apocalypse-abraham/perush/",
-          "label": "אל נדבך הפרשנות"
+          "id": "avraham-notes-a1",
+          "href": "/texts/slavic/apocalypse-abraham/a/page-1/",
+          "label": "התחלה בפרק א של נוסח א'"
         },
         {
-          "id": "avraham-perush-first",
-          "href": "/texts/slavic/apocalypse-abraham/perush/page-1/",
-          "label": "התחלה מהקטע הראשון"
+          "id": "avraham-notes-index",
+          "href": "/texts/slavic/apocalypse-abraham/",
+          "label": "למבוא החיבור"
         }
       ]
     },
@@ -98,9 +91,7 @@
       "dateLabel": "ספטמבר 2026",
       "pubDateRFC822": "Sat, 05 Sep 2026 00:00:00 GMT",
       "category": "עדכון נוסח",
-      "flags": [
-        "text-fix"
-      ],
+      "flags": ["text-fix"],
       "links": [
         {
           "id": "sichat-moshe-text",
@@ -116,9 +107,7 @@
       "dateLabel": "אוגוסט 2026",
       "pubDateRFC822": "Sun, 23 Aug 2026 00:00:00 GMT",
       "category": "טקסט חדש",
-      "flags": [
-        "new-text"
-      ],
+      "flags": ["new-text"],
       "links": [
         {
           "id": "tsavaat-yitzchak-text",
@@ -134,9 +123,7 @@
       "dateLabel": "ספטמבר 2026",
       "pubDateRFC822": "Sat, 05 Sep 2026 00:00:00 GMT",
       "category": "תיקון נוסח",
-      "flags": [
-        "text-update"
-      ],
+      "flags": ["text-update"],
       "links": [
         {
           "id": "sichat-moshe-read",
@@ -152,9 +139,7 @@
       "dateLabel": "אוגוסט 2026",
       "pubDateRFC822": "Sat, 22 Aug 2026 00:00:00 GMT",
       "category": "טקסט חדש",
-      "flags": [
-        "new-text"
-      ],
+      "flags": ["new-text"],
       "links": [
         {
           "id": "sichat-moshe-text",
@@ -170,9 +155,7 @@
       "dateLabel": "אוגוסט 2026",
       "pubDateRFC822": "Thu, 13 Aug 2026 00:00:00 GMT",
       "category": "טקסט חדש",
-      "flags": [
-        "new-text"
-      ]
+      "flags": ["new-text"]
     },
     {
       "id": "abraham-rebrand-apocrypha",
@@ -181,12 +164,7 @@
       "dateLabel": "אוגוסט 2026",
       "pubDateRFC822": "Wed, 13 Aug 2026 00:00:00 GMT",
       "category": "מיתוג ועיצוב",
-      "flags": [
-        "ux",
-        "branding",
-        "slavic",
-        "abraham"
-      ]
+      "flags": ["ux", "branding", "slavic", "abraham"]
     },
     {
       "id": "abraham-c-completed",
@@ -195,12 +173,7 @@
       "dateLabel": "אוגוסט 2026",
       "pubDateRFC822": "Wed, 13 Aug 2026 00:00:00 GMT",
       "category": "תוכן ועדכוני נוסח",
-      "flags": [
-        "content",
-        "slavic",
-        "abraham",
-        "new-text"
-      ],
+      "flags": ["content", "slavic", "abraham", "new-text"],
       "links": [
         {
           "id": "abraham-c-index",
@@ -216,12 +189,7 @@
       "dateLabel": "אוגוסט 2026",
       "pubDateRFC822": "Wed, 13 Aug 2026 00:00:00 GMT",
       "category": "תוכן ועדכוני נוסח",
-      "flags": [
-        "content",
-        "slavic",
-        "abraham",
-        "fix"
-      ],
+      "flags": ["content", "slavic", "abraham", "fix"],
       "links": [
         {
           "id": "abraham-b-page15",
@@ -237,12 +205,7 @@
       "dateLabel": "אוגוסט 2026",
       "pubDateRFC822": "Wed, 13 Aug 2026 00:00:00 GMT",
       "category": "חווית משתמש",
-      "flags": [
-        "ux",
-        "slavic",
-        "abraham",
-        "parallel"
-      ],
+      "flags": ["ux", "slavic", "abraham", "parallel"],
       "links": [
         {
           "id": "abraham-index",
@@ -258,12 +221,7 @@
       "dateLabel": "אוגוסט 2026",
       "pubDateRFC822": "Wed, 13 Aug 2026 00:00:00 GMT",
       "category": "קטלוג ותיעוד",
-      "flags": [
-        "content",
-        "slavic",
-        "abraham",
-        "catalog"
-      ]
+      "flags": ["content", "slavic", "abraham", "catalog"]
     }
   ]
 }
