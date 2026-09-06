@@ -54,7 +54,7 @@
     "js-yaml": "^5.2.3",
     "pagefind": "^1.4.0",
     "prettier": "^3.9.6",
-    "terser": "^5.50.0"
+    "terser": "^5.51.2"
   },
   "overrides": {
     "@11ty/recursive-copy": "4.0.3"
