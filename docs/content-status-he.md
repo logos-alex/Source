@@ -5,9 +5,9 @@
 | מדד | ערך |
 |---|---:|
 | סה"כ ספרים | 32 |
-| סה"כ פרקים | 83 |
+| סה"כ פרקים | 89 |
 | סה"כ הערות שוליים | 71 |
-| סה"כ מילים (בערך) | 26,236 |
+| סה"כ מילים (בערך) | 29,484 |
 | ספרים עם תצוגה מקבילית | 9 |
 | ספרים בהכנה (comingSoon) | 27 |
 
@@ -41,7 +41,7 @@
 | sefer-hanoch-a | greek | enoch | 0 | 0 | 0 |  | 0 |
 | sefer-zerubbabel | hebrew | zerubbabel | 0 | 0 | 0 |  | 0 |
 | sichat-moshe | aramaic | moshe | 9 | 9 | 4,679 | ✓ | 0 |
-| tsavaat-yaakov | arabic | yaakov | 1 | 0 | 490 |  | 0 |
+| tsavaat-yaakov | arabic | yaakov | 7 | 0 | 3,738 |  | 0 |
 | tsavaat-yeshua | aramaic | talmidei-yeshua | 0 | 0 | 0 |  | 0 |
 | tsavaat-yitzchak | arabic | yitzchak | 6 | 0 | 2,809 |  | 0 |
 | vision-daniel-armenian | armenian | daniel | 0 | 0 | 0 |  | 0 |
