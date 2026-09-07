@@ -73,6 +73,13 @@ description: "חיבור המיוחס לאברהם אבינו, המספר את �
         <p class="version-card__meta">19 פרקים + נספח</p>
       </a>
 
+      <a href="{{ '/texts/slavic/apocalypse-abraham/d/' | url }}" class="version-card">
+        <h3 class="version-card__title">נוסח ד'</h3>
+        <p class="version-card__subtitle">נוסח הפליאה הטולקובאית</p>
+        <p class="version-card__desc">הנוסח המשוקע בפליאה הטולקובאית — כ״י בארסוב № 620 — על פי מהדורת קמצ'טנוב־מילקוב (2021). עד עצמאי שלישי לחיבור, הכולל את תוספותיו הפולמוסיות של מעבד הפליאה (מסומנות בנפרד) ושמות ייחודיים: מרמות, בר־אשתא, יָהוֹאֵל.</p>
+        <p class="version-card__meta">8 קטעים + הערות זיהוי</p>
+      </a>
+
     </div>
 
     <div class="text-content" style="margin-top: var(--s-6);">
