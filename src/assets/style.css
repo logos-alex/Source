@@ -2967,6 +2967,21 @@ article tbody tr:nth-child(even) {
 /* ============================================================
    כרטיסי נוסחים בעמוד הראשי של חיבור מרובה־נוסחים
    ============================================================ */
+.version-shelf-title {
+  font-family: var(--font-hebrew-display);
+  font-size: var(--fs-xl);
+  font-weight: 700;
+  color: var(--c-accent);
+  margin: var(--s-8) 0 var(--s-2);
+  padding-bottom: var(--s-2);
+  border-bottom: 2px solid var(--c-accent-soft, rgba(139, 111, 58, 0.2));
+}
+.version-shelf-desc {
+  font-size: var(--fs-base);
+  color: var(--c-text-2);
+  margin: 0 0 var(--s-4);
+  line-height: 1.7;
+}
 .version-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));

@@ -57,16 +57,32 @@
       {% set isActive = (version == versionKey) %}
 
       {# Determine the target URL for this version tab.
-         Chapters are NOT numbered identically across versions (each version is
-         divided by its own witness structure). Use the alignment map (soft
-         cross-references) to link to the PARALLEL chapter in the target
-         version. If no mapping exists, fall back to the same page-N, and
-         finally to the version index. #}
-      {% set targetUrl = basePath ~ versionKey ~ "/" %}
+         Two URL patterns are supported:
+
+         Pattern A (same-source versions, e.g. apocalypse-abraham a/b/c/d):
+           /texts/<book_source>/<book>/<version_key>/page-N/
+
+         Pattern B (cross-source versions, e.g. sichat-moshe main/arabic-islamic):
+           /texts/<version_source>/<book>/page-N/
+           (no version subdirectory; the source directory distinguishes versions)
+
+         The pattern is chosen based on whether the version entry has a `source`
+         field that differs from the book's source. #}
+      {% set versionSource = versionEntry.source if versionEntry.source else source %}
+      {% set versionBasePath = "/texts/" ~ versionSource ~ "/" ~ book ~ "/" %}
+      {% set targetUrl = versionBasePath %}
+      {% if not versionEntry.source %}
+        {# Pattern A: version has no own source → use subdirectory #}
+        {% set targetUrl = versionBasePath ~ versionKey ~ "/" %}
+      {% endif %}
       {% if currentPageNum %}
         {% if versionKey == version %}
           {# The current version's own tab always links to the current page #}
-          {% set candidateUrl = basePath ~ versionKey ~ "/page-" ~ currentPageNum ~ "/" %}
+          {% if versionEntry.source %}
+            {% set candidateUrl = versionBasePath ~ "page-" ~ currentPageNum ~ "/" %}
+          {% else %}
+            {% set candidateUrl = versionBasePath ~ versionKey ~ "/page-" ~ currentPageNum ~ "/" %}
+          {% endif %}
           {% if candidateUrl in allBookUrls %}
             {% set targetUrl = candidateUrl %}
           {% endif %}
@@ -94,12 +110,20 @@
           {% endfor %}
         {% endif %}
         {% if softTarget %}
-          {% set candidateUrl = basePath ~ versionKey ~ "/page-" ~ softTarget ~ "/" %}
+          {% if versionEntry.source %}
+            {% set candidateUrl = versionBasePath ~ "page-" ~ softTarget ~ "/" %}
+          {% else %}
+            {% set candidateUrl = versionBasePath ~ versionKey ~ "/page-" ~ softTarget ~ "/" %}
+          {% endif %}
           {% if candidateUrl in allBookUrls %}
             {% set targetUrl = candidateUrl %}
           {% endif %}
         {% else %}
-          {% set candidateUrl = basePath ~ versionKey ~ "/page-" ~ currentPageNum ~ "/" %}
+          {% if versionEntry.source %}
+            {% set candidateUrl = versionBasePath ~ "page-" ~ currentPageNum ~ "/" %}
+          {% else %}
+            {% set candidateUrl = versionBasePath ~ versionKey ~ "/page-" ~ currentPageNum ~ "/" %}
+          {% endif %}
           {% if candidateUrl in allBookUrls %}
             {% set targetUrl = candidateUrl %}
           {% endif %}
@@ -112,7 +136,7 @@
          role="tab"
          {% if isActive %}aria-selected="true" aria-current="page"{% endif %}
          title="{{ versionEntry.title }}">
-        נוסח {{ versionKey }}
+        {{ versionEntry.title if versionEntry.title else "נוסח " ~ versionKey }}
       </a>
     {% endfor %}
 

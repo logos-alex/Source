@@ -44,6 +44,14 @@ description: "שיחת משה — תשעיתא דמשה גביא בנביותא:
       <p>שאלת "מה שכרו של העושה" ותשובת "מידה כנגד מידה" מוכרות היטב מבית מדרשו של ישראל: "כל המרחם על הבריות — מרחמין עליו מן השמים"; "הכנסת אורחים גדולה מקבלת פני שכינה"; "כל המלוה את המת — כאילו נושא ארונו של שכינה". החיבור נושם את אותה אווירה: המצווה איננה מס בשמים אלא קשר — וכל מעשה חסד של אדם מזמין את השכינה אל תוך חייו. קריאתו בלשון עברית מחזירה את השיחה אל הלשון שבה נולדה השאלה הזאת.</p>
     </div>
 
+    <div class="text-content">
+      <h2>שני נוסחים משתי מסורות</h2>
+      <p>לחיבור שני נוסחים המוצגים זה לצד זה — האחד מן המסורת הסורית־הנוצרית, והאחר מן המסורת הערבית־האסלאמית. שניהם נושאים אותה מסגרת נושאית — שיחת משה עם האלוהים על שכר מעשים ומידות — אך באים ממסורות דתיות שונות, וכל אחד מהם מעביר מסר תיאולוגי אחר.</p>
+    </div>
+
+    <h2 class="version-shelf-title">הנוסח הסורי־הנוצרי</h2>
+    <p class="version-shelf-desc">תשעיתא דמשה גביא בנביותא — על פי הדפוס המקורי (Hebraica ז). תצוגה מקבילה: סורית באותיות עבריות לצד עברית. 9 פרקים.</p>
+
     <div class="version-grid">
       <a href="{{ '/texts/aramaic/sichat-moshe/page-1/' | url }}" class="version-card">
         <h3 class="version-card__title">פרק א — פתיחה, צום ושאלות ראשונות</h3>
@@ -106,6 +114,67 @@ description: "שיחת משה — תשעיתא דמשה גביא בנביותא:
         <p class="version-card__subtitle">הבשורה, התחייה והחתימה</p>
         <p class="version-card__desc">חמשת אלפים וחמש מאות שנה; דברי הפולמוס על היהודים, ירידת משה אל בני ישראל — וקולופון המעתיק.</p>
         <p class="version-card__meta">פסוקים 1–7 · Hebraica ז, עמ' 170–171</p>
+      </a>
+    </div>
+
+    <h2 class="version-shelf-title">הנוסח הערבי־האסלאמי</h2>
+    <p class="version-shelf-desc">מנאג'את נבי אלוהים מוסא — על פי כ״י BnF Arabe 1945. תרגום עברי מלא. 8 פרקים.</p>
+
+    <div class="version-grid">
+      <a href="{{ '/texts/arabic/sichat-moshe/page-1/' | url }}" class="version-card">
+        <h3 class="version-card__title">פרק א — פתיחה ושאלות ראשונות</h3>
+        <p class="version-card__subtitle">שלשלת המסירה ועליית סיני</p>
+        <p class="version-card__desc">שכר האומר "אין אלוה מבלעדי אלוהים", שכר טהרת המים, הצדקה, התשובה וקריאת "פסוק הכסא" — והר סיני נישא, ולוחות התורה ניתנים.</p>
+        <p class="version-card__meta">קנבס 4–6 · BnF Arabe 1945</p>
+      </a>
+
+      <a href="{{ '/texts/arabic/sichat-moshe/page-2/' | url }}" class="version-card">
+        <h3 class="version-card__title">פרק ב — שאלות על אומת מוחמד</h3>
+        <p class="version-card__subtitle">אור, תפילה, צום ועלייה לרגל</p>
+        <p class="version-card__desc">משה מוצא בתורה אומה של אור, תפילה בציבור, צום ועלייה לרגל — וכולן "אומת מוחמד". שאלות על מידות החסידות.</p>
+        <p class="version-card__meta">קנבס 7–8 · BnF Arabe 1945</p>
+      </a>
+
+      <a href="{{ '/texts/arabic/sichat-moshe/page-3/' | url }}" class="version-card">
+        <h3 class="version-card__title">פרק ג — מידות ודינים</h3>
+        <p class="version-card__subtitle">מעלות העבדים ודיני החוטאים</p>
+        <p class="version-card__desc">שאלות על מעלות העבדים — אמת, כובש יצר, מוכן למוות, שלם, נבון, ירא. דיני החוטאים — עוכרי מחירים, מרכלים, גזלנים. שכר קריאת סורת "האחד".</p>
+        <p class="version-card__meta">קנבס 9–12 · BnF Arabe 1945</p>
+      </a>
+
+      <a href="{{ '/texts/arabic/sichat-moshe/page-4/' | url }}" class="version-card">
+        <h3 class="version-card__title">פרק ד — שכר מצוות ואיסורים</h3>
+        <p class="version-card__subtitle">ניאוף, גזל, ושכר חסד</p>
+        <p class="version-card__desc">שאלות על איסורים ושכרם — ניאוף, גזל ממון, עיכוב תפילה. שכר המיטיב עם ביתו, מכבד אורח, עובד בלילה, מאמץ יתום, מלביש ערום, מלווה מת.</p>
+        <p class="version-card__meta">קנבס 13–14 · BnF Arabe 1945</p>
+      </a>
+
+      <a href="{{ '/texts/arabic/sichat-moshe/page-5/' | url }}" class="version-card">
+        <h3 class="version-card__title">פרק ה — חכמת אלוהים הנעלמת</h3>
+        <p class="version-card__subtitle">כיסא הכבוד והשרפרף</p>
+        <p class="version-card__desc">שאלות על מקום האלוהים, כיסא הכבוד והשרפרף, גודל הבריאה והחיה הענקית. שאלות על שנת האלוהים, מאכלו, משקהו ומשכנו.</p>
+        <p class="version-card__meta">קנבס 15–17 · BnF Arabe 1945</p>
+      </a>
+
+      <a href="{{ '/texts/arabic/sichat-moshe/page-6/' | url }}" class="version-card">
+        <h3 class="version-card__title">פרק ו — הבריאה הקדומה וסוד המלאכים</h3>
+        <p class="version-card__subtitle">מוחמד הראשון ומעמד המלאכים</p>
+        <p class="version-card__desc">הבריאה הראשונה — אור פניו שנקרא "ידידי מוחמד". הציפור וגרגירי החרדל, שבעים ערים, הפנינה. מעמד המלאכים וסוד הנביאים.</p>
+        <p class="version-card__meta">קנבס 18–22 · BnF Arabe 1945</p>
+      </a>
+
+      <a href="{{ '/texts/arabic/sichat-moshe/page-7/' | url }}" class="version-card">
+        <h3 class="version-card__title">פרק ז — תוכחת "בן אדם"</h3>
+        <p class="version-card__subtitle">שבע שורות מן התורה ועדות האדמה</p>
+        <p class="version-card__desc">שבע שורות מן התורה ותוכחת "בן אדם!" — על הקנאה, לשון הרע, הסרת עז, השכחה. עדות האדמה, מחלת בני האדם ותרופתן, שבעה החוסים בצל כיסא כבודו.</p>
+        <p class="version-card__meta">קנבס 23–27 · BnF Arabe 1945</p>
+      </a>
+
+      <a href="{{ '/texts/arabic/sichat-moshe/page-8/' | url }}" class="version-card">
+        <h3 class="version-card__title">פרק ח — חזון ההר והחתימה</h3>
+        <p class="version-card__subtitle">בקשת משה לראות והתגלות ההר</p>
+        <p class="version-card__desc">החוטאים המנועלים מרחמים, תנאי הגמול והתפילה. בקשת משה לראות את האלוהים, התגלות ההר, מאה ועשרים אלף הרים ומלאכים. השוואת אומת מוחמד לבני ישראל, וחתימת החיבור.</p>
+        <p class="version-card__meta">קנבס 28–31 · BnF Arabe 1945</p>
       </a>
     </div>
   </article>
