@@ -4,10 +4,10 @@
 
 | מדד | ערך |
 |---|---:|
-| סה"כ ספרים | 32 |
-| סה"כ פרקים | 88 |
+| סה"כ ספרים | 33 |
+| סה"כ פרקים | 96 |
 | סה"כ הערות שוליים | 71 |
-| סה"כ מילים (בערך) | 26,547 |
+| סה"כ מילים (בערך) | 29,634 |
 | ספרים עם תצוגה מקבילית | 9 |
 | ספרים בהכנה (comingSoon) | 27 |
 
@@ -36,6 +36,7 @@
 | ketav-almagal-nusach-b | arabic | talmidei-yeshua | 0 | 0 | 0 |  | 0 |
 | klalot-hashvatim | latin | talmidei-yeshua | 0 | 0 | 0 |  | 0 |
 | maale-yeshayahu | greek | isaiah | 0 | 0 | 0 |  | 0 |
+| maase-avraham-sara | arabic | abraham | 8 | 0 | 3,087 |  | 0 |
 | maase-yitzchak | arabic | yitzchak | 4 | 4 | 2,078 |  | 0 |
 | maasei-timotheos | latin | talmidei-yeshua | 0 | 0 | 0 |  | 0 |
 | sefer-hanoch-a | greek | enoch | 0 | 0 | 0 |  | 0 |
