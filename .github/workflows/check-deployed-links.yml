@@ -31,14 +31,36 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Open issue on failure
+      - name: Open or update issue on failure
         if: failure()
-        uses: dbuzanski/create-issue-action@v1
+        uses: actions/github-script@v7
         with:
-          title: "[Link-Check] Broken links detected on deployed site"
-          body: |
-            The scheduled link-check workflow detected broken links on the deployed site.
-
-            See: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          labels: bug,links
-          assignees: logos-alex
+          script: |
+            const title = '[Link-Check] Broken links detected on deployed site';
+            const body = [
+              'The scheduled link-check workflow detected broken links on the deployed site.',
+              '',
+              `See: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
+            ].join('\n');
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              per_page: 100,
+            });
+            const existing = issues.find((i) => i.title === title);
+            if (existing) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existing.number,
+                body,
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+              });
+            }
