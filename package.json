@@ -48,7 +48,7 @@
     "node": ">=22"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^3.1.5",
+    "@11ty/eleventy": "^3.1.7",
     "csso-cli": "^4.0.2",
     "gh-pages": "^6.3.0",
     "js-yaml": "^5.2.3",
