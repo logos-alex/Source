@@ -55,7 +55,7 @@
     <!-- SEO & Meta Tags -->
     <meta name="description" content="{{ pageDescription }}">
     <meta name="author" content="אפוקריפה — התנ&quot;ך האפוקריפי">
-    <meta name="robots" content="{% if robots %}{{ robots }}{% else %}index, follow{% endif %}">
+    <meta name="robots" content="{% if robots %}{{ robots }}{% elif comingSoon %}noindex, follow{% else %}index, follow{% endif %}">
     <link rel="canonical" href="{{ canonicalUrl }}">
 
     {# Chapter prev/next links for serial navigation (Bing/Yandex/RSS readers) #}

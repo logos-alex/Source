@@ -10,7 +10,7 @@ draft: false
 comingSoon: false
 tags:
   - arabic
-  - abraham
+  - yitzchak
   - texts
 permalink: /texts/arabic/maase-yitzchak/
 description: "מעשה אבינו יצחק — סיפור העקידה כפי שנמסר במסורת העממית של המזרח: דיאלוגים ארוכים בין אברהם ליצחק, תפילות המלאכים, והאיל בשלושת הצבעים. הועתק ללשון עברי מלשון ערבית."

@@ -79,7 +79,7 @@ eleventyExcludeFromCollections: true
 
   {# All text pages (book indexes + chapter pages) #}
   {% for item in collections.all %}
-    {% if item.data.tags and "texts" in item.data.tags and not item.data.draft %}
+    {% if item.data.tags and "texts" in item.data.tags and not item.data.draft and not item.data.comingSoon %}
     <url>
       <loc>{{ site.origin }}{{ item.url | url }}</loc>
       <lastmod>{{ buildInfo.getGitLastModified(item.inputPath) or buildInfo.builtAtUTC }}</lastmod>
