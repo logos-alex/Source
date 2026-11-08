@@ -4,20 +4,20 @@
 
 | מדד | ערך |
 |---|---:|
-| סה"כ ספרים | 33 |
-| סה"כ פרקים | 117 |
+| סה"כ ספרים | 34 |
+| סה"כ פרקים | 171 |
 | סה"כ הערות שוליים | 83 |
-| סה"כ מילים (בערך) | 45,819 |
+| סה"כ מילים (בערך) | 56,968 |
 | ספרים עם תצוגה מקבילית | 9 |
-| ספרים בהכנה (comingSoon) | 26 |
+| ספרים בהכנה (comingSoon) | 22 |
 
 ## פירוט לפי ספר
 
 | ספר | מקור | דמות | פרקים | הערות | מילים | מקבילית | ללא תרגום מאומת |
 |---|---|---|---:|---:|---:|:---:|---:|
-| apoc-daniel-syriac | aramaic | daniel | 0 | 0 | 0 | ✓ | 0 |
+| apoc-daniel-syriac | aramaic | daniel | 32 | 0 | 4,684 | ✓ | 0 |
 | apocalypse-abraham | slavic | abraham | 71 | 58 | 20,814 |  | 0 |
-| apokalypsis-esdras | greek | ezra | 0 | 0 | 0 |  | 0 |
+| apokalypsis-esdras | greek | ezra | 7 | 0 | 2,129 |  | 0 |
 | chazon-daniel-aravi | arabic | daniel | 0 | 0 | 0 |  | 0 |
 | chazon-daniel-kopti | arabic | daniel | 0 | 0 | 0 |  | 0 |
 | chazon-ezra-sofer | latin | ezra | 0 | 0 | 0 |  | 0 |
@@ -35,10 +35,11 @@
 | ketav-almagal | arabic | talmidei-yeshua | 0 | 0 | 0 |  | 0 |
 | ketav-almagal-nusach-b | arabic | talmidei-yeshua | 0 | 0 | 0 |  | 0 |
 | klalot-hashvatim | latin | talmidei-yeshua | 0 | 0 | 0 |  | 0 |
-| maale-yeshayahu | greek | isaiah | 0 | 0 | 0 |  | 0 |
+| maale-yeshayahu | greek | isaiah | 7 | 0 | 2,533 |  | 0 |
 | maase-avraham-sara | arabic | abraham | 8 | 0 | 3,086 |  | 0 |
 | maase-yitzchak | arabic | yitzchak | 4 | 4 | 3,450 |  | 0 |
-| maasei-timotheos | latin | talmidei-yeshua | 0 | 0 | 0 |  | 0 |
+| maasei-timotheos | latin | talmidei-yeshua | 5 | 0 | 802 |  | 0 |
+| sefer-eliyahu | hebrew | eliyahu | 3 | 0 | 1,001 |  | 0 |
 | sefer-hanoch-a | greek | enoch | 0 | 0 | 0 |  | 0 |
 | sefer-zerubbabel | hebrew | zerubbabel | 0 | 0 | 0 |  | 0 |
 | sichat-moshe | arabic | moshe | 17 | 9 | 10,852 | ✓ | 0 |

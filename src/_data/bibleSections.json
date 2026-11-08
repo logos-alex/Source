@@ -20,8 +20,8 @@
       "title": "חיצוניים לנביאים",
       "subtitle": "חיבורים המיוחסים לנביאי ישראל — עליות שמים, מסירות נפש וחזיונות אחרית הימים",
       "icon": "🔥",
-      "figures": ["isaiah"],
-      "books": ["maale-yeshayahu"]
+      "figures": ["isaiah", "eliyahu"],
+      "books": ["maale-yeshayahu", "sefer-eliyahu"]
     },
     "ketuvim": {
       "title": "חיצוניים לכתובים",
