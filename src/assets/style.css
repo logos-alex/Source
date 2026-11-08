@@ -1110,6 +1110,61 @@ main {
   letter-spacing: 0.02em;
 }
 
+/* ---- Opening quote cards: Hebrew first, source on demand ---- */
+.opening-quote {
+  margin: 0 0 var(--s-7);
+  padding-bottom: var(--s-5);
+  border-bottom: 1px solid var(--c-border-soft);
+}
+.opening-quote:last-of-type {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+.opening-quote__ref {
+  margin: 0 0 var(--s-3);
+  font-family: var(--font-hebrew-display);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.12em;
+  color: var(--c-gold);
+}
+.opening-quote .opening-text {
+  font-size: var(--fs-lg);
+}
+.opening-source {
+  margin-top: var(--s-4);
+  border: 1px solid var(--c-border-soft);
+  border-radius: 3px;
+  background: var(--c-surface-2, transparent);
+}
+.opening-source > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: var(--s-2) var(--s-3);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.06em;
+  color: var(--c-text-muted);
+  user-select: none;
+}
+.opening-source > summary::-webkit-details-marker {
+  display: none;
+}
+.opening-source > summary::before {
+  content: "▸ ";
+  color: var(--c-gold);
+}
+.opening-source[open] > summary::before {
+  content: "▾ ";
+}
+.opening-source > summary:hover,
+.opening-source > summary:focus-visible {
+  color: var(--c-text);
+}
+.opening-source .opening-text--source {
+  padding: 0 var(--s-3) var(--s-3);
+  text-align: justify;
+  hyphens: auto;
+}
+
 /* --------------------------- Home Intro ---------------------------- */
 /* Zohar quote in the intro — quiet, no gold box */
 .intro-quote {

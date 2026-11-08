@@ -101,3 +101,6 @@ tmp/
 web_modules/
 yarn-debug.log*
 yarn-error.log*
+
+# local work dir (never published)
+_work/
