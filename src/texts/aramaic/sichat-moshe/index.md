@@ -17,18 +17,7 @@ permalink: /texts/aramaic/sichat-moshe/
 description: "שיחת משה — תשעיתא דמשה גביא בנביותא: חיבור הבנוי כשיחה בין משה רבנו לקב׳ה — משה שואל על שכר מעשים ותפילות ועל דיני המידות, והקב׳ה משיב; בסופו חזון הכסא ובשורה נוצרית גלויה, וקולופון המעתיק. הובא מן הדפוס המקורי (Hebraica ז, 162–171)."
 ---
 
-<div class="text-main" style="max-width: var(--max-w);">
-  <article>
-    <header class="text-header">
-      <h1>שיחת משה</h1>
-      <p class="text-meta">
-        <span class="text-meta__item"><span class="text-meta__label">תשעיתא דמשה גביא בנביותא</span></span>
-        <span class="text-meta__sep" aria-hidden="true">·</span>
-        <span class="text-meta__item"><span class="text-meta__label">מקור:</span> סורית</span>
-        <span class="text-meta__sep" aria-hidden="true">·</span>
-        <span class="text-meta__item"><span class="text-meta__label">ייחוס:</span> משה רבנו</span>
-      </p>
-    </header>
+
 
     <div class="text-content">
       <p><strong>שיחת משה</strong> — תשעיתא דמשה גביא בנביותא, "סיפורו של משה הנבחר בנבואה" — הוא חיבור קצר הבנוי כולו כשיחה בין משה רבנו לקב"ה. משה עולה להר סיני, מקבל את הברית, ופותח לשאול: מי שעושה מעשה פלוני — מה שכרו? והקב"ה משיב: מי שעושה אותו למעני — אני נותן לו גמול פלוני; ומי שמקלקל — כך עונשו.</p>
@@ -177,5 +166,3 @@ description: "שיחת משה — תשעיתא דמשה גביא בנביותא:
         <p class="version-card__meta">קנבס 28–31 · BnF Arabe 1945</p>
       </a>
     </div>
-  </article>
-</div>

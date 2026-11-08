@@ -1880,6 +1880,13 @@ main {
 .updates-main {
   max-width: var(--max-w);
 }
+.updates-main__section-title {
+  margin: var(--s-7) 0 0;
+  font-family: var(--font-hebrew-display);
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  color: var(--c-text);
+}
 
 .updates-grid {
   display: grid;
