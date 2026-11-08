@@ -5,40 +5,45 @@
 - **אתר חי:** https://logos-alex.github.io/Source/
 - **מסמכי הכוונה:** `docs/PROJECT-MANIFEST.md`
 
-## מצב המאגר (אוגוסט 2026)
+## מצב המאגר (נובמבר 2026)
 
-שלושה חיבורים פעילים בטקסט מלא, לצד 27 חיבורים נוספים הרשומים בקטלוג בהכנה:
+שבעה חיבורים פעילים בטקסט מלא, לצד 26 חיבורים נוספים הרשומים בקטלוג בהכנה:
 
-| חיבור פעיל                                | מקור                              | היקף                                                 |
-| ----------------------------------------- | --------------------------------- | ---------------------------------------------------- |
-| **חזון אברהם**                            | סלאבית (שלושה נוסחים: א', ב', ג') | 17 פרקים לכל נוסח + נספחים, טבלת הקבלה ותצוגה מקבילה |
-| **מעשה יצחק**                             | ערבית (BnF Arabe 5072)            | 4 פרקים + הערות נוסח                                 |
-| **שיחת משה (תשיעיתא דמשה גביא בנביאותא)** | סורית                             | 6 פרקים + 2 נספחים, תצוגה מקבילה סורית־עברית         |
+| חיבור פעיל            | מקור                                  | היקף                                                    |
+| --------------------- | ------------------------------------- | ------------------------------------------------------- |
+| **חזון אברהם**        | סלאבית (ארבעה נוסחים: א', ב', ג', ד') | 17–24 פרקים לכל נוסח + נספחים, טבלת הקבלה ותצוגה מקבילה |
+| **מעשה אברהם ושרה**   | ערבית (BnF Arabe 132)                 | 8 פרקים                                                 |
+| **מעשה יצחק**         | ערבית (BnF Arabe 5072)                | 4 פרקים + הערות נוסח                                    |
+| **צוואת יצחק**        | ערבית (BnF Arabe 132)                 | 5 פרקים                                                 |
+| **צוואת יעקב**        | ערבית (BnF Arabe 132)                 | 7 פרקים                                                 |
+| **שיחת משה**          | ערבית + ארמית                         | 17 פרקים בשני נוסחים, תצוגה מקבילה                      |
+| **חזון דניאל השביעי** | ארמנית                                | 4 פרקים + נספח                                          |
 
-| מדד                      |                     ערך |
-| ------------------------ | ----------------------: |
-| חיבורים רשומים בקטלוג    |                      30 |
-| חיבורים פעילים בטקסט מלא |                       3 |
-| פרקי תוכן                |                      66 |
-| מילים (בערך)             |                 ~17,900 |
-| שפות מקור בקטלוג         |                       8 |
-| דמויות מקראיות בקטלוג    | 9 (+ חטיבת תלמידי ישוע) |
-| חיבורים עם תצוגה מקבילית |                       9 |
-| חיבורים בסטטוס "בקרוב"   |                      27 |
+| מדד                      |                      ערך |
+| ------------------------ | -----------------------: |
+| חיבורים רשומים בקטלוג    |                       33 |
+| חיבורים פעילים בטקסט מלא |                        7 |
+| פרקי תוכן                |                      117 |
+| הערות וביאורים           |                       83 |
+| מילים (בערך)             |                  ~45,800 |
+| שפות מקור בקטלוג         |                        8 |
+| דמויות מקראיות בקטלוג    | 10 (+ חטיבת תלמידי ישוע) |
+| חיבורים עם תצוגה מקבילית |                        9 |
+| חיבורים בסטטוס "בקרוב"   |                       26 |
 
 ### חיבורים בקטלוג לפי שפת מקור
 
-| שפה      | מספר חיבורים | דוגמאות                                                 |
-| -------- | -----------: | ------------------------------------------------------- |
-| aramaic  |           11 | sichat-moshe, clementine-r1..r4, apoc-daniel-syriac     |
-| arabic   |            7 | maase-yitzchak, ketav-almagal, chazon-daniel-aravi      |
-| greek    |            4 | apokalypsis-esdras, maale-yeshayahu, sefer-hanoch-a     |
-| latin    |            3 | chazon-ezra-sofer, maasei-timotheos, klalot-hashvatim   |
-| armenian |            2 | vision-daniel-armenian, vision-enoch-righteous-armenian |
-| slavic   |            1 | apocalypse-abraham (פעיל)                               |
-| hebrew   |            1 | sefer-zerubbabel                                        |
-| geez     |            1 | clementos                                               |
-| **סה"כ** |       **30** |                                                         |
+| שפה      | מספר חיבורים | דוגמאות                                                        |
+| -------- | -----------: | -------------------------------------------------------------- |
+| aramaic  |           11 | sichat-moshe, clementine-r1..r4, apoc-daniel-syriac            |
+| arabic   |           10 | maase-yitzchak, ketav-almagal, chazon-daniel-aravi             |
+| greek    |            4 | apokalypsis-esdras, maale-yeshayahu, sefer-hanoch-a            |
+| latin    |            3 | chazon-ezra-sofer, maasei-timotheos, klalot-hashvatim          |
+| armenian |            2 | vision-daniel-armenian (פעיל), vision-enoch-righteous-armenian |
+| slavic   |            1 | apocalypse-abraham (פעיל)                                      |
+| hebrew   |            1 | sefer-zerubbabel                                               |
+| geez     |            1 | clementos                                                      |
+| **סה"כ** |       **33** |                                                                |
 
 ### חיבורים עם תצוגה מקבילית מתוכננת (9)
 
@@ -51,7 +56,7 @@ apoc-daniel-syriac, young-daniel-syriac, clementine-r1, clementine-r2, clementin
 ### תשתית טכנית מלאה
 
 - **מנוע אתר:** Eleventy 3.x (Nunjucks templates) — 16 בדיקות CI, כולן עוברות
-- **קטלוג:** `src/_data/sources-catalog.json` עם 29 חיבורים, 8 שפות, 8 דמויות, 9 עם `parallelLayout: true`
+- **קטלוג:** `src/_data/sources-catalog.json` עם 33 חיבורים, 8 שפות, 10 דמויות, 9 עם `parallelLayout: true`
 - **תבניות Nunjucks:** `base.njk`, `text-page.njk`, `category-page.njk`, `content-page.njk`, `breadcrumbs.njk`, `disqus.njk`, `logo-mark.njk`
 - **עיצוב:** CSS מלא עם CSS variables — RTL, מצב כהה/בהיר, מערכת מרחבית, z-index scale מסודר, תמיכה ב-`prefers-reduced-motion`
 - **פונטים:** Self-hosted — Frank Ruhl Libre (300/400/700), Noto Serif Hebrew (300/400/700), EB Garamond (לוגו לטיני) — WOFF2 + TTF, עם `unicode-range` לחלוקת טעינה
@@ -72,7 +77,7 @@ apoc-daniel-syriac, young-daniel-syriac, clementine-r1, clementine-r2, clementin
 
 ## מה חסר
 
-27 חיבורים בקטלוג עדיין בסטטוס "בקרוב" ("החיבור בהכנה. הטקסט יתווסף בהמשך.") עם `comingSoon: true`.
+26 חיבורים בקטלוג עדיין בסטטוס "בקרוב" ("החיבור בהכנה. הטקסט יתווסף בהמשך.") עם `comingSoon: true`.
 
 כדי להפוך חיבור לפעיל יש ל:
 

@@ -7,7 +7,7 @@
 | סה"כ ספרים | 33 |
 | סה"כ פרקים | 117 |
 | סה"כ הערות שוליים | 83 |
-| סה"כ מילים (בערך) | 45,784 |
+| סה"כ מילים (בערך) | 45,819 |
 | ספרים עם תצוגה מקבילית | 9 |
 | ספרים בהכנה (comingSoon) | 26 |
 
@@ -45,7 +45,7 @@
 | tsavaat-yaakov | arabic | yaakov | 7 | 0 | 2,303 |  | 0 |
 | tsavaat-yeshua | aramaic | talmidei-yeshua | 0 | 0 | 0 |  | 0 |
 | tsavaat-yitzchak | arabic | yitzchak | 5 | 0 | 2,677 |  | 0 |
-| vision-daniel-armenian | armenian | daniel | 5 | 12 | 2,602 |  | 0 |
+| vision-daniel-armenian | armenian | daniel | 5 | 12 | 2,637 |  | 0 |
 | vision-enoch-righteous-armenian | armenian | enoch | 0 | 0 | 0 |  | 0 |
 | young-daniel-syriac | aramaic | daniel | 0 | 0 | 0 | ✓ | 0 |
 
