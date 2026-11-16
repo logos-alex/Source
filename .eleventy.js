@@ -105,10 +105,21 @@ module.exports = function (eleventyConfig) {
         .replace(/[\s\u200e\u200f]/g, "")
         .replace(/["'\u05f4\u05f3]/g, "");
     const wanted = norm(title);
-    return String(html).replace(
-      /^\s*<h2[^>]*>([\s\S]*?)<\/h2>\s*/,
-      (whole, inner) => (norm(inner) === wanted ? "" : whole),
-    );
+    let out = String(html);
+    let dropped = false;
+    out = out.replace(/^\s*<h2[^>]*>([\s\S]*?)<\/h2>\s*/, (whole, inner) => {
+      if (norm(inner) !== wanted) return whole;
+      dropped = true;
+      return "";
+    });
+    // Without its h2 the chapter opens on h3 subsections — promote them one level.
+    if (dropped && !/<h2[\s>]/.test(out)) {
+      const shift = (level) => Math.max(2, Number(level) - 1);
+      out = out
+        .replace(/<h([3-6])([^>]*)>/g, (m, l, a) => `<h${shift(l)}${a}>`)
+        .replace(/<\/h([3-6])>/g, (m, l) => `</h${shift(l)}>`);
+    }
+    return out;
   });
 
   eleventyConfig.addFilter("renderNoteRefs", (text) => {    if (!text) return "";
