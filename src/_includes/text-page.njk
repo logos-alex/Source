@@ -1,6 +1,10 @@
-{% extends "base.njk" %}
+﻿{% extends "base.njk" %}
 
-{% set bodyClass = "text-page" %}
+{# A page that carries a source column and a translation column needs a wider
+   measure than a plain reading page: two 300px columns are unreadable. #}
+{% set _transParts = content.split("<h3>תרגום עברי</h3>") %}
+{% set hasParallelColumns = (pageNumber != 0) and (_transParts.length >= 2) %}
+{% set bodyClass = "text-page" + (" text-page--parallel" if hasParallelColumns else "") %}
 
 {% block head_extras %}
   {% set pagesInBook = collections.all | bookPages(page.url, book) %}
@@ -104,6 +108,12 @@
               <span>תרגום בלבד</span>
             </button>
           </div>
+          {% set langEntry = languages[source] %}
+          {% set langLabel = langEntry.label if langEntry else source %}
+          <div class="parallel-labels" aria-hidden="true">
+            <span class="parallel-labels__source">מקור — {{ langLabel }}</span>
+            <span class="parallel-labels__translation">תרגום עברי</span>
+          </div>
           {# Compute verse-paired rows: both sides are first rendered exactly as in
              the classic layout (renderNoteRefs over the whole column, so the
              first-occurrence id logic for double-verse notes is preserved), then
@@ -121,8 +131,8 @@
                  so verse N always sits exactly opposite verse N ("הקבלה מוחלטת"). #}
               {% for row in verseRows %}
                 <div class="verse-pair">
-                  <p class="verse-pair__source" lang="{{ colLang }}">{{ row.source | safe }}</p>
-                  <p class="verse-pair__translation">{{ row.translation | safe }}</p>
+                  <p class="verse-pair__source" lang="{{ colLang }}"><span class="verse-pair__tag" aria-hidden="true">מקור</span>{{ row.source | safe }}</p>
+                  <p class="verse-pair__translation"><span class="verse-pair__tag" aria-hidden="true">תרגום</span>{{ row.translation | safe }}</p>
                 </div>
               {% endfor %}
             {% else %}
@@ -130,7 +140,6 @@
                 {{ sourceRendered | safe }}
               </section>
               <section class="column-translation" data-parallel-translation aria-label="תרגום עברי">
-                <h2 class="column-translation__heading visually-hidden">תרגום עברי</h2>
                 {{ translationRendered | safe }}
               </section>
             {% endif %}

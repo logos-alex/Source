@@ -1590,7 +1590,7 @@ main {
 }
 .parallel-layout.parallel-verse-aligned .verse-pair__source {
   color: var(--c-text-2);
-  font-style: italic;
+  font-style: normal;
   padding-inline-start: var(--s-4);
   border-inline-start: 1px solid var(--c-border);
 }
@@ -1628,9 +1628,66 @@ main {
 }
 .parallel-layout .column-source {
   color: var(--c-text-2);
-  font-style: italic;
+  font-style: normal;
   padding-inline-start: var(--s-4);
   border-inline-start: 1px solid var(--c-border);
+}
+
+/* ---- Column identity: a labelled, wider reading area ----
+   Two columns squeezed into the 680px single-column measure is what made the
+   parallel pages unreadable. Widen the page, name the columns, and keep the
+   labels visible when the columns stack on small screens. */
+body.text-page--parallel .text-main {
+  max-width: 1060px;
+}
+body.text-page--parallel .text-header,
+body.text-page--parallel .footnotes,
+body.text-page--parallel .pagination {
+  max-width: var(--max-w-read);
+  margin-inline: auto;
+}
+.parallel-labels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: var(--s-6);
+  margin-top: var(--s-5);
+  padding-bottom: var(--s-2);
+  border-bottom: 1px solid var(--c-border);
+  font-family: var(--font-hebrew-display);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.08em;
+  color: var(--c-text-muted);
+}
+.parallel-labels__source {
+  padding-inline-start: var(--s-4);
+}
+.parallel-labels__translation {
+  font-weight: 700;
+  color: var(--c-accent);
+}
+.verse-pair__tag {
+  display: none;
+}
+@media (max-width: 860px) {
+  .parallel-labels {
+    display: none;
+  }
+}
+@media (max-width: 760px) {
+  .parallel-layout.parallel-verse-aligned .verse-pair__tag {
+    display: inline-block;
+    margin-inline-end: 0.45em;
+    font-family: var(--font-hebrew-display);
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--c-gold);
+  }
+  .parallel-layout.parallel-verse-aligned .verse-pair__source {
+    background: var(--c-surface-ink);
+    border-radius: var(--r-sm);
+    padding: var(--s-2) var(--s-3);
+  }
 }
 
 @media (max-width: 760px) {

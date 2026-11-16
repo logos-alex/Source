@@ -104,3 +104,7 @@ yarn-error.log*
 
 # local work dir (never published)
 _work/
+
+_preview/
+_site/
+
