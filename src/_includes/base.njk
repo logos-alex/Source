@@ -22,7 +22,7 @@
     {% if bEntry and bEntry.versions and version and bEntry.versions[version] and (bEntry.versions | length) > 1 %}
       {% set bName = bName + ", " + bEntry.versions[version].title %}
     {% endif %}
-    <title>{% if page.url == '/' %}אפוקריפה — התנ"ך האפוקריפי | ספרות חיצונית ואפוקריפה בעברית{% elif bName and pageNumber and pageNumber != 0 %}{{ title }} — {{ bName }} | אפוקריפה — התנ"ך האפוקריפי{% else %}{{ title }} | אפוקריפה — התנ"ך האפוקריפי{% endif %}</title>
+    <title>{% if page.url == '/' %}אפוקריפה — התנ״ך האפוקריפי | ספרות חיצונית ואפוקריפה בעברית{% elif bName and pageNumber and pageNumber != 0 %}{{ title }} — {{ bName }} | אפוקריפה — התנ״ך האפוקריפי{% else %}{{ title }} | אפוקריפה — התנ״ך האפוקריפי{% endif %}</title>
 
     {# Pre-paint theme script — prevents flash-of-wrong-theme (FOUC) #}
     <script>
@@ -59,7 +59,7 @@
 
     <!-- SEO & Meta Tags -->
     <meta name="description" content="{{ pageDescription }}">
-    <meta name="author" content="אפוקריפה — התנ&quot;ך האפוקריפי">
+    <meta name="author" content="אפוקריפה — התנ״ך האפוקריפי">
     <meta name="robots" content="{% if robots %}{{ robots }}{% elif comingSoon %}noindex, follow{% else %}index, follow{% endif %}">
     <link rel="canonical" href="{{ canonicalUrl }}">
 
@@ -89,10 +89,10 @@
       {% set jsonLdType = "Article" %}
     {% endif %}
     <meta property="og:type" content="{{ ogType }}">
-    <meta property="og:title" content="{{ title }} | אפוקריפה — התנ&quot;ך האפוקריפי">
+    <meta property="og:title" content="{{ title }} | אפוקריפה — התנ״ך האפוקריפי">
     <meta property="og:description" content="{{ pageDescription }}">
     <meta property="og:url" content="{{ canonicalUrl }}">
-    <meta property="og:site_name" content="אפוקריפה — התנ&quot;ך האפוקריפי">
+    <meta property="og:site_name" content="אפוקריפה — התנ״ך האפוקריפי">
     <meta property="og:locale" content="he_IL">
     <meta property="og:image" content="{{ ogImageUrl }}">
     <meta property="og:image:width" content="1200">
@@ -101,7 +101,7 @@
 
     <!-- Twitter/X Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{ title }} | אפוקריפה — התנ&quot;ך האפוקריפי">
+    <meta name="twitter:title" content="{{ title }} | אפוקריפה — התנ״ך האפוקריפי">
     <meta name="twitter:description" content="{{ pageDescription }}">
     <meta name="twitter:url" content="{{ canonicalUrl }}">
     <meta name="twitter:image" content="{{ ogImageUrl }}">
@@ -271,7 +271,7 @@
               <span class="site-brand__mark" aria-hidden="true">{% include "logo-mark.njk" %}</span>
               <span class="site-brand__text">
                 <span class="site-brand__name">אפוקריפה</span>
-                <span class="site-brand__tagline">התנ"ך האפוקריפי</span>
+                <span class="site-brand__tagline">התנ״ך האפוקריפי</span>
               </span>
             </a>
 
@@ -324,7 +324,7 @@
             <a href="{{ '/' | url }}" {% if page.url == "/" %}aria-current="page"{% endif %}>דף הבית</a>
             <a href="{{ '/updates/' | url }}" {% if page.url == "/updates/" %}aria-current="page"{% endif %}>מה חדש</a>
             <div class="nav-dropdown">
-                <a href="{{ '/texts/' | url }}" class="dropbtn" aria-haspopup="true" aria-expanded="false">התנ"ך האפוקריפי</a>
+                <a href="{{ '/texts/' | url }}" class="dropbtn" aria-haspopup="true" aria-expanded="false">התנ״ך האפוקריפי</a>
                 <div class="dropdown-content">
                     {% for sectionKey in bibleSectionOrder %}
                     <a href="{{ ('/texts/#' + sectionKey) | url }}">{{ bibleSections.sections[sectionKey].title }}</a>
@@ -351,7 +351,7 @@
           <span class="footer-brand__mark" aria-hidden="true">{% include "logo-mark.njk" %}</span>
           <div class="footer-brand__text">
             <span class="footer-brand__name">אפוקריפה</span>
-            <span class="footer-brand__tagline">התנ"ך האפוקריפי</span>
+            <span class="footer-brand__tagline">התנ״ך האפוקריפי</span>
           </div>
         </div>
         <p class="footer-tagline">השבת קולות עתיקים אל שפת המוצא — שחזורים, תרגומים וביאורים של טקסטים שנדחקו אל שולי המסורת.</p>

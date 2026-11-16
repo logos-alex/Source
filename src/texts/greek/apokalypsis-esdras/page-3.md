@@ -50,4 +50,3 @@ permalink: /texts/greek/apokalypsis-esdras/page-3/
 
 **טז** מָה אֶעֱשֶׂה לְךָ, עֶזְרָא, וְשָׁפַטְתָּ עִמִּי?
 
----

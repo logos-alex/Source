@@ -7,6 +7,7 @@ layout: base.njk
 permalink: "/by-figure/{{ sectionKey }}/index.html"
 eleventyComputed:
   title: "{{ bibleSections.sections[sectionKey].title }}"
+  description: "{{ bibleSections.sections[sectionKey].subtitle }}, בתרגום עברי ומתוך לשון המקור, עם ביאורים והערות."
 ---
 
 {% set section = bibleSections.sections[sectionKey] %}
@@ -15,7 +16,7 @@ eleventyComputed:
 <div class="text-main library-page">
   <header class="text-header">
     <div class="library-shelf__icon" aria-hidden="true">{% set iconKey = sectionKey %}{% include "section-icon.njk" %}</div>
-    <p class="text-header__eyebrow">התנ"ך האפוקריפי</p>
+    <p class="text-header__eyebrow">התנ״ך האפוקריפי</p>
     <h1>{{ section.title }}</h1>
     <p>{{ section.subtitle }}</p>
   </header>
@@ -61,7 +62,7 @@ eleventyComputed:
     </section>
   </div>
 
-  <nav class="bible-sections-nav" aria-label="ניווט בין חלקי התנך">
+  <nav class="bible-sections-nav" aria-label="ניווט בין חלקי התנ״ך">
     <a href="{{ '/texts/' | url }}" class="bible-sections-nav__back">← אל הספרייה</a>
     <div class="bible-sections-nav__sections">
       {% for otherKey in bibleSectionOrder %}

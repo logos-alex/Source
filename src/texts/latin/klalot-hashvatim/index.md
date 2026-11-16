@@ -21,4 +21,3 @@ manuscript: "Vat.ebr.461"
 ## קללות השבטים — Le Maledizioni delle Tribù
 
 החיבור בהכנה. הטקסט יתווסף בהמשך.
-

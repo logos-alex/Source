@@ -13,7 +13,7 @@ tags:
   - talmidei-yeshua
   - texts
 permalink: /texts/arabic/glia-de-klemis/
-description: "חיבור המיוחס לקלמנס תלמיד פטרוס, מתוך כתב־יד ערבי. פרסום ראשון של תעתיק. הועתק ללשון עברי מלשון ערבית."
+description: "חיבור המיוחס לקלמנס תלמיד פטרוס, מתוך כתב־יד ערבי. פרסום ראשון של תעתיק. הועתק ללשון עברית מלשון ערבית."
 rarity: unpublished
 manuscript: "Vat.ar.83 (15th cent.)"
 ---
@@ -21,4 +21,3 @@ manuscript: "Vat.ar.83 (15th cent.)"
 ## מספר אקלימנטוס תלמיד פֶּטרוֹס השליח
 
 החיבור בהכנה. הטקסט יתווסף בהמשך.
-
