@@ -7,6 +7,7 @@ const steps = [
   ["node", "scripts/verify-chapter-titles.mjs"],
   ["node", "scripts/verify-permalinks.mjs"],
   ["node", "scripts/verify-placeholders.mjs"],
+  ["node", "scripts/verify-house-standard.mjs"],
   ["node", "scripts/verify-intro-revisions.mjs"],
   ["node", "scripts/verify-third-party-controls.mjs"],
   ["node", "scripts/report-content-status.mjs", "--check"],
