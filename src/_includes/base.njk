@@ -19,6 +19,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% set bEntry = book | bookCatalogEntry %}
     {% set bName = (bEntry.title.split(" — ")[0]) if bEntry and bEntry.title else "" %}
+    {% if bEntry and bEntry.versions and version and bEntry.versions[version] and (bEntry.versions | length) > 1 %}
+      {% set bName = bName + ", " + bEntry.versions[version].title %}
+    {% endif %}
     <title>{% if page.url == '/' %}אפוקריפה — התנ"ך האפוקריפי | ספרות חיצונית ואפוקריפה בעברית{% elif bName and pageNumber and pageNumber != 0 %}{{ title }} — {{ bName }} | אפוקריפה — התנ"ך האפוקריפי{% else %}{{ title }} | אפוקריפה — התנ"ך האפוקריפי{% endif %}</title>
 
     {# Pre-paint theme script — prevents flash-of-wrong-theme (FOUC) #}
