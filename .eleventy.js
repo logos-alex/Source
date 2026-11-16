@@ -91,8 +91,27 @@ module.exports = function (eleventyConfig) {
       .replace(/››/g, '<span class="scribe-mark">››</span>');
   });
 
-  eleventyConfig.addFilter("renderNoteRefs", (text) => {
-    if (!text) return "";
+  // ---------------------------------------------------------------------------
+  // A chapter page carries its title in the front matter (rendered as the page
+  // h1). Some bodies also open with the same heading. Rendering both puts the
+  // title twice on the page — so the leading h2 is dropped when it merely
+  // repeats the title.
+  // ---------------------------------------------------------------------------
+  eleventyConfig.addFilter("dropDuplicateTitle", (html, title) => {
+    if (!html || !title) return html;
+    const norm = (v) =>
+      String(v)
+        .replace(/<[^>]+>/g, "")
+        .replace(/[\s\u200e\u200f]/g, "")
+        .replace(/["'\u05f4\u05f3]/g, "");
+    const wanted = norm(title);
+    return String(html).replace(
+      /^\s*<h2[^>]*>([\s\S]*?)<\/h2>\s*/,
+      (whole, inner) => (norm(inner) === wanted ? "" : whole),
+    );
+  });
+
+  eleventyConfig.addFilter("renderNoteRefs", (text) => {    if (!text) return "";
     // Apply renderInlineMarkdown on raw markdown text (not yet rendered to HTML).
     let result = renderInlineMarkdown(text);
     const seenRefs = new Set();

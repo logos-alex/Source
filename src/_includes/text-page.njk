@@ -1,5 +1,9 @@
 ﻿{% extends "base.njk" %}
 
+{# The page h1 already carries the title; a body that opens with the same
+   heading would print the title twice on the page. #}
+{% set content = content | dropDuplicateTitle(title) %}
+
 {# A page that carries a source column and a translation column needs a wider
    measure than a plain reading page: two 300px columns are unreadable. #}
 {% set _transParts = content.split("<h3>תרגום עברי</h3>") %}

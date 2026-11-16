@@ -6,8 +6,8 @@
 |---|---:|
 | סה"כ ספרים | 34 |
 | סה"כ פרקים | 171 |
-| סה"כ הערות שוליים | 83 |
-| סה"כ מילים (בערך) | 56,755 |
+| סה"כ הערות שוליים | 90 |
+| סה"כ מילים (בערך) | 56,346 |
 | ספרים עם תצוגה מקבילית | 9 |
 | ספרים בהכנה (comingSoon) | 22 |
 
@@ -16,7 +16,7 @@
 | ספר | מקור | דמות | פרקים | הערות | מילים | מקבילית | ללא תרגום מאומת |
 |---|---|---|---:|---:|---:|:---:|---:|
 | apoc-daniel-syriac | aramaic | daniel | 32 | 0 | 4,684 | ✓ | 0 |
-| apocalypse-abraham | slavic | abraham | 71 | 58 | 20,601 |  | 0 |
+| apocalypse-abraham | slavic | abraham | 71 | 65 | 20,168 |  | 0 |
 | apokalypsis-esdras | greek | ezra | 7 | 0 | 2,129 |  | 0 |
 | chazon-daniel-aravi | arabic | daniel | 0 | 0 | 0 |  | 0 |
 | chazon-daniel-kopti | arabic | daniel | 0 | 0 | 0 |  | 0 |
@@ -46,7 +46,7 @@
 | tsavaat-yaakov | arabic | yaakov | 7 | 0 | 2,303 |  | 0 |
 | tsavaat-yeshua | aramaic | talmidei-yeshua | 0 | 0 | 0 |  | 0 |
 | tsavaat-yitzchak | arabic | yitzchak | 5 | 0 | 2,677 |  | 0 |
-| vision-daniel-armenian | armenian | daniel | 5 | 12 | 2,637 |  | 0 |
+| vision-daniel-armenian | armenian | daniel | 5 | 12 | 2,661 |  | 0 |
 | vision-enoch-righteous-armenian | armenian | enoch | 0 | 0 | 0 |  | 0 |
 | young-daniel-syriac | aramaic | daniel | 0 | 0 | 0 | ✓ | 0 |
 
