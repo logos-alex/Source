@@ -259,6 +259,18 @@ module.exports = function (eleventyConfig) {
     }
   });
 
+  // Only the versions that belong to the current source language. A book id may
+  // be shared by two traditions (e.g. sichat-moshe in Aramaic and in Arabic);
+  // each page must offer tabs only to its own language.
+  eleventyConfig.addFilter("versionsForSource", (entry, source) => {
+    if (!entry || !entry.versions) return {};
+    const out = {};
+    for (const [key, value] of Object.entries(entry.versions)) {
+      if (!value || !value.source || value.source === source) out[key] = value;
+    }
+    return out;
+  });
+
   // Returns the keys of an object as an array.
   // Usage: {{ myObject | keys }}
   eleventyConfig.addFilter("keys", (obj) => {

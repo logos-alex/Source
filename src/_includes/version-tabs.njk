@@ -9,8 +9,9 @@
      - page: the current Eleventy page object (for URL detection)
 #}
 {% set catalogEntry = book | bookCatalogEntry %}
-{% if catalogEntry and catalogEntry.versions and catalogEntry.versions | length > 1 %}
-  {% set versions = catalogEntry.versions %}
+{# Only the versions that belong to this page's own language tradition. #}
+{% set versions = catalogEntry | versionsForSource(source) %}
+{% if versions and versions | length > 1 %}
   {% set versionKeys = versions | keys | sort %}
 
   {# Determine the page number from the current URL (e.g. "5" from /page-5/) #}
