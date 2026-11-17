@@ -1,12 +1,12 @@
 ---
 layout: text-page
 title: "פרק 7 — תוכחת 'בן אדם'"
-book: sichat-moshe
+book: sichat-moshe-arabic
 source: arabic
 figure: moshe
 pageNumber: 7
-version: arabic-islamic
-permalink: /texts/arabic/sichat-moshe/page-7/
+version: main
+permalink: /texts/arabic/sichat-moshe-arabic/page-7/
 tags:
   - texts
   - arabic

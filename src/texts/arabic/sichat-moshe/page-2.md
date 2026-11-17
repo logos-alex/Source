@@ -1,12 +1,12 @@
 ---
 layout: text-page
 title: "פרק 2 — שאלות על אומת מוחמד"
-book: sichat-moshe
+book: sichat-moshe-arabic
 source: arabic
 figure: moshe
 pageNumber: 2
-version: arabic-islamic
-permalink: /texts/arabic/sichat-moshe/page-2/
+version: main
+permalink: /texts/arabic/sichat-moshe-arabic/page-2/
 tags:
   - texts
   - arabic

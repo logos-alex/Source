@@ -6,6 +6,7 @@ source: slavic
 figure: abraham
 pageNumber: 18
 version: a
+appendix: true
 permalink: /texts/slavic/apocalypse-abraham/a/page-18/
 tags:
   - texts

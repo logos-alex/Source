@@ -1,12 +1,12 @@
 ---
 layout: text-page
 title: "פרק 1 — פתיחה ושאלות ראשונות"
-book: sichat-moshe
+book: sichat-moshe-arabic
 source: arabic
 figure: moshe
 pageNumber: 1
-version: arabic-islamic
-permalink: /texts/arabic/sichat-moshe/page-1/
+version: main
+permalink: /texts/arabic/sichat-moshe-arabic/page-1/
 tags:
   - texts
   - arabic

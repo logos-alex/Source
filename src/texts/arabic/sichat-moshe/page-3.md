@@ -1,12 +1,12 @@
 ---
 layout: text-page
 title: "פרק 3 — מידות ודינים"
-book: sichat-moshe
+book: sichat-moshe-arabic
 source: arabic
 figure: moshe
 pageNumber: 3
-version: arabic-islamic
-permalink: /texts/arabic/sichat-moshe/page-3/
+version: main
+permalink: /texts/arabic/sichat-moshe-arabic/page-3/
 tags:
   - texts
   - arabic

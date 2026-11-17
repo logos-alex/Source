@@ -1,12 +1,12 @@
 ---
 layout: text-page
 title: "פרק 4 — שכר מצוות ואיסורים"
-book: sichat-moshe
+book: sichat-moshe-arabic
 source: arabic
 figure: moshe
 pageNumber: 4
-version: arabic-islamic
-permalink: /texts/arabic/sichat-moshe/page-4/
+version: main
+permalink: /texts/arabic/sichat-moshe-arabic/page-4/
 tags:
   - texts
   - arabic

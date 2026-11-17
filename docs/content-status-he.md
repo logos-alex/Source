@@ -4,10 +4,10 @@
 
 | מדד | ערך |
 |---|---:|
-| סה"כ ספרים | 34 |
+| סה"כ ספרים | 35 |
 | סה"כ פרקים | 170 |
 | סה"כ הערות שוליים | 118 |
-| סה"כ מילים (בערך) | 53,089 |
+| סה"כ מילים (בערך) | 53,197 |
 | ספרים עם תצוגה מקבילית | 9 |
 | ספרים בהכנה (comingSoon) | 22 |
 
@@ -16,7 +16,7 @@
 | ספר | מקור | דמות | פרקים | הערות | מילים | מקבילית | ללא תרגום מאומת |
 |---|---|---|---:|---:|---:|:---:|---:|
 | apoc-daniel-syriac | aramaic | daniel | 32 | 0 | 4,637 | ✓ | 0 |
-| apocalypse-abraham | slavic | abraham | 71 | 65 | 19,631 |  | 0 |
+| apocalypse-abraham | slavic | abraham | 71 | 65 | 19,739 |  | 0 |
 | apokalypsis-esdras | greek | ezra | 7 | 0 | 2,123 |  | 0 |
 | chazon-daniel-aravi | arabic | daniel | 0 | 0 | 0 |  | 0 |
 | chazon-daniel-kopti | arabic | daniel | 0 | 0 | 0 |  | 0 |
@@ -42,7 +42,8 @@
 | sefer-eliyahu | hebrew | eliyahu | 3 | 0 | 1,001 |  | 0 |
 | sefer-hanoch-a | greek | enoch | 0 | 0 | 0 |  | 0 |
 | sefer-zerubbabel | hebrew | zerubbabel | 0 | 0 | 0 |  | 0 |
-| sichat-moshe | arabic | moshe | 17 | 9 | 10,817 | ✓ | 0 |
+| sichat-moshe | aramaic | moshe | 9 | 9 | 4,672 | ✓ | 0 |
+| sichat-moshe-arabic | arabic | moshe | 8 | 0 | 6,145 |  | 0 |
 | tsavaat-yaakov | arabic | yaakov | 7 | 0 | 2,092 |  | 0 |
 | tsavaat-yeshua | aramaic | talmidei-yeshua | 0 | 0 | 0 |  | 0 |
 | tsavaat-yitzchak | arabic | yitzchak | 5 | 0 | 2,676 |  | 0 |

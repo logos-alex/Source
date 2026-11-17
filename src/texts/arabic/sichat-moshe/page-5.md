@@ -1,12 +1,12 @@
 ---
 layout: text-page
 title: "פרק 5 — חכמת אלוהים הנעלמת"
-book: sichat-moshe
+book: sichat-moshe-arabic
 source: arabic
 figure: moshe
 pageNumber: 5
-version: arabic-islamic
-permalink: /texts/arabic/sichat-moshe/page-5/
+version: main
+permalink: /texts/arabic/sichat-moshe-arabic/page-5/
 tags:
   - texts
   - arabic

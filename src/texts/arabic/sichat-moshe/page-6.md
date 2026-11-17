@@ -1,12 +1,12 @@
 ---
 layout: text-page
 title: "פרק 6 — הבריאה הקדומה וסוד המלאכים"
-book: sichat-moshe
+book: sichat-moshe-arabic
 source: arabic
 figure: moshe
 pageNumber: 6
-version: arabic-islamic
-permalink: /texts/arabic/sichat-moshe/page-6/
+version: main
+permalink: /texts/arabic/sichat-moshe-arabic/page-6/
 tags:
   - texts
   - arabic

@@ -56,21 +56,21 @@ description: "חיבור המיוחס לאברהם אבינו, המספר את �
         <h3 class="version-card__title">נוסח א'</h3>
         <p class="version-card__subtitle">נוסח היוחסין</p>
         <p class="version-card__desc">הועתק ללשון עברית מלשון סלאבית. משמר את רשימת היוחסין המלאה של אברהם ("ספר חזון אברהם בן תרח בן נחור..."), שאינה מצויה בכל עדי־הנוסח.</p>
-        <p class="version-card__meta">17 פרקים + נספח</p>
+        <p class="version-card__meta">17 פרקים</p>
       </a>
 
       <a href="{{ '/texts/slavic/apocalypse-abraham/b/' | url }}" class="version-card">
         <h3 class="version-card__title">נוסח ב'</h3>
         <p class="version-card__subtitle">הנוסח המפורש</p>
         <p class="version-card__desc">הועתק ללשון עברית מלשון סלאבית. נוסח הפליאה — עד עצמאי מן המאה הט"ו — המשלים את סיומו הקטוע של החיבור: עשר המכות, שובו של אברהם ו"ואת הגוי אשר יעבדו — דן אנכי".</p>
-        <p class="version-card__meta">24 פרקים + נספח</p>
+        <p class="version-card__meta">24 פרקים</p>
       </a>
 
       <a href="{{ '/texts/slavic/apocalypse-abraham/c/' | url }}" class="version-card">
         <h3 class="version-card__title">נוסח ג'</h3>
         <p class="version-card__subtitle">נוסח הפתיחה</p>
         <p class="version-card__desc">הועתק ללשון עברית מלשון סלאבית מכתב־היד הסולובצקי. כולל חומר ייחודי: את פתיחת החיבור, 'הצהרת־האל השנייה' ואת סיומו.</p>
-        <p class="version-card__meta">19 פרקים + נספח</p>
+        <p class="version-card__meta">19 פרקים</p>
       </a>
 
       <a href="{{ '/texts/slavic/apocalypse-abraham/d/' | url }}" class="version-card">

@@ -1,12 +1,12 @@
 ---
 layout: text-page
 title: "פרק 8 — חזון ההר והחתימה"
-book: sichat-moshe
+book: sichat-moshe-arabic
 source: arabic
 figure: moshe
 pageNumber: 8
-version: arabic-islamic
-permalink: /texts/arabic/sichat-moshe/page-8/
+version: main
+permalink: /texts/arabic/sichat-moshe-arabic/page-8/
 tags:
   - texts
   - arabic

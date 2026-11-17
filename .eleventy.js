@@ -377,6 +377,7 @@ module.exports = function (eleventyConfig) {
 
       const result = items
         .filter((item) => !item.data?.draft)
+        .filter((item) => !item.data?.appendix)
         .filter((item) => matches(item))
         .map((item) => ({
           item,
