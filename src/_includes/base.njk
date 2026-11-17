@@ -326,6 +326,7 @@
             <div class="nav-dropdown">
                 <a href="{{ '/texts/' | url }}" class="dropbtn" aria-haspopup="true" aria-expanded="false">התנ״ך האפוקריפי</a>
                 <div class="dropdown-content">
+                    <a href="{{ '/texts/' | url }}">כל הספרייה</a>
                     {% for sectionKey in bibleSectionOrder %}
                     <a href="{{ ('/texts/#' + sectionKey) | url }}">{{ bibleSections.sections[sectionKey].title }}</a>
                     {% endfor %}
@@ -360,8 +361,9 @@
           <div class="footer-nav__col">
             <h2 class="footer-nav__heading">תוכן</h2>
             <ul>
+              <li><a href="{{ '/texts/' | url }}">כל הספרייה</a></li>
               {% for sectionKey in bibleSectionOrder %}
-              <li><a href="{{ ('/by-figure/' + sectionKey + '/') | url }}">{{ bibleSections.sections[sectionKey].title }}</a></li>
+              <li><a href="{{ ('/texts/#' + sectionKey) | url }}">{{ bibleSections.sections[sectionKey].title }}</a></li>
               {% endfor %}
               <li><a href="{{ '/search/' | url }}">חיפוש באוצר</a></li>
               <li><a href="{{ '/updates/' | url }}">מה חדש</a></li>

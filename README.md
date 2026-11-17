@@ -7,7 +7,7 @@
 
 ## מצב המאגר (נובמבר 2026)
 
-שנים עשר חיבורים פעילים בטקסט מלא, לצד 22 חיבורים נוספים הרשומים בקטלוג בהכנה:
+שלושה עשר חיבורים פעילים בטקסט מלא, לצד 22 חיבורים נוספים הרשומים בקטלוג בהכנה:
 
 | חיבור פעיל                               | מקור                                  | היקף                                                    |
 | ---------------------------------------- | ------------------------------------- | ------------------------------------------------------- |
@@ -16,7 +16,8 @@
 | **מעשה יצחק**                            | ערבית (BnF Arabe 5072)                | 4 פרקים + הערות נוסח                                    |
 | **צוואת יצחק**                           | ערבית (BnF Arabe 132)                 | 5 פרקים                                                 |
 | **צוואת יעקב**                           | ערבית (BnF Arabe 132)                 | 7 פרקים                                                 |
-| **שיחת משה**                             | ערבית + ארמית                         | 17 פרקים בשני נוסחים, תצוגה מקבילה                      |
+| **שיחת משה — הנוסח הסורי־ארמי**          | סורית־ארמית                           | 9 פרקים, מקור ותרגום בתצוגה מקבילה                      |
+| **שיחת משה — הנוסח הערבי־אסלאמי**        | ערבית (BnF Arabe 1945)                | 8 פרקים                                                 |
 | **חזון דניאל הסורי־ארמי**                | סורית                                 | 32 פרקים                                                |
 | **חזון דניאל השביעי**                    | ארמנית                                | 4 פרקים + נספח                                          |
 | **אפוקליפסיס אסדרס (חזיון עזרא היווני)** | יוונית                                | 7 חזיונות                                               |
@@ -26,11 +27,11 @@
 
 | מדד                      |                      ערך |
 | ------------------------ | -----------------------: |
-| חיבורים רשומים בקטלוג    |                       34 |
-| חיבורים פעילים בטקסט מלא |                       12 |
-| פרקי תוכן                |                      171 |
-| הערות וביאורים           |                       83 |
-| מילים (בערך)             |                  ~57,000 |
+| חיבורים רשומים בקטלוג    |                       35 |
+| חיבורים פעילים בטקסט מלא |                       13 |
+| פרקי תוכן                |                      170 |
+| הערות וביאורים           |                      120 |
+| מילים (בערך)             |                  ~53,700 |
 | שפות מקור בקטלוג         |                        8 |
 | דמויות מקראיות בקטלוג    | 11 (+ חטיבת תלמידי ישוע) |
 | חיבורים עם תצוגה מקבילית |                        9 |
@@ -41,14 +42,14 @@
 | שפה      | מספר חיבורים | דוגמאות                                                        |
 | -------- | -----------: | -------------------------------------------------------------- |
 | aramaic  |           11 | sichat-moshe, clementine-r1..r4, apoc-daniel-syriac            |
-| arabic   |           10 | maase-yitzchak, ketav-almagal, chazon-daniel-aravi             |
+| arabic   |           11 | maase-yitzchak, ketav-almagal, chazon-daniel-aravi             |
 | greek    |            4 | apokalypsis-esdras, maale-yeshayahu, sefer-hanoch-a            |
 | latin    |            3 | chazon-ezra-sofer, maasei-timotheos, klalot-hashvatim          |
 | armenian |            2 | vision-daniel-armenian (פעיל), vision-enoch-righteous-armenian |
 | slavic   |            1 | apocalypse-abraham (פעיל)                                      |
-| hebrew   |            1 | sefer-zerubbabel                                               |
+| hebrew   |            2 | sefer-zerubbabel                                               |
 | geez     |            1 | clementos                                                      |
-| **סה"כ** |       **34** |                                                                |
+| **סה"כ** |       **35** |                                                                |
 
 ### חיבורים עם תצוגה מקבילית מתוכננת (9)
 
@@ -60,8 +61,8 @@ apoc-daniel-syriac, young-daniel-syriac, clementine-r1, clementine-r2, clementin
 
 ### תשתית טכנית מלאה
 
-- **מנוע אתר:** Eleventy 3.x (Nunjucks templates) — 16 בדיקות CI, כולן עוברות
-- **קטלוג:** `src/_data/sources-catalog.json` עם 34 חיבורים, 8 שפות, 11 דמויות, 9 עם `parallelLayout: true`
+- **מנוע אתר:** Eleventy 3.x (Nunjucks templates) — 17 בדיקות אימות אוטומטיות
+- **קטלוג:** `src/_data/sources-catalog.json` עם 35 חיבורים, 8 שפות, 11 דמויות, 9 עם `parallelLayout: true`
 - **תבניות Nunjucks:** `base.njk`, `text-page.njk`, `category-page.njk`, `content-page.njk`, `breadcrumbs.njk`, `disqus.njk`, `logo-mark.njk`
 - **עיצוב:** CSS מלא עם CSS variables — RTL, מצב כהה/בהיר, מערכת מרחבית, z-index scale מסודר, תמיכה ב-`prefers-reduced-motion`
 - **פונטים:** Self-hosted — Frank Ruhl Libre (300/400/700), Noto Serif Hebrew (300/400/700), EB Garamond (לוגו לטיני) — WOFF2 + TTF, עם `unicode-range` לחלוקת טעינה
@@ -73,7 +74,7 @@ apoc-daniel-syriac, young-daniel-syriac, clementine-r1, clementine-r2, clementin
 
 ### סקריפטים
 
-- **CI:** `npm run ci:verify` מריץ 16 בדיקות אימות (frontmatter, catalog, permalinks, built-links, placeholders, third-party-controls, ועוד)
+- **CI:** `npm run ci:verify` מריץ 17 בדיקות אימות (frontmatter, catalog, permalinks, built-links, placeholders, third-party-controls, ועוד)
 - **יצירת פרקים:** `npm run new:chapter -- <lang>/<book> <pageNumber> "<title>" <source> <figure> [version]`
 - **דוחות:** `npm run report:content` — דוח אוטומטי של מצב התוכן
 - **מודולים משותפים:** `scripts/_lib/` (walk.mjs, frontmatter.mjs, catalog.mjs) — לשימוש בסקריפטים חדשים
@@ -255,7 +256,7 @@ lib/
 
 ## בדיקות איכות (CI)
 
-הפרויקט כולל 16 בדיקות אימות אוטומטיות שרצות בכל PR ובכל push:
+הפרויקט כולל 17 בדיקות אימות אוטומטיות שרצות בכל PR ובכל push:
 
 ```bash
 npm run ci:verify

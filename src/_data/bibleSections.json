@@ -7,13 +7,15 @@
       "figures": ["abraham", "yitzchak", "yaakov", "enoch", "moshe"],
       "books": [
         "apocalypse-abraham",
+        "maase-avraham-sara",
         "maase-yitzchak",
         "tsavaat-yitzchak",
         "tsavaat-yaakov",
         "sefer-hanoch-a",
         "enoch-qumran-aramaic",
         "vision-enoch-righteous-armenian",
-        "sichat-moshe"
+        "sichat-moshe",
+        "sichat-moshe-arabic"
       ]
     },
     "neviim": {

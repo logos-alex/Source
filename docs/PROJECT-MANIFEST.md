@@ -34,9 +34,9 @@
 - **מאגר GitHub:** https://github.com/logos-alex/Source
 - **טכנולוגיה:** Eleventy 3 (Nunjucks templates), Pagefind search, GitHub Pages
 - **שפת ממשק:** עברית (RTL)
-- **מספר חיבורים בקטלוג:** 30
-- **חיבורים מפורסמים (עם תוכן מלא):** 2 — חזון אברהם (3 נוסחים, סלאבית) + מעשה יצחק (4 פרקים, ערבית — בתרגום עברי ראשון מתוך Arabe 5072)
-- **חיבורים בהכנה:** 28 — `comingSoon: true`
+- **מספר חיבורים בקטלוג:** 35
+- **חיבורים מפורסמים (עם תוכן מלא):** 13 — הפירוט והמדדים המעודכנים נמצאים ב־`docs/content-status-he.md`.
+- **חיבורים בהכנה:** 22 — `comingSoon: true`
 
 ---
 
@@ -110,7 +110,7 @@ Source/
 │   │   ├── version-tabs.njk  # טאבי ניווט בין נוסחים
 │   │   └── disqus.njk        # תגובות (lazy-loaded)
 │   ├── _data/
-│   │   ├── sources-catalog.json          # קטלוג 29 החיבורים
+│   │   ├── sources-catalog.json          # קטלוג 35 החיבורים
 │   │   ├── apocalypse-abraham-alignment.json  # טבלת התאמה בין נוסחים
 │   │   ├── apocalypse-abraham-spans.json # spans להדגשה מדויקת
 │   │   ├── figures.json      # דמויות (אברהם, דניאל, חנוך, וכו')
@@ -142,8 +142,8 @@ Source/
 │   ├── search.njk            # חיפוש
 │   ├── updates.njk           # עדכונים
 │   └── updates-feed.njk      # RSS feed
-├── scripts/                  # 16 סקריפטי CI verification
-│   ├── ci-verify.mjs         # רץ את כל 16 הבדיקות
+├── scripts/                  # 17 בדיקות אימות CI
+│   ├── ci-verify.mjs         # מריץ את כל 17 הבדיקות
 │   └── ...
 └── docs/
     └── content-status-he.md  # דוח מצב תוכן
@@ -278,7 +278,7 @@ description: "תיאור נייטרלי, ללא שפה אקדמית"
 
 ---
 
-## 5. CI Verification — 16 בדיקות
+## 5. CI Verification — 17 בדיקות
 
 הרצה: `npm run ci:verify`
 
