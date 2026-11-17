@@ -36,4 +36,4 @@ description: "חזון אברהם, נוסח ב'. הועתק ללשון עברי�
 
 ### השוואה לנוסחים אחרים
 
-- [מבוא כללי לחזון אברהם]({ '/texts/slavic/apocalypse-abraham/' | url })
+- [מבוא כללי לחזון אברהם]({{ '/texts/slavic/apocalypse-abraham/' | url }})

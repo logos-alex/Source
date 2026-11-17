@@ -46,4 +46,4 @@ description: "חזון אברהם, נוסח ג'. הועתק ללשון עברי�
 
 - [מבוא כללי לחזון אברהם]({{ '/texts/slavic/apocalypse-abraham/' | url }})
 - [נוסח א']({{ '/texts/slavic/apocalypse-abraham/a/' | url }}) — כולל את רשימת היוחסין המלאה
-- [נוסח ב']({{ '/texts/slavic/apocalypse-abraham/b/' | url }}) — כולל את פתיחת החיבור
+- [נוסח ב']({{ '/texts/slavic/apocalypse-abraham/b/' | url }}) — משלים את סיומו הקטוע של נוסח א׳
