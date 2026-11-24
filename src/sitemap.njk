@@ -27,12 +27,6 @@ eleventyExcludeFromCollections: true
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>{{ site.origin }}{{ '/search/' | url }}</loc>
-    <lastmod>{{ buildInfo.builtAtUTC }}</lastmod>
-    <priority>0.7</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
     <loc>{{ site.origin }}{{ '/updates/' | url }}</loc>
     <lastmod>{{ buildInfo.getGitLastModified('src/_data/updates.json') or buildInfo.builtAtUTC }}</lastmod>
     <priority>0.7</priority>
