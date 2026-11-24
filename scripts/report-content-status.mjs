@@ -92,8 +92,13 @@ function collectBooks(root = ROOT) {
         stats.notesCount += noteLines.length;
       }
 
-      // Word count (rough — count whitespace-separated tokens in body)
-      const body = text.replace(/^---[\s\S]*?---\n/, "");
+      // Word count (rough — count whitespace-separated tokens in body).
+      // CRLF-safe on purpose: the front matter must be stripped identically on a
+      // Windows checkout (CRLF) and on the Linux CI (LF). The older pattern
+      // (`---\n`) never matched a CRLF file, so notes were counted as body text
+      // and every report generated on Windows contradicted the CI.
+      const fmBlock = text.match(/^---\r?\n[\s\S]*?\r?\n---\r?\n/);
+      const body = fmBlock ? text.slice(fmBlock[0].length) : text;
       const words = body.split(/\s+/).filter((w) => w.length > 0);
       stats.wordCount += words.length;
     }

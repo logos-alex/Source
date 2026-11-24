@@ -77,6 +77,16 @@ eleventyExcludeFromCollections: true
   </url>
   {% endfor %}
 
+  {# Section pages (חיצוניים לתורה, לנביאים, לכתובים, מתלמידי ישוע) — from bibleSectionOrder #}
+  {% for sectionKey in bibleSectionOrder %}
+  <url>
+    <loc>{{ site.origin }}{{ ('/by-figure/' + sectionKey + '/') | url }}</loc>
+    <lastmod>{{ buildInfo.builtAtUTC }}</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  {% endfor %}
+
   {# All text pages (book indexes + chapter pages) #}
   {% for item in collections.all %}
     {% if item.data.tags and "texts" in item.data.tags and not item.data.draft and not item.data.comingSoon %}

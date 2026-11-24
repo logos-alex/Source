@@ -28,32 +28,65 @@ const steps = [
   ["node", "scripts/verify-built-links.mjs"],
 ];
 
+const MAX_ANNOTATION_CHARS = 1500;
+const TAIL_LINES = 12;
+
+function stepName(command) {
+  return command[0] === "npx"
+    ? command.slice(2).join(" ")
+    : command.slice(1).join(" ");
+}
+
+// בגיטהאב פירוט הכשל גלוי רק למי שמחובר. כל צעד שנכשל מפרסם גם הערת־שגיאה (annotation)
+// עם שורות השגיאה עצמן — כך אפשר לדעת מה נשבר גם בלי גישה ליומן הריצה.
+function annotateFailure(title, stderr, stdout) {
+  if (!process.env.GITHUB_ACTIONS) return;
+  const lines = String(stderr || "")
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter((line) => line);
+  const source = lines.length ? lines : String(stdout || "").split(/\r?\n/);
+  const text = source
+    .slice(-TAIL_LINES)
+    .join(" | ")
+    .replace(/[{}<>\\%]/g, " ") // תווים שאסורים בשדה ההודעה של annotation
+    .slice(0, MAX_ANNOTATION_CHARS);
+  console.log(`::error title=${title}::${text}`);
+}
+
 const results = [];
 let failed = false;
+const isWin = process.platform === "win32";
 
 for (const command of steps) {
   const printable = command.join(" ");
   console.log(`\n▶ ${printable}`);
   const t0 = Date.now();
-  const isWin = process.platform === "win32";
-  const r = spawnSync(
-    command[0] === "npx" && isWin ? "npx.cmd" : command[0],
-    command.slice(1),
-    { stdio: "inherit", shell: command[0] === "npx" && isWin },
-  );
+  // בווינדוס npx הוא קובץ ‎.cmd ואינו נפתח ישירות בלי מעטפת; שם מועברת מחרוזת־פקודה אחת
+  // (ולא ארגומנטים לצד shell — אזהרת Node DEP0190). הארגומנטים קבועים ברשימה לעיל.
+  const viaShell = command[0] === "npx" && isWin;
+  const spawnOptions = {
+    stdio: ["inherit", "pipe", "pipe"],
+    encoding: "utf8",
+    maxBuffer: 256 * 1024 * 1024,
+  };
+  const r = viaShell
+    ? spawnSync(["npx.cmd", ...command.slice(1)].join(" "), {
+        ...spawnOptions,
+        shell: true,
+      })
+    : spawnSync(command[0], command.slice(1), spawnOptions);
+  // הפלט נלכד כדי לצטט ממנו בהערת־השגיאה במקרה של כשל, ומודפס מיד אחרי כן במלואו.
+  if (r.stdout) process.stdout.write(r.stdout);
+  if (r.stderr) process.stderr.write(r.stderr);
   const ms = Date.now() - t0;
   const ok = r.status === 0;
-  results.push({
-    cmd:
-      command[0] === "npx"
-        ? command.slice(2).join(" ")
-        : command.slice(1).join(" "),
-    ok,
-    ms,
-  });
+  const name = stepName(command);
+  results.push({ cmd: name, ok, ms });
   if (!ok) {
     failed = true;
-    // Continue to next steps so we can show a full summary, but remember failure.
+    // ממשיכים לצעד הבא כדי להציג סיכום מלא — אבל הכשל נזכר.
+    annotateFailure(`ci:verify failed: ${name}`, r.stderr, r.stdout);
   }
 }
 

@@ -1,7 +1,7 @@
 ---
 layout: base.njk
 title: "דף הבית"
-description: "אפוקריפה — התנ\"ך האפוקריפי: איסוף, תרגום והנגשה של ספרות יהודית ויהודו-נוצרית קדומה. חיבורים נדירים, כתבי-יד נשכחים, ונוסחים שאינם מצויים ברשת או בעברית."
+description: "אפוקריפה — ספרים חיצוניים בעברית: איסוף, תרגום והנגשה של ספרות יהודית ויהודו-נוצרית קדומה. חיבורים נדירים, כתבי-יד נשכחים, ונוסחים שאינם מצויים ברשת או בעברית."
 bodyClass: home-page
 ---
 
@@ -11,7 +11,6 @@ bodyClass: home-page
   <section class="home-hero" aria-label="פתיחה">
     <div class="home-hero__sigil" aria-hidden="true">{% include "logo-mark.njk" %}</div>
     <h1 class="home-hero__title">אפוקריפה</h1>
-    <p class="home-hero__subtitle">התנ״ך האפוקריפי</p>
     <p class="home-hero__sub-subtitle">בית המדרש לספרים חיצוניים</p>
 
     <div class="home-hero__actions">
@@ -114,8 +113,8 @@ bodyClass: home-page
   </section>
 
   {# ===== BIBLE SECTIONS — המבנה הראשי ===== #}
-  <section id="bible-sections" class="bible-sections" aria-label="התנ״ך האפוקריפי — חלוקה לפי חלקי התנ״ך">
-    <h2 class="bible-sections__title">התנ״ך האפוקריפי</h2>
+  <section id="bible-sections" class="bible-sections" aria-label="חלוקה לפי חלקי התנ״ך">
+    <h2 class="bible-sections__title">החיבורים לפי חלקי התנ״ך</h2>
     <p class="bible-sections__intro">החיבורים באתר מסודרים לפי חלקי התנ״ך — תורה, נביאים וכתובים — ולצדם כתבי תלמידי ישוע הנוצרי. בחרו חלק כדי לעיין בחיבורים שבתוכו.</p>
 
     <div class="bible-sections__grid bible-sections__grid--four">
@@ -140,7 +139,7 @@ bodyClass: home-page
   {# ===== STATUS ===== #}
   <section class="coming-soon" aria-label="סטטוס המאגר">
     <h2>מצב המאגר וכיווני התפתחות</h2>
-    <p class="coming-soon__lead">במאגר שנים עשר חיבורים פעילים בטקסט מלא, לצד עשרים ושניים חיבורים נוספים הרשומים בקטלוג ומצויים בהכנה — על פני שמונה לשונות מקור. כל חיבור עולה רק לאחר שהושווה אל הנוסח שממנו הועתק, ולכן העבודה נמשכת חיבור אחר חיבור ולא בבת אחת.</p>
+    <p class="coming-soon__lead">במאגר {{ libraryStats.publishedHe }} חיבורים פעילים בטקסט מלא, לצד {{ libraryStats.inPrepHe }} חיבורים נוספים הרשומים בקטלוג ומצויים בהכנה — על פני {{ libraryStats.languagesHe }} לשונות מקור. כל חיבור עולה רק לאחר שהושווה אל הנוסח שממנו הועתק, ולכן העבודה נמשכת חיבור אחר חיבור ולא בבת אחת.</p>
     <ul>
       <li>שילוב יתר החיבורים הרשומים בקטלוג — מתוך כתבי־יד ומן הדפוסים</li>
       <li>ביאורים והערות נוסח לכל פרק, עם הקבלות למקרא ולחז״ל</li>

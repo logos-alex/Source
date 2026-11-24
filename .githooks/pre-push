@@ -1,0 +1,31 @@
+#!/bin/sh
+# דחיפה של מצב אדום נחסמת: שרשרת הבדיקות המלאה רצה לפני כל push.
+#
+# הפעלה חד־פעמית בכל מכונה (מתוך שורש הריפו):
+#     git config core.hooksPath .githooks
+# עקיפה — רק כשמודעים לכך שהבדיקות נכשלות ובכוונה:
+#     git push --no-verify
+#
+# רקע: בין 8.11 ל־24.11.2026 נדחפו ל־main עשרות קומיטים בלי שהבדיקות רצו על השרת,
+# וה־CI בגיטהאב נשאר אדום בלי שאיש ידע (דוח מצב התוכן לא עודכן אחרי שינויי תוכן).
+
+command -v npm >/dev/null 2>&1 || {
+  echo "pre-push: npm לא נמצא בנתיב — מדלג על הבדיקות." >&2
+  exit 0
+}
+
+[ -d node_modules ] || {
+  echo "pre-push: אין node_modules — הרץ 'npm ci' ודחוף שוב." >&2
+  exit 1
+}
+
+echo "pre-push: מריץ את שרשרת הבדיקות המלאה (npm run ci:verify)…" >&2
+if npm run ci:verify >/dev/null 2>&1; then
+  echo "pre-push: כל הבדיקות עברו — ממשיכים בדחיפה." >&2
+  exit 0
+fi
+
+echo "pre-push: הבדיקות נכשלו — הדחיפה נחסמת." >&2
+echo "pre-push: הרץ 'npm run ci:verify' לפירוט הכשל. אם מדובר בדוח מצב תוכן שלא עודכן: 'npm run report:content' ואז להוסיף לקומיט." >&2
+echo "pre-push: לעקיפה מודעת בלבד: git push --no-verify" >&2
+exit 1
