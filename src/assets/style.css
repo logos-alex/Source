@@ -1075,6 +1075,35 @@ main {
 .opening-text {
   margin: 0;
 }
+
+.opening-text--syriac {
+  font-family: "Estrangelo Edessa", "Noto Sans Syriac", "Noto Sans", serif;
+  font-size: clamp(1.25rem, 2.1vw, 1.65rem);
+  line-height: 2.25;
+  direction: rtl;
+  text-align: right;
+}
+.opening-text--syriac p {
+  line-height: 2.25;
+}
+.opening-text--translation {
+  color: var(--c-text-2);
+  font-size: var(--fs-base);
+  line-height: 2;
+}
+.opening-text--translation p {
+  line-height: 2;
+}
+.opening-text__lead {
+  font-style: italic;
+  color: var(--c-text-2);
+  margin-bottom: var(--s-3) !important;
+}
+.opening-text__gap {
+  text-align: center;
+  color: var(--c-text-muted);
+  margin: var(--s-2) 0 !important;
+}
 .opening-text--source {
   font-size: var(--fs-sm);
   line-height: 2.05;
