@@ -36,9 +36,9 @@
 - **מאגר GitHub:** https://github.com/logos-alex/Source
 - **טכנולוגיה:** Eleventy 3 (Nunjucks templates), Pagefind search, GitHub Pages
 - **שפת ממשק:** עברית (RTL)
-- **מספר חיבורים בקטלוג:** 30
-- **חיבורים מפורסמים (עם תוכן מלא):** 2 — חזון אברהם (3 נוסחים, סלאבית) + מעשה יצחק (4 פרקים, ערבית — בתרגום עברי ראשון מתוך Arabe 5072)
-- **חיבורים בהכנה:** 28 — `comingSoon: true`
+- **מספר חיבורים בקטלוג:** 35
+- **חיבורים מפורסמים (עם תוכן מלא):** 13 — הפירוט והמדדים המעודכנים נמצאים ב־`docs/content-status-he.md`.
+- **חיבורים בהכנה:** 22 — `comingSoon: true`
 
 ---
 
@@ -112,7 +112,7 @@ Source/
 │   │   ├── version-tabs.njk  # טאבי ניווט בין נוסחים
 │   │   └── disqus.njk        # תגובות (lazy-loaded)
 │   ├── _data/
-│   │   ├── sources-catalog.json          # קטלוג 29 החיבורים
+│   │   ├── sources-catalog.json          # קטלוג 35 החיבורים
 │   │   ├── apocalypse-abraham-alignment.json  # טבלת התאמה בין נוסחים
 │   │   ├── apocalypse-abraham-spans.json # spans להדגשה מדויקת
 │   │   ├── figures.json      # דמויות (אברהם, דניאל, חנוך, וכו')
@@ -144,8 +144,8 @@ Source/
 │   ├── search.njk            # חיפוש
 │   ├── updates.njk           # עדכונים
 │   └── updates-feed.njk      # RSS feed
-├── scripts/                  # 16 סקריפטי CI verification
-│   ├── ci-verify.mjs         # רץ את כל 16 הבדיקות
+├── scripts/                  # 17 בדיקות אימות CI
+│   ├── ci-verify.mjs         # מריץ את כל 17 הבדיקות
 │   └── ...
 └── docs/
     └── content-status-he.md  # דוח מצב תוכן
@@ -280,7 +280,7 @@ description: "תיאור נייטרלי, ללא שפה אקדמית"
 
 ---
 
-## 5. CI Verification — 16 בדיקות
+## 5. CI Verification — 17 בדיקות
 
 הרצה: `npm run ci:verify`
 
@@ -288,22 +288,25 @@ description: "תיאור נייטרלי, ללא שפה אקדמית"
 |---|---|---|
 | 1 | verify-frontmatter.mjs | frontmatter תקין בכל קבצי md |
 | 2 | verify-text-structure.mjs | מבנה טקסט תקין |
-| 3 | verify-catalog-consistency.mjs | קטלוג תואם קבצים |
+| 3 | verify-catalog-consistency.mjs | קטלוג תואם קבצים, וכל חיבור פעיל נמצא על מדף בספרייה |
 | 4 | verify-chapter-titles.mjs | כותרות פרקים אחידות ("פרק X") |
 | 5 | verify-permalinks.mjs | permalinks תקינים |
 | 6 | verify-placeholders.mjs | אין placeholders שלא מולאו |
-| 7 | verify-intro-revisions.mjs | מבואות תקינים |
-| 8 | verify-third-party-controls.mjs | שליטה על שירותי צד שלישי |
-| 9 | report-content-status.mjs --check | דוח מצב תוכן מעודכן |
-| 10 | eleventy --pathprefix=/Source/ | בנייה מצליחה |
-| 11 | verify-display-book-titles.mjs | כותרות תצוגה תקינות |
-| 12 | pagefind | אינדקס חיפוש נבנה |
-| 13 | verify-release-content.mjs | תוכן פרסום תקין |
-| 14 | verify-intro-navigation.mjs | ניווט מבואות תקין |
-| 15 | verify-path-prefix.mjs | קידומת נתיב /Source/ תקינה |
-| 16 | verify-built-links.mjs | אין קישורים שבורים |
+| 7 | verify-house-standard.mjs | תקן הבית: אין גושי הערות בגוף, לשון עבודה או מונחים אקדמיים |
+| 8 | verify-intro-revisions.mjs | מבואות תקינים |
+| 9 | verify-third-party-controls.mjs | שליטה על שירותי צד שלישי |
+| 10 | report-content-status.mjs --check | דוח מצב תוכן מעודכן |
+| 11 | eleventy --pathprefix=/Source/ | בנייה מצליחה |
+| 12 | verify-display-book-titles.mjs | כותרות תצוגה תקינות |
+| 13 | pagefind | אינדקס חיפוש נבנה |
+| 14 | verify-release-content.mjs | תוכן פרסום תקין; מספרי דף-הבית תואמים את הקטלוג; אין חיבור פעיל ברשימת "בקרוב" |
+| 15 | verify-intro-navigation.mjs | ניווט מבואות תקין |
+| 16 | verify-path-prefix.mjs | קידומת נתיב /Source/ תקינה |
+| 17 | verify-built-links.mjs | אין קישורים שבורים |
 
-כל 16 חייבות לעבור לפני push.
+כל 17 חייבות לעבור לפני דחיפה. בגיטהאב הן רצות בכל PR ובכל דחיפה ל-`main`, וצעד שנכשל מפרסם את שורות השגיאה כהערה ציבורית. במחשב המקומי מנגנון `pre-push` (`.githooks/`) חוסם דחיפה כשהשרשרת נכשלת — הפעלה חד-פעמית בכל מכונה: `git config core.hooksPath .githooks`.
+
+**לקח מנובמבר 2026:** עד ה-24.11 רץ „Validate project” רק על PR, וה-CI בגיטהאב נשאר אדום שבועות בלי שאיש ידע — כי במחשב המקומי „הכול עבר”. מכאן ואילך: מה שלא רץ בגיטהאב בירוק, לא נחשב בדוק.
 
 ---
 
@@ -314,6 +317,8 @@ description: "תיאור נייטרלי, ללא שפה אקדמית"
 הטוקן: קריאה מקובץ `~/.hermes/gh-token` במחשב המשתמש. אין להטמיעו בקוד או במסמכים.
 
 ### 6.2. סדרת פעולות ל-deploy
+
+**הנוהל הנוכחי (מנובמבר 2026):** העבודה נעשית מתוך שיבוט העבודה המקומי, והדחיפה ישירות ל־`main`. לפני הדחיפה רץ מנגנון ה־`pre-push` — שרשרת 17 הבדיקות; אם היא נכשלת, הדחיפה נחסמת. אחרי הדחיפה רצים בגיטהאב „Validate project” ואחריו „Deploy to GitHub Pages”. אין לעקוף את השער אלא ביודעין (`git push --no-verify`) ותוך תיעוד הסיבה בהודעת הקומיט. הסדרה שלהלן היא דרך חלופה לשעת חירום בלבד.
 
 ```bash
 # 1. שיבוט רענן

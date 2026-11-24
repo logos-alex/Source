@@ -1,4 +1,4 @@
-import { readFileSync, readdirSync, statSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
 
 const SITE_ROOT = "_site";
@@ -101,6 +101,26 @@ for (const [bookUrl, entries] of displayedTitlesByBookUrl.entries()) {
   );
 }
 
+// שם החיבור בכרטיס הרשימה חייב להיות גם שם עמודו שלו — תקן הבית §1 („אותו שם בדיוק בכל מקום”).
+// ההשוואה שלעיל משווה בין דפי רשימה בלבד, ולכן לא ראתה עקיפת כותרת ב-display-book-title
+// („חזון דניאל ארמי־סורי” בכרטיסים, מול „חזון דניאל הסורי־ארמי” בעמוד עצמו).
+let comparedPages = 0;
+for (const [bookUrl, entries] of displayedTitlesByBookUrl) {
+  const file = join(SITE_ROOT, bookUrl, "index.html");
+  if (!existsSync(file)) continue;
+  const html = readFileSync(file, "utf8");
+  const titleMatch = html.match(/<title>([\s\S]*?)<\/title>/);
+  if (!titleMatch) continue;
+  const pageTitle = normalizeLinkText(titleMatch[1].split("|")[0]).trim();
+  comparedPages += 1;
+  const mismatch = entries.find((entry) => entry.title !== pageTitle);
+  if (mismatch) {
+    errors.push(
+      `${bookUrl}: listing title '${mismatch.title}' (${mismatch.page}) differs from the work's own page title '${pageTitle}'`,
+    );
+  }
+}
+
 if (errors.length) {
   console.error("Display-book-title verification failed:\n");
   for (const error of errors) console.error(`- ${error}`);
@@ -108,5 +128,5 @@ if (errors.length) {
 }
 
 console.log(
-  `Display-book-title verification passed across ${seenPages.length} listing pages and ${displayedTitlesByBookUrl.size} book links.`,
+  `Display-book-title verification passed across ${seenPages.length} listing pages and ${displayedTitlesByBookUrl.size} book links (${comparedPages} compared with the works' own page titles).`,
 );

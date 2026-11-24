@@ -361,6 +361,7 @@
           <div class="footer-nav__col">
             <h2 class="footer-nav__heading">תוכן</h2>
             <ul>
+              <li><a href="{{ '/texts/' | url }}">כל הספרייה</a></li>
               {% for sectionKey in bibleSectionOrder %}
               <li><a href="{{ ('/by-figure/' + sectionKey + '/') | url }}">{{ bibleSections.sections[sectionKey].title }}</a></li>
               {% endfor %}
