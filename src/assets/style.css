@@ -1076,15 +1076,15 @@ main {
   margin: 0;
 }
 
-.opening-text--syriac {
-  font-family: "Estrangelo Edessa", "Noto Sans Syriac", "Noto Sans", serif;
-  font-size: clamp(1.25rem, 2.1vw, 1.65rem);
-  line-height: 2.25;
+.opening-text--transliteration {
+  font-family: var(--font-hebrew-display);
+  font-size: clamp(1.15rem, 1.9vw, 1.45rem);
+  line-height: 2.15;
   direction: rtl;
   text-align: right;
 }
-.opening-text--syriac p {
-  line-height: 2.25;
+.opening-text--transliteration p {
+  line-height: 2.15;
 }
 .opening-text--translation {
   color: var(--c-text-2);
