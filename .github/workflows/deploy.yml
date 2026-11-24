@@ -25,7 +25,7 @@ jobs:
     timeout-minutes: 20
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url || steps.deployment_retry.outputs.page_url }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
@@ -84,4 +84,16 @@ jobs:
 
       - name: Deploy to GitHub Pages
         id: deployment
+        uses: actions/deploy-pages@v5
+        # actions/deploy-pages#451: כשל לסירוגין במציאת החפץ (תקלת צד של
+        # גיטהאב, מקובלת בימים אלה). הניסיון הראשון רך; אם נכשל — ניסיון נוסף.
+        continue-on-error: true
+
+      - name: Wait before retrying the Pages deployment
+        if: steps.deployment.outcome == 'failure'
+        run: sleep 90
+
+      - name: Retry the Pages deployment
+        id: deployment_retry
+        if: steps.deployment.outcome == 'failure'
         uses: actions/deploy-pages@v5
