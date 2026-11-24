@@ -10,6 +10,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  actions: read
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
@@ -60,6 +61,26 @@ jobs:
         uses: actions/upload-pages-artifact@v5
         with:
           path: ./_site
+
+      # actions/deploy-pages#451: רשימת החפצים ב־API מפגרת אחר ההעלאה,
+      # ו־deploy-pages נכשל לסירוגין ב"No artifacts named github-pages"
+      # מיד אחרי upload-pages-artifact באותה עבודה. ממתינים עד שהחפץ נרשם.
+      - name: Wait for the Pages artifact to become visible
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          for i in $(seq 1 24); do
+            if curl -sf --max-time 15 \
+                 -H "Authorization: Bearer $GITHUB_TOKEN" \
+                 -H "Accept: application/vnd.github+json" \
+                 "https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts?per_page=100" \
+                 | grep -q '"name": *"github-pages"'; then
+              echo "Pages artifact is visible (check #$i)."
+              exit 0
+            fi
+            sleep 5
+          done
+          echo "::warning::github-pages artifact still not listed after 120s; letting deploy-pages try anyway"
 
       - name: Deploy to GitHub Pages
         id: deployment
