@@ -121,8 +121,11 @@
       "url": "{{ canonicalUrl }}",
       "inLanguage": "he",
       "image": "{{ ogImageUrl }}",
-      {% if page.date %}"datePublished": "{{ page.date | toISOString }}",
-      "dateModified": "{{ page.date | toISOString }}",
+      {# תאריכים מהיסטוריית הגיט בלבד. תאריך הקובץ בדיסק הוא רגע ההוצאה מן הגיט, ולכן בכל פריסה היה כל עמוד מכריז ששונה „עכשיו”. אין היסטוריה — אין תאריך. #}
+      {% set gitPublished = buildInfo.getGitFirstAdded(page.inputPath) %}
+      {% set gitModified = buildInfo.getGitLastModified(page.inputPath) %}
+      {% if gitPublished %}"datePublished": "{{ gitPublished }}",
+      {% endif %}{% if gitModified %}"dateModified": "{{ gitModified }}",
       {% endif %}
       "mainEntityOfPage": "{{ canonicalUrl }}",
       {% if bookTitle %}"articleSection": {{ bookTitle | jsonify | safe }},

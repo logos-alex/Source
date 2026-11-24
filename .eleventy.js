@@ -554,6 +554,55 @@ module.exports = function (eleventyConfig) {
     return JSON.stringify(value || null);
   });
 
+  // ---------------------------------------------------------------------------
+  // סדר החיבורים ברשימות (דף הבית, דפי הדמויות, דפי הלשונות) — קבוע, ולפי סדר הספרייה.
+  //
+  // ברירת המחדל של Eleventy ממיינת אוסף לפי תאריך העמוד, ותאריך העמוד הוא זמן
+  // העריכה של הקובץ בדיסק. בכל פריסה (הוצאה טרייה מן הגיט) הסדר יצא אחר:
+  // ב־24.11.2026 נמצא ששתי בניות של אותו קומיט הציגו את „מן האוסף” בסדר שונה.
+  // מכאן ואילך: חלקי התנ״ך → מקום החיבור במדף → נוסח → פרק; ומי שאינו על
+  // אף מדף — לפי סדר הקטלוג.
+  // ---------------------------------------------------------------------------
+  const catalogForOrder = require("./src/_data/sources-catalog.json");
+  const sectionOrder = require("./src/_data/bibleSectionOrder.json");
+  const sectionBooks = require("./src/_data/bibleSections.json").sections || {};
+  const catalogIndex = new Map(
+    catalogForOrder.map((entry, index) => [entry.id, index]),
+  );
+  const shelfIndex = new Map();
+  sectionOrder.forEach((sectionKey, s) => {
+    for (const [b, bookId] of (sectionBooks[sectionKey]?.books || []).entries()) {
+      if (!shelfIndex.has(bookId)) shelfIndex.set(bookId, s * 1000 + b);
+    }
+  });
+  const workRank = (item) => {
+    const book = item.data?.book || "";
+    if (shelfIndex.has(book)) return shelfIndex.get(book);
+    return 100000 + (catalogIndex.get(book) ?? 9999);
+  };
+
+  // סקריפטי הבדיקה טוענים את הקובץ הזה עם אובייקט־תצורה מצומצם (לצורך הפילטרים בלבד).
+  if (typeof eleventyConfig.addCollection === "function") {
+    eleventyConfig.addCollection(
+      "texts",
+      (collectionApi) =>
+        collectionApi
+          .getFilteredByTag("texts")
+          .sort((a, b) => {
+            const ra = workRank(a);
+            const rb = workRank(b);
+            if (ra !== rb) return ra - rb;
+            const va = a.data?.version && a.data.version !== "main" ? a.data.version : "";
+            const vb = b.data?.version && b.data.version !== "main" ? b.data.version : "";
+            if (va !== vb) return va.localeCompare(vb, "en");
+            const pa = Number(a.data?.pageNumber ?? 0);
+            const pb = Number(b.data?.pageNumber ?? 0);
+            if (pa !== pb) return pa - pb;
+            return String(a.url || "").localeCompare(String(b.url || ""), "en");
+          }),
+    );
+  }
+
   // Passthrough copy for assets and static files
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/robots.txt");
