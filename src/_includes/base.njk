@@ -22,7 +22,7 @@
     {% if bEntry and bEntry.versions and version and bEntry.versions[version] and (bEntry.versions | length) > 1 %}
       {% set bName = bName + ", " + bEntry.versions[version].title %}
     {% endif %}
-    <title>{% if page.url == '/' %}אפוקריפה — ספרים חיצוניים בעברית{% elif bName and pageNumber and pageNumber != 0 %}{{ title }} — {{ bName }} | אפוקריפה{% else %}{{ title }} | אפוקריפה{% endif %}</title>
+    <title>{% if page.url == '/' %}אפוקריפה — בית המדרש לספרים חיצוניים{% elif bName and pageNumber and pageNumber != 0 %}{{ title }} — {{ bName }} | אפוקריפה{% else %}{{ title }} | אפוקריפה{% endif %}</title>
 
     {# Pre-paint theme script — prevents flash-of-wrong-theme (FOUC) #}
     <script>
@@ -89,7 +89,7 @@
       {% set jsonLdType = "Article" %}
     {% endif %}
     <meta property="og:type" content="{{ ogType }}">
-    <meta property="og:title" content="{{ title }} | אפוקריפה">
+    <meta property="og:title" content="{% if page.url == '/' %}אפוקריפה — בית המדרש לספרים חיצוניים{% else %}{{ title }} | אפוקריפה{% endif %}">
     <meta property="og:description" content="{{ pageDescription }}">
     <meta property="og:url" content="{{ canonicalUrl }}">
     <meta property="og:site_name" content="אפוקריפה">
@@ -101,7 +101,7 @@
 
     <!-- Twitter/X Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{ title }} | אפוקריפה">
+    <meta name="twitter:title" content="{% if page.url == '/' %}אפוקריפה — בית המדרש לספרים חיצוניים{% else %}{{ title }} | אפוקריפה{% endif %}">
     <meta name="twitter:description" content="{{ pageDescription }}">
     <meta name="twitter:url" content="{{ canonicalUrl }}">
     <meta name="twitter:image" content="{{ ogImageUrl }}">
@@ -355,10 +355,9 @@
           <span class="footer-brand__mark" aria-hidden="true">{% include "logo-mark.njk" %}</span>
           <div class="footer-brand__text">
             <span class="footer-brand__name">אפוקריפה</span>
-            <span class="footer-brand__tagline">ספרים חיצוניים</span>
+            <span class="footer-brand__tagline">בית המדרש לספרים חיצוניים</span>
           </div>
         </div>
-        <p class="footer-tagline">השבת קולות עתיקים אל שפת המוצא — שחזורים, תרגומים וביאורים של טקסטים שנדחקו אל שולי המסורת.</p>
 
         <nav class="footer-nav" aria-label="ניווט בפוטר">
           <div class="footer-nav__col">
