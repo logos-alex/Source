@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק יא"
+title: "פרק יא — שירת השבח עם המלאך יהואל"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק יב"
+title: "פרק יב — החיות, המרכבה וכיסא הכבוד"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

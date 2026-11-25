@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק טו"
+title: "פרק טו — אדם וחוה, קין והבל וחטאי העולם"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

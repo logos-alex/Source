@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק יז"
+title: "פרק יז — האיש המוכה והמשתחווים לו"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק יד"
+title: "פרק יד — שני מחנות העמים וחזון גן עדן"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

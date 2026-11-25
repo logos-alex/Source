@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק יט"
+title: "פרק יט — אחרית זרע אברהם וחתימת החזון"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

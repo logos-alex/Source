@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק יג"
+title: "פרק יג — ספירת הכוכבים ומראה הבריאה"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

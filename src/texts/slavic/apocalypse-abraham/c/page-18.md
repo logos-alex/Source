@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק יח"
+title: "פרק יח — שארית ישראל וההכרזה השנייה מן הענן"
 book: apocalypse-abraham
 source: slavic
 figure: abraham
