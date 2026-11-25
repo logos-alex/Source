@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק ט"
+title: "פרק ט — דמות המלאך והכנת הקרבן"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

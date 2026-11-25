@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק ו"
+title: "פרק ו — הבל הפסילים וחומרי האלילים"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

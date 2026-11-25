@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק יב"
+title: "פרק יב — עליית אברהם לשמים ומראה ההמון השמימי"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק י"
+title: "פרק י — הקרבן והעוף הטמא"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

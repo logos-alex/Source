@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק יא"
+title: "פרק יא — עזאזל וגירושו מן השמים"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

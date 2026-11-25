@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק ח"
+title: "פרק ח — נפילת אברהם ושליחות המלאך יהואל"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

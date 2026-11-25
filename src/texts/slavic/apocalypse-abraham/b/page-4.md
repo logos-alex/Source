@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק ד"
+title: "פרק ד — בריסת, אליל העץ, נשרף באש"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

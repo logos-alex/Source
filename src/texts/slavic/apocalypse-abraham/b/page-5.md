@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק ה"
+title: "פרק ה — תוכחת אברהם על אלילי תרח ונחור"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

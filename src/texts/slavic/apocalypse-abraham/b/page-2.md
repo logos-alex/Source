@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק ב"
+title: "פרק ב — מכירת הפסילים והסוחרים מפדן ארם"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

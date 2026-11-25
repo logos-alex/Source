@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק ז"
+title: "פרק ז — התגלות האל ושריפת בית תרח"
 book: apocalypse-abraham
 source: slavic
 figure: abraham
