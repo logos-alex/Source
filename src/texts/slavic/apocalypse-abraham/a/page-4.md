@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק ד"
+title: "פרק ד — תוכחת אברהם לתרח"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

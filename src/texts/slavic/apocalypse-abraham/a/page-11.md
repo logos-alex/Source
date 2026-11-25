@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק יא"
+title: "פרק יא — שירת השבח לקדמון ולגיבור"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

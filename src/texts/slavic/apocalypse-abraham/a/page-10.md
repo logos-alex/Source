@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק י"
+title: "פרק י — עליית אברהם לשמים"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

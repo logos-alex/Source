@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק ב"
+title: "פרק ב — הסוחרים והאלילים שנפלו לנהר"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

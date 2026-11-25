@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק ח"
+title: "פרק ח — המסע אל חורב והכנת הקרבן"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

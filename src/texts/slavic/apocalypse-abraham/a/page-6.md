@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק ו"
+title: "פרק ו — בחיפוש אחר האל: האש והיסודות"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

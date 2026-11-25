@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק א"
+title: "פרק א — בית תרח ואלילי המשפחה"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

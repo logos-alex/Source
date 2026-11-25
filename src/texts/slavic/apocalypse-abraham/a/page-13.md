@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק יג"
+title: "פרק יג — היכל ומזבח: חזון פסל הקנאה"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

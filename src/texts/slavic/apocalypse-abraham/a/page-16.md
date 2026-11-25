@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק טז"
+title: "פרק טז — האיש הנכלם, עזאזל ועתיד העמים"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

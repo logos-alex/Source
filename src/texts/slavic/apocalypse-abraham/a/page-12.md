@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק יב"
+title: "פרק יב — אדם, חוה והנחש בגן עדן"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

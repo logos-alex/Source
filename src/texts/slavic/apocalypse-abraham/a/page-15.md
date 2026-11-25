@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק טו"
+title: "פרק טו — ארבעת המורדות ודין הדורות"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

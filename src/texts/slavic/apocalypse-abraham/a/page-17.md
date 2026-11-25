@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק יז"
+title: "פרק יז — עשר המכות ותקוות שארית ישראל"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

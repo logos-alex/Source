@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק ג"
+title: "פרק ג — מחשבות אברהם על אפסות האלילים"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

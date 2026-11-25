@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק יד"
+title: "פרק יד — חזון העמים וגלות זרע אברהם"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

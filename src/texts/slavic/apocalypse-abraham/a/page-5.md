@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק ה"
+title: "פרק ה — בריסת נשרף באש"
 book: apocalypse-abraham
 source: slavic
 figure: abraham
