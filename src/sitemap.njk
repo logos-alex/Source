@@ -9,46 +9,52 @@ eleventyExcludeFromCollections: true
   <url>
     <loc>{{ site.origin }}{{ '/' | url }}</loc>
     <lastmod>{{ buildInfo.getGitLastModified('src/index.njk') or buildInfo.builtAtUTC }}</lastmod>
-    <priority>1.0</priority>
     <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
   </url>
 
   {# Main navigation pages #}
   <url>
     <loc>{{ site.origin }}{{ '/texts/' | url }}</loc>
     <lastmod>{{ buildInfo.getGitLastModified('src/texts.njk') or buildInfo.builtAtUTC }}</lastmod>
-    <priority>0.9</priority>
     <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>{{ site.origin }}{{ '/by-figure/' | url }}</loc>
     <lastmod>{{ buildInfo.getGitLastModified('src/by-figure.njk') or buildInfo.builtAtUTC }}</lastmod>
-    <priority>0.9</priority>
     <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>{{ site.origin }}{{ '/updates/' | url }}</loc>
     <lastmod>{{ buildInfo.getGitLastModified('src/_data/updates.json') or buildInfo.builtAtUTC }}</lastmod>
-    <priority>0.7</priority>
     <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>{{ site.origin }}{{ '/about/' | url }}</loc>
     <lastmod>{{ buildInfo.getGitLastModified('src/about.njk') or buildInfo.builtAtUTC }}</lastmod>
-    <priority>0.6</priority>
     <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>{{ site.origin }}{{ '/license/' | url }}</loc>
     <lastmod>{{ buildInfo.getGitLastModified('src/license.njk') or buildInfo.builtAtUTC }}</lastmod>
-    <priority>0.4</priority>
     <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>{{ site.origin }}{{ '/privacy/' | url }}</loc>
+    <lastmod>{{ buildInfo.getGitLastModified('src/privacy.njk') or buildInfo.builtAtUTC }}</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>{{ site.origin }}{{ '/contact/' | url }}</loc>
     <lastmod>{{ buildInfo.getGitLastModified('src/contact.njk') or buildInfo.builtAtUTC }}</lastmod>
-    <priority>0.5</priority>
     <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
   </url>
 
   {# Language category pages — dynamically from languages.json #}
@@ -56,8 +62,8 @@ eleventyExcludeFromCollections: true
   <url>
     <loc>{{ site.origin }}{{ ('/texts/' + langSlug + '/') | url }}</loc>
     <lastmod>{{ buildInfo.builtAtUTC }}</lastmod>
-    <priority>0.8</priority>
     <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   {% endfor %}
 
@@ -66,8 +72,8 @@ eleventyExcludeFromCollections: true
   <url>
     <loc>{{ site.origin }}{{ ('/by-figure/' + figSlug + '/') | url }}</loc>
     <lastmod>{{ buildInfo.builtAtUTC }}</lastmod>
-    <priority>0.8</priority>
     <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   {% endfor %}
 
@@ -76,8 +82,8 @@ eleventyExcludeFromCollections: true
   <url>
     <loc>{{ site.origin }}{{ ('/by-figure/' + sectionKey + '/') | url }}</loc>
     <lastmod>{{ buildInfo.builtAtUTC }}</lastmod>
-    <priority>0.7</priority>
     <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   {% endfor %}
 
@@ -87,8 +93,8 @@ eleventyExcludeFromCollections: true
     <url>
       <loc>{{ site.origin }}{{ item.url | url }}</loc>
       <lastmod>{{ buildInfo.getGitLastModified(item.inputPath) or buildInfo.builtAtUTC }}</lastmod>
-      <priority>{% if item.data.pageNumber == 0 or not item.data.pageNumber %}0.8{% else %}0.7{% endif %}</priority>
       <changefreq>monthly</changefreq>
+      <priority>{% if item.data.pageNumber == 0 or not item.data.pageNumber %}0.8{% else %}0.7{% endif %}</priority>
     </url>
     {% endif %}
   {% endfor %}
