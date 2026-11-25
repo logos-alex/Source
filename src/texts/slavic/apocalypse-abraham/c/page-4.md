@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק ד"
+title: "פרק ד — בריסת נשרף באש ותגובת תרח"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

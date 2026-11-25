@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק י"
+title: "פרק י — עימות עם עזאזל וגירושו"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק א"
+title: "פרק א — תרח ועבודת האלילים וראשית חיפושו של אברהם"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

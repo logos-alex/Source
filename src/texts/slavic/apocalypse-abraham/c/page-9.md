@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק ט"
+title: "פרק ט — הקרבן, העוף הטמא וראשית העלייה"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

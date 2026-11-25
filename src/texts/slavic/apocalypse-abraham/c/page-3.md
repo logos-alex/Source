@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק ג"
+title: "פרק ג — אוזלת ידם של האלילים ותוכחת אברהם"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

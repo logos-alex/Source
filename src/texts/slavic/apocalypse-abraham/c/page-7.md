@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק ז"
+title: "פרק ז — ציווי הקרבן והבטחת החזיונות"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

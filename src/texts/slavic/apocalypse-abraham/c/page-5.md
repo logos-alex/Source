@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק ה"
+title: "פרק ה — האש והיסודות במבחן האלוהות"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק ו"
+title: "פרק ו — הצתת היכל האלילים ומות הרן"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

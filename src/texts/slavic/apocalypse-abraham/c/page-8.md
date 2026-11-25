@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק ח"
+title: "פרק ח — שליחות המלאך יהואל וסמכויותיו"
 book: apocalypse-abraham
 source: slavic
 figure: abraham
