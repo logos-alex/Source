@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק יג"
+title: "פרק יג — שירת השבח לקדמון ולגיבור"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

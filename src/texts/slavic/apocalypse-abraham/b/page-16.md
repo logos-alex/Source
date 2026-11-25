@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק טז"
+title: "פרק טז — מראה הבריאה והעולם שמתחת לרקיע"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

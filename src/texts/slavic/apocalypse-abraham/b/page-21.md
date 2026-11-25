@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק כא"
+title: "פרק כא — ארבעת המורדות ודין הדורות"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

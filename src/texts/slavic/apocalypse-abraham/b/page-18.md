@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק יח"
+title: "פרק יח — אדם, חוה והנחש בגן עדן"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

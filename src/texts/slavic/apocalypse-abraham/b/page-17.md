@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק יז"
+title: "פרק יז — שני מחנות העמים וגורל זרע אברהם"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

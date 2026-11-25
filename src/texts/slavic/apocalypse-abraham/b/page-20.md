@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק כ"
+title: "פרק כ — חורבן ההיכל וגלות זרע אברהם"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

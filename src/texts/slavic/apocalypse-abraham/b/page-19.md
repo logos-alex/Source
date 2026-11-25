@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק יט"
+title: "פרק יט — חטאי האדם ופסל הקנאה"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

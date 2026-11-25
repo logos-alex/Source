@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק טו"
+title: "פרק טו — שבעת הרקיעים ומראות השמים"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

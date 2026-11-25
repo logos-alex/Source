@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק יד"
+title: "פרק יד — ארבע החיות, האופנים וכיסא הכבוד"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

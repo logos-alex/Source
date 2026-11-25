@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק כב"
+title: "פרק כב — האיש הנכלם והמשתחווים לו"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

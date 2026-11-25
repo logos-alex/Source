@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק כג"
+title: "פרק כג — שארית ישראל ותיקון העולם"
 book: apocalypse-abraham
 source: slavic
 figure: abraham

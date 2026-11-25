@@ -1,6 +1,6 @@
 ---
 layout: text-page
-title: "פרק כד"
+title: "פרק כד — דין הרשעים וגורל זרע אברהם"
 book: apocalypse-abraham
 source: slavic
 figure: abraham
