@@ -3931,6 +3931,23 @@ html[data-theme="dark"] #disqus_thread iframe {
 }
 
 
+/* Remove legacy card separators from the opening text: it should read as one essay. */
+.home-page .opening-quote {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.home-page .home-reading__quotation {
+  margin: 0.8rem 0 0.95rem;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
 /* =====================================================================
    Homepage — continuous editorial reading flow
    The homepage is an opening text, not a dashboard of independent cards.
