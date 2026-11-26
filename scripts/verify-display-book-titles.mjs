@@ -119,6 +119,21 @@ for (const [bookUrl, entries] of displayedTitlesByBookUrl) {
       `${bookUrl}: listing title '${mismatch.title}' (${mismatch.page}) differs from the work's own page title '${pageTitle}'`,
     );
   }
+
+  // A book title already appears as the page H1; its first content H2 must not
+  // repeat the same title a second time.
+  const headingMatch = html.match(/class="text-header"[\\s\\S]*?<h1[^>]*>([\\s\\S]*?)<\\/h1>/);
+  const contentMatch = html.match(/class="text-content">([\\s\\S]*?)<\\/div>/);
+  const firstH2 = contentMatch?.[1]?.match(/<h2[^>]*>([\\s\\S]*?)<\\/h2>/);
+  if (headingMatch && firstH2) {
+    const pageHeading = normalizeLinkText(headingMatch[1]);
+    const openingHeading = normalizeLinkText(firstH2[1]);
+    if (pageHeading === openingHeading) {
+      errors.push(
+        `${bookUrl}: the opening H2 repeats the page H1 '${pageHeading}'`,
+      );
+    }
+  }
 }
 
 if (errors.length) {
