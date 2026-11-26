@@ -135,8 +135,8 @@ for (const [bookUrl, entries] of displayedTitlesByBookUrl) {
     }
   }
 
-  const hasChapterList = /class="table-of-contents[^"]*"[^>]*>[\s\S]*?<li[ >]/.test(html);
-  if (hasChapterList && !html.includes('class="text-header__actions"')) {
+  const tocMatch = html.match(/<div class="table-of-contents[^"]*"[^>]*>([\s\S]*?)<\/div>/);
+  if (tocMatch && /<li[ >]/.test(tocMatch[1]) && !html.includes('class="text-header__actions"')) {
     errors.push(
       `${bookUrl}: a book with chapters is missing the quick-start and contents links near its title`,
     );
