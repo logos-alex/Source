@@ -134,6 +134,13 @@ for (const [bookUrl, entries] of displayedTitlesByBookUrl) {
       );
     }
   }
+
+  const hasChapterList = /class="table-of-contents[^"]*"[^>]*>[\\s\\S]*?<li[ >]/.test(html);
+  if (hasChapterList && !html.includes('class="text-header__actions"')) {
+    errors.push(
+      `${bookUrl}: a book with chapters is missing the quick-start and contents links near its title`,
+    );
+  }
 }
 
 if (errors.length) {
