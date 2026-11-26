@@ -200,34 +200,75 @@ try {
   failures.count += 1;
 }
 
-// דף הבית הוא מבוא רציף, ולא לוח קטלוג או תצוגת סטטיסטיקה.
-// הבדיקה מאמתת את מבנה הקריאה ואת שמירת מתג המקור/תרגום.
+// דף הבית הוא שער עריכתי: פתיחה מן המקורות, מבוא, חיבורים נבחרים ודרכי עיון.
 try {
   const homeFile = "_site/index.html";
   const home = readBuiltFile(homeFile);
   const markers = [
-    '<article class="home-reading"',
-    '<section class="home-reading__opening"',
-    '<h1 class="opening-text__lead"',
+    'id="home-title"',
+    'אוצר הכתבים הגנוזים',
+    'class="home-opening-panel"',
     '<summary>ותרגומו</summary>',
-    '<section class="home-reading__body"',
-    'לעיון בחיבורים שבספרייה',
+    'class="home-preface"',
+    'data-home-featured="apocalypse-abraham"',
+    'data-home-featured="apoc-daniel-syriac"',
+    'data-home-featured="maale-yeshayahu"',
+    'data-home-featured="tsavaat-yaakov"',
+    'class="home-navigation"',
+    'class="home-latest"',
+    'חיפוש בכתבים',
   ];
   for (const marker of markers) {
-    expectIncludes(home, marker, "continuous homepage reading element", homeFile, failures);
+    expectIncludes(home, marker, "homepage entry element", homeFile, failures);
   }
 
-  const articleCount = (home.match(/<article class="home-reading"/g) || []).length;
-  if (articleCount !== 1) {
-    console.error("❌ Expected one continuous homepage article, found " + articleCount);
+  const featuredCount = (home.match(/class="home-work-card" data-home-featured=/g) || []).length;
+  if (featuredCount !== 4) {
+    console.error("❌ Expected four curated homepage works, found " + featuredCount);
     failures.count += 1;
   }
+} catch (error) {
+  console.error("❌ " + error.message);
+  failures.count += 1;
+}
 
-  for (const obsolete of ["home-hero", "book-card", "coming-soon"]) {
-    if (home.includes(obsolete)) {
-      console.error("❌ Obsolete homepage dashboard element remains: " + obsolete);
-      failures.count += 1;
-    }
+// מפתח הייחוסים חייב להציג גם את הדמויות שכבר יש להן חיבורים פעילים.
+try {
+  const figureFile = "_site/by-figure/index.html";
+  const figuresHtml = readBuiltFile(figureFile);
+  for (const key of ["yitzchak", "yaakov", "eliyahu"]) {
+    expectIncludes(
+      figuresHtml,
+      `data-figure-key="${key}"`,
+      `published figure '${key}' in the index`,
+      figureFile,
+      failures,
+    );
+  }
+  expectIncludes(
+    figuresHtml,
+    "בהכנה",
+    "preparation status in the figure index",
+    figureFile,
+    failures,
+  );
+} catch (error) {
+  console.error("❌ " + error.message);
+  failures.count += 1;
+}
+
+// קישורי מדפי התנ״ך בפוטר מפנים לעוגנים בספרייה, לא לעמודי דמויות שאינם קיימים.
+try {
+  const homeFile = "_site/index.html";
+  const home = readBuiltFile(homeFile);
+  for (const key of ["torah", "neviim", "ketuvim", "talmidei-yeshua"]) {
+    expectIncludes(
+      home,
+      `href="${withSitePrefix("/texts/#" + key)}"`,
+      `footer/library link for section '${key}'`,
+      homeFile,
+      failures,
+    );
   }
 } catch (error) {
   console.error("❌ " + error.message);
