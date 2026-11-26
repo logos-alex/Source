@@ -1,18 +1,42 @@
 ---
 layout: base.njk
 title: "דף הבית"
-description: "אפוקריפה — ספרים חיצוניים בעברית: איסוף, תרגום והנגשה של ספרות יהודית ויהודו-נוצרית קדומה. חיבורים נדירים, כתבי-יד נשכחים, ונוסחים שאינם מצויים ברשת או בעברית."
+description: "אפוקריפה — בית המדרש הווירטואלי לכתבים גנוזים: תרגומים עבריים של ספרים חיצוניים, חזיונות ומסורות קדומות שנשתמרו בלשונות שונות ובכתבי־יד."
 bodyClass: home-page
 ---
 
-<div class="text-main">
-  <article class="home-reading" aria-label="פתיחה ומבוא">
+<div class="home-page-layout">
+  <section class="home-masthead" aria-labelledby="home-title">
+    <div class="home-masthead__seal" aria-hidden="true">{% include "logo-mark.njk" %}</div>
+    <p class="home-masthead__eyebrow">בית המדרש הווירטואלי לכתבים גנוזים</p>
+    <h1 id="home-title">אוצר הכתבים הגנוזים</h1>
+    <p class="home-masthead__subtitle">ספרים חיצוניים, חזיונות ומסורות קדומות — בלשון העברית</p>
+    <p class="home-masthead__lead">
+      חיבורים שנשתמרו מחוץ לגבולות הספרים הקנוניים, לעיתים בכתב־יד יחיד ולעיתים בלשונות אחרות,
+      מובאים כאן לעיון מתוך העדים והמהדורות ששרדו — עם מבואות, הערות וביאורים.
+    </p>
+    <nav class="home-masthead__actions" aria-label="כניסה לאוצר">
+      <a href="{{ '/texts/' | url }}" class="btn btn--primary">כניסה לספרייה</a>
+      <a href="{{ '/search/' | url }}" class="btn btn--ghost">חיפוש בכתבים</a>
+    </nav>
+    <ul class="home-masthead__facts" aria-label="נתוני הספרייה">
+      <li><strong>{{ libraryStats.published }}</strong><span>חיבורים לקריאה</span></li>
+      <li><strong>{{ libraryStats.publishedLanguages }}</strong><span>לשונות מקור</span></li>
+      <li><strong>{{ libraryStats.publishedFigures }}</strong><span>דמויות וייחוסים</span></li>
+    </ul>
+  </section>
 
-    {# ===== OPENING OF THE EDITION — חזון עזרא י״ד ===== #}
+  <div class="home-content">
+    <section class="home-opening-panel" aria-labelledby="home-opening-title">
+      <div class="home-opening-panel__heading">
+        <p class="home-section__eyebrow">פתח דבר מן המקורות</p>
+        <h2 id="home-opening-title">חזון עזרא, פרק י״ד</h2>
+        <p>דברי עזרא על הספרים הגלויים והגנוזים</p>
+      </div>
   <section class="home-reading__opening" lang="arc" aria-label="חזון עזרא י״ד">
     <div class="opening-quote">
       <blockquote class="opening-text opening-text--transliteration" lang="arc" dir="rtl">
-        <h1 class="opening-text__lead" lang="he" dir="rtl">אֲדַבֵּר לְפָנֶיךָ, אֲדֹנָי.</h1>
+        <p class="opening-text__lead" lang="he" dir="rtl">אֲדַבֵּר לְפָנֶיךָ, אֲדֹנָי.</p>
         <p>אן הכיל אשכּחת רְחמא קדמיכ׃ ארמא בי מרי רוחא קדישא׃ ואכתוב כול מדם דהוא בעלמא׃ מן ריש כל דכתיב הוא בנמוסך דנתמצון בְני אנשא נשכחון שבילא׃ ואילין דצּבין דנאחונ באחריתא נדעון אורחא ׃ וענא ואמר לי׃ זל וכנשיהי לעמך ואמר להונ׃ דלא נבעונך ארבעין יומְינ׃ אנת דין עתד לך לוחְא סגיאְתא׃ ודבר עמך לסריא ולדריא ולשלמיא עם הלקנא׃ ולשיאיל׃ להלין חמשא גברְינ׃ מטל דעתידין אנון למכתב קלילאית׃ ותאתא להרכא׃ ואנא אדלק בלבך שרגא דבוינא׃ הּו דלא נדעך עדמא דתשּלם מדם דעתיד אנת למכתב׃ ומא דשלמת׃ מנהון תסים בגליא ומנהון תכסא׃ ותשלם אנון לחכימְא</p>
         <p class="opening-text__gap">…;</p>
         <p>אנא דין דבּרת להלין חמשא גברין איך דפקדני׃ ואזּלת לפקעתא׃ וכתרן תמן איּכנא דאמר לי</p>
@@ -42,8 +66,13 @@ bodyClass: home-page
     </div>
     <cite class="home-reading__cite">— חזון עזרא י״ד</cite>
   </section>
+    </section>
 
-  {# ===== INTRODUCTION — one continuous reading flow ===== #}
+    <article class="home-preface" aria-labelledby="home-preface-title">
+      <div class="home-preface__heading">
+        <p class="home-section__eyebrow">דברי פתיחה</p>
+        <h2 id="home-preface-title">הספרים שמעבר למניין</h2>
+      </div>
   <section class="home-reading__body" aria-label="מבוא">
   <blockquote class="home-reading__quotation">
     <p>״הַשְׁתָּא הָא חַכִּימֵי עָלְמָא יָדְעִין מִלִּין וְסָתְמִין לוֹן, וּמִתְתַּקְּפֵי בְּפוּלְחָנָא דְמָארֵיהוֹן.״</p>
@@ -63,16 +92,130 @@ bodyClass: home-page
 
     <p>ואלו הם הנקראים בלשון חכמים ״ספרים חיצוניים״. ואף שלא נקבעו בין כ״ד הספרים, עדיין שימשו את חכמי הדורות והשפעתם ניכרת במקורות ישראל לדורותיהם.</p>
 
+    <h3 class="home-preface__subhead">מסורות שנשתמרו בלשונות אחרות</h3>
+
     <p>רבים מאותם חיבורים אינם מצויים עוד בידינו בלשון העברית. יש מהם שאבדו בנוסחם העברי ונשתמרו בקרב אומות העולם — ובפרט אצל הנוצרים ובני ישמעאל — אשר העתיקו, תרגמו ושימרו אותם בלשונותיהם: ארמית, סורית, יוונית, לטינית, ערבית, געז, ארמנית וסלאבית. לצד אלה נשתמרו גם חיבורים שנתחברו מלכתחילה בלשונות אחרות, וכן חיבורים מאוחרים יותר שצמחו במרחבים סמוכים. חלקם אף נותרו בכתבי־יד יחידים, מקוטעים או משובשים, הרחק מעין הציבור.</p>
 
     <p>על כן ראיתי לאספם מן העדים ומן הלשונות השונים ולהביאם אל בית המדרש בלשון עברית — לפתוח לפני הלומד העברי אוצר של כתבים ומסורות אשר רבים מהם אינם מצויים בנקל לא בכתבי־יד, לא במהדורות מודפסות ולא בלשון העברית. במקום שהדבר אפשרי, מובא הנוסח בלשון המקור לצד תרגום עברי; בחיבורים שנשתמרו בארמית או בסורית — המקור לצד העברית; ביתר החיבורים — העברית מתוך העדים והמהדורות העומדים לפנינו.</p>
+
+    <h3 class="home-preface__subhead">ביאור, מקבילות ועיון</h3>
 
     <p>בצד החיבורים יובאו ביאור ומקבילות — כעין פירוש המלווה את הכתוב ופותח את דבריו לאור המקרא, מדרשי חז״ל, התלמוד, ספר היובלים והצוואות, ספרות החכמה, ספרות ההיכלות ושאר ספרי ישראל; וכן יושוו לחיבורים חיצוניים אחרים. פעמים נמצא בחיבור חיצוני דבר, והנה כבר מצינו לו מקבילה בדברי חז״ל; פעמים נמצא בו מסורת המצויה בספר קדום אחר, ופעמים שאותה מסורת עצמה נתגלגלה וקיבלה צורה אחרת בדורות מאוחרים; ולעיתים דווקא השוואת החיבורים מגלה כי פרט הנשתמר במקום אחד בלבד עשוי לשמר זכר למסורת קדומה ורחבה יותר.</p>
 
     <p>אין כל החיבורים שווים זה לזה: יש בהם קדומים ומאוחרים, יש מהם ממסורות ישראל ויש שעברו עיבוד בידי בני אומות העולם; לפיכך כל חיבור נבחן בפני עצמו, לפי לשונו, עדיו והמסורת שנתגלגלה עמו.</p>
   </section>
+    </article>
 
-  <p class="home-reading__destination"><a href="{{ '/texts/' | url }}">לעיון בחיבורים שבספרייה</a></p>
+    {% set featuredWorks = [
+      {
+        book: "apocalypse-abraham",
+        href: "/texts/slavic/apocalypse-abraham/",
+        note: "ארבעה נוסחים עבריים, כל אחד על פי עד אחר."
+      },
+      {
+        book: "apoc-daniel-syriac",
+        href: "/texts/aramaic/apoc-daniel-syriac/",
+        note: "הנוסח הסורי־ארמי מובא לצד תרגומו העברי."
+      },
+      {
+        book: "maale-yeshayahu",
+        href: "/texts/greek/maale-yeshayahu/",
+        note: "נוסח משולב משני כתבי־יד יווניים."
+      },
+      {
+        book: "tsavaat-yaakov",
+        href: "/texts/arabic/tsavaat-yaakov/",
+        note: "על פי הנוסח הערבי שבכתב־היד פאריס, BnF Arabe 132."
+      }
+    ] %}
+    <section class="home-featured" aria-labelledby="home-featured-title">
+      <div class="home-section-heading">
+        <div>
+          <p class="home-section__eyebrow">מן הספרייה</p>
+          <h2 id="home-featured-title">חיבורים לעיון</h2>
+          <p>ארבעה חיבורים מארבע מסורות לשון — מן הנוסח ועד המבוא והפרקים.</p>
+        </div>
+        <a class="home-section-heading__link" href="{{ '/texts/' | url }}">לכל הספרייה ←</a>
+      </div>
+      <div class="home-work-grid">
+        {% for featured in featuredWorks %}
+          {% set entry = featured.book | bookCatalogEntry %}
+          {% set langEntry = languages[entry.lang] %}
+          <article class="home-work-card" data-home-featured="{{ featured.book }}">
+            <p class="home-work-card__meta">
+              <span>{{ langEntry.label if langEntry else entry.lang }}</span>
+              <span aria-hidden="true">·</span>
+              <span>{{ figures[entry.figure] or entry.figure }}</span>
+            </p>
+            <h3><a href="{{ featured.href | url }}">{{ entry.title }}</a></h3>
+            <p class="home-work-card__description">{{ entry.description }}</p>
+            <p class="home-work-card__note">{{ featured.note }}</p>
+            <a class="home-work-card__link" href="{{ featured.href | url }}">למבוא ולתוכן העניינים ←</a>
+          </article>
+        {% endfor %}
+      </div>
+    </section>
 
-</article>
+    <section class="home-navigation" aria-labelledby="home-navigation-title">
+      <div class="home-section-heading">
+        <div>
+          <p class="home-section__eyebrow">דרכי העיון</p>
+          <h2 id="home-navigation-title">לפתוח את האוצר</h2>
+        </div>
+      </div>
+      <div class="home-navigation__grid">
+        <section class="home-navigation__group">
+          <h3>לפי חלקי המקרא</h3>
+          <div class="home-navigation__links">
+            {% for sectionKey in bibleSectionOrder %}
+              <a href="{{ ('/texts/#' + sectionKey) | url }}">{{ bibleSections.sections[sectionKey].title }}</a>
+            {% endfor %}
+            <a href="{{ '/texts/' | url }}" class="home-navigation__all">כל החיבורים ←</a>
+          </div>
+        </section>
+        <section class="home-navigation__group">
+          <h3>לפי שפת המקור</h3>
+          <div class="home-language-list">
+            {% for langSlug, langEntry in languages %}
+              <a href="{{ ('/texts/' + langSlug + '/') | url }}">{{ langEntry.label }}</a>
+            {% endfor %}
+          </div>
+        </section>
+        <a class="home-navigation__feature" href="{{ '/by-figure/' | url }}">
+          <span>ייחוס ומסורת</span>
+          <strong>כתבים לפי דמות</strong>
+          <small>אברהם, משה, דניאל, עזרא, אליהו ואחרים ←</small>
+        </a>
+        <a class="home-navigation__feature" href="{{ '/search/' | url }}">
+          <span>איתור ועיון</span>
+          <strong>חיפוש באוצר</strong>
+          <small>חיפוש שמות, ביטויים ומילים בגוף הכתבים והביאורים ←</small>
+        </a>
+      </div>
+    </section>
+
+    <section class="home-latest" aria-labelledby="home-latest-title">
+      <div class="home-section-heading">
+        <div>
+          <p class="home-section__eyebrow">מן הנעשה בבית המדרש</p>
+          <h2 id="home-latest-title">מה חדש</h2>
+        </div>
+        <a class="home-section-heading__link" href="{{ '/updates/' | url }}">לכל העדכונים ←</a>
+      </div>
+      <div class="home-latest__list">
+        {% for item in updates.items %}
+          {% if loop.index <= 2 %}
+            <article class="home-latest__item">
+              <p class="home-latest__meta">{{ item.dateLabel }} · {{ item.category }}</p>
+              <h3>{{ item.title }}</h3>
+              <p>{{ item.summary }}</p>
+              {% if item.links and item.links.length %}
+                <a href="{{ item.links[0].href | url }}">{{ item.links[0].label }} ←</a>
+              {% endif %}
+            </article>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </section>
+  </div>
 </div>
