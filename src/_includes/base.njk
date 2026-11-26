@@ -365,7 +365,7 @@
             <ul>
               <li><a href="{{ '/texts/' | url }}">כל הספרייה</a></li>
               {% for sectionKey in bibleSectionOrder %}
-              <li><a href="{{ ('/by-figure/' + sectionKey + '/') | url }}">{{ bibleSections.sections[sectionKey].title }}</a></li>
+              <li><a href="{{ ('/texts/#' + sectionKey) | url }}">{{ bibleSections.sections[sectionKey].title }}</a></li>
               {% endfor %}
               <li><a href="{{ '/search/' | url }}">חיפוש באוצר</a></li>
               <li><a href="{{ '/updates/' | url }}">מה חדש</a></li>
