@@ -7,7 +7,7 @@
 | סה"כ ספרים | 35 |
 | סה"כ פרקים | 170 |
 | סה"כ הערות שוליים | 120 |
-| סה"כ מילים (בערך) | 53,540 |
+| סה"כ מילים (בערך) | 53,524 |
 | ספרים עם תצוגה מקבילית | 9 |
 | ספרים בהכנה (comingSoon) | 22 |
 
@@ -15,7 +15,7 @@
 
 | ספר | מקור | דמות | פרקים | הערות | מילים | מקבילית | ללא תרגום מאומת |
 |---|---|---|---:|---:|---:|:---:|---:|
-| apoc-daniel-syriac | aramaic | daniel | 32 | 2 | 4,637 | ✓ | 0 |
+| apoc-daniel-syriac | aramaic | daniel | 32 | 2 | 4,635 | ✓ | 0 |
 | apocalypse-abraham | slavic | abraham | 71 | 65 | 20,147 |  | 0 |
 | apokalypsis-esdras | greek | ezra | 7 | 0 | 2,073 |  | 0 |
 | chazon-daniel-aravi | arabic | daniel | 0 | 0 | 0 |  | 0 |
@@ -38,7 +38,7 @@
 | maale-yeshayahu | greek | isaiah | 7 | 5 | 2,256 |  | 0 |
 | maase-avraham-sara | arabic | abraham | 8 | 4 | 2,881 |  | 0 |
 | maase-yitzchak | arabic | yitzchak | 4 | 4 | 1,915 |  | 0 |
-| maasei-timotheos | latin | talmidei-yeshua | 5 | 0 | 800 |  | 0 |
+| maasei-timotheos | latin | talmidei-yeshua | 5 | 0 | 786 |  | 0 |
 | sefer-eliyahu | hebrew | eliyahu | 3 | 0 | 1,001 |  | 0 |
 | sefer-hanoch-a | greek | enoch | 0 | 0 | 0 |  | 0 |
 | sefer-zerubbabel | hebrew | zerubbabel | 0 | 0 | 0 |  | 0 |
