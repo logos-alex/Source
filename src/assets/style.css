@@ -3931,7 +3931,47 @@ html[data-theme="dark"] #disqus_thread iframe {
 }
 
 
-/* Remove legacy card separators from the opening text: it should read as one essay. */
+/* =====================================================================
+   Homepage — one continuous book-like introduction
+   All quotation marks on this page inherit the same typography as prose.
+   ===================================================================== */
+.home-page .text-main {
+  padding-top: clamp(1.35rem, 3vw, 2.35rem);
+  padding-bottom: clamp(2.25rem, 4vw, 3.5rem);
+}
+
+.home-page .home-reading {
+  width: 100%;
+  max-width: 790px;
+  margin-inline: auto;
+  color: var(--c-text);
+  font-family: var(--font-hebrew);
+  font-size: var(--fs-base);
+  line-height: 1.88;
+}
+
+.home-page .home-reading__opening {
+  margin: 0 0 0.65em;
+  padding: 0;
+}
+
+/* Reset the site's global blockquote card treatment on this page.
+   The source text is part of the preface, not a framed quotation card. */
+.home-page .home-reading blockquote {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: inherit;
+  font: inherit;
+  font-style: normal;
+}
+
+/* Aramaic/Syriac transcription and the Hebrew translation share one typeface
+   and measure. The existing details/summary toggle remains interactive. */
 .home-page .opening-quote {
   margin: 0;
   padding: 0;
@@ -3939,85 +3979,60 @@ html[data-theme="dark"] #disqus_thread iframe {
   background: transparent;
 }
 
-.home-page .home-reading__quotation {
-  margin: 0.8rem 0 0.95rem;
+.home-page .opening-text,
+.home-page .opening-text--transliteration,
+.home-page .opening-text--translation {
+  margin: 0;
   padding: 0;
   border: 0;
   border-radius: 0;
   background: transparent;
   box-shadow: none;
-}
-
-/* =====================================================================
-   Homepage — continuous editorial reading flow
-   The homepage is an opening text, not a dashboard of independent cards.
-   ===================================================================== */
-.home-page .text-main {
-  padding-top: clamp(1.6rem, 3.5vw, 2.8rem);
-  padding-bottom: clamp(2.5rem, 5vw, 4rem);
-}
-
-.home-page .home-reading {
-  width: 100%;
-  max-width: 790px;
-  margin-inline: auto;
-  font-family: var(--font-hebrew);
   color: var(--c-text);
-}
-
-.home-page .home-reading__opening {
-  margin: 0 0 1.25rem;
-  padding: 0;
-}
-
-.home-page .opening-text {
-  margin: 0;
   font-family: var(--font-hebrew);
   font-size: var(--fs-base);
+  font-style: normal;
   font-weight: 400;
-  color: var(--c-text);
+  line-height: 1.88;
   direction: rtl;
   text-align: justify;
-  line-height: 1.9;
-}
-
-.home-page .opening-text--transliteration,
-.home-page .opening-text--translation {
-  font-family: var(--font-hebrew);
-  font-size: var(--fs-base);
-  line-height: 1.9;
-  color: var(--c-text);
 }
 
 .home-page .opening-text p {
-  margin: 0 0 0.55em;
-  line-height: 1.9;
+  margin: 0 0 0.62em;
+  padding: 0;
+  font-family: var(--font-hebrew);
+  font-size: inherit;
+  font-style: normal;
+  font-weight: 400;
+  line-height: inherit;
 }
 
 .home-page .opening-text__lead {
-  margin: 0 0 0.6em !important;
+  margin: 0 0 0.55em !important;
   padding: 0;
-  font-family: var(--font-hebrew-display);
-  font-size: clamp(1.2rem, 2.3vw, 1.48rem);
-  line-height: 1.55;
+  font-family: var(--font-hebrew);
+  font-size: 1.08em;
   font-weight: 400;
   font-style: normal;
+  line-height: 1.55;
   letter-spacing: 0;
   text-align: right;
   color: var(--c-text);
 }
 
 .home-page .opening-text__gap {
-  margin: 0.12em 0 0.25em !important;
+  margin: 0.08em 0 0.22em !important;
   padding: 0;
-  font-size: 0.82em;
+  font-size: 0.86em;
   line-height: 1.3 !important;
   text-align: center;
-  color: var(--c-text-faint);
+  color: var(--c-text-muted);
 }
 
 .home-page .opening-source {
-  margin: 0.15rem 0 0.5rem;
+  display: block;
+  margin: 0.12rem 0 0.42rem;
   padding: 0;
   border: 0;
   border-radius: 0;
@@ -4025,18 +4040,21 @@ html[data-theme="dark"] #disqus_thread iframe {
 }
 
 .home-page .opening-source > summary {
-  display: inline-block;
+  display: inline;
   width: auto;
-  padding: 0.12rem 0.05rem;
+  margin: 0;
+  padding: 0 0 0.08em;
   border: 0;
   border-bottom: 1px solid var(--c-border);
   border-radius: 0;
   background: transparent;
   font-family: var(--font-hebrew);
   font-size: var(--fs-xs);
+  font-weight: 400;
   line-height: 1.5;
   letter-spacing: 0;
   color: var(--c-accent);
+  cursor: pointer;
 }
 
 .home-page .opening-source > summary::before,
@@ -4045,98 +4063,110 @@ html[data-theme="dark"] #disqus_thread iframe {
 }
 
 .home-page .opening-source > blockquote {
-  margin: 0.65rem 0 0;
+  margin: 0.45em 0 0;
   padding: 0;
   border: 0;
+  background: transparent;
 }
 
 .home-page .opening-text--translation {
-  color: var(--c-text-2);
+  color: var(--c-text);
 }
 
 .home-page .home-reading__cite {
   display: block;
-  margin: 0.35rem 0 1.15rem;
+  margin: 0.12em 0 0.62em;
   padding: 0;
   font-family: var(--font-hebrew);
   font-size: var(--fs-xs);
   font-style: normal;
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.45;
   color: var(--c-text-muted);
   text-align: right;
 }
 
+/* Zohar and other quotations are paragraphs in the same essay:
+   no separate card, no different font, no italic treatment. */
 .home-page .home-reading__quotation {
   max-width: none;
-  margin: 0.85rem 0 1rem;
-  padding: 0 0.85rem 0 0;
+  margin: 0 0 0.72em;
+  padding: 0;
   border: 0;
-  border-inline-start: 0;
-  border-inline-end: 0;
   border-radius: 0;
   background: transparent;
-}
-
-.home-page .home-reading__quotation p:first-child {
-  margin: 0 0 0.35em;
-  padding: 0;
+  box-shadow: none;
   font-family: var(--font-hebrew);
   font-size: var(--fs-base);
-  font-weight: 400;
   font-style: normal;
-  line-height: 1.85;
+  font-weight: 400;
+  line-height: 1.88;
+  color: var(--c-text);
+}
+
+.home-page .home-reading__quotation p,
+.home-page .home-reading__quotation p:first-child {
+  margin: 0 0 0.24em;
+  padding: 0;
+  font-family: var(--font-hebrew);
+  font-size: inherit;
+  font-style: normal;
+  font-weight: 400;
+  line-height: inherit;
   color: var(--c-text);
 }
 
 .home-page .home-reading__quotation .intro-quote__translation {
-  margin: 0.3em 0 0;
-  font-size: var(--fs-sm);
-  line-height: 1.8;
-  color: var(--c-text-muted);
+  margin: 0.22em 0 0;
+  font-family: var(--font-hebrew);
+  font-size: inherit;
+  line-height: inherit;
+  color: var(--c-text);
 }
 
 .home-page .home-reading__quotation cite {
   display: block;
-  margin: 0.35em 0 0;
+  margin: 0.12em 0 0.58em;
+  padding: 0;
   font-family: var(--font-hebrew);
   font-size: var(--fs-xs);
   font-style: normal;
-  line-height: 1.5;
+  font-weight: 400;
+  line-height: 1.45;
   color: var(--c-text-muted);
 }
 
-.home-page .home-reading__epigraph {
-  margin-top: 1.05rem;
-  margin-bottom: 1.35rem;
-}
-
 .home-page .home-reading__body {
-  margin: 0;
-  padding: 0;
+  display: block;
   max-width: none;
-}
-
-.home-page .home-reading__body > p {
-  margin: 0 0 0.82em;
+  margin: 0;
   padding: 0;
   font-family: var(--font-hebrew);
   font-size: var(--fs-base);
-  font-weight: 400;
   line-height: 1.88;
   color: var(--c-text);
+}
+
+.home-page .home-reading__body > p {
+  margin: 0 0 0.72em;
+  padding: 0;
+  font-family: var(--font-hebrew);
+  font-size: inherit;
+  font-weight: 400;
+  line-height: inherit;
+  color: inherit;
   text-align: justify;
   text-align-last: start;
   text-wrap: pretty;
 }
 
 .home-page .home-reading__body > p:last-child {
-  margin-bottom: 0.9em;
+  margin-bottom: 0.72em;
 }
 
 .home-page .home-reading__destination {
-  margin: 1.45rem 0 0;
-  padding: 0.8rem 0 0;
+  margin: 1.05rem 0 0;
+  padding: 0.62rem 0 0;
   border-top: 1px solid var(--c-border-soft);
   text-align: center;
   font-family: var(--font-hebrew);
@@ -4157,20 +4187,19 @@ html[data-theme="dark"] #disqus_thread iframe {
 
 @media (max-width: 640px) {
   .home-page .text-main {
-    padding-top: 1.15rem;
+    padding-top: 1.05rem;
   }
   .home-page .home-reading {
     max-width: none;
+    font-size: 1rem;
+    line-height: 1.82;
   }
   .home-page .opening-text,
   .home-page .opening-text--transliteration,
   .home-page .opening-text--translation,
-  .home-page .home-reading__body > p,
-  .home-page .home-reading__quotation p:first-child {
-    font-size: 0.98rem;
-    line-height: 1.85;
-  }
-  .home-page .home-reading__quotation {
-    padding-inline-end: 0.65rem;
+  .home-page .home-reading__quotation,
+  .home-page .home-reading__body {
+    font-size: 1rem;
+    line-height: 1.82;
   }
 }
