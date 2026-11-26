@@ -150,7 +150,7 @@ bodyClass: home-page
             <h3><a href="{{ featured.href | url }}">{{ entry.title }}</a></h3>
             <p class="home-work-card__description">{{ entry.description }}</p>
             <p class="home-work-card__note">{{ featured.note }}</p>
-            <a class="home-work-card__link" href="{{ featured.href | url }}">למבוא ולתוכן העניינים ←</a>
+            <span class="home-work-card__link">למבוא ולתוכן העניינים</span>
           </article>
         {% endfor %}
       </div>
@@ -209,9 +209,6 @@ bodyClass: home-page
               <p class="home-latest__meta">{{ item.dateLabel }} · {{ item.category }}</p>
               <h3>{{ item.title }}</h3>
               <p>{{ item.summary }}</p>
-              {% if item.links and item.links.length %}
-                <a href="{{ item.links[0].href | url }}">{{ item.links[0].label }} ←</a>
-              {% endif %}
             </article>
           {% endif %}
         {% endfor %}
