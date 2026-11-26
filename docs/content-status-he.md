@@ -17,7 +17,7 @@
 |---|---|---|---:|---:|---:|:---:|---:|
 | apoc-daniel-syriac | aramaic | daniel | 32 | 2 | 4,635 | ✓ | 0 |
 | apocalypse-abraham | slavic | abraham | 71 | 65 | 20,147 |  | 0 |
-| apokalypsis-esdras | greek | ezra | 7 | 5 | 2,109 |  | 0 |
+| apokalypsis-esdras | greek | ezra | 7 | 7 | 2,109 |  | 0 |
 | chazon-daniel-aravi | arabic | daniel | 0 | 0 | 0 |  | 0 |
 | chazon-daniel-kopti | arabic | daniel | 0 | 0 | 0 |  | 0 |
 | chazon-ezra-sofer | latin | ezra | 0 | 0 | 0 |  | 0 |
