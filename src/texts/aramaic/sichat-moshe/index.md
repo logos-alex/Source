@@ -36,8 +36,8 @@ description: "שיחת משה — תשעיתא דמושא גביא בנביות�
 
 1. [פרק א — פתיחה, צום משה ושאלות על גמילות חסדים]({{ '/texts/aramaic/sichat-moshe/page-1/' | url }})
 2. [פרק ב — חסד עם המתים, תפילת הלילה ותפילת השחר]({{ '/texts/aramaic/sichat-moshe/page-2/' | url }})
-3. [פרק ג — שעות התפילה, הלוואה ללא ריבית ויחסי אנוש]({{ '/texts/aramaic/sichat-moshe/page-3/' | url }})
-4. [פרק ד — עבירות עריות, אבלות פסולה, גזל והשגת גבול]({{ '/texts/aramaic/sichat-moshe/page-4/' | url }})
+3. [פרק ג — שעות התפילה, הלוואה לחבר ויחסי אנוש]({{ '/texts/aramaic/sichat-moshe/page-3/' | url }})
+4. [פרק ד — זנות, אבלות פסולה, גזל והשגת גבול]({{ '/texts/aramaic/sichat-moshe/page-4/' | url }})
 5. [פרק ה — כיבוד הורים, איסור ריבית, רדיפת שלום והתרוממות סיני]({{ '/texts/aramaic/sichat-moshe/page-5/' | url }})
 6. [פרק ו — מהות האל, כס הכבוד, חיות המרכבה ומחנות המלאכים]({{ '/texts/aramaic/sichat-moshe/page-6/' | url }})
 7. [פרק ז — משל האש, משל כוס המים והתרדמה, ומראה כבוד ה׳]({{ '/texts/aramaic/sichat-moshe/page-7/' | url }})
