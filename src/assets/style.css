@@ -366,7 +366,7 @@ blockquote {
 }
 
 /* --------------------------- Header -------------------------------- */
-header {
+body > header {
   position: sticky;
   top: 0;
   z-index: var(--z-sticky);
