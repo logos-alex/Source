@@ -1,5 +1,8 @@
 {% extends "base.njk" %}
 
+{# The page heading carries the work title; remove a repeated opening h2. #}
+{% set content = content | dropDuplicateTitle(title) %}
+
 {% block content %}
   {% if book | hasMultipleVersions %}
     {% include "version-tabs.njk" %}
