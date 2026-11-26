@@ -1467,6 +1467,31 @@ main {
   margin: 0 0 var(--s-3);
   font-size: var(--fs-3xl);
 }
+
+.text-header__actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--s-3) var(--s-4);
+  margin: var(--s-4) 0 0;
+}
+.text-header__actions .btn {
+  padding: var(--s-2) var(--s-4);
+  font-size: var(--fs-sm);
+}
+.text-header__toc-link {
+  color: var(--c-accent);
+  font-size: var(--fs-sm);
+  text-decoration: underline;
+  text-decoration-color: var(--c-border);
+  text-underline-offset: 0.2em;
+}
+.text-header__chapter-count {
+  margin-inline-start: auto;
+  color: var(--c-text-muted);
+  font-size: var(--fs-xs);
+  white-space: nowrap;
+}
 .text-meta {
   font-size: var(--fs-sm);
   color: var(--c-text-muted);
@@ -4595,5 +4620,14 @@ html[data-theme="dark"] #disqus_thread iframe {
   }
   .figure-index-page .figure-index-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .text-header__actions {
+    gap: var(--s-2) var(--s-3);
+  }
+  .text-header__chapter-count {
+    margin-inline-start: 0;
   }
 }
