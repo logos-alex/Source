@@ -64,12 +64,25 @@ module.exports = function () {
   const published = catalog.filter((entry) => !entry.comingSoon);
   const inPrep = catalog.filter((entry) => entry.comingSoon);
   const languages = new Set(catalog.map((entry) => entry.lang).filter(Boolean));
+  const publishedLanguages = new Set(published.map((entry) => entry.lang).filter(Boolean));
+  const publishedFigures = new Set(published.map((entry) => entry.figure).filter(Boolean));
+  const figureStatus = {};
+
+  for (const entry of catalog) {
+    if (!entry.figure) continue;
+    figureStatus[entry.figure] ||= { published: 0, inPrep: 0 };
+    if (entry.comingSoon) figureStatus[entry.figure].inPrep += 1;
+    else figureStatus[entry.figure].published += 1;
+  }
 
   return {
     total: catalog.length,
     published: published.length,
     inPrep: inPrep.length,
     languages: languages.size,
+    publishedLanguages: publishedLanguages.size,
+    publishedFigures: publishedFigures.size,
+    figureStatus,
     publishedHe: numberWords(published.length, "m"),
     inPrepHe: numberWords(inPrep.length, "m"),
     languagesHe: numberWords(languages.size, "f"),
