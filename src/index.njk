@@ -6,24 +6,13 @@ bodyClass: home-page
 ---
 
 <div class="text-main">
-
-  {# ===== HERO ===== #}
-  <section class="home-hero" aria-label="פתיחה">
-    <div class="home-hero__sigil" aria-hidden="true">{% include "logo-mark.njk" %}</div>
-    <h1 class="home-hero__title">אפוקריפה</h1>
-    <p class="home-hero__sub-subtitle">בית המדרש לספרים חיצוניים</p>
-
-    <div class="home-hero__actions">
-      <a href="{{ '/texts/' | url }}" class="btn btn--primary">כניסה לספרייה</a>
-      <a href="{{ '/about/' | url }}" class="btn btn--ghost">על המיזם</a>
-    </div>
-  </section>
+  <article class="home-reading" aria-label="פתיחה ומבוא">
 
     {# ===== OPENING OF THE EDITION — חזון עזרא י״ד ===== #}
-  <figure class="home-opening" lang="arc">
+  <section class="home-reading__opening" lang="arc" aria-label="חזון עזרא י״ד">
     <div class="opening-quote">
       <blockquote class="opening-text opening-text--transliteration" lang="arc" dir="rtl">
-        <p class="opening-text__lead" lang="he" dir="rtl">אֲדַבֵּר לְפָנֶיךָ, אֲדֹנָי.</p>
+        <h1 class="opening-text__lead" lang="he" dir="rtl">אֲדַבֵּר לְפָנֶיךָ, אֲדֹנָי.</h1>
         <p>אן הכיל אשכּחת רְחמא קדמיכ׃ ארמא בי מרי רוחא קדישא׃ ואכתוב כול מדם דהוא בעלמא׃ מן ריש כל דכתיב הוא בנמוסך דנתמצון בְני אנשא נשכחון שבילא׃ ואילין דצּבין דנאחונ באחריתא נדעון אורחא ׃ וענא ואמר לי׃ זל וכנשיהי לעמך ואמר להונ׃ דלא נבעונך ארבעין יומְינ׃ אנת דין עתד לך לוחְא סגיאְתא׃ ודבר עמך לסריא ולדריא ולשלמיא עם הלקנא׃ ולשיאיל׃ להלין חמשא גברְינ׃ מטל דעתידין אנון למכתב קלילאית׃ ותאתא להרכא׃ ואנא אדלק בלבך שרגא דבוינא׃ הּו דלא נדעך עדמא דתשּלם מדם דעתיד אנת למכתב׃ ומא דשלמת׃ מנהון תסים בגליא ומנהון תכסא׃ ותשלם אנון לחכימְא</p>
         <p class="opening-text__gap">…;</p>
         <p>אנא דין דבּרת להלין חמשא גברין איך דפקדני׃ ואזּלת לפקעתא׃ וכתרן תמן איּכנא דאמר לי</p>
@@ -51,21 +40,20 @@ bodyClass: home-page
         </blockquote>
       </details>
     </div>
-    <figcaption class="home-opening__cite">— חזון עזרא י״ד</figcaption>
-  </figure>
+    <cite class="home-reading__cite">— חזון עזרא י״ד</cite>
+  </section>
 
-  <blockquote class="intro-quote home-epigraph">
+  <blockquote class="home-reading__quotation home-reading__epigraph">
     <p>״הַשְׁתָּא הָא חַכִּימֵי עָלְמָא יָדְעִין מִלִּין וְסָתְמִין לוֹן, וּמִתְתַּקְּפֵי בְּפוּלְחָנָא דְמָארֵיהוֹן.״</p>
     <p class="intro-quote__translation">(״ועכשיו — הנה חכמי העולם יודעים את הדברים ומסתירים אותם, ומתחזקים בעבודת אדוניהם״).</p>
     <cite>— זוהר חלק א׳ (נח), דף ע״ב ע״ב</cite>
   </blockquote>
 
   {# ===== INTRO ===== #}
-  <section class="home-intro" aria-label="מבוא">
-    <h2>מבוא</h2>
+  <section class="home-reading__body" aria-label="מבוא">
     <p>ידוע ומפורסם כי מלבד עשרים וארבעה הספרים שקבעו חכמים להיותם כתבי הקודש, נמצאו עוד ספרים וחיבורים רבים אשר נתחברו בימי קדם ונתייחסו לאבות הראשונים, לנביאים ולחכמים. על כך מצינו בספר הזוהר:</p>
 
-    <blockquote class="intro-quote">
+    <blockquote class="home-reading__quotation">
       <p>״וְכֵן תָּנֵינָן סֵפֶר הֲוָה לֵיהּ לַחֲנוֹךְ, וְדָא סֵפֶר מֵאֲתַר דְּסִפְרָא דְּתוֹלְדוֹת אָדָם הֲוָה, וְדָא הוּא רָזָא דְחָכְמְתָא... וּמִן דָּא אִתְמְסַר סִפְרָא דְּאִקְרֵי סִפְרָא דַחֲנוֹךְ, בְּשַׁעֲתָא דְּאָחִיד לֵיהּ קוּדְשָׁא בְּרִיךְ הוּא, אָחְמִי לֵיהּ כָּל גִּנְזֵי עִלָּאֵי, אָחְמִי לֵיהּ אִילָנָא דְחַיֵּי בְּגוֹ מְצִיעוּת גִּנְתָּא וְטַרְפּוֹי וְעַנְפּוֹי, וְכֹלָּא חָמֵינָן בְּסִפְרֵיהּ. זַכָּאִין אִנּוּן חֲסִידֵי עִלָּאִין, דְּחָכְמְתָא עִלָּאָה אִתְגְּלֵי לְהוּ, וְלָא אִתְנְשֵׁי מִנַּיְיהוּ לְעָלְמִין, כְּמָה דְאַתְּ אָמַר: ׳סוֹד ה׳ לִירֵאָיו וּבְרִיתוֹ לְהוֹדִיעָם׳.״</p>
       <p class="intro-quote__translation">(תרגום: וכן שנינו: ספר היה לו לחנוך, וספר זה ממקום של ספר תולדות אדם היה, וזהו סוד החכמה... ומזה נמסר הספר הנקרא ספרו של חנוך; בשעה שאחז בו הקב״ה הראה לו את כל הגנזים העליונים, הראה לו את עץ החיים בתוך אמצע הגן ואת עליו וענפיו, ואת הכול ראינו בספרו. אשריהם חסידי עליון, שחכמה עליונה מתגלה להם ואינה נשכחת מהם לעולמים, כמאמר הכתוב: ״סוד ה׳ ליראיו ובריתו להודיעם״.)</p>
       <cite>— זוהר חלק א׳ (בראשית), דף ל״ז ע״ב</cite>
@@ -84,63 +72,7 @@ bodyClass: home-page
     <p>אין כל החיבורים שווים זה לזה: יש בהם קדומים ומאוחרים, יש מהם ממסורות ישראל ויש שעברו עיבוד בידי בני אומות העולם; לפיכך כל חיבור נבחן בפני עצמו, לפי לשונו, עדיו והמסורת שנתגלגלה עמו.</p>
   </section>
 
-  {# ===== FEATURED ACTIVE BOOKS ===== #}
-  <section class="bible-sections" aria-label="חיבורים באוסף">
-    <h2 class="bible-sections__title">מן האוסף</h2>
-    <p class="bible-sections__intro">חיבורים הזמינים כעת במלואם — הועתקו ללשון עברית מתוך שפת המקור.</p>
-    <div class="book-list">
-      {% for item in collections.texts %}
-        {% if item.data.book and item.data.pageNumber == 0 and not (item.data.tags | hasTag("sub-intro")) and not item.data.comingSoon %}
-        <article class="book-card">
-          <h2>
-            <a class="book-card__primary-link" href="{{ item.url | url }}">{{ item | displayBookTitle }}</a>
-          </h2>
-          <p class="book-card__description">{{ item.data.description }}</p>
-          {% if item.data.source %}
-          {% set langEntry = languages[item.data.source] %}
-          <p><small>מקור: <a class="book-card__meta-link" href="{{ ('/texts/' + item.data.source + '/') | url }}">{{ langEntry.label if langEntry else item.data.source }}</a></small></p>
-          {% endif %}
-        </article>
-        {% endif %}
-      {% endfor %}
-    </div>
-  </section>
+  <p class="home-reading__destination"><a href="{{ '/texts/' | url }}">לעיון בחיבורים שבספרייה</a></p>
 
-  {# ===== BIBLE SECTIONS — המבנה הראשי ===== #}
-  <section id="bible-sections" class="bible-sections" aria-label="חלוקה לפי חלקי התנ״ך">
-    <h2 class="bible-sections__title">החיבורים לפי חלקי התנ״ך</h2>
-    <p class="bible-sections__intro">החיבורים באתר מסודרים לפי חלקי התנ״ך — תורה, נביאים וכתובים — ולצדם כתבי תלמידי ישוע הנוצרי. בחרו חלק כדי לעיין בחיבורים שבתוכו.</p>
-
-    <div class="bible-sections__grid bible-sections__grid--four">
-      {% for sectionKey in bibleSectionOrder %}
-      {% set section = bibleSections.sections[sectionKey] %}
-      <article class="bible-section-card">
-        <a href="{{ ('/texts/#' + sectionKey) | url }}" class="bible-section-card__link">
-          <div class="bible-section-card__icon" aria-hidden="true">{% set iconKey = sectionKey %}{% include "section-icon.njk" %}</div>
-          <h3 class="bible-section-card__title">{{ section.title }}</h3>
-          <p class="bible-section-card__desc">{{ section.subtitle }}</p>
-          {% if section.books %}
-          <p class="bible-section-card__count">{% if section.books | length == 1 %}חיבור אחד בקטלוג{% else %}{{ section.books | length }} חיבורים בקטלוג{% endif %}</p>
-          {% endif %}
-        </a>
-      </article>
-      {% endfor %}
-    </div>
-  </section>
-
-  {% include "orderings-strip.njk" %}
-
-  {# ===== STATUS ===== #}
-  <section class="coming-soon" aria-label="סטטוס המאגר">
-    <h2>מצב המאגר וכיווני התפתחות</h2>
-    <p class="coming-soon__lead">במאגר {{ libraryStats.publishedHe }} חיבורים פעילים בטקסט מלא, לצד {{ libraryStats.inPrepHe }} חיבורים נוספים הרשומים בקטלוג ומצויים בהכנה — על פני {{ libraryStats.languagesHe }} לשונות מקור. כל חיבור עולה רק לאחר שהושווה אל הנוסח שממנו הועתק, ולכן העבודה נמשכת חיבור אחר חיבור ולא בבת אחת.</p>
-    <ul>
-      <li>שילוב יתר החיבורים הרשומים בקטלוג — מתוך כתבי־יד ומן הדפוסים</li>
-      <li>ביאורים והערות נוסח לכל פרק, עם הקבלות למקרא ולחז״ל</li>
-      <li>כתבים שטרם נדפסו — ישירות מתוך כתבי־יד</li>
-      <li>חיבורים נוספים ממסורות המזרח והמערב, ומִן המסורת הסורית והערבית</li>
-    </ul>
-    <p class="coming-soon__note">רוצים לתרום תוכן, תרגום או ביאור? ניתן ליצור קשר דרך עמוד <a href="{{ '/contact/' | url }}">צור קשר</a>.</p>
-  </section>
-
+</article>
 </div>
