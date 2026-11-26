@@ -200,29 +200,37 @@ try {
   failures.count += 1;
 }
 
-// מספרי דף־הבית מחושבים מן הקטלוג (libraryStats.cjs). בדיקה זו מוודא שהם באמת הגיעו לעמוד:
-// ב־24.11.2026 כל שבע־עשרה הבדיקות עברו בעוד שהמשפט יצא ריק ("במאגר  חיבורים פעילים").
+// דף הבית הוא מבוא רציף, ולא לוח קטלוג או תצוגת סטטיסטיקה.
+// הבדיקה מאמתת את מבנה הקריאה ואת שמירת מתג המקור/תרגום.
 try {
-  const { createRequire } = await import("node:module");
-  const requireFromScripts = createRequire(import.meta.url);
-  const stats = requireFromScripts("../src/_data/libraryStats.cjs")();
-  const home = fs.readFileSync("_site/index.html", "utf8");
+  const homeFile = "_site/index.html";
+  const home = readBuiltFile(homeFile);
+  const markers = [
+    '<article class="home-reading"',
+    '<section class="home-reading__opening"',
+    '<h1 class="opening-text__lead"',
+    '<summary>ותרגומו</summary>',
+    '<section class="home-reading__body"',
+    'לעיון בחיבורים שבספרייה',
+  ];
+  for (const marker of markers) {
+    expectIncludes(home, marker, "continuous homepage reading element", homeFile, failures);
+  }
 
-  const expected = `במאגר ${stats.publishedHe} חיבורים פעילים בטקסט מלא, לצד ${stats.inPrepHe} חיבורים נוספים`;
-  if (!home.includes(expected)) {
-    console.error(
-      `❌ Home status sentence does not match the catalog. Expected: "${expected}"`,
-    );
+  const articleCount = (home.match(/<article class="home-reading"/g) || []).length;
+  if (articleCount !== 1) {
+    console.error("❌ Expected one continuous homepage article, found " + articleCount);
     failures.count += 1;
   }
-  if (/על פני\s+לשונות מקור/.test(home)) {
-    console.error(
-      `❌ Home status sentence has an empty language count (expected ${stats.languagesHe})`,
-    );
-    failures.count += 1;
+
+  for (const obsolete of ["home-hero", "book-card", "coming-soon"]) {
+    if (home.includes(obsolete)) {
+      console.error("❌ Obsolete homepage dashboard element remains: " + obsolete);
+      failures.count += 1;
+    }
   }
 } catch (error) {
-  console.error(`❌ ${error.message}`);
+  console.error("❌ " + error.message);
   failures.count += 1;
 }
 
