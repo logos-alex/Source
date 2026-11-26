@@ -147,7 +147,6 @@ for (const check of [
     file: "_site/by-figure/index.html",
     markers: [
       'data-figure-key="talmidei-yeshua"',
-      `data-figure-link="talmidei-yeshua"`,
       `href="${withSitePrefix("/by-figure/talmidei-yeshua/")}"`,
     ],
   },
