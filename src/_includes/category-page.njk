@@ -4,6 +4,8 @@
 {% set content = content | dropDuplicateTitle(title) %}
 
 {% block content %}
+  {% set chapterPages = collections.all | bookPages(page.url, book, false) | list %}
+
   {% if book | hasMultipleVersions %}
     {% include "version-tabs.njk" %}
   {% endif %}
@@ -26,18 +28,20 @@
           {% if manuscript %}<span class="text-meta__item"><span class="text-meta__label">כתב־יד:</span> {{ manuscript }}</span>{% endif %}
         </p>
       {% endif %}
+
+      {% if chapterPages.length > 0 %}
+        <nav class="text-header__actions" aria-label="קריאה בחיבור">
+          <a href="{{ chapterPages[0].url | url }}" class="btn btn--primary">התחל קריאה ←</a>
+          <a href="#table-of-contents" class="text-header__toc-link">תוכן העניינים</a>
+          <span class="text-header__chapter-count">{{ chapterPages.length }} פרקים</span>
+        </nav>
+      {% endif %}
     </header>
 
     <div class="text-content">
       {{ content | renderNoteRefs | scribeMarks | safe }}
     </div>
 
-    {% set chapterPages = collections.all | bookPages(page.url, book, false) | list %}
-    {% if chapterPages.length > 0 %}
-      <div class="start-reading-cta">
-        <a href="{{ chapterPages[0].url | url }}" class="btn btn--primary">התחל קריאה ←</a>
-      </div>
-    {% endif %}
   </article>
 
   {% if pageNumber and pageNumber != 0 and notes %}
@@ -51,7 +55,7 @@
     </div>
   {% endif %}
 
-  <div class="table-of-contents c-section-divider">
+  <div class="table-of-contents c-section-divider" id="table-of-contents">
     <h2>תוכן העניינים</h2>
     <ul>
       {% for item in chapterPages %}
